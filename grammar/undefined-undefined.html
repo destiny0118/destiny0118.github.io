@@ -22,12 +22,12 @@
 
 <meta name="keywords" content="技术博客,IT技术博客,软件研发,投资理财,读书旅行">
 
-<meta name="description " content="聚焦于互联网领域，探索前沿科技。说IT围绕软件研发、投资理财、读书旅行等，是一个关注技术与人文的IT博客。">
+<meta name="description " content="C++标准模板库（Standard Template Library)的使用方法。">
 
 <!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="article" />
 <meta property="og:title" content="c++语法 - 我的个人博客" />
-<meta property="og:description" content="聚焦于互联网领域，探索前沿科技。说IT围绕软件研发、投资理财、读书旅行等，是一个关注技术与人文的IT博客。" />
+<meta property="og:description" content="C++标准模板库（Standard Template Library)的使用方法。" />
 <meta property="og:url" content="https://destiny0118.github.io" />
 <meta property="og:site_name" content="我的个人博客" />
 
@@ -172,12 +172,13 @@
             </div>
             <h2 class="post-title">C++语法</h2>
             <div class="post-meta">
-                本文共计2619个字 |
+                本文共计2625个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">int</span>：<span class="number">4</span>字节，<span class="number">32</span>位，最大值</span><br></pre></td></tr></table></figure>
+            <p>[toc]</p>
+<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">int</span>：<span class="number">4</span>字节，<span class="number">32</span>位，最大值</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="built_in">pow</span>(<span class="number">2</span>, <span class="number">32</span>) - <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="keyword">sizeof</span>(<span class="keyword">int</span>)&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a + <span class="number">1</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>输出：</p>
