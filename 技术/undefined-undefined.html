@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>我的个人博客</title>
+<title>两个整数的最大公约数 - 我的个人博客</title>
 
 <meta name="keywords" content="技术博客,IT技术博客,软件研发,投资理财,读书旅行">
 
@@ -26,7 +26,7 @@
 
 <!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="我的个人博客" />
+<meta property="og:title" content="两个整数的最大公约数 - 我的个人博客" />
 <meta property="og:description" content="聚焦于互联网领域，探索前沿科技。说IT围绕软件研发、投资理财、读书旅行等，是一个关注技术与人文的IT博客。" />
 <meta property="og:url" content="https://destiny0118.github.io" />
 <meta property="og:site_name" content="我的个人博客" />
@@ -154,20 +154,40 @@
                 <p><span class="label">作者</span>
                     <a href="https://about.tangkunyin.com"
                        target="_blank">托码思</a>
-                    <span title="最后编辑于&nbsp;2021-03-06">2021-03-06</span>
+                    <span title="最后编辑于&nbsp;2021-03-29">2021-03-29</span>
                 </p>
                 <p>一个写代码的「伪文人」</p>
             </div>
-            <h2 class="post-title"></h2>
+            <h2 class="post-title">两个整数的最大公约数</h2>
             <div class="post-meta">
-                本文共计447个字 |
+                本文共计1823个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="343-整数拆分"><a href="#343-整数拆分" class="headerlink" title="343. 整数拆分"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/integer-break/">343. 整数拆分</a></h2><h3 id="mytip"><a href="#mytip" class="headerlink" title="mytip"></a>mytip</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    dp[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// dp[3] = 2;</span></span><br><span class="line">    <span class="comment">// dp[4] = 4;</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] = <span class="built_in">max</span>(<span class="built_in">max</span>(dp[i], (i - j) * j), dp[i - j] * j);</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; dp[i] &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="1-欧几里得算法"><a href="#1-欧几里得算法" class="headerlink" title="1. 欧几里得算法"></a>1. 欧几里得算法</h2><p><code>gcd(m,n)=gcd(n,m mod n)</code></p>
+<blockquote>
+<p>假设x是m，n的最大公约数，且m大于n（m小于n时，上式实现两个数的交换）</p>
+<p>m=(m/n)*n+m%n（ <code>/</code> 表示整除）</p>
+<p>n=(n/x)*x</p>
+<p>则，则(m/n)*n有约数x，又m有约数x，则m%n也可以被x整除</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Euclid</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t = m % n;</span><br><span class="line">        m = n;</span><br><span class="line">        n = t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">Euclid</span>(<span class="number">60</span>, <span class="number">24</span>) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/integer-break/solution/bao-li-sou-suo-ji-yi-hua-sou-suo-dong-tai-gui-hua-/">暴力搜索-&gt;记忆化搜索-&gt;动态规划</a></p>
+<h2 id="2-连续整数检测算法"><a href="#2-连续整数检测算法" class="headerlink" title="2. 连续整数检测算法"></a>2. 连续整数检测算法</h2><p>从m、n中较小的数开始查找，直到找到可以被m、n都整除的数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> t = <span class="built_in">min</span>(m, n);</span><br><span class="line">    <span class="keyword">while</span> (m % t != <span class="number">0</span> || n % t != <span class="number">0</span>)</span><br><span class="line">        --t;</span><br><span class="line">    <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">gcd</span>(<span class="number">60</span>, <span class="number">24</span>) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-求m、n的质因数"><a href="#3-求m、n的质因数" class="headerlink" title="3. 求m、n的质因数"></a>3. 求m、n的质因数</h2><p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210328123217859.png" alt="abc"></p>
+<center style="color:#C0C0C0;text-decoration:underline">算法设计与分析基础（ch1）</center> 
+
+<blockquote>
+<p>求不大于整数n的连续质数序列：</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9F%83%E6%8B%89%E6%89%98%E8%89%B2%E5%B0%BC%E7%AD%9B%E9%80%89%E6%B3%95/4524938?fr=aladdin">埃拉托色尼筛选法（sieve of Eratosthenes）</a></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//埃拉托色尼筛选法，产生一个不大于给定整除n的连续质数序列</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sieve</span><span class="params">(<span class="keyword">int</span> n, vector&lt;<span class="keyword">int</span>&gt; &amp;isPrime)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i * i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (isPrime[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> t = i * i;</span><br><span class="line">            <span class="keyword">while</span> (t &lt;= n)</span><br><span class="line">            &#123;</span><br><span class="line">                isPrime[t] = <span class="number">0</span>;</span><br><span class="line">                t = t + i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt; &amp;isPrime, <span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//如果i是质数</span></span><br><span class="line">        <span class="keyword">if</span> (isPrime[i])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (m % i == <span class="number">0</span> &amp;&amp; n % i == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                m = m / i;</span><br><span class="line">                n = n / i;</span><br><span class="line">                result *= i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m, n;</span><br><span class="line">    cin &gt;&gt; m &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">isPrime</span><span class="params">(min(m, n) + <span class="number">1</span>, <span class="number">1</span>)</span></span>; <span class="comment">//记录较小数的质数序列</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; isPrime.size() &lt;&lt; endl;</span></span><br><span class="line">    <span class="built_in">Sieve</span>(<span class="built_in">min</span>(m, n), isPrime);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">gcd</span>(isPrime, <span class="built_in">max</span>(m, n), <span class="built_in">min</span>(m, n)) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
             
                 
@@ -226,9 +246,9 @@ $(function () {
         
         <div class="post-tags">标签：
             
-            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            <a href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>
             
-            <a href="/tags/dp/">dp</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
             
         </div>
         
@@ -247,7 +267,7 @@ $(function () {
                 clientID: '6e1cc8f5f85d57f4c9c1',
                 clientSecret: 'a3d60c38a6fbf8a14ee73ee6b2f79946c3107c27',
                 id: md5(window.location.pathname),
-                title: '',
+                title: '两个整数的最大公约数',
                 repo: 'comments',
                 owner: 'shuoit',
                 admin: 'tangkunyin',
