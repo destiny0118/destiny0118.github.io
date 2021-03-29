@@ -18,7 +18,7 @@
 <link rel="shortcut icon" href="/images/favicon.jpg">
 
 
-<title>abc.md - 我的个人博客</title>
+<title>动态规划 - 我的个人博客</title>
 
 <meta name="keywords" content="技术博客,IT技术博客,软件研发,投资理财,读书旅行">
 
@@ -26,7 +26,7 @@
 
 <!-- Jetpack Open Graph Tags -->
 <meta property="og:type" content="article" />
-<meta property="og:title" content="abc.md - 我的个人博客" />
+<meta property="og:title" content="动态规划 - 我的个人博客" />
 <meta property="og:description" content="聚焦于互联网领域，探索前沿科技。说IT围绕软件研发、投资理财、读书旅行等，是一个关注技术与人文的IT博客。" />
 <meta property="og:url" content="https://destiny0118.github.io" />
 <meta property="og:site_name" content="我的个人博客" />
@@ -129,19 +129,7 @@
     <ul>
         <li><a href="/">最近</a></li>
         
-            
-                <li class="">
-                    <a href="/categories/technology" data-name="技术">技术</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/grammar" data-name="语法">语法</a>
-                </li>
-            
-                <li class="">
-                    <a href="/categories/algorithm" data-name="算法">算法</a>
-                </li>
-            
+        
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -170,30 +158,18 @@
                 </p>
                 <p>Talk is cheap, show me the code.</p>
             </div>
-            <h2 class="post-title">abc.md</h2>
+            <h2 class="post-title">动态规划</h2>
             <div class="post-meta">
-                本文共计0个字 |
+                本文共计446个字 |
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
+            <h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="343-整数拆分"><a href="#343-整数拆分" class="headerlink" title="343. 整数拆分"></a><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/integer-break/">343. 整数拆分</a></h2><h3 id="mytip"><a href="#mytip" class="headerlink" title="mytip"></a>mytip</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    dp[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">// dp[3] = 2;</span></span><br><span class="line">    <span class="comment">// dp[4] = 4;</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">3</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; i; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] = max(max(dp[i], (i - j) * j), dp[i - j] * j);</span><br><span class="line">            <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; dp[i] &lt;&lt; endl;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/integer-break/solution/bao-li-sou-suo-ji-yi-hua-sou-suo-dong-tai-gui-hua-/">暴力搜索-&gt;记忆化搜索-&gt;动态规划</a></p>
+
             
-            
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
-            </a>
-        </div>
-        
-        <div class="post-tags">标签：
-            
-        </div>
-        
-    </article>
-    
-    
-        
+                
     
         <div class="adsense_post_left">
             
@@ -239,6 +215,24 @@ $(function () {
 </script>
     
 
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+            <a href="/tags/leetcode/">Leetcode</a>
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
     
     
     
@@ -250,7 +244,7 @@ $(function () {
                 clientID: '6e1cc8f5f85d57f4c9c1',
                 clientSecret: 'a3d60c38a6fbf8a14ee73ee6b2f79946c3107c27',
                 id: md5(window.location.pathname),
-                title: 'abc.md',
+                title: '动态规划',
                 repo: 'comments',
                 owner: 'shuoit',
                 admin: 'tangkunyin',
