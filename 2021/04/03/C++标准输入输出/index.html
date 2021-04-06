@@ -18,15 +18,15 @@
 <link rel="shortcut icon" href="/images/favicon.jpg">
 
 
-<title>我的个人博客 - 关注算法与编程</title>
+<title>c++标准输入输出 - 我的个人博客</title>
 
 <meta name="keywords" content="技术博客,IT技术博客,软件研发,投资理财,读书旅行">
 
 <meta name="description " content="聚焦于互联网领域，探索前沿科技。说IT围绕软件研发、投资理财、读书旅行等，是一个关注技术与人文的IT博客。">
 
 <!-- Jetpack Open Graph Tags -->
-<meta property="og:type" content="blog" />
-<meta property="og:title" content="我的个人博客 - 关注算法与编程" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="c++标准输入输出 - 我的个人博客" />
 <meta property="og:description" content="聚焦于互联网领域，探索前沿科技。说IT围绕软件研发、投资理财、读书旅行等，是一个关注技术与人文的IT博客。" />
 <meta property="og:url" content="https://destiny0118.github.io" />
 <meta property="og:site_name" content="我的个人博客" />
@@ -39,7 +39,7 @@
         (function() {
             let jsi_config = {
                 rootUrl: 'https://destiny0118.github.io/',
-                isPost: 'false',
+                isPost: 'true',
                 buildingTime: '03/29/2021',
                 snsQRCode: '',
                 donateImg: '/images/donate-qr.jpeg',
@@ -127,29 +127,29 @@
 
             <div class="page-title">
     <ul>
-        <li class="active">
-            <a href="/" data-name="最近">最近</a>
-        </li>
+        <li><a href="/">最近</a></li>
         
-        <li class="">
-            <a href="/categories/technology" data-name="技术">技术</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/grammar" data-name="语法">语法</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/algorithm" data-name="算法">算法</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/log" data-name="日志">日志</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/tool" data-name="工具">工具</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/technology" data-name="技术">技术</a>
+                </li>
+            
+                <li class="active">
+                    <a href="/categories/grammar" data-name="语法">语法</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/algorithm" data-name="算法">算法</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/log" data-name="日志">日志</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/tool" data-name="工具">工具</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -164,154 +164,75 @@
     </ul>
 </div>
 <div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://destiny0118.github.io/resume"
+                   target="_blank">
+                    <img width="48" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/favicon.jpg" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="https://destiny0118.github.io/resume"
+                       target="_blank">Destiny罓</a>
+                    <span title="最后编辑于&nbsp;2021-04-03">2021-04-03</span>
+                </p>
+                <p>Talk is cheap, show me the code.</p>
+            </div>
+            <h2 class="post-title">C++标准输入输出</h2>
+            <div class="post-meta">
+                本文共计896个字
+                <!--
+                您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                -->
+            </div>
+              <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#iostream"><span class="post-toc-text">iostream</span></a></li></ol>
+        </div>
+        <div class="post-content markdown-body">
+            <h1 id="iostream"><a href="#iostream" class="headerlink" title="iostream"></a>iostream</h1><p><a href="https://www.cnblogs.com/suchang/p/10547671.html">c++string标准输入和getline()整行读入</a></p>
+<ul>
+<li><p>getline</p>
+<blockquote>
+<p>读取一行，遇到换行符结束，读取换行符，但最后的换行符不存入string中</p>
+<p>s.size()返回字符串长度，s.size()-1是最后一个字符，s.size()是字符串结束标记<code>\0</code></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">  <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="built_in">string</span> s;</span><br><span class="line">      <span class="keyword">while</span> (getline(<span class="built_in">cin</span>, s)) &#123;</span><br><span class="line">          <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">          <span class="built_in">cout</span> &lt;&lt; s.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">          <span class="built_in">cout</span> &lt;&lt; s[s.size() - <span class="number">1</span>] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s[s.size()] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">          <span class="keyword">if</span> (s[s.size()] == <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">              <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;***&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210406114903198.png" alt="image-20210406114903198"></p>
+<blockquote>
+<p>从流中读取内容</p>
+<p>文件流<fstream></p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">unordered_map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; keywords;</span><br><span class="line">   <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">   <span class="built_in">string</span> keyword;</span><br><span class="line">   <span class="function">ifstream <span class="title">inKeyword</span><span class="params">(<span class="string">&quot;lap2/keywords.txt&quot;</span>, ios::in)</span></span>;</span><br><span class="line">   <span class="keyword">while</span> (getline(inKeyword, keyword)) &#123;</span><br><span class="line">       <span class="comment">// cout &lt;&lt; keyword &lt;&lt; endl;</span></span><br><span class="line">       keywords[keyword] = i;</span><br><span class="line">       ++i;</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            
+                
     
-        
+        <div class="adsense_post_left">
             
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://destiny0118.github.io/resume" target="_blank">
-                <strong>Destiny罓</strong>
-            </a>
-            <em>·</em>2021-03-06
-            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4837253996935841"
+         data-ad-slot="1712444257"></ins>
+
         </div>
-        <a class="post-title" href="/2021/03/06/%E8%87%AA%E5%88%B7/" target="_blank" title="自刷">自刷</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+        <div class="adsense_post_right">
             
-                <em>·</em>
-                <a href="https://destiny0118.github.io/tags/leetcode/" target="_blank">Leetcode</a>
-            
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-4837253996935841"
+         data-ad-slot="6857083436"></ins>
+
         </div>
-    </div>
-    <div class="post-desc">
-        自刷
-    </div>
-</article>
-
-
-
-        
+        <p class="adsense_tb_horizontal">
             
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://destiny0118.github.io/resume" target="_blank">
-                <strong>Destiny罓</strong>
-            </a>
-            <em>·</em>2021-02-02
-            
-        </div>
-        <a class="post-title" href="/2021/02/02/Leetcode/Leetcode/" target="_blank" title="Leetcode">Leetcode</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="https://destiny0118.github.io/tags/leetcode/" target="_blank">Leetcode</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        Leetcode题目
-    </div>
-</article>
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center;"
+         data-ad-layout="in-article"
+         data-ad-format="fluid"
+         data-ad-client="ca-pub-4837253996935841"
+         data-ad-slot="9087656062"></ins>
 
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://destiny0118.github.io/resume" target="_blank">
-                <strong>Destiny罓</strong>
-            </a>
-            <em>·</em>2021-01-27
-            
-        </div>
-        <a class="post-title" href="/2021/01/27/UVA/" target="_blank" title="UVA">UVA</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="https://destiny0118.github.io/tags/arithmetical/" target="_blank">数论</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        UVA题目
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://destiny0118.github.io/resume" target="_blank">
-                <strong>Destiny罓</strong>
-            </a>
-            <em>·</em>2021-01-17
-            
-        </div>
-        <a class="post-title" href="/2021/01/17/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_blank" title="排序算法">排序算法</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        排序算法
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://destiny0118.github.io/resume" target="_blank">
-                <strong>Destiny罓</strong>
-            </a>
-            <em>·</em>2020-05-11
-            
-        </div>
-        <a class="post-title" href="/2020/05/11/http%E3%80%81url/" target="_blank" title="Http_url">Http_url</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="https://destiny0118.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" target="_blank">计算机网络</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        Http_url
-    </div>
-</article>
-
-
-
-        
-    
-</div>
-
-<div id="btn-pager">
-    
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-</div>
-
-
+        </p>
     
     
         <script type="text/javascript">
@@ -321,22 +242,41 @@ $(function () {
         script.setAttribute("async", "");
         script.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
         document.body.appendChild(script);
-        
-            <!-- 自动广告 -->
-            (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: "ca-pub-4837253996935841",
-                enable_page_level_ads: true
-            });
+         
+            <!-- 自定义广告 -->
+            (adsbygoogle = window.adsbygoogle || []).push({});
         
     }, 1200);
 });
 </script>
     
 
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">标签：
+            
+        </div>
+        
+    </article>
+    
+        <p style="text-align: center">本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+    
+
+</div>
+
+
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
-    <div class="footer-inner" style="text-align: left">
+    <div class="footer-inner" style="text-align: center">
         <p>
             <a href="/about"  title="关于">关于</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
