@@ -61,13 +61,12 @@
 <li><p>添加数据</p>
 <blockquote>
 <p>num.push_back();//向尾部添加数据</p>
-<p>num.pop_back();//删除最后一个元素</p>
+<p>num.pop_back();//删除最后一个元素，无返回值</p>
 </blockquote>
 </li>
 <li><p>访问数据</p>
 <blockquote>
-<p>num.empty()</p>
-<p>num[i].empty()</p>
+<p>num.empty()  //为空返回1，判断vector是否为空</p>
 <p>num[i]</p>
 <p>num.at(i)</p>
 <p>num.back() 访问最后一个值，不删除</p>
@@ -80,11 +79,14 @@
 <p>num.clear()</p>
 </blockquote>
 </li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>.cpp</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">10</span>, <span class="number">1</span>)</span></span>;<span class="comment">//10个1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; num[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>最大值、最小值</p>
 <blockquote>
-<p>1       1       1       1       1       1       1       1       1       1<br>10</p>
+<p>头文件 <algorithm></p>
 </blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>.cpp</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">10</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; num[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; num[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    num.push_back(<span class="number">123</span>);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num[<span class="number">10</span>] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// num.pop_back();</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// cout &lt;&lt; num.empty() &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator itMax = max_element(num.begin(), num.end());</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator itMin = min_element(num.begin(), num.end());</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;最大值：&quot;</span> &lt;&lt; *itMax &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; distance(num.begin(), itMax)</span><br><span class="line">         &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;最小值：&quot;</span> &lt;&lt; *itMin &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; distance(num.begin(), itMin)</span><br><span class="line">         &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *max_element(num.begin(), num.end()) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; max_element(num.begin(), num.end()) - num.begin() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210409152320212.png" alt="image-20210409152320212"></p>
+</li>
+</ul>
 <h2 id="set-集合"><a href="#set-集合" class="headerlink" title="set(集合)"></a>set(集合)</h2><blockquote>
 <p>set_union()</p>
 <p>set_intersect()</p>
@@ -125,6 +127,151 @@
         <tag>C++</tag>
         <tag>STL</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Git使用</title>
+    <url>/2021/04/09/Git%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<ul>
+<li><p>克隆GitHub的仓库到本地</p>
+<p><code>git clone + 仓库地址</code></p>
+</li>
+<li><p>查看本地仓库关联的远程仓库信息</p>
+<p><code>git remote -v</code></p>
+</li>
+<li><p>查看分支</p>
+<p><code>git branch</code></p>
+</li>
+<li><p>创建分支</p>
+<p><code>git branch+分支名</code></p>
+</li>
+<li><p>设置别名</p>
+<p><code>git config --global alias.br branchcat -n ~/.gitconfig</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>快捷键-命令</title>
+    <url>/2021/04/09/%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><ul>
+<li>ipconfig    查看ip地址</li>
+<li>powercfg batteryreport       查看电脑电池信息</li>
+</ul>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>动态规划</title>
+    <url>/2021/04/09/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h1 id="1-最大子段和"><a href="#1-最大子段和" class="headerlink" title="1. 最大子段和"></a>1. 最大子段和</h1><blockquote>
+<p>Given a sequence a[1],a[2],a[3]……a[n], your job is to calculate the max sum of a sub-sequence. For example, given (6,-1,5,4,-7), the max sum in this sequence is 6 + (-1) + 5 + 4 = 14.</p>
+</blockquote>
+<p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=1003">Max Sum</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>四平方求和</title>
+    <url>/2021/04/09/%E5%9B%9B%E5%B9%B3%E6%96%B9%E6%B1%82%E5%92%8C/</url>
+    <content><![CDATA[<blockquote>
+<p>四平方和定理，又称为拉格朗日定理：<br>每个正整数都可以表示为至多4个正整数的平方和。<br>如果把0包括进去，就正好可以表示为4个数的平方和。</p>
+<p>比如：<br>5 = 0^2 + 0^2 + 1^2 + 2^2<br>7 = 1^2 + 1^2 + 1^2 + 2^2<br>（^符号表示乘方的意思）</p>
+<p>对于一个给定的正整数，可能存在多种平方和的表示法。<br>要求你对4个数排序：<br>0 &lt;= a &lt;= b &lt;= c &lt;= d<br>并对所有的可能表示法按 a,b,c,d 为联合主键升序排列，最后输出第一个表示法</p>
+<p>程序输入为一个正整数N (N&lt;5000000)<br>要求输出4个非负整数，按从小到大排序，中间用空格分开</p>
+<p>例如，输入：<br>5<br>则程序应该输出：<br>0 0 1 2</p>
+<p>再例如，输入：<br>12<br>则程序应该输出：<br>0 2 2 2</p>
+<p>再例如，输入：<br>773535<br>则程序应该输出：<br>1 1 267 838</p>
+<p>资源约定：<br>峰值内存消耗 &lt; 256M<br>CPU消耗 &lt; 3000ms</p>
+<p>请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。</p>
+<p>所有代码放在同一个源文件中，调试通过后，拷贝提交该源码。</p>
+<p>注意: main函数需要返回0<br>注意: 只使用ANSI C/ANSI C++ 标准，不要调用依赖于编译环境或操作系统的特殊函数。<br>注意: 所有依赖的函数必须明确地在源文件中 #include ， 不能通过工程设置而省略常用头文件。</p>
+<p>提交时，注意选择所期望的编译器类型。</p>
+</blockquote>
+<ul>
+<li><p><a href="https://blog.csdn.net/f_zyj/article/details/51074959">空间换时间</a></p>
+<p>最外层循环增长最慢，所以输出是非递减的</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _MAX 5000005</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">short</span> power[_MAX] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, k, temp;</span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i * i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j * j &lt;= n; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (power[n - i * i - j * j] == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (k = <span class="number">0</span>; k * k &lt;= n; ++k) &#123;</span><br><span class="line">                temp = n - i * i - j * j - k * k;</span><br><span class="line">                x = <span class="built_in">sqrt</span>((<span class="keyword">double</span>)temp);</span><br><span class="line">                <span class="keyword">if</span> (x == (<span class="keyword">int</span>)x) &#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; k &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i * i &lt;= _MAX; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j * j &lt;= _MAX; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i * i + j * j &lt;= _MAX)</span><br><span class="line">                power[i * i + j * j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    solve(n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>优化</li>
+</ul>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>蛮力法</tag>
+        <tag>空间换时间</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编译原理</title>
+    <url>/2021/04/08/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="一、词法分析"><a href="#一、词法分析" class="headerlink" title="一、词法分析"></a>一、词法分析</h1><p>词素-&gt;词法单元-&gt;词法单元名</p>
+<p>​                                属性值-》词素、类型、第一次出现的位置</p>
+]]></content>
+      <categories>
+        <category>编译原理</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数学</title>
+    <url>/2021/04/08/%E6%95%B0%E5%AD%A6/</url>
+    <content><![CDATA[<h1 id="一、-数学"><a href="#一、-数学" class="headerlink" title="一、 数学"></a>一、 数学</h1><ul>
+<li>对数<br>$$<br>log_an=log_ab*log_bn=lob_ba/log_bn<br>$$<br>  ==换底公式==：<br>$$<br>log_bN=log_aN/log_ab\<br>log_bN=X\<br>b^X=N\<br>log_ab^X=log_aN\<br>Xlog_ab=log_aN<br>$$</li>
+</ul>
+]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>LaTex语法</title>
+    <url>/2021/04/08/LaTex%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="1-log-ax"><a href="#1-log-ax" class="headerlink" title="1. $log_ax$"></a>1. $log_ax$</h1><blockquote>
+<p>$log_ax$</p>
+<p>$log_ax$</p>
+</blockquote>
+<blockquote>
+<p>$lnx$</p>
+<p>$lnx$</p>
+</blockquote>
+<blockquote>
+<p>$lgx$</p>
+<p>$lgx$</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>常用工具</title>
+    <url>/2021/04/07/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<ul>
+<li><p>Neatconvert</p>
+<p>Neat Converter是一款免费的电子书格式转换器，支持ePub、Azw3、Mobi、Doc、PDF、TXT文件的互转，目前仅有windows客户端，简单易用，轻轻一点，迅速完成各种转码任务！</p>
+</li>
+<li><p>draw.io</p>
+<p>流程图绘制</p>
+</li>
+<li></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
   </entry>
   <entry>
     <title>字符串匹配算法</title>
@@ -269,15 +416,16 @@
     <title>C常用函数</title>
     <url>/2021/04/06/%E6%B5%8B%E8%AF%95/C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h1 id="1-sizeof"><a href="#1-sizeof" class="headerlink" title="1. sizeof"></a>1. sizeof</h1><blockquote>
-<p>sizeof返回占用的字节数，但作为参数传递时不能有效计算占用的字节数，需加参数指明占用的字节数</p>
+<p>sizeof返回占用的字节数，但数组作为参数传递时不能有效计算占用的字节数，需加参数指明占用的字节数</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = <span class="keyword">sizeof</span>(a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len: %d\n&quot;</span>, len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    sum(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210406120005828.png" alt="image-20210406120005828"></p>
-<h1 id="2-malloc-realloc"><a href="#2-malloc-realloc" class="headerlink" title="2. malloc realloc"></a>2. malloc realloc</h1><blockquote>
-<p>realloc后，原来的值没有保存</p>
+<h1 id="2-malloc-realloc"><a href="#2-malloc-realloc" class="headerlink" title="2. malloc realloc"></a>2. malloc realloc</h1><p><a href="https://blog.csdn.net/qq_38810767/article/details/85265541">malloc/calloc/realloc之间区别详述</a></p>
+<blockquote>
+<p>realloc后，申请空间比原来大，重新分配地址空间</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *a = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, a, a[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">int</span> *b = (<span class="keyword">int</span> *)<span class="built_in">realloc</span>(a, <span class="number">20</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, a, a[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210406193557045.png" alt="image-20210406193557045"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *a = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, a, a[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *b = (<span class="keyword">int</span> *)<span class="built_in">realloc</span>(a, <span class="number">20</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, b, b[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> *c = (<span class="keyword">int</span> *)<span class="built_in">realloc</span>(b, <span class="number">5</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, c, c[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210409110803688.png" alt="image-20210409110803688"></p>
 ]]></content>
       <categories>
         <category>语法</category>
@@ -665,12 +813,24 @@
 </ul>
 <p>工具：</p>
 <ul>
-<li>pdf资源下载<ul>
+<li><p>pdf资源下载</p>
+<ul>
 <li><a href="https://2lib.org/?signAll=1&ts=1028">Zlibrary(英文电子书)</a></li>
-<li>[鸠摩搜索](<a href="https://www.jiumodiary.com/">Jiumo Search 鸠摩搜索 - 文档搜索引擎</a>)</li>
+<li><a href="https://www.jiumodiary.com/">鸠摩搜索</a></li>
 </ul>
 </li>
-<li>音频<ul>
+<li><p>论文</p>
+<ul>
+<li><a href="https://linggle.com/">linggle</a>：词组搭配、近义词、高频词汇查询</li>
+<li><a href="https://www.sci-hub.ren/">sci-hub</a>: 文献下载</li>
+<li><a href="https://ac.scmor.com/">谷歌学术镜像</a></li>
+</ul>
+</li>
+<li><p>翻译</p>
+<p><a href="https://www.deepl.com/translator">DeepL</a></p>
+</li>
+<li><p>音频</p>
+<ul>
 <li><a href="https://www.apowersoft.cn/compress-video-online">apowersoft(在线视频压缩)</a></li>
 <li><a href="https://www.apowersoft.cn/free-online-audio-editor">apowersoft(在线音频编辑)</a></li>
 <li><a href="https://www.youcompress.com/videos/">youcompress(音频压缩)</a></li>
