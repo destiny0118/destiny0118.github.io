@@ -186,12 +186,12 @@
             </div>
             <h2 class="post-title">C常用函数</h2>
             <div class="post-meta">
-                本文共计903个字
+                本文共计1124个字
                 <!--
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
                 -->
             </div>
-              <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-sizeof"><span class="post-toc-text">1. sizeof</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-malloc-realloc"><span class="post-toc-text">2. malloc realloc</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-memset"><span class="post-toc-text">3. memset</span></a></li></ol>
+              <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#1-sizeof"><span class="post-toc-text">1. sizeof</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#2-malloc-realloc"><span class="post-toc-text">2. malloc realloc</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#3-memset"><span class="post-toc-text">3. memset</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#4-%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="post-toc-text">4. 条件表达式</span></a></li></ol>
         </div>
         <div class="post-content markdown-body">
             <h1 id="1-sizeof"><a href="#1-sizeof" class="headerlink" title="1. sizeof"></a>1. sizeof</h1><blockquote>
@@ -215,6 +215,11 @@
 <p>int column[MAX_N];</p>
 <p>memset(column, 0, sizeof(int) * MAX_N);</p>
 </blockquote>
+<h1 id="4-条件表达式"><a href="#4-条件表达式" class="headerlink" title="4. 条件表达式"></a>4. 条件表达式</h1><blockquote>
+<p>ax为0时，输出15</p>
+<p>ax不为0时，输出6</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ax = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> pc = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, pc = ax ? pc + <span class="number">1</span> : pc + <span class="number">10</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
             
                 
