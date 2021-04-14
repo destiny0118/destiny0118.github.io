@@ -60,7 +60,11 @@
     
 <script src="/js/SimpleCore.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
 <body>
 <div id="nav">
     <nav class="nav-menu">
@@ -157,13 +161,13 @@
                 <p><span class="label">作者</span>
                     <a href="https://destiny0118.github.io/resume"
                        target="_blank">Destiny罓</a>
-                    <span title="最后编辑于&nbsp;2021-04-10">2021-04-10</span>
+                    <span title="最后编辑于&nbsp;2021-04-14">2021-04-14</span>
                 </p>
                 <p>Talk is cheap, show me the code.</p>
             </div>
             <h2 class="post-title"></h2>
             <div class="post-meta">
-                本文共计101个字
+                本文共计123个字
                 <!--
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
                 -->
@@ -176,11 +180,14 @@
 </li>
 <li><p><a href="https://www.jianshu.com/p/02bb9eaa0f51">hexo博客添加评论功能</a></p>
 </li>
+<li><p><a href="https://blog.csdn.net/crazy_scott/article/details/79293576">hexo下LaTeX无法显示的解决方案</a></p>
+</li>
 <li><p>OpenSSL SSL_connect Connection was reset</p>
 <p><a href="https://blog.csdn.net/weixin_43945983/article/details/110882074">解除SSL认证</a></p>
 <p><a href="https://blog.csdn.net/m0_46233340/article/details/114926427">设置一下http.proxy</a></p>
 <p><a href="https://blog.csdn.net/Candle_light/article/details/114992784">生成SSH</a></p>
-<p><a href="https://yscoder.github.io/20150514/hexo-toc.html">设置TOC</a></p>
+</li>
+<li><p><a href="https://yscoder.github.io/20150514/hexo-toc.html">设置TOC</a></p>
 </li>
 </ul>
 
@@ -237,6 +244,34 @@ $(function () {
     
 
 </div>
+
+<script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗
+    const initMathjaxConfig = () => {
+    if (!window.MathJax) {
+        return;
+    }
+    window.MathJax.Hub.Config({
+        showProcessingMessages: false, //关闭js加载过程信息
+        messageStyle: "none", //不显示信息
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["?", "?"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+        },
+        "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+        }
+    });
+        isMathjaxConfig = true; // 
+    };
+    if (isMathjaxConfig === false) {
+        initMathjaxConfig();
+    }
+</script>
 
 
 

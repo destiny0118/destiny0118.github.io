@@ -60,7 +60,11 @@
     
 <script src="/js/SimpleCore.min.js"></script>
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
 <body>
 <div id="nav">
     <nav class="nav-menu">
@@ -186,17 +190,23 @@
             </div>
             <h2 class="post-title">数学</h2>
             <div class="post-meta">
-                本文共计129个字
+                本文共计155个字
                 <!--
                 您是第&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
                 -->
             </div>
-              <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81-%E6%95%B0%E5%AD%A6"><span class="post-toc-text">一、 数学</span></a></li></ol>
+              <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#%E4%B8%80%E3%80%81-%E6%95%B0%E5%AD%A6"><span class="post-toc-text">一、 数学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-%E5%AF%B9%E6%95%B0"><span class="post-toc-text">1. 对数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-%E5%B9%82%E5%87%BD%E6%95%B0"><span class="post-toc-text">2. 幂函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0"><span class="post-toc-text">3. 指数函数</span></a></li></ol></li></ol>
         </div>
         <div class="post-content markdown-body">
-            <h1 id="一、-数学"><a href="#一、-数学" class="headerlink" title="一、 数学"></a>一、 数学</h1><ul>
-<li>对数<br>$$<br>log_an=log_ab*log_bn=lob_ba/log_bn<br>$$<br>  ==换底公式==：<br>$$<br>log_bN=log_aN/log_ab\<br>log_bN=X\<br>b^X=N\<br>log_ab^X=log_aN\<br>Xlog_ab=log_aN<br>$$</li>
-</ul>
+            <h1 id="一、-数学"><a href="#一、-数学" class="headerlink" title="一、 数学"></a>一、 数学</h1><h2 id="1-对数"><a href="#1-对数" class="headerlink" title="1. 对数"></a>1. 对数</h2><script type="math/tex; mode=display">
+log_an=log_ab*log_bn=lob_ba/log_bn</script><p>==换底公式==：</p>
+<script type="math/tex; mode=display">
+log_bN=log_aN/log_ab\\
+log_bN=X\\
+b^X=N\\
+log_ab^X=log_aN\\
+Xlog_ab=log_aN</script><h2 id="2-幂函数"><a href="#2-幂函数" class="headerlink" title="2. 幂函数"></a>2. 幂函数</h2><p>$x^a$</p>
+<h2 id="3-指数函数"><a href="#3-指数函数" class="headerlink" title="3. 指数函数"></a>3. 指数函数</h2><p>$a^x$</p>
 
             
                 
@@ -265,6 +275,34 @@ $(function () {
     
 
 </div>
+
+<script defer type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+    let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗
+    const initMathjaxConfig = () => {
+    if (!window.MathJax) {
+        return;
+    }
+    window.MathJax.Hub.Config({
+        showProcessingMessages: false, //关闭js加载过程信息
+        messageStyle: "none", //不显示信息
+        jax: ["input/TeX", "output/HTML-CSS"],
+        tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+        displayMath: [["?", "?"], ["\\[", "\\]"]], //段内公式选择符
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+        },
+        "HTML-CSS": {
+        availableFonts: ["STIX", "TeX"], //可选字体
+        showMathMenu: false //关闭右击菜单显示
+        }
+    });
+        isMathjaxConfig = true; // 
+    };
+    if (isMathjaxConfig === false) {
+        initMathjaxConfig();
+    }
+</script>
 
 
         </div><!-- end #main-->

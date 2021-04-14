@@ -335,9 +335,15 @@ forks: &gt;
   <entry>
     <title>数学</title>
     <url>/2021/04/08/%E6%95%B0%E5%AD%A6/</url>
-    <content><![CDATA[<h1 id="一、-数学"><a href="#一、-数学" class="headerlink" title="一、 数学"></a>一、 数学</h1><ul>
-<li>对数<br>$$<br>log_an=log_ab*log_bn=lob_ba/log_bn<br>$$<br>  ==换底公式==：<br>$$<br>log_bN=log_aN/log_ab\<br>log_bN=X\<br>b^X=N\<br>log_ab^X=log_aN\<br>Xlog_ab=log_aN<br>$$</li>
-</ul>
+    <content><![CDATA[<h1 id="一、-数学"><a href="#一、-数学" class="headerlink" title="一、 数学"></a>一、 数学</h1><h2 id="1-对数"><a href="#1-对数" class="headerlink" title="1. 对数"></a>1. 对数</h2><script type="math/tex; mode=display">
+log_an=log_ab*log_bn=lob_ba/log_bn</script><p>==换底公式==：</p>
+<script type="math/tex; mode=display">
+log_bN=log_aN/log_ab\\
+log_bN=X\\
+b^X=N\\
+log_ab^X=log_aN\\
+Xlog_ab=log_aN</script><h2 id="2-幂函数"><a href="#2-幂函数" class="headerlink" title="2. 幂函数"></a>2. 幂函数</h2><p>$x^a$</p>
+<h2 id="3-指数函数"><a href="#3-指数函数" class="headerlink" title="3. 指数函数"></a>3. 指数函数</h2><p>$a^x$</p>
 ]]></content>
       <categories>
         <category>数学</category>
@@ -351,37 +357,33 @@ forks: &gt;
 <li>display 块间公式：$$…$$</li>
 </ul>
 <p><a href="https://blog.csdn.net/happyday_d/article/details/83715440">Typora中利用LaTeX 插入数学公式</a></p>
-<h1 id="1-对数-log-ax"><a href="#1-对数-log-ax" class="headerlink" title="1. 对数 $log_ax$"></a>1. 对数 $log_ax$</h1><blockquote>
-<p>$log_ax$</p>
-<p>$log_ax$</p>
-</blockquote>
+<h1 id="1-对数-log-ax"><a href="#1-对数-log-ax" class="headerlink" title="1. 对数 $log_ax$"></a>1. 对数 $log_ax$</h1><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span>log<span class="built_in">_</span>ax<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>lnx<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>lgx<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
 <blockquote>
+<p>$log_ax$</p>
 <p>$lnx$</p>
-<p>$lnx$</p>
-</blockquote>
-<blockquote>
-<p>$lgx$</p>
 <p>$lgx$</p>
 </blockquote>
-<h1 id="2-希腊字母表"><a href="#2-希腊字母表" class="headerlink" title="2. 希腊字母表"></a>2. 希腊字母表</h1><p>==$\alpha$==: $\alpha$</p>
+<h1 id="2-希腊字母表"><a href="#2-希腊字母表" class="headerlink" title="2. 希腊字母表"></a>2. 希腊字母表</h1><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\alpha</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<p>$\alpha$</p>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/20181104140244618.JPG" alt="img"></p>
-<h1 id="3-上下标、根号、省略号"><a href="#3-上下标、根号、省略号" class="headerlink" title="3. 上下标、根号、省略号"></a>3. 上下标、根号、省略号</h1><ul>
-<li><p><code>$x_i$</code>:     $x_i$</p>
+<h1 id="3-上下标、根号、省略号"><a href="#3-上下标、根号、省略号" class="headerlink" title="3. 上下标、根号、省略号"></a>3. 上下标、根号、省略号</h1><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line">下标：</span><br><span class="line"><span class="built_in">$</span>x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>x<span class="built_in">_</span>&#123;i1&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">上标：</span><br><span class="line"><span class="built_in">$</span>x<span class="built_in">^</span>2<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">根号：</span><br><span class="line"><span class="built_in">$</span>5<span class="keyword">\sqrt</span>[n]&#123;3&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">省略号：</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\dots</span><span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\cdots</span><span class="built_in">$</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>$x_i$</p>
 <blockquote>
-<p>​    上下标多于一个字母时：</p>
-<p>​     <code>$x_&#123;i1&#125;$</code>:     $x_{i1}$</p>
+<p>上下标多于一个字母时： $x_{i1}$</p>
 </blockquote>
 </li>
-<li><p><code>$x^2$</code>:   $x^2$</p>
+<li><p>$x^2$</p>
 </li>
-<li><p><code>$5\sqrt[n]&#123;3&#125;$</code>:   $5\sqrt[n]{3}$</p>
+<li><p>$5\sqrt[n]{3}$</p>
 </li>
-<li><p><code>$\dots$</code>： $\dots$</p>
+<li><p>$\dots$</p>
 </li>
-<li><p><code>$\cdots$</code>：$\cdots$</p>
+<li><p>$\cdots$</p>
 </li>
 </ul>
-<h1 id="4-箭头"><a href="#4-箭头" class="headerlink" title="4. 箭头"></a>4. 箭头</h1><p><code>$\leftarrow$</code>:    $\leftarrow$</p>
+<h1 id="4-箭头"><a href="#4-箭头" class="headerlink" title="4. 箭头"></a>4. 箭头</h1><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">$leftarrow</span>$</span></span><br></pre></td></tr></table></figure>
+<p>  $\leftarrow$</p>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/20181104140310286.JPG" alt="img"></p>
 ]]></content>
       <categories>
@@ -942,11 +944,14 @@ forks: &gt;
 </li>
 <li><p><a href="https://www.jianshu.com/p/02bb9eaa0f51">hexo博客添加评论功能</a></p>
 </li>
+<li><p><a href="https://blog.csdn.net/crazy_scott/article/details/79293576">hexo下LaTeX无法显示的解决方案</a></p>
+</li>
 <li><p>OpenSSL SSL_connect Connection was reset</p>
 <p><a href="https://blog.csdn.net/weixin_43945983/article/details/110882074">解除SSL认证</a></p>
 <p><a href="https://blog.csdn.net/m0_46233340/article/details/114926427">设置一下http.proxy</a></p>
 <p><a href="https://blog.csdn.net/Candle_light/article/details/114992784">生成SSH</a></p>
-<p><a href="https://yscoder.github.io/20150514/hexo-toc.html">设置TOC</a></p>
+</li>
+<li><p><a href="https://yscoder.github.io/20150514/hexo-toc.html">设置TOC</a></p>
 </li>
 </ul>
 ]]></content>
@@ -967,7 +972,7 @@ forks: &gt;
 <h1 id="工具："><a href="#工具：" class="headerlink" title="工具："></a>工具：</h1><ul>
 <li><p>pdf资源下载</p>
 <ul>
-<li><a href="https://2lib.org/?signAll=1&ts=1028">Zlibrary(英文电子书)</a></li>
+<li><a href="https://2lib.org/?signAll=1&amp;ts=1028">Zlibrary(英文电子书)</a></li>
 <li><a href="https://www.jiumodiary.com/">鸠摩搜索</a></li>
 </ul>
 </li>
@@ -984,13 +989,13 @@ forks: &gt;
 <p>词组搭配、近义词、高频词汇查询</p>
 </blockquote>
 <ul>
-<li><p><a href="https://www.sci-hub.ren/">sci-hub</a></p>
+<li><a href="https://www.sci-hub.ren/">sci-hub</a></li>
+</ul>
 <blockquote>
 <p>文献下载</p>
 </blockquote>
-</li>
-<li><p><a href="https://ac.scmor.com/">谷歌学术镜像</a></p>
-</li>
+<ul>
+<li><a href="https://ac.scmor.com/">谷歌学术镜像</a></li>
 </ul>
 </li>
 <li><p>翻译</p>
@@ -1005,7 +1010,7 @@ forks: &gt;
 </li>
 </ul>
 <h1 id="网站："><a href="#网站：" class="headerlink" title="网站："></a>网站：</h1><ul>
-<li><p><a href="https://mp.weixin.qq.com/wxamp/home/guide?lang=zh_CN&token=968434199">微信公众平台-小程序</a></p>
+<li><p><a href="https://mp.weixin.qq.com/wxamp/home/guide?lang=zh_CN&amp;token=968434199">微信公众平台-小程序</a></p>
 </li>
 <li><p><a href="https://echarts.apache.org/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts">ECharts</a></p>
 <blockquote>
