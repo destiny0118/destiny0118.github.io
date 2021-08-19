@@ -728,8 +728,44 @@ Xlog_ab=log_aN</script><h2 id="2-幂函数"><a href="#2-幂函数" class="header
   </entry>
   <entry>
     <title>字符串匹配算法</title>
-    <url>/2021/07/19/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="1-逐字符匹配"><a href="#1-逐字符匹配" class="headerlink" title="1. 逐字符匹配"></a>1. 逐字符匹配</h1><h1 id="2-KMP算法"><a href="#2-KMP算法" class="headerlink" title="2. KMP算法"></a>2. KMP算法</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg" alt="算法图示"></p>
+    <url>/2021/08/18/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="1-逐字符匹配"><a href="#1-逐字符匹配" class="headerlink" title="1. 逐字符匹配"></a>1. 逐字符匹配</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210816200255.png" alt="image-20210816200255814"></p>
+<blockquote>
+<p>文本长度（T）：m</p>
+<p>模式串长度（P）：n</p>
+<p>下标从1开始，i为T的下标，j为P的下标</p>
+<p>i 的下标范围为[1,m-n+1]，之后的长度小于n，肯定无法与模式串匹配</p>
+</blockquote>
+<p>查找过程：T从某一下标i开始，P从1开始，T依次与P的相应位置匹配，如果不匹配，则回退到位置i+1，同时P的下标也回退到开始</p>
+<h1 id="2-KMP算法"><a href="#2-KMP算法" class="headerlink" title="2. KMP算法"></a>2. KMP算法</h1><p>串的前缀：除最后一个字符以外，字符串的所有头部子串 （ $aba前缀{a,ab}$）</p>
+<p>串的后缀：除第一个字符以外，字符串的所有尾部子串（ $aba前缀{a,ba}$）</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202108192113896.png" alt="image-20210819211339841" style="zoom: 67%;" /></p>
+<blockquote>
+<p>当文本串的第i个字符与模式串的第k个字符不匹配时，对于图中的情况，在第k个字符前存在相等的前缀和后缀时，可以将字符移动，用模式串的第t个字符与文本串的第i个字符继续进行比较，</p>
+<p>因此，需要知道在Pattern第k个字符失配时，需要用哪个字符继续与Text第i个字符比较</p>
+</blockquote>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg" alt="算法图示"></p>
+<h2 id="求next-j-："><a href="#求next-j-：" class="headerlink" title="求next(j)："></a>求next(j)：</h2><blockquote>
+<p>第j个字符前，使前缀串=后缀串的最大值为k</p>
+<p>则next[j]=k+1</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\begin{equation}
+next[j]=
+
+\begin{cases}
+0& \text{j=1}\\
+max\{k,1<k<j且'p_1...p_k'='p_{j-k+1}...p_{j-1}'\}& \text{此集合不空时}\\
+1& \text{其他情况}
+
+\end{cases}
+
+\end{equation}</script><blockquote>
+<p>规定next[1]为0，当第1个字符就不匹配时，用第0个字符用Text[i]比较，相当于在Pattern前添加一个空字符</p>
+<p>P[1]!=T[j]时，用P[0]与T[j]比较</p>
+<p>即P[1]与T[j+1]比较</p>
+</blockquote>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202108192134856.png" alt="image-20210819213443818" style="zoom:67%;" /></p>
 <div class="table-container">
 <table>
 <thead>
@@ -771,6 +807,13 @@ Xlog_ab=log_aN</script><h2 id="2-幂函数"><a href="#2-幂函数" class="header
 </tbody>
 </table>
 </div>
+<h2 id="求next程序"><a href="#求next程序" class="headerlink" title="求next程序"></a>求next程序</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_Next</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.size()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>j处于Patter前部，当next[i]=next[j]时</p>
+<p>说明i+1前的前缀串=后缀串的长度为j，</p>
+<p>则next[i+1]=j+1</p>
+</blockquote>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202108192152260.png" alt="image-20210819215203223"></p>
 <blockquote>
 <p>next(j)产生过程：</p>
 </blockquote>
@@ -845,7 +888,9 @@ Xlog_ab=log_aN</script><h2 id="2-幂函数"><a href="#2-幂函数" class="header
 </tbody>
 </table>
 </div>
-<h1 id="3-Horspool算法"><a href="#3-Horspool算法" class="headerlink" title="3. Horspool算法"></a>3. Horspool算法</h1><h1 id="4-Boyer-Moore算法"><a href="#4-Boyer-Moore算法" class="headerlink" title="4. Boyer-Moore算法"></a>4. Boyer-Moore算法</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    字符串匹配算法</span></span><br><span class="line"><span class="comment">    T:text文本</span></span><br><span class="line"><span class="comment">    P:pattern模式串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回下标从0开始计数的位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BruteForceStringMatch</span><span class="params">(<span class="built_in">string</span> t, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = t.size(), m = p.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n - m; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; m &amp;&amp; t[k + i] == p[k])</span><br><span class="line">            k++;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    返回从pos位置开始第一个与P匹配的首字符位置</span></span><br><span class="line"><span class="comment">    这里j为1表示字符串第一个字符</span></span><br><span class="line"><span class="comment">    j=0表示P的第一个字母与T的当前字母不匹配</span></span><br><span class="line"><span class="comment">    查找位置pos为下标序，从0开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_Next</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;next)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KMP</span><span class="params">(<span class="built_in">string</span> T, <span class="built_in">string</span> P, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = T.size(), m = P.size();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">next</span><span class="params">(m + <span class="number">1</span>)</span></span>;</span><br><span class="line">    get_Next(P, next);</span><br><span class="line">    <span class="keyword">int</span> i = pos, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n &amp;&amp; j &lt;= m) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || T[i - <span class="number">1</span>] == P[j - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; m)</span><br><span class="line">        <span class="keyword">return</span> i - j;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_Next</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.size()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShiftTable</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; &amp;table)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//范围不到最后一个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; P.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        table[P[i]] = P.size() - i - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; P[i] &lt;&lt; &quot; &quot; &lt;&lt; table[P[i]] &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Horspool</span><span class="params">(<span class="built_in">string</span> &amp;T, <span class="built_in">string</span> &amp;P)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; table;</span><br><span class="line">    ShiftTable(P, table);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = T.size(), m = P.size();</span><br><span class="line">    <span class="keyword">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>; <span class="comment">//已经匹配的字符数</span></span><br><span class="line">        <span class="keyword">while</span> (P[m - <span class="number">1</span> - k] == T[i - k] &amp;&amp; k &lt; m) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i - m + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// T[i]是与模式不匹配的字符</span></span><br><span class="line">        <span class="comment">//如果其不在模式中时，则模式与其下一个位置匹配</span></span><br><span class="line">        <span class="comment">//如果在模式中时，移动模式使最右侧的该字符与T[i]对齐</span></span><br><span class="line">        <span class="keyword">if</span> (table.find(T[i]) == table.end())</span><br><span class="line">            i = i + m;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i = i + table[T[i]];</span><br><span class="line">        <span class="comment">// cout &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> text = <span class="string">&quot;acabaabaabcacaabc&quot;</span>, pattern = <span class="string">&quot;abaabc&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; BruteForceStringMatch(text, pattern) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; KMP(text, pattern, <span class="number">3</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">string</span> P = <span class="string">&quot;BARBER&quot;</span>, T = <span class="string">&quot;JIM_SAW_ME_IN_A_BARBERSHOP&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; Horspool(T, P) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    getchar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-Horspool算法"><a href="#3-Horspool算法" class="headerlink" title="3. Horspool算法"></a>3. Horspool算法</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShiftTable</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; &amp;table)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//范围不到最后一个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; P.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        table[P[i]] = P.size() - i - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; P[i] &lt;&lt; &quot; &quot; &lt;&lt; table[P[i]] &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Horspool</span><span class="params">(<span class="built_in">string</span> &amp;T, <span class="built_in">string</span> &amp;P)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; table;</span><br><span class="line">    ShiftTable(P, table);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = T.size(), m = P.size();</span><br><span class="line">    <span class="keyword">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>; <span class="comment">//已经匹配的字符数</span></span><br><span class="line">        <span class="keyword">while</span> (P[m - <span class="number">1</span> - k] == T[i - k] &amp;&amp; k &lt; m) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i - m + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// T[i]是与模式不匹配的字符</span></span><br><span class="line">        <span class="comment">//如果其不在模式中时，则模式与其下一个位置匹配</span></span><br><span class="line">        <span class="comment">//如果在模式中时，移动模式使最右侧的该字符与T[i]对齐</span></span><br><span class="line">        <span class="keyword">if</span> (table.find(T[i]) == table.end())</span><br><span class="line">            i = i + m;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i = i + table[T[i]];</span><br><span class="line">        <span class="comment">// cout &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="4-Boyer-Moore算法"><a href="#4-Boyer-Moore算法" class="headerlink" title="4. Boyer-Moore算法"></a>4. Boyer-Moore算法</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    字符串匹配算法</span></span><br><span class="line"><span class="comment">    T:text文本</span></span><br><span class="line"><span class="comment">    P:pattern模式串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回下标从0开始计数的位置</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BruteForceStringMatch</span><span class="params">(<span class="built_in">string</span> t, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = t.size(), m = p.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n - m; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; m &amp;&amp; t[k + i] == p[k])</span><br><span class="line">            k++;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    返回从pos位置开始第一个与P匹配的首字符位置</span></span><br><span class="line"><span class="comment">    这里j为1表示字符串第一个字符</span></span><br><span class="line"><span class="comment">    j=0表示P的第一个字母与T的当前字母不匹配</span></span><br><span class="line"><span class="comment">    查找位置pos为下标序，从0开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_Next</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;next)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KMP</span><span class="params">(<span class="built_in">string</span> T, <span class="built_in">string</span> P, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = T.size(), m = P.size();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">next</span><span class="params">(m + <span class="number">1</span>)</span></span>;</span><br><span class="line">    get_Next(P, next);</span><br><span class="line">    <span class="keyword">int</span> i = pos, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n &amp;&amp; j &lt;= m) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || T[i - <span class="number">1</span>] == P[j - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; m)</span><br><span class="line">        <span class="keyword">return</span> i - j;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_Next</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.size()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShiftTable</span><span class="params">(<span class="built_in">string</span> &amp;P, <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; &amp;table)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//范围不到最后一个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; P.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        table[P[i]] = P.size() - i - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; P[i] &lt;&lt; &quot; &quot; &lt;&lt; table[P[i]] &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Horspool</span><span class="params">(<span class="built_in">string</span> &amp;T, <span class="built_in">string</span> &amp;P)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; table;</span><br><span class="line">    ShiftTable(P, table);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = T.size(), m = P.size();</span><br><span class="line">    <span class="keyword">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>; <span class="comment">//已经匹配的字符数</span></span><br><span class="line">        <span class="keyword">while</span> (P[m - <span class="number">1</span> - k] == T[i - k] &amp;&amp; k &lt; m) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i - m + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// T[i]是与模式不匹配的字符</span></span><br><span class="line">        <span class="comment">//如果其不在模式中时，则模式与其下一个位置匹配</span></span><br><span class="line">        <span class="comment">//如果在模式中时，移动模式使最右侧的该字符与T[i]对齐</span></span><br><span class="line">        <span class="keyword">if</span> (table.find(T[i]) == table.end())</span><br><span class="line">            i = i + m;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i = i + table[T[i]];</span><br><span class="line">        <span class="comment">// cout &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> text = <span class="string">&quot;acabaabaabcacaabc&quot;</span>, pattern = <span class="string">&quot;abaabc&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; BruteForceStringMatch(text, pattern) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; KMP(text, pattern, <span class="number">3</span>) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">string</span> P = <span class="string">&quot;BARBER&quot;</span>, T = <span class="string">&quot;JIM_SAW_ME_IN_A_BARBERSHOP&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; Horspool(T, P) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    getchar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="5-模式串在主串中有多少个完全匹配的主串？"><a href="#5-模式串在主串中有多少个完全匹配的主串？" class="headerlink" title="5. 模式串在主串中有多少个完全匹配的主串？"></a>5. 模式串在主串中有多少个完全匹配的主串？</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Get_Next</span><span class="params">(<span class="built_in">string</span> P, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;next)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>, i = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> len = P.size();</span><br><span class="line">    <span class="keyword">while</span> (i &lt; len)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KMP</span><span class="params">(<span class="built_in">string</span> T, <span class="built_in">string</span> P)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m = T.size(), n = P.size();</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">next</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    Get_Next(P, next);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= m - n + <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || T[i - <span class="number">1</span>] == P[j - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j &gt;= n)</span><br><span class="line">        &#123;</span><br><span class="line">            i = i - j + <span class="number">2</span>;</span><br><span class="line">            j = <span class="number">0</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> text = <span class="string">&quot;aaabcdaa&quot;</span>, pattern = <span class="string">&quot;aa&quot;</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; KMP(text, pattern) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
@@ -886,13 +931,13 @@ Xlog_ab=log_aN</script><h2 id="2-幂函数"><a href="#2-幂函数" class="header
   </entry>
   <entry>
     <title>图</title>
-    <url>/2021/07/19/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/</url>
+    <url>/2021/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE/</url>
     <content><![CDATA[<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><ul>
 <li><p>深度优先搜索（DFS）</p>
 <p>检查图的连通性和无环性、==关节点==</p>
 </li>
 <li><p>广度优先搜索（BFS）</p>
-<p>检查图的连通性和无环性、求两个给定顶点间==边的数量==最少的路径</p>
+<p>检查图的连通性和无环性、求两个给定顶点间 ==边的数量== 最少的路径</p>
 </li>
 </ul>
 <h1 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h1><ul>
@@ -1342,6 +1387,211 @@ int main() &#123;
       <tags>
         <tag>测试</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/08/18/408%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210729152634.png" alt="操作系统发展与分类"></p>
+<h2 id="1-进程创建过程"><a href="#1-进程创建过程" class="headerlink" title="1. 进程创建过程"></a>1. 进程创建过程</h2><h1 id="并发性：互斥和同步"><a href="#并发性：互斥和同步" class="headerlink" title="并发性：互斥和同步"></a>并发性：互斥和同步</h1><h2 id="同步、互斥"><a href="#同步、互斥" class="headerlink" title="同步、互斥"></a>同步、互斥</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>并发</th>
+<th>在一定时间内物理机器上有两个或两个以上的程序同处于开始运行但尚未结束的状态，并且次序不是事先确定的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>互斥</td>
+<td>多个进程不能访问同一个资源（临界资源）</td>
+</tr>
+<tr>
+<td>进程的同步</td>
+<td>系统中多个进程相互合作，这些进程中国发生的一些事件需要满足某种时序关系，从而共同完成一项任务</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="1-信号量"><a href="#1-信号量" class="headerlink" title="1. 信号量"></a>1. 信号量</h2><p>定义：semphore s</p>
+<p>信号量s发送信号：semSignal(s)  V(s)</p>
+<p>信号量s接收信号：semWait(s)    P(s)</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210724144342.PNG" alt="IMG_2757(20210724-143103)"></p>
+<p>进程访问受信号量保护的共享数据：</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210724144348.PNG" alt="IMG_2758" style="zoom:50%;" /></p>
+<h2 id="2-管程"><a href="#2-管程" class="headerlink" title="2. 管程"></a>2. 管程</h2><p>定义：cond s</p>
+<p>cwait(s)</p>
+<p>csignal(s)</p>
+<h2 id="3-消息传递"><a href="#3-消息传递" class="headerlink" title="3. 消息传递"></a>3. 消息传递</h2><p>send( destination, message)</p>
+<p>receive(source, message)</p>
+<h1 id="并发性：死锁和饥饿"><a href="#并发性：死锁和饥饿" class="headerlink" title="并发性：死锁和饥饿"></a>并发性：死锁和饥饿</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>原则</th>
+<th>资源分配策略</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>预防（prevention）</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>避免（avoidance）</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>检测（detection）</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+]]></content>
+  </entry>
+  <entry>
+    <title>计算机网络</title>
+    <url>/2021/08/18/408%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</url>
+    <content><![CDATA[<h1 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h1><blockquote>
+<p>$1us=10^{-6}s$</p>
+</blockquote>
+<h1 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h1><h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h2><ul>
+<li><p>放大器：加强宽带信号（用于传输模拟信号）的设备</p>
+</li>
+<li><p>中继器：加强基带信号（用于传输数字信号）的设备（大多数以太网采用基带传输）</p>
+</li>
+<li><p>集线器</p>
+</li>
+</ul>
+<h2 id="数据链路层（隔离冲突域，不能隔离广播域）"><a href="#数据链路层（隔离冲突域，不能隔离广播域）" class="headerlink" title="数据链路层（隔离冲突域，不能隔离广播域）"></a>数据链路层（隔离冲突域，不能隔离广播域）</h2><ul>
+<li><p>网桥</p>
+</li>
+<li><p>局域网交换机</p>
+</li>
+</ul>
+<h1 id="协议栈"><a href="#协议栈" class="headerlink" title="协议栈"></a>协议栈</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210722102429.png" alt="协议栈" style="zoom: 25%;" /></p>
+<h1 id="协议分层"><a href="#协议分层" class="headerlink" title="协议分层"></a>协议分层</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210717222451.PNG" alt="IMG_2740(20210717-160517)" style="zoom: 33%;" /></p>
+<h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210717222557.PNG" alt="IMG_2742(20210717-194249)"></p>
+<p>Web服务器（HTTP）：端口号80</p>
+<p>邮件服务器进程（SMTP协议）：端口号25</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">网络应用</th>
+<th style="text-align:center">应用层协议</th>
+<th style="text-align:center">支撑的运输协议</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">应用程序体系结构</th>
+<th style="text-align:left">端口号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Web</td>
+<td style="text-align:center">超文本传输协议(HyperText Transfer Protocol, HTTP)</td>
+<td style="text-align:center">TCP</td>
+<td style="text-align:center">无状态协议<br />Web文档的请求与响应</td>
+<td style="text-align:center">客户-服务器</td>
+<td style="text-align:left">Web服务器：80</td>
+</tr>
+<tr>
+<td style="text-align:center">电子邮件</td>
+<td style="text-align:center">简单邮件传输协议(Simple Mail Transfer Protocol, SMTP)<br />邮件访问协议：POP3</td>
+<td style="text-align:center">TCP</td>
+<td style="text-align:center">电子邮件报文的传输</td>
+<td style="text-align:center">SMTP：客户-服务器</td>
+<td style="text-align:left">SMTP：25<br/>POP：110</td>
+</tr>
+<tr>
+<td style="text-align:center">因特网的目录服务</td>
+<td style="text-align:center">域名系统(Domain Name System，DNS)</td>
+<td style="text-align:center">UDP</td>
+<td style="text-align:center">域名空间、域名服务器、域名解析过程<br/>主机名到IP地址转换的目录服务</td>
+<td style="text-align:center">客户-服务器模型</td>
+<td style="text-align:left">53</td>
+</tr>
+<tr>
+<td style="text-align:center">文件传输</td>
+<td style="text-align:center">文件传输协议(FTP)</td>
+<td style="text-align:center">TCP</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">客户-服务器模型</td>
+<td style="text-align:left">控制连接：21<br />数据连接：20</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>HTTP协议</p>
+<center>
+    <img src="https://gitee.com/destiny0118/picgo/raw/master/20210717222628.PNG" width=300/>
+    <img src="https://gitee.com/destiny0118/picgo/raw/master/20210717222706.png" width=300/>
+</center>
+
+<p>响应报文状态码：</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210717222801.PNG" alt="IMG_2748(20210717-195049)" style="zoom: 50%;" /></p>
+</li>
+<li><p>SMTP</p>
+</li>
+</ul>
+<h1 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h1><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h2 id="IPv4：20字节（无选项）"><a href="#IPv4：20字节（无选项）" class="headerlink" title="IPv4：20字节（无选项）"></a>IPv4：20字节（无选项）</h2><p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210721162737.png" alt="image-20210721162731377" style="zoom:50%;" /></p>
+<p>标识号确定数据报的顺序，标志比特为0表示接收到数据报的最后一片，</p>
+<p>数据报通过链路层会分片，偏移量确定应放在数据报的什么位置，</p>
+<p>一个链路层帧能承载的最大数据量叫做最大传送单元（Maximum Transmission Unit, MTU）</p>
+<h2 id="因特网编址-计组内存寻址：直接映射、全相联映射、组相联映射"><a href="#因特网编址-计组内存寻址：直接映射、全相联映射、组相联映射" class="headerlink" title="因特网编址-(计组内存寻址：直接映射、全相联映射、组相联映射)"></a>因特网编址-(计组内存寻址：直接映射、全相联映射、组相联映射)</h2><ul>
+<li>分类编址：具有8、16、24比特子网地址的子网分别被称为A、B、C类网络。</li>
+<li>无类别域间路由选择（Classless Interdomain Routing, CIDR)                                                      </li>
+</ul>
+<h2 id="动态主机配置协议（Dynamic-Host-Configuration-DHCP）"><a href="#动态主机配置协议（Dynamic-Host-Configuration-DHCP）" class="headerlink" title="动态主机配置协议（Dynamic Host Configuration, DHCP）"></a>动态主机配置协议（Dynamic Host Configuration, DHCP）</h2><blockquote>
+<p> 获取主机地址</p>
+</blockquote>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210721171550.png" alt="image-20210721171550242" style="zoom:33%;" /></p>
+<h2 id="网络地址转换（Network-Address-Translation-NAT）"><a href="#网络地址转换（Network-Address-Translation-NAT）" class="headerlink" title="网络地址转换（Network Address Translation, NAT）"></a>网络地址转换（Network Address Translation, NAT）</h2><h2 id="控制平面"><a href="#控制平面" class="headerlink" title="控制平面"></a>控制平面</h2><h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="物理层-1"><a href="#物理层-1" class="headerlink" title="物理层"></a>物理层</h1><p>数据传输速率：单位时间内传输的数据量</p>
+<p>​    码元传输速率（波特率）</p>
+<p>​    信息传输速率（比特率）</p>
+<script type="math/tex; mode=display">
+波特率=\frac{比特率}{每符号含有的比特数}</script><p>奈奎斯特定理：</p>
+<script type="math/tex; mode=display">
+理想低通信道下的极限数据传输速率=2Wlog_2V(单位：b/s)</script><p>W：理想低通信道的带宽</p>
+<p>2W：最大码元传输速率</p>
+<p>V：每个码元离散电平的数目（有多少种不同的码元）</p>
+<p>香农定理：</p>
+<script type="math/tex; mode=display">
+信道的极限数据传输速率=Wlog_2(1+S/N)（单位：b/s）</script><p>W：信道的带宽</p>
+<p>S/N：信噪比（信号的平均功率与噪声的平均功率之比）</p>
+<script type="math/tex; mode=display">
+信噪比=10log_{10}(S/N)（单位dB）</script>]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/08/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97/</url>
+    <content><![CDATA[<h1 id="树和森林"><a href="#树和森林" class="headerlink" title="树和森林"></a>树和森林</h1><h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><ol>
+<li>求二叉树的高度</li>
+</ol>
+]]></content>
   </entry>
   <entry>
     <title>为何，说IT</title>
