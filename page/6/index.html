@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="凡是过去，皆为序章。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="我的个人博客">
+<meta property="og:url" content="https://destiny0118.github.io/page/6/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="凡是过去，皆为序章。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/page/6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/6/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">我的个人博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>project</a></li><li class="menu-item menu-item-lab"><a href="/categories/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>Lab</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Hexo%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%B7%A5%E5%85%B7/Hexo%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-04 18:27:46" itemprop="dateModified" datetime="2022-06-04T18:27:46+08:00">2022-06-04</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Hexo使用"><a href="#Hexo使用" class="headerlink" title="Hexo使用"></a>Hexo使用</h1><h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202204171859996.png" alt="image-20220417185914912"></p>
+<h2 id="创建github-page"><a href="#创建github-page" class="headerlink" title="创建github page"></a>创建github page</h2><p>仓库：destiny0118.github.io</p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化博客路径"><a href="#初始化博客路径" class="headerlink" title="初始化博客路径"></a>初始化博客路径</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">hexo init <span class="keyword">blog</span></span><br><span class="line"><span class="keyword"></span>cd <span class="keyword">blog</span></span><br><span class="line"><span class="keyword"></span>npm <span class="keyword">install	</span>			<span class="comment"># npm install命令会把X包安装到node_modules目录中</span></span><br><span class="line"></span><br><span class="line">本地运行</span><br><span class="line">hexo s -p <span class="number">5555</span>本地运行</span><br></pre></td></tr></table></figure>
+
+<h2 id="远程部署"><a href="#远程部署" class="headerlink" title="远程部署"></a>远程部署</h2><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save	</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="添加搜索功能"><a href="#添加搜索功能" class="headerlink" title="添加搜索功能"></a>添加搜索功能</h2><figure class="highlight llvm"><table><tr><td class="code"><pre><span class="line">![<span class="number">20200424230747418</span>](C:<span class="variable">%5</span>CUsers<span class="variable">%5</span>CDestiny<span class="variable">%5</span>CDesktop<span class="variable">%5</span>C<span class="number">20200424230747418</span>.pngnpm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+
+
+<p>hexo g</p>
+<p>hexo d</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202206041827418.png" alt="GamePlay"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Git使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-03-30 10:48:35" itemprop="dateModified" datetime="2023-03-30T10:48:35+08:00">2023-03-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status                          # To see what needs to be added or committed.</span><br><span class="line">git add &lt;filepath&gt;                  # To add, or stage, any modified files.</span><br><span class="line">git commit -m &quot;Commit message&quot;      # To commit changes.</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git log</span><br><span class="line">git checkout (commit ID)  #切换分支</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">touch a.txt</span><br><span class="line">cat a.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303292003505.png" alt="image-20230329200310434"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303292013895.png" alt="image-20230329201305806"></p>
+<p><a href="https://www.cnblogs.com/wangiqngpei557/p/6056624.html">聊下git pull –rebase - 王清培 - 博客园 (cnblogs.com)</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init 初始化</span><br><span class="line">git config --global user.name &quot;yuyg&quot;</span><br><span class="line">git config --global user.email &quot;1632508233@qq.com&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加文件到暂存区</span></span><br><span class="line">git add .			当前目录所有文件</span><br><span class="line">git add filename</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看添加状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把文件提交到仓库</span></span><br><span class="line"> git commit -m message</span><br><span class="line"> git commit -m &quot;[base] commit&quot;</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看提交状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从最近到最远显示提交日志</span></span><br><span class="line">git log</span><br><span class="line">git log -pretty=oneline		每次提交显示为一行</span><br><span class="line"></span><br><span class="line">还未commit的文件</span><br><span class="line">git rm --cached . -r  删除add的文件</span><br><span class="line">git rm --cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；</span><br><span class="line">git rm --f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303292051791.png" alt="image-20230329205129717"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303292051832.png" alt="image-20230329205152756"></p>
+<p>文件回退</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -f lab1/Collatz.java</span><br><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -- lab1/Collatz.java</span><br></pre></td></tr></table></figure>
+
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^		回退到上个版本</span><br><span class="line">git reset --hard HEAD^^		回退到上上个版本</span><br><span class="line">git reset --hard HEAD~1</span><br><span class="line"></span><br><span class="line">git reset --hard 版本号	 	回退到最新版本</span><br><span class="line"></span><br><span class="line">git reflog					查看版本号</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">origin为远程仓库的别名</span></span><br><span class="line">git remote add origin git@github.com:destiny0118/Few-shot-Image-Segmentation.git</span><br><span class="line"></span><br><span class="line">git branch -M master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-u参数，把本地的master分支推送到远程新的master分支，将本地master分支与远程master分支关联起来</span></span><br><span class="line"></span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git remote -v			查看远程仓库信息</span><br><span class="line">git remote rm origin	删除已有的远程仓库</span><br></pre></td></tr></table></figure>
+
+<h3 id="推送到远程仓库"><a href="#推送到远程仓库" class="headerlink" title="推送到远程仓库"></a>推送到远程仓库</h3><p><a href="https://www.runoob.com/git/git-push.html">git push 命令 | 菜鸟教程 (runoob.com)</a></p>
+<p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
+<p>命令格式如下：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git push <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span>:<span class="tag">&lt;<span class="name">远程分支名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果本地分支名与远程分支名相同，则可以省略冒号：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git push <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>克隆GitHub的仓库到本地</p>
+<p><code>git clone + 仓库地址</code></p>
+</li>
+<li><p>查看本地仓库关联的远程仓库信息</p>
+<p><code>git remote -v</code></p>
+</li>
+<li><p>查看分支</p>
+<p><code>git branch</code></p>
+</li>
+<li><p>创建分支</p>
+<p><code>git branch+分支名</code></p>
+</li>
+<li><p>设置别名</p>
+<p><code>git config --global alias.br branchcat -n ~/.gitconfig</code></p>
+</li>
+</ul>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><p><a href="http://www.hangdaowangluo.com/archives/491">Git branch命令的用法总结 | 精彩每一天 (hangdaowangluo.com)</a></p>
+<ul>
+<li><p>git branch -a</p>
+<p>查看所有分支</p>
+</li>
+<li><p>git branch 分支名</p>
+<p>仅创建分支</p>
+</li>
+<li><p>git checkout 分支名</p>
+<p>切换分支</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/git%E5%91%BD%E4%BB%A4%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE1.png" alt="git命令思维导图1"></p>
+<p>pulling and collaborating with other people</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303292116146.png" alt="image-20230329211657074"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303292117667.png" alt="image-20230329211738590"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%B7%A5%E5%85%B7/bug/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-09-30 19:47:51" itemprop="dateModified" datetime="2022-09-30T19:47:51+08:00">2022-09-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Line-1034-Char-9-runtime-error-reference-binding-to-null-pointer-of-type"><a href="#Line-1034-Char-9-runtime-error-reference-binding-to-null-pointer-of-type" class="headerlink" title="Line 1034: Char 9: runtime error: reference binding to null pointer of type"></a>Line 1034: Char 9: runtime error: reference binding to null pointer of type</h1><p>vector nums;</p>
+<p>取nums[0]，容器可能为空，出现null pointer</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7/" class="post-title-link" itemprop="url">自刷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-04 13:32:40" itemprop="dateModified" datetime="2022-06-04T13:32:40+08:00">2022-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h1><h2 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; <span class="title function_">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> sz=nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;sz;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)</span><br><span class="line">               &#123;</span><br><span class="line">                   res.push_back(i);</span><br><span class="line">                   res.push_back(j);</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="hashmap-散列函数"><a href="#hashmap-散列函数" class="headerlink" title="hashmap(散列函数)"></a>hashmap(散列函数)</h2><p>散列函数：</p>
+<ul>
+<li><p>将同样的输入映射到相同的索引</p>
+</li>
+<li><p>将不同的输入映射到不同的索引</p>
+</li>
+</ul>
+<h3 id="两遍哈希"><a href="#两遍哈希" class="headerlink" title="两遍哈希"></a>两遍哈希</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; <span class="title function_">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        <span class="type">int</span> size=nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            hash[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hash.find(target-nums[i])!=hash.end()&amp;&amp;hash[target-nums[i]]!=i)</span><br><span class="line">            <span class="keyword">return</span> &#123;i,hash[target-nums[i]]&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;<span class="comment">//不太明白为什么要加上这句</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="一遍哈希"><a href="#一遍哈希" class="headerlink" title="一遍哈希"></a>一遍哈希</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; <span class="title function_">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        <span class="type">int</span> size=nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hash.find(target-nums[i])!=hash.end())</span><br><span class="line">            <span class="keyword">return</span> &#123;hash[target-nums[i]],i&#125;;</span><br><span class="line">            hash[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回值不止一个"><a href="#返回值不止一个" class="headerlink" title="返回值不止一个"></a>返回值不止一个</h2><h1 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a>7. 整数反转</h1><h2 id="类型提升"><a href="#类型提升" class="headerlink" title="类型提升"></a>类型提升</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">long</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (x != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">       result=result*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">        x = x / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result&gt;INT_MAX||result&lt;INT_MIN)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="先判断是否存的下"><a href="#先判断是否存的下" class="headerlink" title="先判断是否存的下"></a>先判断是否存的下</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp=x%<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>((temp&gt;<span class="number">0</span>&amp;&amp;result&gt;(INT_MAX-temp)/<span class="number">10</span>)||(temp&lt;<span class="number">0</span>&amp;&amp;result&lt;(INT_MIN-temp)/<span class="number">10</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            result=result*<span class="number">10</span>+temp;</span><br><span class="line">            x=x/<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a>9. 回文数</h1><h2 id="参照第7题，先整数反转，结果是否与原数相等"><a href="#参照第7题，先整数反转，结果是否与原数相等" class="headerlink" title="参照第7题，先整数反转，结果是否与原数相等"></a>参照第7题，先整数反转，结果是否与原数相等</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="type">long</span> result=<span class="number">0</span>;</span><br><span class="line">    <span class="type">long</span> temp=x;</span><br><span class="line">    <span class="keyword">while</span> (x)</span><br><span class="line">    &#123;</span><br><span class="line">       result=result*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">       x=x/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result==temp)</span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="反转一半"><a href="#反转一半" class="headerlink" title="反转一半"></a>反转一半</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;     </span><br><span class="line">            <span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x%<span class="number">10</span>==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> val=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(;val*<span class="number">10</span>&lt;=x;x=x/<span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                val=val*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> (val==x||val/<span class="number">10</span>==x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;     </span><br><span class="line">            <span class="keyword">if</span> (x== <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span> (x &lt; <span class="number">0</span> || x % <span class="number">10</span> == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (; val * <span class="number">10</span> &lt;= x; x /= <span class="number">10</span>) <span class="comment">//这样修改一点效率提高了好多</span></span><br><span class="line">			val = val * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">		<span class="keyword">return</span> (val == x || val / <span class="number">10</span> == x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a>13. 罗马数字转整数</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>卡在substr(m,n)上，从m位置取n个数，而不是从m到n</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=s.size();</span><br><span class="line">        <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">             <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;IV&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;IX&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">9</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;XL&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">40</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;XC&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">90</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;CD&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">400</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;CM&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">900</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;I&#x27;</span>)</span><br><span class="line">                result+=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;V&#x27;</span>)</span><br><span class="line">                result+=<span class="number">5</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">                result+=<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">                result+=<span class="number">50</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">                result+=<span class="number">100</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line">                result+=<span class="number">500</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                result+=<span class="number">1000</span>;</span><br><span class="line">       </span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-哈希"><a href="#方法二-哈希" class="headerlink" title="方法二 哈希"></a>方法二 哈希</h2><p>这个巧，没仔细理解题目</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=s.size();</span><br><span class="line">        <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="type">char</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        hash=&#123; &#123;<span class="string">&#x27;I&#x27;</span>,<span class="number">1</span>&#125;,&#123;<span class="string">&#x27;V&#x27;</span>,<span class="number">5</span>&#125;,&#123;<span class="string">&#x27;X&#x27;</span>,<span class="number">10</span>&#125;,&#123;<span class="string">&#x27;L&#x27;</span>,<span class="number">50</span>&#125;,&#123;<span class="string">&#x27;C&#x27;</span>,<span class="number">100</span>&#125;,&#123;<span class="string">&#x27;D&#x27;</span>,<span class="number">500</span>&#125;,&#123;<span class="string">&#x27;M&#x27;</span>,<span class="number">1000</span>&#125; &#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hash[s[i]]&gt;=hash[s[i+<span class="number">1</span>]])</span><br><span class="line">                result+=hash[s[i]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                result-=hash[s[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法三-数组"><a href="#方法三-数组" class="headerlink" title="方法三 数组"></a>方法三 数组</h2><p>方法二未考虑溢出，哈希查找不存在的元素时返回0？</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> chars[<span class="number">89</span>], ans = <span class="number">0</span>;;</span><br><span class="line">        chars[<span class="string">&#x27;I&#x27;</span>] = <span class="number">1</span>; chars[<span class="string">&#x27;V&#x27;</span>] = <span class="number">5</span>; chars[<span class="string">&#x27;X&#x27;</span>] = <span class="number">10</span>; chars[<span class="string">&#x27;L&#x27;</span>] = <span class="number">50</span>;</span><br><span class="line">        chars[<span class="string">&#x27;C&#x27;</span>] = <span class="number">100</span>; chars[<span class="string">&#x27;D&#x27;</span>] = <span class="number">500</span>; chars[<span class="string">&#x27;M&#x27;</span>] = <span class="number">1000</span>;</span><br><span class="line">        s += <span class="string">&#x27;I&#x27;</span>; <span class="comment">//防溢出</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.size()<span class="number">-1</span> ; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chars[s[i]] &gt;= chars[s[i + <span class="number">1</span>]])</span><br><span class="line">                ans += chars[s[i]];</span><br><span class="line">            <span class="keyword">else</span> ans -= chars[s[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="14. 最长公共前缀"></a>14. 最长公共前缀</h1><h2 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h2><blockquote>
+<p>执行用时 :4 ms, 在所有 C++ 提交中击败了92.77%的用户</p>
+<p>内存消耗 :6.8 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">        <span class="built_in">string</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs[<span class="number">0</span>].size(); ++i)<span class="comment">//执行这一步前要判断是否有元素</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; j &lt; strs.size(); ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (strs[j][i] == strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (j == strs.size())</span><br><span class="line">            result.push_back(strs[<span class="number">0</span>][i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法一优化"><a href="#方法一优化" class="headerlink" title="方法一优化"></a>方法一优化</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs[<span class="number">0</span>].size(); ++i)<span class="comment">//执行这一步前要判断是否有元素</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; j &lt; strs.size(); ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==strs[j].length()||strs[<span class="number">0</span>][i]!=strs[j][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="比较两个字符串"><a href="#比较两个字符串" class="headerlink" title="比较两个字符串"></a>比较两个字符串</h2><blockquote>
+<p>首先，假设有两个单词 “abcd”和”abcde”，那么在一本涵盖了所有字母排列的字典中，<br>这两个单词之间的单词也一定有前缀”abcd”（可以看做26进制的数）<br>于是，我们就只需要比较最小字典序的字符串和最大字典序的字符串<br>那么sort一遍数组，然后取strs[0]与strs[n-1],比较求解即可</p>
+<p>执行用时 :4 ms, 在所有 C++ 提交中击败了92.77%的用户</p>
+<p>内存消耗 :7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">        sort(strs.begin(),strs.end());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=min(strs[<span class="number">0</span>].length(),strs[n<span class="number">-1</span>].length());++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(strs[<span class="number">0</span>][i]!=strs[n<span class="number">-1</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="每两个相比产生一个结果"><a href="#每两个相比产生一个结果" class="headerlink" title="每两个相比产生一个结果"></a>每两个相比产生一个结果</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> result=strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=min(result.length(),strs[i].length());++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(result[j]!=strs[i][j])</span><br><span class="line">                result=result.substr(<span class="number">0</span>,j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><h1 id="21-合并两个有序链表"><a href="#21-合并两个有序链表" class="headerlink" title="21.合并两个有序链表"></a>21.合并两个有序链表</h1><h2 id="方法一-2"><a href="#方法一-2" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ListNode *<span class="title function_">mergeTwoLists</span><span class="params">(ListNode *l1, ListNode *l2)</span></span><br><span class="line">&#123;</span><br><span class="line">    ListNode *l3 = new ListNode(<span class="number">1</span>);</span><br><span class="line">    ListNode *pc = l3;</span><br><span class="line">    <span class="comment">//ListNode *l3 ;    debug好久，这种情况pc-&gt;next=pc；单点循环链表</span></span><br><span class="line">    <span class="comment">//ListNode *pc ;</span></span><br><span class="line">    <span class="comment">//l3 = pc = l1;</span></span><br><span class="line">    <span class="comment">// l3 = l1;</span></span><br><span class="line">    <span class="comment">// pc = l3;</span></span><br><span class="line">    <span class="keyword">while</span> (l1 &amp;&amp; l2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            pc-&gt;next = l1;</span><br><span class="line">            l1 = l1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pc-&gt;next = l2;</span><br><span class="line">            l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        pc = pc-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    pc-&gt;next = l1 ? l1 : l2;</span><br><span class="line">    <span class="keyword">return</span> l3-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="26-删除排序数组中的重复项"><a href="#26-删除排序数组中的重复项" class="headerlink" title="26. 删除排序数组中的重复项"></a>26. 删除排序数组中的重复项</h1><h2 id="方法一-3"><a href="#方法一-3" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> length=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> prev=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;nums.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==prev)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                prev=nums[i];</span><br><span class="line">                nums[length++]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一改进"><a href="#方法一改进" class="headerlink" title="方法一改进"></a>方法一改进</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> length=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> prev=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;nums.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]!=prev)     <span class="comment">//不想等时才需要操作，故不需要判断相等的情况</span></span><br><span class="line">            &#123;</span><br><span class="line">                prev=nums[i];</span><br><span class="line">                nums[length++]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-双指针法"><a href="#方法二-双指针法" class="headerlink" title="方法二 双指针法"></a>方法二 双指针法</h2><p><img src="https://i.loli.net/2020/05/09/5psMPtJ7cuBjzC1.png" alt="image-20200509215055674"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;nums.size();++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[j]!=nums[i])</span><br><span class="line">            &#123;</span><br><span class="line">                ++i;</span><br><span class="line">                nums[i]=nums[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="69-x的平方根"><a href="#69-x的平方根" class="headerlink" title="69. x的平方根"></a>69. x的平方根</h1><h2 id="方法一-4"><a href="#方法一-4" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">long</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i*i&lt;=x)</span><br><span class="line">            ++i;</span><br><span class="line">        <span class="keyword">return</span> --i;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-二分查找"><a href="#方法二-二分查找" class="headerlink" title="方法二 二分查找"></a>方法二 二分查找</h2><p><a href="https://leetcode-cn.com/problems/sqrtx/solution/x-de-ping-fang-gen-by-leetcode-solution/">二分查找</a></p>
+<p>时间复杂度log(x)，每次去掉一半</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>,r=x,ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">long</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid*mid&lt;=x)</span><br><span class="line">            &#123;</span><br><span class="line">                ans=mid;</span><br><span class="line">                l=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                r=mid<span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="70-爬楼梯"><a href="#70-爬楼梯" class="headerlink" title="70. 爬楼梯"></a>70. 爬楼梯</h1><p><a href="https://leetcode-cn.com/problems/climbing-stairs/solution/pa-lou-ti-by-leetcode/">题解</a></p>
+<h2 id="方法一-从后向前（超时）"><a href="#方法一-从后向前（超时）" class="headerlink" title="方法一 从后向前（超时）"></a>方法一 从后向前（超时）</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">climbStairs</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> climbStairs(n<span class="number">-1</span>)+climbStairs(n<span class="number">-2</span>); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-从前向后"><a href="#方法二-从前向后" class="headerlink" title="方法二 从前向后"></a>方法二 从前向后</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">climbStairs</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">       <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">           <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">if</span>(n==<span class="number">2</span>)</span><br><span class="line">           <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">       <span class="type">int</span> t1=<span class="number">1</span>,t2=<span class="number">2</span>;</span><br><span class="line">       <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;=n;i++)</span><br><span class="line">       &#123;</span><br><span class="line">           result=t1+t2;</span><br><span class="line">           t1=t2;</span><br><span class="line">           t2=result;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172. 阶乘后的零"></a>172. 阶乘后的零</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">trailingZeroes</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)</span><br><span class="line">        &#123;</span><br><span class="line">            count+=n/<span class="number">5</span>;</span><br><span class="line">            n=n/<span class="number">5</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://ac.nowcoder.com/acm/contest/276/E">相关</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/UVA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%88%B7%E9%A2%98/UVA/" class="post-title-link" itemprop="url">UVA</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-03-29 22:16:25" itemprop="dateModified" datetime="2021-03-29T22:16:25+08:00">2021-03-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>UVA题目</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/02/28/%E5%88%B7%E9%A2%98/UVA/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/Leetcode/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%88%B7%E9%A2%98/Leetcode/" class="post-title-link" itemprop="url">Leetcode</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-04-01 18:13:46" itemprop="dateModified" datetime="2021-04-01T18:13:46+08:00">2021-04-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Leetcode题目</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/02/28/%E5%88%B7%E9%A2%98/Leetcode/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/LeetCode-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%88%B7%E9%A2%98/LeetCode-4/" class="post-title-link" itemprop="url">LeetCode-4</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-04-28 15:20:21" itemprop="dateModified" datetime="2021-04-28T15:20:21+08:00">2021-04-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。</p>
+</blockquote>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210426231141571.png" alt="image-20210426231141571"></p>
+<h1 id="tip1-寻找中间位置的值"><a href="#tip1-寻找中间位置的值" class="headerlink" title="tip1: 寻找中间位置的值"></a>tip1: 寻找中间位置的值</h1><blockquote>
+<p>从两个正序数组的头部开始查找，类似于合并两个有序数组，查找中间位置对应的值</p>
+</blockquote>
+<ul>
+<li><p>偶数</p>
+<p>4&#x2F;2&#x3D;2，查找三次</p>
+<p>第三次找到的值赋给right</p>
+</li>
+<li><p>奇数</p>
+<p>5&#x2F;2&#x3D;2，查找三次</p>
+<p>第三次找到的值赋给right</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums1, vector&lt;<span class="type">int</span>&gt; &amp;nums2)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> len1 = nums1.<span class="built_in">size</span>(), len2 = nums2.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> left = <span class="number">0</span>, right = <span class="number">0</span>; <span class="comment">//记录两个中间值</span></span><br><span class="line">    <span class="type">int</span> index1 = <span class="number">0</span>, index2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= (len1 + len2) / <span class="number">2</span>; ++i) &#123;</span><br><span class="line">        left = right;</span><br><span class="line">        <span class="keyword">if</span> (index1 &lt; len1 &amp;&amp;</span><br><span class="line">            (index2 &gt;= len2 || nums1[index1] &lt;= nums2[index2])) &#123;</span><br><span class="line">            right = nums1[index1++];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            right = nums2[index2++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((len1 + len2) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> (left + right) / <span class="number">2.0</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> right;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nums1 = &#123;<span class="number">2</span>&#125;;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nums2 = &#123;&#125;;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">findMedianSortedArrays</span>(nums1, nums2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="tip2-每次减少一半的查找范围"><a href="#tip2-每次减少一半的查找范围" class="headerlink" title="tip2: 每次减少一半的查找范围"></a>tip2: 每次减少一半的查找范围</h1><blockquote>
+<p>left, right为要找的元素的位序，这里的技巧使得奇数与偶数情况统一</p>
+<p>设要找的元素位序为k，每次排除k&#x2F;2的元素，接着寻找</p>
+<ul>
+<li>其中一个数组的元素都被排除，则在另一个数组查找对应位序的元素</li>
+<li>要查找的位序为1的元素，比较两个数组的开头</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//取得两个数组中从对应起点到终点第k大的数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getKth</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums1, <span class="type">int</span> start1, <span class="type">int</span> end1, vector&lt;<span class="type">int</span>&gt; &amp;nums2,</span></span></span><br><span class="line"><span class="params"><span class="function">           <span class="type">int</span> start2, <span class="type">int</span> end2, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> len1 = end1 - start1 + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> len2 = end2 - start2 + <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//某一数组查找完不符合条件时，只需在另一个数组中查找</span></span><br><span class="line">    <span class="keyword">if</span> (start1 &gt; end1)</span><br><span class="line">        <span class="keyword">return</span> nums2[start2 + k - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (start2 &gt; end2)</span><br><span class="line">        <span class="keyword">return</span> nums1[start1 + k - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">min</span>(nums1[start1], nums2[start2]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> i = start1 + <span class="built_in">min</span>(len1, k / <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> j = start2 + <span class="built_in">min</span>(len2, k / <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getKth</span>(nums1, start1, end1, nums2, j + <span class="number">1</span>, end2,</span><br><span class="line">                      k - (j - start2 + <span class="number">1</span>));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">getKth</span>(nums1, i + <span class="number">1</span>, end1, nums2, start2, end2,</span><br><span class="line">                      k - (i - start1 + <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums1, vector&lt;<span class="type">int</span>&gt; &amp;nums2)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = nums1.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> m = nums2.<span class="built_in">size</span>();</span><br><span class="line">    <span class="comment">//取得第left,right大的数</span></span><br><span class="line">    <span class="type">int</span> left = (n + m + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> right = (n + m + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">getKth</span>(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, left) +</span><br><span class="line">            <span class="built_in">getKth</span>(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, right)) *</span><br><span class="line">           <span class="number">0.5</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; num1 = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; num2 = &#123;<span class="number">3</span>, <span class="number">4</span>&#125;;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">findMedianSortedArrays</span>(num1, num2) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E5%88%B7%E9%A2%98/bug/" class="post-title-link" itemprop="url">Bug</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-02-02 13:11:40" itemprop="dateModified" datetime="2023-02-02T13:11:40+08:00">2023-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="数组越界访问（内存非法访问）"><a href="#数组越界访问（内存非法访问）" class="headerlink" title="数组越界访问（内存非法访问）"></a>数组越界访问（内存非法访问）</h2><ul>
+<li><p><strong>AddressSanitizer: heap-buffer-overflow on address 0x6020000000bc at pc 0x00000034b263 bp 0x7ffd8d423d50 sp 0x7ffd8d423d48</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ratings = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>&#125;;</span><br><span class="line">    <span class="type">int</span> size = ratings.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(size, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">if</span> (size &lt; <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; size - <span class="number">1</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (ratings[i + <span class="number">1</span>] &gt; ratings[i])</span><br><span class="line">            ans[i + <span class="number">1</span>] = ans[i] + <span class="number">1</span>;</span><br><span class="line">    cout &lt;&lt; ratings[size] &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//i=size-1</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = size; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">        <span class="keyword">if</span> (ratings[i - <span class="number">1</span>] &gt; ratings[i] &amp;&amp; ans[i - <span class="number">1</span>] &lt;= ans[i])</span><br><span class="line">            ans[i - <span class="number">1</span>] = ans[i] + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> sum = <span class="built_in">accumulate</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">    <span class="comment">// return sum;</span></span><br><span class="line">    cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="invalid-operands-to-binary-expression"><a href="#invalid-operands-to-binary-expression" class="headerlink" title="invalid operands to binary expression"></a>invalid operands to binary expression</h1><blockquote>
+<p><a href="https://so.csdn.net/so/search?q=%E4%BA%8C%E8%BF%9B%E5%88%B6&spm=1001.2101.3001.7020">二进制</a>表达式的操作数无效<br>顾名思义 错误出在操作符上 对类型的操作问题</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="post-title-link" itemprop="url">计算机系统概述-组成、计算机性能</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2021-07-17 19:33:32" itemprop="dateModified" datetime="2021-07-17T19:33:32+08:00">2021-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="计算机组成"><a href="#计算机组成" class="headerlink" title="计算机组成"></a>计算机组成</h1><p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90.png" alt="计算机系统组成"></p>
+<h1 id="计算机性能"><a href="#计算机性能" class="headerlink" title="计算机性能"></a>计算机性能</h1><ul>
+<li>吞吐率（bandwidth）：单位时间内所完成的工作量</li>
+<li>响应时间</li>
+</ul>
+<p>CPU时间：</p>
+<ul>
+<li><p>时钟周期：（时间宽度）</p>
+</li>
+<li><p>时钟频率（主频）：CPU时钟周期的倒数，单位时间内时钟数</p>
+</li>
+<li><p>CPI（cycles per instruction）：执行一条指令所需的时钟周期数<br>$$<br>CPU执行时间&#x3D;\frac{总时钟周期数}{时钟频率}&#x3D;总时钟周期数\times时钟周期\<br>CPI&#x3D;\frac{总时钟周期数}{指令条数}<br>$$</p>
+</li>
+</ul>
+<p>性能评估（指令执行速度）：</p>
+<p>MIPS（Millon Instructions Per Second）：$10^6$(每秒钟执行多少百万条指令)</p>
+<ul>
+<li><p>CPU周期</p>
+</li>
+<li><p>指令周期</p>
+</li>
+<li><p>机器周期</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E6%A0%88%E3%80%81%E5%8D%95%E8%B0%83%E6%A0%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%A0%88%E3%80%81%E5%8D%95%E8%B0%83%E6%A0%88/" class="post-title-link" itemprop="url">栈</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-15 12:41:00" itemprop="dateModified" datetime="2023-07-15T12:41:00+08:00">2023-07-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h3><h4 id="1-栈实现表达式求值"><a href="#1-栈实现表达式求值" class="headerlink" title="1. 栈实现表达式求值"></a>1. 栈实现表达式求值</h4><blockquote>
+<p>如果当前运算符优先级小于等于op栈顶的运算符，则弹出两个操作数和操作符进行运算</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">//获取运算符优先级</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get_priority</span><span class="params">(<span class="type">char</span> op)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (op) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;(&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//取两个操作数，一个运算符，进行运算</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">operation</span><span class="params">(stack&lt;<span class="type">int</span>&gt; &amp;operand, stack&lt;<span class="type">char</span>&gt; &amp;op)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> operand2 = operand.<span class="built_in">top</span>();</span><br><span class="line">    operand.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="type">int</span> operand1 = operand.<span class="built_in">top</span>();</span><br><span class="line">    operand.<span class="built_in">pop</span>();</span><br><span class="line">    <span class="type">char</span> t = op.<span class="built_in">top</span>();</span><br><span class="line">    op.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; operand1 &lt;&lt; t &lt;&lt; operand2 &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">switch</span> (t) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">        operand.<span class="built_in">push</span>(operand1 + operand2);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">        operand.<span class="built_in">push</span>(operand1 - operand2);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">        operand.<span class="built_in">push</span>(operand1 * operand2);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>:</span><br><span class="line">        operand.<span class="built_in">push</span>(operand1 / operand2);</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string line;</span><br><span class="line">    stack&lt;<span class="type">int</span>&gt; operand; <span class="comment">//操作数</span></span><br><span class="line">    stack&lt;<span class="type">char</span>&gt; op;     <span class="comment">//操作符</span></span><br><span class="line">    <span class="type">int</span> result;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">getline</span>(cin, line)) &#123;</span><br><span class="line">        cout &lt;&lt; line &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; line.<span class="built_in">size</span>(); ++i) &#123;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; line[i] &lt;&lt; endl;</span></span><br><span class="line">            <span class="keyword">if</span> (line[i] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; line[i] &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">                <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (line[i] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; line[i] &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">                    num = num * <span class="number">10</span> + line[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                --i;</span><br><span class="line">                operand.<span class="built_in">push</span>(num);</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;push num:&quot;</span> &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// cout &lt;&lt; line[i] &lt;&lt; endl;</span></span><br><span class="line">            <span class="keyword">if</span> (line[i] == <span class="string">&#x27;)&#x27;</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span> (op.<span class="built_in">top</span>() != <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">                    <span class="built_in">operation</span>(operand, op);</span><br><span class="line">                &#125;</span><br><span class="line">                op.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!op.<span class="built_in">empty</span>() &amp;&amp;</span><br><span class="line">                <span class="built_in">get_priority</span>(line[i]) &lt;= <span class="built_in">get_priority</span>(op.<span class="built_in">top</span>())) &#123;</span><br><span class="line">                <span class="built_in">operation</span>(operand, op);</span><br><span class="line">            &#125;</span><br><span class="line">            op.<span class="built_in">push</span>(line[i]);</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;push op:&quot;</span> &lt;&lt; line[i] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!op.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="built_in">operation</span>(operand, op);</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; op.<span class="built_in">empty</span>() &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; operand.<span class="built_in">top</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-递归下降"><a href="#2-递归下降" class="headerlink" title="2. 递归下降"></a>2. 递归下降</h4><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305151152281.png" alt="abc"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">enum</span> &#123; Num &#125;;</span><br><span class="line"><span class="type">char</span> *src = <span class="literal">NULL</span>;</span><br><span class="line"><span class="type">int</span> token;</span><br><span class="line"><span class="type">int</span> token_val;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">expr</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">match</span><span class="params">(<span class="type">int</span> tk)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">next</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">factor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> value = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (token == <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">match</span>(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line">        value = <span class="built_in">expr</span>();</span><br><span class="line">        <span class="built_in">match</span>(<span class="string">&#x27;)&#x27;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        value = token_val;</span><br><span class="line">        () <span class="built_in">printf</span>(<span class="string">&quot;factor value;%d\n&quot;</span>, value);</span><br><span class="line">        <span class="built_in">match</span>(Num);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">term_tail</span><span class="params">(<span class="type">int</span> lvalue)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (token == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">match</span>(<span class="string">&#x27;*&#x27;</span>);</span><br><span class="line">        <span class="type">int</span> value = lvalue * <span class="built_in">factor</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">term_tail</span>(value);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">match</span>(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">        <span class="type">int</span> value = lvalue / <span class="built_in">factor</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">term_tail</span>(value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> lvalue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">term</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lvalue = <span class="built_in">factor</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">term_tail</span>(lvalue);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">expr_tail</span><span class="params">(<span class="type">int</span> lvalue)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (token == <span class="string">&#x27;+&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">match</span>(<span class="string">&#x27;+&#x27;</span>);</span><br><span class="line">        <span class="type">int</span> value = lvalue + <span class="built_in">term</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">expr_tail</span>(value);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (token == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">        <span class="built_in">match</span>(<span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">        <span class="type">int</span> value = lvalue - <span class="built_in">term</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">expr_tail</span>(value);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> lvalue;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">expr</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lvalue = <span class="built_in">term</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">expr_tail</span>(lvalue);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">match</span><span class="params">(<span class="type">int</span> tk)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (token != tk) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;excepted token: %d(%c), got %d(%c)\n&quot;</span>, tk, tk, token, token);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">next</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (*src == <span class="string">&#x27; &#x27;</span> || *src == <span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        src++;</span><br><span class="line">    <span class="comment">//读取token，如果是数字，则将其完整读入</span></span><br><span class="line">    token = *src++;</span><br><span class="line">    <span class="keyword">if</span> (token &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; token &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">        token_val = token - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        token = Num;</span><br><span class="line">        <span class="keyword">while</span> (*src &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; *src &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">            token_val = token_val * <span class="number">10</span> + *src - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            src++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;token:%d(%c) token_val:%d\n&quot;</span>, token, token, token_val);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> line[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">gets</span>(line)) &#123;</span><br><span class="line">        <span class="comment">// printf(&quot;%s&quot;, line);</span></span><br><span class="line">        src = line;</span><br><span class="line">        <span class="built_in">next</span>();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">expr</span>());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><p><strong>及时移除无用数据，保证栈&#x2F;队列的有序性</strong>。</p>
+<h4 id="2454-下一个更大元素-IV"><a href="#2454-下一个更大元素-IV" class="headerlink" title="2454. 下一个更大元素 IV"></a><a href="https://leetcode.cn/problems/next-greater-element-iv/">2454. 下一个更大元素 IV</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">secondGreaterElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// using pii=pair&lt;int,int&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n,<span class="number">-1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; stk;</span><br><span class="line"></span><br><span class="line">        priority_queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;,vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;,greater&lt;&gt;&gt; pq;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> num=nums[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(!pq.<span class="built_in">empty</span>()&amp;&amp;pq.<span class="built_in">top</span>().first&lt;num)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">auto</span> [_,t]=pq.<span class="built_in">top</span>();</span><br><span class="line"></span><br><span class="line">                pq.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">                ans[t]=num;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span>(!stk.<span class="built_in">empty</span>()&amp;&amp;nums[stk.<span class="built_in">top</span>()]&lt;num)&#123;</span><br><span class="line"></span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;nums[stk.<span class="built_in">top</span>()],stk.<span class="built_in">top</span>()&#125;);</span><br><span class="line"></span><br><span class="line">                stk.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            stk.<span class="built_in">push</span>(i);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Lab 6Lab 6: Getting Started on Project 2 | CS 61B Spring 2021 (datastructur.es)Make Installation Instructions | CS 61B Spring 2021 (datastructur.es)persist：在计算机科学中，持久性是指系统的状态特征，它比创建它的过程更长久（持久）。这在实践中是通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的个人博客">
+<meta property="og:url" content="https://destiny0118.github.io/2023/05/31/CS61B/Lab/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="Lab 6Lab 6: Getting Started on Project 2 | CS 61B Spring 2021 (datastructur.es)Make Installation Instructions | CS 61B Spring 2021 (datastructur.es)persist：在计算机科学中，持久性是指系统的状态特征，它比创建它的过程更长久（持久）。这在实践中是通">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306070003640.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306011735491.png">
+<meta property="article:published_time" content="2023-05-30T16:08:46.380Z">
+<meta property="article:modified_time" content="2023-06-09T09:44:03.626Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306070003640.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/05/31/CS61B/Lab/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/05/31/CS61B/Lab/","path":"2023/05/31/CS61B/Lab/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>project</a></li><li class="menu-item menu-item-lab"><a href="/categories/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>Lab</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lab-6"><span class="nav-number">1.</span> <span class="nav-text">Lab 6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">文件和目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Files"><span class="nav-number">1.1.1.</span> <span class="nav-text">Files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Directories"><span class="nav-number">1.1.2.</span> <span class="nav-text">Directories</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Serializable"><span class="nav-number">1.2.</span> <span class="nav-text">Serializable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lab7-TreeMap"><span class="nav-number">2.</span> <span class="nav-text">Lab7 TreeMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#InsertRandomSpeedTest"><span class="nav-number">2.0.1.</span> <span class="nav-text">InsertRandomSpeedTest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InsertInOrderSpeedTest"><span class="nav-number">2.0.2.</span> <span class="nav-text">InsertInOrderSpeedTest</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lab8-HashMap"><span class="nav-number">3.</span> <span class="nav-text">Lab8 HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">整体结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">主要数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E6%96%B9%E6%B3%95"><span class="nav-number">3.3.</span> <span class="nav-text">函数方法</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/31/CS61B/Lab/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          <a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/CS61B/Lab.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-31 00:08:46" itemprop="dateCreated datePublished" datetime="2023-05-31T00:08:46+08:00">2023-05-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-09 17:44:03" itemprop="dateModified" datetime="2023-06-09T17:44:03+08:00">2023-06-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Lab-6"><a href="#Lab-6" class="headerlink" title="Lab 6"></a>Lab 6</h1><p><a href="https://sp21.datastructur.es/materials/lab/lab6/lab6">Lab 6: Getting Started on Project 2 | CS 61B Spring 2021 (datastructur.es)</a><br><a href="https://sp21.datastructur.es/materials/guides/make-install.html">Make Installation Instructions | CS 61B Spring 2021 (datastructur.es)</a><br>persist：在计算机科学中，持久性是指系统的状态特征，它比创建它的过程更长久（持久）。这在实践中是通过将状态作为数据存储在计算机数据存储中来实现的。</p>
+<blockquote>
+<p>make<br>make clean<br>make check</p>
+</blockquote>
+<h2 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h2><p>CWD(current working directory)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// file C:/Users/Michelle/example/Example.java</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Example</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">     System.out.println(System.getProperty(<span class="string">&quot;user.dir&quot;</span>));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">C:\Users\Michelle\example </span><br></pre></td></tr></table></figure>
+<h3 id="Files"><a href="#Files" class="headerlink" title="Files"></a>Files</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">f</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;dummy.txt&quot;</span>);</span><br><span class="line">f.createNewFile();</span><br><span class="line">f.exists()</span><br></pre></td></tr></table></figure>
+<p>写文件</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Utils.writeContents(f, <span class="string">&quot;Hello World&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="Directories"><a href="#Directories" class="headerlink" title="Directories"></a>Directories</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">d</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;dummy&quot;</span>);</span><br><span class="line"><span class="comment">//Creates the directory named by this abstract pathname.</span></span><br><span class="line">d.mkdir();</span><br><span class="line"><span class="comment">//Creates the directory named by this abstract pathname, including any necessary but nonexistent parent directories.</span></span><br><span class="line">d.mkdirs();</span><br></pre></td></tr></table></figure>
+<h2 id="Serializable"><a href="#Serializable" class="headerlink" title="Serializable"></a>Serializable</h2><p>Serialization is the process of translating an object to a series of bytes that can then be stored in the file.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Model</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">Model</span> <span class="variable">m</span> <span class="operator">=</span> ....;</span><br><span class="line"><span class="type">File</span> <span class="variable">outFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(saveFileName);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">ObjectOutputStream</span> <span class="variable">out</span> <span class="operator">=</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(outFile));</span><br><span class="line">    out.writeObject(m);</span><br><span class="line">    out.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException excp) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Model m;</span><br><span class="line"><span class="type">File</span> <span class="variable">inFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(saveFileName);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="type">ObjectInputStream</span> <span class="variable">inp</span> <span class="operator">=</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(inFile));</span><br><span class="line">    m = (Model) inp.readObject();</span><br><span class="line">    inp.close();</span><br><span class="line">&#125; <span class="keyword">catch</span> (IOException | ClassNotFoundException excp) &#123;</span><br><span class="line">    ...</span><br><span class="line">    m = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>利用Utils</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Model m;</span><br><span class="line"><span class="type">File</span> <span class="variable">outFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(saveFileName);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Serializing the Model object</span></span><br><span class="line">writeObject(outFile, m);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Model m;</span><br><span class="line"><span class="type">File</span> <span class="variable">inFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(saveFileName);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Deserializing the Model object</span></span><br><span class="line">m = readObject(inFile, Model.class);</span><br></pre></td></tr></table></figure>
+<h1 id="Lab7-TreeMap"><a href="#Lab7-TreeMap" class="headerlink" title="Lab7 TreeMap"></a>Lab7 TreeMap</h1><p><a href="https://sp21.datastructur.es/materials/lab/lab7/lab7">Lab 7: BSTMap | CS 61B Spring 2021 (datastructur.es)</a><br><a href="https://algs4.cs.princeton.edu/32bst/BST.java.html">BST.java (princeton.edu)</a><br>generic keys <code>K</code>继承Comparable，即K是可以比较大小的<br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306070003640.png" alt="BSTMap.png"></p>
+<h3 id="InsertRandomSpeedTest"><a href="#InsertRandomSpeedTest" class="headerlink" title="InsertRandomSpeedTest"></a>InsertRandomSpeedTest</h3><p>随机插入时，BSTMap接近于平衡二叉树</p>
+<table>
+<thead>
+<tr>
+<th>(len,insert),time&#x2F;sec</th>
+<th>ULLMap</th>
+<th>BSTMap</th>
+<th>TreeMap(Java’s Built-in)</th>
+<th>HashMap(Java’s Built-in)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10,1000</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>10,10000</td>
+<td>0.15</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>10,100000</td>
+<td>-(Stack Overflow)</td>
+<td>0.05</td>
+<td>0.05</td>
+<td>0.03</td>
+</tr>
+<tr>
+<td>100,1000</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>100,10000</td>
+<td>0.32</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>100,100000</td>
+<td>-</td>
+<td>0.09</td>
+<td>0.10</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>1000,1000</td>
+<td>0.02</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>1000,10000</td>
+<td>0.36</td>
+<td>0.04</td>
+<td>0.05</td>
+<td>0.05</td>
+</tr>
+<tr>
+<td>1000,100000</td>
+<td>-</td>
+<td>0.52</td>
+<td>0.49</td>
+<td>0.52</td>
+</tr>
+</tbody></table>
+<h3 id="InsertInOrderSpeedTest"><a href="#InsertInOrderSpeedTest" class="headerlink" title="InsertInOrderSpeedTest"></a>InsertInOrderSpeedTest</h3><p>有序插入时，因为没有进行二叉树调整，是一条链，无法利用有序二叉树性质</p>
+<table>
+<thead>
+<tr>
+<th>(insert),time&#x2F;sec</th>
+<th>ULLMap</th>
+<th>BSTMap</th>
+<th>TreeMap(Java’s Built-in)</th>
+<th>HashMap(Java’s Built-in)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1000</td>
+<td>0.01</td>
+<td>0.01</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>0.22</td>
+<td>0.30</td>
+<td>0.01</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>100000</td>
+<td>-</td>
+<td>-</td>
+<td>0.06</td>
+<td>0.02</td>
+</tr>
+<tr>
+<td>30000</td>
+<td>2.05</td>
+<td>-</td>
+<td>0.01</td>
+<td>0.01</td>
+</tr>
+<tr>
+<td>20000</td>
+<td>0.92</td>
+<td>-</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>15000</td>
+<td>0.43</td>
+<td>0.65</td>
+<td>0.00</td>
+<td>0.00</td>
+</tr>
+</tbody></table>
+<h1 id="Lab8-HashMap"><a href="#Lab8-HashMap" class="headerlink" title="Lab8 HashMap"></a>Lab8 HashMap</h1><p><a href="https://sp21.datastructur.es/materials/lab/lab8/lab8#lab-debrief-and-submission">Lab 8: HashMap | CS 61B Spring 2021 (datastructur.es)</a><br><a href="https://algs4.cs.princeton.edu/34hash/">Hash Tables (princeton.edu)</a></p>
+<h2 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h2><ul>
+<li><code>Map61B</code>：interface，定义要实现的方法</li>
+<li><code>MyHashMap</code>：实现Map61B接口</li>
+</ul>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Map61B</span>.</span></span>java</span><br><span class="line">└── <span class="module-access"><span class="module"><span class="identifier">MyHashMap</span>.</span></span>java</span><br><span class="line">    ├── <span class="module-access"><span class="module"><span class="identifier">MyHashMapALBuckets</span>.</span></span>java</span><br><span class="line">    ├── <span class="module-access"><span class="module"><span class="identifier">MyHashMapHSBuckets</span>.</span></span>java</span><br><span class="line">    ├── <span class="module-access"><span class="module"><span class="identifier">MyHashMapLLBuckets</span>.</span></span>java</span><br><span class="line">    ├── <span class="module-access"><span class="module"><span class="identifier">MyHashMapPQBuckets</span>.</span></span>java</span><br><span class="line">    └── <span class="module-access"><span class="module"><span class="identifier">MyHashMapTSBuckets</span>.</span></span>java</span><br></pre></td></tr></table></figure>
+
+<p>可以使用不同的数据结构作为<code>hash table buckets</code>，通过计算<code>key</code>的哈希值，将键值对存入对应的<code>bucket</code>。</p>
+<p>Factory Method（工厂方法）属于创建型模式，利用工厂方法创建对象实例而不是直接用 New 关键字实例化，Factory Method 模式用于隔离类对象的使用者和具体类型之间的耦合关系。通过<code>MyHashMap</code>实例对象调用不同的bucket实现，体现多态性(polymorphism)。</p>
+<h2 id="主要数据结构"><a href="#主要数据结构" class="headerlink" title="主要数据结构"></a>主要数据结构</h2><ul>
+<li><code>private Collection&lt;Node&gt;[] buckets</code>：buckets有size个Collection，buckets是<code>Collection&lt;Node&gt;</code>对象的数组，每一个Collection是一个bucket，其中存储Node类型。Collection接口定义方法add、remove、iterate。</li>
+<li><code>private Set&lt;K&gt; hashSet</code>：存储key</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//## Cannot Create Arrays of Parameterized Types</span></span><br><span class="line"><span class="comment">//不同创建参数化类型的数组，用Node参数化Collection</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Collection</span>&lt;Node&gt;[size]    <span class="comment">//error</span></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Collection</span>[size]</span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">returns a data structure that implements `Collection` </span></span><br><span class="line"><span class="comment">通过在MyHashMap*Buckets.java中重写createBucket方法，实现使用不同的数据结构作为bucket</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">protected</span> Collection&lt;Node&gt; <span class="title function_">createBucket</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化每一个Collection为createBucket返回的数据结构</span></span><br><span class="line">buckets = <span class="keyword">new</span> <span class="title class_">Collection</span>[initialSize];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; initialSize; i++) &#123;</span><br><span class="line">     buckets[i] = createBucket();</span><br></pre></td></tr></table></figure>
+
+<h2 id="函数方法"><a href="#函数方法" class="headerlink" title="函数方法"></a>函数方法</h2><ul>
+<li>createTable：创建tableSize个bucket，通过调用createBucket返回每一个bucket的数据结构对象</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306011735491.png" alt="MyHashMap"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/05/23/%E8%AF%AD%E6%B3%95/Sequential%20Containers/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/06/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

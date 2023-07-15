@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. 两数之和暴力法class Solution &amp;#123;public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &amp;#123;        int sz&#x3D;nums.size();        vector&lt;int&gt; res;        for(int i&#x3D;0;i&lt;sz-1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自刷">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="1. 两数之和暴力法class Solution &amp;#123;public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &amp;#123;        int sz&#x3D;nums.size();        vector&lt;int&gt; res;        for(int i&#x3D;0;i&lt;sz-1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/09/5psMPtJ7cuBjzC1.png">
+<meta property="article:published_time" content="2023-02-28T12:24:17.592Z">
+<meta property="article:modified_time" content="2022-06-04T05:32:40.486Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="Leetcode">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/09/5psMPtJ7cuBjzC1.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7/","path":"2023/02/28/刷题/自刷/","title":"自刷"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>自刷 | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>project</a></li><li class="menu-item menu-item-lab"><a href="/categories/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>Lab</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-number">1.</span> <span class="nav-text">1. 两数之和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">暴力法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hashmap-%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">hashmap(散列函数)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E9%81%8D%E5%93%88%E5%B8%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">两遍哈希</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%81%8D%E5%93%88%E5%B8%8C"><span class="nav-number">1.2.2.</span> <span class="nav-text">一遍哈希</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%8D%E6%AD%A2%E4%B8%80%E4%B8%AA"><span class="nav-number">1.3.</span> <span class="nav-text">返回值不止一个</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC"><span class="nav-number">2.</span> <span class="nav-text">7. 整数反转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E6%8F%90%E5%8D%87"><span class="nav-number">2.1.</span> <span class="nav-text">类型提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%88%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%AD%98%E7%9A%84%E4%B8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">先判断是否存的下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">9. 回文数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E7%85%A7%E7%AC%AC7%E9%A2%98%EF%BC%8C%E5%85%88%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC%EF%BC%8C%E7%BB%93%E6%9E%9C%E6%98%AF%E5%90%A6%E4%B8%8E%E5%8E%9F%E6%95%B0%E7%9B%B8%E7%AD%89"><span class="nav-number">3.1.</span> <span class="nav-text">参照第7题，先整数反转，结果是否与原数相等</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E8%BD%AC%E4%B8%80%E5%8D%8A"><span class="nav-number">3.2.</span> <span class="nav-text">反转一半</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">13. 罗马数字转整数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80"><span class="nav-number">4.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E5%93%88%E5%B8%8C"><span class="nav-number">4.2.</span> <span class="nav-text">方法二 哈希</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89-%E6%95%B0%E7%BB%84"><span class="nav-number">4.3.</span> <span class="nav-text">方法三 数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80"><span class="nav-number">5.</span> <span class="nav-text">14. 最长公共前缀</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-1"><span class="nav-number">5.1.</span> <span class="nav-text">方法一</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E4%BC%98%E5%8C%96"><span class="nav-number">5.1.1.</span> <span class="nav-text">方法一优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.2.</span> <span class="nav-text">比较两个字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%A4%E4%B8%AA%E7%9B%B8%E6%AF%94%E4%BA%A7%E7%94%9F%E4%B8%80%E4%B8%AA%E7%BB%93%E6%9E%9C"><span class="nav-number">5.3.</span> <span class="nav-text">每两个相比产生一个结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%B2%BB"><span class="nav-number">5.4.</span> <span class="nav-text">分治</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">5.5.</span> <span class="nav-text">二分查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="nav-number">6.</span> <span class="nav-text">21.合并两个有序链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-2"><span class="nav-number">6.1.</span> <span class="nav-text">方法一</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9"><span class="nav-number">7.</span> <span class="nav-text">26. 删除排序数组中的重复项</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-3"><span class="nav-number">7.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%E6%94%B9%E8%BF%9B"><span class="nav-number">7.2.</span> <span class="nav-text">方法一改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E5%8F%8C%E6%8C%87%E9%92%88%E6%B3%95"><span class="nav-number">7.3.</span> <span class="nav-text">方法二 双指针法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#69-x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="nav-number">8.</span> <span class="nav-text">69. x的平方根</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-4"><span class="nav-number">8.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">8.2.</span> <span class="nav-text">方法二 二分查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#70-%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">9.</span> <span class="nav-text">70. 爬楼梯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-%E4%BB%8E%E5%90%8E%E5%90%91%E5%89%8D%EF%BC%88%E8%B6%85%E6%97%B6%EF%BC%89"><span class="nav-number">9.1.</span> <span class="nav-text">方法一 从后向前（超时）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E4%BB%8E%E5%89%8D%E5%90%91%E5%90%8E"><span class="nav-number">9.2.</span> <span class="nav-text">方法二 从前向后</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#172-%E9%98%B6%E4%B9%98%E5%90%8E%E7%9A%84%E9%9B%B6"><span class="nav-number">10.</span> <span class="nav-text">172. 阶乘后的零</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="自刷 | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          自刷<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/%E5%88%B7%E9%A2%98/%E8%87%AA%E5%88%B7.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-04 13:32:40" itemprop="dateModified" datetime="2022-06-04T13:32:40+08:00">2022-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h1><h2 id="暴力法"><a href="#暴力法" class="headerlink" title="暴力法"></a>暴力法</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; <span class="title function_">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> sz=nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;sz;j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j]==target)</span><br><span class="line">               &#123;</span><br><span class="line">                   res.push_back(i);</span><br><span class="line">                   res.push_back(j);</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="hashmap-散列函数"><a href="#hashmap-散列函数" class="headerlink" title="hashmap(散列函数)"></a>hashmap(散列函数)</h2><p>散列函数：</p>
+<ul>
+<li><p>将同样的输入映射到相同的索引</p>
+</li>
+<li><p>将不同的输入映射到不同的索引</p>
+</li>
+</ul>
+<h3 id="两遍哈希"><a href="#两遍哈希" class="headerlink" title="两遍哈希"></a>两遍哈希</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; <span class="title function_">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        <span class="type">int</span> size=nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            hash[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hash.find(target-nums[i])!=hash.end()&amp;&amp;hash[target-nums[i]]!=i)</span><br><span class="line">            <span class="keyword">return</span> &#123;i,hash[target-nums[i]]&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;<span class="comment">//不太明白为什么要加上这句</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="一遍哈希"><a href="#一遍哈希" class="headerlink" title="一遍哈希"></a>一遍哈希</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; <span class="title function_">twoSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="type">int</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        <span class="type">int</span> size=nums.size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hash.find(target-nums[i])!=hash.end())</span><br><span class="line">            <span class="keyword">return</span> &#123;hash[target-nums[i]],i&#125;;</span><br><span class="line">            hash[nums[i]]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="返回值不止一个"><a href="#返回值不止一个" class="headerlink" title="返回值不止一个"></a>返回值不止一个</h2><h1 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a>7. 整数反转</h1><h2 id="类型提升"><a href="#类型提升" class="headerlink" title="类型提升"></a>类型提升</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">long</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (x != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">       result=result*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">        x = x / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result&gt;INT_MAX||result&lt;INT_MIN)</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="先判断是否存的下"><a href="#先判断是否存的下" class="headerlink" title="先判断是否存的下"></a>先判断是否存的下</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">reverse</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> temp=x%<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>((temp&gt;<span class="number">0</span>&amp;&amp;result&gt;(INT_MAX-temp)/<span class="number">10</span>)||(temp&lt;<span class="number">0</span>&amp;&amp;result&lt;(INT_MIN-temp)/<span class="number">10</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            result=result*<span class="number">10</span>+temp;</span><br><span class="line">            x=x/<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a>9. 回文数</h1><h2 id="参照第7题，先整数反转，结果是否与原数相等"><a href="#参照第7题，先整数反转，结果是否与原数相等" class="headerlink" title="参照第7题，先整数反转，结果是否与原数相等"></a>参照第7题，先整数反转，结果是否与原数相等</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="type">long</span> result=<span class="number">0</span>;</span><br><span class="line">    <span class="type">long</span> temp=x;</span><br><span class="line">    <span class="keyword">while</span> (x)</span><br><span class="line">    &#123;</span><br><span class="line">       result=result*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">       x=x/<span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(result==temp)</span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="反转一半"><a href="#反转一半" class="headerlink" title="反转一半"></a>反转一半</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;     </span><br><span class="line">            <span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x%<span class="number">10</span>==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> val=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(;val*<span class="number">10</span>&lt;=x;x=x/<span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                val=val*<span class="number">10</span>+x%<span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> (val==x||val/<span class="number">10</span>==x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">bool</span> <span class="title function_">isPalindrome</span><span class="params">(<span class="type">int</span> x)</span> &#123;     </span><br><span class="line">            <span class="keyword">if</span> (x== <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		<span class="keyword">if</span> (x &lt; <span class="number">0</span> || x % <span class="number">10</span> == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		<span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (; val * <span class="number">10</span> &lt;= x; x /= <span class="number">10</span>) <span class="comment">//这样修改一点效率提高了好多</span></span><br><span class="line">			val = val * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">		<span class="keyword">return</span> (val == x || val / <span class="number">10</span> == x);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a>13. 罗马数字转整数</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>卡在substr(m,n)上，从m位置取n个数，而不是从m到n</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=s.size();</span><br><span class="line">        <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">             <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;IV&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;IX&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">9</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;XL&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">40</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;XC&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">90</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;CD&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">400</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (s.substr(i, <span class="number">2</span>) == <span class="string">&quot;CM&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ++i;</span><br><span class="line">            result += <span class="number">900</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;I&#x27;</span>)</span><br><span class="line">                result+=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;V&#x27;</span>)</span><br><span class="line">                result+=<span class="number">5</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">                result+=<span class="number">10</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">                result+=<span class="number">50</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;C&#x27;</span>)</span><br><span class="line">                result+=<span class="number">100</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]==<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line">                result+=<span class="number">500</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                result+=<span class="number">1000</span>;</span><br><span class="line">       </span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-哈希"><a href="#方法二-哈希" class="headerlink" title="方法二 哈希"></a>方法二 哈希</h2><p>这个巧，没仔细理解题目</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=s.size();</span><br><span class="line">        <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="type">char</span>,<span class="type">int</span>&gt; hash;</span><br><span class="line">        hash=&#123; &#123;<span class="string">&#x27;I&#x27;</span>,<span class="number">1</span>&#125;,&#123;<span class="string">&#x27;V&#x27;</span>,<span class="number">5</span>&#125;,&#123;<span class="string">&#x27;X&#x27;</span>,<span class="number">10</span>&#125;,&#123;<span class="string">&#x27;L&#x27;</span>,<span class="number">50</span>&#125;,&#123;<span class="string">&#x27;C&#x27;</span>,<span class="number">100</span>&#125;,&#123;<span class="string">&#x27;D&#x27;</span>,<span class="number">500</span>&#125;,&#123;<span class="string">&#x27;M&#x27;</span>,<span class="number">1000</span>&#125; &#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(hash[s[i]]&gt;=hash[s[i+<span class="number">1</span>]])</span><br><span class="line">                result+=hash[s[i]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                result-=hash[s[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法三-数组"><a href="#方法三-数组" class="headerlink" title="方法三 数组"></a>方法三 数组</h2><p>方法二未考虑溢出，哈希查找不存在的元素时返回0？</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> &#123;</span><br><span class="line">        <span class="type">int</span> chars[<span class="number">89</span>], ans = <span class="number">0</span>;;</span><br><span class="line">        chars[<span class="string">&#x27;I&#x27;</span>] = <span class="number">1</span>; chars[<span class="string">&#x27;V&#x27;</span>] = <span class="number">5</span>; chars[<span class="string">&#x27;X&#x27;</span>] = <span class="number">10</span>; chars[<span class="string">&#x27;L&#x27;</span>] = <span class="number">50</span>;</span><br><span class="line">        chars[<span class="string">&#x27;C&#x27;</span>] = <span class="number">100</span>; chars[<span class="string">&#x27;D&#x27;</span>] = <span class="number">500</span>; chars[<span class="string">&#x27;M&#x27;</span>] = <span class="number">1000</span>;</span><br><span class="line">        s += <span class="string">&#x27;I&#x27;</span>; <span class="comment">//防溢出</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.size()<span class="number">-1</span> ; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (chars[s[i]] &gt;= chars[s[i + <span class="number">1</span>]])</span><br><span class="line">                ans += chars[s[i]];</span><br><span class="line">            <span class="keyword">else</span> ans -= chars[s[i]];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="14. 最长公共前缀"></a>14. 最长公共前缀</h1><h2 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h2><blockquote>
+<p>执行用时 :4 ms, 在所有 C++ 提交中击败了92.77%的用户</p>
+<p>内存消耗 :6.8 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">        <span class="built_in">string</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs[<span class="number">0</span>].size(); ++i)<span class="comment">//执行这一步前要判断是否有元素</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; j &lt; strs.size(); ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (strs[j][i] == strs[<span class="number">0</span>][i])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (j == strs.size())</span><br><span class="line">            result.push_back(strs[<span class="number">0</span>][i]);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法一优化"><a href="#方法一优化" class="headerlink" title="方法一优化"></a>方法一优化</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(strs.size()==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; strs[<span class="number">0</span>].size(); ++i)<span class="comment">//执行这一步前要判断是否有元素</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; j &lt; strs.size(); ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(i==strs[j].length()||strs[<span class="number">0</span>][i]!=strs[j][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="比较两个字符串"><a href="#比较两个字符串" class="headerlink" title="比较两个字符串"></a>比较两个字符串</h2><blockquote>
+<p>首先，假设有两个单词 “abcd”和”abcde”，那么在一本涵盖了所有字母排列的字典中，<br>这两个单词之间的单词也一定有前缀”abcd”（可以看做26进制的数）<br>于是，我们就只需要比较最小字典序的字符串和最大字典序的字符串<br>那么sort一遍数组，然后取strs[0]与strs[n-1],比较求解即可</p>
+<p>执行用时 :4 ms, 在所有 C++ 提交中击败了92.77%的用户</p>
+<p>内存消耗 :7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">        sort(strs.begin(),strs.end());</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=min(strs[<span class="number">0</span>].length(),strs[n<span class="number">-1</span>].length());++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(strs[<span class="number">0</span>][i]!=strs[n<span class="number">-1</span>][i])</span><br><span class="line">                <span class="keyword">return</span> strs[<span class="number">0</span>].substr(<span class="number">0</span>,i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> strs[<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="每两个相比产生一个结果"><a href="#每两个相比产生一个结果" class="headerlink" title="每两个相比产生一个结果"></a>每两个相比产生一个结果</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="built_in">string</span> <span class="title function_">longestCommonPrefix</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; strs)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=strs.size();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="built_in">string</span> result=strs[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=min(result.length(),strs[i].length());++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(result[j]!=strs[i][j])</span><br><span class="line">                result=result.substr(<span class="number">0</span>,j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="分治"><a href="#分治" class="headerlink" title="分治"></a>分治</h2><h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><h1 id="21-合并两个有序链表"><a href="#21-合并两个有序链表" class="headerlink" title="21.合并两个有序链表"></a>21.合并两个有序链表</h1><h2 id="方法一-2"><a href="#方法一-2" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">ListNode *<span class="title function_">mergeTwoLists</span><span class="params">(ListNode *l1, ListNode *l2)</span></span><br><span class="line">&#123;</span><br><span class="line">    ListNode *l3 = new ListNode(<span class="number">1</span>);</span><br><span class="line">    ListNode *pc = l3;</span><br><span class="line">    <span class="comment">//ListNode *l3 ;    debug好久，这种情况pc-&gt;next=pc；单点循环链表</span></span><br><span class="line">    <span class="comment">//ListNode *pc ;</span></span><br><span class="line">    <span class="comment">//l3 = pc = l1;</span></span><br><span class="line">    <span class="comment">// l3 = l1;</span></span><br><span class="line">    <span class="comment">// pc = l3;</span></span><br><span class="line">    <span class="keyword">while</span> (l1 &amp;&amp; l2)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (l1-&gt;val &lt;= l2-&gt;val)</span><br><span class="line">        &#123;</span><br><span class="line">            pc-&gt;next = l1;</span><br><span class="line">            l1 = l1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            pc-&gt;next = l2;</span><br><span class="line">            l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        pc = pc-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    pc-&gt;next = l1 ? l1 : l2;</span><br><span class="line">    <span class="keyword">return</span> l3-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="26-删除排序数组中的重复项"><a href="#26-删除排序数组中的重复项" class="headerlink" title="26. 删除排序数组中的重复项"></a>26. 删除排序数组中的重复项</h1><h2 id="方法一-3"><a href="#方法一-3" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> length=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> prev=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;nums.size();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]==prev)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                prev=nums[i];</span><br><span class="line">                nums[length++]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法一改进"><a href="#方法一改进" class="headerlink" title="方法一改进"></a>方法一改进</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> length=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> prev=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;nums.size();++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]!=prev)     <span class="comment">//不想等时才需要操作，故不需要判断相等的情况</span></span><br><span class="line">            &#123;</span><br><span class="line">                prev=nums[i];</span><br><span class="line">                nums[length++]=nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> length;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-双指针法"><a href="#方法二-双指针法" class="headerlink" title="方法二 双指针法"></a>方法二 双指针法</h2><p><img src="https://i.loli.net/2020/05/09/5psMPtJ7cuBjzC1.png" alt="image-20200509215055674"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">public:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">removeDuplicates</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;&amp; nums)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.size()==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;nums.size();++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[j]!=nums[i])</span><br><span class="line">            &#123;</span><br><span class="line">                ++i;</span><br><span class="line">                nums[i]=nums[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> i+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="69-x的平方根"><a href="#69-x的平方根" class="headerlink" title="69. x的平方根"></a>69. x的平方根</h1><h2 id="方法一-4"><a href="#方法一-4" class="headerlink" title="方法一"></a>方法一</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">long</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i*i&lt;=x)</span><br><span class="line">            ++i;</span><br><span class="line">        <span class="keyword">return</span> --i;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-二分查找"><a href="#方法二-二分查找" class="headerlink" title="方法二 二分查找"></a>方法二 二分查找</h2><p><a href="https://leetcode-cn.com/problems/sqrtx/solution/x-de-ping-fang-gen-by-leetcode-solution/">二分查找</a></p>
+<p>时间复杂度log(x)，每次去掉一半</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> l=<span class="number">0</span>,r=x,ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;=r)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">long</span> mid=(l+r)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid*mid&lt;=x)</span><br><span class="line">            &#123;</span><br><span class="line">                ans=mid;</span><br><span class="line">                l=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                r=mid<span class="number">-1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="70-爬楼梯"><a href="#70-爬楼梯" class="headerlink" title="70. 爬楼梯"></a>70. 爬楼梯</h1><p><a href="https://leetcode-cn.com/problems/climbing-stairs/solution/pa-lou-ti-by-leetcode/">题解</a></p>
+<h2 id="方法一-从后向前（超时）"><a href="#方法一-从后向前（超时）" class="headerlink" title="方法一 从后向前（超时）"></a>方法一 从后向前（超时）</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">climbStairs</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> climbStairs(n<span class="number">-1</span>)+climbStairs(n<span class="number">-2</span>); </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方法二-从前向后"><a href="#方法二-从前向后" class="headerlink" title="方法二 从前向后"></a>方法二 从前向后</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">climbStairs</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">       <span class="keyword">if</span>(n==<span class="number">1</span>)</span><br><span class="line">           <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">       <span class="keyword">if</span>(n==<span class="number">2</span>)</span><br><span class="line">           <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">       <span class="type">int</span> t1=<span class="number">1</span>,t2=<span class="number">2</span>;</span><br><span class="line">       <span class="type">int</span> result=<span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;=n;i++)</span><br><span class="line">       &#123;</span><br><span class="line">           result=t1+t2;</span><br><span class="line">           t1=t2;</span><br><span class="line">           t2=result;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> result;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="172-阶乘后的零"><a href="#172-阶乘后的零" class="headerlink" title="172. 阶乘后的零"></a>172. 阶乘后的零</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">trailingZeroes</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n)</span><br><span class="line">        &#123;</span><br><span class="line">            count+=n/<span class="number">5</span>;</span><br><span class="line">            n=n/<span class="number">5</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://ac.nowcoder.com/acm/contest/276/E">相关</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/leetcode/" rel="tag"># Leetcode</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E5%88%B7%E9%A2%98/UVA/" rel="prev" title="UVA">
+                  <i class="fa fa-chevron-left"></i> UVA
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E5%B7%A5%E5%85%B7/bug/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

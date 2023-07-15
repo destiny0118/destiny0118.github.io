@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Alistlect7  Project1：rules of thumb  Inheritance：继承hypernym-hyponym：上下位关系 superclass-subclass  Interface is a specification of  what a list is able to do, not how to do it  public interface List&amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的个人博客">
+<meta property="og:url" content="https://destiny0118.github.io/2023/03/15/CS61B/CS61B/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="Alistlect7  Project1：rules of thumb  Inheritance：继承hypernym-hyponym：上下位关系 superclass-subclass  Interface is a specification of  what a list is able to do, not how to do it  public interface List&amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303151647138.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303211115940.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303211135485.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303211945309.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303271951433.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303291112247.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306062013767.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071007713.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071002315.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071003643.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071007421.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061525157.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061537666.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061537449.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061539400.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051121196.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051123413.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051141123.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051145865.png">
+<meta property="article:published_time" content="2023-03-15T08:47:28.083Z">
+<meta property="article:modified_time" content="2023-06-07T07:01:28.053Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303151647138.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/03/15/CS61B/CS61B/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/03/15/CS61B/CS61B/","path":"2023/03/15/CS61B/CS61B/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>project</a></li><li class="menu-item menu-item-lab"><a href="/categories/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>Lab</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Alist"><span class="nav-number">1.</span> <span class="nav-text">Alist</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inheritance%EF%BC%9A%E7%BB%A7%E6%89%BF"><span class="nav-number">1.1.</span> <span class="nav-text">Inheritance：继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lect10"><span class="nav-number">1.2.</span> <span class="nav-text">lect10</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Debug"><span class="nav-number">2.</span> <span class="nav-text">Debug</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Disjoint-Set%EF%BC%88%E5%B9%B6%E6%9F%A5%E9%9B%86%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Disjoint Set（并查集）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#QuickFind"><span class="nav-number">3.1.</span> <span class="nav-text">QuickFind</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weighted-Quick-Union"><span class="nav-number">3.2.</span> <span class="nav-text">Weighted Quick Union</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lec11"><span class="nav-number">4.</span> <span class="nav-text">Lec11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iteration"><span class="nav-number">4.1.</span> <span class="nav-text">iteration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-Methods-Equals-and-toString"><span class="nav-number">4.2.</span> <span class="nav-text">Object Methods: Equals and toString()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#x3D-x3D-vs-equals"><span class="nav-number">4.2.1.</span> <span class="nav-text">&#x3D;&#x3D; vs equals</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lec16"><span class="nav-number">5.</span> <span class="nav-text">lec16</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BST-Binary-Search-Tree"><span class="nav-number">5.1.</span> <span class="nav-text">BST(Binary Search Tree)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#search"><span class="nav-number">5.1.1.</span> <span class="nav-text">search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insert"><span class="nav-number">5.1.2.</span> <span class="nav-text">insert</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete"><span class="nav-number">5.1.3.</span> <span class="nav-text">delete</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lec20"><span class="nav-number">6.</span> <span class="nav-text">lec20</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E6%90%9C%E7%B4%A2%EF%BC%9A%E8%AE%A1%E7%AE%97%E5%93%88%E5%B8%8C%E5%80%BC%EF%BC%8C%E5%86%B2%E7%AA%81%E5%A4%84%E7%90%86%EF%BC%88%E6%98%A0%E5%B0%84%E5%88%B0%E5%90%8C%E4%B8%80%E4%BD%8D%E7%BD%AE%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">哈希搜索：计算哈希值，冲突处理（映射到同一位置的数据）</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/03/15/CS61B/CS61B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          <a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/CS61B/CS61B.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-03-15 16:47:28" itemprop="dateCreated datePublished" datetime="2023-03-15T16:47:28+08:00">2023-03-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-07 15:01:28" itemprop="dateModified" datetime="2023-06-07T15:01:28+08:00">2023-06-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Alist"><a href="#Alist" class="headerlink" title="Alist"></a>Alist</h1><p>lect7</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303151647138.png" alt="image-20230315164700065"></p>
+<p>Project1：rules of thumb</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303211115940.png" alt="Snipaste_2023-03-14_11-20-39"></p>
+<h2 id="Inheritance：继承"><a href="#Inheritance：继承" class="headerlink" title="Inheritance：继承"></a>Inheritance：继承</h2><p>hypernym-hyponym：上下位关系</p>
+<p>superclass-subclass</p>
+<blockquote>
+<p>Interface is a specification of  what a list is able to do, not how to do it</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">List</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303211135485.png" alt="image-20230321113540445"></p>
+<p>overriding：参数相同，子类重写了父类的方法</p>
+<p>overload：参数不同，子类重写父类方法，子类有同名函数，不同函数</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303211945309.png" alt="image-20230321194556129"></p>
+<h2 id="lect10"><a href="#lect10" class="headerlink" title="lect10"></a>lect10</h2><p>implements vs. Extends<br>hyperym-hyponym上下位词关系，is-a。上位词是interface，下位词是class时使用implements</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303271951433.png" alt="image-20230327195122373"></p>
+<h1 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h1><p>设置异常断点</p>
+<p>click “Run -&gt; View Breakpoints”</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303291112247.png" alt="folder structure"></p>
+<h1 id="Disjoint-Set（并查集）"><a href="#Disjoint-Set（并查集）" class="headerlink" title="Disjoint Set（并查集）"></a>Disjoint Set（并查集）</h1><h2 id="QuickFind"><a href="#QuickFind" class="headerlink" title="QuickFind"></a>QuickFind</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">parent</span><span class="params">(n,<span class="number">-1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//找到p的根节点</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(parent[p]&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">		p=parent[p];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">	p=<span class="built_in">find</span>(p);</span><br><span class="line">	q=<span class="built_in">find</span>(q);</span><br><span class="line">	parent[p]=q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">isConnected</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">find</span>(p)==<span class="built_in">find</span>(q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Weighted-Quick-Union"><a href="#Weighted-Quick-Union" class="headerlink" title="Weighted Quick Union"></a>Weighted Quick Union</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Lec11"><a href="#Lec11" class="headerlink" title="Lec11"></a>Lec11</h1><h2 id="iteration"><a href="#iteration" class="headerlink" title="iteration"></a>iteration</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306062013767.png" alt="image.png"></p>
+<ul>
+<li>set接口实现iterator()方法</li>
+<li>iterator()有next、hasNext方法<br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071007713.png" alt="image.png"></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071002315.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071003643.png" alt="image.png"><br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306071007421.png" alt="image.png"></p>
+<blockquote>
+<p> 在class 添加iterator()方法，返回Iterator&lt;T&gt;对象<br> Iterator&lt;T&gt;对象实现next和hasNext方法<br> 在定义class的位置添加<code>implements Iterable&lt;T&gt;</code></p>
+</blockquote>
+<h2 id="Object-Methods-Equals-and-toString"><a href="#Object-Methods-Equals-and-toString" class="headerlink" title="Object Methods: Equals and toString()"></a>Object Methods: Equals and toString()</h2><p>System.out.println(Object x) calls x.toString()</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">returnSB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>(<span class="string">&quot;&#123;&quot;</span>); </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; size; i += <span class="number">1</span>) &#123; </span><br><span class="line">        returnSB.append(items[i]); </span><br><span class="line">        returnSB.append(<span class="string">&quot;, &quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    returnSB.append(<span class="string">&quot;&#125;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> returnSB.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更好的toString实现方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;  </span><br><span class="line">List&lt;String&gt; listOfItems = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();  </span><br><span class="line"><span class="keyword">for</span> (T item : <span class="built_in">this</span>) &#123;  </span><br><span class="line">listOfItems.add(item.toString());  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="keyword">return</span> <span class="string">&quot;&#123;&quot;</span> + String.join(<span class="string">&quot;, &quot;</span>, listOfItems) + <span class="string">&quot;&#125;&quot;</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="x3D-x3D-vs-equals"><a href="#x3D-x3D-vs-equals" class="headerlink" title="&#x3D;&#x3D; vs equals"></a>&#x3D;&#x3D; vs equals</h3><p>==比较对象的位(bit)，对于引用，指的是指向同一个对象，equals()默认使用==。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (o == <span class="literal">null</span>) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span> == o) &#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125; <span class="comment">// optimization</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.getClass() != o.getClass()) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125; </span><br><span class="line">  ArraySet&lt;T&gt; other = (ArraySet&lt;T&gt;) o;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">this</span>.size() != other.size()) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125; </span><br><span class="line">    <span class="keyword">for</span> (T item : <span class="built_in">this</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!other.contains(item)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="lec16"><a href="#lec16" class="headerlink" title="lec16"></a>lec16</h1><p>在前面，使用unordered arrays和order list实现set，contain和add操作都需要O(n)时间复杂度</p>
+<h2 id="BST-Binary-Search-Tree"><a href="#BST-Binary-Search-Tree" class="headerlink" title="BST(Binary Search Tree)"></a>BST(Binary Search Tree)</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061525157.png" alt="image.png"></p>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> BST <span class="title function_">find</span><span class="params">(BST T, Key sk)</span> &#123; </span><br><span class="line">   <span class="keyword">if</span> (T == <span class="literal">null</span>)</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">   <span class="keyword">if</span> (sk.equals(T.key)) </span><br><span class="line">      <span class="keyword">return</span> T;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">if</span> (sk ≺ T.key) </span><br><span class="line">      <span class="keyword">return</span> find(T.left, sk); </span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> find(T.right, sk);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">static</span> BST <span class="title function_">insert</span><span class="params">(BST T, Key ik)</span> &#123; </span><br><span class="line">  <span class="keyword">if</span> (T == <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BST</span>(ik);</span><br><span class="line">  <span class="keyword">if</span> (ik ≺ T.key)</span><br><span class="line">    T.left = insert(T.left, ik); </span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (ik ≻ T.key)</span><br><span class="line">    T.right = insert(T.right, ik); </span><br><span class="line">  <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h3><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061537666.png" alt="image.png"><br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061537449.png" alt="image.png"><br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061539400.png" alt="image.png"></p>
+<p>可以用BST实现set和map，对于set，每个节点只需要存储key；对于map，每个节点存储<code>&lt;key,value&gt;</code>对。</p>
+<h1 id="lec20"><a href="#lec20" class="headerlink" title="lec20"></a>lec20</h1><h2 id="哈希搜索：计算哈希值，冲突处理（映射到同一位置的数据）"><a href="#哈希搜索：计算哈希值，冲突处理（映射到同一位置的数据）" class="headerlink" title="哈希搜索：计算哈希值，冲突处理（映射到同一位置的数据）"></a>哈希搜索：计算哈希值，冲突处理（映射到同一位置的数据）</h2><p>计算key的哈希值(hash code)作为数据存放的地址，因为地址表示的范围有限，可能导致不同的key的哈希值一样，产生冲突。计算哈希值，碰撞(collision)处理<br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051121196.png" alt="image.png"><br>通过哈希函数得到哈希值，在取余到buckets的大小<br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051123413.png" alt="image.png"><br>哈希值base选择<br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051141123.png" alt="image.png"><br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306051145865.png" alt="image.png"></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E4%B8%8E%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F/" rel="prev" title="常量指针与指针常量">
+                  <i class="fa fa-chevron-left"></i> 常量指针与指针常量
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/05/09/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
