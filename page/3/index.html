@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -214,6 +214,92 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/16/%E8%AF%AD%E6%B3%95/c++%20set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/16/%E8%AF%AD%E6%B3%95/c++%20set/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-05-16 23:30:26 / 修改时间：23:30:48" itemprop="dateCreated datePublished" datetime="2023-05-16T23:30:26+08:00">2023-05-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
+<h2 id="常用函数总结："><a href="#常用函数总结：" class="headerlink" title="常用函数总结："></a>常用函数总结：</h2><p><strong>构造、拷贝、析构</strong></p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p><em>set</em>&nbsp;c</p></td><td><p>产生一个空的set/multiset，不含任何元素</p></td></tr><tr><td><p>set c(op)</p></td><td><p>以op为排序准则，产生一个空的set/multiset</p></td></tr><tr><td><p>set c1(c2)</p></td><td><p>产生某个set/multiset的副本，所有元素都被拷贝</p></td></tr><tr><td><p>set c(beg,end)</p></td><td><p>以区间[beg,end)内的所有元素产生一个set/multiset</p></td></tr><tr><td><p>set c(beg,end, op)</p></td><td><p>以op为排序准则，区间[beg,end)内的元素产生一个set/multiset</p></td></tr><tr><td><p>c.~set()</p></td><td><p>销毁所有元素，释放内存</p></td></tr><tr><td><p>set&lt;Elem&gt;</p></td><td><p>产生一个set，以(operator &lt;)为排序准则</p></td></tr><tr><td><p>set&lt;Elem,0p&gt;</p></td><td><p>产生一个set，以op为排序准则</p></td></tr></tbody></table>
+
+<h3 id="非变动性操作"><a href="#非变动性操作" class="headerlink" title="非变动性操作"></a><strong>非变动性操作</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
+
+<h3 id="特殊的搜寻函数"><a href="#特殊的搜寻函数" class="headerlink" title="特殊的搜寻函数"></a><strong>特殊的搜寻函数</strong></h3><p>　　sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>count (elem)</p></td><td><p>返回元素值为elem的个数</p></td></tr><tr><td><p>find(elem)</p></td><td><p>返回元素值为elem的第一个元素，如果没有返回end()</p></td></tr><tr><td><p>lower _bound(elem)</p></td><td><p>返回元素值为elem的第一个可安插位置，也就是元素值 &gt;= elem的第一个元素位置</p></td></tr><tr><td><p>upper _bound (elem)</p></td><td><p>返回元素值为elem的最后一个可安插位置，也就是元素值 &gt; elem 的第一个元素位置</p></td></tr><tr><td><p>equal_range (elem)</p></td><td><p>返回elem可安插的第一个位置和最后一个位置，也就是元素值==elem的区间</p></td></tr></tbody></table>
+
+<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a><strong>赋值</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
+
+<h3 id="迭代器相关函数"><a href="#迭代器相关函数" class="headerlink" title="迭代器相关函数"></a><strong>迭代器相关函数</strong></h3><p>　　sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.begin()</p></td><td><p>返回一个随机存取迭代器，指向第一个元素</p></td></tr><tr><td><p>c.end()</p></td><td><p>返回一个随机存取迭代器，指向最后一个元素的下一个位置</p></td></tr><tr><td><p>c.rbegin()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的第一个元素</p></td></tr><tr><td><p>c.rend()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的最后一个元素的下一个位置</p></td></tr></tbody></table>
+
+<h3 id="安插和删除元素"><a href="#安插和删除元素" class="headerlink" title="安插和删除元素"></a>安插和删除元素</h3><p>　　必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.insert(elem)</p></td><td><p>插入一个elem副本，返回新元素位置，无论插入成功与否。</p></td></tr><tr><td><p>c.insert(pos, elem)</p></td><td><p>安插一个elem元素副本，返回新元素位置，pos为收索起点，提升插入速度。</p></td></tr><tr><td><p>c.insert(beg,end)</p></td><td><p>将区间[beg,end)所有的元素安插到c，无返回值。</p></td></tr><tr><td><p>c.erase(elem)</p></td><td><p>删除与elem相等的所有元素，返回被移除的元素个数。</p></td></tr><tr><td><p>c.erase(pos)</p></td><td><p>移除迭代器pos所指位置元素，无返回值。</p></td></tr><tr><td><p>c.erase(beg,end)</p></td><td><p>移除区间[beg,end)所有元素，无返回值。</p></td></tr><tr><td><p>c.clear()</p></td><td><p>移除所有元素，将容器清空</p></td></tr></tbody></table>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/09/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -250,7 +336,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-15 11:03:25" itemprop="dateModified" datetime="2023-07-15T11:03:25+08:00">2023-07-15</time>
+      <time title="修改时间：2023-07-15 23:49:49" itemprop="dateModified" datetime="2023-07-15T23:49:49+08:00">2023-07-15</time>
     </span>
 
   
@@ -263,7 +349,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h1 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h1><h2 id="floyd判圈"><a href="#floyd判圈" class="headerlink" title="floyd判圈"></a>floyd判圈</h2><h4 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a><a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></h4><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241057961.png" alt="image-20211224105728916" style="zoom: 50%;" />
+          <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h1 id="区间指针"><a href="#区间指针" class="headerlink" title="区间指针"></a>区间指针</h1><h2 id="分组循环"><a href="#分组循环" class="headerlink" title="分组循环"></a>分组循环</h2><blockquote>
+<p>查找符合条件的区间，寻找左右边界</p>
+</blockquote>
+<h4 id="2765-最长交替子序列"><a href="#2765-最长交替子序列" class="headerlink" title="2765. 最长交替子序列"></a><a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">alternatingSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;  </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i+<span class="number">1</span>]-nums[i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> left=i; <span class="comment">//记录左端点</span></span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="number">2</span>])</span><br><span class="line">                i++;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-left);</span><br><span class="line">            i--;        <span class="comment">//回退到上一个区间最后一个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h1><h2 id="floyd判圈"><a href="#floyd判圈" class="headerlink" title="floyd判圈"></a>floyd判圈</h2><h4 id="234-回文链表"><a href="#234-回文链表" class="headerlink" title="234. 回文链表"></a><a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></h4><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241057961.png" alt="image-20211224105728916" style="zoom: 50%;" />
 
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241135413.png" alt="image-20211224113536339"></p>
 <ul>
@@ -1121,112 +1212,6 @@
 </tr>
 </tbody></table>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-06-19 17:22:24" itemprop="dateModified" datetime="2023-06-19T17:22:24+08:00">2023-06-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h1><h1 id="树的遍历：先根、中根、后根、层次"><a href="#树的遍历：先根、中根、后根、层次" class="headerlink" title="树的遍历：先根、中根、后根、层次"></a>树的遍历：先根、中根、后根、层次</h1><h2 id="先根遍历-preorder"><a href="#先根遍历-preorder" class="headerlink" title="先根遍历(preorder)"></a>先根遍历(preorder)</h2><p>递归</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>回溯</p>
-<h2 id="中根遍历-inorder"><a href="#中根遍历-inorder" class="headerlink" title="中根遍历(inorder)"></a>中根遍历(inorder)</h2><p><a href="https://leetcode.cn/problems/binary-tree-inorder-traversal/solution/er-cha-shu-de-zhong-xu-bian-li-by-leetcode-solutio/">二叉树的中序遍历 - 二叉树的中序遍历 - 力扣（LeetCode）</a></p>
-<h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">inorder</span>(root)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">inorder</span>(root-&gt;left);</span><br><span class="line">    处理根结点</span><br><span class="line">    <span class="built_in">inorder</span>(root-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>时间复杂度：O(n)，其中 n为二叉树节点的个数。二叉树的遍历中每个节点会被访问一次且只会被访问一次。</p>
-<p>空间复杂度：O(n)。空间复杂度取决于递归的栈深度，而栈深度在二叉树为一条链的情况下会达到 O(n)的级别。</p>
-</blockquote>
-<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p><code>沿着左侧路径下降，访问该结点，转到右侧路径</code></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        stack&lt;TreeNode*&gt; stk;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(root||!stk.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            <span class="keyword">while</span>(root)&#123;</span><br><span class="line">                stk.<span class="built_in">push</span>(root);</span><br><span class="line">                root=root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root=stk.<span class="built_in">top</span>();</span><br><span class="line">            stk.<span class="built_in">pop</span>();</span><br><span class="line">            ret.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">            root=root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>时间复杂度：O(n)，其中 n为二叉树节点的个数。二叉树的遍历中每个节点会被访问一次且只会被访问一次。</p>
-<p>空间复杂度：O(n)。空间复杂度取决于递归的栈深度，而栈深度在二叉树为一条链的情况下会达到 O(n)的级别。</p>
-</blockquote>
-<h3 id="Morris遍历"><a href="#Morris遍历" class="headerlink" title="Morris遍历"></a>Morris遍历</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; ret;</span><br><span class="line">        TreeNode *predesessor;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="comment">//左子树不为空，寻找左子树的最右结点</span></span><br><span class="line">            <span class="keyword">if</span>(root-&gt;left!=<span class="literal">nullptr</span>)&#123;</span><br><span class="line">                predesessor=root-&gt;left;</span><br><span class="line">                <span class="keyword">while</span>(predesessor-&gt;right!=<span class="literal">nullptr</span>&amp;&amp;predesessor-&gt;right!=root)&#123;</span><br><span class="line">                    predesessor=predesessor-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line">				</span><br><span class="line">                <span class="comment">//判断最右结点是否访问过</span></span><br><span class="line">                <span class="keyword">if</span>(predesessor-&gt;right!=root)&#123;</span><br><span class="line">                    predesessor-&gt;right=root;</span><br><span class="line">                    root=root-&gt;left;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    ret.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">                    predesessor-&gt;right=<span class="literal">nullptr</span>;</span><br><span class="line">                    root=root-&gt;right;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//左子树为空</span></span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ret.<span class="built_in">push_back</span>(root-&gt;val);</span><br><span class="line">                root=root-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="删除树的结点"><a href="#删除树的结点" class="headerlink" title="删除树的结点"></a>删除树的结点</h2><p><a href="https://leetcode.cn/problems/delete-node-in-a-bst/solution/shan-chu-er-cha-sou-suo-shu-zhong-de-jie-n6vo/">删除二叉搜索树中的节点 - 删除二叉搜索树中的节点 - 力扣（LeetCode）</a></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305221005821.png" alt="image-20230522100534692"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202306061932257.png" alt="hexo"></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">deleteNode</span><span class="params">(TreeNode* root, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &gt; key) &#123;</span><br><span class="line">            root-&gt;left = <span class="built_in">deleteNode</span>(root-&gt;left, key);</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &lt; key) &#123;</span><br><span class="line">            root-&gt;right = <span class="built_in">deleteNode</span>(root-&gt;right, key);</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val == key) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!root-&gt;left &amp;&amp; !root-&gt;right) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!root-&gt;right) &#123;</span><br><span class="line">                <span class="keyword">return</span> root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (!root-&gt;left) &#123;</span><br><span class="line">                <span class="keyword">return</span> root-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">            TreeNode *successor = root-&gt;right;</span><br><span class="line">            <span class="keyword">while</span> (successor-&gt;left) &#123;</span><br><span class="line">                successor = successor-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root-&gt;right = <span class="built_in">deleteNode</span>(root-&gt;right, successor-&gt;val);</span><br><span class="line">            successor-&gt;right = root-&gt;right;</span><br><span class="line">            successor-&gt;left = root-&gt;left;</span><br><span class="line">            <span class="keyword">return</span> successor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//删除左侧最右边结点</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode *<span class="title">deleteNode</span><span class="params">(TreeNode *root, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;val &lt; key) &#123;</span><br><span class="line">            root-&gt;right = <span class="built_in">deleteNode</span>(root-&gt;right, key);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root-&gt;val &gt; key) &#123;</span><br><span class="line">            root-&gt;left = <span class="built_in">deleteNode</span>(root-&gt;left, key);</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 没有右子树</span></span><br><span class="line">            <span class="keyword">if</span> (root-&gt;right == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 没有左子树</span></span><br><span class="line">            <span class="keyword">if</span> (root-&gt;left == <span class="literal">nullptr</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> root-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 存在左右子树，寻找左子树的最大节点</span></span><br><span class="line">            TreeNode *successor = root-&gt;left;</span><br><span class="line">            <span class="keyword">while</span> (successor-&gt;right) &#123;</span><br><span class="line">                successor = successor-&gt;right;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 从root中删除successor节点</span></span><br><span class="line">            root-&gt;left = <span class="built_in">deleteNode</span>(root-&gt;left, successor-&gt;val);</span><br><span class="line">            successor-&gt;left = root-&gt;left;</span><br><span class="line">            successor-&gt;right = root-&gt;right;</span><br><span class="line">            <span class="keyword">return</span> successor;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="OptimalBST（最优搜索二叉树）"><a href="#OptimalBST（最优搜索二叉树）" class="headerlink" title="OptimalBST（最优搜索二叉树）"></a>OptimalBST（最优搜索二叉树）</h1>
       
     </div>
 
