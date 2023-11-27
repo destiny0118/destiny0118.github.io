@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210328123217859.png">
 <meta property="article:published_time" content="2023-02-28T12:24:17.618Z">
-<meta property="article:modified_time" content="2023-09-19T11:32:46.894Z">
+<meta property="article:modified_time" content="2023-09-24T09:09:07.886Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="数论">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">最大公约数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">1. 欧几里得算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%9E%E7%BB%AD%E6%95%B4%E6%95%B0%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 连续整数检测算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B1%82m%E3%80%81n%E7%9A%84%E8%B4%A8%E5%9B%A0%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">3. 求m、n的质因数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="nav-number">2.</span> <span class="nav-text">矩阵快速幂</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%A8%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">质数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9A%B4%E5%8A%9B%E6%9E%9A%E4%B8%BE"><span class="nav-number">1.1.</span> <span class="nav-text">暴力枚举</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%83%E6%B0%8F%E7%AD%9B"><span class="nav-number">1.2.</span> <span class="nav-text">埃氏筛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%AD%9B"><span class="nav-number">1.3.</span> <span class="nav-text">线性筛</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number"></span> <span class="nav-text">最大公约数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">1. 欧几里得算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%9E%E7%BB%AD%E6%95%B4%E6%95%B0%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">2. 连续整数检测算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E6%B1%82m%E3%80%81n%E7%9A%84%E8%B4%A8%E5%9B%A0%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">3. 求m、n的质因数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="nav-number"></span> <span class="nav-text">矩阵快速幂</span></a></div>
         </div>
         <!--/noindex-->
 
@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -256,7 +256,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-19 19:32:46" itemprop="dateModified" datetime="2023-09-19T19:32:46+08:00">2023-09-19</time>
+      <time title="修改时间：2023-09-24 17:09:07" itemprop="dateModified" datetime="2023-09-24T17:09:07+08:00">2023-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -280,6 +280,23 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>[toc]</p>
+<h2 id="质数"><a href="#质数" class="headerlink" title="质数"></a>质数</h2><p><a href="https://leetcode.cn/problems/count-primes/solution/ji-shu-zhi-shu-by-leetcode-solution/">计数质数 - 计数质数 - 力扣（LeetCode）</a></p>
+<blockquote>
+<p> prime number：质数，素数。在大于 1 的自然数中，除了 1 和它本身以外不再有其他因数的自然数。否则称为合数。<br> composite number：合数</p>
+</blockquote>
+<h3 id="暴力枚举"><a href="#暴力枚举" class="headerlink" title="暴力枚举"></a>暴力枚举</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isPrime</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= x; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x % i == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countPrimes</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            ans += <span class="built_in">isPrime</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="埃氏筛"><a href="#埃氏筛" class="headerlink" title="埃氏筛"></a>埃氏筛</h3><blockquote>
+<p>如果 <em>x</em> 是质数，那么大于 <em>x</em> 的倍数2<em>x</em>,3<em>x</em>,… 一定不是质数</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countPrimes</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">isPrime</span><span class="params">(n,<span class="number">1</span>)</span></span>;<span class="comment">//初始标记为质数</span></span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">//对于质数才需要进行筛选</span></span><br><span class="line">            <span class="keyword">if</span>(isPrime[i])&#123;</span><br><span class="line">                ans++;</span><br><span class="line">                <span class="keyword">if</span>((<span class="type">long</span>)i*i&lt;n)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> j=i*i;j&lt;n;j+=i)</span><br><span class="line">                        isPrime[j]=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">             </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="线性筛"><a href="#线性筛" class="headerlink" title="线性筛"></a>线性筛</h3><p>$$<br>如果x可以被primes_i整除，对于合数y&#x3D;x.primes_{i+1}&#x3D;{\frac{x}{primes_i}primes_{i+1}}primes_i<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countPrimes</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; primes;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">isPrime</span><span class="params">(n, <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; n; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (isPrime[i]) &#123;</span><br><span class="line">                primes.<span class="built_in">push_back</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; primes.<span class="built_in">size</span>() &amp;&amp; i * primes[j] &lt; n; ++j) &#123;</span><br><span class="line">                isPrime[i * primes[j]] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (i % primes[j] == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> primes.<span class="built_in">size</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
 <h1 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h1><h2 id="1-欧几里得算法"><a href="#1-欧几里得算法" class="headerlink" title="1. 欧几里得算法"></a>1. 欧几里得算法</h2><p><code>gcd(m,n)=gcd(n,m mod n)</code></p>
 <blockquote>
 <p>假设x是m，n的最大公约数，且m大于n（m小于n时，上式实现两个数的交换）</p>
@@ -320,7 +337,7 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/Interval%20trees%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%81%E5%8C%BA%E9%97%B4%E6%A0%91%EF%BC%89/" rel="prev" title="">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9AInterval%20trees%EF%BC%88%E7%BA%BF%E6%AE%B5%E6%A0%91%E3%80%81%E5%8C%BA%E9%97%B4%E6%A0%91%EF%BC%89/" rel="prev" title="">
                   <i class="fa fa-chevron-left"></i> 
                 </a>
             </div>
