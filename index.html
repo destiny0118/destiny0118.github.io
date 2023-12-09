@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
-
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -13,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.19.0/source/js/config.min.js"></script>
 
     <meta name="description" content="凡是过去，皆为序章。">
 <meta property="og:type" content="website">
@@ -46,6 +45,9 @@
 
 
 
+
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -55,13 +57,10 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -76,57 +75,20 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>project</a></li><li class="menu-item menu-item-lab"><a href="/categories/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>Lab</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
 
-    </div>
-  </div>
-
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
@@ -146,15 +108,15 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -170,39 +132,16 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
-      </span>
-  </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner index posts-expand">
 
@@ -389,7 +328,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BF%A1%E5%8F%B7%E5%92%8C%E5%AE%9A%E6%97%B6%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/08/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2001%20%E8%8A%82%EF%BC%9A%E7%8E%AF%E5%A2%83%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E8%A7%84%E8%8C%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -407,7 +346,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/21/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E4%BF%A1%E5%8F%B7%E5%92%8C%E5%AE%9A%E6%97%B6%E5%99%A8/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/08/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2001%20%E8%8A%82%EF%BC%9A%E7%8E%AF%E5%A2%83%E3%80%81%E9%85%8D%E7%BD%AE%E3%80%81%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -417,15 +356,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-11-21 23:41:37" itemprop="dateCreated datePublished" datetime="2023-11-21T23:41:37+08:00">2023-11-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-22 19:12:49" itemprop="dateModified" datetime="2023-11-22T19:12:49+08:00">2023-11-22</time>
+      <time title="创建时间：2023-12-08 00:07:16 / 修改时间：00:10:32" itemprop="dateCreated datePublished" datetime="2023-12-08T00:07:16+08:00">2023-12-08</time>
     </span>
 
   
@@ -438,46 +371,143 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h1><blockquote>
-<p>信号是由用户、系统或者进程发送给目标进程的信息，以通知目标进程某个状态的改变或系统异常。</p>
-</blockquote>
-<ul>
-<li>对于前台进程，用户可以通过输入特殊的终端字符来给它发送信号。比如输入Cul+C通常会给进程发送一个中断信号。</li>
-<li>系统异常。比如浮点异常和非法内存段访问。</li>
-<li>系统状态变化。比如alarm定时器到期将引起SIGALRM信号</li>
-<li>运行kill命令或调用kil函数</li>
+          <p>接下来的章节，小傅哥会带着大家以DDD架构和设计模式落地实战的方式，进行讲解和实现分布式抽奖系统的代码开发，那么这里会涉及到很多DDD的设计思路和设计模式应用，以及互联网大厂开发中所应用到的技术，包括：SpringBoot、Mybatis、Dubbo、MQ、Redis、Mysql、ELK、分库分表、Otter 等。那么在开始项目之前，你可以仔细阅读如下介绍信息，方便你能更加快速的进入学习。</p>
+<h2 id="一、开发环境"><a href="#一、开发环境" class="headerlink" title="一、开发环境"></a>一、开发环境</h2><ul>
+<li>JDK 1.8</li>
+<li>SpringBoot 2.6.0</li>
+<li>Dubbo 2.7.10</li>
+<li>DB-ROUTER <code>自研分库分表路由组件，带着你一起写个SpringBoot Starter</code></li>
+<li>vue <code>开发H5大转盘抽奖</code></li>
+<li>微信公众号 <code>对接提供API，回复抽奖</code></li>
+<li>Docker <code>本地和云服务都可以</code></li>
 </ul>
-<h3 id="中断系统调用"><a href="#中断系统调用" class="headerlink" title="中断系统调用"></a>中断系统调用</h3><p>如果程序在执行处于阻塞状态的系统调用时接收到信号，并且我们为该信号设置了信号处理函数，则默认情况下系统调用将被中断，并且errno被设置为&#x3D;&#x3D;EINTR&#x3D;&#x3D;。我们可以使用sigaction函数（见后文）为信号设置&#x3D;&#x3D;SARESTART&#x3D;&#x3D;标志以自动重启被该信号中断的系统调用。</p>
-<h2 id="信号处理函数"><a href="#信号处理函数" class="headerlink" title="信号处理函数"></a>信号处理函数</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="comment">//信号处理函数只带有一个整型参数，该参数用来指示信号类型</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">void</span> <span class="params">(*<span class="type">__sighandler_t</span>)</span> <span class="params">(<span class="type">int</span>)</span></span>;</span><br></pre></td></tr></table></figure>
-<h4 id="设置信号处理函数"><a href="#设置信号处理函数" class="headerlink" title="设置信号处理函数"></a>设置信号处理函数</h4><ol>
-<li>signal系统调用<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">_sighandler_t</span> <span class="title">signal</span><span class="params">(<span class="type">int</span> sig, <span class="type">_sighandler_t</span> _handler)</span></span></span><br></pre></td></tr></table></figure></li>
+<p><strong>其他所需环境如下(mysql\kafka\zk\redis\xxl-job)：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312080009329.png" alt="image.png"></p>
+<ul>
+<li>不只是 DDD 分布式项目开发，你还可以学习到关于 Docker 的实践使用</li>
+</ul>
+<h2 id="二、环境配置"><a href="#二、环境配置" class="headerlink" title="二、环境配置"></a>二、环境配置</h2><ul>
+<li><strong>技术栈项</strong>：JDK1.8、Maven3.6.3、Mysql5.7(可升级配置)，SpringBoot、Mybatis、Dubbo 随POM版本</li>
+<li><strong>初始打包</strong>：你需要在 Lottery 工程的 Maven 根上，点击 Install 这样才能完整打包，否则 Lottery-Test 等，不能正常引入 Jar 包</li>
+<li><strong>建表语句</strong>：<a href="https://gitcode.net/KnowledgePlanet/Lottery/-/blob/master/doc/assets/sql/lottery.sql">doc&#x2F;asserts&#x2F;sql</a> - <code>建议随非分支内sql版本走，因为需求不断迭代升级优化，直接使用最新的会遇到在各个分支下的代码运行问题</code></li>
+<li><strong>代码仓库</strong>：<code>2种使用方式</code><ul>
+<li>密码方式：登录的用户ID为 CSDN 个人中心的用户ID，<a href="https://i.csdn.net/#/user-center/profile">https://i.csdn.net/#/user-center/profile</a> 密码为 CSDN 登录密码。如果没有密码或者忘记，可以在 CSDN 登录页找回密码。</li>
+<li>SSH 秘钥免登录方式，设置：<a href="https://gitcode.net/-/profile/keys">https://gitcode.net/-/profile/keys</a> 文档：<a href="https://gitcode.net/codechina/help-docs/-/wikis/docs/ssh#%E7%94%9F%E6%88%90-ssh-%E5%AF%86%E9%92%A5">生成 SSH 密钥</a></li>
+</ul>
+</li>
+<li><strong>学习使用</strong>：下载代码库后，切换本地分支到wiki中章节对应的分支，这样代码与章节内容是对应的，否则你在master看到的是全量代码。</li>
+<li><strong>下载依赖</strong>：<a href="https://gitcode.net/KnowledgePlanet/db-router-spring-boot-starter">db-router-spring-boot-starter</a> 本项目依赖自研分库分表组件，需要可以用IDEA像打开一个项目一样打开，之后点击 Maven Install 这样就把 Jar 打包到你本地仓库了(<code>注意版本切换</code>)，Lottery 就可以引入这个 Jar 了</li>
+<li><strong>服务部署</strong>：本套工程学习涉及到了较多的环境配置，如：mysql、redis、kafka、zookeeper、xxl-job、ELK等，可以采用新人较便宜的云服务部署<a href="https://www.aliyun.com/minisite/goods?userCode=is4kfbdt">aliyun - 最少需要2核4G</a>，或者本机直接安装 Docker(<code>切记在执行一些删除、清空、重置等命令的时候，注意别把自己机器霍霍喽</code>)。PS：看到也有的读者是自己专门有一个 mac mini 当服务器使用，这样的方式也不错。</li>
+</ul>
+<h2 id="三、工程列表"><a href="#三、工程列表" class="headerlink" title="三、工程列表"></a>三、工程列表</h2><table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">图标</th>
+<th>名称</th>
+<th>系统</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="center"><a href="https://gitcode.net/uploads/-/system/project/avatar/57512/%E6%88%91%E7%9A%84%E5%A5%96%E5%93%81.png"><img src="https://gitcode.net/uploads/-/system/project/avatar/57512/%E6%88%91%E7%9A%84%E5%A5%96%E5%93%81.png?width=128px"></a></td>
+<td>分布式核心功能服务系统</td>
+<td><a href="https://gitcode.net/KnowledgePlanet/Lottery">Lottery</a></td>
+<td>提供抽奖业务领域功能，以分布式部署的方式提供 RPC 服务。</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"><a href="https://gitcode.net/uploads/-/system/project/avatar/80935/API%E6%8E%A5%E5%8F%A3.png"><img src="https://gitcode.net/uploads/-/system/project/avatar/80935/API%E6%8E%A5%E5%8F%A3.png?width=128px"></a></td>
+<td>网关API服务</td>
+<td><a href="https://gitcode.net/KnowledgePlanet/Lottery-API">Lottery-API</a></td>
+<td>网关服务，提供；H5 页面抽奖、公众号开发回复消息抽奖。</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"><a href="https://gitcode.net/uploads/-/system/project/avatar/79776/%E7%94%A8%E6%88%B7%E7%BB%84.png"><img src="https://gitcode.net/uploads/-/system/project/avatar/79776/%E7%94%A8%E6%88%B7%E7%BB%84.png?width=128px"></a></td>
+<td>C端用户系统</td>
+<td><a href="https://gitcode.net/KnowledgePlanet/lottery-front">lottery-front</a></td>
+<td>开发中，vue H5 转盘抽奖 lucky-canvas</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center"><a href="https://gitcode.net/uploads/-/system/project/avatar/79714/%E8%BF%90%E8%90%A5%E9%A2%84%E6%9C%9F.png"><img src="https://gitcode.net/uploads/-/system/project/avatar/79714/%E8%BF%90%E8%90%A5%E9%A2%84%E6%9C%9F.png?width=128px"></a></td>
+<td>B端运营系统</td>
+<td><a href="https://gitcode.net/KnowledgePlanet/Lottery-ERP">Lottery-ERP</a></td>
+<td>满足运营人员对于活动的查询、配置、修改、审核等操作。</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center"><a href="https://gitcode.net/uploads/-/system/project/avatar/67564/%E6%95%B0%E6%8D%AE%E5%BA%93.png"><img src="https://gitcode.net/uploads/-/system/project/avatar/67564/%E6%95%B0%E6%8D%AE%E5%BA%93.png?width=128px"></a></td>
+<td>分库分表路由组件</td>
+<td><a href="https://gitcode.net/KnowledgePlanet/db-router-spring-boot-starter">db-router-spring-boot-starter</a></td>
+<td><strong>本项目依赖自研分库分表组件，需要下载后构建</strong> 开发一个基于 HashMap 核心设计原理，使用哈希散列+扰动函数的方式，把数据散列到多个库表中的组件，并验证使用。</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center"><a href="https://gitcode.net/uploads/-/system/project/avatar/58903/%E6%B5%8B%E8%AF%95.png"><img src="https://gitcode.net/uploads/-/system/project/avatar/58903/%E6%B5%8B%E8%AF%95.png?width=128px"></a></td>
+<td>测试验证系统</td>
+<td><a href="https://gitcode.net/KnowledgePlanet/Lottery-Test">Lottery-Test</a></td>
+<td>用于测试验证RPC服务、系统功能调用的测试系统。</td>
+</tr>
+</tbody></table>
+<p>📢 <strong>注意</strong>：db-router-spring-boot-starter 为自研数据库路由组件，你需要下载代码到本地，自行构建到本地仓库进行使用。<em>章节中也会介绍这个路由组件的设计和开发</em></p>
+<h2 id="四、学习说明-这是重点"><a href="#四、学习说明-这是重点" class="headerlink" title="四、学习说明 - 这是重点"></a>四、学习说明 - <code>这是重点</code></h2><ol>
+<li>你必须在星球APP🔝置顶消息中，申请加入项目，才能看到项目代码以及项目小册。<em>在置顶消息中有完整的申请说明</em></li>
+<li>学习入口从<code>小册</code>页进入(<em>审核后才能阅读，否则温馨提示404</em>)：<a href="https://gitcode.net/KnowledgePlanet/Lottery/-/wikis/home">https://gitcode.net/KnowledgePlanet/Lottery/-/wikis/home</a></li>
+<li>课程的每一个章节都包括：视频、文章、代码(分支)，这里重点说明代码分支：课程的每一个章节中都会对应上代码的分支，需要进行切换分支学习，同时分支中 <a href="#"><code>doc/assets/sql</code></a> 里是每个分支所需要的最新SQL语句，在所在的分支中查看并更新到自己库表即可。</li>
+<li>【建议】：学习过程中最好按照章节来学习，这些内容都是承上启下的，并且每个章节都有视频带着你入门之后在结合文章和代码一起学习，这么样的一个过程会让你的学习效果更加好。<em>当然你要只是把代码抄下来，这样是没有意义的，最好结合自己的思考把代码敲下来</em></li>
+<li><strong>建表语句</strong>：<a href="https://gitcode.net/KnowledgePlanet/Lottery/-/blob/master/doc/assets/sql/lottery.sql">doc&#x2F;asserts&#x2F;sql</a> - <code>建议随非分支内sql版本走，因为需求不断迭代升级优化，直接使用最新的会遇到在各个分支下的代码运行问题</code></li>
+<li><strong>代码仓库</strong>：<code>2种使用方式</code><ul>
+<li>密码方式：登录的用户ID为 CSDN 个人中心的用户ID，<a href="https://i.csdn.net/#/user-center/profile">https://i.csdn.net/#/user-center/profile</a> 密码为 CSDN 登录密码。如果没有密码或者忘记，可以在 CSDN 登录页找回密码。</li>
+<li>SSH 秘钥免登录方式，设置：<a href="https://gitcode.net/-/profile/keys">https://gitcode.net/-/profile/keys</a> 文档：<a href="https://gitcode.net/codechina/help-docs/-/wikis/docs/ssh#%E7%94%9F%E6%88%90-ssh-%E5%AF%86%E9%92%A5">生成 SSH 密钥</a></li>
+</ul>
+</li>
+<li><strong>学习使用</strong>：下载代码库后，切换本地分支到wiki中章节对应的分支，这样代码与章节内容是对应的，否则你在master看到的是全量代码。</li>
+<li><strong>issue</strong>：一些常见问题可以参考 issue 文档：<a href="https://gitcode.net/KnowledgePlanet/Lottery/-/issues">https://gitcode.net/KnowledgePlanet/Lottery/-/issues</a></li>
+<li><strong>注意提问技巧</strong>：阐述清楚你所在学习的章节、对应的分支代码、以及自己的作业仓库学习代码、遇到了这样的问题、出现了什么情况。<em>不要直接一句没有上下文的话，这个很难快速定位和回答</em></li>
 </ol>
-<ul>
-<li>sig参数指出要捕获的信号类型</li>
-<li>handler参数是sighandlert类型的函数指针，用于指定信号sig的处理函数。</li>
+<h2 id="五、作业提交"><a href="#五、作业提交" class="headerlink" title="五、作业提交"></a>五、作业提交</h2><p>小傅哥希望你在学习的过程中真实地留下学习足迹👣，我不骗你，你也不要骗我。中国人不骗中国人，我们一起好好进步。</p>
+<h3 id="1-工程作业"><a href="#1-工程作业" class="headerlink" title="1. 工程作业"></a><a href="#1-%E5%B7%A5%E7%A8%8B%E4%BD%9C%E4%B8%9A"></a>1. 工程作业</h3><ul>
+<li>作业空间：<a href="https://gitcode.net/CreativeAlliance">https://gitcode.net/CreativeAlliance</a></li>
+<li>使用说明：为星球用户提供工程代码提交空间，你可以把抽奖系统的学习代码提交到空间中，<code>按照代码仓库名称标准，项目-星球用户编号-作者ID 例如：Lottery-1-xiaofuge</code></li>
 </ul>
-<ol start="2">
-<li>sigaction系统调用<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal,h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sigaction</span><span class="params">(<span class="type">int</span> sig, <span class="type">const</span> <span class="keyword">struct</span> sigaction* act, <span class="keyword">struct</span> sigaction* oact)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">sigaction</span></span><br><span class="line">&#123;</span><br><span class="line">#ifdefUSE POSIX199309</span><br><span class="line">	<span class="keyword">union</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">_sighandler_t</span> sa_handler;</span><br><span class="line">		<span class="built_in">void</span> (*sa_sigaction) (<span class="type">int</span>, <span class="type">siginfo_t</span>*, <span class="type">void</span>*);</span><br><span class="line">	&#125;</span><br><span class="line">	_sigaction_handler;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> sa_handler __sigaction_handler.sa_handler</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> sa_sigaction __sigaction_handler.sa_sigaction</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line">	<span class="type">_sighandler_t</span> sa_handler;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">	<span class="type">sigset_t</span> sa_mask；</span><br><span class="line">	<span class="type">int</span> sa_flags;</span><br><span class="line">	<span class="built_in">void</span> (*sa_restorer)(<span class="type">void</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<table>
+<thead>
+<tr>
+<th>示意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://gitcode.net/KnowledgePlanet/Lottery/-/raw/master/doc/_media/CreativeAlliance.png"><img src="https://gitcode.net/KnowledgePlanet/Lottery/-/raw/master/doc/_media/CreativeAlliance.png"></a></td>
+</tr>
+</tbody></table>
+<h3 id="2-文字作业"><a href="#2-文字作业" class="headerlink" title="2. 文字作业"></a><a href="#2-%E6%96%87%E5%AD%97%E4%BD%9C%E4%B8%9A"></a>2. 文字作业</h3><ul>
+<li>你可以在星球APP中提交<code>作业题目</code> | 网页提交：<a href="https://t.zsxq.com/MvFYJe2">https://t.zsxq.com/MvFYJe2</a></li>
+</ul>
+<ol>
+<li>今天的你学到了哪个章节？</li>
+<li>遇到什么问题？</li>
+<li>怎么解决的？</li>
+<li>掌握到了什么知识？</li>
 </ol>
+<p>基于大家的学习反馈，小傅哥会在后续的直播中统一解决相关学习问题。加油，这趟车人人有收获！</p>
+<p>注意️：按照作业提交频次和质量，小傅哥会组织一波奖品。<strong>按照作业提交数量、质量、点赞、留言，综合评分，送技术图书等奖品。</strong></p>
+<p><a href="https://gitcode.net/KnowledgePlanet/Lottery/-/raw/master/doc/_media/job.jpg"><img src="https://gitcode.net/KnowledgePlanet/Lottery/-/raw/master/doc/_media/job.jpg"></a></p>
 <ul>
-<li>sig：要捕获的信号类型</li>
-<li>act：新的信号处理方式</li>
-<li>oact：信号之前的处理方式</li>
+<li>也可以提交 issue：<a href="https://gitcode.net/KnowledgePlanet/Lottery/-/issues">https://gitcode.net/KnowledgePlanet/Lottery/-/issues</a></li>
 </ul>
-<h2 id="统一事件源"><a href="#统一事件源" class="headerlink" title="统一事件源"></a>统一事件源</h2><p>信号是一种异步事件：信号处理函数和程序的主循环是两条不同的执行路线。很显然，信号处理函数需要尽可能快地执行完毕，以确保该信号不被屏蔽太久。</p>
-<p>一种典型的解决方案是：把信号的主要处理逻辑放到程序的主循环中，当信号处理函数被触发时，它只是简单地通<br>知主循环程序接收到信号，并把&#x3D;&#x3D;信号值传递给主循环&#x3D;&#x3D;，主循环再根据接收到的信号值执行目标信号对应的逻辑代码。</p>
-<p>信号处理函数通常使用管道来将信号“传递”给主循环：信号处理函数往管道的写端写人信号值，主循环则从管道的读端读出该信号值。那么主循环怎么知道管道上何时有数据可读呢？这很简单，我们只需要使用IO复用系统调用来监听管道的读端文件描述符上的可读事件。如此一来，信号事件就能和其他I&#x2F;O事件一样被处理，<br>即统一事件源。</p>
-<h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><blockquote>
-<p>网络程序需要处理的第三类事件是定时事件，比如定期检测一个客户连接的活动状态服务器程序通常管理着众多定时事件，因此有效地组织这些定时事件，使之能在预期的时间点被触发且不影响服务器的主要逻辑，对于服务器的性能有着至关重要的影响。<br>定时是指在一段时间之后触发某段代码的机制，可以在这段代码中依次处理所有到期的定时器。</p>
-</blockquote>
-<ul>
-<li>socket 选项SO_RCVTIMEO和SO_SNDTIMEO</li>
-<li>SIGALRM信号</li>
-<li>IO复用系统调用的超时参数</li>
-</ul>
-<h2 id="SIGALRM信号"><a href="#SIGALRM信号" class="headerlink" title="SIGALRM信号"></a>SIGALRM信号</h2><blockquote>
-<p>由alarm和setitimer函数设置的实时闹钟一旦超时，将触发SIGALRM信号。因此，我们可以利用该信号的信号处理函数来处理定时任务。<br>但是，如果要处理多个定时任务，我们就需要不断地触发SIGALRM信号，并在其信号处理函数中执行到期的任务。<br>一般而言，SIGALRM信号按照固定的频率生成，即由alarm或setitimer函数设置的定时周期T保持不变。如果某个定时任务的超时时间不是T的整数倍，那么它实际被执行的时间和预期的时间将略有偏差。因此定时周期T反映了定时的精度</p>
-</blockquote>
+<h2 id="六、开发规范"><a href="#六、开发规范" class="headerlink" title="六、开发规范"></a>六、开发规范</h2><p><strong>分支命名</strong>：日期_姓名首字母缩写_功能单词，如：<code>210804_xfg_buildFramework</code></p>
+<p><strong>提交规范</strong>：<code>作者，type: desc</code> 如：<code>小傅哥，fix：修复查询用户信息逻辑问题</code> <em>参考Commit message 规范</em></p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 主要type</span></span><br><span class="line"><span class="symbol">feat:</span>     增加新功能</span><br><span class="line"><span class="symbol">fix:</span>      修复bug</span><br><span class="line"></span><br><span class="line"><span class="meta"># 特殊type</span></span><br><span class="line"><span class="symbol">docs:</span>     只改动了文档相关的内容</span><br><span class="line"><span class="symbol">style:</span>    不影响代码含义的改动，例如去掉空格、改变缩进、增删分号</span><br><span class="line"><span class="symbol">build:</span>    构造工具的或者外部依赖的改动，例如webpack，npm</span><br><span class="line"><span class="symbol">refactor:</span> 代码重构时使用</span><br><span class="line"><span class="symbol">revert:</span>   执行git revert打印的message</span><br><span class="line"></span><br><span class="line"><span class="meta"># 暂不使用type</span></span><br><span class="line"><span class="symbol">test:</span>     添加测试或者修改现有测试</span><br><span class="line"><span class="symbol">perf:</span>     提高性能的改动</span><br><span class="line"><span class="symbol">ci:</span>       与CI（持续集成服务）有关的改动</span><br><span class="line"><span class="symbol">chore:</span>    不修改src或者test的其余修改，例如构建过程或辅助工具的变动</span><br></pre></td></tr></table></figure>
+
+<h2 id="七、加入-项目组"><a href="#七、加入-项目组" class="headerlink" title="七、加入-项目组"></a><a href="#%E4%B8%83%E5%8A%A0%E5%85%A5-%E9%A1%B9%E7%9B%AE%E7%BB%84"></a>七、加入-项目组</h2><ol>
+<li>本星球项目组以讨论技术为主，遵守职业道德，遵守通行版《网络准则》</li>
+<li>禁止推送广告、发不文明链接、非正常图片等内容</li>
+<li>禁止刷屏、发送集赞、小游戏等相关营销推广类内容</li>
+<li>禁止频繁发送过于负面情绪内容、不要聊一些三俗内容</li>
+</ol>
 
       
     </div>
@@ -504,7 +534,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/IO%E5%A4%8D%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/08/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2000%20%E8%8A%82%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%20-%20%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B%E3%80%81%E5%AD%A6%E5%88%B0%E5%93%AA%E4%BA%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -522,295 +552,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/IO%E5%A4%8D%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-11-20 18:50:40 / 修改时间：23:57:11" itemprop="dateCreated datePublished" datetime="2023-11-20T18:50:40+08:00">2023-11-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="I-x2F-O模型"><a href="#I-x2F-O模型" class="headerlink" title="I&#x2F;O模型"></a>I&#x2F;O模型</h1><p>socket在创建的时候默认是阻塞的。阻塞和非阻塞的概念能应用于所有文件描述符，而不仅仅是socket。我们称阻塞的文件描述符为阻塞IO，称非阻塞的文件描述符为非阻塞IO。</p>
-<ul>
-<li>针对阻塞I&#x2F;O执行的系统调用可能因为无法立即完成而被操作系统挂起，直到等待的事件发生为止。可能被阻塞的系统调用包括accept、send、recv和connect。</li>
-<li>针对非阻塞IO执行的系统调用则总是立即返回，而不管事件是否已经发生。如果事件没有立即发生，这些系统调用就返回-1，和出错的情况一样。此时我们必须根据errno来区分这两种情况。对accept、sent和recv而言，事件未发生时erno通常被设置成EAGAIN（意为“再来一次”）或者EWOULDBLOCK（意为“期望阻塞”）；对connect而言，ermo则被设置成EINPROGRESS（意为“在处理中”）。</li>
-</ul>
-<blockquote>
-<p>I&#x2F;O复用(I&#x2F;O multiplexing)：指的是通过一个支持同时感知多个描述符的函数系统调用，阻塞在这个系统调用上，等待某一个或者几个描述符准备就绪，就返回可读条件。I&#x2F;O复用使得程序能同时监听多个文件描述符。<br>I&#x2F;O复用虽然能同时监听多个文件描述符，但它本身是&#x3D;&#x3D;阻塞&#x3D;&#x3D;的。</p>
-</blockquote>
-<h1 id="文件描述符就绪条件"><a href="#文件描述符就绪条件" class="headerlink" title="文件描述符就绪条件"></a>文件描述符就绪条件</h1><h2 id="可读"><a href="#可读" class="headerlink" title="可读"></a>可读</h2><ul>
-<li>socket内核接收缓存区中的字节数大于或等于其低水位标记SORCVLOWAT。此时我们可以无阻塞地读该socket，并且读操作返回的字节数大于0。</li>
-<li>socket通信的对方关闭连接。此时对该socket的读操作将返回0。</li>
-<li>监听socket上有新的连接请求。</li>
-<li>socket上有未处理的错误。此时我们可以使用getsockopt来读取和清除该错误。</li>
-</ul>
-<h2 id="可写："><a href="#可写：" class="headerlink" title="可写："></a>可写：</h2><ul>
-<li>socket内核发送缓存区中的可用字节数大于或等于其低水位标记SOSNDLOWAT。此时我们可以无阻塞地写该socket，并且写操作返回的字节数大于0。</li>
-<li>socket的写操作被关闭。对写操作被关闭的socket执行写操作将触发一个SIGPIPE信号。</li>
-<li>socket使用非阻塞connect连接成功或者失败（超时）之后。</li>
-<li>socket上有未处理的错误。此时我们可以使用getsockopt来读取和清除该错误</li>
-</ul>
-<h1 id="select"><a href="#select" class="headerlink" title="select"></a>select</h1><blockquote>
-<p>在一段指定时间内，监听用户感兴趣的文件描述符上的可读、可写和异常事件。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/select.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">select</span><span class="params">( <span class="type">int</span> nfds， fd_set* readfds，fd_set* writefds，fd_set*exceptfds，</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="keyword">struct</span> timeval*timeout）；</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>ndfs：被监听的文件描述符的总数</li>
-<li>readfds、writefds、exceptfds：分别指向可读、可写和异常等事件对应的文件描述符集合。select调用返回时，内核将修改它们来通知应用程序哪些文件描述符已经就绪。</li>
-<li>timeout：设置select函数的超时事件</li>
-</ul>
-<h1 id="poll"><a href="#poll" class="headerlink" title="poll"></a>poll</h1><blockquote>
-<p>和select类似，在指定时间内轮询一定数量的文件描述符，以测试是否有就绪的文件描述符</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;poll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">poll</span><span class="params">(<span class="keyword">struct</span> pollfd* fds, <span class="type">nfds_t</span> nfds, <span class="type">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">pollfd</span>&#123;</span><br><span class="line">	<span class="type">int</span> fd;   <span class="comment">//文件描述符</span></span><br><span class="line">	<span class="type">short</span> events;  <span class="comment">//注册的事件</span></span><br><span class="line">	<span class="type">short</span> revents;  <span class="comment">//实际发生的事件，由内核填充</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>fds：pollfd结构类型的数组，指定所有我们感兴趣的文件描述符上发生的可读、可写和异常等事件</li>
-<li>nfds：被监听事件集合fds的大小</li>
-<li>timeout：指定poll的超时值，单位是毫秒。当timeout为-1时，poll调用将永远阻塞，直到某个事件发生；当timeout为0时，poll调用将立即返回</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202143270.png" alt="image.png"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202143284.png" alt="image.png"></p>
-<h1 id="epoll"><a href="#epoll" class="headerlink" title="epoll"></a>epoll</h1><blockquote>
-<p>把用户关心的文件描述符上的事件放在内核里的一个事件表中，而无须像select和poll那样每次调用都要重复传入文件描述符或事件集。<br>epoll使用一个额外的文件描述符，来唯一标识内核中的这个事件表</p>
-</blockquote>
-<h3 id="epoll-create"><a href="#epoll-create" class="headerlink" title="epoll_create"></a>epoll_create</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">epoll_create</span><span class="params">(<span class="type">int</span> size)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>返回文件描述符，作为其它epoll系统调用的第一个参数，以指定要访问的内核事件表</li>
-</ul>
-<h3 id="epoll-ctl"><a href="#epoll-ctl" class="headerlink" title="epoll_ctl"></a>epoll_ctl</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span>  <span class="string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">epoll_ctl</span><span class="params">(<span class="type">int</span> epfd,<span class="type">int</span> op, <span class="type">int</span> fd, <span class="keyword">struct</span> epoll_event *event)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">struct</span> epoll_event</span>&#123;</span><br><span class="line">	<span class="type">__uint32_t</span> events;    <span class="comment">//epoll事件</span></span><br><span class="line">	<span class="type">epoll_data_t</span> data;   <span class="comment">//用户数据</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> <span class="title class_">epoll_data</span>&#123;</span><br><span class="line">	<span class="type">void</span>* ptr；</span><br><span class="line">	<span class="type">int</span> fd； <span class="comment">//事件所从属的目标文件描述符</span></span><br><span class="line">	<span class="type">uint32_t</span> u32；</span><br><span class="line">	<span class="type">uint64_t</span> u64；</span><br><span class="line">&#125; <span class="type">epoll_data_t</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>fd：要操作的文件描述符</li>
-<li>op：操作类型，<code>EPOLL_CTL_ADD</code>、<code>EPOLL_CTL_MOD</code> 、<code>EPOLL_CTL_DEL</code>  </li>
-<li>成功时返回0，失败则返回-1并设置errno</li>
-</ul>
-<h3 id="epoll-wait"><a href="#epoll-wait" class="headerlink" title="epoll_wait"></a>epoll_wait</h3><blockquote>
-<p>在一段超时时间内等待一组文件描述符上的事件</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="type">int</span> epfd， <span class="keyword">struct</span> epoll_event* events，<span class="type">int</span> maxevents, <span class="type">int</span> timeout ）；</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>maxevents参数指定最多监听多少个事件，它必须大于0。</li>
-<li>成功时返回就绪的文件描述符的个数，失败时返回-1并设置errno</li>
-</ul>
-<h3 id="LT和ET模式"><a href="#LT和ET模式" class="headerlink" title="LT和ET模式"></a>LT和ET模式</h3><blockquote>
-<p>epoll&#x3D;&#x3D;对文件描述符的操作&#x3D;&#x3D;有两种模式：LT（LevelTrigger，电平触发）模式和ET（Edge Trigger，边沿触发）模式。LT模式是默认的工作模式，这种模式下epoll相当于一个效率较高的poll。当往epoll内核事件表中注册一个文件描述符上的EPOLLET事件时，epoll将以ET模式来操作该文件描述符。ET模式是epoll的高效工作模式。</p>
-</blockquote>
-<h3 id="LT"><a href="#LT" class="headerlink" title="LT"></a>LT</h3><p>对于采用LT工作模式的文件描述符，当epoll_wait检测到其上有事件发生并将此事件通知应用程序后，应用程序可以不立即处理该事件。这样，当应用程序下一次调用epoll_wait时，epoll_wait还会再次向应用程序通告此事件，直到该事件被处理。</p>
-<h3 id="ET"><a href="#ET" class="headerlink" title="ET"></a>ET</h3><p>而对于采用ET工作模式的文件描述符，当epoll_wait检测到其上有事件发生并将此事件通知应用程序后，应用程序必须立即处理该事件，因为后续的epoll_wait调用将不再向应用程序通知这一事件。</p>
-<p>可见，ET模式在很大程度上降低了同一个epoll事件被重复触发的次数，<br>因此效率要比LT模式高。</p>
-<h3 id="EPOLLONESHOT"><a href="#EPOLLONESHOT" class="headerlink" title="EPOLLONESHOT"></a>EPOLLONESHOT</h3><p>对于注册了EPOLLONESHOT事件的文件描述符，操作系统最多触发其上注册的一个可读、可写或者异常事件，且只触发一次，除非我们使用epollctl函数重置该文件描述符上注册的EPOLLONESHOT事件。这样，当一个线程在处理某个socket时，其他线程是不可能有机会操作该socket的。<br>但反过来思考，注册了EPOLLONESHOT事件的socket一旦被某个<br>线程处理完毕，该线程就应该立即重置这个socket上的EPOLLONESHO事件，以确保这个socket下一次可读时，其EPOLLIN事件能被触发，进而让其他工作线程有机会继续处理这个socket。</p>
-<h2 id="select、poll和epoll的区别"><a href="#select、poll和epoll的区别" class="headerlink" title="select、poll和epoll的区别"></a>select、poll和epoll的区别</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202326818.png" alt="image.png"></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://zhuanlan.zhihu.com/p/400798093">彻底弄懂IO复用：深入了解select，poll，epoll - 知乎 (zhihu.com)</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/mysql.h/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/mysql.h/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-11-17 20:38:25 / 修改时间：22:49:50" itemprop="dateCreated datePublished" datetime="2023-11-17T20:38:25+08:00">2023-11-17</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="mysql-init"><a href="#mysql-init" class="headerlink" title="mysql_init()"></a>mysql_init()</h1><p><code>MYSQL *mysql_init(MYSQL *mysql)</code></p>
-<ul>
-<li>初始化MYSQL数据结构，返回MYSQL指针。</li>
-<li>成功时返回指向MYSQL结构体的指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
-</ul>
-<h1 id="mysql-real-connect"><a href="#mysql-real-connect" class="headerlink" title="mysql_real_connect()"></a>mysql_real_connect()</h1><p>&#96;MYSQL *mysql_real_connect(MYSQL *mysql, const char *host, const char *user, const char *passwd, const char *db, unsigned int port, const char *unix_socket, unsigned long clientflag)</p>
-<ul>
-<li>建立Mysql服务器连接</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>host：MySQL服务器名称或IP地址。</li>
-<li>user：登录MySQL服务器的用户名。</li>
-<li>passwd：登录MySQL服务器的密码。</li>
-<li>db：要连接的数据库名称。</li>
-<li>port：MySQL服务器端口号。</li>
-<li>unix_socket：UNIX套接字文件路径。</li>
-<li>clientflag：客户端标志位。</li>
-<li>返回值说明：成功时返回指向MYSQL结构体的指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
-</ul>
-<h1 id="mysql-query"><a href="#mysql-query" class="headerlink" title="mysql_query()"></a>mysql_query()</h1><p><code>int mysql_query(MYSQL *mysql, const char *stmt_str)</code></p>
-<ul>
-<li>执行一条SQL查询语句或更新语句。</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>stmt_str：要执行的SQL语句字符串。</li>
-<li>返回值说明：成功时返回0，失败时返回非0错误代码（通过mysql_errno()获取）。</li>
-</ul>
-<h1 id="mysql-real-query"><a href="#mysql-real-query" class="headerlink" title="mysql_real_query()"></a>mysql_real_query()</h1><p><code>int mysql_real_query(MYSQL *mysql, const char *stmt_str, unsigned long length)</code></p>
-<ul>
-<li>执行一条SQL查询语句或更新语句。</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>stmt_str：要执行的SQL语句字符串。</li>
-<li>length：SQL语句长度。</li>
-<li>返回值说明：成功时返回0，失败时返回非0错误代码（通过mysql_errno()获取）。</li>
-</ul>
-<h1 id="mysql-store-result"><a href="#mysql-store-result" class="headerlink" title="mysql_store_result()"></a>mysql_store_result()</h1><p><code>MYSQL_RES *mysql_store_result(MYSQL *mysql)</code></p>
-<ul>
-<li>说明：将查询结果集保存在客户端内存中。</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>返回值说明：成功时返回一个MYSQL_RES结构体指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
-</ul>
-<h1 id="mysql-use-result"><a href="#mysql-use-result" class="headerlink" title="mysql_use_result()"></a>mysql_use_result()</h1><p><code>MYSQL_RES *mysql_use_result(MYSQL *mysql)</code></p>
-<blockquote>
-<p>说明：逐行获取查询结果集。</p>
-</blockquote>
-<ul>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>返回值说明：成功时返回一个MYSQL_RES结构体指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
-</ul>
-<h1 id="结果集相关函数"><a href="#结果集相关函数" class="headerlink" title="结果集相关函数"></a>结果集相关函数</h1><h2 id="mysql-fetch-row"><a href="#mysql-fetch-row" class="headerlink" title="mysql_fetch_row()"></a>mysql_fetch_row()</h2><p><code>MYSQL_ROW mysql_fetch_row(MYSQL_RES *result)</code></p>
-<blockquote>
-<p>说明：逐行获取查询结果集，并返回一个MYSQL_ROW结构体指针。</p>
-</blockquote>
-<ul>
-<li>result：MYSQL_RES结构体指针变量。</li>
-<li>返回值说明：成功时返回一个MYSQL_ROW结构体指针，失败时返回NULL。</li>
-</ul>
-<h2 id="mysql-num-rows"><a href="#mysql-num-rows" class="headerlink" title="mysql_num_rows()"></a>mysql_num_rows()</h2><p><code>unsigned long mysql_num_rows(MYSQL_RES *result)</code></p>
-<blockquote>
-<p>说明：获取查询结果集中的行数。</p>
-</blockquote>
-<ul>
-<li>result：MYSQL_RES结构体指针变量。</li>
-<li>返回值说明：成功时返回查询结果集中行的数量，失败时返回0。</li>
-</ul>
-<h2 id="mysql-num-fields"><a href="#mysql-num-fields" class="headerlink" title="mysql_num_fields()"></a>mysql_num_fields()</h2><p><code>unsigned int mysql_num_fields(MYSQL_RES *result)</code></p>
-<blockquote>
-<p>说明：获取查询结果集中的列数。</p>
-</blockquote>
-<ul>
-<li>result：MYSQL_RES结构体指针变量。</li>
-<li>返回值说明：成功时返回查询结果集中列的数量，失败时返回0。</li>
-</ul>
-<h2 id="mysql-field-count"><a href="#mysql-field-count" class="headerlink" title="mysql_field_count()"></a>mysql_field_count()</h2><p><code>unsigned int mysql_field_count(MYSQL *mysql)</code></p>
-<blockquote>
-<p>说明：获取最近一次执行的SQL语句所返回的列数。</p>
-</blockquote>
-<ul>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>返回值说明：成功时返回最近一次执行的SQL语句所返回的列数，失败时返回0。</li>
-</ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/A_salted_fisher/article/details/131117697">mysql.h函数详解-CSDN博客</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">多线程编程</a>
+          <a href="/2023/12/08/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2000%20%E8%8A%82%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%20-%20%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B%E3%80%81%E5%AD%A6%E5%88%B0%E5%93%AA%E4%BA%9B/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -821,23 +563,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-11-15 19:58:30" itemprop="dateCreated datePublished" datetime="2023-11-15T19:58:30+08:00">2023-11-15</time>
+      <time title="创建时间：2023-12-08 00:02:09" itemprop="dateCreated datePublished" datetime="2023-12-08T00:02:09+08:00">2023-12-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-20 23:17:06" itemprop="dateModified" datetime="2023-11-20T23:17:06+08:00">2023-11-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-        </span>
+      <time title="修改时间：2023-12-07 23:37:25" itemprop="dateModified" datetime="2023-12-07T23:37:25+08:00">2023-12-07</time>
     </span>
 
   
@@ -850,75 +583,310 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h4 id="RAII"><a href="#RAII" class="headerlink" title="RAII"></a><strong>RAII</strong></h4><ul>
-<li><p>RAII全称是“Resource Acquisition is Initialization”，直译过来是“资源获取即初始化”.</p>
-</li>
-<li><p>在构造函数中申请分配资源，在析构函数中释放资源。因为C++的语言机制保证了，当一个对象创建的时候，自动调用构造函数，当对象超出作用域的时候会自动调用析构函数。所以，在RAII的指导下，我们应该使用类来管理资源，将资源和对象的生命周期绑定</p>
-</li>
-<li><p>RAII的核心思想是将资源或者状态与对象的生命周期绑定，通过C++的语言机制，实现资源和状态的安全管理,智能指针是RAII最好的例子</p>
-</li>
-</ul>
-<h1 id="事件处理模式"><a href="#事件处理模式" class="headerlink" title="事件处理模式"></a>事件处理模式</h1><blockquote>
-<p>服务器程序需要处理三类事件：I&#x2F;O事件、信号及定时事件。<br>同步I&#x2F;O模型通常用于实现Reactor模式<br>异步I&#x2F;O模型用于实现Proactor模式<br>使用同步I&#x2F;O方式模拟出Proactor模式</p>
-</blockquote>
-<p><code>在IO模型中，“同步”和“异步”区分的是内核向应用程序通知的是何种IO事件（是就绪事件还是完成事件），以及该由谁来完成IO读写（是应用程序还是内核）。</code></p>
+          <h1 id="第-01-节：开篇介绍-如何开始、怎么上手、学到哪些"><a href="#第-01-节：开篇介绍-如何开始、怎么上手、学到哪些" class="headerlink" title="第 01 节：开篇介绍 - 如何开始、怎么上手、学到哪些"></a>第 01 节：开篇介绍 - 如何开始、怎么上手、学到哪些</h1><div align="center">
+    <img src="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/raw/master/doc/assets/img/1-00.png" width="128">
+</div>
+
+<p>⛳ <strong>目录</strong></p>
 <ul>
-<li>同步IO：应用程序完成读写</li>
-<li>异步IO：内核完成读写</li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2001%20%E7%AB%A0%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%20-%20%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B%E3%80%81%E5%AD%A6%E5%88%B0%E5%93%AA%E4%BA%9B.md#%E4%B8%80%E5%92%8B%E6%92%B8%E4%B8%AA%E9%A1%B9%E7%9B%AE">一、咋，撸个项目？</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2001%20%E7%AB%A0%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%20-%20%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B%E3%80%81%E5%AD%A6%E5%88%B0%E5%93%AA%E4%BA%9B.md#%E4%BA%8C%E5%91%80%E8%83%BD%E5%AD%A6%E4%B8%9C%E8%A5%BF">二、呀，能学东西！</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2001%20%E7%AB%A0%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%20-%20%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B%E3%80%81%E5%AD%A6%E5%88%B0%E5%93%AA%E4%BA%9B.md#%E4%B8%89%E5%91%90%E6%80%8E%E4%B9%88%E5%BC%80%E5%A7%8B">三、呐，怎么开始？</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2001%20%E7%AB%A0%EF%BC%9A%E5%BC%80%E7%AF%87%E4%BB%8B%E7%BB%8D%20-%20%E6%80%8E%E4%B9%88%E4%B8%8A%E6%89%8B%E3%80%81%E5%AD%A6%E5%88%B0%E5%93%AA%E4%BA%9B.md#%E5%9B%9B%E6%9D%A5%E4%B8%8A%E6%88%91%E7%9A%84%E8%BD%A6">四、来，上我的车！</a></li>
 </ul>
-<h2 id="模拟Proactor模式"><a href="#模拟Proactor模式" class="headerlink" title="模拟Proactor模式"></a>模拟Proactor模式</h2><blockquote>
-<p>主线程执行数据读写操作，读写完成之后，主线程向工作线程通知这一“完成事件”。那么从工作线程的角度来看，它们就直接获得了数据读写的结果，接下来要做的只是对读写的结果进行逻辑处理。<br>（主线程代替内核完成数据读写）</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311172018370.png" alt="image.png"></p>
-<h1 id="并发模式"><a href="#并发模式" class="headerlink" title="并发模式"></a>并发模式</h1><ul>
-<li>半同步&#x2F;半异步模式(half-sync&#x2F;half-async)</li>
-<li>领导者&#x2F;追随者模式(Leader&#x2F;Followers)<blockquote>
-<p>在并发模式中，“同步”指的是程序完全按照代码序列的顺序执行；“异步”指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="半同步-x2F-半反应堆模式"><a href="#半同步-x2F-半反应堆模式" class="headerlink" title="半同步&#x2F;半反应堆模式"></a>半同步&#x2F;半反应堆模式</h2><blockquote>
-<p>半同步&#x2F;半反应堆模式(half-sync&#x2F;half-reactive)<br>Reactor模式：工作线程自己从socket上读取客户请求和往socket写入服务器应答<br>模拟Proactor模式：主线程完成数据的读写。这种情况下，主线程一般会将应用程序数据、任务类型等信息封装为一个任务对象，然后将其（或者指向该任务对象的一个指针）插入请求队列。工作线程从请求队列中取得任务对象之后，即可直接处理之，而无须执行读写操作了。</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311161033365.png" alt="image.png"></p>
-<h2 id="半同步-x2F-半异步模式"><a href="#半同步-x2F-半异步模式" class="headerlink" title="半同步&#x2F;半异步模式"></a>半同步&#x2F;半异步模式</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311161033032.png" alt="image.png"></p>
-<h1 id="14-多线程编程"><a href="#14-多线程编程" class="headerlink" title="14 多线程编程"></a>14 多线程编程</h1><h2 id="14-2-创建线程和结束线程"><a href="#14-2-创建线程和结束线程" class="headerlink" title="14.2 创建线程和结束线程"></a>14.2 创建线程和结束线程</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">pthread_create</span><span class="params">(<span class="type">pthread_t</span>*thread,<span class="type">const</span> <span class="type">pthread_attr_t</span>*attr, <span class="type">void</span>*(*start_routine ）(<span class="type">void</span>*),<span class="type">void</span>*arg )</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="一、咋，撸个项目？"><a href="#一、咋，撸个项目？" class="headerlink" title="一、咋，撸个项目？"></a>一、咋，撸个项目？</h2><p><strong>总有粉丝伙伴问傅哥</strong>，有没有能<code>上手练习技术的项目</code>，现在学了这么多技术知识、看了这么多设计模式、搜了这么多架构设计，但这些内容都是怎么结合在一起使用的呢？互联网中的项目架构设计是什么样的呢？我该怎么开始学到什么样才能进大厂呢？</p>
+<table>
+<thead>
+<tr>
+<th>项目学习意见（收集结果）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/raw/master/doc/assets/img/1-01.png" alt="图 1-1"></td>
+</tr>
+</tbody></table>
 <ul>
-<li>thread：新线程的标识符</li>
-<li>attr：设置新线程属性，NULL表示使用默认线程属性</li>
-<li>start_routine、arg：新线程将运行的函数及其参数，start_routine必须指向一个静态函数</li>
-<li>成功时返回0，失败时返回出错码</li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/assets/excel/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E6%84%8F%E8%A7%81%EF%BC%88%E6%94%B6%E9%9B%86%E7%BB%93%E6%9E%9C%EF%BC%89.xlsx">项目学习意见（收集结果）.xlsx</a></li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">pthread_detach</span><span class="params">(<span class="type">pthread_t</span> thread)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>咋neng呢，撸个项目吧！</code> 在撸项目开始之前，做了一次项目学习意见调研，问了问大家：“想做个什么项目，如；积分商城、抽奖系统、活动系统、监控系统、技术组件，并且这些项目中用到了哪些技术栈。” 最后在大家的意见反馈中，先以开发互联网中C端类项目 <strong>抽奖系统</strong> 开始，这样一个项目可以让大家在系统的<code>架构搭建</code>、<code>功能配置</code>、<code>服务开发</code>中学习到关于一些关于解决<code>高并发</code>、<code>高性能</code>、<code>高可用</code>场景时的技术实践运用。<em>放心，其他类的互联网项目，我们也会陆续的折腾起来！</em></p>
+<p>So！基于DDD领域驱动设计的四层架构<strong>抽奖系统</strong>，开始啦！有座，这趟车的你跟上！</p>
+<h2 id="二、呀，能学东西！"><a href="#二、呀，能学东西！" class="headerlink" title="二、呀，能学东西！"></a>二、呀，能学东西！</h2><p><img src="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/raw/master/doc/assets/img/1-02.png" alt="图 1-2"></p>
+<p>一个以真实场景<code>实践技术栈整合</code>开发实际需求的项目，势必会因为要完成需求而引入各项技术栈的使用，也会由于要解决互联网中C端场景中的三高问题，而使用相应的技术实现不同类别解决与方案，我们也可以把此类解决方案理解为DDD中的业务领域模型开发。在这个设计和开发的过程中会涉及到<code>架构设计</code>、<code>技术应用</code>、<code>场景实现</code>，每一块内容都会有非常多的实践知识，可以让读者学到东西。</p>
+<h2 id="三、呐，怎么开始？"><a href="#三、呐，怎么开始？" class="headerlink" title="三、呐，怎么开始？"></a>三、呐，怎么开始？</h2><p>为了能让读者伙伴快速🔜进入项目学习，可以按照下面的步骤开始：</p>
+<ol>
+<li>【入口】<a href="https://codechina.csdn.net/KnowledgePlanet/Lottery">Lottery</a> 项目主入口中有一个 README.md 有关于项目的学习说明、开发规范、章节目录和问题交流提交issue说明以及群内交流，在学习的过程中可以参考使用。</li>
+<li>【文章】每一个章节内容中都会包括；需求、实现、验证、细节，四块内容的介绍，以及当前章节中对应的代码分支可以切换学习。</li>
+<li>【代码】在代码学习的过程中可以克隆工程进行开发练习，也可以给主工程小傅哥工程代码提交PR、ISSUE，我会去审核和合并以及不断的完善代码。</li>
+</ol>
+<h2 id="四、来，上我的车！"><a href="#四、来，上我的车！" class="headerlink" title="四、来，上我的车！"></a>四、来，上我的车！</h2><p>🚌 <code>来吧，上车，还有座！</code></p>
+<p>动手、动手、动手，一个实践类型的项目最需要的就是你动起手来，只有这样你才能发现各种问题细节的处理。更何况哪怕在别人电脑💻上运行的再顺畅的代码，在你那也可能<em>拉跨</em>，不过没关系因为所有拉跨的过程都将是你抓住学习的点！</p>
+<p>我一直坚持很多事情要慢下来，希望你也不要过于的着急快，火急火燎不是学习的长久过程，而迟迟以恒才能让你的收获更加丰满。趁着时间还多正当年恰，坚持做好自己想做的事情吧！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/08/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/08/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-08 00:02:09 / 修改时间：11:05:33" itemprop="dateCreated datePublished" datetime="2023-12-08T00:02:09+08:00">2023-12-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="第-03-节：跑通广播模式RPC过程调用"><a href="#第-03-节：跑通广播模式RPC过程调用" class="headerlink" title="第 03 节：跑通广播模式RPC过程调用"></a>第 03 节：跑通广播模式RPC过程调用</h1><div align="center">
+    <img src="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/raw/master/doc/assets/img/3-00.png" width="128">
+</div>
+
 <ul>
-<li>将线程设置为脱离线程。脱离了与其他线程同步的线程称为“脱离线程“，脱离线程在退出时将自行释放其占用的系统资源。</li>
-<li> 在任何一个时间点上，线程是可结合的（joinable），或者是分离的（detached）。一个可结合的线程能够被其他线程收回其资源和杀死；在被其他线程回收之前，它的存储器资源（如栈）是不释放的。相反，一个分离的线程是不能被其他线程回收或杀死的，它的存储器资源在它终止时由系统自动释放。</li>
-<li><a href="https://blog.csdn.net/wangzhida2008/article/details/74373818">创建脱离线程 pthread_attr_setdetachstate-CSDN博客</a></li>
+<li>分支：<a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/tree/210804_xfg_buildFramework">210804_xfg_buildFramework</a></li>
+<li>描述：构建工程完成RPC接口的实现和调用</li>
 </ul>
-<h2 id="14-4-信号量"><a href="#14-4-信号量" class="headerlink" title="14.4 信号量"></a>14.4 信号量</h2><blockquote>
-<p>信号量用于线程同步，控制对共享资源的独占式访问，或是在某个条件满足后唤醒一个线程</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#includqe <span class="string">&lt;semaphore.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sem_init</span><span class="params">( <span class="type">sem_t</span>* sem, <span class="type">int</span> pshared, <span class="type">unsigned</span> <span class="type">int</span> value )</span>  <span class="type">int</span> <span class="title">sem_destroy</span><span class="params">(<span class="type">sem_t</span>* sem )</span> </span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sem_wait</span><span class="params">( <span class="type">sem_t</span>* sem )</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sem_trywait</span> <span class="params">( <span class="type">sem_t</span>* sem )</span> </span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sem_post</span><span class="params">( <span class="type">sem_t</span>* Sem )</span> </span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>sem_init函数用于初始化一个未命名的信号量<br>  sem_destory函数用于销毁信号量<br>  sem_wait函数将以原子操作方式将信号量减一,信号量为0时,sem_wait阻塞<br>  sem_post函数以原子操作方式将信号量加一,信号量大于0时,唤醒调用sem_post的线程</p>
-</blockquote>
-<h2 id="14-5-互斥锁"><a href="#14-5-互斥锁" class="headerlink" title="14.5 互斥锁"></a>14.5 互斥锁</h2><blockquote>
-<p>互斥锁用于保护关键代码段，以确保其独占式访问，其作用与二进制信号量相同</p>
-</blockquote>
+<p>当基础的工程模块创建完成以后，还需要给整个工程注入<code>灵魂</code>，就是让它可以跑通。这个过程包括一个简单的 RPC 接口功能实现和测试调用，那么这里为了让功能体现出一个完整度，还会创建出一个库表在 RPC 调用的时候查询出库表中的数据并🔙返回结果。那么在这个分支上我们就先来完成这样一个内容的实现。</p>
+<p>常见错误：</p>
 <ul>
-<li>pthread_mutex_init函数用于初始化互斥锁</li>
-<li>pthread_mutex_destory函数用于销毁互斥锁</li>
-<li>pthread_mutex_lock函数以原子操作方式给互斥锁加锁</li>
-<li>pthread_mutex_unlock函数以原子操作方式给互斥锁解锁</li>
+<li>Dubbo 接口无论是入参、出参，以及参数中的包括的对象，都必须 implements Serializable</li>
+<li>Dubbo 接口实现需要使用 <code>@org.apache.dubbo.config.annotation.Service</code> 不要用 Spring 的 Service</li>
+<li>关于链接错误：<a href="https://gitcode.net/KnowledgePlanet/Lottery/-/issues/1">Dubbo 广播模式失败问题</a></li>
+<li>检查数据库配置、对象注入、工程启动是否成功</li>
 </ul>
-<h2 id="14-6-条件变量"><a href="#14-6-条件变量" class="headerlink" title="14.6 条件变量"></a>14.6 条件变量</h2><blockquote>
-<p>条件变量提供了一种线程间的通知机制,当某个共享数据达到某个值时,唤醒等待这个共享数据的线程。<br>当某个条件满足时，唤醒等待该条件的线程。</p>
-</blockquote>
+<hr>
+<p>⛳ <strong>目录</strong></p>
 <ul>
-<li>pthread_cond_init函数用于初始化条件变量</li>
-<li>pthread_cond_destory函数销毁条件变量</li>
-<li>pthread_cond_broadcast函数以广播的方式唤醒<strong>所有</strong>等待目标条件变量的线程</li>
-<li>pthread_cond_wait函数用于等待目标条件变量.该函数调用时需要传入 <strong>mutex参数(加锁的互斥锁)</strong> ,函数执行时,先把调用线程放入条件变量的请求队列,然后将互斥锁mutex解锁,当函数成功返回为0时,互斥锁会再次被锁上. <strong>也就是说函数内部会有一次解锁和加锁操作</strong>.</li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E4%B8%80%E5%88%9B%E5%BB%BA%E6%8A%BD%E5%A5%96%E6%B4%BB%E5%8A%A8%E8%A1%A8">一、创建抽奖活动表</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E4%BA%8Cpom-%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE">二、POM 文件配置</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E4%B8%89%E9%85%8D%E7%BD%AEmybatis">三、配置Mybatis</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E5%9B%9B%E9%85%8D%E7%BD%AE%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8F-dubbo">四、配置广播模式 Dubbo</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E4%BA%94%E5%AE%9A%E4%B9%89%E5%92%8C%E5%BC%80%E5%8F%91-rpc-%E6%8E%A5%E5%8F%A3">五、定义和开发 RPC 接口</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E5%85%AD%E6%90%AD%E5%BB%BA%E6%B5%8B%E8%AF%95%E5%B7%A5%E7%A8%8B%E8%B0%83%E7%94%A8-rpc">六、搭建测试工程调用 RPC</a></li>
+<li><a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/blob/master/doc/notes/%E7%AC%AC%2003%20%E8%8A%82%EF%BC%9A%E8%B7%91%E9%80%9A%E5%B9%BF%E6%92%AD%E6%A8%A1%E5%BC%8FRPC%E8%BF%87%E7%A8%8B%E8%B0%83%E7%94%A8.md#%E4%B8%83%E6%9C%AC%E7%AB%A0%E7%9F%A5%E8%AF%86%E7%82%B9">七、本章知识点</a></li>
+</ul>
+<h2 id="一、创建抽奖活动表"><a href="#一、创建抽奖活动表" class="headerlink" title="一、创建抽奖活动表"></a>一、创建抽奖活动表</h2><p>在抽奖活动的设计和开发过程中，会涉及到的表信息包括：活动表、奖品表、策略表、规则表、用户参与表、中奖信息表等，这些都会在我们随着开发抽奖的过程中不断的添加出来这些表的创建。</p>
+<p>那么目前我们为了先把程序跑通，可以先简单的创建出一个活动表，用于实现系统对数据库的CRUD操作，也就可以被RPC接口调用。在后面陆续实现的过程中可能会有一些不断优化和调整的点，用于满足系统对需求功能的实现。</p>
+<p><strong>活动表(activity)</strong></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>bigint(20)</td>
+<td>自增ID</td>
+</tr>
+<tr>
+<td>activityId</td>
+<td>bigint(20)</td>
+<td>活动ID</td>
+</tr>
+<tr>
+<td>activityName</td>
+<td>varchar(64)</td>
+<td>活动名称</td>
+</tr>
+<tr>
+<td>activityDesc</td>
+<td>varchar(128)</td>
+<td>活动描述</td>
+</tr>
+<tr>
+<td>beginDateTime</td>
+<td>datetime</td>
+<td>开始时间</td>
+</tr>
+<tr>
+<td>endDateTime</td>
+<td>datetime</td>
+<td>结束时间</td>
+</tr>
+<tr>
+<td>stockCount</td>
+<td>int(11)</td>
+<td>库存</td>
+</tr>
+<tr>
+<td>takeCount</td>
+<td>int(11)</td>
+<td>每人可参与次数</td>
+</tr>
+<tr>
+<td>state</td>
+<td>int(4)</td>
+<td>活动状态：编辑、提审、撤审、通过、运行、拒绝、关闭、开启</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>varchar(64)</td>
+<td>创建人</td>
+</tr>
+<tr>
+<td>createTime</td>
+<td>datetime</td>
+<td>创建时间</td>
+</tr>
+<tr>
+<td>updateTime</td>
+<td>datetime</td>
+<td>修改时间</td>
+</tr>
+</tbody></table>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `activity` (</span><br><span class="line">  `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;自增ID&#x27;</span>,</span><br><span class="line">  `activity_id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;活动ID&#x27;</span>,</span><br><span class="line">  `activity_name` <span class="type">varchar</span>(<span class="number">64</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;活动名称&#x27;</span>,</span><br><span class="line">  `activity_desc` <span class="type">varchar</span>(<span class="number">128</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;活动描述&#x27;</span>,</span><br><span class="line">  `begin_date_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;开始时间&#x27;</span>,</span><br><span class="line">  `end_date_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;结束时间&#x27;</span>,</span><br><span class="line">  `stock_count` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;库存&#x27;</span>,</span><br><span class="line">  `take_count` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;每人可参与次数&#x27;</span>,</span><br><span class="line">  `state` tinyint(<span class="number">2</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;活动状态：1编辑、2提审、3撤审、4通过、5运行(审核通过后worker扫描状态)、6拒绝、7关闭、8开启&#x27;</span>,</span><br><span class="line">  `creator` <span class="type">varchar</span>(<span class="number">64</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;创建人&#x27;</span>,</span><br><span class="line">  `create_time` datetime <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">  `update_time` datetime <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;修改时间&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">  <span class="keyword">UNIQUE</span> KEY `unique_activity_id` (`activity_id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">2</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4 <span class="keyword">COLLATE</span><span class="operator">=</span>utf8mb4_bin COMMENT<span class="operator">=</span><span class="string">&#x27;活动配置&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>活动表：是一个用于配置抽奖活动的总表，用于存放活动信息，包括：ID、名称、描述、时间、库存、参与次数等。</li>
+</ul>
+<h2 id="二、POM-文件配置"><a href="#二、POM-文件配置" class="headerlink" title="二、POM 文件配置"></a>二、POM 文件配置</h2><p>按照现有工程的结构模块分层，包括：</p>
+<ul>
+<li>lottery-application，应用层，引用：<code>domain</code></li>
+<li>lottery-common，通用包，引用：<code>无</code></li>
+<li>lottery-domain，领域层，引用：<code>infrastructure</code></li>
+<li>lottery-infrastructure，基础层，引用：<code>无</code></li>
+<li>lottery-interfaces，接口层，引用：<code>application</code>、<code>rpc</code></li>
+<li>lottery-rpc，RPC接口定义层，引用：<code>common</code></li>
+</ul>
+<p>在此分层结构和依赖引用下，各层级模块不能循环依赖，同时 <code>lottery-interfaces</code> 作为系统的 war 包工程，在构建工程时候需要依赖于 POM 中配置的相关信息。那这里就需要注意下，作为 Lottery 工程下的主 pom.xml 需要完成对 SpringBoot 父文件的依赖，此外还需要定义一些用于其他模块可以引入的配置信息，比如：jdk版本、编码方式等。而其他层在依赖于工程总 pom.xml 后还需要配置自己的信息。</p>
+<h3 id="1-总工程下POM配置"><a href="#1-总工程下POM配置" class="headerlink" title="1. 总工程下POM配置"></a>1. 总工程下POM配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Base --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jdk.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">jdk.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">sourceEncoding</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.5.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>相对于工程下其他的模块来说，总POM就是这些模块的父类模块，在父类模块中一般只提供基础的定义，不提供各个Jar包的引入配置。如果在父类 POM 中引入了所有的 Jar，那么各个模块无论是否需要这个 Jar 都会被自动引入进去，造成没必要的配置，也会影响对核心Jar的扰乱，让你分不清自己需要的是否就在眼前。</li>
+</ul>
+<h3 id="2-模块类POM配置"><a href="#2-模块类POM配置" class="headerlink" title="2. 模块类POM配置"></a>2. 模块类POM配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>Lottery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.itedus.lottery<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lottery-rpc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.itedus.lottery<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lottery-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>lottery-rpc<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 编译plugin --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">source</span>&gt;</span>$&#123;jdk.version&#125;<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">target</span>&gt;</span>$&#123;jdk.version&#125;<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">compilerVersion</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">compilerVersion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在各个模块配置中需要关注点包括：依赖父POM配置<code>parent</code>、构建包类型<code>packaging</code>、需要引入的包<code>dependencies</code>、构建信息<code>build</code>之所以要配置这个是有些时候在这个模块工程下还可能会有一些差异化信息的引入。</li>
+</ul>
+<h3 id="3-War包pom配置"><a href="#3-War包pom配置" class="headerlink" title="3. War包pom配置"></a>3. War包pom配置</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lottery-interfaces<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">finalName</span>&gt;</span>Lottery<span class="tag">&lt;/<span class="name">finalName</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">testResources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">testResource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/test/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">testResource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">testResources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">source</span>&gt;</span>8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">target</span>&gt;</span>8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lottery-interfaces 是整个程序的出口，也是用于构建 War 包的工程模块，所以你会看到一个 <code>&lt;packaging&gt;war&lt;/packaging&gt;</code> 的配置。</li>
+<li>在 dependencies 会包含所有需要用到的 SpringBoot 配置，也会包括对其他各个模块的引入。</li>
+<li>在 build 构建配置上还会看到一些关于测试包的处理，比如这里包括了资源的引入也可以包括构建时候跳过测试包的配置。</li>
+</ul>
+<h2 id="三、配置Mybatis"><a href="#三、配置Mybatis" class="headerlink" title="三、配置Mybatis"></a>三、配置Mybatis</h2><p>SpringBoot 与 Mybatis 的结合使用还是非常方便的，暂时我们也还没有引入分库分表路由的组件，所以只是一个引入操作数据库的简单配置。</p>
+<p><strong>引入 starter</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.5-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 SpringBoot 的使用中，你会看到各种 xxx-starter，它们这些组件的包装都是用于完成桥梁的作用，把一些服务交给 SpringBoot 启动时候初始化或者加载配置等操作。</li>
+</ul>
+<p><strong>配置 yml</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    username: root</span><br><span class="line">    password: 1234</span><br><span class="line">    url: jdbc:mysql://127.0.0.1:3306/lottery?useUnicode=true</span><br><span class="line">    driver-class-name: com.mysql.jdbc.Driver</span><br><span class="line"></span><br><span class="line">mybatis:</span><br><span class="line">  mapper-locations: classpath:/mybatis/mapper/*.xml</span><br><span class="line">  config-location:  classpath:/mybatis/config/mybatis-config.xml</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置 Spring.datasource 数据源和mybatis文件的引入配置，这些mybatis文件主要的是包括了各个 mapper 的处理。<em>当然你也可以习惯于使用注解的方式使用数据库</em></li>
+<li>如果是引入了分库分表组件，那么这里就需要配置多个数据源信息，在后面的开发过程中会有所体现。</li>
+</ul>
+<h2 id="四、配置广播模式-Dubbo"><a href="#四、配置广播模式-Dubbo" class="headerlink" title="四、配置广播模式 Dubbo"></a>四、配置广播模式 Dubbo</h2><p>首先说说为什么要配置广播模式的 Dubbo，其实最早 RPC 的设计和使用都是依赖于注册中心，那就是需要把服务接口信息在程序启动的时候，推送到一个统一的注册中心，在其他需要调用 RPC 接口的服务上再通过注册中心的均衡算法来匹配可以连接的接口落到本地保存和更新。那么这样的标准的使用方式可以提供更大的连接数和更强的负载均衡作用，但目前我们这个以学习实践为目的的工程开发则需要尽可能减少学习成本，也就需要在开发阶段少一些引入一些额外的配置，那么目前使用广播模式就非常适合，以后也可以直接把 Dubbo 配置成注册中心模式。官网：<a href="https://dubbo.apache.org/zh/docs/quick-start/">https://dubbo.apache.org</a></p>
+<p><strong>配置 yml</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"># Dubbo 广播方式配置</span><br><span class="line">dubbo:</span><br><span class="line">  application:</span><br><span class="line">    name: Lottery</span><br><span class="line">    version: 1.0.0</span><br><span class="line">  registry:</span><br><span class="line">    address: multicast://224.5.6.7:1234</span><br><span class="line">  protocol:</span><br><span class="line">    name: dubbo</span><br><span class="line">    port: 20880</span><br><span class="line">  scan:</span><br><span class="line">    base-packages: cn.itedus.lottery.rpc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>广播模式的配置唯一区别在于注册地址，<code>registry.address = multicast://224.5.6.7:1234</code>，服务提供者和服务调用者都需要配置相同的📢广播地址。</li>
+<li>application，配置应用名称和版本</li>
+<li>protocol，配置的通信协议和端口</li>
+<li>scan，相当于 Spring 中自动扫描包的地址，可以把此包下的所有 rpc 接口都注册到服务中</li>
+</ul>
+<h2 id="五、定义和开发-RPC-接口"><a href="#五、定义和开发-RPC-接口" class="headerlink" title="五、定义和开发 RPC 接口"></a>五、定义和开发 RPC 接口</h2><p>由于 RPC 接口在通信的过程中，需要提供接口的描述文件，也就是接口的定义信息。所以这里你会看到我们会把所有的 RPC 接口定义都放到 <code>lottery-rpc</code> 模块下，这种方式的使用让外部就只依赖这样一个 pom 配置引入的 Jar 包即可。</p>
+<p><strong>定义接口</strong></p>
+<p><img src="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/raw/master/doc/assets/img/3-01.png"></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IActivityBooth</span> &#123;</span><br><span class="line"></span><br><span class="line">    ActivityRes <span class="title function_">queryActivityById</span><span class="params">(ActivityReq req)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这里先来定义一个<code>活动展台</code>的接口类，用于包装活动的创建、查询、修改、审核的接口。</li>
+</ul>
+<p><strong>开发接口</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ActivityBooth</span> <span class="keyword">implements</span> <span class="title class_">IActivityBooth</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> IActivityDao activityDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ActivityRes <span class="title function_">queryActivityById</span><span class="params">(ActivityReq req)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Activity</span> <span class="variable">activity</span> <span class="operator">=</span> activityDao.queryActivityById(req.getActivityId());</span><br><span class="line"></span><br><span class="line">        <span class="type">ActivityDto</span> <span class="variable">activityDto</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ActivityDto</span>();</span><br><span class="line">        activityDto.setActivityId(activity.getActivityId());</span><br><span class="line">        activityDto.setActivityName(activity.getActivityName());</span><br><span class="line">        activityDto.setActivityDesc(activity.getActivityDesc());</span><br><span class="line">        activityDto.setBeginDateTime(activity.getBeginDateTime());</span><br><span class="line">        activityDto.setEndDateTime(activity.getEndDateTime());</span><br><span class="line">        activityDto.setStockAllTotal(activity.getStockAllTotal());</span><br><span class="line">        activityDto.setStockDayTotal(activity.getStockDayTotal());</span><br><span class="line">        activityDto.setTakeAllCount(activity.getStockAllTotal());</span><br><span class="line">        activityDto.setTakeDayCount(activity.getStockDayTotal());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ActivityRes</span>(<span class="keyword">new</span> <span class="title class_">Result</span>(Constants.ResponseCode.SUCCESS.getCode(), Constants.ResponseCode.SUCCESS.getInfo()), activityDto);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用于实现 RPC 接口的实现类 ActivityBooth 上有一个注解 @Service，这个注解是来自于 Dubbo 的 <code>org.apache.dubbo.config.annotation.Service</code>，也就是这个包下含有此注解配置的类可以被 Dubbo 管理。</li>
+<li>在 queryActivityById 功能实现中目前还比较粗糙，但大体可以看出这是对数据库的操作以及对结果的封装，提供 DTO 的对象并返回 Res 结果。<em>目前dto的创建后续可以使用门面模式和工具类进行处理</em></li>
+</ul>
+<p><strong>以上就是当前工程对 RPC 接口的一个使用流程的实现，后续会在此基础上添加各个模块的功能。</strong></p>
+<h2 id="六、搭建测试工程调用-RPC"><a href="#六、搭建测试工程调用-RPC" class="headerlink" title="六、搭建测试工程调用 RPC"></a>六、搭建测试工程调用 RPC</h2><p>为了测试 RPC 接口的调用以及后续其他逻辑的验证，这里需要创建一个测试工程：<a href="https://codechina.csdn.net/KnowledgePlanet/Lottery-Test">Lottery-Test</a> 这个工程中用于引入 RPC 接口的配置和同样广播模式的调用。</p>
+<h3 id="1-配置-POM"><a href="#1-配置-POM" class="headerlink" title="1. 配置 POM"></a>1. 配置 POM</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.itedus.lottery<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lottery-rpc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>测试之前需要把 Lottery 工程中的 lottery-rpc 进行构建打包，便于测试工程引入<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312081105831.png" alt="image.png"></li>
+</ul>
+<h3 id="2-配置广播模式-Dubbo"><a href="#2-配置广播模式-Dubbo" class="headerlink" title="2. 配置广播模式 Dubbo"></a>2. 配置广播模式 Dubbo</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8081</span><br><span class="line"></span><br><span class="line"># Dubbo 广播方式配置</span><br><span class="line">dubbo:</span><br><span class="line">  application:</span><br><span class="line">    name: Lottery</span><br><span class="line">    version: 1.0.0</span><br><span class="line">  registry:</span><br><span class="line">    address: multicast://224.5.6.7:1234</span><br><span class="line">  protocol:</span><br><span class="line">    name: dubbo</span><br><span class="line">    port: 20880</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这里的配置与 Dubbo 接口提供者是一样的，都需要在一个广播地址下使用。</li>
+</ul>
+<h3 id="3-单元测试类"><a href="#3-单元测试类" class="headerlink" title="3. 单元测试类"></a>3. 单元测试类</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ApiTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Logger</span> <span class="variable">logger</span> <span class="operator">=</span> LoggerFactory.getLogger(ApiTest.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Reference(interfaceClass = IActivityBooth.class)</span></span><br><span class="line">    <span class="keyword">private</span> IActivityBooth activityBooth;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_rpc</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">ActivityReq</span> <span class="variable">req</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ActivityReq</span>();</span><br><span class="line">        req.setActivityId(<span class="number">100001L</span>);</span><br><span class="line">        <span class="type">ActivityRes</span> <span class="variable">result</span> <span class="operator">=</span> activityBooth.queryActivityById(req);</span><br><span class="line">        logger.info(<span class="string">&quot;测试结果：&#123;&#125;&quot;</span>, JSON.toJSONString(result));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>IActivityBooth 是 RPC 接口，通过 Dubbo 的注解 <code>@Reference</code> 进行注入配置。有了这个注解的配置其实调用上就没有太多不同了。</li>
+<li>如果广播模式不太稳定，可以在 @Reference 注解的 url 属性指定直连模式。<em>后续真正的业务使用一般都是使用注册中心模式，此案例中的模式主要是为了更简单的方式学习验证</em></li>
+</ul>
+<p><strong>测试结果</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">2021</span>-08-08 <span class="number">12</span>:<span class="number">07</span>:<span class="number">34.898</span>  INFO <span class="number">9474</span> --- [           main] cn.itedus.lottery.test.SpringRunnerTest           : 测试结果：&#123;<span class="string">&quot;activity&quot;</span>:&#123;<span class="string">&quot;activityDesc&quot;</span>:<span class="string">&quot;傅哥的活动&quot;</span>,<span class="string">&quot;activityId&quot;</span>:<span class="number">100001</span>,<span class="string">&quot;activityName&quot;</span>:<span class="string">&quot;测试活动&quot;</span>,<span class="string">&quot;beginDateTime&quot;</span>:<span class="number">1628061494000</span>,<span class="string">&quot;endDateTime&quot;</span>:<span class="number">1628061494000</span>,<span class="string">&quot;stockCount&quot;</span>:<span class="number">100</span>,<span class="string">&quot;takeCount&quot;</span>:<span class="number">10</span>&#125;,<span class="string">&quot;result&quot;</span>:&#123;<span class="string">&quot;code&quot;</span>:<span class="string">&quot;0000&quot;</span>,<span class="string">&quot;info&quot;</span>:<span class="string">&quot;成功&quot;</span>&#125;&#125;</span><br><span class="line"><span class="number">2021</span>-08-08 <span class="number">12</span>:<span class="number">07</span>:<span class="number">34.915</span>  INFO <span class="number">9474</span> --- [extShutdownHook] .b.c.e.AwaitingNonWebApplicationListener :  [Dubbo] Current Spring Boot Application is about to shutdown...</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>通过测试结果可以看到，目前通过 RPC 调用已经可以查询到分布式系统提供的数据库操作功能。</li>
+</ul>
+<h2 id="七、本章知识点"><a href="#七、本章知识点" class="headerlink" title="七、本章知识点"></a>七、本章知识点</h2><ul>
+<li>DDD + RPC 各个分层模块的 POM 配置和依赖关系</li>
+<li>Mybatis 的配置和使用</li>
+<li>Dubbo 中广播模式的配置，在你实际使用的过程中一般都是使用注册中心模式</li>
 </ul>
 
       
@@ -946,7 +914,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/15/Resume/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/06/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2005%20%E8%8A%82%EF%BC%9A%E6%8A%BD%E5%A5%96%E7%AD%96%E7%95%A5%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BC%80%E5%8F%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -964,79 +932,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/15/Resume/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-11-15 15:33:46 / 修改时间：16:35:25" itemprop="dateCreated datePublished" datetime="2023-11-15T15:33:46+08:00">2023-11-15</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>异步电路EDA<br>参与兰州大学异步电路与系统实验室（LZU-ARC）的PinTu项目（面向FPGA ASIC的全异步开源EDA工具链），目前开源到启智平台（OpenI，新一代人工智能开源开放平台）。主要完成对项目源码的部分分析工作，形成介绍文档。对整个项目的整体介绍及部署开源工作。</p>
-<p>Gitlet<br>使用Java实现简化版的git，支持add、commit、log、checkout、merge等本地仓库操作，同时实现push、fetch、pull等命令操作。主要包括blob，commit，stage，每一个文件对应一个blob对象，commit和stage分别用于提交和暂存区的对象。利用java序列化的方法实现commit和stage的持久化存储，通过sha1算法计算相应的哈希值实现内容可寻址。实现字典树存储commit哈希值，实现根据6位前缀快速查找对应的commit哈希值。</p>
-<p>WebServer<br>实现简易的web服务器，</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/08/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/06/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2005%20%E8%8A%82%EF%BC%9A%E6%8A%BD%E5%A5%96%E7%AD%96%E7%95%A5%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9D%97%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BC%80%E5%8F%91/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1047,14 +943,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-11-08 16:22:01" itemprop="dateCreated datePublished" datetime="2023-11-08T16:22:01+08:00">2023-11-08</time>
+      <time title="创建时间：2023-12-06 16:59:33" itemprop="dateCreated datePublished" datetime="2023-12-06T16:59:33+08:00">2023-12-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-15 19:58:10" itemprop="dateModified" datetime="2023-11-15T19:58:10+08:00">2023-11-15</time>
+      <time title="修改时间：2023-12-08 00:05:43" itemprop="dateModified" datetime="2023-12-08T00:05:43+08:00">2023-12-08</time>
     </span>
 
   
@@ -1067,24 +963,54 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="5-Linux基础API"><a href="#5-Linux基础API" class="headerlink" title="5 Linux基础API"></a>5 Linux基础API</h1><h2 id="socket地址API"><a href="#socket地址API" class="headerlink" title="socket地址API"></a>socket地址API</h2><p>发送端总是把要发送的数据转化为大端字节序数据然后再发送，大端字节序也称为网络字节序。</p>
-<h2 id="5-8-数据读写"><a href="#5-8-数据读写" class="headerlink" title="5.8 数据读写"></a>5.8 数据读写</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="comment">//TCP数据读写</span></span><br><span class="line"><span class="function"><span class="type">ssize_t</span> <span class="title">recv</span><span class="params">(<span class="type">int</span> sockfd, <span class="type">void</span> *buf, <span class="type">size_t</span> len,<span class="type">int</span> flags)</span></span></span><br><span class="line"><span class="function"><span class="type">ssize_t</span> <span class="title">send</span><span class="params">(<span class="type">int</span> sockfd, <span class="type">const</span> <span class="type">void</span> *buf, <span class="type">size_t</span> len,<span class="type">int</span> flags)</span></span></span><br></pre></td></tr></table></figure>
+          <h1 id="第-05-节：抽奖策略领域模块设计和开发"><a href="#第-05-节：抽奖策略领域模块设计和开发" class="headerlink" title="第 05 节：抽奖策略领域模块设计和开发"></a>第 05 节：抽奖策略领域模块设计和开发</h1><ul>
+<li>分支：<a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/tree/210814_xfg_strategy">210814_xfg_strategy</a></li>
+<li>描述：在domain抽奖领域模块实现两种抽奖策略算法，包括：单项概率抽奖和整体概率抽奖，并提供统一的调用方式</li>
+<li>完善：📢 可以都学完后再回来看这个分支，因为它是一个全量代码分支下的功能完善 <a href="https://gitcode.net/KnowledgePlanet/Lottery/-/commits/220111_xfg_config_strategy">220111_xfg_config_strategy</a> - <code>对于抽奖策略配置注入使用 list + 枚举 的方式进行优化，参考issue：</code> <a href="https://gitcode.net/KnowledgePlanet/Lottery/-/blob/220111_xfg_config_strategy/lottery-domain/src/main/java/cn/itedus/lottery/domain/strategy/service/draw/DrawConfig.java">DrawConfig.java</a> -&gt; <a href="https://gitcode.net/KnowledgePlanet/Lottery/-/issues/54">#54</a></li>
+</ul>
+<h2 id="一、需求引出设计"><a href="#一、需求引出设计" class="headerlink" title="一、需求引出设计"></a>一、需求引出设计</h2><p><strong>需求</strong>：在一场营销抽奖活动玩法中，运营人员通常会配置以转盘、盲盒等展现形式的抽奖玩法。例如在转盘中配置12个奖品，每个奖品配置不同的中奖概率，当1个奖品被抽空了以后，那么再抽奖时，是剩余的奖品总概率均匀分配在11个奖品上，还是保持剩余11个奖品的中奖概率，如果抽到为空的奖品则表示未中奖。其实这两种方式在实际的运营过程中都会有所选取，主要是为了配合不同的玩法。</p>
+<p><strong>设计</strong>：那么我们在做这样的抽奖领域模块设计时，就要考虑到库表中要有对应的字段来区分当前运营选择的是什么样的抽奖策略。那么在开发实现上也会用到对应的<code>策略模式</code>的使用，两种抽奖算法可以算是不同的抽奖策略，最终提供统一的接口包装满足不同的抽奖功能调用。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312072339665.png" alt="image.png"></p>
 <ul>
-<li>recv读取sockfd的数据，buf和len分别指定读缓冲区的位置和大小，flags通常设置为0；recv成功时返回实际读取到的数据的长度</li>
-<li>send往sockfd写数据，send成功时返回实际写入数据的长度</li>
-<li>flags为数据收发提供了额外的控制</li>
+<li>在库表设计上我们把抽奖需要的策略配置和策略明细，它们的关系是<code>1vn</code>。</li>
+<li>另外为了让抽奖策略成为可以独立配置和使用的领域模块，在策略表用不引入活动ID信息的配置。因为在建设领域模块的时候，我们需要把让这部分的领域实现具有可独立运行的特性，不让它被业务逻辑污染，它只是一种无业务逻辑的通用共性的功能领域模块，在业务组合的过程中可以使用此功能领域提供的标准接口。</li>
+<li>通过这样的设计实现，就可以满足于不同业务场景的灵活调用，例如：有些业务场景是需要你直接来进行抽奖反馈中奖信息发送给用户，但还有一些因为用户下单支付才满足抽奖条件的场景对应的奖品是需要延时到账的，避免用户在下单后又进行退单，这样造成了刷单的风险。<code>所以很时候你的设计是与业务场景息息相关的</code></li>
 </ul>
-<h2 id="readv、writev"><a href="#readv、writev" class="headerlink" title="readv、writev"></a>readv、writev</h2><h1 id="8-高性能服务器程序框架"><a href="#8-高性能服务器程序框架" class="headerlink" title="8. 高性能服务器程序框架"></a>8. 高性能服务器程序框架</h1><h2 id="8-3-I-x2F-O模型"><a href="#8-3-I-x2F-O模型" class="headerlink" title="8.3 I&#x2F;O模型"></a>8.3 I&#x2F;O模型</h2><p>对accept、send和recv而言，事件未发生时error通常被设置为</p>
+<h2 id="二、领域功能结构"><a href="#二、领域功能结构" class="headerlink" title="二、领域功能结构"></a>二、领域功能结构</h2><p>抽奖系统工程采用DDD架构 + Module模块方式搭建，lottery-domain 是专门用于开发领域服务的模块，不限于目前的抽奖策略在此模块下实现还有以后需要实现的活动领域、规则引擎、用户服务等都需要在这个模块实现对应的领域功能。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312072359061.png" alt="image.png"></p>
+<p>strategy 是第1个在 domain 下实现的抽奖策略领域，在领域功能开发的服务下主要含有model、repository、service三块区域，接下来分别介绍下在抽奖领域中这三块区域都做了哪些事情。</p>
 <ul>
-<li>EAGAIN（再来一次）</li>
-<li>EWOULDBLOCK（期望阻塞）<br>对connect而言，error被设置为</li>
-<li>EINPROGRESS（在处理中）</li>
+<li>model，用于提供vo、req、res 和 aggregates 聚合对象。</li>
+<li>repository，提供仓储服务，其实也就是对Mysql、Redis等数据的统一包装。</li>
+<li>service，是具体的业务领域逻辑实现层，在这个包下定义了algorithm抽奖算法实现和具体的抽奖策略包装 draw 层，对外提供抽奖接口 IDrawExec#doDrawExec</li>
 </ul>
-<h1 id="9-I-x2F-O复用"><a href="#9-I-x2F-O复用" class="headerlink" title="9 I&#x2F;O复用"></a>9 I&#x2F;O复用</h1><h2 id="9-3"><a href="#9-3" class="headerlink" title="9.3"></a>9.3</h2><p>epoll对文件描述符的操作有两种模式：LT(level trigger，电平触发)和ET(Edge Trigger，边沿触发)模式。LT模式是默认的工作模式。</p>
-<h1 id="11-定时器"><a href="#11-定时器" class="headerlink" title="11 定时器"></a>11 定时器</h1><h2 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h2><ul>
-<li>SIGALRM：有alarm和setitimer函数设置的实时闹钟一旦超时，将触发SIGALARM信号。因此，可以利用该信号的信号处理函数来处理定时任务。</li>
-<li>SIGTERM：</li>
+<h2 id="三、抽奖算法实现"><a href="#三、抽奖算法实现" class="headerlink" title="三、抽奖算法实现"></a>三、抽奖算法实现</h2><p>两种抽奖算法描述，场景A20%、B30%、C50%</p>
+<ul>
+<li><strong>总体概率</strong>：如果A奖品抽空后，B和C奖品的概率按照 <code>3:5</code> 均分，相当于B奖品中奖概率由 <code>0.3</code> 升为 <code>0.375</code></li>
+<li><strong>单项概率</strong>：如果A奖品抽空后，B和C保持目前中奖概率，用户抽奖扔有20%中为A，因A库存抽空则结果展示为未中奖。<em>为了运营成本，通常这种情况的使用的比较多</em></li>
 </ul>
+<h3 id="1-定义接口"><a href="#1-定义接口" class="headerlink" title="1. 定义接口"></a>1. 定义接口</h3><p><strong>cn.itedus.lottery.domain.strategy.service.algorithm.IDrawAlgorithm</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">IDrawAlgorithm</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * SecureRandom 生成随机数，索引到对应的奖品信息返回结果</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> strategyId 策略ID</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> excludeAwardIds 排除掉已经不能作为抽奖的奖品ID，留给风控和空库存使用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 中奖结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    String <span class="title function_">randomDraw</span><span class="params">(Long strategyId, List&lt;String&gt; excludeAwardIds)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无论任何一种抽奖算法的使用，都以这个接口作为标准的抽奖接口进行抽奖。strategyId 是抽奖策略、excludeAwardIds 排除掉已经不能作为抽奖的奖品ID，留给风控和空库存使用</li>
+</ul>
+<h3 id="2-总体概率-算法"><a href="#2-总体概率-算法" class="headerlink" title="2. 总体概率(算法)"></a>2. 总体概率(算法)</h3><p><strong>算法描述</strong>：分别把A、B、C对应的概率值转换成阶梯范围值，A&#x3D;(0~0.2」、B&#x3D;(0.2-0.5」、C&#x3D;(0.5-1.0」，当使用随机数方法生成一个随机数后，与阶梯范围值进行循环比对找到对应的区域，匹配到中奖结果。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312080004012.png" alt="image.png"></p>
+<p><strong>部分代码</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DefaultRateRandomDrawAlgorithm</span> <span class="keyword">extends</span> <span class="title class_">BaseAlgorithm</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">randomDraw</span><span class="params">(Long strategyId, List&lt;String&gt; excludeAwardIds)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">differenceDenominator</span> <span class="operator">=</span> BigDecimal.ZERO;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 排除掉不在抽奖范围的奖品ID集合</span></span><br><span class="line">        List&lt;AwardRateInfo&gt; differenceAwardRateList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        List&lt;AwardRateInfo&gt; awardRateIntervalValList = awardRateInfoMap.get(strategyId);</span><br><span class="line">        <span class="keyword">for</span> (AwardRateInfo awardRateInfo : awardRateIntervalValList) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">awardId</span> <span class="operator">=</span> awardRateInfo.getAwardId();</span><br><span class="line">            <span class="keyword">if</span> (excludeAwardIds.contains(awardId)) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            differenceAwardRateList.add(awardRateInfo);</span><br><span class="line">            differenceDenominator = differenceDenominator.add(awardRateInfo.getAwardRate());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 前置判断</span></span><br><span class="line">        <span class="keyword">if</span> (differenceAwardRateList.size() == <span class="number">0</span>) <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (differenceAwardRateList.size() == <span class="number">1</span>) <span class="keyword">return</span> differenceAwardRateList.get(<span class="number">0</span>).getAwardId();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取随机概率值</span></span><br><span class="line">        <span class="type">SecureRandom</span> <span class="variable">secureRandom</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecureRandom</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">randomVal</span> <span class="operator">=</span> secureRandom.nextInt(<span class="number">100</span>) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 循环获取奖品</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">awardId</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">cursorVal</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (AwardRateInfo awardRateInfo : differenceAwardRateList) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">rateVal</span> <span class="operator">=</span> awardRateInfo.getAwardRate().divide(differenceDenominator, <span class="number">2</span>, BigDecimal.ROUND_UP).multiply(<span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="number">100</span>)).intValue();</span><br><span class="line">            <span class="keyword">if</span> (randomVal &lt;= (cursorVal + rateVal)) &#123;</span><br><span class="line">                awardId = awardRateInfo.getAwardId();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cursorVal += rateVal;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 返回中奖结果</span></span><br><span class="line">        <span class="keyword">return</span> awardId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>首先要从总的中奖列表中排除掉那些被排除掉的奖品，这些奖品会涉及到概率的值重新计算。</li>
+<li>如果排除后剩下的奖品列表小于等于1，则可以直接返回对应信息</li>
+<li>接下来就使用随机数工具生产一个100内的随值与奖品列表中的值进行循环比对，算法时间复杂度O(n)</li>
+</ul>
+<h3 id="3-单项概率-算法"><a href="#3-单项概率-算法" class="headerlink" title="3. 单项概率(算法)"></a>3. 单项概率(算法)</h3><p><strong>算法描述</strong>：单项概率算法不涉及奖品概率重新计算的问题，那么也就是说我们分配好的概率结果是可以固定下来的。好，这里就有一个可以优化的算法，不需要在轮训匹配O(n)时间复杂度来处理中奖信息，而是可以根据概率值存放到HashMap或者自定义散列数组进行存放结果，这样就可以根据概率值直接定义中奖结果，时间复杂度由O(n)降低到O(1)。这样的设计在一般电商大促并发较高的情况下，达到优化接口响应时间的目的。</p>
+<p><strong>留个作业</strong>：这里我给大家提供一些可以参考的代码实现，在这个算法描述和参考上，留个作业，大家可以做一个自己的算法逻辑实现以及提供算法逻辑图稿。</p>
+<p><strong>部分代码</strong></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">randomDraw</span><span class="params">(Long strategyId, List&lt;String&gt; excludeAwardIds)</span> &#123;</span><br><span class="line">    <span class="comment">// 获取策略对应的元祖</span></span><br><span class="line">    String[] rateTuple = <span class="built_in">super</span>.rateTupleMap.get(strategyId);</span><br><span class="line">    <span class="keyword">assert</span> rateTuple != <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">// 随机索引</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">randomVal</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SecureRandom</span>().nextInt(<span class="number">100</span>) + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> <span class="variable">idx</span> <span class="operator">=</span> <span class="built_in">super</span>.hashIdx(randomVal);</span><br><span class="line">    <span class="comment">// 返回结果</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">awardId</span> <span class="operator">=</span> rateTuple[idx];</span><br><span class="line">    <span class="keyword">if</span> (excludeAwardIds.contains(awardId)) <span class="keyword">return</span> <span class="string">&quot;未中奖&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> awardId;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
       
     </div>
@@ -1111,7 +1037,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/08/Linux%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/06/RPC(Dubbo)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1129,7 +1055,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/08/Linux%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/06/RPC(Dubbo)/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1139,15 +1065,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-11-08 14:53:08" itemprop="dateCreated datePublished" datetime="2023-11-08T14:53:08+08:00">2023-11-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-09 21:43:32" itemprop="dateModified" datetime="2023-11-09T21:43:32+08:00">2023-11-09</time>
+      <time title="创建时间：2023-12-06 11:26:59 / 修改时间：11:28:58" itemprop="dateCreated datePublished" datetime="2023-12-06T11:26:59+08:00">2023-12-06</time>
     </span>
 
   
@@ -1160,113 +1080,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="strpbrk"><a href="#strpbrk" class="headerlink" title="strpbrk"></a>strpbrk</h2><blockquote>
-<p>检索字符串 <strong>str1</strong> 中第一个匹配字符串 <strong>str2</strong> 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strpbrk</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str1</strong> – 要被检索的 C 字符串。</li>
-<li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
-</ul>
-<h2 id="strcasecmp"><a href="#strcasecmp" class="headerlink" title="strcasecmp"></a>strcasecmp</h2><blockquote>
-<p>判断字符串是否相等的函数，忽略大小写。s1和s2中的所有字母字符在比较之前都转换为小写。该strcasecmp()函数对空终止字符串进行操作。<br>函数的字符串参数应包含一个(’\0’)标记字符串结尾的空字符。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">strcasecmp</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *s1, <span class="type">const</span> <span class="type">char</span> *s2)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="strspn"><a href="#strspn" class="headerlink" title="strspn"></a>strspn</h2><blockquote>
-<p>检索字符串 <strong>str1</strong> 中第一个不在字符串 <strong>str2</strong> 中出现的字符下标</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">strspn</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str1</strong> – 要被检索的 C 字符串。</li>
-<li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
-<li>返回 str1 中第一个不在字符串 str2 中出现的字符下标。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> *s1 = <span class="string">&quot;abcdef ghj\tio&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s2 = <span class="string">&quot; \t&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s3 = <span class="string">&quot;ghj&quot;</span>;</span><br><span class="line">    cout &lt;&lt; *(s1 + <span class="number">7</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="type">char</span> *res = <span class="built_in">strpbrk</span>(s1 + <span class="number">7</span>, s2);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="built_in">strspn</span>(s1 + <span class="number">7</span>, s3) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g</span><br><span class="line"><span class="number">3</span></span><br><span class="line">\tio</span><br></pre></td></tr></table></figure>
-<h2 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h2><blockquote>
-<p>在参数 <strong>str</strong> 所指向的字符串中搜索第一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str</strong> – 要查找的字符串。</li>
-<li><strong>c</strong> – 要查找的字符。</li>
-<li>如果在字符串 str 中找到字符 c，则函数返回指向该字符的指针，如果未找到该字符则返回 NULL。</li>
-</ul>
-<h2 id="strrchr"><a href="#strrchr" class="headerlink" title="strrchr"></a>strrchr</h2><blockquote>
-<p>在参数 <strong>str</strong> 所指向的字符串中搜索最后一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strrchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str</strong> – C 字符串。</li>
-<li><strong>c</strong> – 要搜索的字符，通常以整数形式传递（ASCII 值），但是最终会转换回 char 形式。</li>
-<li>strrchr() 函数从字符串的末尾开始向前搜索，直到找到指定的字符或搜索完整个字符串。如果找到字符，它将返回一个指向该字符的指针，否则返回 NULL。</li>
-</ul>
-<h2 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy"></a>strcpy</h2><blockquote>
-<p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>。<br>需要注意的是如果目标数组 dest 不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy"></a>strncpy</h2><blockquote>
-<p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>，最多复制 <strong>n</strong> 个字符。当 src 的长度小于 n 时，dest 的剩余部分将用空字节填充。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>dest</strong> – 指向用于存储复制内容的目标数组。</li>
-<li><strong>src</strong> – 要复制的字符串。</li>
-<li><strong>n</strong> – 要从源中复制的字符数。</li>
-<li>该函数返回最终复制的字符串。</li>
-</ul>
-<h2 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a>stdio.h</h2><h2 id="flush"><a href="#flush" class="headerlink" title="flush"></a>flush</h2><blockquote>
-<p>刷新流 stream 的输出缓冲区，将缓冲区中的内容写到stream所指的文件中区</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>stream</strong> – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个缓冲流</li>
-<li>如果成功，该函数返回零值。如果发生错误，则返回 EOF，且设置错误标识符（即 feof）。</li>
-</ul>
-<p><a href="https://blog.csdn.net/ShenHang_/article/details/114968557">fflush()函数-CSDN博客</a></p>
-<h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><blockquote>
-<p>用于格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。<br>将可变参数**(…)<strong>按照 <strong>format</strong> 格式化成字符串，并将字符串复制到 <strong>str</strong> 中，</strong>size** 为要写入的字符的最大数目，超过 <strong>size</strong> 会被截断，最多写入 size-1 个字符，并在字符串的末尾添加一个空字符（\0）以表示字符串的结束。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">snprintf</span> <span class="params">( <span class="type">char</span> * str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> * format, ... )</span></span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str</strong> – 目标字符串，用于存储格式化后的字符串的字符数组的指针。</li>
-<li><strong>size</strong> – 字符数组的大小。</li>
-<li><strong>format</strong> – 格式化字符串。</li>
-<li><strong>…</strong> – 可变参数，可变数量的参数根据 format 中的格式化指令进行格式化。</li>
-<li>snprintf() 函数的返回值是输出到 str 缓冲区中的字符数，不包括字符串结尾的空字符 \0。</li>
-</ul>
-<h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><blockquote>
-<p>获取文件状态</p>
-</blockquote>
-<p><a href="https://www.cnblogs.com/jikexianfeng/p/5742887.html">C语言stat()函数：获取文件状态 - 极客先锋 - 博客园 (cnblogs.com)</a></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;uninstd.h&gt;</span></span></span><br><span class="line"><span class="comment">//将参数file_name 所指的文件状态, 复制到参数buf 所指的结构中。</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">stat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * file_name, <span class="keyword">struct</span> stat *buf)</span></span></span><br><span class="line"><span class="function"><span class="keyword">struct</span> stat </span>&#123;</span><br><span class="line">    <span class="type">dev_t</span> st_dev; <span class="comment">//device 文件的设备编号</span></span><br><span class="line">    <span class="type">ino_t</span> st_ino; <span class="comment">//inode 文件的i-node</span></span><br><span class="line">    <span class="type">mode_t</span> st_mode; <span class="comment">//protection 文件的类型和存取的权限</span></span><br><span class="line">    <span class="type">nlink_t</span> st_nlink; <span class="comment">//number of hard links 连到该文件的硬连接数目, 刚建立的文件值为1.</span></span><br><span class="line">    <span class="type">uid_t</span> st_uid; <span class="comment">//user ID of owner 文件所有者的用户识别码</span></span><br><span class="line">    <span class="type">gid_t</span> st_gid; <span class="comment">//group ID of owner 文件所有者的组识别码</span></span><br><span class="line">    <span class="type">dev_t</span> st_rdev; <span class="comment">//device type 若此文件为装置设备文件, 则为其设备编号</span></span><br><span class="line">    <span class="type">off_t</span> st_size; <span class="comment">//total size, in bytes 文件大小, 以字节计算</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> st_blksize; <span class="comment">//blocksize for filesystem I/O 文件系统的I/O 缓冲区大小.</span></span><br><span class="line">    u nsigned <span class="type">long</span> st_blocks; <span class="comment">//number of blocks allocated 占用文件区块的个数, 每一区块大小为512 个字节.</span></span><br><span class="line">    <span class="type">time_t</span> st_atime; <span class="comment">//time of lastaccess 文件最近一次被存取或被执行的时间, 一般只有在用mknod、 utime、read、write 与tructate 时改变.</span></span><br><span class="line">    <span class="type">time_t</span> st_mtime; <span class="comment">//time of last modification 文件最后一次被修改的时间, 一般只有在用mknod、 utime 和write 时才会改变</span></span><br><span class="line">    <span class="type">time_t</span> st_ctime; <span class="comment">//time of last change i-node 最近一次被更改的时间, 此参数会在文件所有者、组、 权限被更改时更新</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="函数参数处理"><a href="#函数参数处理" class="headerlink" title="函数参数处理"></a>函数参数处理</h1><h2 id="va-start"><a href="#va-start" class="headerlink" title="va_start"></a>va_start</h2><blockquote>
-<p>初始化 <strong>ap</strong> 变量，它与 <strong>va_arg</strong> 和 <strong>va_end</strong> 宏是一起使用的。<strong>last_arg</strong> 是最后一个传递给函数的已知的固定参数，即省略号之前的参数。</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">va_start</span><span class="params">(va_list ap, last_arg)</span></span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>ap</strong> – 这是一个 <strong>va_list</strong> 类型的对象，它用来存储通过 <strong>va_arg</strong> 获取额外参数时所必需的信息。</li>
-<li><strong>last_arg</strong> – 最后一个传递给函数的已知的固定参数。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sum(3,10,20,30)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> num_args, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">   va_list ap;</span><br><span class="line">   <span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">va_start</span>(ap, num_args);</span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; num_args; i++)</span><br><span class="line">   &#123;</span><br><span class="line">      val += <span class="built_in">va_arg</span>(ap, <span class="type">int</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">va_end</span>(ap);</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="vsnprintf"><a href="#vsnprintf" class="headerlink" title="vsnprintf"></a>vsnprintf</h2><p><a href="https://blog.csdn.net/u012351051/article/details/106414950">sprintf、snprintf、vsprintf、vsnprintf格式化函数分析_c++ sprintf vsprintf详解-CSDN博客</a></p>
-<blockquote>
-<p>使用参数列表发送格式化输出到字符串</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">vsnprintf</span><span class="params">(<span class="type">char</span> *str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> *format, va_list ap)</span></span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>str – 目标字符串。 </li>
-<li>size – 最大格式化的字符长度。 </li>
-<li>format – 格式化模式 </li>
-<li>arg – 可变参数列表对象，应由&lt;stdarg&gt;中定义的va_start 宏初始化。</li>
-</ul>
+          <h1 id="Dubbo-x-Spring-Boot-开发微服务应用"><a href="#Dubbo-x-Spring-Boot-开发微服务应用" class="headerlink" title="Dubbo x Spring Boot 开发微服务应用"></a>Dubbo x Spring Boot 开发微服务应用</h1><p><a href="https://cn.dubbo.apache.org/zh-cn/overview/quickstart/java/spring-boot/#%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%9B%B6%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E7%89%88">2 - Dubbo Spring Boot Starter 开发微服务应用 | Apache Dubbo</a></p>
+<h1 id="Dubbo-x-Spring-Boot-开发微服务应用-1"><a href="#Dubbo-x-Spring-Boot-开发微服务应用-1" class="headerlink" title="Dubbo x Spring Boot 开发微服务应用"></a>Dubbo x Spring Boot 开发微服务应用</h1><p><a href="https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/quick-start/spring-xml/">4 - 基于 Spring XML 开发微服务应用 | Apache Dubbo</a></p>
 
       
     </div>
@@ -1293,7 +1108,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/03/%E8%AE%BA%E6%96%87%E6%9C%AF%E8%AF%AD/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/05/%E8%AF%AD%E6%B3%95/PO%20BO%20VO%20DTO%20DAO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1311,7 +1126,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/11/03/%E8%AE%BA%E6%96%87%E6%9C%AF%E8%AF%AD/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/05/%E8%AF%AD%E6%B3%95/PO%20BO%20VO%20DTO%20DAO/" class="post-title-link" itemprop="url">PO BO VO DTO DAO</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1322,14 +1137,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-11-03 16:49:18" itemprop="dateCreated datePublished" datetime="2023-11-03T16:49:18+08:00">2023-11-03</time>
+      <time title="创建时间：2023-12-05 22:38:44" itemprop="dateCreated datePublished" datetime="2023-12-05T22:38:44+08:00">2023-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-16 22:45:51" itemprop="dateModified" datetime="2023-11-16T22:45:51+08:00">2023-11-16</time>
+      <time title="修改时间：2023-12-08 11:50:23" itemprop="dateModified" datetime="2023-12-08T11:50:23+08:00">2023-12-08</time>
     </span>
 
   
@@ -1342,15 +1157,220 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line">etc. 以及诸如此类，以及其他，等等</span><br><span class="line">w.r.t. ： <span class="keyword">with</span> respect <span class="keyword">to</span> 的缩写。是 关于；谈及，谈到的意思。</span><br><span class="line">i.e. ：也就是，亦即（源自拉丁文id est），换而言之。</span><br><span class="line">s.t. ：受限制于，  使得<span class="params">...</span>满足<span class="params">...</span></span><br><span class="line"></span><br><span class="line">arg    是变元（即自变量argument）的英文缩写。</span><br><span class="line">arg <span class="keyword">min</span> 就是使后面这个式子达到最小值时的变量的取值</span><br><span class="line">arg <span class="keyword">max</span> 就是使后面这个式子达到最大值时的变量的取值</span><br></pre></td></tr></table></figure>
+          <p>PO 是 Persistant Object 的缩写，用于表示数据库中的一条记录映射成的 java 对象。PO 仅仅用于表示数据，没有任何数据操作。通常遵守 Java Bean 的规范，拥有 getter&#x2F;setter 方法。</p>
+<p>DAO 是 Data Access Object 的缩写，用于表示一个数据访问对象。使用 DAO 访问数据库，包括插入、更新、删除、查询等操作，与 PO 一起使用。DAO 一般在持久层，完全封装数据库操作，对外暴露的方法使得上层应用不需要关注数据库相关的任何信息。(&#x3D;&#x3D;Maper映射，封装数据库操作的一个映射对象&#x3D;&#x3D;)</p>
+<p>VO 是 Value Object 的缩写，用于表示一个与前端进行交互的 java 对象。有的朋友也许有疑问，这里可不可以使用 PO 传递数据？实际上，这里的 VO 只包含前端需要展示的数据即可，对于前端不需要的数据，比如数据创建和修改的时间等字段，出于减少传输数据量大小和保护数据库结构不外泄的目的，不应该在 VO 中体现出来。通常遵守 Java Bean 的规范，拥有 getter&#x2F;setter 方法。</p>
+<p>DTO 是 Data Transfer Object 的缩写，用于表示一个数据传输对象。DTO 通常用于不同服务或服务不同分层之间的数据传输。DTO 与 VO 概念相似，并且通常情况下字段也基本一致。但 DTO 与 VO 又有一些不同，这个不同主要是设计理念上的，比如 API 服务需要使用的 DTO 就可能与 VO 存在差异。通常遵守 Java Bean 的规范，拥有 getter&#x2F;setter 方法。</p>
+<p>BO 是 Business Object 的缩写，用于表示一个业务对象。BO 包括了业务逻辑，常常封装了对 DAO、RPC 等的调用，可以进行 PO 与 VO&#x2F;DTO 之间的转换。BO 通常位于业务层，要区别于直接对外提供服务的服务层：BO 提供了基本业务单元的基本业务操作，在设计上属于被服务层业务流程调用的对象，一个业务流程可能需要调用多个 BO 来完成。</p>
+<p>POJO 是 Plain Ordinary Java Object 的缩写，表示一个简单 java 对象。上面说的 PO、VO、DTO 都是典型的 POJO。而 DAO、BO 一般都不是 POJO，只提供一些调用方法。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202312052259482.png" alt="image.png"></p>
+<p><a href="https://www.zhihu.com/question/39651928">PO BO VO DTO POJO DAO DO这些Java中的概念分别指一些什么？ - 知乎 (zhihu.com)</a></p>
 
-<figure class="highlight pf"><table><tr><td class="code"><pre><span class="line">SOTA <span class="keyword">state</span> of the art</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
 
-<p>landmark：特征点<br>pixel-wise字面上的理解一样，一张图片是由一个个pixel组成的，这个是图像的基本单位，像素级别的</p>
-<p>image-wise图像级别，比如一张图片的标签是狗，是对整个图片的标注</p>
-<p>patch-wise介于像素级别和图像级别的区域，也就是块，每个patch都是由好多个pixel组成的</p>
-<p>格拉姆矩阵<br><a href="https://zhuanlan.zhihu.com/p/187345192">格拉姆矩阵（Gram matrix）详细解读 - 知乎 (zhihu.com)</a></p>
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/05/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/Maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/05/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/Maven/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-05 11:44:27 / 修改时间：11:44:33" itemprop="dateCreated datePublished" datetime="2023-12-05T11:44:27+08:00">2023-12-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a href="https://blog.csdn.net/u012660464/article/details/114113349">maven的下载与安装教程（超详细）_格子衫111的博客-CSDN博客</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/04/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2002%20%E8%8A%82%EF%BC%9A%E6%90%AD%E5%BB%BA(DDD%20+%20RPC)%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/04/Lottery/%E7%AC%AC2%E9%83%A8%E5%88%86%20%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91/%E7%AC%AC%2002%20%E8%8A%82%EF%BC%9A%E6%90%AD%E5%BB%BA(DDD%20+%20RPC)%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-04 15:13:51" itemprop="dateCreated datePublished" datetime="2023-12-04T15:13:51+08:00">2023-12-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-08 11:01:27" itemprop="dateModified" datetime="2023-12-08T11:01:27+08:00">2023-12-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="第-02-节：搭建-DDD-RPC-分布式架构"><a href="#第-02-节：搭建-DDD-RPC-分布式架构" class="headerlink" title="第 02 节：搭建(DDD + RPC)分布式架构"></a>第 02 节：搭建(DDD + RPC)分布式架构</h1><ul>
+<li>分支：<a href="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/tree/210801_xfg_initProject">210801_xfg_initProject</a></li>
+<li>描述：基于DDD架构模型，初始化搭建工程结构</li>
+<li>备注：如果之前没学习过Dubbo，先看我写好的基础教程。<a href="https://bugstack.cn/md/road-map/dubbo.html">https://bugstack.cn/md/road-map/dubbo.html</a></li>
+</ul>
+<p>本节是陆续搭建系统和编码的开始，我们会优先完成一个基础工程的创建。一般在互联网企业这部分工作可能不需要反复处理，只需要在承接产品需要后使用脚手架或者直接复制以往工程就可以创建现有需要使用的工程了。例如 Spring 官网也提供了创建工程的脚手架，<a href="https://start.spring.io/">https://start.spring.io</a> Spring Initializr 本质上也是一个 Web 应用，它可以通过 Web 界面、Spring Tool Suite、IntelliJ IDEA 等方式，构建出一个基本的 Spring Boot 项目结构。<strong>但是</strong>，我们创建的项目结构并是一个简单的 MVC 结构，而是需要基于 DDD 四层架构进行模块化拆分，并把分布式组件 RPC 结合进行，所以这里我们需要进行框架搭建。</p>
+<h2 id="DDD-分层架构介绍"><a href="#DDD-分层架构介绍" class="headerlink" title="DDD 分层架构介绍"></a>DDD 分层架构介绍</h2><blockquote>
+<p>DDD（Domain-Driven Design 领域驱动设计）是由Eric Evans最先提出，目的是对软件所涉及到的领域进行建模，以应对系统规模过大时引起的软件复杂性的问题。整个过程大概是这样的，开发团队和领域专家一起通过 通用语言(Ubiquitous Language)去理解和消化领域知识，从领域知识中提取和划分为一个一个的子领域（核心子域，通用子域，支撑子域），并在子领域上建立模型，再重复以上步骤，这样周而复始，构建出一套符合当前领域的模型。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312081059933.png" alt="image.png"></p>
+<p>依靠领域驱动设计的设计思想，通过事件风暴建立领域模型，合理划分领域逻辑和物理边界，建立领域对象及服务矩阵和服务架构图，定义符合DDD分层架构思想的代码结构模型，保证业务模型与代码模型的一致性。通过上述设计思想、方法和过程，指导团队按照DDD设计思想完成微服务设计和开发。</p>
+<ul>
+<li>拒绝泥球小单体、拒绝污染功能与服务、拒绝一加功能排期一个月</li>
+<li>架构出高可用极易符合互联网高速迭代的应用服务</li>
+<li>物料化、组装化、可编排的服务，提高人效</li>
+</ul>
+<p><strong>服务架构调用关系</strong></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202312080026302.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312081059952.png" alt="image.png"></p>
+<ul>
+<li>应用层{application}<ul>
+<li>应用服务位于应用层。用来表述应用和用户行为，负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装。</li>
+<li>应用层的服务包括应用服务和领域事件相关服务。</li>
+<li>应用服务可对微服务内的领域服务以及微服务外的应用服务进行组合和编排，或者对基础层如文件、缓存等数据直接操作形成应用服务，对外提供粗粒度的服务。</li>
+<li>领域事件服务包括两类：领域事件的发布和订阅。通过事件总线和消息队列实现异步数据传输，实现微服务之间的解耦。</li>
+</ul>
+</li>
+<li>领域层{domain}<ul>
+<li>领域服务位于领域层，为完成领域中跨实体或值对象的操作转换而封装的服务，领域服务以与实体和值对象相同的方式参与实施过程。</li>
+<li>领域服务对同一个实体的一个或多个方法进行组合和封装，或对多个不同实体的操作进行组合或编排，对外暴露成领域服务。领域服务封装了核心的业务逻辑。实体自身的行为在实体类内部实现，向上封装成领域服务暴露。</li>
+<li>为隐藏领域层的业务逻辑实现，所有领域方法和服务等均须通过领域服务对外暴露。</li>
+<li>为实现微服务内聚合之间的解耦，原则上禁止跨聚合的领域服务调用和跨聚合的数据相互关联。</li>
+</ul>
+</li>
+<li>基础层{infrastructure}<ul>
+<li>基础服务位于基础层。为各层提供资源服务（如数据库、缓存等），实现各层的解耦，降低外部资源变化对业务逻辑的影响。</li>
+<li>基础服务主要为仓储服务，通过依赖反转的方式为各层提供基础资源服务，领域服务和应用服务调用仓储服务接口，利用仓储实现持久化数据对象或直接访问基础资源。</li>
+</ul>
+</li>
+<li>接口层{interfaces}<ul>
+<li>接口服务位于用户接口层，用于处理用户发送的Restful请求和解析用户输入的配置文件等，并将信息传递给应用层。</li>
+</ul>
+</li>
+</ul>
+<p><strong>综上</strong>，就是对 DDD 领域驱动设计的一个基本描述，不过也不用过于神秘化DDD，我们可以把DDD四层架构和MVC三层架构架构理解为家里的格局，三局和四局，只不过DDD是在MVC的基础上可以更加明确了房间的布局，可能效果上就像你原来有个三局中没有独立的书房，现在四局了你可以有一个自己的小空间了。</p>
+<p><strong>那么</strong>，这里还有一点就是DDD结构它是一种充血模型结构，所有的服务实现都以领域为核心，应用层定义接口，领域层实现接口，领域层定义数据仓储，基础层实现数据仓储中关于DAO和Redis的操作，但同时几方又有互相的依赖。那么这样的结构再开发独立领域提供 http 接口时候，并不会有什么问题体现出来。但如果这个时候需要引入 RPC 框架，就会暴露问题了，因为 RPC 框架的时候需要对外提供描述接口信息的 Jar 让外部调用方引入才可以通过反射调用到具体的方法提供者，那么这个时候，RPC 需要暴露出来，而 DDD 的系统结构又比较耦合，怎么进行模块化的分离就成了问题点。所以我们本章节在模块系统结构搭建的时候，也是以解决此项问题为核心进行处理的。</p>
+<h2 id="DDD-RPC，模块分离系统搭建"><a href="#DDD-RPC，模块分离系统搭建" class="headerlink" title="DDD + RPC，模块分离系统搭建"></a>DDD + RPC，模块分离系统搭建</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312081100636.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202312080029001.png" alt="image.png"></p>
+<p>如果按照模块化拆分，那么会需要做一些处理，包括：</p>
+<ol>
+<li>应用层，不在给领域层定义接口，而是自行处理对领域层接口的包装。否则领域层既引入了应用层的Jar，应用层也引入了领域层的Jar，就会出现循环依赖的问题。</li>
+<li>基础层中的数据仓储的定义也需要从领域层剥离，否则也会出现循环依赖的问题。</li>
+<li>RPC 层定义接口描述，包括：入参Req、出参Res、DTO对象，接口信息，这些内容定义出来的Jar给接口层使用，也给外部调用方使用。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312081101009.png" alt="image.png"></li>
+</ol>
+<p><img src="https://codechina.csdn.net/KnowledgePlanet/Lottery/-/raw/master/doc/assets/img/2-04.png"></p>
+<p>那么，这样拆分以后就可以按照模块化的结构进行创建系统结构了，每一层按照各自的职责完成各自的功能，同时又不会破坏DDD中领域充血模型的实现。</p>
+<h2 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h2><ol>
+<li>学习源码理解 DDD 结构分层</li>
+<li>知晓各个模块分层要完成的职责</li>
+<li>知道为什么要把 RPC 层单独拆分出来</li>
+</ol>
 
       
     </div>
@@ -1370,7 +1390,7 @@
 
 
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
@@ -1379,28 +1399,43 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Destiny</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Destiny</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" integrity="sha256-tc4b48P1MPGS4PJXHRlChGCW1mEZy62jS/3JEsSHPzU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.19.0/source/js/comments.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.19.0/source/js/utils.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.19.0/source/js/motion.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.19.0/source/js/schemes/muse.min.js"></script><script src="https://cdn.jsdelivr.net/npm/hexo-theme-next@8.19.0/source/js/next-boot.min.js"></script>
+
+  
+
 
 
 
