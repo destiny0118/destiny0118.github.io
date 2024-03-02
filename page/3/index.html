@@ -154,7 +154,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,7 +165,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -214,7 +214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/27/%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/01/08/%E9%9D%A2%E7%BB%8F/%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -232,7 +232,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/27/%E7%AE%97%E6%B3%95/%E5%93%88%E5%B8%8C%E8%A1%A8/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/01/08/%E9%9D%A2%E7%BB%8F/%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -244,7 +244,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-10-27 16:33:52 / 修改时间：16:43:30" itemprop="dateCreated datePublished" datetime="2023-10-27T16:33:52+08:00">2023-10-27</time>
+      <time title="创建时间：2024-01-08 10:26:39 / 修改时间：10:29:24" itemprop="dateCreated datePublished" datetime="2024-01-08T10:26:39+08:00">2024-01-08</time>
     </span>
 
   
@@ -257,333 +257,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>哈希函数：能够将集合中任意可能的元素映射到一个固定范围的整数值，并将该元素存储到整数值对应的地址上。</li>
-<li>冲突处理：由于不同元素可能映射到相同的整数值，因此需要在整数值出现「冲突」时，需要进行冲突处理。总的来说，有以下几种策略解决冲突：<ul>
-<li>链地址法：为每个哈希值维护一个链表，并将具有相同哈希值的元素都放入这一链表当中。</li>
-<li>开放地址法：当发现哈希值 hhh 处产生冲突时，根据某种策略，从 hhh 出发找到下一个不冲突的位置。例如，一种最简单的策略是，不断地检查 h+1,h+2,h+3,…h+1,h+2,h+3,\ldotsh+1,h+2,h+3,… 这些整数对应的位置。</li>
-<li>再哈希法：当发现哈希冲突后，使用另一个哈希函数产生一个新的地址。</li>
-</ul>
+          <ol>
+<li><p>库存扣减为什么还加了分布式锁？<br> 答：考虑集群模式下，redis是AP的，会存在短暂的不一致，同时incr操作也可能由于网络波动等造成失败，导致库存最终超卖。加上锁作为兜底操作。</p>
+<p> 面试官质疑：redis是单线程，incr是原子操作，并且key只会位于某个特定的分片上，为什么会不一致？【？？？】 </p>
 </li>
-<li>扩容：当哈希表元素过多时，冲突的概率将越来越大，而在哈希表中查询一个元素的效率也会越来越低。因此，需要开辟一块更大的空间，来缓解哈希表中发生的冲突。</li>
-</ul>
-<h2 id="哈希集合"><a href="#哈希集合" class="headerlink" title="哈希集合"></a>哈希集合</h2><p><a href="https://leetcode.cn/problems/design-hashset/description/">705. 设计哈希集合 - 力扣（LeetCode）</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyHashSet</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;list&lt;<span class="type">int</span>&gt;&gt; data;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> base=<span class="number">769</span>;</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">hash</span><span class="params">(<span class="type">int</span> key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> key%base;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyHashSet</span>():<span class="built_in">data</span>(base) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*it==key)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        data[h].<span class="built_in">emplace_back</span>(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*it==key)&#123;</span><br><span class="line">                data[h].<span class="built_in">erase</span>(it);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">contains</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*it==key)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><p><a href="https://leetcode.cn/problems/design-hashmap/description/">706. 设计哈希映射 - 力扣（LeetCode）</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyHashMap</span> &#123;</span><br><span class="line">    vector&lt;list&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; data;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> base=<span class="number">769</span>;</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">hash</span><span class="params">(<span class="type">int</span> key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> key%base;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyHashMap</span>():<span class="built_in">data</span>(base) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>((*it).first==key)&#123;</span><br><span class="line">                (*it).second=value;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        data[h].<span class="built_in">emplace_back</span>(key,value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>((*it).first==key)&#123;</span><br><span class="line">                <span class="keyword">return</span> (*it).second;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>((*it).first==key)&#123;</span><br><span class="line">                data[h].<span class="built_in">erase</span>(it);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/27/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VMware/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/27/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VMware/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-27 15:36:40" itemprop="dateCreated datePublished" datetime="2023-10-27T15:36:40+08:00">2023-10-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-15 20:11:48" itemprop="dateModified" datetime="2023-11-15T20:11:48+08:00">2023-11-15</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="VMware"><a href="#VMware" class="headerlink" title="VMware"></a>VMware</h1><p>vmware虚拟机共享文件夹不显示</p>
-<p><a href="https://blog.csdn.net/qq_45630224/article/details/121462127">VMWare下设置共享文件夹，&#x2F;mnt&#x2F;hgfs下却不显示共享文件夹_&#x2F;mnt&#x2F;hgfs找不到共享文件夹-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/u012523921/article/details/132358834?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-132358834-blog-121462127.235%5Ev38%5Epc_relevant_sort_base2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-2-132358834-blog-121462127.235%5Ev38%5Epc_relevant_sort_base2&utm_relevant_index=5">ubuntu20.04共享文件夹—— &#x2F;mnt&#x2F;hgfs里没有共享文件夹_恋雪1986的博客-CSDN博客</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/25/%E7%AE%97%E6%B3%95/%E5%B9%B6%E6%9F%A5%E9%9B%86(union-find,%20disjoint%20set)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/25/%E7%AE%97%E6%B3%95/%E5%B9%B6%E6%9F%A5%E9%9B%86(union-find,%20disjoint%20set)/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-10-25 15:01:09 / 修改时间：15:59:08" itemprop="dateCreated datePublished" datetime="2023-10-25T15:01:09+08:00">2023-10-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; id;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n):<span class="built_in">id</span>(n)&#123;</span><br><span class="line">        <span class="built_in">iota</span>(id.<span class="built_in">begin</span>(),id.<span class="built_in">end</span>(),<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 找到p的父节点</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=id[p])</span><br><span class="line">            p=id[p];</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 在p和q之间添加边</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        id[<span class="built_in">find</span>(p)]=<span class="built_in">find</span>(q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// p和q是否同属于一个集合</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isConnect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">find</span>(p)==<span class="built_in">find</span>(q);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>路径压缩+按秩合并<br><a href="https://leetcode.cn/problems/number-of-operations-to-make-network-connected/solutions/101780/lian-tong-wang-luo-de-cao-zuo-ci-shu-by-leetcode-s/">1319. 连通网络的操作次数 - 力扣（LeetCode）</a>（模板，更清晰）</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span> &#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; id, size;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//把数组初始化为0到n-1</span></span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n) : <span class="built_in">id</span>(n), <span class="built_in">size</span>(n, <span class="number">1</span>) &#123; <span class="built_in">iota</span>(id.<span class="built_in">begin</span>(), id.<span class="built_in">end</span>(), <span class="number">0</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 路径压缩</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// p的父节点</span></span><br><span class="line">        <span class="keyword">while</span> (id[p] != p) &#123;</span><br><span class="line">            id[p] = id[id[p]];</span><br><span class="line">            p = id[p];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="built_in">find</span>(p), j = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">if</span> (i != j) &#123;</span><br><span class="line">            <span class="comment">// 按秩合并，把元素数少的集合合并到元素数多的集合</span></span><br><span class="line">            <span class="keyword">if</span> (size[i] &gt; size[j]) &#123;</span><br><span class="line">                id[j] = i;</span><br><span class="line">                size[i] += size[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                id[i] = j;</span><br><span class="line">                size[j] += size[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isConnect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">find</span>(p) == <span class="built_in">find</span>(q); &#125;</span><br><span class="line">    <span class="comment">// 返回由多少个独立的集合</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getCnt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; id.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (id[i] == i)</span><br><span class="line">                cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/19/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/19/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-19 17:48:38" itemprop="dateCreated datePublished" datetime="2023-10-19T17:48:38+08:00">2023-10-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-12-05 11:38:50" itemprop="dateModified" datetime="2023-12-05T11:38:50+08:00">2023-12-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="MySql安装"><a href="#MySql安装" class="headerlink" title="MySql安装"></a>MySql安装</h1><h2 id="linux安装"><a href="#linux安装" class="headerlink" title="linux安装"></a>linux安装</h2><p><a href="https://blog.csdn.net/New_codeline/article/details/123142931">https://blog.csdn.net/New_codeline/article/details/123142931</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dpkg -i mysql-common_5.7.29-1ubuntu18.04_amd64.deb</span><br><span class="line">dpkg -i libmysqlclient20_5.7.29-1ubuntu18.04_amd64.deb</span><br><span class="line">dpkg -i libmysqlclient-dev_5.7.29-1ubuntu18.04_amd64.deb</span><br><span class="line">dpkg -i libmysqld-dev_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line">dpkg -i mysql-community-source_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apt-get install libaio1 libtinfo5</span><br><span class="line">dpkg -i mysql-community-client_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line">dpkg -i mysql-client_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line">apt-get install libmecab2</span><br><span class="line">dpkg -i mysql-community-server_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line">dpkg -i mysql-server_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">启动mysql服务:</span><br><span class="line">service mysql start</span><br><span class="line"></span><br><span class="line">进入MySQL:</span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line">退出MySQL(三种方法):</span><br><span class="line">mysql &gt; exit;</span><br><span class="line">mysql &gt; quit;</span><br><span class="line">mysql &gt; \q;</span><br></pre></td></tr></table></figure>
-<h2 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h2><p><a href="https://blog.csdn.net/weixin_43423484/article/details/124408565">Windows安装mysql详细步骤（通俗易懂，简单上手）_华夏之威的博客-CSDN博客</a><br><a href="https://www.runoob.com/mysql/mysql-install.html">MySQL 安装 | 菜鸟教程 (runoob.com)</a></p>
-<p><a href="https://blog.csdn.net/lyl1234564/article/details/120647573">MySQL安装配置（可视化安装界面），可视化工具安装，连接IDEA，JDBC安装配置，在IDEA中书写第一个MySQL程序，超简单教程（超详细）。_mysql可视化界面_喝咖啡的皮卡丘的博客-CSDN博客</a></p>
-<h1 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h1><p><a href="https://zhuanlan.zhihu.com/p/616953225">mysql | 修改MySQL密码的四种方法 - 知乎 (zhihu.com)</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/12/%E8%AF%AD%E6%B3%95/Linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/12/%E8%AF%AD%E6%B3%95/Linux/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2023-10-12 11:34:52 / 修改时间：17:51:45" itemprop="dateCreated datePublished" datetime="2023-10-12T11:34:52+08:00">2023-10-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><ol>
-<li><p>Linux执行.sh文件，提示No such file or directory的问题的解决方法</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">fileformat格式错误</span></span><br><span class="line">vim打开sh文件</span><br><span class="line">:set ff(fileformat=dos)</span><br><span class="line">:set ff=unix</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
-
-
+<li><p>路由组件的表名是如何提取的，用正则有无问题？<br> 答：正则可能有问题，比如嵌套子查询，连接查询。不过在这个项目场景下，都是对单表crud操作，不涉及以上问题 质疑：如果要你改进，你会如何做？【？】 </p>
 </li>
-<li><p>Command ‘clang’ not found, but can be installed with</p>
-<p>[Fixing ‘clang’ and ‘clang++’ not found after installing ‘clang-3.5’ package | DeviceTests](<a href="https://devicetests.com/fixing-clang-and-clang-not-found#:~:text=Open">https://devicetests.com/fixing-clang-and-clang-not-found#:~:text=Open</a> a terminal and run the following command%3A,the repository%2C and installs it on your system.)</p>
+<li><p>设计一个全球化（多语言）的短链系统，你会如何做？<br> 答：分布式ID生成短链、redis存映射关系、全球多机房部署、类似binlog的节点数据同步。同时要考虑热点key问题 质疑：log同步开销太大了，如何优化？ 答：推拉模型。写：第一次写入数据，把数据推送到全部节点。读：缓存缺失时，从其余节点拉数据过来。然后节点的选取，也可以做个优化，比如配置某些规则。 质疑：有没有更好的方案了？【真想不到了。。。】</p>
 </li>
 </ol>
-<h1 id="Cmake"><a href="#Cmake" class="headerlink" title="Cmake"></a>Cmake</h1><h2 id="设置cmake编译器"><a href="#设置cmake编译器" class="headerlink" title="设置cmake编译器"></a>设置cmake编译器</h2><p><a href="https://blog.csdn.net/weixin_39766005/article/details/122435780">CMake I 获取&#x2F;设置编译器_cmake_cxx_compiler_id-CSDN博客</a></p>
+<p><a href="https://wx.zsxq.com/dweb2/index/topic_detail/588552145848424">知识星球 | 深度连接铁杆粉丝，运营高品质社群，知识变现的工具 (zsxq.com)</a></p>
 
       
     </div>
@@ -610,7 +293,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/11/%E8%AF%AD%E6%B3%95/C++%20Primper/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -628,7 +311,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/11/%E8%AF%AD%E6%B3%95/C++%20Primper/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -638,15 +321,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-10-11 21:11:05" itemprop="dateCreated datePublished" datetime="2023-10-11T21:11:05+08:00">2023-10-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-16 11:39:25" itemprop="dateModified" datetime="2023-10-16T11:39:25+08:00">2023-10-16</time>
+      <time title="创建时间：2023-12-25 16:38:24 / 修改时间：16:40:00" itemprop="dateCreated datePublished" datetime="2023-12-25T16:38:24+08:00">2023-12-25</time>
     </span>
 
   
@@ -659,278 +336,461 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p><a href="https://zhuanlan.zhihu.com/p/240833006">C++中左值和右值的理解 - 知乎 (zhihu.com)</a></p>
+          <h1 id="File-Header"><a href="#File-Header" class="headerlink" title="File Header"></a>File Header</h1><p><a href="https://blog.csdn.net/kingmax54212008/article/details/90754964">IDEA 中设置 File Header 以及自定义类、方法注释模板的方法_idea file head-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/xiaostuart/article/details/108397180">IDEA快速插入当前日期时间-CSDN博客</a><br><a href="https://blog.csdn.net/mr_wanter/article/details/109636864#:~:text=%E7%BA%A2%E5%AD%97%E6%8F%90%E7%A4%BA%20No%20application%20contexts%20yes%20%E6%98%AF%E6%8C%87%E6%B2%A1%E6%9C%89%E4%B8%BA%E5%BD%93%E5%89%8D%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E6%98%AF%E6%89%80%E6%9C%89%E5%9C%B0%E6%96%B9%E9%83%BD%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8,%E7%82%B9%E5%87%BB%20Define-%3EEverywhere%20%E3%80%82%20%E4%BF%9D%E5%AD%98%E4%B9%8B%E5%90%8E%E5%9C%A8IDEA%E4%B8%AD%E4%BB%BB%E6%84%8F%E5%9C%B0%E6%96%B9%E9%83%BD%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E3%80%82%20%E8%BE%93%E5%85%A5%20time%2C%E6%8C%89Tab%E9%94%AE%E5%8D%B3%E5%8F%AF%E3%80%82">IDEA快速插入当前时间_idea时间快捷键-CSDN博客</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/18/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9ADebug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/18/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9ADebug/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-18 19:25:09 / 修改时间：19:26:31" itemprop="dateCreated datePublished" datetime="2023-12-18T19:25:09+08:00">2023-12-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="java-lang-NumberFormatException"><a href="#java-lang-NumberFormatException" class="headerlink" title="java.lang.NumberFormatException"></a><code>java.lang.NumberFormatException</code></h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> id=Integer.parseInt(s);</span><br><span class="line"><span class="comment">//s包含非数字字符，或者为null</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-14 19:49:28 / 修改时间：19:49:44" itemprop="dateCreated datePublished" datetime="2023-12-14T19:49:28+08:00">2023-12-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>策略模式属于行为模式的一种，一个类的行为或算法可以在运行时进行更改</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/14/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/14/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/bug/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-14 16:28:58" itemprop="dateCreated datePublished" datetime="2023-12-14T16:28:58+08:00">2023-12-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-26 11:03:42" itemprop="dateModified" datetime="2023-12-26T11:03:42+08:00">2023-12-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><code>java.lang.IllegalStateException: Failed to load ApplicationContext</code></p>
+<p><code>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;stateHandlerImpl&#39;: Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;indiv.lottery.domain.activity.service.stateflow.event.ArraignmentState&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: &#123;@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)&#125;</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312141928179.png" alt="image.png"></p>
+<p>没有定义component组件</p>
+<p><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;indiv.lottery.test.domain.ActivityTest&#39;: Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: </code><br>没有定义service</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException: </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may exist in file [E:\IDEA\MyLottery\lottery-interfaces\target\classes\mybatis\mapper\Activity_Mapper.xml]</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may involve indiv.lottery.infrastructure.dao.IActivityDAO.insert-Inline</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error occurred while setting parameters</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## SQL: INSERT INTO activity         (activityId, activityName, activityDesc, beginDateTime, endDateTime,          stockCount, takeCount, state, creator, createTime, updateTime)         VALUES (?, ?, ?, ?, ?,                 ?, ?, ?, ?, now(), now())</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line">; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span><br></pre></td></tr></table></figure>
+<p>insert参数名与数据库不匹配</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): indiv.lottery.infrastructure.dao.IAwardDAO.insertList</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><h2 id="Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException"><a href="#Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException" class="headerlink" title="Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException"></a>Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312252241556.png" alt="image.png"></p>
+<h1 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h1><p>lottery-application: Could not resolve dependencies for project cn.itedus.lottery:lottery-application:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT (absent): Could not find artifact cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT -&gt; [Help 1]</p>
+<p>application依赖domain域，但却是在Lottery顶层模块出现版本问题<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312261102257.png" alt="image.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/11/%E8%AF%AD%E6%B3%95/Java/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/11/%E8%AF%AD%E6%B3%95/Java/Java%E5%9F%BA%E7%A1%80%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-11 09:50:34" itemprop="dateCreated datePublished" datetime="2023-12-11T09:50:34+08:00">2023-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-15 10:52:23" itemprop="dateModified" datetime="2023-12-15T10:52:23+08:00">2023-12-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="JVM-vs-JDK-vs-JRE"><a href="#JVM-vs-JDK-vs-JRE" class="headerlink" title="JVM vs JDK vs JRE"></a>JVM vs JDK vs JRE</h4><h5 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h5><p>Java 虚拟机（JVM）是运行 Java 字节码的虚拟机。JVM 有针对不同系统的特定实现（Windows，Linux，macOS），目的是使用相同的字节码，它们都会给出相同的结果。字节码和不同系统的 JVM 实现是 Java 语言“一次编译，随处可以运行”的关键所在。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312110951360.png" alt="image.png"></p>
+<h5 id="JDK和JRE"><a href="#JDK和JRE" class="headerlink" title="JDK和JRE"></a>JDK和JRE</h5><p>JDK（Java Development Kit），它是功能齐全的 Java SDK，是提供给开发者使用的，能够创建和编译 Java 程序。他包含了 JRE，同时还包含了编译 java 源码的编译器 javac 以及一些其他工具比如 javadoc（文档注释工具）、jdb（调试器）、jconsole（基于 JMX 的可视化监控⼯具）、javap（反编译工具）等等。</p>
+<p>JRE（Java Runtime Environment） 是 Java 运行时环境。它是运行已编译 Java 程序所需的所有内容的集合，主要包括 Java 虚拟机（JVM）、Java 基础类库（Class Library）。</p>
+<p>也就是说，JRE 是 Java 运行时环境，仅包含 Java 应用程序的运行时环境和必要的类库。而 JDK 则包含了 JRE，同时还包括了 javac、javadoc、jdb、jconsole、javap 等工具，可以用于 Java 应用程序的开发和调试。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312110953812.png" alt="image.png"></p>
+<h4 id="字节码"><a href="#字节码" class="headerlink" title="字节码"></a>字节码</h4><p>字节码不面向任何特定的处理器，只面向虚拟机。Java 语言通过字节码的方式，在一定程度上解决了传统解释型语言执行效率低的问题，同时又保留了解释型语言&#x3D;&#x3D;可移植&#x3D;&#x3D;的特点。由于字节码并不针对一种特定的机器，因此，Java 程序无须重新编译便可在多种不同操作系统的计算机上运行。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312110959873.png" alt="image.png"><br><code>.class-&gt;机器码</code> 这一步。在这一步 JVM 类加载器首先加载字节码文件，然后通过解释器逐行解释执行，这种方式的执行速度会相对比较慢。而且，有些方法和代码块是经常需要被调用的(也就是所谓的热点代码)，所以后面引进了 <strong>JIT（Just in Time Compilation）</strong> 编译器，而 JIT 属于运行时编译。当 JIT 编译器完成第一次编译后，其会将字节码对应的机器码保存下来，下次可以直接使用。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312111000476.png" alt="image.png"></p>
+<h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><h4 id="primitive-vs-reference"><a href="#primitive-vs-reference" class="headerlink" title="primitive vs reference"></a>primitive vs reference</h4><p>原语变量和引用变量</p>
+<h4 id="自动装箱与拆箱"><a href="#自动装箱与拆箱" class="headerlink" title="自动装箱与拆箱"></a>自动装箱与拆箱</h4><ul>
+<li><strong>装箱</strong>：将基本类型用它们对应的引用类型包装起来；</li>
+<li><strong>拆箱</strong>：将包装类型转换为基本数据类型；<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span>;  <span class="comment">//装箱</span></span><br><span class="line"><span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> i;   <span class="comment">//拆箱</span></span><br><span class="line"></span><br><span class="line"><span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">10</span> 等价于 <span class="type">Integer</span> <span class="variable">i</span> <span class="operator">=</span> Integer.valueOf(<span class="number">10</span>)</span><br><span class="line"><span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> i 等价于 <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> i.intValue();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="浮点数运算的精度丢失"><a href="#浮点数运算的精度丢失" class="headerlink" title="浮点数运算的精度丢失"></a>浮点数运算的精度丢失</h4><p><code>BigDecimal</code> 可以实现对浮点数的运算，不会造成精度丢失。通常情况下，大部分需要浮点数精确运算结果的业务场景（比如涉及到钱的场景）都是通过 <code>BigDecimal</code> 来做的。<br><a href="https://javaguide.cn/java/basis/bigdecimal.html">BigDecimal 详解</a></p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="成员变量与局部变量的区别？"><a href="#成员变量与局部变量的区别？" class="headerlink" title="成员变量与局部变量的区别？"></a>成员变量与局部变量的区别？</h3><p><img src="https://oss.javaguide.cn/github/javaguide/java/basis/member-var-vs-local-var.png" alt="成员变量 vs 局部变量"></p>
+<p>成员变量 vs 局部变量</p>
 <ul>
-<li>lvalue(ell-value)：<ul>
-<li>左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边</li>
-<li>左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。</li>
+<li><strong>语法形式</strong>：从语法形式上看，成员变量是属于类的，而局部变量是在代码块或方法中定义的变量或是方法的参数；成员变量可以被 <code>public</code>,<code>private</code>,<code>static</code> 等修饰符所修饰，而局部变量不能被访问控制修饰符及 <code>static</code> 所修饰；但是，成员变量和局部变量都能被 <code>final</code> 所修饰。</li>
+<li><strong>存储方式</strong>：从变量在内存中的存储方式来看，如果成员变量是使用 <code>static</code> 修饰的，那么这个成员变量是属于类的，如果没有使用 <code>static</code> 修饰，这个成员变量是属于实例的。而对象存在于堆内存，局部变量则存在于栈内存。</li>
+<li><strong>生存时间</strong>：从变量在内存中的生存时间上看，成员变量是对象的一部分，它随着对象的创建而存在，而局部变量随着方法的调用而自动生成，随着方法的调用结束而消亡。</li>
+<li><strong>默认值</strong>：从变量是否有默认值来看，成员变量如果没有被赋初始值，则会自动以类型的默认值而赋值（一种情况例外:被 <code>final</code> 修饰的成员变量也必须显式地赋值），而局部变量则不会自动赋值。</li>
 </ul>
-</li>
-<li>rvalue(are-value)：当一个对象被用作右值的时候，用的是对象的值(the object’s content)<ul>
-<li>右值一般是不可寻址的常量，或在表达式求值过程中创建的无名临时对象，短暂性的<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a; <span class="comment">// a 为左值</span></span><br><span class="line">a = <span class="number">3</span>; <span class="comment">// 3 为右值</span></span><br></pre></td></tr></table></figure></li>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="静态方法为什么不能调用非静态成员"><a href="#静态方法为什么不能调用非静态成员" class="headerlink" title="静态方法为什么不能调用非静态成员?"></a>静态方法为什么不能调用非静态成员?</h3><ul>
+<li>静态方法是属于类的，在类加载的时候就会分配内存，可以通过类名直接访问。而非静态成员属于实例对象，只有在对象实例化之后才存在，需要通过类的实例对象去访问。</li>
+<li>在类的非静态成员不存在的时候静态方法就已经存在了，此时调用在内存中还不存在的非静态成员，属于非法操作</li>
 </ul>
-</li>
-</ul>
-<p>需要右值时，可以使用左值，反之不行</p>
-<ul>
-<li>左值引用：引用一个对象；</li>
-<li>右值引用（rvalue reference）：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。必须绑定到右值的引用，可以绑定到一个将要销毁的对象<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">6</span>; <span class="comment">// x是左值，6是右值</span></span><br><span class="line"><span class="type">int</span> &amp;y = x; <span class="comment">// 左值引用，y引用x</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;z1 = x * <span class="number">6</span>; <span class="comment">// 错误，x*6是一个右值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;z2 =  x * <span class="number">6</span>; <span class="comment">// 正确，可以将一个const引用绑定到一个右值</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;&amp;z3 = x * <span class="number">6</span>; <span class="comment">// 正确，右值引用</span></span><br><span class="line"><span class="type">int</span> &amp;&amp;z4 = x; <span class="comment">// 错误，x是一个左值</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="chapt-12"><a href="#chapt-12" class="headerlink" title="chapt 12"></a>chapt 12</h1><p>smart pointer：管理动态对象<br>shared_ptr：允许多个指针指向同一个对象<br>unique_ptr：独占所指向的对象<br>weak_ptr：弱引用，指向shared_ptr所管理的对象</p>
-<p>管理动态内存：</p>
-<ul>
-<li>忘记delete动态分配的内存（内存泄漏）</li>
-<li>在对象delete后使用</li>
-<li>同一块内存delete多次</li>
-</ul>
-<h2 id="smart-pointer"><a href="#smart-pointer" class="headerlink" title="smart pointer"></a>smart pointer</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161042659.png" alt="image.png"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161049131.png" alt="image.png"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161040197.png"></p>
-<h2 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a>unique_ptr</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161139098.png" alt="image.png"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/09/%E8%AF%AD%E6%B3%95/STL%20API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/09/%E8%AF%AD%E6%B3%95/STL%20API/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-09 16:57:39" itemprop="dateCreated datePublished" datetime="2023-10-09T16:57:39+08:00">2023-10-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-15 16:43:38" itemprop="dateModified" datetime="2023-11-15T16:43:38+08:00">2023-11-15</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1><ol>
-<li>Sequence Containers：顺序容器<ol>
-<li>vector：动态数组，O(1)的随机存取。在尾部增删的复杂度是O(1)，可以用作stack。</li>
-<li>list：双向链表，不支持随机存取。</li>
-<li>deque：双端队列，支持O(1)的随机存取，O(1)时间的头部增删和尾部增删。</li>
-<li>array：固定大小的数组</li>
-<li>forward_list：单向链表</li>
+<h3 id="overload-重载-和override-重写"><a href="#overload-重载-和override-重写" class="headerlink" title="overload(重载)和override(重写)"></a>overload(重载)和override(重写)</h3><p><a href="https://www.runoob.com/java/java-override-overload.html">Java 重写(Override)与重载(Overload) | 菜鸟教程 (runoob.com)</a></p>
+<blockquote>
+<p>重载就是同样的一个方法能够根据输入数据的不同，做出不同的处理<br>重写就是当子类继承自父类的相同方法，输入数据一样，但要做出有别于父类的响应时，你就要覆盖父类方法</p>
+</blockquote>
+<h4 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h4><p>发生在同一个类中（或者父类和子类之间），方法名必须相同，参数类型不同、个数不同、顺序不同，方法返回值和访问修饰符可以不同。</p>
+<h4 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h4><p>重写发生在运行期，是子类对父类的允许访问的方法的实现过程进行重新编写。</p>
+<ol>
+<li>方法名、参数列表必须相同，子类方法返回值类型应比父类方法返回值类型更小或相等，抛出的异常范围小于等于父类，访问修饰符范围大于等于父类。</li>
+<li>如果父类方法访问修饰符为 <code>private/final/static</code> 则子类就不能重写该方法，但是被 <code>static</code> 修饰的方法能够被再次声明。</li>
+<li>构造方法无法被重写</li>
 </ol>
-</li>
-<li>Container Adaptors：基于其它容器实现的数据结构<ol>
-<li>stack：后入先出（LIFO），默认基于deque实现。stack常用于深度优先搜索，字符串匹配以及单调栈问题</li>
-<li>queue：先入先出（FIFO），默认基于deque实现，常用于广度优先搜索。</li>
-<li>priority_queue：最大值先出(默认)的数据结构，默认基于vector实现堆结构，可以在O(nlogn)时间排序数组，O(logn)插入值，O(1)时间获取最大值，O(logn)删除最大值。</li>
-</ol>
-</li>
-<li>Associative Containers：实现了排好序的数据结构<ol>
-<li>set：有序集合，元素不可重复，底层默认为&#x3D;&#x3D;红黑树&#x3D;&#x3D;，即一种特殊的二叉查找树(BST)。在O(nlogn)时间排序数组，O(logn)时间插入、删除、查找任意值，O(logn)时间获得最大值或最小值。priority_queue不支持删除&#x3D;&#x3D;任意值&#x3D;&#x3D;。</li>
-<li>multiset：支持重复元素的set</li>
-<li>map：有序映射或有序表，在set的基础上加上映射关系，可以对每个元素key存一个value</li>
-<li>multimap：支持重复元素的map</li>
-</ol>
-</li>
-<li>Unordered Associative Containers：对每个Associative Containers实现哈希版本<ol>
-<li>unordered_set：哈希集合，可以在O(1)的时间快速插入、查找、删除元素，常用于快速的查询一个元素是否在这个容器内。</li>
-<li>unordered_multiset：支持重复元素的unordered_set</li>
-<li>unordered_map：哈希映射或和哈希表，在unordered_set的基础上加上映射关系，可以对每一个元素key存一个值value。在某些情况下，如果key的范围已知且较小，可以用&#x3D;&#x3D;vector&#x3D;&#x3D;代替unordered_map，用位置表示key，且每个位置的值表示value</li>
-<li>unordered_multimap：支持重复元素的unordered_map</li>
-</ol>
-</li>
-</ol>
-<h2 id="set、multiset"><a href="#set、multiset" class="headerlink" title="set、multiset"></a>set、multiset</h2><p><a href="http://c.biancheng.net/view/7203.html">C++ STL multiset容器详解 (biancheng.net)</a><br>multiset可以存储int, string, struct, class等类型，对于自定义类型需要实现比较函数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;</span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Node&amp;a, <span class="type">const</span> Node&amp;b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.x==b.x?a.y&lt;b.y:a.x&lt;b.x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">multiset&lt;Node,cmp&gt; s;</span><br></pre></td></tr></table></figure>
-
+<p>综上：<strong>重写就是子类对父类方法的重新改造，外部样子不能改变，内部逻辑可以改变。</strong></p>
 <table>
 <thead>
 <tr>
-<th>成员方法</th>
-<th>功能</th>
+<th>区别点</th>
+<th>重载方法</th>
+<th>重写方法</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>begin()</td>
-<td>返回指向容器中第一个（注意，是已排好序的第一个）元素的双向迭代器。</td>
+<td>发生范围</td>
+<td>同一个类</td>
+<td>子类</td>
 </tr>
 <tr>
-<td>end()</td>
-<td>返回指向容器最后一个元素（注意，是已排好序的最后一个）所在位置后一个位置的双向迭代器</td>
+<td>参数列表</td>
+<td>必须修改</td>
+<td>一定不能修改</td>
 </tr>
 <tr>
-<td>rbegin()</td>
-<td>返回指向最后一个（注意，是已排好序的最后一个）元素的反向双向迭代器。</td>
+<td>返回类型</td>
+<td>可修改</td>
+<td>子类方法返回值类型应比父类方法返回值类型更小或相等</td>
 </tr>
 <tr>
-<td>rend()</td>
-<td>返回指向第一个（注意，是已排好序的第一个）元素所在位置前一个位置的反向双向迭代器。</td>
+<td>异常</td>
+<td>可修改</td>
+<td>子类方法声明抛出的异常类应比父类方法声明抛出的异常类更小或相等；</td>
 </tr>
 <tr>
-<td>cbegin()</td>
-<td>和 begin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的元素值。</td>
+<td>访问修饰符</td>
+<td>可修改</td>
+<td>一定不能做更严格的限制（可以降低限制）</td>
 </tr>
 <tr>
-<td>cend()</td>
-<td>和 end() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的元素值。</td>
-</tr>
-<tr>
-<td>crbegin()</td>
-<td>和 rbegin() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的元素值。</td>
-</tr>
-<tr>
-<td>crend()</td>
-<td>和 rend() 功能相同，只不过在其基础上，增加了 const 属性，不能用于修改容器内存储的元素值。</td>
-</tr>
-<tr>
-<td>find(val)</td>
-<td>查找值为 val 的第一个元素，如果成功找到，则返回指向该元素的迭代器；反之，则返回end() 方法一样的迭代器。</td>
-</tr>
-<tr>
-<td>lower_bound(val)</td>
-<td>返回第一个大于或等于 val 的元素的迭代器，即元素位置。</td>
-</tr>
-<tr>
-<td>upper_bound(val)</td>
-<td>返回第一个大于 val 的元素的迭代器。</td>
-</tr>
-<tr>
-<td>equal_range(val)</td>
-<td>该方法返回一个 pair ，(pair.first,pair.second)&#x3D;(lower_bound(),upper_bound())，表示值为val的范围。</td>
-</tr>
-<tr>
-<td>empty()</td>
-<td>若容器为空，则返回 true；否则 false。</td>
-</tr>
-<tr>
-<td>size()</td>
-<td>返回当前 multiset 容器中存有元素的个数。</td>
-</tr>
-<tr>
-<td>max_size()</td>
-<td>返回 multiset 容器所能容纳元素的最大个数</td>
-</tr>
-<tr>
-<td>insert(val)</td>
-<td>向 multiset 容器中插入元素。</td>
-</tr>
-<tr>
-<td>erase(iter)</td>
-<td>删除迭代器所指位置元素，无返回值</td>
-</tr>
-<tr>
-<td>erase(val)</td>
-<td>删除值为val的所有元素，返回删除个数</td>
-</tr>
-<tr>
-<td>swap()</td>
-<td>交换 2 个 multiset 容器中存储的所有元素。这意味着，操作的 2 个 multiset 容器的类型必须相同。</td>
-</tr>
-<tr>
-<td>clear()</td>
-<td>清空 multiset 容器中所有的元素，即令 multiset 容器的 size() 为 0。</td>
-</tr>
-<tr>
-<td>emplace()</td>
-<td>在当前 multiset 容器中的指定位置直接构造新元素。其效果和 insert() 一样，但效率更高。</td>
-</tr>
-<tr>
-<td>emplace_hint()</td>
-<td>和emplace()构造新元素的方式是一样的，不同之处在于，使用者必须为该方法提供一个指示新元素生成位置的迭代器，并作为该方法的第一个参数。</td>
-</tr>
-<tr>
-<td>count(val)</td>
-<td>查找值为 val 的元素的个数，并返回。</td>
+<td>发生阶段</td>
+<td>编译期</td>
+<td>运行期</td>
 </tr>
 </tbody></table>
-<h1 id="array"><a href="#array" class="headerlink" title="array"></a>array</h1><table>
-<thead>
-<tr>
-<th>成员方法</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>array&lt;int, 26&gt; cnt &#x3D; {};</td>
-<td>初始化为0，没有{}则为默认初始化</td>
-</tr>
-</tbody></table>
-<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><p>to_string<br>stoi</p>
-<h2 id="根据空格分割字符串"><a href="#根据空格分割字符串" class="headerlink" title="根据空格分割字符串"></a>根据空格分割字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string line=<span class="string">&quot;this student is studious&quot;</span>;</span><br><span class="line">stringstream ss;</span><br><span class="line">string w;</span><br><span class="line">ss&lt;&lt;line;</span><br><span class="line"><span class="keyword">while</span>(ss&gt;&gt;w)&#123;</span><br><span class="line">	cout&lt;&lt;w&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><table>
-<thead>
-<tr>
-<th>成员方法</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>push(val)</td>
-<td>插入一个元素</td>
-</tr>
-<tr>
-<td>pop()</td>
-<td>弹出最值</td>
-</tr>
-<tr>
-<td>top()</td>
-<td>返回最值</td>
-</tr>
-</tbody></table>
+<h1 id="面向对象基础"><a href="#面向对象基础" class="headerlink" title="面向对象基础"></a>面向对象基础</h1><h3 id="面向对象和面向过程的区别"><a href="#面向对象和面向过程的区别" class="headerlink" title="面向对象和面向过程的区别"></a>面向对象和面向过程的区别</h3><p>两者的主要区别在于解决问题的方式不同：</p>
+<ul>
+<li>面向过程把解决问题的过程拆成一个个方法，通过一个个方法的执行解决问题。</li>
+<li>面向对象会先抽象出对象，然后用对象执行方法的方式解决问题。</li>
+</ul>
+<p>另外，面向对象开发的程序一般更易维护、易复用、易扩展。</p>
+<h3 id="对象的相等和引用相等的区别"><a href="#对象的相等和引用相等的区别" class="headerlink" title="对象的相等和引用相等的区别"></a>对象的相等和引用相等的区别</h3><ul>
+<li>对象的相等一般比较的是内存中存放的内容是否相等。</li>
+<li>引用相等一般比较的是他们指向的内存地址是否相等。</li>
+</ul>
+<h2 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h2><blockquote>
+<p>如果一个类没有声明构造方法，会有默认的不带参数的构造方法。如果我们自己添加了类的构造方法（无论是否有参），Java 就不会添加默认的无参数的构造方法了。</p>
+</blockquote>
+<h2 id="面向对象三大特性"><a href="#面向对象三大特性" class="headerlink" title="面向对象三大特性"></a>面向对象三大特性</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>encapsulation：实例变量(instance variable)不能直接访问修改</p>
+<blockquote>
+<p>封装是指把一个对象的状态信息（也就是属性）隐藏在对象内部，不允许外部对象直接访问对象的内部信息。但是可以提供一些可以被外界访问的方法来操作属性。</p>
+</blockquote>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>inheritance：IS-A</p>
+<p>继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。通过使用继承，可以快速地创建新的类，可以提高代码的重用，程序的可维护性，节省大量创建新类的时间 ，提高我们的开发效率。</p>
+<ol>
+<li>子类拥有父类对象所有的属性和方法（包括私有属性和私有方法），但是父类中的私有属性和方法子类是无法访问，<strong>只是拥有</strong>。</li>
+<li>子类可以拥有自己属性和方法，即子类可以对父类进行扩展。</li>
+<li>子类可以用自己的方式实现父类的方法。</li>
+</ol>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>polymorphism：父类引用变量引用子类，让不同的子类进行相同的行为</p>
+<blockquote>
+<p>一个对象具有多种的状态，具体表现为父类的引用指向子类的实例。</p>
+</blockquote>
+<p><strong>多态的特点:</strong></p>
+<ul>
+<li>对象类型和引用类型之间具有继承（类）&#x2F;实现（接口）的关系；</li>
+<li>引用类型变量发出的方法调用的到底是哪个类中的方法，必须在程序运行期间才能确定；</li>
+<li>多态不能调用“只在子类存在但在父类不存在”的方法；</li>
+<li>如果子类重写了父类的方法，真正执行的是子类覆盖的方法，如果子类没有覆盖父类的方法，执行的是父类的方法。</li>
+</ul>
+<h2 id="接口和抽象类"><a href="#接口和抽象类" class="headerlink" title="接口和抽象类"></a>接口和抽象类</h2><p><strong>共同点</strong>：</p>
+<ul>
+<li>都不能被实例化。</li>
+<li>都可以包含抽象方法。</li>
+<li>都可以有默认实现的方法（Java 8 可以用 <code>default</code> 关键字在接口中定义默认方法）。</li>
+</ul>
+<p><strong>区别</strong>：</p>
+<ul>
+<li>接口主要用于对类的行为进行约束，你实现了某个接口就具有了对应的行为。抽象类主要用于代码复用，强调的是所属关系。</li>
+<li>一个类只能继承一个类，但是可以实现多个接口。</li>
+<li>接口中的成员变量只能是 <code>public static final</code> 类型的，不能被修改且必须有初始值，而抽象类的成员变量默认 default，可在子类中被重新定义，也可被重新赋值</li>
+</ul>
+<h2 id="深拷贝和浅拷贝"><a href="#深拷贝和浅拷贝" class="headerlink" title="深拷贝和浅拷贝"></a>深拷贝和浅拷贝</h2><ul>
+<li><strong>浅拷贝</strong>：浅拷贝会在堆上创建一个新的对象（区别于引用拷贝的一点），不过，如果原对象内部的属性是引用类型的话，浅拷贝会直接复制内部对象的引用地址，也就是说拷贝对象和原对象&#x3D;&#x3D;共用同一个内部对象&#x3D;&#x3D;。</li>
+<li><strong>深拷贝</strong>：深拷贝会完全复制整个对象，包括这个对象所包含的内部对象。</li>
+<li>引用拷贝：两个不同的引用指向同一个对象。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312122359896.png" alt="image.png"></li>
+</ul>
+<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * native 方法，用于返回当前运行时对象的 Class 对象，使用了 final 关键字修饰，故不允许子类重写。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> Class&lt;?&gt; getClass()</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * native 方法，用于返回对象的哈希码，主要使用在哈希表中，比如 JDK 中的HashMap。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">native</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 用于比较 2 个对象的内存地址是否相等，String 类对该方法进行了重写以用于比较字符串的值是否相等。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object obj)</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * native 方法，用于创建并返回当前对象的一份拷贝。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">native</span> Object <span class="title function_">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 返回类的名字实例的哈希码的 16 进制的字符串。建议 Object 所有的子类都重写这个方法。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * native 方法，并且不能重写。唤醒一个在此对象监视器上等待的线程(监视器相当于就是锁的概念)。如果有多个线程在等待只会任意唤醒一个。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">notify</span><span class="params">()</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * native 方法，并且不能重写。跟 notify 一样，唯一的区别就是会唤醒在此对象监视器上等待的所有线程，而不是一个线程。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">notifyAll</span><span class="params">()</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * native方法，并且不能重写。暂停线程的执行。注意：sleep 方法没有释放锁，而 wait 方法释放了锁 ，timeout 是等待时间。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">wait</span><span class="params">(<span class="type">long</span> timeout)</span> <span class="keyword">throws</span> InterruptedException</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 多了 nanos 参数，这个参数表示额外时间（以纳秒为单位，范围是 0-999999）。 所以超时的时间还需要加上 nanos 纳秒。。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">wait</span><span class="params">(<span class="type">long</span> timeout, <span class="type">int</span> nanos)</span> <span class="keyword">throws</span> InterruptedException</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 跟之前的2个wait方法一样，只不过该方法一直等待，没有超时时间这个概念</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">wait</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 实例被垃圾回收器回收的时候触发的操作</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123; &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><h3 id="String、StringBuffer、StringBuilder"><a href="#String、StringBuffer、StringBuilder" class="headerlink" title="String、StringBuffer、StringBuilder"></a>String、StringBuffer、StringBuilder</h3><blockquote>
+<p>源码阅读</p>
+</blockquote>
+<p><code>String</code>是不可变的，<code>StringBuilder</code> 与 <code>StringBuffer</code> 都继承自 <code>AbstractStringBuilder</code> 类，在 <code>AbstractStringBuilder</code> 中也是使用字符数组保存字符串，不过没有使用 <code>final</code> 和 <code>private</code> 关键字修饰，最关键的是这个 <code>AbstractStringBuilder</code> 类还提供了很多修改字符串的方法比如 <code>append</code> 方法。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AbstractStringBuilder</span> <span class="keyword">implements</span> <span class="title class_">Appendable</span>, CharSequence &#123;</span><br><span class="line">    <span class="type">char</span>[] value;</span><br><span class="line">    <span class="keyword">public</span> AbstractStringBuilder <span class="title function_">append</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span> appendNull();</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> str.length();</span><br><span class="line">        ensureCapacityInternal(count + len);</span><br><span class="line">        str.getChars(<span class="number">0</span>, len, value, count);</span><br><span class="line">        count += len;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  	<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>线程安全性</strong></p>
+<p><code>String</code> 中的对象是不可变的，也就可以理解为常量，线程安全。<code>AbstractStringBuilder</code> 是 <code>StringBuilder</code> 与 <code>StringBuffer</code> 的公共父类，定义了一些字符串的基本操作，如 <code>expandCapacity</code>、<code>append</code>、<code>insert</code>、<code>indexOf</code> 等公共方法。<code>StringBuffer</code> 对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的。<code>StringBuilder</code> 并没有对方法进行加同步锁，所以是非线程安全的。</p>
+<p><strong>性能</strong></p>
+<p>每次对 <code>String</code> 类型进行改变的时候，都会生成一个新的 <code>String</code> 对象，然后将指针指向新的 <code>String</code> 对象。<code>StringBuffer</code> 每次都会对 <code>StringBuffer</code> 对象本身进行操作，而不是生成新的对象并改变对象引用。相同情况下使用 <code>StringBuilder</code> 相比使用 <code>StringBuffer</code> 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险。</p>
+<p><strong>对于三者使用的总结：</strong></p>
+<ol>
+<li>操作少量的数据: 适用 <code>String</code></li>
+<li>单线程操作字符串缓冲区下操作大量数据: 适用 <code>StringBuilder</code></li>
+<li>多线程操作字符串缓冲区下操作大量数据: 适用 <code>StringBuffer</code></li>
+</ol>
+<h3 id="String不可改变"><a href="#String不可改变" class="headerlink" title="String不可改变"></a>String不可改变</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">String</span> <span class="keyword">implements</span> <span class="title class_">java</span>.io.Serializable,Comparable&lt;String&gt;, CharSequence &#123;</span><br><span class="line">    <span class="comment">// @Stable 注解表示变量最多被修改一次，称为“稳定的”。</span></span><br><span class="line">    <span class="meta">@Stable</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">byte</span>[] value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AbstractStringBuilder</span> <span class="keyword">implements</span> <span class="title class_">Appendable</span>, CharSequence &#123;</span><br><span class="line">    <span class="type">byte</span>[] value;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li>保存字符串的数组被 <code>final</code> 修饰且为私有的，并且<code>String</code> 类没有提供&#x2F;暴露修改这个字符串的方法</li>
+<li><code>String</code> 类被 <code>final</code> 修饰导致其不能被继承，进而避免了子类破坏 <code>String</code> 不可变。</li>
+</ol>
+</blockquote>
+<h3 id="字符串拼接-StringBuilder"><a href="#字符串拼接-StringBuilder" class="headerlink" title="字符串拼接(+ StringBuilder)"></a>字符串拼接(+ StringBuilder)</h3><p><a href="https://juejin.cn/post/7182872058743750715">还在无脑用 StringBuilder？来重温一下字符串拼接吧 - 掘金 (juejin.cn)</a></p>
 
       
     </div>
@@ -957,7 +817,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/02/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%92%8C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Java%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -975,7 +835,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/02/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%92%8C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Java%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -987,7 +847,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-10-02 12:52:25 / 修改时间：12:55:54" itemprop="dateCreated datePublished" datetime="2023-10-02T12:52:25+08:00">2023-10-02</time>
+      <time title="创建时间：2023-12-10 23:04:40 / 修改时间：23:11:11" itemprop="dateCreated datePublished" datetime="2023-12-10T23:04:40+08:00">2023-12-10</time>
     </span>
 
   
@@ -1000,41 +860,113 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>前缀和适用于数组不变<br>适用于单点更新，区间查询</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>构造</th>
-<th>查询</th>
-<th>修改</th>
-<th>适用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>前缀和</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td></td>
-<td>数组不变</td>
-</tr>
-<tr>
-<td>树状数组</td>
-<td>O(nlogn)</td>
-<td>O(logn)</td>
-<td>O(logn)</td>
-<td>区间查询，单点更新</td>
-</tr>
-</tbody></table>
-<p><a href="https://leetcode.cn/problems/range-sum-query-mutable/solutions/632515/guan-yu-ge-lei-qu-jian-he-wen-ti-ru-he-x-41hv/">307. 区域和检索 - 数组可修改 - 力扣（LeetCode）</a></p>
+          <h1 id="package"><a href="#package" class="headerlink" title="package"></a>package</h1><p>indi ：</p>
+<p>个体项目，指个人发起，但非自己独自完成的项目，可公开或私有项目，copyright主要属于发起者。</p>
+<p>包名为“indi.发起者名.项目名.模块名.……”。</p>
+<p>pers ：</p>
+<p>个人项目，指个人发起，独自完成，可分享的项目，copyright主要属于个人。</p>
+<p>包名为“pers.个人名.项目名.模块名.……”。</p>
+<p>priv ：</p>
+<p>私有项目，指个人发起，独自完成，非公开的私人使用的项目，copyright属于个人。</p>
+<p>包名为“priv.个人名.项目名.模块名.……”。</p>
+<p>team ：</p>
+<p>团队项目，指由团队发起，并由该团队开发的项目，copyright属于该团队所有。</p>
+<p>包名为“team.团队名.项目名.模块名.……”。</p>
+<p>com ：</p>
+<p>公司项目，copyright由项目发起的公司所有。</p>
+<p>包名为“com.公司名.项目名.模块名.……”。</p>
+<p><a href="https://www.zhihu.com/question/450664324">java 项目的包命名规则是什么</a></p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><p><a href="https://zhuanlan.zhihu.com/p/448253937">10分钟搞定令人头疼的代码命名规范 | JavaGuide - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/09/%E8%AF%AD%E6%B3%95/Java/Spring&SpringBoot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/%E8%AF%AD%E6%B3%95/Java/Spring&SpringBoot%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3/" class="post-title-link" itemprop="url">Java注解含义</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-12-09 21:20:46" itemprop="dateCreated datePublished" datetime="2023-12-09T21:20:46+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-15 11:23:00" itemprop="dateModified" datetime="2023-12-15T11:23:00+08:00">2023-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">开发框架</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Component-Repository-Service-Controller"><a href="#Component-Repository-Service-Controller" class="headerlink" title="@Component, @Repository, @Service, @Controller"></a>@Component, @Repository, @Service, @Controller</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="meta">@Component</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>数组不变，求区间和：「前缀和」、「树状数组」、「线段树」</li>
-<li>多次修改某个数（单点），求区间和：「树状数组」、「线段树」</li>
-<li>多次修改某个区间，输出最终结果：「差分」</li>
-<li>多次修改某个区间，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</li>
-<li>多次将某个区间变成同一个数，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</li>
+<li><code>@Component</code>：标注一个类为Spring容器的Bean，把普通pojo实例化到spring容器中，相当于配置文件中的&lt;bean id&#x3D;”” class&#x3D;””&#x2F;&gt;</li>
+<li><code>@Repository</code>：对应持久层即Dao层，主要用于数据库相关操作</li>
+<li><code>@Service</code>：对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层。</li>
+<li><code>@Controller</code>：对应 Spring MVC 控制层，主要用于接受用户请求并调用 Service 层返回数据给前端页面。表示Web层实现。</li>
 </ul>
 
       
@@ -1062,7 +994,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/09/22/%E8%AF%AD%E6%B3%95/STL%20%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/06/%E9%9D%A2%E7%BB%8F/RPC(Dubbo)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1080,7 +1012,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/09/22/%E8%AF%AD%E6%B3%95/STL%20%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/06/%E9%9D%A2%E7%BB%8F/RPC(Dubbo)/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1090,15 +1022,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-09-22 17:06:11" itemprop="dateCreated datePublished" datetime="2023-09-22T17:06:11+08:00">2023-09-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-09 16:57:34" itemprop="dateModified" datetime="2023-10-09T16:57:34+08:00">2023-10-09</time>
+      <time title="创建时间：2023-12-06 11:26:59 / 修改时间：11:28:58" itemprop="dateCreated datePublished" datetime="2023-12-06T11:26:59+08:00">2023-12-06</time>
     </span>
 
   
@@ -1111,11 +1037,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="priority-queue-heap"><a href="#priority-queue-heap" class="headerlink" title="priority_queue(heap)"></a>priority_queue(heap)</h1><h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _RandomAccessIterator, <span class="keyword">typename</span> _Distance, <span class="keyword">typename</span> _Tp,</span><br><span class="line">   <span class="keyword">typename</span> _Compare&gt;</span><br><span class="line">   <span class="type">void</span></span><br><span class="line">   __push_heap(_RandomAccessIterator __first,</span><br><span class="line">	_Distance __holeIndex, _Distance __topIndex, _Tp __value,</span><br><span class="line">	_Compare&amp; __comp)</span><br><span class="line"><span class="comment">//首迭代器,插入值索引(__last-1),堆顶索引(0),插入值,比较函数</span></span><br><span class="line">   &#123;</span><br><span class="line">     _Distance __parent = (__holeIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">     <span class="comment">//父节点值与节点值比较，默认less，父节点小，则交换</span></span><br><span class="line">     <span class="keyword">while</span> (__holeIndex &gt; __topIndex &amp;&amp; __comp(__first + __parent, __value))</span><br><span class="line">&#123;</span><br><span class="line">  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));</span><br><span class="line">  __holeIndex = __parent;</span><br><span class="line">  __parent = (__holeIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">     *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+          <h1 id="Dubbo-x-Spring-Boot-开发微服务应用"><a href="#Dubbo-x-Spring-Boot-开发微服务应用" class="headerlink" title="Dubbo x Spring Boot 开发微服务应用"></a>Dubbo x Spring Boot 开发微服务应用</h1><p><a href="https://cn.dubbo.apache.org/zh-cn/overview/quickstart/java/spring-boot/#%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%9B%B6%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E7%89%88">2 - Dubbo Spring Boot Starter 开发微服务应用 | Apache Dubbo</a></p>
+<h1 id="Dubbo-x-Spring-Boot-开发微服务应用-1"><a href="#Dubbo-x-Spring-Boot-开发微服务应用-1" class="headerlink" title="Dubbo x Spring Boot 开发微服务应用"></a>Dubbo x Spring Boot 开发微服务应用</h1><p><a href="https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/quick-start/spring-xml/">4 - 基于 Spring XML 开发微服务应用 | Apache Dubbo</a></p>
 
       
     </div>
@@ -1142,7 +1065,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/09/18/%E8%AF%AD%E6%B3%95/algorithm.h/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/05/%E8%AF%AD%E6%B3%95/Java/PO%20BO%20VO%20DTO%20DAO/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1160,7 +1083,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/09/18/%E8%AF%AD%E6%B3%95/algorithm.h/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/12/05/%E8%AF%AD%E6%B3%95/Java/PO%20BO%20VO%20DTO%20DAO/" class="post-title-link" itemprop="url">Java对象概念：PO BO VO DTO DAO</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1171,14 +1094,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-09-18 23:03:56" itemprop="dateCreated datePublished" datetime="2023-09-18T23:03:56+08:00">2023-09-18</time>
+      <time title="创建时间：2023-12-05 22:38:44" itemprop="dateCreated datePublished" datetime="2023-12-05T22:38:44+08:00">2023-12-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-20 17:30:27" itemprop="dateModified" datetime="2023-09-20T17:30:27+08:00">2023-09-20</time>
+      <time title="修改时间：2023-12-09 21:20:43" itemprop="dateModified" datetime="2023-12-09T21:20:43+08:00">2023-12-09</time>
     </span>
 
   
@@ -1191,13 +1114,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="next-permutation"><a href="#next-permutation" class="headerlink" title="next_permutation"></a>next_permutation</h2><blockquote>
-<p>next_permutation()是按字典序依次排列的，当排列到最大的值是就会返回false.<br>生成给定序列的下一个排列，按字典序生成下一个排列。如果有下一个排列，返回true，否则返回false</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> _BidirectionalIterator, <span class="keyword">typename</span> _Compare&gt;</span><br><span class="line"><span class="type">bool</span> __next_permutation(_BidirectionalIterator __first,</span><br><span class="line">                        _BidirectionalIterator __last, _Compare __comp) &#123;</span><br><span class="line">    <span class="keyword">if</span> (__first == __last)  <span class="comment">//区间为空</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    _BidirectionalIterator __i = __first;</span><br><span class="line">    ++__i;</span><br><span class="line">    <span class="keyword">if</span> (__i == __last)  <span class="comment">//区间只有一个元素</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    __i = __last;</span><br><span class="line">    --__i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        _BidirectionalIterator __ii = __i;  <span class="comment">//__i指向__ii前一个位置</span></span><br><span class="line">        --__i;</span><br><span class="line">        <span class="keyword">if</span> (__comp(__i, __ii)) &#123;    <span class="comment">// *__i&lt;*__ii</span></span><br><span class="line">            _BidirectionalIterator __j = __last;</span><br><span class="line">            <span class="keyword">while</span> (!__comp(__i, --__j)) &#123;   <span class="comment">//找到从后面起第一个*__j&gt;*__i</span></span><br><span class="line">            &#125;</span><br><span class="line">            std::<span class="built_in">iter_swap</span>(__i, __j);</span><br><span class="line">            std::__reverse(__ii, __last, std::__iterator_category(__first));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//区间已经完全逆序</span></span><br><span class="line">        <span class="keyword">if</span> (__i == __first) &#123;</span><br><span class="line">            std::__reverse(__first, __last, std::__iterator_category(__first));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/qq_46527915/article/details/115276567">使用next_permutation()的坑，你中招了么?_辉小歌的博客-CSDN博客</a><br><a href="https://zhuanlan.zhihu.com/p/616792845">C++神奇的next_permutation - 知乎 (zhihu.com)</a></p>
-
+          <p>Java中对象概念</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/12/05/%E8%AF%AD%E6%B3%95/Java/PO%20BO%20VO%20DTO%20DAO/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1216,7 +1141,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1228,7 +1153,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

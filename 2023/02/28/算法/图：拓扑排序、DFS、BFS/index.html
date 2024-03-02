@@ -20,16 +20,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="数据结构：二叉树，图，二维矩阵  图的遍历 深度优先搜索（DFS） 检查图的连通性和无环性、&#x3D;&#x3D;关节点&#x3D;&#x3D;  广度优先搜索（BFS） 检查图的连通性和无环性、求两个给定顶点间 &#x3D;&#x3D;边的数量&#x3D;&#x3D; 最少的路径   图的存储邻接矩阵  适合于边稠密图 邻接表  适用于边数较少的稀疏图 拓扑排序 有向无环图（DAG，dire">
+    <meta name="description" content="DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DFS、BFS">
 <meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="数据结构：二叉树，图，二维矩阵  图的遍历 深度优先搜索（DFS） 检查图的连通性和无环性、&#x3D;&#x3D;关节点&#x3D;&#x3D;  广度优先搜索（BFS） 检查图的连通性和无环性、求两个给定顶点间 &#x3D;&#x3D;边的数量&#x3D;&#x3D; 最少的路径   图的存储邻接矩阵  适合于边稠密图 邻接表  适用于边数较少的稀疏图 拓扑排序 有向无环图（DAG，dire">
+<meta property="og:description" content="DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305251704677.png">
 <meta property="article:published_time" content="2023-02-28T12:24:17.627Z">
-<meta property="article:modified_time" content="2023-11-15T11:25:16.906Z">
+<meta property="article:modified_time" content="2024-03-01T02:12:38.457Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="搜索算法">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -170,7 +170,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -234,7 +234,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="DFS、BFS | 我的个人博客">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -256,12 +256,13 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-15 19:25:16" itemprop="dateModified" datetime="2023-11-15T19:25:16+08:00">2023-11-15</time>
+      <time title="修改时间：2024-03-01 10:12:38" itemprop="dateModified" datetime="2024-03-01T10:12:38+08:00">2024-03-01</time>
     </span>
 
   
 </div>
 
+            <div class="post-description">DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)</div>
         </div>
       </header>
 
@@ -435,7 +436,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

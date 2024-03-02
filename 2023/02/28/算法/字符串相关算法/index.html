@@ -20,25 +20,25 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="字符串相关算法回文串 string s;int n&#x3D;s.size();&#x2F;&#x2F;f[i][j]表示s[i:j]是否是回文串vector&lt;vector&lt;int&gt;&gt; f(n,vector&lt;int&gt;(n,true));s&#x3D;&quot;abbab&quot;&#x2F;&#x2F;从前向后处理，错误&#x2F;&#x2F;f[1][4]&#x3D;(s[1]&#x3D;&#x3D;s[4])&amp;&amp;f[2][3]&#x2F;&#x2F;f[1][4]需">
+    <meta name="description" content="回文串；最长公共前缀；KMP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="字符串相关算法">
 <meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="字符串相关算法回文串 string s;int n&#x3D;s.size();&#x2F;&#x2F;f[i][j]表示s[i:j]是否是回文串vector&lt;vector&lt;int&gt;&gt; f(n,vector&lt;int&gt;(n,true));s&#x3D;&quot;abbab&quot;&#x2F;&#x2F;从前向后处理，错误&#x2F;&#x2F;f[1][4]&#x3D;(s[1]&#x3D;&#x3D;s[4])&amp;&amp;f[2][3]&#x2F;&#x2F;f[1][4]需">
+<meta property="og:description" content="回文串；最长公共前缀；KMP">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305151158271.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20210816200255.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202108192113896.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202108192134856.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202108192152260.png">
-<meta property="article:published_time" content="2023-02-28T12:24:17.631Z">
-<meta property="article:modified_time" content="2023-09-19T14:59:39.986Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202305151158271.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210816200255.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192113896.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192134856.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192152260.png">
+<meta property="article:published_time" content="2023-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-21T04:24:27.293Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="字符串">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305151158271.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202305151158271.png">
 
 
 <link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">字符串相关算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="nav-number">1.1.</span> <span class="nav-text">回文串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LCP%EF%BC%88%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">LCP（最长公共前缀）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">字符串匹配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%80%90%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D"><span class="nav-number">2.1.</span> <span class="nav-text">1. 逐字符匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-KMP%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">2. KMP算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82next-j-%EF%BC%9A"><span class="nav-number">2.2.1.</span> <span class="nav-text">求next(j)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82next%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.2.2.</span> <span class="nav-text">求next程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.2.3.</span> <span class="nav-text">KMP模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Horspool%E7%AE%97%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">3. Horspool算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Boyer-Moore%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">4. Boyer-Moore算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">2.5.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#28-%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8C%B9%E9%85%8D%E9%A1%B9%E7%9A%84%E4%B8%8B%E6%A0%87"><span class="nav-number">2.5.0.1.</span> <span class="nav-text">28. 找出字符串中第一个匹配项的下标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E4%B8%B2%E5%9C%A8%E4%B8%BB%E4%B8%B2%E4%B8%AD%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%BB%E4%B8%B2%EF%BC%9F"><span class="nav-number">2.5.1.</span> <span class="nav-text">模式串在主串中有多少个完全匹配的主串？</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">字符串相关算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="nav-number">1.1.</span> <span class="nav-text">回文串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LCP%EF%BC%88%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">LCP（最长公共前缀）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">字符串匹配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%80%90%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D"><span class="nav-number">2.1.</span> <span class="nav-text">1. 逐字符匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-KMP%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">2. KMP算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82next-j-%EF%BC%9A"><span class="nav-number">2.2.1.</span> <span class="nav-text">求next(j)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E6%A8%A1%E6%9D%BF"><span class="nav-number">2.2.2.</span> <span class="nav-text">KMP模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Horspool%E7%AE%97%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">3. Horspool算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Boyer-Moore%E7%AE%97%E6%B3%95"><span class="nav-number">2.4.</span> <span class="nav-text">4. Boyer-Moore算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">2.5.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#28-%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8C%B9%E9%85%8D%E9%A1%B9%E7%9A%84%E4%B8%8B%E6%A0%87"><span class="nav-number">2.5.0.1.</span> <span class="nav-text">28. 找出字符串中第一个匹配项的下标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E4%B8%B2%E5%9C%A8%E4%B8%BB%E4%B8%B2%E4%B8%AD%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%BB%E4%B8%B2%EF%BC%9F"><span class="nav-number">2.5.1.</span> <span class="nav-text">模式串在主串中有多少个完全匹配的主串？</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">99</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,7 +175,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -239,7 +239,7 @@
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
       <meta itemprop="name" content="字符串相关算法 | 我的个人博客">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="回文串；最长公共前缀；KMP">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -254,14 +254,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-28T00:00:00+08:00">2023-02-28</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-19 22:59:39" itemprop="dateModified" datetime="2023-09-19T22:59:39+08:00">2023-09-19</time>
+      <time title="修改时间：2024-02-21 12:24:27" itemprop="dateModified" datetime="2024-02-21T12:24:27+08:00">2024-02-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,6 +276,7 @@
   
 </div>
 
+            <div class="post-description">回文串；最长公共前缀；KMP</div>
         </div>
       </header>
 
@@ -283,7 +284,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="字符串相关算法"><a href="#字符串相关算法" class="headerlink" title="字符串相关算法"></a>字符串相关算法</h1><h2 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305151158271.png" alt="image-20221029165353877"></p>
+        <h1 id="字符串相关算法"><a href="#字符串相关算法" class="headerlink" title="字符串相关算法"></a>字符串相关算法</h1><h2 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202305151158271.png" alt="image-20221029165353877"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string s;</span><br><span class="line"><span class="type">int</span> n=s.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//f[i][j]表示s[i:j]是否是回文串</span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n,<span class="literal">true</span>));</span><br><span class="line"></span><br><span class="line">s=<span class="string">&quot;abbab&quot;</span></span><br><span class="line"><span class="comment">//从前向后处理，错误</span></span><br><span class="line"><span class="comment">//f[1][4]=(s[1]==s[4])&amp;&amp;f[2][3]</span></span><br><span class="line"><span class="comment">//f[1][4]需要用到f[2][3]，而f[2][3]还未处理</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    for(int i=0;i&lt;n;i++)&#123;</span></span><br><span class="line"><span class="comment">        for(int j=i+1;j&lt;n;j++)</span></span><br><span class="line"><span class="comment">            f[i][j]=(s[i]==s[j])&amp;&amp;f[i+1][j-1]; </span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//从后向前处理</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">        f[i][j]=(s[i]==s[j])&amp;&amp;f[i+<span class="number">1</span>][j<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -303,7 +304,7 @@
 <h1 id="字符串匹配算法"><a href="#字符串匹配算法" class="headerlink" title="字符串匹配算法"></a>字符串匹配算法</h1><blockquote>
 <p>从文本中寻找模式串的匹配算法，蛮力算法及KMP算法</p>
 </blockquote>
-<h2 id="1-逐字符匹配"><a href="#1-逐字符匹配" class="headerlink" title="1. 逐字符匹配"></a>1. 逐字符匹配</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20210816200255.png" alt="image-20210816200255814"></p>
+<h2 id="1-逐字符匹配"><a href="#1-逐字符匹配" class="headerlink" title="1. 逐字符匹配"></a>1. 逐字符匹配</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210816200255.png" alt="image-20210816200255814"></p>
 <blockquote>
 <p>文本长度（T）：m</p>
 <p>模式串长度（P）：n</p>
@@ -313,13 +314,13 @@
 <p>查找过程：T从某一下标i开始，P从1开始，T依次与P的相应位置匹配，如果不匹配，则回退到位置i+1，同时P的下标也回退到开始</p>
 <h2 id="2-KMP算法"><a href="#2-KMP算法" class="headerlink" title="2. KMP算法"></a>2. KMP算法</h2><p>串的前缀：除最后一个字符以外，字符串的所有头部子串 （ $aba前缀{a,ab}$）</p>
 <p>串的后缀：除第一个字符以外，字符串的所有尾部子串（ $aba前缀{a,ba}$）</p>
-<img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202108192113896.png" alt="image-20210819211339841" style="zoom: 67%;" />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192113896.png" alt="image-20210819211339841" style="zoom: 67%;" />
 
 <blockquote>
 <p>当文本串的第i个字符与模式串的第k个字符不匹配时，对于图中的情况，在第k个字符前存在相等的前缀和后缀时，可以将字符移动，用模式串的第t个字符与文本串的第i个字符继续进行比较，</p>
 <p>因此，需要知道在Pattern第k个字符失配时，需要用哪个字符继续与Text第i个字符比较</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg" alt="算法图示"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg" alt="算法图示"></p>
 <h3 id="求next-j-："><a href="#求next-j-：" class="headerlink" title="求next(j)："></a>求next(j)：</h3><blockquote>
 <p>第j个字符前，使前缀串&#x3D;后缀串的最大值为k</p>
 <p>则next[j]&#x3D;k+1</p>
@@ -333,8 +334,20 @@
 <p>P[1]!&#x3D;T[j]时，用P[0]与T[j]比较</p>
 <p>即P[1]与T[j+1]比较</p>
 </blockquote>
-<img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202108192134856.png" alt="image-20210819213443818" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192134856.png" alt="image-20210819213443818" style="zoom:67%;" />
+### 求next程序
 
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_Next</span><span class="params">(string &amp;P, vector&lt;<span class="type">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>j处于Patter前部，当next[i]&#x3D;next[j]时</p>
+<p>说明i+1前的前缀串&#x3D;后缀串的长度为j，</p>
+<p>则next[i+1]&#x3D;j+1</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192152260.png" alt="image-20210819215203223"></p>
+<blockquote>
+<p>next(j)产生过程：</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -371,18 +384,18 @@
 <td>1</td>
 <td>2</td>
 </tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
 </tbody></table>
-<h3 id="求next程序"><a href="#求next程序" class="headerlink" title="求next程序"></a>求next程序</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_Next</span><span class="params">(string &amp;P, vector&lt;<span class="type">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>j处于Patter前部，当next[i]&#x3D;next[j]时</p>
-<p>说明i+1前的前缀串&#x3D;后缀串的长度为j，</p>
-<p>则next[i+1]&#x3D;j+1</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202108192152260.png" alt="image-20210819215203223"></p>
-<blockquote>
-<p>next(j)产生过程：</p>
-</blockquote>
 <table>
 <thead>
 <tr>
@@ -478,13 +491,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%A0%91%EF%BC%9A%E5%AD%97%E5%85%B8%E6%A0%91%EF%BC%88%E5%89%8D%E7%BC%80%E6%A0%91%E3%80%81TrieTree%EF%BC%89/" rel="prev" title="">
-                  <i class="fa fa-chevron-left"></i> 
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%95%B0%E5%AD%A6/" rel="prev" title="数学">
+                  <i class="fa fa-chevron-left"></i> 数学
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="next" title="排序算法">
-                  排序算法 <i class="fa fa-chevron-right"></i>
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT)/" rel="next" title="树状数组(Binary Indexed Tree, BIT)">
+                  树状数组(Binary Indexed Tree, BIT) <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -506,7 +519,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
