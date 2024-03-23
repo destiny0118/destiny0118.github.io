@@ -27,11 +27,18 @@
 <meta property="og:site_name" content="我的个人博客">
 <meta property="og:description" content="线程、锁、条件变量">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032100893.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032054516.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032125806.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051047897.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051648891.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051635350.png">
 <meta property="article:published_time" content="2024-02-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-02T13:40:50.108Z">
+<meta property="article:modified_time" content="2024-03-18T13:02:27.538Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="算法，工具">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032100893.png">
 
 
 <link rel="canonical" href="https://destiny0118.github.io/2024/02/28/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9A%E5%B9%B6%E5%8F%91/">
@@ -144,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8-Thread-%E7%B1%BB%E7%9A%84-run-%E6%96%B9%E6%B3%95%E5%90%97"><span class="nav-number">1.</span> <span class="nav-text">可以直接调用 Thread 类的 run 方法吗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81"><span class="nav-number"></span> <span class="nav-text">乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number"></span> <span class="nav-text">线程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">1.</span> <span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantLock-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">1.1.</span> <span class="nav-text">ReentrantLock(可重入锁)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">1.2.</span> <span class="nav-text">synchronized</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">条件变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">3.</span> <span class="nav-text">volatile</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F-ThreadLocal"><span class="nav-number">3.1.</span> <span class="nav-text">线程局部变量(ThreadLocal)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">进程和线程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E3%80%81%E5%BC%82%E6%AD%A5"><span class="nav-number">2.</span> <span class="nav-text">同步、异步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%92%8C%E4%B8%8D%E5%AE%89%E5%85%A8"><span class="nav-number">3.</span> <span class="nav-text">线程安全和不安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">线程分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">5.</span> <span class="nav-text">线程状态和生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-number">5.1.</span> <span class="nav-text">上下文切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81"><span class="nav-number">5.2.</span> <span class="nav-text">线程死锁</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">创建线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8-Thread-%E7%B1%BB%E7%9A%84-run-%E6%96%B9%E6%B3%95%E5%90%97"><span class="nav-number">6.1.</span> <span class="nav-text">可以直接调用 Thread 类的 run 方法吗</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5"><span class="nav-number">7.</span> <span class="nav-text">线程同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">7.1.</span> <span class="nav-text">锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81"><span class="nav-number">7.1.1.</span> <span class="nav-text">乐观锁和悲观锁</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAS-Compare-And-Swap"><span class="nav-number">7.1.1.1.</span> <span class="nav-text">CAS(Compare And Swap)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B9%90%E8%A7%82%E9%94%81%EF%BC%9AABA"><span class="nav-number">7.1.1.2.</span> <span class="nav-text">乐观锁：ABA</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantLock-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81"><span class="nav-number">7.1.2.</span> <span class="nav-text">ReentrantLock(可重入锁)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-%E5%92%8C-ReentrantLock"><span class="nav-number">7.1.2.1.</span> <span class="nav-text">synchronized 和 ReentrantLock</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantReadWriteLock"><span class="nav-number">7.1.3.</span> <span class="nav-text">ReentrantReadWriteLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#synchronized"><span class="nav-number">7.1.4.</span> <span class="nav-text">synchronized</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#synchronized-%E5%92%8C-volatile"><span class="nav-number">7.1.4.1.</span> <span class="nav-text">synchronized 和 volatile</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F"><span class="nav-number">7.2.</span> <span class="nav-text">条件变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatile"><span class="nav-number">7.3.</span> <span class="nav-text">volatile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F-ThreadLocal"><span class="nav-number">7.4.</span> <span class="nav-text">线程局部变量(ThreadLocal)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="nav-number">7.4.1.</span> <span class="nav-text">内存泄漏</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-number">8.</span> <span class="nav-text">线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0"><span class="nav-number">8.1.</span> <span class="nav-text">线程池参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E4%BB%BB%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="nav-number">8.2.</span> <span class="nav-text">处理任务流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97-%E7%94%9F%E4%BA%A7%E8%80%85-x2F-%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="nav-number">9.</span> <span class="nav-text">阻塞队列(生产者&#x2F;消费者模型)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E5%99%A8"><span class="nav-number">10.</span> <span class="nav-text">同步器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Future%E3%80%81Runnable%E3%80%81Callable"><span class="nav-number">11.</span> <span class="nav-text">Future、Runnable、Callable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Runnable%E3%80%81Callable"><span class="nav-number">11.1.</span> <span class="nav-text">Runnable、Callable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#execute-%E3%80%81submit"><span class="nav-number">11.2.</span> <span class="nav-text">execute()、submit()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="nav-number">12.</span> <span class="nav-text">JMM（Java内存模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%92%8CJMM"><span class="nav-number">12.1.</span> <span class="nav-text">Java内存区域和JMM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java%E5%B9%B6%E5%8F%91%E5%AE%B9%E5%99%A8"><span class="nav-number">13.</span> <span class="nav-text">Java并发容器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BlockingQueue"><span class="nav-number">13.1.</span> <span class="nav-text">BlockingQueue</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -157,13 +164,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -254,7 +261,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:40:50" itemprop="dateModified" datetime="2024-03-02T21:40:50+08:00">2024-03-02</time>
+      <time title="修改时间：2024-03-18 21:02:27" itemprop="dateModified" datetime="2024-03-18T21:02:27+08:00">2024-03-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,15 +284,255 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="可以直接调用-Thread-类的-run-方法吗"><a href="#可以直接调用-Thread-类的-run-方法吗" class="headerlink" title="可以直接调用 Thread 类的 run 方法吗"></a>可以直接调用 Thread 类的 run 方法吗</h2><blockquote>
-<p>直接调用run方法，只会执行通过一个线程中的任务，而不会启动新线程。应该调用T和read.start方法，这个方法将创建一个执行run方法的新线程。</p>
+        <h1 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h1><p>进程具有两个特点：</p>
+<ul>
+<li>资源所有权：进程具有对资源的控制权和所有权，这些资源包括内存、I&#x2F;O通道、I&#x2F;O设备和文件等。</li>
+<li>调度&#x2F;执行：进程时可被操作系统调度和分派的实体<br>将分派的单位称为线程或轻量级进程</li>
+</ul>
+<p>进程是程序的一次执行过程，是系统运行程序的基本单位，因此进程是动态的。系统运行一个程序即是一个进程从创建，运行到消亡的过程。</p>
+<p>线程是程序执行的最小单位，同类的多个线程共享进程的<strong>堆</strong>和<strong>方法区</strong>资源，但每个线程有自己的<strong>程序计数器</strong>、<strong>虚拟机栈</strong>和<strong>本地方法栈</strong>。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032100893.png" alt="image.png|375"><br>程序计数器：记录当前线程执行的位置，线程切换后能恢复到正确的执行位置<br>虚拟机栈：<br>本地方法栈：</p>
+<p>堆：用于存放新创建的对象 (几乎所有对象都在这里分配内存)<br>方法区：主要用于存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。</p>
+<h1 id="同步、异步"><a href="#同步、异步" class="headerlink" title="同步、异步"></a>同步、异步</h1><ul>
+<li><strong>同步</strong>：发出一个调用之后，在没有得到结果之前， 该调用就不可以返回，一直等待。</li>
+<li><strong>异步</strong>：调用在发出之后，不用等待返回结果，该调用直接返回。</li>
+<li>线程同步：多个线程合作，线程的执行需要满足某种时序关系</li>
+</ul>
+<h1 id="线程安全和不安全"><a href="#线程安全和不安全" class="headerlink" title="线程安全和不安全"></a>线程安全和不安全</h1><p>线程安全和不安全是在多线程环境下对于同一份数据的访问是否能够保证其正确性和一致性的描述。</p>
+<ul>
+<li>线程安全指的是在多线程环境下，对于同一份数据，不管有多少个线程同时访问，都能保证这份数据的正确性和一致性。</li>
+<li>线程不安全则表示在多线程环境下，对于同一份数据，多个线程同时访问时可能会导致数据混乱、错误或者丢失。</li>
+</ul>
+<h1 id="线程分类"><a href="#线程分类" class="headerlink" title="线程分类"></a>线程分类</h1><blockquote>
+<p>用户级线程、内核级线程</p>
+</blockquote>
+<ul>
+<li>用户线程：由用户空间程序管理和调度的线程，运行在用户空间（专门给应用程序使用）。</li>
+<li>内核线程：由操作系统内核管理和调度的线程，运行在内核空间（只有内核程序可以访问）。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032054516.png" alt="image.png"></li>
+</ul>
+<p>用户线程：创建和切换成本低，不可以利用多核。内核一次把一个进程分配给一个处理器，一个进程中只有一个线程可以执行<br>内核线程：创建和切换成本高，需要从用户模式切换到内核模式，再切换回用户模式。可以利用多核。</p>
+<h1 id="线程状态和生命周期"><a href="#线程状态和生命周期" class="headerlink" title="线程状态和生命周期"></a>线程状态和生命周期</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403032125806.png" alt="image.png"></p>
+<ul>
+<li>NEW: 初始状态，线程被创建出来但没有被调用 <code>start()</code> 。</li>
+<li>RUNNABLE: 运行状态，线程被调用了 <code>start()</code>等待运行的状态。</li>
+<li>BLOCKED：阻塞状态，需要等待锁释放。</li>
+<li>WAITING：等待状态，表示该线程需要等待其他线程做出一些特定动作（通知或中断）。</li>
+<li>TIME_WAITING：超时等待状态，可以在指定的时间后自行返回而不是像 WAITING 那样一直等待。</li>
+<li>TERMINATED：终止状态，表示该线程已经运行完毕。</li>
+</ul>
+<p>生命周期：程序的执行过程再不同状态之间切换</p>
+<h2 id="上下文切换"><a href="#上下文切换" class="headerlink" title="上下文切换"></a>上下文切换</h2><ul>
+<li>主动让出 CPU，比如调用了 <code>sleep()</code>, <code>wait()</code> 等。</li>
+<li>时间片用完，因为操作系统要防止一个线程或者进程长时间占用 CPU 导致其他线程或者进程饿死。</li>
+<li>调用了阻塞类型的系统中断，比如请求 IO，线程被阻塞。</li>
+<li>被终止或结束运行</li>
+</ul>
+<h2 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h2><ul>
+<li>互斥</li>
+<li>请求和保持</li>
+<li>不可剥夺</li>
+<li>循环等待</li>
+</ul>
+<h1 id="创建线程"><a href="#创建线程" class="headerlink" title="创建线程"></a>创建线程</h1><blockquote>
+<p>继承<code>Thread</code>类、实现<code>Runnable</code>接口、实现<code>Callable</code>接口、使用线程池、使用<code>CompletableFuture</code>类等</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Thread</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="可以直接调用-Thread-类的-run-方法吗"><a href="#可以直接调用-Thread-类的-run-方法吗" class="headerlink" title="可以直接调用 Thread 类的 run 方法吗"></a>可以直接调用 Thread 类的 run 方法吗</h2><blockquote>
+<p>直接调用run方法，只会执行通过一个线程中的任务，而不会启动新线程。应该调用Thread.start方法，这个方法将创建一个执行run方法的新线程。</p>
 </blockquote>
 <p>new 一个 <code>Thread</code>，线程进入了新建状态。调用 <code>start()</code>方法，会启动一个线程并使线程进入了就绪状态，当分配到时间片后就可以开始运行了。 <code>start()</code> 会执行线程的相应准备工作，然后自动执行 <code>run()</code> 方法的内容，这是真正的多线程工作。 但是，直接执行 <code>run()</code> 方法，会把 <code>run()</code> 方法当成一个 main 线程下的普通方法去执行，并不会在某个线程中执行它，所以这并不是多线程工作。</p>
-<h1 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h1><h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h3 id="ReentrantLock-可重入锁"><a href="#ReentrantLock-可重入锁" class="headerlink" title="ReentrantLock(可重入锁)"></a>ReentrantLock(可重入锁)</h3><p>•ReentrantLock( )<br>构建一个可以被用来保护临界区的可重入锁。<br>•ReentrantLock(boo1ean fair )<br>构建一个带有公平策略的锁。一个公平锁偏爱等待时间最长的线程。但是，这一公平<br>的保证将大大降低性能。所以， 默认情况下， 锁没有被强制为公平的。</p>
-<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">notifyAll</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">notify</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">wait</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a>条件变量</h2><figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">mu.<span class="constructor">Lock()</span></span><br><span class="line"><span class="comment">// do something that might affect the condition</span></span><br><span class="line">cond.<span class="constructor">Broadcast()</span></span><br><span class="line">mu.<span class="constructor">Unlock()</span></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">mu.<span class="constructor">Lock()</span></span><br><span class="line"><span class="keyword">while</span> condition<span class="operator"> == </span><span class="literal">false</span> &#123;</span><br><span class="line">	cond.<span class="constructor">Wait()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now condition is true, and we have the lock</span></span><br><span class="line">mu.<span class="constructor">Unlock()</span></span><br></pre></td></tr></table></figure>
+<h1 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h1><h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h3 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h3><p>乐观锁：每次获取资源都会上锁，只有持有者释放锁其他线程才可以访问共享资源。<br>悲观锁：线程可以不停地执行，无需加锁也无需等待，只是在&#x3D;&#x3D;提交修改的时候去验证对应的资源（也就是数据）是否被其它线程修改了&#x3D;&#x3D;（具体方法可以使用版本号机制或 CAS 算法）。<br>对比：高并发的场景下，乐观锁相比悲观锁来说，不存在锁竞争造成线程阻塞，也不会有死锁的问题，在性能上往往会更胜一筹。但是，如果冲突频繁发生（写占比非常多的情况），会频繁失败和重试，这样同样会非常影响性能，导致 CPU 飙升。<br>    - 悲观锁通常多用于写比较多的情况（多写场景，竞争激烈），这样可以避免频繁失败和重试影响性能<br>    - 乐观锁通常多用于写比较少的情况（多读场景，竞争较少），这样可以避免频繁加锁影响性能。<br>专用机器指令</p>
+<h4 id="CAS-Compare-And-Swap"><a href="#CAS-Compare-And-Swap" class="headerlink" title="CAS(Compare And Swap)"></a>CAS(Compare And Swap)</h4><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051047897.png" alt="image.png"><br>CAS通过自旋操作来进行充实，不成功会一直循环直到成功。如果长时间不成功，会给 CPU 带来非常大的执行开销。</p>
+<h4 id="乐观锁：ABA"><a href="#乐观锁：ABA" class="headerlink" title="乐观锁：ABA"></a>乐观锁：ABA</h4><p>如果一个变量 V 初次读取的时候是 A 值，并且在准备赋值的时候检查到它仍然是 A 值，但是在这期间可能被修改为B值。<br>解决：在变量前追加版本号和时间戳</p>
+<h3 id="ReentrantLock-可重入锁"><a href="#ReentrantLock-可重入锁" class="headerlink" title="ReentrantLock(可重入锁)"></a>ReentrantLock(可重入锁)</h3><blockquote>
+<p>可重入、独占式锁</p>
+</blockquote>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">ReentrantLock</span><span class="params">( )</span></span> 构建一个可以被用来保护临界区的可重入锁。</span><br><span class="line"><span class="function"><span class="title">ReentrantLock</span><span class="params">(boo1ean fair )</span></span> 构建一个带有公平策略的锁。一个公平锁偏爱等待时间最长的线程。但是，这一公平</span><br><span class="line">的保证将大大降低性能。所以，默认情况下，锁没有被强制为公平的。</span><br></pre></td></tr></table></figure>
 
-<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><h3 id="线程局部变量-ThreadLocal"><a href="#线程局部变量-ThreadLocal" class="headerlink" title="线程局部变量(ThreadLocal)"></a>线程局部变量(ThreadLocal)</h3><p>阻塞队列(生产者&#x2F;消费者模型)</p>
+<h4 id="synchronized-和-ReentrantLock"><a href="#synchronized-和-ReentrantLock" class="headerlink" title="synchronized 和 ReentrantLock"></a>synchronized 和 ReentrantLock</h4><ul>
+<li>两者都是可重入锁：<strong>可重入锁</strong> 也叫递归锁，指的是线程可以再次获取自己的内部锁。比如一个线程获得了某个对象的锁，此时这个对象锁还没有释放，当其再次想要获取这个对象的锁的时候还是可以获取的，如果是不可重入锁的话，就会造成死锁。</li>
+<li>ReentrantLock是可中断锁</li>
+</ul>
+<p>ReentrantLock增加一些高级功能：</p>
+<ul>
+<li><strong>等待可中断</strong> : <code>ReentrantLock</code>提供了一种能够中断等待锁的线程的机制，通过 <code>lock.lockInterruptibly()</code> 来实现这个机制。也就是说正在等待的线程可以选择放弃等待，改为处理其他事情。</li>
+<li><strong>可实现公平锁</strong> : <code>ReentrantLock</code>可以指定是公平锁还是非公平锁。而<code>synchronized</code>只能是非公平锁。所谓的公平锁就是先等待的线程先获得锁。<code>ReentrantLock</code>默认情况是非公平的，可以通过 <code>ReentrantLock</code>类的<code>ReentrantLock(boolean fair)</code>构造方法来指定是否是公平的。</li>
+<li><strong>可实现选择性通知（锁可以绑定多个条件）</strong>: <code>synchronized</code>关键字与<code>wait()</code>和<code>notify()</code>&#x2F;<code>notifyAll()</code>方法相结合可以实现等待&#x2F;通知机制。<code>ReentrantLock</code>类当然也可以实现，但是需要借助于<code>Condition</code>接口与<code>newCondition()</code>方法。</li>
+</ul>
+<h3 id="ReentrantReadWriteLock"><a href="#ReentrantReadWriteLock" class="headerlink" title="ReentrantReadWriteLock"></a>ReentrantReadWriteLock</h3><blockquote>
+<p>适用于读请求多的情景<br>  读锁：共享锁<br>   写锁：独占锁</p>
+</blockquote>
+<h3 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h3><blockquote>
+<p>每一个对象有一个内部锁，并且该锁有一个内部条件。由锁来管理那些试图进入synchronized 方法的线程， 由条件来管理那些调用wait 的线程。<br>主要解决的是多个线程之间访问资源的同步性，可以保证被它修饰的方法或者代码块在任意时刻只能有一个线程执行。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">notifyAll</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">notify</span><span class="params">()</span>;</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">wait</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>修饰实例方法（获取对象实例锁）</li>
+<li>修饰静态方法（获取类的锁）</li>
+<li>修饰代码块（锁指定对象&#x2F;类）<ol>
+<li><code>synchronized(object)</code> 表示进入同步代码库前要获得 <strong>给定对象的锁</strong>。</li>
+<li><code>synchronized(类.class)</code> 表示进入同步代码前要获得 <strong>给定 Class 的锁</strong></li>
+</ol>
+</li>
+</ol>
+<p><strong>构造方法不能使用 synchronized 关键字修饰。</strong><br>构造方法本身就属于线程安全的，不存在同步的构造方法一说。</p>
+<h4 id="synchronized-和-volatile"><a href="#synchronized-和-volatile" class="headerlink" title="synchronized 和 volatile"></a>synchronized 和 volatile</h4><ul>
+<li><code>volatile</code> 关键字是线程同步的轻量级实现，所以 <code>volatile</code>性能肯定比<code>synchronized</code>关键字要好 。但是 <code>volatile</code> 关键字只能用于变量而 <code>synchronized</code> 关键字可以修饰方法以及代码块 。</li>
+<li><code>volatile</code> 关键字能保证数据的可见性，但不能保证数据的原子性。<code>synchronized</code> 关键字两者都能保证。</li>
+<li><code>volatile</code>关键字主要用于解决变量在多个线程之间的可见性，而 <code>synchronized</code> 关键字解决的是多个线程之间访问资源的同步性。</li>
+</ul>
+<h2 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a>条件变量</h2><blockquote>
+<p>线程进入临界区，但需要某一条件满足才可以执行。<br>通过条件变量管理获得一个锁但不能做有用工作的线程。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Condition cond;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将线程放入条件的等待集中，会释放锁</span></span><br><span class="line"><span class="keyword">while</span>(!(ok to proceed))</span><br><span class="line">	cond.await(); </span><br><span class="line">	</span><br><span class="line">cond.signalAll();</span><br><span class="line"></span><br><span class="line"><span class="comment">//解除等待集中某个线程的阻塞状态</span></span><br><span class="line">cond.signal();</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">mu.<span class="constructor">Lock()</span></span><br><span class="line"><span class="comment">// do something that might affect the condition</span></span><br><span class="line">cond.<span class="constructor">Broadcast()</span></span><br><span class="line">mu.<span class="constructor">Unlock()</span></span><br><span class="line"></span><br><span class="line">----</span><br><span class="line"></span><br><span class="line">mu.<span class="constructor">Lock()</span></span><br><span class="line"><span class="keyword">while</span> condition<span class="operator"> == </span><span class="literal">false</span> &#123;</span><br><span class="line">	cond.<span class="constructor">Wait()</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// now condition is true, and we have the lock</span></span><br><span class="line">mu.<span class="constructor">Unlock()</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h2><blockquote>
+<p>volatile 关键字为实例域的同步访问提供了一种免锁机制。如果声明一个域为volatile ,那么编译器和虚拟机就知道该域是可能被另一个线程并发更新的。</p>
+</blockquote>
+<p>volatile这个变量是共享且不稳定的，每次使用它都到主存中进行读取。<br><code>volatile</code> 关键字能保证数据的可见性，但不能保证数据的原子性。<code>synchronized</code> 关键字两者都能保证。<br>除此之外，<code>volatile</code>还可以防止JVM的指令重排序。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="type">int</span> inc=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">inc++;  <span class="comment">//volatile不能保证该操作的原子性</span></span><br><span class="line"><span class="number">1.</span> 读取 inc 的值。</span><br><span class="line"><span class="number">2.</span> 对 inc 加 <span class="number">1</span>。</span><br><span class="line"><span class="number">3.</span> 将 inc 的值写回内存。</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程局部变量-ThreadLocal"><a href="#线程局部变量-ThreadLocal" class="headerlink" title="线程局部变量(ThreadLocal)"></a>线程局部变量(ThreadLocal)</h2><blockquote>
+<p>ThreadLocal辅助类为各个线程提供各自的实例</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> SimpleDateFormat dateFormat=<span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyyMMdd HHmm&quot;</span>);</span><br><span class="line">String dateStamp=dateFormat.format(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;SimpleDateFormat&gt; formatter = ThreadLocal.withInitial(</span><br><span class="line">	() -&gt; <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyyMMdd HHmm&quot;</span>)</span><br><span class="line">);</span><br><span class="line">String dateStamp=formatter.get().format(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="内存泄漏"><a href="#内存泄漏" class="headerlink" title="内存泄漏"></a>内存泄漏</h3><p><code>ThreadLocalMap</code> 中使用的 key 为 <code>ThreadLocal</code> 的弱引用，而 value 是强引用。所以，如果 <code>ThreadLocal</code> 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。</p>
+<p>这样一来，<code>ThreadLocalMap</code> 中就会出现 key 为 null 的 Entry。假如我们不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。<code>ThreadLocalMap</code> 实现中已经考虑了这种情况，在调用 <code>set()</code>、<code>get()</code>、<code>remove()</code> 方法的时候，会清理掉 key 为 null 的记录。使用完 <code>ThreadLocal</code>方法后最好手动调用<code>remove()</code>方法</p>
+<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><blockquote>
+<p>池化技术想必大家已经屡见不鲜了，线程池、数据库连接池、HTTP 连接池等等都是对这个思想的应用。池化技术的思想主要是为了减少每次获取资源的消耗，提高对资源的利用率。</p>
+</blockquote>
+<ul>
+<li><strong>降低资源消耗</strong>。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li>
+<li><strong>提高响应速度</strong>。当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+<li><strong>提高线程的可管理性</strong>。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>newCachedThreadPool</td>
+<td>必要时创建新线程，空闲线程保留60秒</td>
+</tr>
+<tr>
+<td>newFixedThreadPool</td>
+<td>包含固定数量线程，空闲线程保留</td>
+</tr>
+<tr>
+<td>newSingleThreadExecutor</td>
+<td>只有一个线程</td>
+</tr>
+<tr>
+<td>预定执行</td>
+<td></td>
+</tr>
+<tr>
+<td>newScheduledThreadPool</td>
+<td></td>
+</tr>
+<tr>
+<td>newSingleThreadSccheduledExecutor</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="线程池参数"><a href="#线程池参数" class="headerlink" title="线程池参数"></a>线程池参数</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> corePoolSize,<span class="comment">//线程池的核心线程数量 </span></span><br><span class="line"><span class="type">int</span> maximumPoolSize,<span class="comment">//线程池的最大线程数 </span></span><br><span class="line"><span class="type">long</span> keepAliveTime,<span class="comment">//当线程数大于核心线程数时，多余的空闲线程存活的最长时间 </span></span><br><span class="line">TimeUnit unit,<span class="comment">//时间单位 </span></span><br><span class="line">BlockingQueue&lt;Runnable&gt; workQueue,<span class="comment">//任务队列，用来储存等待执行任务的队列 </span></span><br><span class="line">ThreadFactory threadFactory,<span class="comment">//线程工厂，用来创建线程，一般默认即可 </span></span><br><span class="line">RejectedExecutionHandler handler<span class="comment">//拒绝策略，当提交的任务过多而不能及时处理时，我们可以定制策略来处理任务</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><code>ThreadPoolExecutor</code> 3 个最重要的参数：</strong></p>
+<ul>
+<li><strong><code>corePoolSize</code> :</strong> 任务队列未达到队列容量时，最大可以同时运行的线程数量。</li>
+<li><strong><code>maximumPoolSize</code> :</strong> 任务队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。</li>
+<li><strong><code>workQueue</code>:</strong> 新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。</li>
+</ul>
+<p><code>ThreadPoolExecutor</code>其他常见参数 :</p>
+<ul>
+<li><strong><code>keepAliveTime</code></strong>:线程池中的线程数量大于 <code>corePoolSize</code> 的时候，如果这时没有新的任务提交，多余的空闲线程不会立即销毁，而是会等待，直到等待的时间超过了 <code>keepAliveTime</code>才会被回收销毁，线程池回收线程时，会对核心线程和非核心线程一视同仁，直到线程池中线程的数量等于 <code>corePoolSize</code> ，回收过程才会停止。</li>
+<li><strong><code>unit</code></strong> : <code>keepAliveTime</code> 参数的时间单位。</li>
+<li><strong><code>threadFactory</code></strong> :executor 创建新线程的时候会用到。</li>
+<li><strong><code>handler</code></strong> :饱和策略。关于饱和策略下面单独介绍一下。</li>
+</ul>
+<h2 id="处理任务流程"><a href="#处理任务流程" class="headerlink" title="处理任务流程"></a>处理任务流程</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051648891.png" alt="image.png"></p>
+<ul>
+<li>如果当前运行的线程数小于核心线程数，那么就会新建一个线程来执行任务。</li>
+<li>如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。</li>
+<li>如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。</li>
+<li>如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，饱和策略会调用<code>RejectedExecutionHandler.rejectedExecution()</code>方法。</li>
+</ul>
+<h1 id="阻塞队列-生产者-x2F-消费者模型"><a href="#阻塞队列-生产者-x2F-消费者模型" class="headerlink" title="阻塞队列(生产者&#x2F;消费者模型)"></a>阻塞队列(生产者&#x2F;消费者模型)</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051635350.png" alt="image.png"></p>
+<blockquote>
+<p>poll和peek返回空来表示失败，因此，不能向队列中插入null</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>队列</th>
+<th>描述</th>
+<th>使用的线程池</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LinkedBlockingQueue</td>
+<td>无上边界，链表实现</td>
+<td><code>FixedThreadPool</code> 和 <code>SingleThreadExector</code></td>
+</tr>
+<tr>
+<td>ArrayBlockingQueue(int capacity, boolean fair)</td>
+<td>构建指定容量和公平性设置(可选)，循环数组实现</td>
+<td></td>
+</tr>
+<tr>
+<td>PriorityBlockingQueue</td>
+<td>阻塞优先队列</td>
+<td></td>
+</tr>
+<tr>
+<td>DelayQueue</td>
+<td>无解，延迟超过指定时间的元素可以移出</td>
+<td><code>ScheduledThreadPool</code> 和 <code>SingleThreadScheduledExecutor</code></td>
+</tr>
+<tr>
+<td>SynchronousQueue</td>
+<td>没有容量，不存储元素</td>
+<td><code>CachedThreadPool</code></td>
+</tr>
+</tbody></table>
+<h1 id="同步器"><a href="#同步器" class="headerlink" title="同步器"></a>同步器</h1><p>信号量</p>
+<p>同步队列</p>
+<h1 id="Future、Runnable、Callable"><a href="#Future、Runnable、Callable" class="headerlink" title="Future、Runnable、Callable"></a>Future、Runnable、Callable</h1><h2 id="Runnable、Callable"><a href="#Runnable、Callable" class="headerlink" title="Runnable、Callable"></a>Runnable、Callable</h2><p><strong><code>Runnable</code> 接口</strong>不会返回结果或抛出检查异常，但是 <strong><code>Callable</code> 接口</strong>可以。<br>工具类 <code>Executors</code> 可以实现将 <code>Runnable</code> 对象转换成 <code>Callable</code> 对象。（<code>Executors.callable(Runnable task)</code> 或 <code>Executors.callable(Runnable task, Object result)</code>）。</p>
+<p><code>Runnable.java</code></p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">Runnable</span> &#123;</span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 被线程执行，没有返回值也无法抛出异常</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">run</span>()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>Callable.java</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt; &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算结果，或在无法这样做时抛出异常。</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 计算得出的结果</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> 如果无法计算结果，则抛出异常</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="execute-、submit"><a href="#execute-、submit" class="headerlink" title="execute()、submit()"></a>execute()、submit()</h2><h1 id="JMM（Java内存模型）"><a href="#JMM（Java内存模型）" class="headerlink" title="JMM（Java内存模型）"></a>JMM（Java内存模型）</h1><p>JMM(Java 内存模型)主要定义了对于一个共享变量，当另一个线程对这个共享变量执行写操作后，这个线程对这个共享变量的可见性。</p>
+<ul>
+<li><strong>主内存</strong>：所有线程创建的实例对象都存放在主内存中，不管该实例对象是成员变量，还是局部变量，类信息、常量、静态变量都是放在主内存中。为了获取更好的运行速度，虚拟机及硬件系统可能会让工作内存优先存储于寄存器和高速缓存中。</li>
+<li><strong>本地内存</strong>：每个线程都有一个私有的本地内存，本地内存存储了该线程以读 &#x2F; 写共享变量的副本。每个线程只能操作自己本地内存中的变量，无法直接访问其他线程的本地内存。如果线程间需要通信，必须通过主内存来进行。本地内存是 JMM 抽象出来的一个概念，并不真实存在，它涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化。</li>
+</ul>
+<h2 id="Java内存区域和JMM"><a href="#Java内存区域和JMM" class="headerlink" title="Java内存区域和JMM"></a>Java内存区域和JMM</h2><ul>
+<li>JVM 内存结构和 Java 虚拟机的运行时区域相关，定义了 JVM 在运行时如何分区存储程序数据，就比如说堆主要用于存放对象实例。</li>
+<li>Java 内存模型和 Java 的并发编程相关，抽象了线程和主内存之间的关系就比如说线程之间的共享变量必须存储在主内存中，规定了从 Java 源代码到 CPU 可执行指令的这个转化过程要遵守哪些和并发相关的原则和规范，其主要目的是为了简化多线程编程，增强程序可移植性的。</li>
+</ul>
+<h1 id="Java并发容器"><a href="#Java并发容器" class="headerlink" title="Java并发容器"></a>Java并发容器</h1><ul>
+<li><strong><code>ConcurrentHashMap</code></strong> : 线程安全的 <code>HashMap</code></li>
+<li><strong><code>CopyOnWriteArrayList</code></strong> : 线程安全的 <code>List</code>，在读多写少的场合性能非常好，远远好于 <code>Vector</code>。</li>
+<li><strong><code>ConcurrentLinkedQueue</code></strong> : 高效的并发队列，使用链表实现。可以看做一个线程安全的 <code>LinkedList</code>，这是一个非阻塞队列。</li>
+<li><strong><code>BlockingQueue</code></strong> : 这是一个接口，JDK 内部通过链表、数组等方式实现了这个接口。表示阻塞队列，非常适合用于作为数据共享的通道。</li>
+<li><strong><code>ConcurrentSkipListMap</code></strong> : 跳表的实现。这是一个 Map，使用跳表的数据结构进行快速查找。</li>
+</ul>
+<h2 id="BlockingQueue"><a href="#BlockingQueue" class="headerlink" title="BlockingQueue"></a>BlockingQueue</h2><ul>
+<li>ArrayBlockingQueue</li>
+<li>LinkedBlockingQueue</li>
+<li>PriorityBlockingQueue</li>
+</ul>
 
     </div>
 
@@ -304,6 +551,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/03/03/%E8%AF%AD%E6%B3%95/Java/JMM%E3%80%81JVM/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

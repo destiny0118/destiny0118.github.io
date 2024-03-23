@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="多态机制反射机制Java 反射机制详解 | JavaGuide(Java面试+学习指南)  应用场景：动态代理、注解  赋予了我们在运行时分析类以及执行类中方法的能力,通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。 获取Class对象  一个类的对象表示，一个Class对象表示一个特定类的属性  &#x2F;&#x2F;TargteObject表示一个类1. 知道具体类	Class c&#x3D;T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的个人博客">
+<meta property="og:url" content="https://destiny0118.github.io/2024/01/08/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9A%E5%8F%8D%E5%B0%84%E3%80%81%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="多态机制反射机制Java 反射机制详解 | JavaGuide(Java面试+学习指南)  应用场景：动态代理、注解  赋予了我们在运行时分析类以及执行类中方法的能力,通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。 获取Class对象  一个类的对象表示，一个Class对象表示一个特定类的属性  &#x2F;&#x2F;TargteObject表示一个类1. 知道具体类	Class c&#x3D;T">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-08T02:35:05.176Z">
+<meta property="article:modified_time" content="2024-03-13T11:46:02.501Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2024/01/08/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9A%E5%8F%8D%E5%B0%84%E3%80%81%E4%BB%A3%E7%90%86/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2024/01/08/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9A%E5%8F%8D%E5%B0%84%E3%80%81%E4%BB%A3%E7%90%86/","path":"2024/01/08/语法/Java/Java：反射、代理/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>project</a></li><li class="menu-item menu-item-lab"><a href="/categories/lab/" rel="section"><i class="fa fa-flask fa-fw"></i>Lab</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E6%9C%BA%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">多态机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">反射机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F-proxy"><span class="nav-number">3.</span> <span class="nav-text">代理模式(proxy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-number">4.</span> <span class="nav-text">依赖注入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Spring"><span class="nav-number"></span> <span class="nav-text">Spring</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86Bean%E6%B3%A8%E5%86%8C%E5%88%B0Spring%E5%AE%B9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">代理Bean注册到Spring容器</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">110</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/01/08/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9A%E5%8F%8D%E5%B0%84%E3%80%81%E4%BB%A3%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          <a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name/_posts/%E8%AF%AD%E6%B3%95/Java/Java%EF%BC%9A%E5%8F%8D%E5%B0%84%E3%80%81%E4%BB%A3%E7%90%86.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-08 10:35:05" itemprop="dateCreated datePublished" datetime="2024-01-08T10:35:05+08:00">2024-01-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-13 19:46:02" itemprop="dateModified" datetime="2024-03-13T19:46:02+08:00">2024-03-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="多态机制"><a href="#多态机制" class="headerlink" title="多态机制"></a>多态机制</h2><h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><p><a href="https://javaguide.cn/java/basis/reflection.html#%E5%8F%8D%E5%B0%84%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BA%86%E8%A7%A3%E4%B9%88">Java 反射机制详解 | JavaGuide(Java面试+学习指南)</a></p>
+<blockquote>
+<p>应用场景：动态代理、注解</p>
+</blockquote>
+<p>赋予了我们在运行时分析类以及执行类中方法的能力,通过反射你可以获取任意一个类的所有属性和方法，你还可以调用这些方法和属性。</p>
+<p>获取Class对象</p>
+<blockquote>
+<p>一个类的对象表示，一个Class对象表示一个特定类的属性</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//TargteObject表示一个类</span></span><br><span class="line"><span class="number">1.</span> 知道具体类</span><br><span class="line">	Class c=TargetObject.class;</span><br><span class="line"><span class="number">2.</span> 通过 Class.forName()传入类的全路径获取：</span><br><span class="line">	Class c=Class.forName(<span class="string">&quot;cn.javaguide.TargetObject&quot;</span>);</span><br><span class="line"><span class="number">3.</span> 通过对象实例获取</span><br><span class="line">	<span class="type">TargetObject</span> <span class="variable">o</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TargetObject</span>();</span><br><span class="line">	<span class="type">Class</span> <span class="variable">c</span> <span class="operator">=</span> o.getClass();</span><br><span class="line"><span class="number">4.</span>  通过类加载器xxxClassLoader.loadClass()传入类路径获取:</span><br><span class="line">	ClassLoader.getSystemClassLoader().loadClass(<span class="string">&quot;cn.javaguide.TargetObject&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>c.getDeclaredConstructors()<ul>
+<li>getParameterTypes()</li>
+</ul>
+</li>
+<li>c.getDeclaredMethods()</li>
+<li>c.getDeclaredFields()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">类名.方法名</span><br><span class="line">方法名.invoke(类名)</span><br></pre></td></tr></table></figure>
+<h2 id="代理模式-proxy"><a href="#代理模式-proxy" class="headerlink" title="代理模式(proxy)"></a>代理模式(proxy)</h2><blockquote>
+<p>为指定的接口在系统运行期间动态地生成代理对象<br>动态代理机制的实现主要由一个类和一个接口组成， 即java. lang. reflect . Proxy类和java .lang. reflect.InvocationH.andler接口</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/Passer_hua/article/details/122617628">【Java】代理模式（Proxy模式）详解_java proxy-CSDN博客</a></p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="代理Bean注册到Spring容器"><a href="#代理Bean注册到Spring容器" class="headerlink" title="代理Bean注册到Spring容器"></a>代理Bean注册到Spring容器</h2><p>类的调用是不能直接调用没有实现的接口的，所以需要通过&#x3D;&#x3D;代理&#x3D;&#x3D;的方式给接口生成对应的实现类。接下来再通过把代理类放到 Spring 的 FactoryBean 的实现中，最后再把这个 FactoryBean 实现类注册到 Spring 容器。那么现在你的代理类就已经被注册到 Spring 容器了，接下来就可以通过注解的方式注入到属性中。</p>
+<p><a href="https://bugstack.cn/md/java/interview/2021-03-30-%E9%9D%A2%E7%BB%8F%E6%89%8B%E5%86%8C%20%C2%B7%20%E7%AC%AC28%E7%AF%87%E3%80%8A%E4%BD%A0%E8%AF%B4%EF%BC%8C%E6%80%8E%E4%B9%88%E6%8A%8ABean%E5%A1%9E%E5%88%B0Spring%E5%AE%B9%E5%99%A8%E3%80%8B.html">面经手册 · 第28篇《你说，怎么把Bean塞到Spring容器？》 | 小傅哥 bugstack 虫洞栈</a></p>
+<p>spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\support\InstantiationStrategy：实例化策略抽象接口<br>spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\support\SimpleInstantiationStrategy.java：简单的对象实例化功能</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/10/%E9%9D%A2%E7%BB%8F/Spring%E6%BA%90%E7%A0%81%EF%BC%9AgetBean%E6%B5%81%E7%A8%8B/" rel="next" title="Spring源码：getBean流程">
+                  Spring源码：getBean流程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
