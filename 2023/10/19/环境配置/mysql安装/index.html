@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="MySql安装linux安装https:&#x2F;&#x2F;blog.csdn.net&#x2F;New_codeline&#x2F;article&#x2F;details&#x2F;123142931 dpkg -i mysql-common_5.7.29-1ubuntu18.04_amd64.debdpkg -i libmysqlclient20_5.7.29-1ubuntu18.04_amd64.debdpkg -i libmysqlclien">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的个人博客">
+<meta property="og:url" content="https://destiny0118.github.io/2023/10/19/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="MySql安装linux安装https:&#x2F;&#x2F;blog.csdn.net&#x2F;New_codeline&#x2F;article&#x2F;details&#x2F;123142931 dpkg -i mysql-common_5.7.29-1ubuntu18.04_amd64.debdpkg -i libmysqlclient20_5.7.29-1ubuntu18.04_amd64.debdpkg -i libmysqlclien">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-19T09:48:38.020Z">
+<meta property="article:modified_time" content="2023-12-21T15:06:17.484Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/10/19/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/10/19/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85/","path":"2023/10/19/环境配置/mysql安装/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySql%E5%AE%89%E8%A3%85"><span class="nav-text">MySql安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#linux%E5%AE%89%E8%A3%85"><span class="nav-text">linux安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#windows%E5%AE%89%E8%A3%85"><span class="nav-text">windows安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98"><span class="nav-text">其他问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E9%97%AE%E9%A2%98"><span class="nav-text">mysql问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="nav-text">mysql返回值</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/19/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          <a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/mysql%E5%AE%89%E8%A3%85.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-19 17:48:38" itemprop="dateCreated datePublished" datetime="2023-10-19T17:48:38+08:00">2023-10-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-12-21 23:06:17" itemprop="dateModified" datetime="2023-12-21T23:06:17+08:00">2023-12-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="MySql安装"><a href="#MySql安装" class="headerlink" title="MySql安装"></a>MySql安装</h1><h2 id="linux安装"><a href="#linux安装" class="headerlink" title="linux安装"></a>linux安装</h2><p><a href="https://blog.csdn.net/New_codeline/article/details/123142931">https://blog.csdn.net/New_codeline/article/details/123142931</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">dpkg -i mysql-common_5.7.29-1ubuntu18.04_amd64.deb</span><br><span class="line">dpkg -i libmysqlclient20_5.7.29-1ubuntu18.04_amd64.deb</span><br><span class="line">dpkg -i libmysqlclient-dev_5.7.29-1ubuntu18.04_amd64.deb</span><br><span class="line">dpkg -i libmysqld-dev_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line">dpkg -i mysql-community-source_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apt-get install libaio1 libtinfo5</span><br><span class="line">dpkg -i mysql-community-client_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line">dpkg -i mysql-client_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line">apt-get install libmecab2</span><br><span class="line">dpkg -i mysql-community-server_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line">dpkg -i mysql-server_5.7.29-1ubuntu18.04_amd64.deb </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">启动mysql服务:</span><br><span class="line">service mysql start</span><br><span class="line"></span><br><span class="line">进入MySQL:</span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line">退出MySQL(三种方法):</span><br><span class="line">mysql &gt; exit;</span><br><span class="line">mysql &gt; quit;</span><br><span class="line">mysql &gt; \q;</span><br></pre></td></tr></table></figure>
+<h2 id="windows安装"><a href="#windows安装" class="headerlink" title="windows安装"></a>windows安装</h2><p><a href="https://blog.csdn.net/weixin_43423484/article/details/124408565">Windows安装mysql详细步骤（通俗易懂，简单上手）_华夏之威的博客-CSDN博客</a><br><a href="https://www.runoob.com/mysql/mysql-install.html">MySQL 安装 | 菜鸟教程 (runoob.com)</a></p>
+<p><a href="https://blog.csdn.net/lyl1234564/article/details/120647573">MySQL安装配置（可视化安装界面），可视化工具安装，连接IDEA，JDBC安装配置，在IDEA中书写第一个MySQL程序，超简单教程（超详细）。_mysql可视化界面_喝咖啡的皮卡丘的博客-CSDN博客</a></p>
+<h1 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h1><p><a href="https://zhuanlan.zhihu.com/p/616953225">mysql | 修改MySQL密码的四种方法 - 知乎 (zhihu.com)</a></p>
+<h1 id="mysql问题"><a href="#mysql问题" class="headerlink" title="mysql问题"></a>mysql问题</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><blockquote>
+<p>Error Code: 1366. Incorrect string value: ‘\xE5\x93\x87’ for column ‘name’ at row 1</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">修改数据库的字符集：alter database `dbname` character set utf8;</span><br><span class="line">修改表的字符集：alter table `tablename` **convert to** character set utf8;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://zhuanlan.zhihu.com/p/115331180#:~:text=%E5%8F%AF%E4%BB%A5%E5%8E%BB%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%AD%EF%BC%8C%E9%87%8D%E5%90%AFmysql%E7%9A%84%E6%9C%8D%E5%8A%A1%20%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E5%86%8D%E6%AC%A1%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E5%BD%93%E5%89%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AD%97%E7%AC%A6%E9%9B%86%20SQL%E8%AF%AD%E5%8F%A5%EF%BC%9A%20show%20variables%20like%20%27character%25%27%3B%20%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E5%8F%AF%E4%BB%A5%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E6%8F%92%E5%85%A5%E4%B8%AD%E6%96%87%EF%BC%8C%E5%A6%82%E6%9E%9C%E8%BF%98%E4%B8%8D%E8%A1%8C%EF%BC%8C%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E8%A1%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E9%9B%86,table%20tablename%20convert%20to%20character%20set%20utf8%3B%20%E7%84%B6%E5%90%8E%E5%B0%B1%E5%8F%AF%E4%BB%A5%E5%95%A6%E3%80%82">解决MySQL5.7版本以上不支持中文问题 - 知乎 (zhihu.com)</a><br><a href="https://blog.csdn.net/xj13829061922/article/details/106123694">MySql报 java.sql.SQLException: Incorrect string value 乱码解决方法_se. cause fava.sqlsqlexception inicorrect string w-CSDN博客</a></p>
+<h1 id="mysql返回值"><a href="#mysql返回值" class="headerlink" title="mysql返回值"></a>mysql返回值</h1><p><a href="https://blog.csdn.net/beidaol/article/details/90961349">【转】详解mybatis的insert，update，delete返回值_mybatis的insert返回什么-CSDN博客</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/12/%E8%AF%AD%E6%B3%95/Linux/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/10/25/%E7%AE%97%E6%B3%95/%E5%B9%B6%E6%9F%A5%E9%9B%86(union-find,%20disjoint%20set)/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

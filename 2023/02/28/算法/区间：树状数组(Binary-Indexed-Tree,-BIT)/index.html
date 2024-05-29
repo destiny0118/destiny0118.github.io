@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="树状数组是一种可以动态维护序列前缀和的数据结构（单点更新，区间查询）。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树状数组(Binary Indexed Tree, BIT)">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT)/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="树状数组是一种可以动态维护序列前缀和的数据结构（单点更新，区间查询）。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021112586.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021116874.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021134276.png">
+<meta property="article:published_time" content="2023-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-06T02:52:02.362Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="位运算">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021112586.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT)/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT)/","path":"2023/02/28/算法/区间：树状数组(Binary-Indexed-Tree,-BIT)/","title":"树状数组(Binary Indexed Tree, BIT)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>树状数组(Binary Indexed Tree, BIT) | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="nav-text">树状数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E7%82%B9%E6%9B%B4%E6%94%B9"><span class="nav-text">单点更改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4%E6%B1%82%E5%92%8C"><span class="nav-text">区间求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF"><span class="nav-text">模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BIT%E7%B1%BB%E5%AE%9E%E7%8E%B0"><span class="nav-text">BIT类实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E5%8D%95"><span class="nav-text">题单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#315-%E8%AE%A1%E7%AE%97%E5%8F%B3%E4%BE%A7%E5%B0%8F%E4%BA%8E%E5%BD%93%E5%89%8D%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%AA%E6%95%B0"><span class="nav-text">315. 计算右侧小于当前元素的个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%A6%BB%E6%95%A3%E5%8C%96%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84"><span class="nav-text">方法一：离散化树状数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C-%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-text">方法二 归并排序</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LCR-170-%E4%BA%A4%E6%98%93%E9%80%86%E5%BA%8F%E5%AF%B9%E7%9A%84%E6%80%BB%E6%95%B0"><span class="nav-text">LCR 170. 交易逆序对的总数 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E7%A6%BB%E6%95%A3%E5%8C%96%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84-1"><span class="nav-text">方法一：离散化树状数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-text">方法二：归并排序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="树状数组(Binary Indexed Tree, BIT) | 我的个人博客">
+      <meta itemprop="description" content="树状数组是一种可以动态维护序列前缀和的数据结构（单点更新，区间查询）。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树状数组(Binary Indexed Tree, BIT)<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT).md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-28T00:00:00+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-06 10:52:02" itemprop="dateModified" datetime="2024-03-06T10:52:02+08:00">2024-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">树状数组是一种可以动态维护序列前缀和的数据结构（单点更新，区间查询）。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><p>树状数组是一种可以动态维护序列前缀和的数据结构（&#x3D;&#x3D;下标从1开始&#x3D;&#x3D;）：</p>
+<ul>
+<li>单点更新<code>update(i,v)</code>：将数组<code>i</code>位置的数加上一个值<code>v</code></li>
+<li>区间查询<code>query(i)</code>：查询数组<code>[1...i]</code>区间的区间和，即<code>i</code>位置的前缀和</li>
+<li>lowbit(i)：得到i最低位的1以及后面的0<br>原始数组为a，树状数组为bit。bit[i]存放从右往左数lowbit(i)个数， $bit[i]&#x3D;\sum\limits_{k&#x3D;i-lowbit(i)+1}^{i}a[k]$  。将bit初始化为0，对于每一个数字a[i]，都对bit进行$add(i,a[i])$。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021112586.png" alt="Snipaste_2023-10-02_10-59-46.png"></p>
+<h2 id="单点更改"><a href="#单点更改" class="headerlink" title="单点更改"></a>单点更改</h2><p>修改a[3]的值，需要修改每一个包含a[3]的bit[i]，当前块的位置加上当前块的长度可以跳到上面的位置<br><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021116874.png" alt="image.png"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> index,<span class="type">long</span> <span class="type">long</span> val)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(index&lt;=n)&#123;</span><br><span class="line">		bit[index]+=val;</span><br><span class="line">		index+=<span class="built_in">lowbit</span>(index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="区间求和"><a href="#区间求和" class="headerlink" title="区间求和"></a>区间求和</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021134276.png" alt="image.png"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(index&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		sum+=bit[index];</span><br><span class="line">		index-=<span class="built_in">lowbit</span>(index);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="BIT类实现"><a href="#BIT类实现" class="headerlink" title="BIT类实现"></a>BIT类实现</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BIT</span>&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt; bit;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="comment">//总共有n个数字</span></span><br><span class="line">		<span class="built_in">BIT</span>(<span class="type">int</span> _n)&#123;</span><br><span class="line">			n=_n;</span><br><span class="line">			bit=<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (_n+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//查询前缀和</span></span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">			<span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span>(x)&#123;</span><br><span class="line">				res+=bit[x];</span><br><span class="line">				x-=<span class="built_in">lowbit</span>(x);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//单点更新，val为a[x]变化量</span></span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">update</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">			<span class="keyword">while</span>(x&lt;=n)&#123;</span><br><span class="line">				bit[x]+=val;</span><br><span class="line">				x+=<span class="built_in">lowbit</span>(x);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="题单"><a href="#题单" class="headerlink" title="题单"></a>题单</h2><h3 id="315-计算右侧小于当前元素的个数"><a href="#315-计算右侧小于当前元素的个数" class="headerlink" title="315. 计算右侧小于当前元素的个数"></a><a href="https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/">315. 计算右侧小于当前元素的个数</a></h3><blockquote>
+<p>给你一个整数数组 nums ，按要求返回一个新数组 counts 。数组 counts 有该性质： counts[i] 的值是  nums[i] 右侧小于 nums[i] 的元素的数量。</p>
+</blockquote>
+<h4 id="方法一：离散化树状数组"><a href="#方法一：离散化树状数组" class="headerlink" title="方法一：离散化树状数组"></a>方法一：离散化树状数组</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BIT</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tree;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">BIT</span>(<span class="type">int</span> _n): <span class="built_in">n</span>(_n),<span class="built_in">tree</span>(_n+<span class="number">1</span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 查询前缀和</span></span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">            <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(x)&#123;</span><br><span class="line">                res+=tree[x];</span><br><span class="line">                x-=<span class="built_in">lowbit</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新前缀和</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(x&lt;=n)&#123;</span><br><span class="line">                tree[x]++;</span><br><span class="line">                x+=<span class="built_in">lowbit</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countSmaller</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp=nums;</span><br><span class="line">        <span class="built_in">sort</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 将数据离散到[1:n]</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;num:nums)&#123;</span><br><span class="line">            num=<span class="built_in">lower_bound</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>(),num)-tmp.<span class="built_in">begin</span>()+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">counts</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="function">BIT <span class="title">bit</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            counts[i]=bit.<span class="built_in">query</span>(nums[i]<span class="number">-1</span>);</span><br><span class="line">            bit.<span class="built_in">update</span>(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> counts;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="方法二-归并排序"><a href="#方法二-归并排序" class="headerlink" title="方法二 归并排序"></a>方法二 归并排序</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; counts;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; index;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmpIndex;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countSmaller</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        counts.<span class="built_in">resize</span>(n);</span><br><span class="line">        tmp.<span class="built_in">resize</span>(n);</span><br><span class="line"></span><br><span class="line">        index.<span class="built_in">resize</span>(n);</span><br><span class="line">        <span class="built_in">iota</span>(index.<span class="built_in">begin</span>(), index.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">        tmpIndex.<span class="built_in">resize</span>(n);</span><br><span class="line">        <span class="built_in">merge_sort</span>(nums, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> counts;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge_sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;record, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt;= r) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">merge_sort</span>(record, l, mid);</span><br><span class="line">        <span class="built_in">merge_sort</span>(record, mid + <span class="number">1</span>, r);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 合并两个数组</span></span><br><span class="line">        <span class="type">int</span> i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> pos = l;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">if</span> (record[i] &lt;= record[j]) &#123;</span><br><span class="line">                tmpIndex[pos] = index[i];</span><br><span class="line">                counts[index[i]] += j - (mid + <span class="number">1</span>);</span><br><span class="line">                tmp[pos++] = record[i++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                tmpIndex[pos] = index[j];</span><br><span class="line">                tmp[pos++] = record[j++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt;= mid; k++) &#123;</span><br><span class="line">            tmpIndex[pos] = index[k];</span><br><span class="line">            counts[index[k]] += j - (mid + <span class="number">1</span>);</span><br><span class="line">            tmp[pos++] = record[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = j; k &lt;= r; k++) &#123;</span><br><span class="line">            tmpIndex[pos] = index[k];</span><br><span class="line">            tmp[pos++] = record[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">copy</span>(tmp.<span class="built_in">begin</span>() + l, tmp.<span class="built_in">begin</span>() + r + <span class="number">1</span>, record.<span class="built_in">begin</span>() + l);</span><br><span class="line">        <span class="built_in">copy</span>(tmpIndex.<span class="built_in">begin</span>() + l, tmpIndex.<span class="built_in">begin</span>() + r + <span class="number">1</span>, index.<span class="built_in">begin</span>() + l);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="LCR-170-交易逆序对的总数"><a href="#LCR-170-交易逆序对的总数" class="headerlink" title="LCR 170. 交易逆序对的总数 "></a><a href="https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/description/">LCR 170. 交易逆序对的总数 </a></h3><h4 id="方法一：离散化树状数组-1"><a href="#方法一：离散化树状数组-1" class="headerlink" title="方法一：离散化树状数组"></a>方法一：离散化树状数组</h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; bit;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=record.<span class="built_in">size</span>();</span><br><span class="line">        bit.<span class="built_in">resize</span>(n+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp=record;</span><br><span class="line">        <span class="built_in">sort</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 离散化数组[1,...,n]</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;num:record)&#123;</span><br><span class="line">            num=<span class="built_in">lower_bound</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>(),num)-tmp.<span class="built_in">begin</span>()+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            ans+=<span class="built_in">query</span>(record[i]<span class="number">-1</span>);</span><br><span class="line">            <span class="built_in">update</span>(record[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            sum+=bit[index];</span><br><span class="line">            index-=<span class="built_in">lowbit</span>(index);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(index&lt;=n)&#123;</span><br><span class="line">            bit[index]++;</span><br><span class="line">            index+=<span class="built_in">lowbit</span>(index);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二：归并排序"><a href="#方法二：归并排序" class="headerlink" title="方法二：归并排序"></a>方法二：归并排序</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; record)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=record.size();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; <span class="title function_">tmp</span><span class="params">(n)</span>;</span><br><span class="line">        <span class="keyword">return</span> merge_sort(record,tmp,<span class="number">0</span>,n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="title function_">merge_sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; record,vector&lt;<span class="type">int</span>&gt;&amp; tmp,<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=l+(r-l)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> inv_count=merge_sort(record,tmp,l,mid)+merge_sort(record,tmp,mid+<span class="number">1</span>,r);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//合并两个数组</span></span><br><span class="line">        <span class="type">int</span> i=l,j=mid+<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> pos=l;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">if</span>(record[i]&lt;=record[j])&#123;</span><br><span class="line">                inv_count+=j-(mid+<span class="number">1</span>);</span><br><span class="line">                tmp[pos++]=record[i++];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                tmp[pos++]=record[j++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=i;k&lt;=mid;k++)&#123;</span><br><span class="line">            tmp[pos++]=record[k];</span><br><span class="line">            inv_count+=j-(mid+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=j;k&lt;=r;k++)</span><br><span class="line">            tmp[pos++]=record[k];</span><br><span class="line">        copy(tmp.begin()+l,tmp.begin()+r+<span class="number">1</span>,record.begin()+l);</span><br><span class="line">        <span class="keyword">return</span> inv_count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.sohu.com/a/471187961_121124361">什么是树状数组？让这个12岁年轻人为你讲解_lowbit (sohu.com)</a></p>
+<p><a href="https://blog.csdn.net/u010598215/article/details/48206959">(78条消息) 树状数组求区间最大值_LbyG的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/TheWayForDream/article/details/118436732">(78条消息) 树状数组(详细分析+应用)，看不懂打死我!_树形数组_鲜果维他命的博客-CSDN博客</a></p>
+<p><a href="https://www.cnblogs.com/Last--Whisper/p/13823614.html">树状数组（BIT）—— 一篇就够了 - Last_Whisper - 博客园 (cnblogs.com)</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+              <a href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag"># 位运算</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/" rel="prev" title="字符串相关算法">
+                  <i class="fa fa-chevron-left"></i> 字符串相关算法
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="next" title="动态规划">
+                  动态规划 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

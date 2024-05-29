@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="软件安装、环境配置一、AncondaAnaconda国内镜像：Index of &#x2F;anaconda&#x2F;archive&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror  设置环境路径  jupyter notebook 起始位置   [安装pytorch对应版本](Start Locally | PyTorch)   目录 (9条">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的个人博客">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E6%BF%80%E6%B4%BB%E7%A0%81/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="软件安装、环境配置一、AncondaAnaconda国内镜像：Index of &#x2F;anaconda&#x2F;archive&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror  设置环境路径  jupyter notebook 起始位置   [安装pytorch对应版本](Start Locally | PyTorch)   目录 (9条">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061925447.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061931956.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111252259406.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061919137.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062154214.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062209316.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062231739.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062232815.png">
+<meta property="article:published_time" content="2023-02-28T12:24:17.606Z">
+<meta property="article:modified_time" content="2023-07-27T02:41:03.965Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061925447.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E6%BF%80%E6%B4%BB%E7%A0%81/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E6%BF%80%E6%B4%BB%E7%A0%81/","path":"2023/02/28/工具/软件安装-环境配置-激活码/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-text">软件安装、环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Anconda"><span class="nav-text">一、Anconda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jupyter-notebook"><span class="nav-text">jupyter notebook</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F"><span class="nav-text">配置国内镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#conda%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86"><span class="nav-text">conda环境管理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Latex"><span class="nav-text">Latex</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Edge"><span class="nav-text">Edge</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#nvidia-smi"><span class="nav-text">nvidia-smi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#detectron2"><span class="nav-text">detectron2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#cuda"><span class="nav-text">cuda</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC"><span class="nav-text">软件历史版本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Nvidia"><span class="nav-text">Nvidia</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-Studio"><span class="nav-text">Visual Studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python"><span class="nav-text">python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sublime-text%E6%BF%80%E6%B4%BB%E7%A0%81"><span class="nav-text">sublime text激活码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Listary-Pro-%E6%BF%80%E6%B4%BB%E7%A0%81"><span class="nav-text">Listary Pro 激活码</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E6%BF%80%E6%B4%BB%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          <a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E5%B7%A5%E5%85%B7/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E6%BF%80%E6%B4%BB%E7%A0%81.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-07-27 10:41:03" itemprop="dateModified" datetime="2023-07-27T10:41:03+08:00">2023-07-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="软件安装、环境配置"><a href="#软件安装、环境配置" class="headerlink" title="软件安装、环境配置"></a>软件安装、环境配置</h1><h2 id="一、Anconda"><a href="#一、Anconda" class="headerlink" title="一、Anconda"></a>一、Anconda</h2><p>Anaconda国内镜像：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Index of &#x2F;anaconda&#x2F;archive&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061925447.png" alt="image-20211206192535260"></p>
+<p>设置环境路径</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061931956.png" alt="image-20211206193116787"></p>
+<h3 id="jupyter-notebook"><a href="#jupyter-notebook" class="headerlink" title="jupyter notebook"></a>jupyter notebook</h3><ul>
+<li><p>起始位置</p>
+<img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111252259406.png" alt="image-20211125225924316" style="zoom: 33%;" /></li>
+</ul>
+<p>[安装pytorch对应版本](<a href="https://pytorch.org/get-started/locally/">Start Locally | PyTorch</a>)</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112061919137.png" alt="image-20211206191931040"></p>
+<ul>
+<li><p>目录</p>
+<p><a href="https://blog.csdn.net/pursuit__/article/details/106196202">(9条消息) 如何在jupyter notebook中显示目录？_pursuit__的博客-CSDN博客_jupyter显示目录</a></p>
+</li>
+</ul>
+<h3 id="配置国内镜像"><a href="#配置国内镜像" class="headerlink" title="配置国内镜像"></a>配置国内镜像</h3><p><a href="https://blog.csdn.net/anglemanyi/article/details/112647242">Anaconda配置国内镜像源</a></p>
+<ul>
+<li><p>为conda配置（清华）镜像源</p>
+<p>1 添加镜像（永久）</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span></span><br><span class="line"><span class="comment">#设置搜索时显示通道地址</span></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+<p>2 显示添加的源</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">config</span> <span class="comment">--show channels</span></span><br></pre></td></tr></table></figure>
+
+<p>3 删除指定的源</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda<span class="built_in"> config </span>--<span class="built_in">remove</span> channels 源名称或链接 </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>pip配置国内镜像源</p>
+<p>临时修改</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">pip install numpy -i https:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/pypi/</span>simple/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清华源</span></span><br><span class="line">pip config set global.index-url https:<span class="regexp">//</span>pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或：</span></span><br><span class="line"><span class="comment"># 阿里源</span></span><br><span class="line">pip config set global.index-url https:<span class="regexp">//mi</span>rrors.aliyun.com<span class="regexp">/pypi/</span>simple/</span><br><span class="line"><span class="comment"># 腾讯源</span></span><br><span class="line">pip config set global.index-url http:<span class="regexp">//mi</span>rrors.cloud.tencent.com<span class="regexp">/pypi/</span>simple</span><br><span class="line"><span class="comment"># 豆瓣源</span></span><br><span class="line">pip config set global.index-url http:<span class="regexp">//</span>pypi.douban.com<span class="regexp">/simple/</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>​		国内常用源镜像地址：</p>
+<p>​			清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
+<p>​			阿里云：<a href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a></p>
+<p>​			中国科技大学: <a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>​			华中理工大学：<a href="https://pypi.hustunique.com/">https://pypi.hustunique.com/</a></p>
+<p>​			山东理工大学：<a href="https://pypi.sdutlinux.org/">https://pypi.sdutlinux.org/</a> </p>
+<p>​			豆瓣：<a href="https://pypi.douban.com/simple/">https://pypi.douban.com/simple/</a></p>
+<p><a href="https://www.zhihu.com/zvideo/1363284223420436480">Windows下安装CUDA和Pytorch跑深度学习 - 知乎 (zhihu.com)</a></p>
+<p>[(6条消息) 多种方法彻底解决pycharm中: OSError: <a href="https://blog.csdn.net/weixin_43959833/article/details/116669523?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.no_search_link&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~default-1.no_search_link">WinError 1455] 页面文件太小，无法完成操作 的问题_孤柒的博客-CSDN博客_python页面文件太小,无法完成操作</a></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062154214.png" alt="image-20211206215434078"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062209316.png" alt="image-20211206220952148"></p>
+<h3 id="conda环境管理"><a href="#conda环境管理" class="headerlink" title="conda环境管理"></a>conda环境管理</h3><ul>
+<li>查看环境</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">info</span> --envs</span><br><span class="line">conda env list  查看环境</span><br><span class="line">conda create --name python27 <span class="attribute">python</span>=2.7  创建环境，指定python版本</span><br><span class="line">conda activate python27  激活环境</span><br><span class="line">conda deactivate</span><br><span class="line">conda install <span class="attribute">python</span>=3.8 更新环境版本</span><br></pre></td></tr></table></figure>
+
+<p>删除环境python27</p>
+<figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line"><span class="comment">conda remove</span> <span class="literal">--</span><span class="comment">name python27</span> <span class="literal">--</span><span class="comment">all</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>切换环境</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> nb_conda </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062231739.png" alt="image-20211206223133559"></p>
+<p>问题</p>
+<ul>
+<li>进入<code>..\Anaconda3\pkgs\nb_conda-2.2.0-py36_0\Lib\site-packages\nb_conda</code>(<strong>py36.0</strong>根据版本可能会有不同)</li>
+<li>打开envmanager.py文件</li>
+</ul>
+<p><a href="https://blog.csdn.net/what_how_why2020/article/details/116290592">(6条消息) 解决问题：EnvironmentLocationNotFound: Not a conda environment: &#x2F;anaconda3&#x2F;envs&#x2F;anaconda3_what_how_why2020的博客-CSDN博客</a></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062232815.png" alt="image-20211206223222635"></p>
+<p>在新建的环境中安装jupyter</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> ipykernel</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/weixin_39631767/article/details/110423082">(6条消息) anaconda新建环境_Jupyter Notebook中切换conda虚拟环境_weixin_39631767的博客-CSDN博客</a></p>
+<h1 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h1><p>历史版本：</p>
+<p><a href="https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/2020/">Index of &#x2F;tex-historic-archive&#x2F;systems&#x2F;texlive&#x2F;2020&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/136931926">TexLive 2020 安装指南 - 知乎 (zhihu.com)</a></p>
+<h1 id="Edge"><a href="#Edge" class="headerlink" title="Edge"></a>Edge</h1><p><a href="https://www.bilibili.com/read/cv12675669">更改Microsoft Edge浏览器的缓存位置、用户数据目录位置 - 哔哩哔哩 (bilibili.com)</a></p>
+<h2 id="nvidia-smi"><a href="#nvidia-smi" class="headerlink" title="nvidia-smi"></a>nvidia-smi</h2><p><a href="https://www.cnblogs.com/wsnan/p/11769838.html">nvidia-smi 系列命令，查看gpu ，显存信息</a></p>
+<p>cuda版本：nvcc –version</p>
+<p>实时刷新</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">nvidia-<span class="keyword">smi</span> -l x或者nvidia-<span class="keyword">smi</span> --<span class="keyword">loop</span>=xxx</span><br></pre></td></tr></table></figure>
+
+<h2 id="detectron2"><a href="#detectron2" class="headerlink" title="detectron2"></a>detectron2</h2><p><a href="https://blog.csdn.net/weixin_42644340/article/details/109178660?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.nonecase">(9条消息) Windows10下安装detectron2超详细教程（小白视角）_小白wwj的博客-CSDN博客_detectron2 windows安装</a></p>
+<p><a href="https://gitanswer.com/detectron2-nvcc-exe-failed-with-exit-status-1-problem-installing-detectron2-on-windows-10-python-638604938">https://gitanswer.com/detectron2-nvcc-exe-failed-with-exit-status-1-problem-installing-detectron2-on-windows-10-python-638604938</a></p>
+<h1 id="cuda"><a href="#cuda" class="headerlink" title="cuda"></a>cuda</h1><p>检验cuda和pytorch是否兼容</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="软件历史版本"><a href="#软件历史版本" class="headerlink" title="软件历史版本"></a>软件历史版本</h1><h2 id="Nvidia"><a href="#Nvidia" class="headerlink" title="Nvidia"></a>Nvidia</h2><p><a href="https://developer.nvidia.cn/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
+<h2 id="Visual-Studio"><a href="#Visual-Studio" class="headerlink" title="Visual Studio"></a>Visual Studio</h2><p><a href="https://visualstudio.microsoft.com/zh-hans/">Visual Studio</a></p>
+<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p><a href="https://www.python.org/ftp/python/">Index of &#x2F;ftp&#x2F;python&#x2F;</a></p>
+<h1 id="sublime-text激活码"><a href="#sublime-text激活码" class="headerlink" title="sublime text激活码"></a>sublime text激活码</h1><blockquote>
+<p>—– BEGIN LICENSE —–<br>Member J2TeaM<br>Single User License<br>EA7E-1011316<br>D7DA350E 1B8B0760 972F8B60 F3E64036<br>B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD<br>FA0A2ABE 25F65BD8 D51458E5 3923CE80<br>87428428 79079A01 AA69F319 A1AF29A4<br>A684C2DC 0B1583D4 19CBD290 217618CD<br>5653E0A0 BACE3948 BB2EE45E 422D2C87<br>DD9AF44B 99C49590 D2DBDEE1 75860FD2<br>8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864<br>—— END LICENSE ——</p>
+</blockquote>
+<h1 id="Listary-Pro-激活码"><a href="#Listary-Pro-激活码" class="headerlink" title="Listary Pro 激活码"></a>Listary Pro 激活码</h1><p>名称：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Mike Rountree</span><br></pre></td></tr></table></figure>
+
+<p>Email：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">soft@instant-demo.com</span><br></pre></td></tr></table></figure>
+
+<p>激活码：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">JE4V8T3M96PWT4SUCNZNVZ37XKLBU2QW</span><br><span class="line">N64LEJQ3VHY7MPL6KY2R5SQZ76QFFTKP</span><br><span class="line">VVE8JBVEAME8MMBRHRGF2P6MAJG7ZSQY</span><br><span class="line">MUY2PGTO2EG3W2YHTU2CFWL7SE6THU3Q</span><br><span class="line">TAL3U894S2BWA9629EFCXYYYG3S65WEQ</span><br><span class="line">5R234G26AT52UWD27PNENP4GR2EKKDK6</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E5%B7%A5%E5%85%B7/%E6%90%9C%E7%B4%A2-%E5%BF%AB%E6%8D%B7%E9%94%AE-%E5%91%BD%E4%BB%A4/" rel="prev" title="Github搜索、浏览器高级搜索">
+                  <i class="fa fa-chevron-left"></i> Github搜索、浏览器高级搜索
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/Hadoop%E9%85%8D%E7%BD%AE/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

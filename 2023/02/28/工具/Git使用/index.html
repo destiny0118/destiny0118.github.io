@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="distributed versoin control system（分布式版本控制系统）  初始化配置git config --global user.name &quot;yuyg&quot;git config --global user.email &quot;1632508233@qq.com&quot;  Git Intro - Part 2 - YouTube git status">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git使用">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="distributed versoin control system（分布式版本控制系统）  初始化配置git config --global user.name &quot;yuyg&quot;git config --global user.email &quot;1632508233@qq.com&quot;  Git Intro - Part 2 - YouTube git status">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292013895.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051791.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051832.png">
+<meta property="og:image" content="https://gitee.com/destiny0118/picgo/raw/master/pic/git%E5%91%BD%E4%BB%A4%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE1.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292116146.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292117667.png">
+<meta property="article:published_time" content="2023-02-28T12:24:17.599Z">
+<meta property="article:modified_time" content="2024-03-20T07:51:12.253Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/","path":"2023/02/28/工具/Git使用/","title":"Git使用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git使用 | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E5%9B%9E%E9%80%80"><span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-push"><span class="nav-text">git push</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-branch"><span class="nav-text">git branch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#git-reset"><span class="nav-text">git reset</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#detached%E6%B8%B8%E7%A6%BB%E8%8A%82%E7%82%B9%E6%8F%90%E4%BA%A4"><span class="nav-text">detached游离节点提交</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#branch"><span class="nav-text">branch</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git使用 | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git使用<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-20 15:51:12" itemprop="dateModified" datetime="2024-03-20T15:51:12+08:00">2024-03-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tool/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>distributed versoin control system（分布式版本控制系统）</p>
+</blockquote>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yuyg&quot;</span><br><span class="line">git config --global user.email &quot;1632508233@qq.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.youtube.com/watch?v=CnMpARAOhFg">Git Intro - Part 2 - YouTube</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status                          # To see what needs to be added or committed.</span><br><span class="line">git add &lt;filepath&gt;                  # To add, or stage, any modified files.</span><br><span class="line">git commit -m &quot;Commit message&quot;      # To commit changes.</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git log                             #查看commit提交日志</span><br><span class="line">git checkout (commit ID)  #切换分支</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">touch a.txt</span><br><span class="line">cat a.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png" alt="image-20230329200310434"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292013895.png" alt="image-20230329201305806"></p>
+<p><a href="https://www.cnblogs.com/wangiqngpei557/p/6056624.html">聊下git pull –rebase - 王清培 - 博客园 (cnblogs.com)</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init 初始化</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加文件到暂存区</span></span><br><span class="line">git add .			当前目录所有文件</span><br><span class="line">git add filename</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">撤销添加到暂存区的文件</span></span><br><span class="line">git reset .</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看添加状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把文件提交到仓库</span></span><br><span class="line"> git commit -m message</span><br><span class="line"> git commit -m &quot;[base] commit&quot;</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看提交状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从最近到最远显示提交日志</span></span><br><span class="line">git log</span><br><span class="line">git log -pretty=oneline		每次提交显示为一行</span><br><span class="line"></span><br><span class="line">还未commit的文件</span><br><span class="line">git rm --cached . -r  删除add的文件</span><br><span class="line">git rm --cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；</span><br><span class="line">git rm --f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051791.png" alt="image-20230329205129717"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051832.png" alt="image-20230329205152756"></p>
+<p>文件回退</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -f lab1/Collatz.java</span><br><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -- lab1/Collatz.java</span><br></pre></td></tr></table></figure>
+
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^		回退到上个版本</span><br><span class="line">git reset --hard HEAD^^		回退到上上个版本</span><br><span class="line">git reset --hard HEAD~1</span><br><span class="line"></span><br><span class="line">git reset --hard 版本号	 	回退到最新版本</span><br><span class="line"></span><br><span class="line">git reflog					查看版本号</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">origin为远程仓库的别名</span></span><br><span class="line">git remote add origin git@github.com:destiny0118/Few-shot-Image-Segmentation.git</span><br><span class="line"></span><br><span class="line">git branch -M master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-u参数，把本地的master分支推送到远程新的master分支，将本地master分支与远程master分支关联起来</span></span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git remote -v			查看远程仓库信息</span><br><span class="line">git remote rm origin	删除已有的远程仓库</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h2><p><a href="https://www.runoob.com/git/git-push.html">git push 命令 | 菜鸟教程 (runoob.com)</a></p>
+<p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
+<p>命令格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果本地分支名与远程分支名相同，则可以省略冒号：</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git push <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>git push origin master：refs&#x2F;for&#x2F;master<br> 即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名  第一个master是本地分支名，第二个master是远程分支名。</li>
+<li>git push origin master<br> 如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建</li>
+<li>git push origin ：refs&#x2F;for&#x2F;master<br> 如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin –delete master</li>
+</ol>
+<ul>
+<li><p>克隆GitHub的仓库到本地</p>
+<p><code>git clone + 仓库地址</code></p>
+</li>
+<li><p>查看本地仓库关联的远程仓库信息</p>
+<p><code>git remote -v</code></p>
+</li>
+<li><p>查看分支</p>
+<p><code>git branch</code></p>
+</li>
+<li><p>创建分支</p>
+<p><code>git branch+分支名</code></p>
+</li>
+<li><p>设置别名</p>
+<p><code>git config --global alias.br branchcat -n ~/.gitconfig</code></p>
+</li>
+</ul>
+<h2 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h2><p><a href="http://www.hangdaowangluo.com/archives/491">Git branch命令的用法总结 | 精彩每一天 (hangdaowangluo.com)</a></p>
+<ul>
+<li><p>git branch -a</p>
+<p>查看所有分支</p>
+</li>
+<li><p>git branch 分支名</p>
+<p>仅创建分支</p>
+</li>
+<li><p>git checkout 分支名</p>
+<p>切换分支</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/git%E5%91%BD%E4%BB%A4%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE1.png" alt="git命令思维导图1"></p>
+<p>pulling and collaborating with other people</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292116146.png" alt="image-20230329211657074"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292117667.png" alt="image-20230329211738590"></p>
+<h1 id="git-reset"><a href="#git-reset" class="headerlink" title="git reset"></a>git reset</h1><blockquote>
+<p>git add撤销</p>
+</blockquote>
+<p>git reset：用于将当前HEAD复位到指定状态。一般用于撤消之前的一些操作(如：git add,git commit等)。</p>
+<p>[如何在 Git 中取消暂存文件？ - 知乎 (zhihu.com)](<a href="https://zhuanlan.zhihu.com/p/638297266#:~:text=git">https://zhuanlan.zhihu.com/p/638297266#:~:text=git</a> restore –staged &lt;文件名&gt;,替换 &lt;文件名&gt; 为要取消暂存的文件名。 执行该命令后，Git将会将文件从暂存区移除，但保留对文件的修改。)</p>
+<h1 id="detached游离节点提交"><a href="#detached游离节点提交" class="headerlink" title="detached游离节点提交"></a>detached游离节点提交</h1><p><a href="https://blog.csdn.net/zyb2017/article/details/78307688">Git —游离状态下的commit 分支切换与找回_git 代码提交到了游离分支怎么挽回-CSDN博客</a></p>
+<p>git branch callback commit_id   &#x2F;&#x2F;利用commit_id创建新分支<br>git checkout dev<br>git merge callback<br>git push<br>git branch -d callback    &#x2F;&#x2F;删除分支</p>
+<h1 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h1><p>删除分支：git branch -d [branch name]</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%A0%88%E3%80%81%E5%8D%95%E8%B0%83%E6%A0%88%E3%80%81%E9%98%9F%E5%88%97/" rel="prev" title="栈">
+                  <i class="fa fa-chevron-left"></i> 栈
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E5%B7%A5%E5%85%B7/Hexo%E4%BD%BF%E7%94%A8/" rel="next" title="">
+                   <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

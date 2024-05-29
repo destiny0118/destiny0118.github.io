@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DFS、BFS">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305251704677.png">
+<meta property="article:published_time" content="2023-02-28T12:24:17.627Z">
+<meta property="article:modified_time" content="2024-03-01T02:12:38.457Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="搜索算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305251704677.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/","path":"2023/02/28/算法/图：拓扑排序、DFS、BFS/","title":"DFS、BFS"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>DFS、BFS | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="nav-text">图的遍历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8"><span class="nav-text">图的存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="nav-text">邻接矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%82%BB%E6%8E%A5%E8%A1%A8"><span class="nav-text">邻接表</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F"><span class="nav-text">拓扑排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="nav-text">算法步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#210-%E8%AF%BE%E7%A8%8B%E8%A1%A8-II"><span class="nav-text">210. 课程表 II</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="nav-text">深度优先搜索</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#695-%E5%B2%9B%E5%B1%BF%E7%9A%84%E6%9C%80%E5%A4%A7%E9%9D%A2%E7%A7%AF"><span class="nav-text">695. 岛屿的最大面积</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2"><span class="nav-text">广度优先搜索</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9E%E6%BA%AF"><span class="nav-text">回溯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#47-%E5%85%A8%E6%8E%92%E5%88%97-II"><span class="nav-text">47. 全排列 II</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#934-%E6%9C%80%E7%9F%AD%E7%9A%84%E6%A1%A5"><span class="nav-text">934. 最短的桥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#130-%E8%A2%AB%E5%9B%B4%E7%BB%95%E7%9A%84%E5%8C%BA%E5%9F%9F"><span class="nav-text">130. 被围绕的区域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tip1"><span class="nav-text">tip1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tip2"><span class="nav-text">tip2</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="DFS、BFS | 我的个人博客">
+      <meta itemprop="description" content="DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          DFS、BFS<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-03-01 10:12:38" itemprop="dateModified" datetime="2024-03-01T10:12:38+08:00">2024-03-01</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">DFS: 寻找有效的划分方案  记忆化搜索: 将结果记录下来避免重复搜索(DP)</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>数据结构：二叉树，图，二维矩阵</p>
+</blockquote>
+<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><ul>
+<li><p>深度优先搜索（DFS）</p>
+<p>检查图的连通性和无环性、&#x3D;&#x3D;关节点&#x3D;&#x3D;</p>
+</li>
+<li><p>广度优先搜索（BFS）</p>
+<p>检查图的连通性和无环性、求两个给定顶点间 &#x3D;&#x3D;边的数量&#x3D;&#x3D; 最少的路径</p>
+</li>
+</ul>
+<h1 id="图的存储"><a href="#图的存储" class="headerlink" title="图的存储"></a>图的存储</h1><h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>  适合于边稠密图</p>
+<h4 id="邻接表"><a href="#邻接表" class="headerlink" title="邻接表"></a>邻接表</h4><p>  适用于边数较少的稀疏图</p>
+<h1 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h1><blockquote>
+<p>有向无环图（DAG，directed acyclic graph）</p>
+<p>拓扑排序：对于图 <em>G</em> 中的任意一条有向边 (<em>u</em>,<em>v</em>)，<em>u</em> 在排列中都出现在 <em>v</em> 的前面。</p>
+<p>m个顶点，n条边，时间复杂度O(m+n)<br>邻接矩阵<br>邻接表：时间复杂度O(n+e)</p>
+</blockquote>
+<h2 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h2><blockquote>
+<ul>
+<li>搜索入度为零的顶点，加入队列</li>
+<li>当队列不空时<ul>
+<li>取队首元素u，加入答案</li>
+<li>将u的相邻顶点入度减1，若减为0，加入队列</li>
+</ul>
+</li>
+<li>若答案包括n个顶点，得到拓扑排序，否则有环</li>
+</ul>
+</blockquote>
+<h4 id="210-课程表-II"><a href="#210-课程表-II" class="headerlink" title="210. 课程表 II"></a><a href="https://leetcode.cn/problems/course-schedule-ii/">210. 课程表 II</a></h4><blockquote>
+<p>现在你总共有 numCourses 门课需要选，记为 0 到 numCourses - 1。给你一个数组 prerequisites ，其中 prerequisites[i] &#x3D; [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。</p>
+<p>例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示：[0,1] 。<br>返回你为了学完所有课程所安排的学习顺序。可能会有多个正确的顺序，你只要返回 任意一种 就可以了。如果不可能完成所有课程，返回 一个空数组 。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">// 存储有向图</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; edges;</span><br><span class="line">    <span class="comment">// 存储每个节点的入度</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; indeg;</span><br><span class="line">    <span class="comment">// 存储答案</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findOrder</span><span class="params">(<span class="type">int</span> numCourses, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; prerequisites)</span> </span>&#123;</span><br><span class="line">        edges.<span class="built_in">resize</span>(numCourses);</span><br><span class="line">        indeg.<span class="built_in">resize</span>(numCourses);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; info: prerequisites) &#123;</span><br><span class="line">            edges[info[<span class="number">1</span>]].<span class="built_in">push_back</span>(info[<span class="number">0</span>]);</span><br><span class="line">            ++indeg[info[<span class="number">0</span>]];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">        <span class="comment">// 将所有入度为 0 的节点放入队列中</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numCourses; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (indeg[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                q.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="comment">// 从队首取出一个节点</span></span><br><span class="line">            <span class="type">int</span> u = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="comment">// 放入答案中</span></span><br><span class="line">            result.<span class="built_in">push_back</span>(u);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> v: edges[u]) &#123;</span><br><span class="line">                --indeg[v];</span><br><span class="line">                <span class="comment">// 如果相邻节点 v 的入度为 0，就可以选 v 对应的课程了</span></span><br><span class="line">                <span class="keyword">if</span> (indeg[v] == <span class="number">0</span>) &#123;</span><br><span class="line">                    q.<span class="built_in">push</span>(v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result.<span class="built_in">size</span>() != numCourses) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>访问标记设置：可以通过额外的访问标记数组进行记录，或者通过修改原数组数值表明已经访问过</p>
+<h1 id="深度优先搜索"><a href="#深度优先搜索" class="headerlink" title="深度优先搜索"></a>深度优先搜索</h1><blockquote>
+<p>深度优先搜索（depth-first search, DFS）在搜索到一个新的节点时，立即堆该新节点进行遍历；深度优先搜索用&#x3D;&#x3D;先入后出的栈&#x3D;&#x3D;来实现，也可以通过递归实现。</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//采用邻接表存储，递归实现</span></span><br><span class="line"><span class="built_in">DFS</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; g,vector&lt;<span class="type">bool</span>&gt;&amp; visited,<span class="type">int</span> cur)&#123;</span><br><span class="line">    <span class="keyword">if</span>(visited[cur])&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    visited[cur]=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> &amp;next:g[cur])&#123;</span><br><span class="line">        <span class="built_in">DFS</span>(g,visited,next);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="695-岛屿的最大面积"><a href="#695-岛屿的最大面积" class="headerlink" title="695. 岛屿的最大面积"></a><a href="https://leetcode.cn/problems/max-area-of-island/">695. 岛屿的最大面积</a></h3><p>递归写法：先判断是否满足条件，再进行递归，可以在访问节点时设置访问标记</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> area=<span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; direction=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="type">int</span> m,n;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m=grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j])&#123;</span><br><span class="line">                    area=<span class="built_in">max</span>(area,<span class="built_in">DFS</span>(grid,i,j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> area;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">DFS</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid,<span class="type">int</span> i,<span class="type">int</span> j)</span></span>&#123;</span><br><span class="line">        grid[i][j]=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">            <span class="type">int</span> x=i+direction[k],y=j+direction[k+<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;x&lt;m&amp;&amp;y&gt;=<span class="number">0</span>&amp;&amp;y&lt;n&amp;&amp;grid[x][y]==<span class="number">1</span>)&#123;          </span><br><span class="line">                cnt+=<span class="built_in">DFS</span>(grid,x,y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>栈实现</p>
+<blockquote>
+<p>在入队时设置访问标记，如果出队时设置访问标记，可能导致多次入队，2、3出队列时分别导致4进入队列。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305251704677.png" alt="image-20230525170426579"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> area=<span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; direction=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="type">int</span> m,n;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m=grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j])&#123;</span><br><span class="line">                    <span class="type">int</span> local=<span class="number">1</span>;</span><br><span class="line">                    queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; qu;</span><br><span class="line">                    grid[i][j]=<span class="number">0</span>;</span><br><span class="line">                    qu.<span class="built_in">push</span>(&#123;i,j&#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">while</span>(!qu.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                        <span class="keyword">auto</span> [x,y]=qu.<span class="built_in">front</span>();</span><br><span class="line">                        <span class="comment">// grid[x][y]=0;</span></span><br><span class="line">                        qu.<span class="built_in">pop</span>();</span><br><span class="line">                        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">                            <span class="type">int</span> r=x+direction[k],c=y+direction[k+<span class="number">1</span>];</span><br><span class="line">                            <span class="keyword">if</span>(r&gt;=<span class="number">0</span>&amp;&amp;r&lt;m&amp;&amp;c&gt;=<span class="number">0</span>&amp;&amp;c&lt;n&amp;&amp;grid[r][c]==<span class="number">1</span>)&#123;</span><br><span class="line">                                ++local;</span><br><span class="line">                                grid[r][c]=<span class="number">0</span>;</span><br><span class="line">                                qu.<span class="built_in">push</span>(&#123;r,c&#125;);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    area=<span class="built_in">max</span>(area,local);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> area;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="广度优先搜索"><a href="#广度优先搜索" class="headerlink" title="广度优先搜索"></a>广度优先搜索</h1><blockquote>
+<p>广度优先搜索(breadth-first search,BFS)逐层进行遍历，使用&#x3D;&#x3D;先入先出的队列&#x3D;&#x3D;进行遍历。可用于处理&#x3D;&#x3D;无权最短路径&#x3D;&#x3D;。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>初始化：根元素入队，设置访问标记</li>
+<li>当队列不为空的时候<ul>
+<li>求队列长度$s_i$</li>
+<li>从队列中取$s_i$个元素，进行下一轮扩展<ul>
+<li>节点未被访问过，节点入队，设置访问标记</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//邻接表存储</span></span><br><span class="line"><span class="built_in">BFS</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; g)&#123;</span><br><span class="line">    <span class="type">int</span> n=g.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">visited</span><span class="params">(n)</span></span>;</span><br><span class="line">    </span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; qu;</span><br><span class="line">    qu.<span class="built_in">push</span>(<span class="number">0</span>);</span><br><span class="line">    visited[<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!qu.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> cur=qu.<span class="built_in">front</span>();</span><br><span class="line">        qu.<span class="built_in">pop</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> next:g[cur])&#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[next])&#123;</span><br><span class="line">                visited[next]=<span class="literal">true</span>;</span><br><span class="line">                qu.<span class="built_in">push</span>(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>时间复杂度：O(n+m)，其中n为定点数，m为边数\<br>空间复杂度：O(n)，队列开销<br>$$</p>
+<h1 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h1><blockquote>
+<p>回溯法(backtracking)是优先搜索的一种特殊情况，常用于需要记录节点状态的深度优先搜索。排列、组合、选择类问题使用回溯法。回溯法可以对图的总状态进行修改，而非每次遍历时新建一个图来储存状态。</p>
+<p>深度优先搜索：[修改当前节点状态]-&gt;[递归子节点]</p>
+<p>回溯：[修改当前节点状态]-&gt;[递归子节点]-&gt;[回改当前节点状态]</p>
+<ul>
+<li>选择k个数字构成一个排列</li>
+<li>选择若干数字组成一个目标和target</li>
+<li>对全部数字进行排列</li>
+</ul>
+</blockquote>
+<p><a href="https://leetcode.cn/problems/subsets/">78. 子集</a></p>
+<p>方法一：回溯</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; subset;</span><br><span class="line">        <span class="built_in">backtrack</span>(nums,subset,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, vector&lt;<span class="type">int</span>&gt;&amp;subset, <span class="type">int</span> start)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(start==nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(subset);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        subset.<span class="built_in">push_back</span>(nums[start]);</span><br><span class="line">        <span class="built_in">backtrack</span>(nums,subset,start+<span class="number">1</span>);</span><br><span class="line">        subset.<span class="built_in">pop_back</span>();</span><br><span class="line"></span><br><span class="line">        <span class="built_in">backtrack</span>(nums,subset,start+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//当前是否必须要选择一个数</span></span><br><span class="line">        <span class="comment">// for(int i=start;i&lt;nums.size();i++)&#123;</span></span><br><span class="line">        <span class="comment">//     subset.push_back(nums[i]);</span></span><br><span class="line">        <span class="comment">//     backtrack(nums,subset,i+1);</span></span><br><span class="line">        <span class="comment">//     subset.pop_back();</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>方法二：位枚举</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;n);i++)&#123;</span><br><span class="line">            tmp.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> pos=<span class="number">0</span>;pos&lt;n;pos++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((i&gt;&gt;pos)&amp;<span class="number">1</span>)</span><br><span class="line">                    tmp.<span class="built_in">push_back</span>(nums[pos]);</span><br><span class="line">            &#125;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="47-全排列-II"><a href="#47-全排列-II" class="headerlink" title="47. 全排列 II"></a><a href="https://leetcode.cn/problems/permutations-ii/">47. 全排列 II</a></h4><blockquote>
+<p>给定一个可包含重复数字的序列 <code>nums</code> ，<em><strong>按任意顺序</strong></em> 返回所有不重复的全排列。</p>
+</blockquote>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">对于重复的数字要保证在结果中的相对位置一致</span><br><span class="line"><span class="section"># 对于降重的处理</span></span><br><span class="line">!visited[i-1]</span><br><span class="line">在寻找index位置数字时，因为回溯会把visited[i-1]修改为0</span><br><span class="line">visited[i]便不会被填到index的位置</span><br><span class="line">而在寻找index+1位置时，由于visited[i-1]为1，则索引为i的数字被填到这一位置</span><br><span class="line">寻找顺序位置，前一个相同数字填入过，则继续填入</span><br><span class="line"><span class="section">## visited[i]</span></span><br><span class="line">寻找逆序位置，前一个相同数字没有填入过，则继续填入</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permuteUnique</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        visited.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>(),<span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line">        <span class="built_in">backtracking</span>(<span class="number">0</span>,tmp,nums);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> index,vector&lt;<span class="type">int</span>&gt; &amp;tmp,vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index==nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;****&quot;</span>&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 寻找可以填入下标Index的数字</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(visited[i]||(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]&amp;&amp;!visited[i<span class="number">-1</span>]))</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;index:&quot;</span>&lt;&lt;index&lt;&lt;<span class="string">&quot; i:&quot;</span>&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> vis:visited)</span><br><span class="line">                cout&lt;&lt;vis&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            cout&lt;&lt;endl;</span><br><span class="line">            visited[i]=<span class="literal">true</span>;</span><br><span class="line">            tmp.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">backtracking</span>(index+<span class="number">1</span>,tmp,nums);</span><br><span class="line">            tmp.<span class="built_in">pop_back</span>();</span><br><span class="line">            visited[i]=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="934-最短的桥"><a href="#934-最短的桥" class="headerlink" title="934. 最短的桥"></a><a href="https://leetcode.cn/problems/shortest-bridge/">934. 最短的桥</a></h2><blockquote>
+<p>在给定的二维二进制数组 A 中，存在两座岛。（岛是由四面相连的 1 形成的一个最大组。）</p>
+<p>现在，我们可以将 0 变为 1，以使两座岛连接起来，变成一座岛。</p>
+<p>返回必须翻转的 0 的最小数目。（可以保证答案至少是 1 。）</p>
+</blockquote>
+<p>广度优先搜索从一个岛屿出发不断扩展一圈，何时可以找到另外一个岛屿。前提如何保障找到扩展相应第一步时的相应初始位置。</p>
+<p>初始时找到一个岛屿的一个点，不断向外扩展，每一层可以找到从这一点向外n步时可以到达的位置。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="type">int</span> m;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; direction=&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">shortestBridge</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        m=grid.<span class="built_in">size</span>();</span><br><span class="line">        n=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="type">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="built_in">DFS</span>(grid,q,i,j);</span><br><span class="line">                    flag=<span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> layer=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            layer++;</span><br><span class="line">            <span class="type">int</span> cnt=q.<span class="built_in">size</span>();</span><br><span class="line">            <span class="comment">// cout&lt;&lt;&quot;cnt:&quot;&lt;&lt;cnt&lt;&lt;endl;</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)&#123;</span><br><span class="line">                <span class="keyword">auto</span> [x,y]=q.<span class="built_in">front</span>();</span><br><span class="line">                <span class="comment">// cout&lt;&lt;x&lt;&lt;&quot;,&quot;&lt;&lt;y&lt;&lt;endl;</span></span><br><span class="line">                q.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">                    <span class="type">int</span> a=x+direction[k],b=y+direction[k+<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span>(a&gt;=<span class="number">0</span>&amp;&amp;a&lt;m&amp;&amp;b&gt;=<span class="number">0</span>&amp;&amp;b&lt;n)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(grid[a][b]==<span class="number">2</span>)</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span>(grid[a][b]==<span class="number">1</span>)&#123;</span><br><span class="line">                            <span class="comment">// cout&lt;&lt;&quot;*******&quot;&lt;&lt;endl;</span></span><br><span class="line">                             <span class="keyword">return</span> layer;</span><br><span class="line">                        &#125;</span><br><span class="line">                            grid[a][b]=<span class="number">2</span>;</span><br><span class="line">                            q.<span class="built_in">push</span>(&#123;a,b&#125;);</span><br><span class="line">                           </span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;grid,queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; &amp;q,<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x&gt;=m||y&lt;<span class="number">0</span>||y&gt;=n||grid[x][y]==<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]==<span class="number">0</span>)&#123;</span><br><span class="line">            q.<span class="built_in">push</span>(&#123;x,y&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        grid[x][y]=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">            <span class="type">int</span> i=x+direction[k],j=y+direction[k+<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">DFS</span>(grid,q,i,j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="130-被围绕的区域"><a href="#130-被围绕的区域" class="headerlink" title="130. 被围绕的区域"></a><a href="https://leetcode-cn.com/problems/surrounded-regions/">130. 被围绕的区域</a></h2><p>给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>&#39;X&#39;</code> 和 <code>&#39;O&#39;</code> ，找到所有被 <code>&#39;X&#39;</code> 围绕的区域，并将这些区域里所有的 <code>&#39;O&#39;</code> 用 <code>&#39;X&#39;</code> 填充。</p>
+<h3 id="tip1"><a href="#tip1" class="headerlink" title="tip1"></a>tip1</h3><blockquote>
+<p>me: 用一个状态记录四周的O可以连接到的位置</p>
+<p>在遍历所有位置，不能被四周连接到的改为‘X’</p>
+<p>深度优先搜索</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; &amp;board, vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; &amp;status, <span class="type">int</span> r,</span></span></span><br><span class="line"><span class="params"><span class="function">         <span class="type">int</span> c)</span></span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; direction = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; &amp;board)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> m = board.<span class="built_in">size</span>(), n = board[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">    vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; <span class="built_in">status</span>(m, <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n, <span class="literal">true</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (board[i][<span class="number">0</span>] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, i, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (board[i][n - <span class="number">1</span>] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, i, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (board[<span class="number">0</span>][j] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, <span class="number">0</span>, j);</span><br><span class="line">        <span class="keyword">if</span> (board[m - <span class="number">1</span>][j] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, m - <span class="number">1</span>, j);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for (const auto &amp;ele : status) &#123;</span></span><br><span class="line">    <span class="comment">//     for (const auto &amp;t : ele)</span></span><br><span class="line">    <span class="comment">//         cout &lt;&lt; t &lt;&lt; &quot; &quot;;</span></span><br><span class="line">    <span class="comment">//     cout &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (status[i][j] == <span class="literal">true</span> &amp;&amp; board[i][j] == <span class="string">&#x27;O&#x27;</span>) &#123;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;</span></span><br><span class="line">                board[i][j] = <span class="string">&#x27;X&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; &amp;board, vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; &amp;status, <span class="type">int</span> r,</span></span></span><br><span class="line"><span class="params"><span class="function">         <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">    status[r][c] = <span class="literal">false</span>;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</span><br><span class="line">        x = r + direction[k];</span><br><span class="line">        y = c + direction[k + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; board.<span class="built_in">size</span>() &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; board[<span class="number">0</span>].<span class="built_in">size</span>() &amp;&amp;</span><br><span class="line">            board[x][y] == <span class="string">&#x27;O&#x27;</span> &amp;&amp; status[x][y] == <span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="comment">// status[x][y] = false;</span></span><br><span class="line">            <span class="comment">// cout &lt;&lt; x &lt;&lt; &quot;,&quot; &lt;&lt; y &lt;&lt; endl;</span></span><br><span class="line">            <span class="built_in">dfs</span>(board, status, x, y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; board = &#123;&#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;,</span><br><span class="line">                                  &#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;,</span><br><span class="line">                                  &#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;,</span><br><span class="line">                                  &#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">solve</span>(board);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="tip2"><a href="#tip2" class="headerlink" title="tip2"></a>tip2</h2><p>优化？？？</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95/" rel="tag"># 搜索算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="prev" title="位运算">
+                  <i class="fa fa-chevron-left"></i> 位运算
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8/" rel="next" title="线性表">
+                  线性表 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

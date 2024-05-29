@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="回文串；最长公共前缀；KMP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字符串相关算法">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="回文串；最长公共前缀；KMP">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202305151158271.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210816200255.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192113896.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192134856.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192152260.png">
+<meta property="article:published_time" content="2023-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-02-21T04:24:27.293Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="字符串">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202305151158271.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/","path":"2023/02/28/算法/字符串相关算法/","title":"字符串相关算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>字符串相关算法 | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95"><span class="nav-text">字符串相关算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="nav-text">回文串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LCP%EF%BC%88%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80%EF%BC%89"><span class="nav-text">LCP（最长公共前缀）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95"><span class="nav-text">字符串匹配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%80%90%E5%AD%97%E7%AC%A6%E5%8C%B9%E9%85%8D"><span class="nav-text">1. 逐字符匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-KMP%E7%AE%97%E6%B3%95"><span class="nav-text">2. KMP算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%82next-j-%EF%BC%9A"><span class="nav-text">求next(j)：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E6%A8%A1%E6%9D%BF"><span class="nav-text">KMP模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Horspool%E7%AE%97%E6%B3%95"><span class="nav-text">3. Horspool算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Boyer-Moore%E7%AE%97%E6%B3%95"><span class="nav-text">4. Boyer-Moore算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#28-%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8C%B9%E9%85%8D%E9%A1%B9%E7%9A%84%E4%B8%8B%E6%A0%87"><span class="nav-text">28. 找出字符串中第一个匹配项的下标</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%BC%8F%E4%B8%B2%E5%9C%A8%E4%B8%BB%E4%B8%B2%E4%B8%AD%E6%9C%89%E5%A4%9A%E5%B0%91%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%8C%B9%E9%85%8D%E7%9A%84%E4%B8%BB%E4%B8%B2%EF%BC%9F"><span class="nav-text">模式串在主串中有多少个完全匹配的主串？</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="字符串相关算法 | 我的个人博客">
+      <meta itemprop="description" content="回文串；最长公共前缀；KMP">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          字符串相关算法<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%AE%97%E6%B3%95/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E5%85%B3%E7%AE%97%E6%B3%95.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-28T00:00:00+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-21 12:24:27" itemprop="dateModified" datetime="2024-02-21T12:24:27+08:00">2024-02-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">回文串；最长公共前缀；KMP</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="字符串相关算法"><a href="#字符串相关算法" class="headerlink" title="字符串相关算法"></a>字符串相关算法</h1><h2 id="回文串"><a href="#回文串" class="headerlink" title="回文串"></a>回文串</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202305151158271.png" alt="image-20221029165353877"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string s;</span><br><span class="line"><span class="type">int</span> n=s.<span class="built_in">size</span>();</span><br><span class="line"><span class="comment">//f[i][j]表示s[i:j]是否是回文串</span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n,<span class="literal">true</span>));</span><br><span class="line"></span><br><span class="line">s=<span class="string">&quot;abbab&quot;</span></span><br><span class="line"><span class="comment">//从前向后处理，错误</span></span><br><span class="line"><span class="comment">//f[1][4]=(s[1]==s[4])&amp;&amp;f[2][3]</span></span><br><span class="line"><span class="comment">//f[1][4]需要用到f[2][3]，而f[2][3]还未处理</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    for(int i=0;i&lt;n;i++)&#123;</span></span><br><span class="line"><span class="comment">        for(int j=i+1;j&lt;n;j++)</span></span><br><span class="line"><span class="comment">            f[i][j]=(s[i]==s[j])&amp;&amp;f[i+1][j-1]; </span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//从后向前处理</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)</span><br><span class="line">        f[i][j]=(s[i]==s[j])&amp;&amp;f[i+<span class="number">1</span>][j<span class="number">-1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="LCP（最长公共前缀）"><a href="#LCP（最长公共前缀）" class="headerlink" title="LCP（最长公共前缀）"></a>LCP（最长公共前缀）</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// f[i][j]表示s[i:]和s[j:]的最长公共前缀数量</span></span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">f</span>(n+<span class="number">1</span>,<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(n+<span class="number">1</span>,<span class="number">0</span>));</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=n<span class="number">-1</span>;j&gt;i;j--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==s[j])</span><br><span class="line">            f[i][j]=f[i+<span class="number">1</span>][j+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="字符串匹配算法"><a href="#字符串匹配算法" class="headerlink" title="字符串匹配算法"></a>字符串匹配算法</h1><blockquote>
+<p>从文本中寻找模式串的匹配算法，蛮力算法及KMP算法</p>
+</blockquote>
+<h2 id="1-逐字符匹配"><a href="#1-逐字符匹配" class="headerlink" title="1. 逐字符匹配"></a>1. 逐字符匹配</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210816200255.png" alt="image-20210816200255814"></p>
+<blockquote>
+<p>文本长度（T）：m</p>
+<p>模式串长度（P）：n</p>
+<p>下标从1开始，i为T的下标，j为P的下标</p>
+<p>i 的下标范围为[1,m-n+1]，之后的长度小于n，肯定无法与模式串匹配</p>
+</blockquote>
+<p>查找过程：T从某一下标i开始，P从1开始，T依次与P的相应位置匹配，如果不匹配，则回退到位置i+1，同时P的下标也回退到开始</p>
+<h2 id="2-KMP算法"><a href="#2-KMP算法" class="headerlink" title="2. KMP算法"></a>2. KMP算法</h2><p>串的前缀：除最后一个字符以外，字符串的所有头部子串 （ $aba前缀{a,ab}$）</p>
+<p>串的后缀：除第一个字符以外，字符串的所有尾部子串（ $aba前缀{a,ba}$）</p>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192113896.png" alt="image-20210819211339841" style="zoom: 67%;" />
+
+<blockquote>
+<p>当文本串的第i个字符与模式串的第k个字符不匹配时，对于图中的情况，在第k个字符前存在相等的前缀和后缀时，可以将字符移动，用模式串的第t个字符与文本串的第i个字符继续进行比较，</p>
+<p>因此，需要知道在Pattern第k个字符失配时，需要用哪个字符继续与Text第i个字符比较</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/%E7%AE%97%E6%B3%95%E5%9B%BE%E7%A4%BA.jpg" alt="算法图示"></p>
+<h3 id="求next-j-："><a href="#求next-j-：" class="headerlink" title="求next(j)："></a>求next(j)：</h3><blockquote>
+<p>第j个字符前，使前缀串&#x3D;后缀串的最大值为k</p>
+<p>则next[j]&#x3D;k+1</p>
+</blockquote>
+<p>$$<br>\begin{equation}<br>next[j]&#x3D;</p>
+<p>\begin{cases}<br>0&amp; \text{j&#x3D;1}\<br>max{k,1&lt;k&lt;j且’p_1…p_k’&#x3D;’p_{j-k+1}…p_{j-1}’}&amp; \text{此集合不空时}\<br>1&amp; \text{其他情况}</p>
+<p>\end{cases}</p>
+<p>\end{equation}<br>$$</p>
+<blockquote>
+<p>规定next[1]为0，当第1个字符就不匹配时，用第0个字符用Text[i]比较，相当于在Pattern前添加一个空字符</p>
+<p>P[1]!&#x3D;T[j]时，用P[0]与T[j]比较</p>
+<p>即P[1]与T[j+1]比较</p>
+</blockquote>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192134856.png" alt="image-20210819213443818" style="zoom:67%;" />
+### 求next程序
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_Next</span><span class="params">(string &amp;P, vector&lt;<span class="type">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>j处于Patter前部，当next[i]&#x3D;next[j]时</p>
+<p>说明i+1前的前缀串&#x3D;后缀串的长度为j，</p>
+<p>则next[i+1]&#x3D;j+1</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/202108192152260.png" alt="image-20210819215203223"></p>
+<blockquote>
+<p>next(j)产生过程：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>j</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模式串</td>
+<td>a</td>
+<td>b</td>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td>c</td>
+<td>a</td>
+<td>c</td>
+</tr>
+<tr>
+<td>next[j]</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>j&#x3D;0</th>
+<th>i&#x3D;1</th>
+<th></th>
+<th>&#x3D;&gt;</th>
+<th>j&#x3D;1</th>
+<th>i&#x3D;2</th>
+<th>next[2]&#x3D;1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+<td>p[1] !&#x3D; p[2]</td>
+<td>&#x3D;&gt;</td>
+<td></td>
+<td></td>
+<td>j&#x3D;next[1]&#x3D;0</td>
+</tr>
+<tr>
+<td>j&#x3D;0</td>
+<td>i&#x3D;2</td>
+<td></td>
+<td>&#x3D;&gt;</td>
+<td>j&#x3D;1</td>
+<td>i&#x3D;3</td>
+<td>next[3]&#x3D;1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>p[1] &#x3D; p[3]</td>
+<td>&#x3D;&gt;</td>
+<td>j&#x3D;2</td>
+<td>i&#x3D;4</td>
+<td>next[4]&#x3D;2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>p[2] !&#x3D;p[4]</td>
+<td>&#x3D;&gt;</td>
+<td></td>
+<td></td>
+<td>j&#x3D;next[2]&#x3D;1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>p[1] &#x3D; p[4]</td>
+<td>&#x3D;&gt;</td>
+<td>j&#x3D;2</td>
+<td>i&#x3D;5</td>
+<td>next[5]&#x3D;2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>p[2] &#x3D; p[5]</td>
+<td>&#x3D;&gt;</td>
+<td>j&#x3D;3</td>
+<td>i&#x3D;6</td>
+<td>next[6]&#x3D;3</td>
+</tr>
+</tbody></table>
+<h3 id="KMP模板"><a href="#KMP模板" class="headerlink" title="KMP模板"></a>KMP模板</h3><p><a href="https://www.zhihu.com/question/21923021/answer/37475572">(99+ 封私信 &#x2F; 84 条消息) 如何更好地理解和掌握 KMP 算法? - 知乎 (zhihu.com)</a></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回s中t出现多少次</span></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">KMP</span><span class="params">(string s, string t)</span> </span>&#123;</span><br><span class="line">      vector&lt;<span class="type">int</span>&gt; next = <span class="built_in">getNext</span>(t);</span><br><span class="line">      <span class="comment">// 匹配t数目，当前匹配的字符数</span></span><br><span class="line">      <span class="type">int</span> match = <span class="number">0</span>, count = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">          <span class="keyword">while</span> (count &amp;&amp; t[count] != s[i])</span><br><span class="line">              count = next[count - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> (t[count] == s[i])</span><br><span class="line">              count++;</span><br><span class="line">          <span class="keyword">if</span> (count == t.<span class="built_in">size</span>()) &#123;</span><br><span class="line">              match++;</span><br><span class="line">              count = next[count - <span class="number">1</span>];</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> match;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">getNext</span><span class="params">(string pattern)</span> </span>&#123;</span><br><span class="line">      <span class="type">int</span> n = pattern.<span class="built_in">size</span>();</span><br><span class="line">      <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">next</span><span class="params">(n)</span></span>;</span><br><span class="line">      <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">          <span class="keyword">while</span> (count &amp;&amp; pattern[count] != pattern[i])</span><br><span class="line">              count = next[count - <span class="number">1</span>];</span><br><span class="line">          <span class="keyword">if</span> (pattern[count] == pattern[i])</span><br><span class="line">              ++count;</span><br><span class="line">          next[i] = count;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> next;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Horspool算法"><a href="#3-Horspool算法" class="headerlink" title="3. Horspool算法"></a>3. Horspool算法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShiftTable</span><span class="params">(string &amp;P, unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; &amp;table)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//范围不到最后一个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; P.<span class="built_in">size</span>() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        table[P[i]] = P.<span class="built_in">size</span>() - i - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; P[i] &lt;&lt; &quot; &quot; &lt;&lt; table[P[i]] &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Horspool</span><span class="params">(string &amp;T, string &amp;P)</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; table;</span><br><span class="line">    <span class="built_in">ShiftTable</span>(P, table);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = T.<span class="built_in">size</span>(), m = P.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>; <span class="comment">//已经匹配的字符数</span></span><br><span class="line">        <span class="keyword">while</span> (P[m - <span class="number">1</span> - k] == T[i - k] &amp;&amp; k &lt; m) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i - m + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// T[i]是与模式不匹配的字符</span></span><br><span class="line">        <span class="comment">//如果其不在模式中时，则模式与其下一个位置匹配</span></span><br><span class="line">        <span class="comment">//如果在模式中时，移动模式使最右侧的该字符与T[i]对齐</span></span><br><span class="line">        <span class="keyword">if</span> (table.<span class="built_in">find</span>(T[i]) == table.<span class="built_in">end</span>())</span><br><span class="line">            i = i + m;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i = i + table[T[i]];</span><br><span class="line">        <span class="comment">// cout &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Boyer-Moore算法"><a href="#4-Boyer-Moore算法" class="headerlink" title="4. Boyer-Moore算法"></a>4. Boyer-Moore算法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    字符串匹配算法</span></span><br><span class="line"><span class="comment">    T:text文本</span></span><br><span class="line"><span class="comment">    P:pattern模式串</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//返回下标从0开始计数的位置</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">BruteForceStringMatch</span><span class="params">(string t, string p)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = t.<span class="built_in">size</span>(), m = p.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n - m; i++) &#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (k &lt; m &amp;&amp; t[k + i] == p[k])</span><br><span class="line">            k++;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    返回从pos位置开始第一个与P匹配的首字符位置</span></span><br><span class="line"><span class="comment">    这里j为1表示字符串第一个字符</span></span><br><span class="line"><span class="comment">    j=0表示P的第一个字母与T的当前字母不匹配</span></span><br><span class="line"><span class="comment">    查找位置pos为下标序，从0开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_Next</span><span class="params">(string &amp;P, vector&lt;<span class="type">int</span>&gt; &amp;next)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">KMP</span><span class="params">(string T, string P, <span class="type">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = T.<span class="built_in">size</span>(), m = P.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">next</span><span class="params">(m + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="built_in">get_Next</span>(P, next);</span><br><span class="line">    <span class="type">int</span> i = pos, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= n &amp;&amp; j &lt;= m) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || T[i - <span class="number">1</span>] == P[j - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt; m)</span><br><span class="line">        <span class="keyword">return</span> i - j;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_Next</span><span class="params">(string &amp;P, vector&lt;<span class="type">int</span>&gt; &amp;next)</span> </span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; P.<span class="built_in">size</span>()) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShiftTable</span><span class="params">(string &amp;P, unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; &amp;table)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//范围不到最后一个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; P.<span class="built_in">size</span>() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        table[P[i]] = P.<span class="built_in">size</span>() - i - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// cout &lt;&lt; P[i] &lt;&lt; &quot; &quot; &lt;&lt; table[P[i]] &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Horspool</span><span class="params">(string &amp;T, string &amp;P)</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>, <span class="type">int</span>&gt; table;</span><br><span class="line">    <span class="built_in">ShiftTable</span>(P, table);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> n = T.<span class="built_in">size</span>(), m = P.<span class="built_in">size</span>();</span><br><span class="line">    <span class="type">int</span> i = m - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">        <span class="type">int</span> k = <span class="number">0</span>; <span class="comment">//已经匹配的字符数</span></span><br><span class="line">        <span class="keyword">while</span> (P[m - <span class="number">1</span> - k] == T[i - k] &amp;&amp; k &lt; m) &#123;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k == m)</span><br><span class="line">            <span class="keyword">return</span> i - m + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// T[i]是与模式不匹配的字符</span></span><br><span class="line">        <span class="comment">//如果其不在模式中时，则模式与其下一个位置匹配</span></span><br><span class="line">        <span class="comment">//如果在模式中时，移动模式使最右侧的该字符与T[i]对齐</span></span><br><span class="line">        <span class="keyword">if</span> (table.<span class="built_in">find</span>(T[i]) == table.<span class="built_in">end</span>())</span><br><span class="line">            i = i + m;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            i = i + table[T[i]];</span><br><span class="line">        <span class="comment">// cout &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string text = <span class="string">&quot;acabaabaabcacaabc&quot;</span>, pattern = <span class="string">&quot;abaabc&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">BruteForceStringMatch</span>(text, pattern) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">KMP</span>(text, pattern, <span class="number">3</span>) &lt;&lt; endl;</span><br><span class="line">    string P = <span class="string">&quot;BARBER&quot;</span>, T = <span class="string">&quot;JIM_SAW_ME_IN_A_BARBERSHOP&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">Horspool</span>(T, P) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h4 id="28-找出字符串中第一个匹配项的下标"><a href="#28-找出字符串中第一个匹配项的下标" class="headerlink" title="28. 找出字符串中第一个匹配项的下标"></a><a href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/">28. 找出字符串中第一个匹配项的下标</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">strStr</span><span class="params">(string haystack, string needle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">KMP</span>(haystack,needle);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">KMP</span><span class="params">(string &amp;s,string &amp;p)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> m=s.<span class="built_in">size</span>(),n=p.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">next</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="built_in">getNext</span>(next,p);</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;m&amp;&amp;j&lt;n)&#123;</span><br><span class="line">            <span class="keyword">if</span>(j==<span class="number">-1</span>||s[i]==p[j])&#123;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                j=next[j];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> j==n?i-j:<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">getNext</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp;next,string &amp;p)</span></span>&#123;</span><br><span class="line">        next[<span class="number">0</span>]=<span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> i=<span class="number">-1</span>,j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;p.<span class="built_in">size</span>()<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">-1</span>||p[i]==p[j])&#123;</span><br><span class="line">                i++;</span><br><span class="line">                j++;</span><br><span class="line">                next[j]=i;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                i=next[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="模式串在主串中有多少个完全匹配的主串？"><a href="#模式串在主串中有多少个完全匹配的主串？" class="headerlink" title="模式串在主串中有多少个完全匹配的主串？"></a>模式串在主串中有多少个完全匹配的主串？</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Get_Next</span><span class="params">(string P, vector&lt;<span class="type">int</span>&gt; &amp;next)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">0</span>, i = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> len = P.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">while</span> (i &lt; len)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || P[j - <span class="number">1</span>] == P[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">KMP</span><span class="params">(string T, string P)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> m = T.<span class="built_in">size</span>(), n = P.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">next</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="built_in">Get_Next</span>(P, next);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= m - n + <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (j == <span class="number">0</span> || T[i - <span class="number">1</span>] == P[j - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            i++;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            j = next[j];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j &gt;= n)</span><br><span class="line">        &#123;</span><br><span class="line">            i = i - j + <span class="number">2</span>;</span><br><span class="line">            j = <span class="number">0</span>;</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string text = <span class="string">&quot;aaabcdaa&quot;</span>, pattern = <span class="string">&quot;aa&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">KMP</span>(text, pattern) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"># 字符串</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E6%95%B0%E5%AD%A6/" rel="prev" title="数学">
+                  <i class="fa fa-chevron-left"></i> 数学
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84(Binary-Indexed-Tree,-BIT)/" rel="next" title="树状数组(Binary Indexed Tree, BIT)">
+                  树状数组(Binary Indexed Tree, BIT) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

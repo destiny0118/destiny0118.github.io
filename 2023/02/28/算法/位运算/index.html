@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="统计数字二进制表示中含有的1的个数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="位运算">
+<meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="统计数字二进制表示中含有的1的个数">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307151956034.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305102313302.png">
+<meta property="article:published_time" content="2023-02-28T12:24:17.622Z">
+<meta property="article:modified_time" content="2024-02-27T08:23:47.680Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="算法，工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307151956034.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/","path":"2023/02/28/算法/位运算/","title":"位运算"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>位运算 | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96"><span class="nav-text">异或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-text">位运算基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%97%E5%88%B0%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0x%E6%9C%80%E4%BD%8E%E4%BD%8D%E7%9A%841%EF%BC%88lowbit%EF%BC%89"><span class="nav-text">得到二进制数x最低位的1（lowbit）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E6%80%A7"><span class="nav-text">二进制特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%AE%A1%E6%95%B0%EF%BC%88%E7%BB%9F%E8%AE%A11%E7%9A%84%E6%95%B0%E7%9B%AE%EF%BC%89"><span class="nav-text">位计数（统计1的数目）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Brian-Kernighan%E7%AE%97%E6%B3%95"><span class="nav-text">Brian Kernighan算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96-1"><span class="nav-text">异或</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="位运算 | 我的个人博客">
+      <meta itemprop="description" content="统计数字二进制表示中含有的1的个数">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          位运算<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-02-27 16:23:47" itemprop="dateModified" datetime="2024-02-27T16:23:47+08:00">2024-02-27</time>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">统计数字二进制表示中含有的1的个数</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a href="https://leetcode.cn/circle/discuss/CaOJ45/">从集合论到位运算，常见位运算技巧分类总结！ - 力扣（LeetCode）</a></p>
+<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><p>常用的位运算符号包括：^按位异或，&amp;按位与，|按位或，~取反，&lt;&lt;算术左移，&gt;&gt;算术右移</p>
+<table>
+<thead>
+<tr>
+<th>x^0&#x3D;x</th>
+<th>x&amp;0&#x3D;0</th>
+<th>x|0&#x3D;x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x^1s&#x3D;~x</td>
+<td>x&amp;1s&#x3D;x</td>
+<td>x|1s&#x3D;1</td>
+</tr>
+<tr>
+<td>x^x&#x3D;0</td>
+<td>x&amp;x&#x3D;x</td>
+<td>x|x&#x3D;x</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>作用</th>
+<th>操作</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>去除n的二进制表示中最低的一位</td>
+<td>n&amp;(n-1)</td>
+<td>11010&amp;(11001)&#x3D;11000</td>
+</tr>
+<tr>
+<td>得到n的二进制表示中最低的一位</td>
+<td>n&amp;(-n)</td>
+<td>11010&amp;(00110)&#x3D;00010</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>低位清0：[0:n]位清0</td>
+<td>x &amp; ~(   (1&lt;&lt;(n+1))  -1  )</td>
+<td></td>
+</tr>
+<tr>
+<td>取反第n位</td>
+<td>x^(1&lt;&lt;n)</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>c++位运算函数</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n的二进制表示中有多少个1</td>
+<td>__builtin_popcount(n)</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h2><ul>
+<li>$x\oplus x&#x3D;0$</li>
+<li>$x\oplus 0&#x3D;x$</li>
+<li>$x\oplus y&#x3D;y\oplus x$</li>
+<li>$x\oplus y\oplus y&#x3D;x$</li>
+<li>$x\oplus y&#x3D;z\Longrightarrow x\oplus z&#x3D;y$</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>x</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x&amp;(-x)（得到最低位的1）</td>
+<td>x&#x3D;16(10000)</td>
+<td>10000</td>
+</tr>
+<tr>
+<td>x&amp;(x-1)（最低位1变为0）</td>
+<td>17(10001)</td>
+<td>10000</td>
+</tr>
+</tbody></table>
+<h1 id="位运算基础知识"><a href="#位运算基础知识" class="headerlink" title="位运算基础知识"></a>位运算基础知识</h1><ol>
+<li><p>判断奇偶：</p>
+<ul>
+<li><p>奇：<code>(x &amp; 1) == 1</code>  ⟺  if⟺<code>(x &amp; 1) != 0</code></p>
+</li>
+<li><p>偶：<code>(x &amp; 1) == 0</code>  ⟺  \iff⟺<code>(x &amp; 1) != 1</code></p>
+</li>
+</ul>
+</li>
+<li><p>乘（或除）以 2 的幂次：</p>
+<ul>
+<li><p><code>x &gt;&gt; n</code>  ⟺  iff⟺<code>x / 2^n</code></p>
+</li>
+<li><p><code>x &lt;&lt; n</code>  ⟺  \iff⟺<code>x * 2^n</code></p>
+</li>
+</ul>
+</li>
+<li><p>去除最后一位 1：<code>x &amp; (x - 1)</code></p>
+</li>
+<li><p>得到最后一位 1：<code>x &amp; -x</code></p>
+</li>
+<li><p>判断 2 的幂次：<code>x &amp; (x - 1) == 0</code></p>
+</li>
+<li><p>交换两个数：<code>a ^= b; b ^= a; a ^= b;</code></p>
+</li>
+<li><p>交换符号：<code>~x + 1</code>  ⟺  \iff⟺<code>-x</code></p>
+</li>
+<li><p>取绝对值：<code>(x ^ x &gt;&gt; size(x) - 1) - (x &gt;&gt; size(x) - 1)</code>  ⟺  \iff⟺<code>x &lt; 0 ? -x : x</code></p>
+</li>
+<li><p>构造 n 个 1：<code>(1 &lt;&lt; n) - 1</code></p>
+</li>
+<li><p>将最左边的 n 位清零：<code>x &amp; (~0 &lt;&lt; n)</code></p>
+</li>
+<li><p>获取 x 的第 n 位值（0 或 1）：<code>(x &gt;&gt; n) &amp; 1</code></p>
+</li>
+<li><p>获取 x 的第 n 位的幂值：<code>x &amp; (1 &lt;&lt; n)</code></p>
+</li>
+<li><p>仅将第 n 位置为 1：<code>x | (1 &lt;&lt; n)</code></p>
+</li>
+<li><p>仅将第 n 位置为 0：<code>x &amp; (~(1 &lt;&lt; n))</code></p>
+</li>
+<li><p>将 x 最高位至第 n 位（含）清零：<code>x &amp; ((1 &lt;&lt; n) - 1)</code></p>
+</li>
+<li><p>将第 n 位至第 0 位（含）清零：<code>x &amp; (~((1 &lt;&lt; (n + 1)) - 1))</code></p>
+</li>
+<li><p>异或满足交换律、结合律：<code>a ^ b ^ a = b ^ (a ^ a) = b ^ 0 = b</code><br><a href="https://leetcode.cn/problems/insert-into-bits-lcci/solutions/2458770/jian-dan-wei-yun-suan-by-raccooncc-l7jo/?envType=study-plan-v2&envId=cracking-the-coding-interview">面试题 05.01. 插入 - 力扣（LeetCode）</a></p>
+</li>
+</ol>
+<h2 id="得到二进制数x最低位的1（lowbit）"><a href="#得到二进制数x最低位的1（lowbit）" class="headerlink" title="得到二进制数x最低位的1（lowbit）"></a>得到二进制数x最低位的1（lowbit）</h2><p>x&amp;-x</p>
+<blockquote>
+<p>负数按照补码规则在计算机中存储，-n的二进制表示为n的二进制表示的每一位取反加1（包括符号位）</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307151956034.png" alt="image-20221018105315154"></p>
+<p>二进制数最低位的1变成0</p>
+<p>x&#x3D;x&amp;(x-1)</p>
+<p>x-&#x3D;(x&amp;-x)</p>
+<p>将二进制数x最低位的0变成1</p>
+<blockquote>
+<p>x取反的最低位1是x的最低位0</p>
+<p>y&#x3D;~x</p>
+<p>x|&#x3D;y&amp;(-y)</p>
+</blockquote>
+<p>x&#x3D;x| (x+1)</p>
+<h1 id="二进制特性"><a href="#二进制特性" class="headerlink" title="二进制特性"></a>二进制特性</h1><blockquote>
+<p>可以利用二进制和位运算输出一个数组的所有子集。假设有一个长度为n的数组，可以生成长度为n的所有二进制，1表示选取该数字，0表示不选取，可以得到$2^n$个子集。<br>快速判断两个字符串是否含有重复字母：为每个字符串建立一个长度为26的二进制数字，每个位置表示是否存在该字母</p>
+</blockquote>
+<h2 id="位计数（统计1的数目）"><a href="#位计数（统计1的数目）" class="headerlink" title="位计数（统计1的数目）"></a>位计数（统计1的数目）</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnt=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    x=x&amp;(x<span class="number">-1</span>);</span><br><span class="line">    cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    cnt+=x&amp;<span class="number">1</span>;</span><br><span class="line">    x=x&gt;&gt;<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">__builtin_popcount(x)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Brian-Kernighan算法"><a href="#Brian-Kernighan算法" class="headerlink" title="Brian Kernighan算法"></a>Brian Kernighan算法</h3><blockquote>
+<p>对于任意整数 xx，令 x&#x3D;x &amp; (x−1)，该运算将 x 的二进制表示的最后一个 1 变成 0。因此，对 x 重复该操作，直到 x 变成 0，则操作次数即为 x 的「一比特数」。</p>
+<p>对于给定的 n，计算从 0 到 n 的每个整数的「一比特数」的时间都不会超过O(logn)，因此总时间复杂度为O(nlogn)。</p>
+</blockquote>
+<blockquote>
+<p>c(x)表示二进制表示x中的1个数</p>
+<p>c(x&amp;y)+c(x|y)&#x3D;c(x)+c(y)</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305102313302.png" alt="image-20230510231250236"></p>
+<p><a href="https://leetcode.cn/problems/minimum-flips-to-make-a-or-b-equal-to-c/">1318. 或运算的最小翻转次数</a></p>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="异或-1"><a href="#异或-1" class="headerlink" title="异或"></a>异或</h2><p><a href="https://leetcode.cn/circle/discuss/sqPZwg/view/A1hGp7/">分享｜异或&#x2F;XOR部分问题汇总 - 力扣（LeetCode）</a></p>
+<table>
+<thead>
+<tr>
+<th>题目</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/description/">421. 数组中两个数的最大异或值 - 力扣（LeetCode）</a></td>
+<td>字典树</td>
+</tr>
+<tr>
+<td><a href="https://leetcode.cn/problems/decode-xored-array/">1720. 解码异或后的数组 - 力扣（LeetCode）</a></td>
+<td>数学</td>
+</tr>
+<tr>
+<td><a href="https://leetcode.cn/problems/decode-xored-permutation/description/">1734. 解码异或后的排列 - 力扣（LeetCode）</a></td>
+<td>数学</td>
+</tr>
+<tr>
+<td><a href="https://leetcode.cn/problems/sum-of-all-subset-xor-totals/description/">1863. 找出所有子集的异或总和再求和 - 力扣（LeetCode）</a></td>
+<td>枚举子集（二进制状态枚举，递归枚举）</td>
+</tr>
+<tr>
+<td><a href="https://leetcode.cn/problems/xor-queries-of-a-subarray/description/">1310. 子数组异或查询 - 力扣（LeetCode）</a></td>
+<td>异或前缀和</td>
+</tr>
+<tr>
+<td><a href="https://leetcode.cn/problems/maximum-xor-for-each-query/">1829. 每个查询的最大异或值 - 力扣（LeetCode）</a></td>
+<td>前缀异或和、异或最大值、技巧</td>
+</tr>
+<tr>
+<td><a href="https://leetcode.cn/problems/missing-number/">268. 丢失的数字 - 力扣（LeetCode）</a></td>
+<td>异或，非常巧妙，单一的数字变种题</td>
+</tr>
+<tr>
+<td>$$</td>
+<td></td>
+</tr>
+</tbody></table>
+<pre><code> \begin&#123;align&#125;
+ &amp;1734题\\
+&amp;(a,b,c,d,e)\\
+&amp;(x,y,z,w)\\
+&amp;\text&#123;有5个数字&#125;:y\oplus w=b\oplus c\oplus d\oplus e=p\\
+&amp;a\oplus b\oplus c\oplus d\oplus e=1\oplus 2\oplus 3\oplus 4\oplus 5=q\\
+&amp;a=q\oplus(b\oplus c\oplus d\oplus e)=q\oplus p
+&amp;\end&#123;align&#125;
+$$
+</code></pre>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/" rel="prev" title="二分查找">
+                  <i class="fa fa-chevron-left"></i> 二分查找
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/" rel="next" title="DFS、BFS">
+                  DFS、BFS <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

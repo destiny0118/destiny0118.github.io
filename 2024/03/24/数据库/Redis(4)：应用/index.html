@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="分布式锁、消息队列、分布式事务、延时任务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis(4)：应用">
+<meta property="og:url" content="https://destiny0118.github.io/2024/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(4)%EF%BC%9A%E5%BA%94%E7%94%A8/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="分布式锁、消息队列、分布式事务、延时任务">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-29T12:36:47.838Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="Redis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2024/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(4)%EF%BC%9A%E5%BA%94%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2024/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(4)%EF%BC%9A%E5%BA%94%E7%94%A8/","path":"2024/03/24/数据库/Redis(4)：应用/","title":"Redis(4)：应用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Redis(4)：应用 | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-项目"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81"><span class="nav-text">1 分布式锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%AE%9E%E7%8E%B0"><span class="nav-text">1.1 分布式锁实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E5%9F%BA%E4%BA%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">1.1.1 基于数据库的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E5%9F%BA%E4%BA%8ERedis%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">1.1.2 基于Redis的实现方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E5%9F%BA%E4%BA%8EZooKeeper%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F"><span class="nav-text">1.1.3 基于ZooKeeper的实现方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E6%8C%82%E6%8E%89%EF%BC%88%E6%97%A0%E6%B3%95%E8%8E%B7%E5%8F%96%E9%94%81%EF%BC%89"><span class="nav-text">1.2 分布式锁挂掉（无法获取锁）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-text">2 消息队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Pub-x2F-sub"><span class="nav-text">2.1 Pub&#x2F;sub</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="nav-text">3 搜索引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-RediSearch-vs-Elasticsearch"><span class="nav-text">3.1   RediSearch vs Elasticsearch</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%BB%B6%E6%97%B6%E4%BB%BB%E5%8A%A1-%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97"><span class="nav-text">4 延时任务(延迟队列)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Redis%E8%BF%87%E6%9C%9F%E4%BA%8B%E4%BB%B6%E7%9B%91%E5%90%AC"><span class="nav-text">4.1 Redis过期事件监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-Redisson%E5%BB%B6%E8%BF%9F%E9%98%9F%E5%88%97"><span class="nav-text">4.2 Redisson延迟队列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E9%A2%91%E7%B9%81%E7%82%B9%E8%B5%9E%E6%93%8D%E4%BD%9C"><span class="nav-text">5 频繁点赞操作</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(4)%EF%BC%9A%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Redis(4)：应用 | 我的个人博客">
+      <meta itemprop="description" content="分布式锁、消息队列、分布式事务、延时任务">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis(4)：应用<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(4)%EF%BC%9A%E5%BA%94%E7%94%A8.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-24 00:00:00" itemprop="dateCreated datePublished" datetime="2024-03-24T00:00:00+08:00">2024-03-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-29 20:36:47" itemprop="dateModified" datetime="2024-05-29T20:36:47+08:00">2024-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">分布式锁、消息队列、分布式事务、延时任务</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <ul>
+<li><strong>分布式锁</strong>：通过 Redis 来做分布式锁是一种比较常见的方式。通常情况下，我们都是基于 Redisson 来实现分布式锁。</li>
+<li><strong>限流</strong>：一般是通过 Redis + Lua 脚本的方式来实现限流。</li>
+<li><strong>消息队列</strong>：Redis 自带的 List 数据结构可以作为一个简单的队列使用。Redis 5.0 中增加的 Stream 类型的数据结构更加适合用来做消息队列。它比较类似于 Kafka，有主题和消费组的概念，支持消息持久化以及 ACK 机制。</li>
+<li><strong>延时队列</strong>：Redisson 内置了延时队列（基于 Sorted Set 实现的）。</li>
+<li><strong>分布式 Session</strong> ：利用 String 或者 Hash 数据类型保存 Session 数据，所有的服务器都可以访问。</li>
+<li><strong>复杂业务场景</strong>：通过 Redis 以及 Redis 扩展（比如 Redisson）提供的数据结构，我们可以很方便地完成很多复杂的业务场景比如通过 Bitmap 统计活跃用户、通过 Sorted Set 维护排行榜。</li>
+</ul>
+<h1 id="1-分布式锁"><a href="#1-分布式锁" class="headerlink" title="1 分布式锁"></a>1 分布式锁</h1><h2 id="1-1-分布式锁实现"><a href="#1-1-分布式锁实现" class="headerlink" title="1.1 分布式锁实现"></a>1.1 分布式锁实现</h2><h3 id="1-1-1-基于数据库的实现方式"><a href="#1-1-1-基于数据库的实现方式" class="headerlink" title="1.1.1 基于数据库的实现方式"></a>1.1.1 基于数据库的实现方式</h3><p>基于数据库的实现方式的核心思想是：在数据库中创建一个表，表中包含<strong>方法名</strong>等字段，并在<strong>方法名字段上创建唯一索引</strong>，想要执行某个方法，就使用这个方法名向表中插入数据，成功插入则获取锁，执行完成后删除对应的行数据释放锁。</p>
+<p>使用基于数据库的这种实现方式很简单，但是对于分布式锁应该具备的条件来说，它有一些问题需要解决及优化：  </p>
+<p>1、因为是基于数据库实现的，数据库的可用性和性能将直接影响分布式锁的可用性及性能，所以，数据库需要双机部署、数据同步、主备切换；  </p>
+<p>2、<strong>不具备可重入的特性</strong>，因为同一个线程在释放锁之前，行数据一直存在，无法再次成功插入数据，所以，需要在表中新增一列，用于记录当前获取到锁的机器和线程信息，在再次获取锁的时候，先查询表中机器和线程信息是否和当前机器和线程相同，若相同则直接获取锁；  </p>
+<p>3、<strong>没有锁失效机制</strong>，因为有可能出现成功插入数据后，服务器宕机了，对应的数据没有被删除，当服务恢复后一直获取不到锁，所以，需要在表中新增一列，用于记录失效时间，并且需要有定时任务清除这些失效的数据；  </p>
+<p>4、不具备阻塞锁特性，获取不到锁直接返回失败，所以需要优化获取逻辑，循环多次去获取。  </p>
+<h3 id="1-1-2-基于Redis的实现方式"><a href="#1-1-2-基于Redis的实现方式" class="headerlink" title="1.1.2 基于Redis的实现方式"></a>1.1.2 基于Redis的实现方式</h3><p><code>SETNX</code> 是 Redis 中的一个命令，用于设置键的值，但仅当键不存在时才设置成功。在分布式环境中，可以利用 <code>SETNX</code> 命令来实现分布式锁。具体步骤如下：</p>
+<ol>
+<li>客户端通过 <code>SETNX</code> 命令尝试将一个特定的键作为锁的标识，并设置一个唯一的值作为锁的持有者标识。</li>
+<li>如果 <code>SETNX</code> 命令成功执行（返回值为 1），表示当前客户端成功获取了锁，可以执行后续操作。</li>
+<li>如果 <code>SETNX</code> 命令执行失败（返回值为 0），表示当前锁已被其他客户端持有，当前客户端未获取到锁，需要等待一段时间后重新尝试获取锁。</li>
+</ol>
+<p>虽然 <code>SETNX</code> 命令在某些情况下可以用来实现简单的分布式锁，但是它也存在一些问题：</p>
+<ol>
+<li><strong>无法设置过期时间</strong>：<code>SETNX</code> 命令本身不支持设置键的过期时间，因此当持有锁的客户端发生异常或程序出现问题时，可能导致锁无法被释放，造成死锁或锁泄露问题。</li>
+<li><strong>非原子性操作</strong>：尽管 <code>SETNX</code> 命令本身是原子性的，但是获取锁和释放锁通常需要多个命令的组合，例如获取锁时需要执行 <code>SETNX</code>，释放锁时需要执行 <code>DEL</code>。这种组合操作不是原子性的，可能会导致锁的不一致性问题。</li>
+<li>Redis集群，设置锁到主节点，主节点同步锁时挂掉</li>
+</ol>
+<p>为了解决这些问题，可以采用以下方法：</p>
+<ol>
+<li><strong>配合 <code>EXPIRE</code> 命令设置过期时间</strong>：在获取锁成功后，使用 <code>EXPIRE</code> 命令为锁设置一个合理的过期时间，确保即使持有锁的客户端发生异常，锁也能在一定时间后自动释放。</li>
+<li><strong>使用 Lua 脚本确保原子性</strong>：将获取锁和释放锁的操作封装在 Lua 脚本中执行，Lua 脚本可以在 Redis 中以原子性的方式执行多个命令，确保获取锁和释放锁的操作是原子性的，避免了竞态条件的发生。</li>
+<li>考虑使用<strong>Redlock红锁</strong>算法等更复杂的分布式锁方案：如果应用场景要求更高的分布式锁安全性和可靠性，可以考虑使用 Redlock 算法等更复杂的分布式锁方案，这些方案通常基于多个 Redis 实例，并结合超时机制和复制机制来保证分布式锁的安全性和可靠性。</li>
+</ol>
+<h3 id="1-1-3-基于ZooKeeper的实现方式"><a href="#1-1-3-基于ZooKeeper的实现方式" class="headerlink" title="1.1.3 基于ZooKeeper的实现方式"></a>1.1.3 基于ZooKeeper的实现方式</h3><p>ZooKeeper是一个为分布式应用提供一致性服务的开源组件，它内部是一个分层的文件系统目录树结构，规定同一个目录下只能有一个唯一文件名。基于ZooKeeper实现分布式锁的步骤如下：  </p>
+<p>（1）创建一个目录mylock；<br>（2）线程A想获取锁就&#x3D;&#x3D;在mylock目录下创建临时顺序节点&#x3D;&#x3D;；<br>（3）获取mylock目录下所有的子节点，然后获取比自己小的兄弟节点，如果不存在，则说明当前线程顺序号最小，获得锁；<br>（4）线程B获取所有节点，判断自己不是最小节点，设置监听比自己次小的节点；<br>（5）线程A处理完，删除自己的节点，线程B监听到变更事件，判断自己是不是最小的节点，如果是则获得锁。  </p>
+<p>优点：具备高可用、可重入、阻塞锁特性，可解决失效死锁问题。  </p>
+<p>缺点：因为需要频繁的创建和删除节点，性能上不如Redis方式。</p>
+<h2 id="1-2-分布式锁挂掉（无法获取锁）"><a href="#1-2-分布式锁挂掉（无法获取锁）" class="headerlink" title="1.2 分布式锁挂掉（无法获取锁）"></a>1.2 分布式锁挂掉（无法获取锁）</h2><ol>
+<li><p>&#x3D;&#x3D;检查Redis服务器状态&#x3D;&#x3D;：首先需要确保Redis服务器正常工作。可以尝试通过telnet命令连接Redis服务器，并使用PING命令检查连接是否正常。如果无法连接或者连接异常，可以尝试重启Redis服务器来恢复正常工作。</p>
+</li>
+<li><p>检查网络连接：如果Redis服务器正常工作，但是无法获取到锁，可能是网络连接存在问题。可以检查网络连接是否正常，包括网络延迟、带宽等。可以使用ping命令或者traceroute命令来检查网络连接是否正常。</p>
+</li>
+<li><p>重启Redis：如果发现Redis分布式锁挂了，我们可以尝试重启Redis服务来解决问题。在重启之前，需要先确保已备份好重要的数据，并通知系统管理员进行操作。</p>
+</li>
+<li><p>&#x3D;&#x3D;采用备份机制&#x3D;&#x3D;：在分布式系统中，可以考虑使用主从复制或者集群模式来提供高可用性和容错能力。当主节点出现故障时，从节点可以接管工作，避免分布式锁挂掉导致系统不可用。</p>
+</li>
+<li><p>&#x3D;&#x3D;重试机制&#x3D;&#x3D;：在获取分布式锁时，可以设置重试机制，即当无法获取到锁时，进行一定次数的重试。这样可以增加获取到锁的机会。可以设置一个重试次数和重试间隔，当达到重试次数后，可以进行其他的处理逻辑。</p>
+</li>
+<li><p>监控和告警：为了及时发现Redis分布式锁挂了的情况，可以设置监控和告警机制。可以监控Redis服务器的状态，包括连接数、内存使用情况等，并设置告警规则，在异常情况下及时通知管理员。</p>
+</li>
+<li><p>锁失效机制</p>
+</li>
+</ol>
+<p><a href="https://xiaolincoding.com/redis/base/redis_interview.html#%E5%A6%82%E4%BD%95%E7%94%A8-redis-%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84">Redis 常见面试题 | 小林coding (xiaolincoding.com)</a></p>
+<p><a href="https://www.cnblogs.com/liuqingzheng/p/11080501.html">什么是分布式锁？实现分布式锁的三种方式 - 刘清政 - 博客园 (cnblogs.com)</a></p>
+<p><a href="https://blog.csdn.net/qq_40873718/article/details/105888915">Java分布式锁（6种实现方法）_分布式锁 实现方案-CSDN博客</a></p>
+<h1 id="2-消息队列"><a href="#2-消息队列" class="headerlink" title="2 消息队列"></a>2 消息队列</h1><ul>
+<li>List</li>
+<li>Stream：发布&#x2F;订阅</li>
+</ul>
+<h2 id="2-1-Pub-x2F-sub"><a href="#2-1-Pub-x2F-sub" class="headerlink" title="2.1 Pub&#x2F;sub"></a>2.1 Pub&#x2F;sub</h2><p>发布订阅机制存在以下缺点，都是跟丢失数据有关：</p>
+<ol>
+<li>发布&#x2F;订阅机制没有基于任何数据类型实现，所以不具备「数据持久化」的能力，也就是发布&#x2F;订阅机制的相关操作，不会写入到 RDB 和 AOF 中，当 Redis 宕机重启，发布&#x2F;订阅机制的数据也会全部丢失。</li>
+<li>发布订阅模式是“发后既忘”的工作模式，如果有订阅者离线重连之后不能消费之前的历史消息。</li>
+<li>当消费端有一定的消息积压时，也就是生产者发送的消息，消费者消费不过来时，如果超过 32M 或者是 60s 内持续保持在 8M 以上，消费端会被强行断开，这个参数是在配置文件中设置的，默认值是 <code>client-output-buffer-limit pubsub 32mb 8mb 60</code>。</li>
+<li>丢消息</li>
+</ol>
+<p>所以，发布&#x2F;订阅机制只适合即时通讯的场景，比如<a href="https://xiaolincoding.com/redis/cluster/sentinel.html#%E5%93%A8%E5%85%B5%E9%9B%86%E7%BE%A4%E6%98%AF%E5%A6%82%E4%BD%95%E7%BB%84%E6%88%90%E7%9A%84">构建哨兵集群 (opens new window)</a>的场景采用了发布&#x2F;订阅机制。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/344269737">Redis 消息队列的三种方案（List、Streams、Pub&#x2F;Sub） - 知乎 (zhihu.com)</a></p>
+<h1 id="3-搜索引擎"><a href="#3-搜索引擎" class="headerlink" title="3 搜索引擎"></a>3 搜索引擎</h1><ul>
+<li>RediSearch：基于 Redis 的搜索引擎模块</li>
+</ul>
+<h2 id="3-1-RediSearch-vs-Elasticsearch"><a href="#3-1-RediSearch-vs-Elasticsearch" class="headerlink" title="3.1   RediSearch vs Elasticsearch"></a>3.1   RediSearch vs Elasticsearch</h2><h1 id="4-延时任务-延迟队列"><a href="#4-延时任务-延迟队列" class="headerlink" title="4 延时任务(延迟队列)"></a>4 延时任务(延迟队列)</h1><blockquote>
+<p>场景：订单超时取消、红包超时退回</p>
+</blockquote>
+<ol>
+<li>Redis 过期事件监听</li>
+<li>Redisson 内置的延时队列</li>
+</ol>
+<p>延迟队列是指把当前要做的事情，往后推迟一段时间再做。延迟队列的常见使用场景有以下几种：</p>
+<ul>
+<li>在淘宝、京东等购物平台上下单，超过一定时间未付款，订单会自动取消；</li>
+<li>打车的时候，在规定时间没有车主接单，平台会取消你的单并提醒你暂时没有车主接单；</li>
+<li>点外卖的时候，如果商家在10分钟还没接单，就会自动取消订单；</li>
+</ul>
+<p>在 Redis 可以使用有序集合（ZSet）的方式来实现延迟消息队列的，ZSet 有一个 Score 属性可以用来存储延迟执行的时间。</p>
+<p>使用 zadd score1 value1 命令就可以一直往内存中生产消息。再利用 zrangebysocre 查询符合条件的所有待处理的任务， 通过循环执行队列任务即可。</p>
+<h2 id="4-1-Redis过期事件监听"><a href="#4-1-Redis过期事件监听" class="headerlink" title="4.1 Redis过期事件监听"></a>4.1 Redis过期事件监听</h2><p>Redis 2.0 引入了发布订阅 (pub&#x2F;sub) 功能。在 pub&#x2F;sub 中，引入了一个叫做 <strong>channel（频道）</strong> 的概念，有点类似于消息队列中的 <strong>topic（主题）</strong>。</p>
+<p>pub&#x2F;sub 涉及发布者（publisher）和订阅者（subscriber，也叫消费者）两个角色：</p>
+<ul>
+<li>发布者通过 <code>PUBLISH</code> 投递消息给指定 channel。</li>
+<li>订阅者通过<code>SUBSCRIBE</code>订阅它关心的 channel。并且，订阅者可以订阅一个或者多个 channel。</li>
+</ul>
+<p>在 pub&#x2F;sub 模式下，生产者需要指定消息发送到哪个 channel 中，而消费者则订阅对应的 channel 以获取消息。</p>
+<p>Redis 中有很多默认的 channel，这些 channel 是由 Redis 本身向它们发送消息的，而不是我们自己编写的代码。其中，<code>__keyevent@0__:expired</code> 就是一个默认的 channel，负责<strong>监听 key 的过期事件</strong>。也就是说，当一个 key 过期之后，Redis 会发布一个 key 过期的事件到<code>__keyevent@&lt;db&gt;__:expired</code>这个 channel 中。</p>
+<p>我们只需要监听这个 channel，就可以拿到过期的 key 的消息，进而实现了延时任务功能。</p>
+<ol>
+<li>时效性差：过期事件消息是在 Redis 服务器删除 key 时发布的，而不是一个 key 过期之后就会就会直接发布。</li>
+<li>丢消息：Redis 的 pub&#x2F;sub 模式中的消息并不支持持久化，这与消息队列不同。在 Redis 的 pub&#x2F;sub 模式中，发布者将消息发送给指定的频道，订阅者监听相应的频道以接收消息。当没有订阅者时，消息会被直接丢弃，在 Redis 中不会存储该消息。</li>
+<li>多服务实例下消息重复消费</li>
+</ol>
+<h2 id="4-2-Redisson延迟队列"><a href="#4-2-Redisson延迟队列" class="headerlink" title="4.2 Redisson延迟队列"></a>4.2 Redisson延迟队列</h2><p>Redisson 的延迟队列 RDelayedQueue 是基于 Redis 的 SortedSet 来实现的。SortedSet 是一个有序集合，其中的每个元素都可以设置一个分数，代表该元素的权重。Redisson 利用这一特性，将需要延迟执行的任务插入到 SortedSet 中，并给它们设置相应的过期时间作为分数。</p>
+<p>Redisson 使用 <code>zrangebyscore</code> 命令扫描 SortedSet 中过期的元素，然后将这些过期元素从 SortedSet 中移除，并将它们加入到就绪消息列表中。就绪消息列表是一个阻塞队列，有消息进入就会被监听到。这样做可以避免对整个 SortedSet 进行轮询，提高了执行效率。</p>
+<ul>
+<li>减少了丢消息的可能性</li>
+<li>消息不存在重复消费问题</li>
+</ul>
+<h1 id="5-频繁点赞操作"><a href="#5-频繁点赞操作" class="headerlink" title="5 频繁点赞操作"></a>5 频繁点赞操作</h1><p>采用redis的集合（set），通过用户ID判断点赞唯一性，利用Redis作为缓存更新，异步写入数据库；<br>异步通知点赞人，就将点击当成事件放到一个队列中 统一处理即可。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"># Redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/22/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(3)%EF%BC%9A%E7%BC%93%E5%AD%98%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%80%E8%87%B4%E6%80%A7/" rel="prev" title="Redis(3)：缓存与数据库一致性">
+                  <i class="fa fa-chevron-left"></i> Redis(3)：缓存与数据库一致性
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="next" title="数据库优化">
+                  数据库优化 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
