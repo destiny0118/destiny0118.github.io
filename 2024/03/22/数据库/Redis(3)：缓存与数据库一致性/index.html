@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%AE%BE%E8%AE%A1%E7%BC%93%E5%AD%98"><span class="nav-text">1 设计缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BF%9D%E8%AF%81%E7%BC%93%E5%AD%98%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-text">2 保证缓存和数据库数据的一致性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%8F%AF%E8%83%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">2.1 可能的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-%E5%85%88%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98%EF%BC%8C%E5%90%8E%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">2.1.1 先删除缓存，后更新数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-%E5%85%88%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%90%8E%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98"><span class="nav-text">2.1.2 先更新数据库，后删除缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%9D%E8%AF%81%E4%B8%A4%E4%B8%AA%E6%93%8D%E4%BD%9C%E6%89%A7%E8%A1%8C%E6%88%90%E5%8A%9F"><span class="nav-text">保证两个操作执行成功</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="nav-text">1. 重试机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E8%AE%A2%E9%98%85-MySQL-binlog%EF%BC%8C%E5%86%8D%E6%93%8D%E4%BD%9C%E7%BC%93%E5%AD%98%E3%80%82"><span class="nav-text">2. 订阅 MySQL binlog，再操作缓存。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E7%BC%93%E5%AD%98%E5%A4%B1%E6%95%88%E6%97%B6%E9%97%B4%E5%8F%98%E7%9F%AD"><span class="nav-text">3. 缓存失效时间变短</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BC%93%E5%AD%98%E8%AF%BB%E5%86%99%E7%AD%96%E7%95%A5"><span class="nav-text">3 缓存读写策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Cache-Aside-Pattern%EF%BC%88%E6%97%81%E8%B7%AF%E7%BC%93%E5%AD%98%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="nav-text">3.1 Cache Aside Pattern（旁路缓存模式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Read-x2F-Write-Through-Pattern%EF%BC%88%E8%AF%BB%E5%86%99%E7%A9%BF%E9%80%8F%EF%BC%89"><span class="nav-text">3.2 Read&#x2F;Write Through Pattern（读写穿透）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Write-Back%EF%BC%88%E5%86%99%E5%9B%9E%E7%AD%96%E7%95%A5%EF%BC%89"><span class="nav-text">3.3 Write Back（写回策略）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Write-Behind-Pattern%EF%BC%88%E5%BC%82%E6%AD%A5%E7%BC%93%E5%AD%98%E5%86%99%E5%85%A5%EF%BC%89"><span class="nav-text">3.4 Write Behind Pattern（异步缓存写入）</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 设计缓存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 保证缓存和数据库数据的一致性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%8F%AF%E8%83%BD%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">2.1 可能的解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1-%E5%85%88%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98%EF%BC%8C%E5%90%8E%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-text">2.1.1 先删除缓存，后更新数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2-%E5%85%88%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E5%90%8E%E5%88%A0%E9%99%A4%E7%BC%93%E5%AD%98"><span class="nav-text">2.1.2 先更新数据库，后删除缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BF%9D%E8%AF%81%E4%B8%A4%E4%B8%AA%E6%93%8D%E4%BD%9C%E6%89%A7%E8%A1%8C%E6%88%90%E5%8A%9F"><span class="nav-text">保证两个操作执行成功</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="nav-text">1. 重试机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E8%AE%A2%E9%98%85-MySQL-binlog%EF%BC%8C%E5%86%8D%E6%93%8D%E4%BD%9C%E7%BC%93%E5%AD%98%E3%80%82"><span class="nav-text">2. 订阅 MySQL binlog，再操作缓存。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E7%BC%93%E5%AD%98%E5%A4%B1%E6%95%88%E6%97%B6%E9%97%B4%E5%8F%98%E7%9F%AD"><span class="nav-text">3. 缓存失效时间变短</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 缓存读写策略</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Cache-Aside-Pattern%EF%BC%88%E6%97%81%E8%B7%AF%E7%BC%93%E5%AD%98%E6%A8%A1%E5%BC%8F%EF%BC%89"><span class="nav-text">3.1 Cache Aside Pattern（旁路缓存模式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Read-Write-Through-Pattern%EF%BC%88%E8%AF%BB%E5%86%99%E7%A9%BF%E9%80%8F%EF%BC%89"><span class="nav-text">3.2 Read&#x2F;Write Through Pattern（读写穿透）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Write-Back%EF%BC%88%E5%86%99%E5%9B%9E%E7%AD%96%E7%95%A5%EF%BC%89"><span class="nav-text">3.3 Write Back（写回策略）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-Write-Behind-Pattern%EF%BC%88%E5%BC%82%E6%AD%A5%E7%BC%93%E5%AD%98%E5%86%99%E5%85%A5%EF%BC%89"><span class="nav-text">3.4 Write Behind Pattern（异步缓存写入）</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -288,8 +288,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="1-设计缓存"><a href="#1-设计缓存" class="headerlink" title="1 设计缓存"></a>1 设计缓存</h1><p>缓存利用率（内存置换策略）<br>缓存一致性（缓存与数据库一致性）<br>缓存过期时间（过期键策略）</p>
-<h1 id="2-保证缓存和数据库数据的一致性"><a href="#2-保证缓存和数据库数据的一致性" class="headerlink" title="2 保证缓存和数据库数据的一致性"></a>2 保证缓存和数据库数据的一致性</h1><h2 id="2-1-可能的解决方案"><a href="#2-1-可能的解决方案" class="headerlink" title="2.1 可能的解决方案"></a>2.1 可能的解决方案</h2><table>
+        <h1>1 设计缓存</h1>
+<p>缓存利用率（内存置换策略）缓存一致性（缓存与数据库一致性）缓存过期时间（过期键策略）</p>
+<h1>2 保证缓存和数据库数据的一致性</h1>
+<h2 id="2-1-可能的解决方案">2.1 可能的解决方案</h2>
+<table>
 <thead>
 <tr>
 <th>方式</th>
@@ -297,7 +300,8 @@
 <th>解决方法</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>先更新缓存，再更新数据库</td>
 <td>更新缓存成功，更新数据库异常，导致缓存与数据库不一致</td>
 <td></td>
@@ -322,50 +326,84 @@
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<h3 id="2-1-1-先删除缓存，后更新数据库"><a href="#2-1-1-先删除缓存，后更新数据库" class="headerlink" title="2.1.1 先删除缓存，后更新数据库"></a>2.1.1 先删除缓存，后更新数据库</h3><h3 id="2-1-2-先更新数据库，后删除缓存"><a href="#2-1-2-先更新数据库，后删除缓存" class="headerlink" title="2.1.2 先更新数据库，后删除缓存"></a>2.1.2 先更新数据库，后删除缓存</h3><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405131136393.png" alt="image.png"></p>
-<h5 id="保证两个操作执行成功"><a href="#保证两个操作执行成功" class="headerlink" title="保证两个操作执行成功"></a>保证两个操作执行成功</h5><h6 id="1-重试机制"><a href="#1-重试机制" class="headerlink" title="1. 重试机制"></a>1. 重试机制</h6><p>引入<strong>消息队列</strong>，将第二个操作（删除缓存）要操作的数据加入到消息队列，由消费者来操作数据。</p>
-<ul>
-<li>如果应用<strong>删除缓存失败</strong>，可以从消息队列中重新读取数据，然后再次删除缓存，这个就是<strong>重试机制</strong>。当然，如果重试超过的一定次数，还是没有成功，我们就需要向业务层发送报错信息了。</li>
-<li>如果<strong>删除缓存成功</strong>，就要把数据从消息队列中移除，避免重复操作，否则就继续重试。</li>
+</tbody>
+</table>
+<h3 id="2-1-1-先删除缓存，后更新数据库">2.1.1 先删除缓存，后更新数据库</h3>
+<h3 id="2-1-2-先更新数据库，后删除缓存">2.1.2 先更新数据库，后删除缓存</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405131136393.png" alt="image.png"></p>
+<h5 id="保证两个操作执行成功">保证两个操作执行成功</h5>
+<h6 id="1-重试机制">1. 重试机制</h6>
+<p>引入<strong>消息队列</strong>，将第二个操作（删除缓存）要操作的数据加入到消息队列，由消费者来操作数据。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果应用<strong>删除缓存失败</strong>，可以从消息队列中重新读取数据，然后再次删除缓存，这个就是<strong>重试机制</strong>。当然，如果重试超过的一定次数，还是没有成功，我们就需要向业务层发送报错信息了。</p>
+</li>
+<li class="lvl-2">
+<p>如果<strong>删除缓存成功</strong>，就要把数据从消息队列中移除，避免重复操作，否则就继续重试。</p>
+</li>
 </ul>
-<h6 id="2-订阅-MySQL-binlog，再操作缓存。"><a href="#2-订阅-MySQL-binlog，再操作缓存。" class="headerlink" title="2. 订阅 MySQL binlog，再操作缓存。"></a>2. 订阅 MySQL binlog，再操作缓存。</h6><p>「<strong>先更新数据库，再删缓存</strong>」的策略的第一步是更新数据库，那么更新数据库成功，就会产生一条变更日志，记录在 binlog 里。于是我们就可以通过订阅 binlog 日志，拿到具体要操作的数据，然后再执行缓存删除。</p>
-<h6 id="3-缓存失效时间变短"><a href="#3-缓存失效时间变短" class="headerlink" title="3. 缓存失效时间变短"></a>3. 缓存失效时间变短</h6><p><a href="https://mp.weixin.qq.com/s?__biz=MzIyOTYxNDI5OA==&mid=2247487312&idx=1&sn=fa19566f5729d6598155b5c676eee62d&chksm=e8beb8e5dfc931f3e35655da9da0b61c79f2843101c130cf38996446975014f958a6481aacf1&scene=178&cur_album_id=1699766580538032128#rd">缓存和数据库一致性问题，看这篇就够了 (qq.com)</a><br><a href="https://xiaolincoding.com/redis/architecture/mysql_redis_consistency.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7">数据库和缓存如何保证一致性？ | 小林coding (xiaolincoding.com)</a></p>
-<h1 id="3-缓存读写策略"><a href="#3-缓存读写策略" class="headerlink" title="3 缓存读写策略"></a>3 缓存读写策略</h1><h2 id="3-1-Cache-Aside-Pattern（旁路缓存模式）"><a href="#3-1-Cache-Aside-Pattern（旁路缓存模式）" class="headerlink" title="3.1 Cache Aside Pattern（旁路缓存模式）"></a>3.1 Cache Aside Pattern（旁路缓存模式）</h2><p>Cache Aside（旁路缓存）策略是最常用的，应用程序直接与「数据库、缓存」交互，并负责对缓存的维护，该策略又可以细分为「读策略」和「写策略」。<strong>Cache Aside 策略适合读多写少的场景，不适合写多的场景</strong>，因为当写入比较频繁时，缓存中的数据会被频繁地清理，这样会对缓存的命中率有一些影响。</p>
+<h6 id="2-订阅-MySQL-binlog，再操作缓存。">2. 订阅 MySQL binlog，再操作缓存。</h6>
+<p>「<strong>先更新数据库，再删缓存</strong>」的策略的第一步是更新数据库，那么更新数据库成功，就会产生一条变更日志，记录在 binlog 里。于是我们就可以通过订阅 binlog 日志，拿到具体要操作的数据，然后再执行缓存删除。</p>
+<h6 id="3-缓存失效时间变短">3. 缓存失效时间变短</h6>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIyOTYxNDI5OA==&amp;mid=2247487312&amp;idx=1&amp;sn=fa19566f5729d6598155b5c676eee62d&amp;chksm=e8beb8e5dfc931f3e35655da9da0b61c79f2843101c130cf38996446975014f958a6481aacf1&amp;scene=178&amp;cur_album_id=1699766580538032128#rd">缓存和数据库一致性问题，看这篇就够了 (qq.com)</a><br>
+<a href="https://xiaolincoding.com/redis/architecture/mysql_redis_consistency.html#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%92%8C%E7%BC%93%E5%AD%98%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7">数据库和缓存如何保证一致性？ | 小林coding (xiaolincoding.com)</a></p>
+<h1>3 缓存读写策略</h1>
+<h2 id="3-1-Cache-Aside-Pattern（旁路缓存模式）">3.1 Cache Aside Pattern（旁路缓存模式）</h2>
+<p>Cache Aside（旁路缓存）策略是最常用的，应用程序直接与「数据库、缓存」交互，并负责对缓存的维护，该策略又可以细分为「读策略」和「写策略」。<strong>Cache Aside 策略适合读多写少的场景，不适合写多的场景</strong>，因为当写入比较频繁时，缓存中的数据会被频繁地清理，这样会对缓存的命中率有一些影响。</p>
 <p><strong>写策略的步骤：</strong></p>
-<ul>
-<li>先更新数据库中的数据，再删除缓存中的数据。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>先更新数据库中的数据，再删除缓存中的数据。</p>
+</li>
 </ul>
 <p><strong>读策略的步骤：</strong></p>
-<ul>
-<li>如果读取的数据命中了缓存，则直接返回数据；</li>
-<li>如果读取的数据没有命中缓存，则从数据库中读取数据，然后将数据写入到缓存，并且返回给用户。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果读取的数据命中了缓存，则直接返回数据；</p>
+</li>
+<li class="lvl-2">
+<p>如果读取的数据没有命中缓存，则从数据库中读取数据，然后将数据写入到缓存，并且返回给用户。</p>
+</li>
 </ul>
-<p><strong>缺陷 1：首次请求数据一定不在 cache 的问题</strong><br>解决办法：可以将热点数据可以提前放入 cache 中。</p>
-<p><strong>缺陷 2：写操作比较频繁的话导致 cache 中的数据会被频繁被删除，这样会影响缓存命中率 。</strong><br>解决办法：</p>
-<ul>
-<li>数据库和缓存数据强一致场景：更新 db 的时候同样更新 cache，不过我们需要加一个锁&#x2F;分布式锁来保证更新 cache 的时候不存在线程安全问题。</li>
-<li>可以短暂地允许数据库和缓存数据不一致的场景：更新 db 的时候同样更新 cache，但是给缓存加一个比较短的过期时间，这样的话就可以保证即使数据不一致的话影响也比较小。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403232057223.png" alt="image.png"></li>
+<p><strong>缺陷 1：首次请求数据一定不在 cache 的问题</strong><br>
+解决办法：可以将热点数据可以提前放入 cache 中。</p>
+<p><strong>缺陷 2：写操作比较频繁的话导致 cache 中的数据会被频繁被删除，这样会影响缓存命中率 。</strong><br>
+解决办法：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据库和缓存数据强一致场景：更新 db 的时候同样更新 cache，不过我们需要加一个锁/分布式锁来保证更新 cache 的时候不存在线程安全问题。</p>
+</li>
+<li class="lvl-2">
+<p>可以短暂地允许数据库和缓存数据不一致的场景：更新 db 的时候同样更新 cache，但是给缓存加一个比较短的过期时间，这样的话就可以保证即使数据不一致的话影响也比较小。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403232057223.png" alt="image.png"></p>
+</li>
 </ul>
-<h2 id="3-2-Read-x2F-Write-Through-Pattern（读写穿透）"><a href="#3-2-Read-x2F-Write-Through-Pattern（读写穿透）" class="headerlink" title="3.2 Read&#x2F;Write Through Pattern（读写穿透）"></a>3.2 Read&#x2F;Write Through Pattern（读写穿透）</h2><p>Read&#x2F;Write Through（读穿 &#x2F; 写穿）策略原则是<strong>应用程序只和缓存交互，不再和数据库交互，而是由缓存和数据库交互</strong>，相当于更新数据库的操作由缓存自己代理了。</p>
+<h2 id="3-2-Read-Write-Through-Pattern（读写穿透）">3.2 Read/Write Through Pattern（读写穿透）</h2>
+<p>Read/Write Through（读穿 / 写穿）策略原则是<strong>应用程序只和缓存交互，不再和数据库交互，而是由缓存和数据库交互</strong>，相当于更新数据库的操作由缓存自己代理了。</p>
 <blockquote>
-<p>Read&#x2F;Write Through Pattern 中服务端把 cache 视为主要数据存储，从中读取数据并将数据写入其中。cache 服务负责将此数据读取和写入 db，从而减轻了应用程序的职责。</p>
+<p>Read/Write Through Pattern 中服务端把 cache 视为主要数据存储，从中读取数据并将数据写入其中。cache 服务负责将此数据读取和写入 db，从而减轻了应用程序的职责。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403232058444.png" alt="image.png"></p>
 <p><em><strong>1、Read Through 策略</strong></em></p>
-<p>先查询缓存中数据是否存在，如果存在则直接返回<br>如果不存在，则由缓存组件负责从数据库查询数据，并将结果写入到缓存组件，最后缓存组件将数据返回给应用。</p>
+<p>先查询缓存中数据是否存在，如果存在则直接返回如果不存在，则由缓存组件负责从数据库查询数据，并将结果写入到缓存组件，最后缓存组件将数据返回给应用。</p>
 <p><em><strong>2、Write Through 策略</strong></em></p>
 <p>当有数据更新的时候，先查询要写入的数据在缓存中是否已经存在：</p>
-<ul>
-<li>如果缓存中数据已经存在，则更新缓存中的数据，并且由缓存组件同步更新到数据库中，然后缓存组件告知应用程序更新完成。</li>
-<li>如果缓存中数据不存在，直接更新数据库，然后返回；</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>如果缓存中数据已经存在，则更新缓存中的数据，并且由缓存组件同步更新到数据库中，然后缓存组件告知应用程序更新完成。</p>
+</li>
+<li class="lvl-2">
+<p>如果缓存中数据不存在，直接更新数据库，然后返回；</p>
+</li>
 </ul>
-<h2 id="3-3-Write-Back（写回策略）"><a href="#3-3-Write-Back（写回策略）" class="headerlink" title="3.3 Write Back（写回策略）"></a>3.3 Write Back（写回策略）</h2><p>Write Back（写回）策略在更新数据的时候，只更新缓存，同时将缓存数据设置为脏的，然后立马返回，并不会更新数据库。对于数据库的更新，会通过批量异步更新的方式进行。</p>
+<h2 id="3-3-Write-Back（写回策略）">3.3 Write Back（写回策略）</h2>
+<p>Write Back（写回）策略在更新数据的时候，只更新缓存，同时将缓存数据设置为脏的，然后立马返回，并不会更新数据库。对于数据库的更新，会通过批量异步更新的方式进行。</p>
 <p>实际上，Write Back（写回）策略也不能应用到我们常用的数据库和缓存的场景中，因为 Redis 并没有异步更新数据库的功能。</p>
 <p>Write Back 是计算机体系结构中的设计，比如 CPU 的缓存、操作系统中文件系统的缓存都采用了 Write Back（写回）策略。</p>
 <p><strong>Write Back 策略特别适合写多的场景</strong>，因为发生写操作的时候， 只需要更新缓存，就立马返回了。比如，写文件的时候，实际上是写入到文件系统的缓存就返回了，并不会写磁盘。</p>
-<h2 id="3-4-Write-Behind-Pattern（异步缓存写入）"><a href="#3-4-Write-Behind-Pattern（异步缓存写入）" class="headerlink" title="3.4 Write Behind Pattern（异步缓存写入）"></a>3.4 Write Behind Pattern（异步缓存写入）</h2><p>Write Behind Pattern 和 Read&#x2F;Write Through Pattern 很相似，两者都是由 cache 服务来负责 cache 和 db 的读写。</p>
-<p><strong>Read&#x2F;Write Through 是同步更新 cache 和 db，而 Write Behind 则是只更新缓存，不直接更新 db，而是改为异步批量的方式来更新 db。</strong></p>
+<h2 id="3-4-Write-Behind-Pattern（异步缓存写入）">3.4 Write Behind Pattern（异步缓存写入）</h2>
+<p>Write Behind Pattern 和 Read/Write Through Pattern 很相似，两者都是由 cache 服务来负责 cache 和 db 的读写。</p>
+<p><strong>Read/Write Through 是同步更新 cache 和 db，而 Write Behind 则是只更新缓存，不直接更新 db，而是改为异步批量的方式来更新 db。</strong></p>
 <p><a href="https://blog.csdn.net/qq_51513626/article/details/134997228">旁路缓存模式（Cache-Aside Pattern）如何保证一致性的问题-CSDN博客</a></p>
 
     </div>

@@ -157,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2A-Leader-election-%E9%A2%86%E5%AF%BC%E4%BA%BA%E9%80%89%E4%B8%BE"><span class="nav-text">2A Leader election(领导人选举)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-text">1. 节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E5%92%8C%E5%BF%83%E8%B7%B3%E6%97%B6%E9%97%B4"><span class="nav-text">选举超时时间和心跳时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E6%9B%B4%E6%96%B0"><span class="nav-text">选举超时时间更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E9%80%89%E4%B8%BE%E5%AE%9E%E7%8E%B0"><span class="nav-text">超时选举实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-text">注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sendAppendEntries%E6%B2%A1%E6%9C%89%E5%90%AF%E7%94%A8%E6%96%B0%E7%9A%84%E5%8D%8F%E7%A8%8B"><span class="nav-text">sendAppendEntries没有启用新的协程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2B-Log-replication-%E6%97%A5%E5%BF%97%E5%A4%8D%E5%88%B6"><span class="nav-text">2B Log replication(日志复制)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Election-restriction-5-4-1"><span class="nav-text">Election restriction(5.4.1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-1"><span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2C"><span class="nav-text">2C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug"><span class="nav-text">Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2D"><span class="nav-text">2D</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug"><span class="nav-text">bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#raft"><span class="nav-text">raft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raft%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">raft应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2A Leader election(领导人选举)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-text">1. 节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E5%92%8C%E5%BF%83%E8%B7%B3%E6%97%B6%E9%97%B4"><span class="nav-text">选举超时时间和心跳时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E6%9B%B4%E6%96%B0"><span class="nav-text">选举超时时间更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E9%80%89%E4%B8%BE%E5%AE%9E%E7%8E%B0"><span class="nav-text">超时选举实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-text">注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sendAppendEntries%E6%B2%A1%E6%9C%89%E5%90%AF%E7%94%A8%E6%96%B0%E7%9A%84%E5%8D%8F%E7%A8%8B"><span class="nav-text">sendAppendEntries没有启用新的协程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2B Log replication(日志复制)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Election-restriction-5-4-1"><span class="nav-text">Election restriction(5.4.1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-2"><span class="nav-text">注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bug"><span class="nav-text">Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2D</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug"><span class="nav-text">bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#raft"><span class="nav-text">raft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raft%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">raft应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,7 +181,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -288,107 +288,170 @@
 <p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg" alt="QQ图片20240205215524.jpg"></p>
-<h1 id="2A-Leader-election-领导人选举"><a href="#2A-Leader-election-领导人选举" class="headerlink" title="2A Leader election(领导人选举)"></a>2A Leader election(领导人选举)</h1><ul>
-<li>网络延迟、分区、包丢失、复制和重新排序。</li>
+<h1>2A Leader election(领导人选举)</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络延迟、分区、包丢失、复制和重新排序。</p>
+</li>
 </ul>
 <blockquote>
 <p>This election term will continue until a follower stops receiving heartbeats and becomes a candidate.</p>
 </blockquote>
 <p>导致Follower进行选举的原因</p>
-<ul>
-<li>网络延迟或者包丢失没有在选举超时前收到心跳</li>
-<li>网络分区而导致收不到心跳（disconnect）</li>
-<li>Leader宕机、崩溃（crash）</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络延迟或者包丢失没有在选举超时前收到心跳</p>
+</li>
+<li class="lvl-2">
+<p>网络分区而导致收不到心跳（disconnect）</p>
+</li>
+<li class="lvl-2">
+<p>Leader宕机、崩溃（crash）</p>
+</li>
 </ul>
-<h2 id="1-节点类型"><a href="#1-节点类型" class="headerlink" title="1. 节点类型"></a>1. 节点类型</h2><ul>
-<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
-<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
-<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</li>
+<h2 id="1-节点类型">1. 节点类型</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</p>
+</li>
+<li class="lvl-2">
+<p><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</p>
+</li>
+<li class="lvl-2">
+<p><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</p>
+</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png" alt="image-20240203110252535"></p>
-<ul>
-<li>Follower$\rightarrow$Candidate（超时：一段时间内未收到heartbeat）</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Follower$\rightarrow$Candidate（超时：一段时间内未收到heartbeat）</p>
+</li>
 </ul>
 <p>Leader(AppendEntries RPC)</p>
-<ul>
-<li>term过时：<ul>
-<li>发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
-<li>收到RequestVote发现更高term号</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>term过时：</p>
+<ul class="lvl-2">
+<li class="lvl-6">发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
+<li class="lvl-6">收到RequestVote发现更高term号</li>
 </ul>
 </li>
 </ul>
 <p>Candidate(RequestVote RPC)</p>
-<ul>
-<li>term过时<ul>
-<li>收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
-<li>收到RequestVote RPC的response，返回的term号更大</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>term过时</p>
+<ul class="lvl-2">
+<li class="lvl-6">收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
+<li class="lvl-6">收到RequestVote RPC的response，返回的term号更大</li>
 </ul>
 </li>
 </ul>
 <p>Follower：被动的，对来自Leader和Candidate的请求进行相应</p>
-<ul>
-<li>收到Leader的心跳，且term号大于自身term号（更新自身term号）</li>
-<li>收到Candidate请求</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>收到Leader的心跳，且term号大于自身term号（更新自身term号）</p>
+</li>
+<li class="lvl-2">
+<p>收到Candidate请求</p>
+</li>
 </ul>
 <p>Server：</p>
-<ul>
-<li>拒绝过时term的请求</li>
-</ul>
-<h2 id="选举超时时间和心跳时间"><a href="#选举超时时间和心跳时间" class="headerlink" title="选举超时时间和心跳时间"></a>选举超时时间和心跳时间</h2><ul>
-<li><p>心跳间隔时间(heartbeat timeout)：Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>拒绝过时term的请求</p>
 </li>
-<li><p>选举超时时间(election timeout)：如果一个 Follower 在一个周期内没有收到心跳信息或者请求投票信息，就叫做选举超时，并开始一次新的选举。</p>
+</ul>
+<h2 id="选举超时时间和心跳时间">选举超时时间和心跳时间</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>心跳间隔时间(heartbeat timeout)：Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。</p>
+</li>
+<li class="lvl-2">
+<p>选举超时时间(election timeout)：如果一个 Follower 在一个周期内没有收到心跳信息或者请求投票信息，就叫做选举超时，并开始一次新的选举。</p>
 </li>
 </ul>
 <p>这两个时间需要保持一定的关系，网络无故障时，在选举超时前应该收到心跳，以保持Leader不变。选举超时时间至少需要大于AppendEntries RPC发送到server所需的最长时间。</p>
-<h3 id="选举超时时间更新"><a href="#选举超时时间更新" class="headerlink" title="选举超时时间更新"></a>选举超时时间更新</h3><ul>
-<li>candidate成为leader</li>
-<li>candidate收到RequestVote response并变为follower</li>
-<li>server收到AppendEntries</li>
-<li>server收到RequestVote</li>
-<li>leader收到AppendEntries response发现更高term号</li>
+<h3 id="选举超时时间更新">选举超时时间更新</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>candidate成为leader</p>
+</li>
+<li class="lvl-2">
+<p>candidate收到RequestVote response并变为follower</p>
+</li>
+<li class="lvl-2">
+<p>server收到AppendEntries</p>
+</li>
+<li class="lvl-2">
+<p>server收到RequestVote</p>
+</li>
+<li class="lvl-2">
+<p>leader收到AppendEntries response发现更高term号</p>
+</li>
 </ul>
-<h3 id="超时选举实现"><a href="#超时选举实现" class="headerlink" title="超时选举实现"></a>超时选举实现</h3><p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间<br>这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png"></p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><h3 id="sendAppendEntries没有启用新的协程"><a href="#sendAppendEntries没有启用新的协程" class="headerlink" title="sendAppendEntries没有启用新的协程"></a><code>sendAppendEntries</code>没有启用新的协程</h3><p>在<code>sendHeartbeat</code>中，异步发送<code>sendAppendEntries</code>，向所有server发送heartbeat，无需等待RPC完成。因为leader可能无法与其他server通信，或者server不可达，由于等待rpc返回，造成超时重新选举</p>
+<h3 id="超时选举实现">超时选举实现</h3>
+<p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png"></p>
+<h2 id="注意点">注意点</h2>
+<h3 id="sendAppendEntries没有启用新的协程"><code>sendAppendEntries</code>没有启用新的协程</h3>
+<p>在<code>sendHeartbeat</code>中，异步发送<code>sendAppendEntries</code>，向所有server发送heartbeat，无需等待RPC完成。因为leader可能无法与其他server通信，或者server不可达，由于等待rpc返回，造成超时重新选举</p>
 <p>异步发送<code>RequestVote</code>，并且收到超过半数选票后就成为Leader，发送心跳</p>
 <p><code> go test -race -run 2A</code></p>
-<h1 id="2B-Log-replication-日志复制"><a href="#2B-Log-replication-日志复制" class="headerlink" title="2B Log replication(日志复制)"></a>2B Log replication(日志复制)</h1><blockquote>
-<p>&#x3D;&#x3D;<strong>Leader Completeness</strong>&#x3D;&#x3D;: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br>&#x3D;&#x3D;<strong>State Machine Safety</strong>&#x3D;&#x3D;: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3</p>
+<h1>2B Log replication(日志复制)</h1>
+<blockquote>
+<p><mark><strong>Leader Completeness</strong></mark>: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br>
+<mark><strong>State Machine Safety</strong></mark>: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3</p>
 </blockquote>
-<ul>
-<li>leader收到client请求，将entry添加到log</li>
-<li>leader将添加的entry复制到其他server</li>
-<li>如果大多数server成功复制entry，则该entry已经committed</li>
-<li></li>
-<li>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>leader收到client请求，将entry添加到log</p>
+</li>
+<li class="lvl-2">
+<p>leader将添加的entry复制到其他server</p>
+</li>
+<li class="lvl-2">
+<p>如果大多数server成功复制entry，则该entry已经committed</p>
+</li>
+<li class="lvl-2">
+</li>
+<li class="lvl-2">
+<p>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</p>
+</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061214812.png" alt="Raft-第 1 页.png"></p>
-<h2 id="Election-restriction-5-4-1"><a href="#Election-restriction-5-4-1" class="headerlink" title="Election restriction(5.4.1)"></a>Election restriction(5.4.1)</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png"></p>
+<h2 id="Election-restriction-5-4-1">Election restriction(5.4.1)</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png"></p>
 <p>log backtracking</p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png" alt="Raft-加速log回溯"></p>
 <p>S1首先成为leader，成功发送了第一个entry</p>
 <p>S1和S2与其他服务器断开后重连</p>
-<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><blockquote>
+<h2 id="注意点-2">注意点</h2>
+<blockquote>
 <p>遇到的bug</p>
 </blockquote>
 <p>s1断联，添加了一系列entry</p>
 <p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
-<h1 id="2C"><a href="#2C" class="headerlink" title="2C"></a>2C</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>同一任期选出两个leader</p>
+<h1>2C</h1>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Bug">Bug</h2>
+<p>同一任期选出两个leader</p>
 <p>乱序收到RPC response</p>
 <p>AppendEntries的RPC response与当前term不一致</p>
 <p>在变成follower时都重置了election time</p>
-<h1 id="2D"><a href="#2D" class="headerlink" title="2D"></a>2D</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611"></p>
-<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><ol>
-<li><p>每10条command创建一个快照，快照会调用rf.mu这个互斥锁，当存在新的提交命令时，通过applyCh管道进行发送，而测试程序调用snapshot需要获取互斥锁，无法读取管道中的数据，则会产生死锁</p>
+<h1>2D</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611"></p>
+<h2 id="bug">bug</h2>
+<ol>
+<li class="lvl-3">
+<p>每10条command创建一个快照，快照会调用rf.mu这个互斥锁，当存在新的提交命令时，通过applyCh管道进行发送，而测试程序调用snapshot需要获取互斥锁，无法读取管道中的数据，则会产生死锁</p>
 </li>
-<li><p><code>apply error: server 2 apply out of order, expected index 10, got 18</code></p>
+<li class="lvl-3">
+<p><code>apply error: server 2 apply out of order, expected index 10, got 18</code></p>
 <p>当snapshot存在未commit的命令时，snapshot和log分别放入applyCh，应当一次性放入applyCh</p>
 </li>
-<li></li>
+<li class="lvl-3">
+</li>
 </ol>
 <table>
 <thead>
@@ -401,7 +464,8 @@
 <th>the number of log entries that Raft reports were committed</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>PASSED</td>
 <td>3.9</td>
 <td>3</td>
@@ -417,30 +481,40 @@
 <td></td>
 <td></td>
 </tr>
-</tbody></table>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="raft"><a href="#raft" class="headerlink" title="raft"></a>raft</h2><p>raft是分布式一致性算法，基于复制状态机的思想，对于初始状态一样的节点，在他们上运行同样的命令，还会保持一致性的状态。raft主要包括领导者选举、日志复制、持久化以及快照等。</p>
-<h2 id="raft应用场景"><a href="#raft应用场景" class="headerlink" title="raft应用场景"></a>raft应用场景</h2><p>Raft 是一种共识算法，通常用于构建分布式系统中的可靠复制日志。它可以应用于各种分布式系统的场景，包括但不限于：</p>
+</tbody>
+</table>
+<h1>问题</h1>
+<h2 id="raft">raft</h2>
+<p>raft是分布式一致性算法，基于复制状态机的思想，对于初始状态一样的节点，在他们上运行同样的命令，还会保持一致性的状态。raft主要包括领导者选举、日志复制、持久化以及快照等。</p>
+<h2 id="raft应用场景">raft应用场景</h2>
+<p>Raft 是一种共识算法，通常用于构建分布式系统中的可靠复制日志。它可以应用于各种分布式系统的场景，包括但不限于：</p>
 <ol>
-<li><p><strong>分布式数据库系统</strong>：Raft 可以用于构建分布式数据库系统，确保数据的一致性和可靠性，比如 etcd、Consul 等。</p>
+<li class="lvl-3">
+<p><strong>分布式数据库系统</strong>：Raft 可以用于构建分布式数据库系统，确保数据的一致性和可靠性，比如 etcd、Consul 等。</p>
 </li>
-<li><p><strong>分布式文件系统</strong>：在分布式文件系统中，Raft 可以确保各个节点之间的文件操作的一致性，比如 HDFS、Ceph 等。</p>
+<li class="lvl-3">
+<p><strong>分布式文件系统</strong>：在分布式文件系统中，Raft 可以确保各个节点之间的文件操作的一致性，比如 HDFS、Ceph 等。</p>
 </li>
-<li><p><strong>分布式消息队列</strong>：Raft 可以确保消息队列中的消息传递和处理的一致性，比如 Kafka 等。</p>
+<li class="lvl-3">
+<p><strong>分布式消息队列</strong>：Raft 可以确保消息队列中的消息传递和处理的一致性，比如 Kafka 等。</p>
 </li>
-<li><p><strong>分布式计算</strong>：在分布式计算中，Raft 可以确保各个节点之间的任务调度和执行的一致性，比如 Spark、MapReduce 等。</p>
+<li class="lvl-3">
+<p><strong>分布式计算</strong>：在分布式计算中，Raft 可以确保各个节点之间的任务调度和执行的一致性，比如 Spark、MapReduce 等。</p>
 </li>
-<li><p><strong>分布式存储系统</strong>：Raft 可以确保分布式存储系统中数据的可靠性和一致性，比如分布式缓存系统如 Redis、分布式块存储系统如 Ceph 等。</p>
+<li class="lvl-3">
+<p><strong>分布式存储系统</strong>：Raft 可以确保分布式存储系统中数据的可靠性和一致性，比如分布式缓存系统如 Redis、分布式块存储系统如 Ceph 等。</p>
 </li>
 </ol>
 <p>总的来说，任何需要在分布式环境中保证一致性和可靠性的系统都可以考虑使用 Raft 算法来实现。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://raft.github.io/">Raft Consensus Algorithm 官网介绍</a></p>
+<h1>参考</h1>
+<p><a href="https://raft.github.io/">Raft Consensus Algorithm 官网介绍</a></p>
 <p><a href="http://thesecretlivesofdata.com/raft/">Raft (thesecretlivesofdata.com)</a>（Raft图示）</p>
 <p><a href="https://raw.githubusercontent.com/ongardie/dissertation/master/book.pdf">Raft作者博士论文</a></p>
-<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/instructors-guide-to-raft/">Instructors’ Guide to Raft</a>[4]</p>
-<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/students-guide-to-raft/">Students’ Guide to Raft</a>[5]</p>
-<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/raft-qa/">Raft Q&amp;A</a>[6]</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//thesquareplanet.com/blog/instructors-guide-to-raft/">Instructors’ Guide to Raft</a>[4]</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//thesquareplanet.com/blog/students-guide-to-raft/">Students’ Guide to Raft</a>[5]</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//thesquareplanet.com/blog/raft-qa/">Raft Q&amp;A</a>[6]</p>
 <p>paxos 2015版的lab</p>
-<p><a href="https://github.com/hashicorp/raft">hashicorp&#x2F;raft: Golang implementation of the Raft consensus protocol (github.com)</a></p>
+<p><a href="https://github.com/hashicorp/raft">hashicorp/raft: Golang implementation of the Raft consensus protocol (github.com)</a></p>
 <p><a href="https://www.zhihu.com/question/29597104">如何的才能更好地学习 MIT6.824 分布式系统课程？ - 知乎 (zhihu.com)</a></p>
 
     </div>

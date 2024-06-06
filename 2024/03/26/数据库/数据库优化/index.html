@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-text">1 读写分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="nav-text">2 分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%88%86%E5%BA%93"><span class="nav-text">2.1 分库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%88%86%E8%A1%A8"><span class="nav-text">2.2 分表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%88%86%E7%89%87%E7%AE%97%E6%B3%95"><span class="nav-text">2.3 分片算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E8%A6%81%E7%82%B9"><span class="nav-text">2.4 要点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E5%86%B7%E7%83%AD%E5%88%86%E7%A6%BB"><span class="nav-text">3 数据冷热分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="nav-text">4 数据库查询优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-MySQL%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%8E%92%E6%9F%A5"><span class="nav-text">5 MySQL慢查询排查</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 读写分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%88%86%E5%BA%93"><span class="nav-text">2.1 分库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%88%86%E8%A1%A8"><span class="nav-text">2.2 分表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E5%88%86%E7%89%87%E7%AE%97%E6%B3%95"><span class="nav-text">2.3 分片算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E8%A6%81%E7%82%B9"><span class="nav-text">2.4 要点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 数据冷热分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 数据库查询优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 MySQL慢查询排查</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -289,96 +289,177 @@
     
     <div class="post-body" itemprop="articleBody">
         <ol>
-<li>索引优化</li>
-<li>读写分离和分库分表</li>
-<li>数据冷热分离</li>
-<li>SQL 优化</li>
-<li>深度分页优化</li>
-<li>适当冗余数据</li>
-<li>使用更高的硬件配置</li>
+<li class="lvl-3">
+<p>索引优化</p>
+</li>
+<li class="lvl-3">
+<p>读写分离和分库分表</p>
+</li>
+<li class="lvl-3">
+<p>数据冷热分离</p>
+</li>
+<li class="lvl-3">
+<p>SQL 优化</p>
+</li>
+<li class="lvl-3">
+<p>深度分页优化</p>
+</li>
+<li class="lvl-3">
+<p>适当冗余数据</p>
+</li>
+<li class="lvl-3">
+<p>使用更高的硬件配置</p>
+</li>
 </ol>
-<h1 id="1-读写分离"><a href="#1-读写分离" class="headerlink" title="1 读写分离"></a>1 读写分离</h1><blockquote>
+<h1>1 读写分离</h1>
+<blockquote>
 <p>读写分离主要应对数据库读并发</p>
 </blockquote>
-<ul>
-<li>部署多台数据库，选择其中的一台作为主数据库，其他的一台或者多台作为从数据库。</li>
-<li>保证主数据库和从数据库之间的数据是实时同步的，这个过程也就是我们常说的<strong>主从复制</strong>。</li>
-<li>系统将写请求交给主数据库处理，读请求交给从数据库处理。</li>
+<ul class="lvl-0">
+<li class="lvl-2">部署多台数据库，选择其中的一台作为主数据库，其他的一台或者多台作为从数据库。</li>
+<li class="lvl-2">保证主数据库和从数据库之间的数据是实时同步的，这个过程也就是我们常说的<strong>主从复制</strong>。</li>
+<li class="lvl-2">系统将写请求交给主数据库处理，读请求交给从数据库处理。</li>
 </ul>
-<h1 id="2-分库分表"><a href="#2-分库分表" class="headerlink" title="2 分库分表"></a>2 分库分表</h1><blockquote>
+<h1>2 分库分表</h1>
+<blockquote>
 <p>分库分表是一种数据库水平拆分的策略，旨在应对数据库规模不断增长导致的性能瓶颈和存储容量限制。这种策略将一个大型数据库拆分成多个较小的数据库实例（分库）和表（分表），从而提高并行处理能力、降低单个数据库实例的负载，提升整体系统的性能和可伸缩性。</p>
 <p>分库分表主要解决数据库存储，避免MySQL一张表的数据量过大</p>
 </blockquote>
-<h2 id="2-1-分库"><a href="#2-1-分库" class="headerlink" title="2.1 分库"></a>2.1 分库</h2><p><strong>分库</strong> 就是将数据库中的数据分散到不同的数据库上，可以垂直分库，也可以水平分库。</p>
+<h2 id="2-1-分库">2.1 分库</h2>
+<p><strong>分库</strong> 就是将数据库中的数据分散到不同的数据库上，可以垂直分库，也可以水平分库。</p>
 <p><strong>垂直分库</strong> 就是把单一数据库按照业务进行划分，不同的业务使用不同的数据库，进而将一个数据库的压力分担到多个数据库。</p>
 <p><strong>水平分库</strong> 是把同一个表按一定规则拆分到不同的数据库中，每个库可以位于不同的服务器上，这样就实现了水平扩展，解决了单表的存储和性能瓶颈的问题。</p>
-<h2 id="2-2-分表"><a href="#2-2-分表" class="headerlink" title="2.2 分表"></a>2.2 分表</h2><p><strong>分表</strong> 就是对单表的数据进行拆分，可以是垂直拆分，也可以是水平拆分。</p>
-<p><strong>垂直分表</strong> 是对数据表列的拆分，把一张列比较多的表拆分为多张表。<br><strong>水平分表</strong> 是对数据表行的拆分，把一张行比较多的表拆分为多张表，可以解决单一表数据量过大的问题。</p>
+<h2 id="2-2-分表">2.2 分表</h2>
+<p><strong>分表</strong> 就是对单表的数据进行拆分，可以是垂直拆分，也可以是水平拆分。</p>
+<p><strong>垂直分表</strong> 是对数据表列的拆分，把一张列比较多的表拆分为多张表。<br>
+<strong>水平分表</strong> 是对数据表行的拆分，把一张行比较多的表拆分为多张表，可以解决单一表数据量过大的问题。</p>
 <p>水平拆分只能解决单表数据量大的问题，为了提升性能，我们通常会选择将拆分后的多张表放在不同的数据库中。也就是说，水平分表通常和水平分库同时出现。</p>
-<h2 id="2-3-分片算法"><a href="#2-3-分片算法" class="headerlink" title="2.3 分片算法"></a>2.3 分片算法</h2><ul>
-<li><strong>哈希分片</strong>：求指定分片键的哈希，然后根据哈希值确定数据应被放置在哪个表中。哈希分片比较适合随机读写的场景，不太适合经常需要范围查询的场景。哈希分片可以使每个表的数据分布相对均匀，但对动态伸缩（例如新增一个表或者库）不友好。</li>
-<li><strong>范围分片</strong>：按照特定的范围区间（比如时间区间、ID 区间）来分配数据，比如 将 <code>id</code> 为 <code>1~299999</code> 的记录分到第一个表， <code>300000~599999</code> 的分到第二个表。范围分片适合需要经常进行范围查找且数据分布均匀的场景，不太适合随机读写的场景（数据未被分散，容易出现热点数据的问题）。</li>
-<li><strong>映射表分片</strong>：使用一个单独的表（称为映射表）来存储分片键和分片位置的对应关系。映射表分片策略可以支持任何类型的分片算法，如哈希分片、范围分片等。映射表分片策略是可以灵活地调整分片规则，不需要修改应用程序代码或重新分布数据。不过，这种方式需要维护额外的表，还增加了查询的开销和复杂度。</li>
-<li><strong>一致性哈希分片</strong>：将哈希空间组织成一个环形结构，将分片键和节点（数据库或表）都映射到这个环上，然后根据顺时针的规则确定数据或请求应该分配到哪个节点上，解决了传统哈希对动态伸缩不友好的问题。</li>
+<h2 id="2-3-分片算法">2.3 分片算法</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>哈希分片</strong>：求指定分片键的哈希，然后根据哈希值确定数据应被放置在哪个表中。哈希分片比较适合随机读写的场景，不太适合经常需要范围查询的场景。哈希分片可以使每个表的数据分布相对均匀，但对动态伸缩（例如新增一个表或者库）不友好。</p>
+</li>
+<li class="lvl-2">
+<p><strong>范围分片</strong>：按照特定的范围区间（比如时间区间、ID 区间）来分配数据，比如 将 <code>id</code> 为 <code>1~299999</code> 的记录分到第一个表， <code>300000~599999</code> 的分到第二个表。范围分片适合需要经常进行范围查找且数据分布均匀的场景，不太适合随机读写的场景（数据未被分散，容易出现热点数据的问题）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>映射表分片</strong>：使用一个单独的表（称为映射表）来存储分片键和分片位置的对应关系。映射表分片策略可以支持任何类型的分片算法，如哈希分片、范围分片等。映射表分片策略是可以灵活地调整分片规则，不需要修改应用程序代码或重新分布数据。不过，这种方式需要维护额外的表，还增加了查询的开销和复杂度。</p>
+</li>
+<li class="lvl-2">
+<p><strong>一致性哈希分片</strong>：将哈希空间组织成一个环形结构，将分片键和节点（数据库或表）都映射到这个环上，然后根据顺时针的规则确定数据或请求应该分配到哪个节点上，解决了传统哈希对动态伸缩不友好的问题。</p>
+</li>
 </ul>
-<h2 id="2-4-要点"><a href="#2-4-要点" class="headerlink" title="2.4 要点"></a>2.4 要点</h2><ol>
-<li><p><strong>水平拆分：</strong> 分库分表是水平拆分的一种形式，与垂直拆分（按照业务模块划分表）不同。水平拆分指的是将一个表中的数据按照某个规则分散存储在多个数据库实例或表中。</p>
+<h2 id="2-4-要点">2.4 要点</h2>
+<ol>
+<li class="lvl-3">
+<p><strong>水平拆分：</strong> 分库分表是水平拆分的一种形式，与垂直拆分（按照业务模块划分表）不同。水平拆分指的是将一个表中的数据按照某个规则分散存储在多个数据库实例或表中。</p>
 </li>
-<li><p><strong>分库：</strong> 将原来的单个数据库拆分成多个独立的数据库。每个数据库实例都可以独立运行在不同的物理服务器上，从而提高并发处理能力。分库通常采用数据划分的规则，比如按照用户ID的取模或哈希值进行分库。</p>
+<li class="lvl-3">
+<p><strong>分库：</strong> 将原来的单个数据库拆分成多个独立的数据库。每个数据库实例都可以独立运行在不同的物理服务器上，从而提高并发处理能力。分库通常采用数据划分的规则，比如按照用户ID的取模或哈希值进行分库。</p>
 </li>
-<li><p><strong>分表：</strong> 在每个数据库中，原来的大表被拆分成多个较小的表。&#x3D;&#x3D;分表的常见策略包括按照时间范围、按照业务模块或按照数据范围等&#x3D;&#x3D;。分表可以减小每个表的数据量，提高查询性能。</p>
+<li class="lvl-3">
+<p><strong>分表：</strong> 在每个数据库中，原来的大表被拆分成多个较小的表。<mark>分表的常见策略包括按照时间范围、按照业务模块或按照数据范围等</mark>。分表可以减小每个表的数据量，提高查询性能。</p>
 </li>
-<li><p><strong>数据一致性：</strong> 在分库分表的架构中，需要考虑数据一致性的问题。因为数据分散在不同的数据库和表中，应用程序需要确保对跨库、跨表的事务有良好的处理机制。</p>
+<li class="lvl-3">
+<p><strong>数据一致性：</strong> 在分库分表的架构中，需要考虑数据一致性的问题。因为数据分散在不同的数据库和表中，应用程序需要确保对跨库、跨表的事务有良好的处理机制。</p>
 </li>
-<li><p><strong>全局唯一标识：</strong> 在分库分表的情况下，通常需要一个全局唯一的标识符，以便在多个数据库和表中唯一标识一条记录。这可以是通过分布式ID生成器、UUID等方式实现的。</p>
+<li class="lvl-3">
+<p><strong>全局唯一标识：</strong> 在分库分表的情况下，通常需要一个全局唯一的标识符，以便在多个数据库和表中唯一标识一条记录。这可以是通过分布式ID生成器、UUID等方式实现的。</p>
 </li>
-<li><p><strong>路由策略：</strong> 应用程序需要实现合适的路由策略，确保查询时能够正确定位到需要的数据库和表。路由策略可以基于数据划分的规则，例如用户ID的哈希值。</p>
+<li class="lvl-3">
+<p><strong>路由策略：</strong> 应用程序需要实现合适的路由策略，确保查询时能够正确定位到需要的数据库和表。路由策略可以基于数据划分的规则，例如用户ID的哈希值。</p>
 </li>
-<li><p><strong>动态扩展：</strong> 分库分表的优势之一是能够相对容易地进行水平扩展。当数据量增加时，可以通过增加新的数据库实例或表来进行扩展，而不必改变整体系统架构。</p>
+<li class="lvl-3">
+<p><strong>动态扩展：</strong> 分库分表的优势之一是能够相对容易地进行水平扩展。当数据量增加时，可以通过增加新的数据库实例或表来进行扩展，而不必改变整体系统架构。</p>
 </li>
 </ol>
-<h1 id="3-数据冷热分离"><a href="#3-数据冷热分离" class="headerlink" title="3 数据冷热分离"></a>3 数据冷热分离</h1><p>数据冷热分离是指根据数据的访问频率和业务重要性，将数据分为冷数据和热数据，冷数据一般存储在存储在低成本、低性能的介质中，热数据高性能存储介质中。</p>
-<ul>
-<li>优点：热数据的查询性能得到优化（用户的绝大部分操作体验会更好）、节约成本（可以冷热数据的不同存储需求，选择对应的数据库类型和硬件配置，比如将热数据放在 SSD 上，将冷数据放在 HDD 上）</li>
-<li>缺点：系统复杂性和风险增加（需要分离冷热数据，数据错误的风险增加）、统计效率低（统计的时候可能需要用到冷库的数据）。</li>
+<h1>3 数据冷热分离</h1>
+<p>数据冷热分离是指根据数据的访问频率和业务重要性，将数据分为冷数据和热数据，冷数据一般存储在存储在低成本、低性能的介质中，热数据高性能存储介质中。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>优点：热数据的查询性能得到优化（用户的绝大部分操作体验会更好）、节约成本（可以冷热数据的不同存储需求，选择对应的数据库类型和硬件配置，比如将热数据放在 SSD 上，将冷数据放在 HDD 上）</p>
+</li>
+<li class="lvl-2">
+<p>缺点：系统复杂性和风险增加（需要分离冷热数据，数据错误的风险增加）、统计效率低（统计的时候可能需要用到冷库的数据）。</p>
+</li>
 </ul>
-<h1 id="4-数据库查询优化"><a href="#4-数据库查询优化" class="headerlink" title="4 数据库查询优化"></a>4 数据库查询优化</h1><ul>
-<li>索引优化：前缀索引优化；覆盖索引优化；主键索引最好是自增的；防止索引失效；</li>
-<li>SQL查询优化：避免使用SELECT *，而是选择需要的列。避免在WHERE子句中使用函数或运算，这可能会导致索引失效。使用LIMIT分页查询时，注意性能问题，可以考虑使用索引覆盖扫描或其他分页技术。</li>
-<li>启用查询缓存：启用MySQL的查询缓存功能，缓存频繁查询且结果不经常变动的查询结果。注意在数据变动频繁的场景下，查询缓存可能会成为性能瓶颈，需要谨慎使用。</li>
-<li>分区和分表：对大表进行分区，将数据水平分割到不同的物理区域，提高查询性能。使用分表技术，如垂直分表或水平分表，将一个大表拆分成多个小表。</li>
+<h1>4 数据库查询优化</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>索引优化：前缀索引优化；覆盖索引优化；主键索引最好是自增的；防止索引失效；</p>
+</li>
+<li class="lvl-2">
+<p>SQL查询优化：避免使用SELECT *，而是选择需要的列。避免在WHERE子句中使用函数或运算，这可能会导致索引失效。使用LIMIT分页查询时，注意性能问题，可以考虑使用索引覆盖扫描或其他分页技术。</p>
+</li>
+<li class="lvl-2">
+<p>启用查询缓存：启用MySQL的查询缓存功能，缓存频繁查询且结果不经常变动的查询结果。注意在数据变动频繁的场景下，查询缓存可能会成为性能瓶颈，需要谨慎使用。</p>
+</li>
+<li class="lvl-2">
+<p>分区和分表：对大表进行分区，将数据水平分割到不同的物理区域，提高查询性能。使用分表技术，如垂直分表或水平分表，将一个大表拆分成多个小表。</p>
+</li>
 </ul>
-<h1 id="5-MySQL慢查询排查"><a href="#5-MySQL慢查询排查" class="headerlink" title="5 MySQL慢查询排查"></a>5 MySQL慢查询排查</h1><ol>
-<li><strong>开启慢查询日志</strong>：</li>
+<h1>5 MySQL慢查询排查</h1>
+<ol>
+<li class="lvl-3">
+<p><strong>开启慢查询日志</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>确保MySQL的慢查询日志已经开启。通过查看<code>slow_query_log</code>和<code>slow_query_log_file</code>变量来确认。</li>
-<li>如果没有开启，可以在MySQL配置文件（如<code>my.cnf</code>或<code>my.ini</code>）中设置这些变量，然后重启MySQL服务。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>确保MySQL的慢查询日志已经开启。通过查看<code>slow_query_log</code>和<code>slow_query_log_file</code>变量来确认。</p>
+</li>
+<li class="lvl-2">
+<p>如果没有开启，可以在MySQL配置文件（如<code>my.cnf</code>或<code>my.ini</code>）中设置这些变量，然后重启MySQL服务。</p>
+</li>
 </ul>
 <ol start="2">
-<li><strong>分析慢查询日志</strong>：</li>
+<li class="lvl-3">
+<p><strong>分析慢查询日志</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>使用<code>mysqldumpslow</code>或其他慢查询日志分析工具来查看和分析慢查询日志中的条目。</li>
-<li>关注查询的执行时间、锁等待时间以及被调用的次数等信息。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用<code>mysqldumpslow</code>或其他慢查询日志分析工具来查看和分析慢查询日志中的条目。</p>
+</li>
+<li class="lvl-2">
+<p>关注查询的执行时间、锁等待时间以及被调用的次数等信息。</p>
+</li>
 </ul>
 <ol start="3">
-<li><strong>使用<code>EXPLAIN</code>命令</strong>：</li>
+<li class="lvl-3">
+<p><strong>使用<code>EXPLAIN</code>命令</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>对于日志中记录的慢查询，使用<code>EXPLAIN</code>命令来&#x3D;&#x3D;查看查询的执行计划&#x3D;&#x3D;。</li>
-<li>分析查询是否使用了合适的索引，以及是否存在全表扫描等低效操作。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于日志中记录的慢查询，使用<code>EXPLAIN</code>命令来<mark>查看查询的执行计划</mark>。</p>
+</li>
+<li class="lvl-2">
+<p>分析查询是否使用了合适的索引，以及是否存在全表扫描等低效操作。</p>
+</li>
 </ul>
 <ol start="4">
-<li><strong>优化查询</strong>：</li>
+<li class="lvl-3">
+<p><strong>优化查询</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>根据<code>EXPLAIN</code>的输出结果，优化查询语句，比如添加或修改索引。</li>
-<li>避免在查询中使用<code>*</code>，而是指定需要的列。</li>
-<li>减少JOIN操作的数量或复杂性，特别是在大数据集上。</li>
-<li>考虑将计算密集型的操作移到应用层进行。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>根据<code>EXPLAIN</code>的输出结果，优化查询语句，比如添加或修改索引。</p>
+</li>
+<li class="lvl-2">
+<p>避免在查询中使用<code>*</code>，而是指定需要的列。</p>
+</li>
+<li class="lvl-2">
+<p>减少JOIN操作的数量或复杂性，特别是在大数据集上。</p>
+</li>
+<li class="lvl-2">
+<p>考虑将计算密集型的操作移到应用层进行。</p>
+</li>
 </ul>
-<p>作者：BAT后端A师兄<br>链接：<a href="https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users">https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users</a><br>来源：牛客网</p>
+<p>作者：BAT后端A师兄<br>
+链接：<a href="https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users">https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users</a><br>
+来源：牛客网</p>
 
     </div>
 

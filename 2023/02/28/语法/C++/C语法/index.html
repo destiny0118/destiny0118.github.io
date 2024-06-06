@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="&lt;stdio.h&gt; scanf  读取空格、换行符  #include &lt;stdio.h&gt;int main() &amp;#123;    int a;    char c;    scanf(&quot;%d&quot;, &amp;a);    scanf(&quot;%c&quot;, &amp;c);    if (c &#x3D;&#x3D; &amp;#x27;\n&amp;#x27;)        p">
+    <meta name="description" content="&lt;stdio.h&gt;   scanf  读取空格、换行符  #include &lt;stdio.h&gt;int main() &amp;#123;    int a;    char c;    scanf(&quot;%d&quot;, &amp;a);    scanf(&quot;%c&quot;, &amp;c);    if (c &#x3D;&#x3D; &amp;#x27;\n&amp;#x27;)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C语法">
 <meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="&lt;stdio.h&gt; scanf  读取空格、换行符  #include &lt;stdio.h&gt;int main() &amp;#123;    int a;    char c;    scanf(&quot;%d&quot;, &amp;a);    scanf(&quot;%c&quot;, &amp;c);    if (c &#x3D;&#x3D; &amp;#x27;\n&amp;#x27;)        p">
+<meta property="og:description" content="&lt;stdio.h&gt;   scanf  读取空格、换行符  #include &lt;stdio.h&gt;int main() &amp;#123;    int a;    char c;    scanf(&quot;%d&quot;, &amp;a);    scanf(&quot;%c&quot;, &amp;c);    if (c &#x3D;&#x3D; &amp;#x27;\n&amp;#x27;)">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133356.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133436.png">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lt-stdio-h-gt"><span class="nav-text">&lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">1. 初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%B5%8B%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">1. 赋值表达式</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">&lt;stdio.h&gt;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text">1. 初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%B5%8B%E5%80%BC%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">1. 赋值表达式</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -287,29 +287,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="lt-stdio-h-gt"><a href="#lt-stdio-h-gt" class="headerlink" title="&lt;stdio.h&gt;"></a>&lt;stdio.h&gt;</h1><ul>
-<li><p>scanf</p>
+        <h1>&lt;stdio.h&gt;</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>scanf</p>
 <blockquote>
 <p>读取空格、换行符</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;c);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;****\n&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;^^^^\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %c\n&quot;</span>, a, c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133356.png" alt="image-20210406120658645"></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133436.png" alt="image-20210406120721087"></p>
 </li>
-<li></li>
+<li class="lvl-2">
+</li>
 </ul>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><blockquote>
+<h1>数组</h1>
+<h2 id="1-初始化">1. 初始化</h2>
+<blockquote>
 <p>int a[10];	声明，未初始化</p>
-<p>int a[10]&#x3D;{0};  &#x2F;&#x2F;全部初始化为0</p>
-<p>int a[10]&#x3D;{1};	&#x2F;&#x2F;第一个元素为1，后面初始化为0</p>
+<p>int a[10]={0};  //全部初始化为0</p>
+<p>int a[10]={1};	//第一个元素为1，后面初始化为0</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>], b[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;, c[<span class="number">10</span>] = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(b) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, b[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(c) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, c[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210411175728807.png" alt="image-20210411175728807"></p>
-<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="1-赋值表达式"><a href="#1-赋值表达式" class="headerlink" title="1. 赋值表达式"></a>1. 赋值表达式</h2><p>结果输出10</p>
+<h1>表达式</h1>
+<h2 id="1-赋值表达式">1. 赋值表达式</h2>
+<p>结果输出10</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    c = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a = b = c);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 

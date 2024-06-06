@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="strpbrk 检索字符串 str1 中第一个匹配字符串 str2 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。  char *strpbrk(const char *str1, const char *str2)  str1 – 要被检索的 C 字符串。 str2 – 该字符串包含了要在 str1">
+    <meta name="description" content="strpbrk  检索字符串 str1 中第一个匹配字符串 str2 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。  char *strpbrk(const char *str1, const char *str2)  str1 – 要被检索的 C 字符串。 str2 – 该字符串包含了要在 str1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/11/08/%E8%AF%AD%E6%B3%95/Linux%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="strpbrk 检索字符串 str1 中第一个匹配字符串 str2 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。  char *strpbrk(const char *str1, const char *str2)  str1 – 要被检索的 C 字符串。 str2 – 该字符串包含了要在 str1">
+<meta property="og:description" content="strpbrk  检索字符串 str1 中第一个匹配字符串 str2 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。  char *strpbrk(const char *str1, const char *str2)  str1 – 要被检索的 C 字符串。 str2 – 该字符串包含了要在 str1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-08T06:53:08.045Z">
 <meta property="article:modified_time" content="2023-11-09T13:43:32.833Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#strpbrk"><span class="nav-text">strpbrk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strcasecmp"><span class="nav-text">strcasecmp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strspn"><span class="nav-text">strspn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strchr"><span class="nav-text">strchr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strrchr"><span class="nav-text">strrchr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strcpy"><span class="nav-text">strcpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strncpy"><span class="nav-text">strncpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stdio-h"><span class="nav-text">stdio.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flush"><span class="nav-text">flush</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#snprintf"><span class="nav-text">snprintf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stat"><span class="nav-text">stat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E5%A4%84%E7%90%86"><span class="nav-text">函数参数处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#va-start"><span class="nav-text">va_start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vsnprintf"><span class="nav-text">vsnprintf</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#strpbrk"><span class="nav-text">strpbrk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strcasecmp"><span class="nav-text">strcasecmp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strspn"><span class="nav-text">strspn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strchr"><span class="nav-text">strchr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strrchr"><span class="nav-text">strrchr</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strcpy"><span class="nav-text">strcpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#strncpy"><span class="nav-text">strncpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stdio-h"><span class="nav-text">stdio.h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flush"><span class="nav-text">flush</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#snprintf"><span class="nav-text">snprintf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stat"><span class="nav-text">stat</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">函数参数处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#va-start"><span class="nav-text">va_start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vsnprintf"><span class="nav-text">vsnprintf</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,112 +274,170 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="strpbrk"><a href="#strpbrk" class="headerlink" title="strpbrk"></a>strpbrk</h2><blockquote>
+        <h2 id="strpbrk">strpbrk</h2>
+<blockquote>
 <p>检索字符串 <strong>str1</strong> 中第一个匹配字符串 <strong>str2</strong> 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strpbrk</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str1</strong> – 要被检索的 C 字符串。</li>
-<li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
+<ul class="lvl-0">
+<li class="lvl-2"><strong>str1</strong> – 要被检索的 C 字符串。</li>
+<li class="lvl-2"><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
 </ul>
-<h2 id="strcasecmp"><a href="#strcasecmp" class="headerlink" title="strcasecmp"></a>strcasecmp</h2><blockquote>
-<p>判断字符串是否相等的函数，忽略大小写。s1和s2中的所有字母字符在比较之前都转换为小写。该strcasecmp()函数对空终止字符串进行操作。<br>函数的字符串参数应包含一个(’\0’)标记字符串结尾的空字符。</p>
+<h2 id="strcasecmp">strcasecmp</h2>
+<blockquote>
+<p>判断字符串是否相等的函数，忽略大小写。s1和s2中的所有字母字符在比较之前都转换为小写。该strcasecmp()函数对空终止字符串进行操作。函数的字符串参数应包含一个(’\0’)标记字符串结尾的空字符。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">strcasecmp</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *s1, <span class="type">const</span> <span class="type">char</span> *s2)</span></span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="strspn"><a href="#strspn" class="headerlink" title="strspn"></a>strspn</h2><blockquote>
+<h2 id="strspn">strspn</h2>
+<blockquote>
 <p>检索字符串 <strong>str1</strong> 中第一个不在字符串 <strong>str2</strong> 中出现的字符下标</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">strspn</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str1</strong> – 要被检索的 C 字符串。</li>
-<li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
-<li>返回 str1 中第一个不在字符串 str2 中出现的字符下标。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>str1</strong> – 要被检索的 C 字符串。</p>
+</li>
+<li class="lvl-2">
+<p><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</p>
+</li>
+<li class="lvl-2">
+<p>返回 str1 中第一个不在字符串 str2 中出现的字符下标。</p>
+</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> *s1 = <span class="string">&quot;abcdef ghj\tio&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s2 = <span class="string">&quot; \t&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s3 = <span class="string">&quot;ghj&quot;</span>;</span><br><span class="line">    cout &lt;&lt; *(s1 + <span class="number">7</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="type">char</span> *res = <span class="built_in">strpbrk</span>(s1 + <span class="number">7</span>, s2);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="built_in">strspn</span>(s1 + <span class="number">7</span>, s3) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g</span><br><span class="line"><span class="number">3</span></span><br><span class="line">\tio</span><br></pre></td></tr></table></figure>
-<h2 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h2><blockquote>
+<h2 id="strchr">strchr</h2>
+<blockquote>
 <p>在参数 <strong>str</strong> 所指向的字符串中搜索第一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str</strong> – 要查找的字符串。</li>
-<li><strong>c</strong> – 要查找的字符。</li>
-<li>如果在字符串 str 中找到字符 c，则函数返回指向该字符的指针，如果未找到该字符则返回 NULL。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>str</strong> – 要查找的字符串。</p>
+</li>
+<li class="lvl-2">
+<p><strong>c</strong> – 要查找的字符。</p>
+</li>
+<li class="lvl-2">
+<p>如果在字符串 str 中找到字符 c，则函数返回指向该字符的指针，如果未找到该字符则返回 NULL。</p>
+</li>
 </ul>
-<h2 id="strrchr"><a href="#strrchr" class="headerlink" title="strrchr"></a>strrchr</h2><blockquote>
+<h2 id="strrchr">strrchr</h2>
+<blockquote>
 <p>在参数 <strong>str</strong> 所指向的字符串中搜索最后一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strrchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str</strong> – C 字符串。</li>
-<li><strong>c</strong> – 要搜索的字符，通常以整数形式传递（ASCII 值），但是最终会转换回 char 形式。</li>
-<li>strrchr() 函数从字符串的末尾开始向前搜索，直到找到指定的字符或搜索完整个字符串。如果找到字符，它将返回一个指向该字符的指针，否则返回 NULL。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>str</strong> – C 字符串。</p>
+</li>
+<li class="lvl-2">
+<p><strong>c</strong> – 要搜索的字符，通常以整数形式传递（ASCII 值），但是最终会转换回 char 形式。</p>
+</li>
+<li class="lvl-2">
+<p>strrchr() 函数从字符串的末尾开始向前搜索，直到找到指定的字符或搜索完整个字符串。如果找到字符，它将返回一个指向该字符的指针，否则返回 NULL。</p>
+</li>
 </ul>
-<h2 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy"></a>strcpy</h2><blockquote>
-<p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>。<br>需要注意的是如果目标数组 dest 不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。</p>
+<h2 id="strcpy">strcpy</h2>
+<blockquote>
+<p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>。需要注意的是如果目标数组 dest 不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy"></a>strncpy</h2><blockquote>
+<h2 id="strncpy">strncpy</h2>
+<blockquote>
 <p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>，最多复制 <strong>n</strong> 个字符。当 src 的长度小于 n 时，dest 的剩余部分将用空字节填充。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>dest</strong> – 指向用于存储复制内容的目标数组。</li>
-<li><strong>src</strong> – 要复制的字符串。</li>
-<li><strong>n</strong> – 要从源中复制的字符数。</li>
-<li>该函数返回最终复制的字符串。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>dest</strong> – 指向用于存储复制内容的目标数组。</p>
+</li>
+<li class="lvl-2">
+<p><strong>src</strong> – 要复制的字符串。</p>
+</li>
+<li class="lvl-2">
+<p><strong>n</strong> – 要从源中复制的字符数。</p>
+</li>
+<li class="lvl-2">
+<p>该函数返回最终复制的字符串。</p>
+</li>
 </ul>
-<h2 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a>stdio.h</h2><h2 id="flush"><a href="#flush" class="headerlink" title="flush"></a>flush</h2><blockquote>
+<h2 id="stdio-h">stdio.h</h2>
+<h2 id="flush">flush</h2>
+<blockquote>
 <p>刷新流 stream 的输出缓冲区，将缓冲区中的内容写到stream所指的文件中区</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>stream</strong> – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个缓冲流</li>
-<li>如果成功，该函数返回零值。如果发生错误，则返回 EOF，且设置错误标识符（即 feof）。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>stream</strong> – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个缓冲流</p>
+</li>
+<li class="lvl-2">
+<p>如果成功，该函数返回零值。如果发生错误，则返回 EOF，且设置错误标识符（即 feof）。</p>
+</li>
 </ul>
 <p><a href="https://blog.csdn.net/ShenHang_/article/details/114968557">fflush()函数-CSDN博客</a></p>
-<h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><blockquote>
-<p>用于格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。<br>将可变参数**(…)<strong>按照 <strong>format</strong> 格式化成字符串，并将字符串复制到 <strong>str</strong> 中，</strong>size** 为要写入的字符的最大数目，超过 <strong>size</strong> 会被截断，最多写入 size-1 个字符，并在字符串的末尾添加一个空字符（\0）以表示字符串的结束。</p>
+<h2 id="snprintf">snprintf</h2>
+<blockquote>
+<p>用于格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。将可变参数**(…)**按照 <strong>format</strong> 格式化成字符串，并将字符串复制到 <strong>str</strong> 中，<strong>size</strong> 为要写入的字符的最大数目，超过 <strong>size</strong> 会被截断，最多写入 size-1 个字符，并在字符串的末尾添加一个空字符（\0）以表示字符串的结束。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">snprintf</span> <span class="params">( <span class="type">char</span> * str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> * format, ... )</span></span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>str</strong> – 目标字符串，用于存储格式化后的字符串的字符数组的指针。</li>
-<li><strong>size</strong> – 字符数组的大小。</li>
-<li><strong>format</strong> – 格式化字符串。</li>
-<li><strong>…</strong> – 可变参数，可变数量的参数根据 format 中的格式化指令进行格式化。</li>
-<li>snprintf() 函数的返回值是输出到 str 缓冲区中的字符数，不包括字符串结尾的空字符 \0。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>str</strong> – 目标字符串，用于存储格式化后的字符串的字符数组的指针。</p>
+</li>
+<li class="lvl-2">
+<p><strong>size</strong> – 字符数组的大小。</p>
+</li>
+<li class="lvl-2">
+<p><strong>format</strong> – 格式化字符串。</p>
+</li>
+<li class="lvl-2">
+<p><strong>…</strong> – 可变参数，可变数量的参数根据 format 中的格式化指令进行格式化。</p>
+</li>
+<li class="lvl-2">
+<p>snprintf() 函数的返回值是输出到 str 缓冲区中的字符数，不包括字符串结尾的空字符 \0。</p>
+</li>
 </ul>
-<h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><blockquote>
+<h2 id="stat">stat</h2>
+<blockquote>
 <p>获取文件状态</p>
 </blockquote>
 <p><a href="https://www.cnblogs.com/jikexianfeng/p/5742887.html">C语言stat()函数：获取文件状态 - 极客先锋 - 博客园 (cnblogs.com)</a></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;uninstd.h&gt;</span></span></span><br><span class="line"><span class="comment">//将参数file_name 所指的文件状态, 复制到参数buf 所指的结构中。</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">stat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * file_name, <span class="keyword">struct</span> stat *buf)</span></span></span><br><span class="line"><span class="function"><span class="keyword">struct</span> stat </span>&#123;</span><br><span class="line">    <span class="type">dev_t</span> st_dev; <span class="comment">//device 文件的设备编号</span></span><br><span class="line">    <span class="type">ino_t</span> st_ino; <span class="comment">//inode 文件的i-node</span></span><br><span class="line">    <span class="type">mode_t</span> st_mode; <span class="comment">//protection 文件的类型和存取的权限</span></span><br><span class="line">    <span class="type">nlink_t</span> st_nlink; <span class="comment">//number of hard links 连到该文件的硬连接数目, 刚建立的文件值为1.</span></span><br><span class="line">    <span class="type">uid_t</span> st_uid; <span class="comment">//user ID of owner 文件所有者的用户识别码</span></span><br><span class="line">    <span class="type">gid_t</span> st_gid; <span class="comment">//group ID of owner 文件所有者的组识别码</span></span><br><span class="line">    <span class="type">dev_t</span> st_rdev; <span class="comment">//device type 若此文件为装置设备文件, 则为其设备编号</span></span><br><span class="line">    <span class="type">off_t</span> st_size; <span class="comment">//total size, in bytes 文件大小, 以字节计算</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> st_blksize; <span class="comment">//blocksize for filesystem I/O 文件系统的I/O 缓冲区大小.</span></span><br><span class="line">    u nsigned <span class="type">long</span> st_blocks; <span class="comment">//number of blocks allocated 占用文件区块的个数, 每一区块大小为512 个字节.</span></span><br><span class="line">    <span class="type">time_t</span> st_atime; <span class="comment">//time of lastaccess 文件最近一次被存取或被执行的时间, 一般只有在用mknod、 utime、read、write 与tructate 时改变.</span></span><br><span class="line">    <span class="type">time_t</span> st_mtime; <span class="comment">//time of last modification 文件最后一次被修改的时间, 一般只有在用mknod、 utime 和write 时才会改变</span></span><br><span class="line">    <span class="type">time_t</span> st_ctime; <span class="comment">//time of last change i-node 最近一次被更改的时间, 此参数会在文件所有者、组、 权限被更改时更新</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="函数参数处理"><a href="#函数参数处理" class="headerlink" title="函数参数处理"></a>函数参数处理</h1><h2 id="va-start"><a href="#va-start" class="headerlink" title="va_start"></a>va_start</h2><blockquote>
+<h1>函数参数处理</h1>
+<h2 id="va-start">va_start</h2>
+<blockquote>
 <p>初始化 <strong>ap</strong> 变量，它与 <strong>va_arg</strong> 和 <strong>va_end</strong> 宏是一起使用的。<strong>last_arg</strong> 是最后一个传递给函数的已知的固定参数，即省略号之前的参数。</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">va_start</span><span class="params">(va_list ap, last_arg)</span></span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>ap</strong> – 这是一个 <strong>va_list</strong> 类型的对象，它用来存储通过 <strong>va_arg</strong> 获取额外参数时所必需的信息。</li>
-<li><strong>last_arg</strong> – 最后一个传递给函数的已知的固定参数。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>ap</strong> – 这是一个 <strong>va_list</strong> 类型的对象，它用来存储通过 <strong>va_arg</strong> 获取额外参数时所必需的信息。</p>
+</li>
+<li class="lvl-2">
+<p><strong>last_arg</strong> – 最后一个传递给函数的已知的固定参数。</p>
+</li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sum(3,10,20,30)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> num_args, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">   va_list ap;</span><br><span class="line">   <span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">va_start</span>(ap, num_args);</span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; num_args; i++)</span><br><span class="line">   &#123;</span><br><span class="line">      val += <span class="built_in">va_arg</span>(ap, <span class="type">int</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">va_end</span>(ap);</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="vsnprintf"><a href="#vsnprintf" class="headerlink" title="vsnprintf"></a>vsnprintf</h2><p><a href="https://blog.csdn.net/u012351051/article/details/106414950">sprintf、snprintf、vsprintf、vsnprintf格式化函数分析_c++ sprintf vsprintf详解-CSDN博客</a></p>
+<h2 id="vsnprintf">vsnprintf</h2>
+<p><a href="https://blog.csdn.net/u012351051/article/details/106414950">sprintf、snprintf、vsprintf、vsnprintf格式化函数分析_c++ sprintf vsprintf详解-CSDN博客</a></p>
 <blockquote>
 <p>使用参数列表发送格式化输出到字符串</p>
 </blockquote>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">vsnprintf</span><span class="params">(<span class="type">char</span> *str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> *format, va_list ap)</span></span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>str – 目标字符串。 </li>
-<li>size – 最大格式化的字符长度。 </li>
-<li>format – 格式化模式 </li>
-<li>arg – 可变参数列表对象，应由&lt;stdarg&gt;中定义的va_start 宏初始化。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>str – 目标字符串。</p>
+</li>
+<li class="lvl-2">
+<p>size – 最大格式化的字符长度。</p>
+</li>
+<li class="lvl-2">
+<p>format – 格式化模式</p>
+</li>
+<li class="lvl-2">
+<p>arg – 可变参数列表对象，应由&lt;stdarg&gt;中定义的va_start 宏初始化。</p>
+</li>
 </ul>
 
     </div>

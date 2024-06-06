@@ -152,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89"><span class="nav-text">JMM（Java内存模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%92%8CJMM"><span class="nav-text">Java内存区域和JMM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#happens-before"><span class="nav-text">happens-before</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#happens-before%E5%8E%9F%E5%88%99"><span class="nav-text">happens-before原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">JMM（Java内存模型）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%92%8CJMM"><span class="nav-text">Java内存区域和JMM</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">happens-before</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#happens-before%E5%8E%9F%E5%88%99"><span class="nav-text">happens-before原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -281,33 +281,65 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="JMM（Java内存模型）"><a href="#JMM（Java内存模型）" class="headerlink" title="JMM（Java内存模型）"></a>JMM（Java内存模型）</h1><blockquote>
+        <h1>JMM（Java内存模型）</h1>
+<blockquote>
 <p>JMM 看作是 Java 定义的并发编程相关的一组规范，除了抽象了线程和主内存之间的关系之外，其还规定了从 Java 源代码到 CPU 可执行指令的这个转化过程要遵守哪些和并发相关的原则和规范，其主要目的是为了简化多线程编程，增强程序可移植性的。</p>
 </blockquote>
 <p><strong>为什么要遵守这些并发相关的原则和规范呢？</strong> 这是因为并发编程下，像 CPU 多级缓存和指令重排这类设计可能会导致程序运行出现一些问题。就比如说我们上面提到的指令重排序就可能会让多线程程序的执行出现问题，为此，JMM 抽象了 happens-before 原则（后文会详细介绍到）来解决这个指令重排序问题。</p>
 <p>JMM(Java 内存模型)主要定义了对于一个共享变量，当另一个线程对这个共享变量执行写操作后，这个线程对这个共享变量的可见性。</p>
-<ul>
-<li><strong>主内存</strong>：所有线程创建的实例对象都存放在主内存中，不管该实例对象是成员变量，还是局部变量，类信息、常量、静态变量都是放在主内存中。为了获取更好的运行速度，虚拟机及硬件系统可能会让工作内存优先存储于寄存器和高速缓存中。</li>
-<li><strong>本地内存</strong>：每个线程都有一个私有的本地内存，本地内存存储了该线程以读 &#x2F; 写共享变量的副本。每个线程只能操作自己本地内存中的变量，无法直接访问其他线程的本地内存。如果线程间需要通信，必须通过主内存来进行。本地内存是 JMM 抽象出来的一个概念，并不真实存在，它涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405161021546.png" alt="image.png"></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>主内存</strong>：所有线程创建的实例对象都存放在主内存中，不管该实例对象是成员变量，还是局部变量，类信息、常量、静态变量都是放在主内存中。为了获取更好的运行速度，虚拟机及硬件系统可能会让工作内存优先存储于寄存器和高速缓存中。</p>
+</li>
+<li class="lvl-2">
+<p><strong>本地内存</strong>：每个线程都有一个私有的本地内存，本地内存存储了该线程以读 / 写共享变量的副本。每个线程只能操作自己本地内存中的变量，无法直接访问其他线程的本地内存。如果线程间需要通信，必须通过主内存来进行。本地内存是 JMM 抽象出来的一个概念，并不真实存在，它涵盖了缓存、写缓冲区、寄存器以及其他的硬件和编译器优化。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405161021546.png" alt="image.png"></p>
+</li>
 </ul>
-<h2 id="Java内存区域和JMM"><a href="#Java内存区域和JMM" class="headerlink" title="Java内存区域和JMM"></a>Java内存区域和JMM</h2><ul>
-<li><strong>JVM 内存结构和 Java 虚拟机的运行时区域相关</strong>，定义了 JVM 在运行时如何分区存储程序数据，就比如说堆主要用于存放对象实例。</li>
-<li><strong>Java 内存模型和 Java 的并发编程相关</strong>，抽象了线程和主内存之间的关系就比如说线程之间的共享变量必须存储在主内存中，规定了从 Java 源代码到 CPU 可执行指令的这个转化过程要遵守哪些和并发相关的原则和规范，其主要目的是为了简化多线程编程，增强程序可移植性的。多线程环境下对共享变量的访问</li>
+<h2 id="Java内存区域和JMM">Java内存区域和JMM</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>JVM 内存结构和 Java 虚拟机的运行时区域相关</strong>，定义了 JVM 在运行时如何分区存储程序数据，就比如说堆主要用于存放对象实例。</p>
+</li>
+<li class="lvl-2">
+<p><strong>Java 内存模型和 Java 的并发编程相关</strong>，抽象了线程和主内存之间的关系就比如说线程之间的共享变量必须存储在主内存中，规定了从 Java 源代码到 CPU 可执行指令的这个转化过程要遵守哪些和并发相关的原则和规范，其主要目的是为了简化多线程编程，增强程序可移植性的。多线程环境下对共享变量的访问</p>
+</li>
 </ul>
-<h1 id="happens-before"><a href="#happens-before" class="headerlink" title="happens-before"></a>happens-before</h1><p><strong>为什么需要 happens-before 原则？</strong> happens-before 原则的诞生是为了程序员和编译器、处理器之间的平衡。程序员追求的是易于理解和编程的强内存模型，遵守既定规则编码即可。编译器和处理器追求的是较少约束的弱内存模型，让它们尽己所能地去优化性能，让性能最大化。happens-before 原则的设计思想其实非常简单：</p>
-<ul>
-<li>为了对编译器和处理器的约束尽可能少，只要不改变程序的执行结果（单线程程序和正确执行的多线程程序），编译器和处理器怎么进行重排序优化都行。</li>
-<li>对于会改变程序执行结果的重排序，JMM 要求编译器和处理器必须禁止这种重排序。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405201015529.png" alt="image.png|350"></li>
+<h1>happens-before</h1>
+<p><strong>为什么需要 happens-before 原则？</strong> happens-before 原则的诞生是为了程序员和编译器、处理器之间的平衡。程序员追求的是易于理解和编程的强内存模型，遵守既定规则编码即可。编译器和处理器追求的是较少约束的弱内存模型，让它们尽己所能地去优化性能，让性能最大化。happens-before 原则的设计思想其实非常简单：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>为了对编译器和处理器的约束尽可能少，只要不改变程序的执行结果（单线程程序和正确执行的多线程程序），编译器和处理器怎么进行重排序优化都行。</p>
+</li>
+<li class="lvl-2">
+<p>对于会改变程序执行结果的重排序，JMM 要求编译器和处理器必须禁止这种重排序。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405201015529.png" alt="image.png|350"></p>
+</li>
 </ul>
-<h2 id="happens-before原则"><a href="#happens-before原则" class="headerlink" title="happens-before原则"></a>happens-before原则</h2><ul>
-<li><strong>程序顺序规则</strong>：一个线程内，按照代码顺序，书写在前面的操作 happens-before 于书写在后面的操作；</li>
-<li><strong>解锁规则</strong>：解锁 happens-before 于加锁；</li>
-<li><strong>volatile 变量规则</strong>：对一个 volatile 变量的写操作 happens-before 于后面对这个 volatile 变量的读操作。说白了就是对 volatile 变量的写操作的结果对于发生于其后的任何操作都是可见的。</li>
-<li><strong>传递规则</strong>：如果 A happens-before B，且 B happens-before C，那么 A happens-before C；</li>
-<li><strong>线程启动规则</strong>：Thread 对象的 <code>start()</code>方法 happens-before 于此线程的每一个动作。</li>
-<li><strong>join()规则</strong>：如果线程A执行操作ThreadB.join()并成功返回，那么线程B中的任意操作happens-before于线程A从ThreadB.join()操作成功返回。</li>
+<h2 id="happens-before原则">happens-before原则</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>程序顺序规则</strong>：一个线程内，按照代码顺序，书写在前面的操作 happens-before 于书写在后面的操作；</p>
+</li>
+<li class="lvl-2">
+<p><strong>解锁规则</strong>：解锁 happens-before 于加锁；</p>
+</li>
+<li class="lvl-2">
+<p><strong>volatile 变量规则</strong>：对一个 volatile 变量的写操作 happens-before 于后面对这个 volatile 变量的读操作。说白了就是对 volatile 变量的写操作的结果对于发生于其后的任何操作都是可见的。</p>
+</li>
+<li class="lvl-2">
+<p><strong>传递规则</strong>：如果 A happens-before B，且 B happens-before C，那么 A happens-before C；</p>
+</li>
+<li class="lvl-2">
+<p><strong>线程启动规则</strong>：Thread 对象的 <code>start()</code>方法 happens-before 于此线程的每一个动作。</p>
+</li>
+<li class="lvl-2">
+<p><strong>join()规则</strong>：如果线程A执行操作ThreadB.join()并成功返回，那么线程B中的任意操作happens-before于线程A从ThreadB.join()操作成功返回。</p>
+</li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://zhuanlan.zhihu.com/p/126275344">happens-before是什么？JMM最最核心的概念，看完你就懂了 - 知乎 (zhihu.com)</a><br><a href="https://javaguide.cn/java/concurrent/jmm.html">JMM（Java 内存模型）详解 | JavaGuide</a></p>
+<h1>参考</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/126275344">happens-before是什么？JMM最最核心的概念，看完你就懂了 - 知乎 (zhihu.com)</a><br>
+<a href="https://javaguide.cn/java/concurrent/jmm.html">JMM（Java 内存模型）详解 | JavaGuide</a></p>
 
     </div>
 

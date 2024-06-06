@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-init"><span class="nav-text">mysql_init()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-real-connect"><span class="nav-text">mysql_real_connect()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-query"><span class="nav-text">mysql_query()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-real-query"><span class="nav-text">mysql_real_query()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-store-result"><span class="nav-text">mysql_store_result()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-use-result"><span class="nav-text">mysql_use_result()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E9%9B%86%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-text">结果集相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-fetch-row"><span class="nav-text">mysql_fetch_row()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-num-rows"><span class="nav-text">mysql_num_rows()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-num-fields"><span class="nav-text">mysql_num_fields()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-field-count"><span class="nav-text">mysql_field_count()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">mysql_init()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">mysql_real_connect()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">mysql_query()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">mysql_real_query()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">mysql_store_result()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">mysql_use_result()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">结果集相关函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-fetch-row"><span class="nav-text">mysql_fetch_row()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-num-rows"><span class="nav-text">mysql_num_rows()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-num-fields"><span class="nav-text">mysql_num_fields()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-field-count"><span class="nav-text">mysql_field_count()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,86 +275,124 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="mysql-init"><a href="#mysql-init" class="headerlink" title="mysql_init()"></a>mysql_init()</h1><p><code>MYSQL *mysql_init(MYSQL *mysql)</code></p>
-<ul>
-<li>初始化MYSQL数据结构，返回MYSQL指针。</li>
-<li>成功时返回指向MYSQL结构体的指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
+        <h1>mysql_init()</h1>
+<p><code>MYSQL *mysql_init(MYSQL *mysql)</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">初始化MYSQL数据结构，返回MYSQL指针。</li>
+<li class="lvl-2">成功时返回指向MYSQL结构体的指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
 </ul>
-<h1 id="mysql-real-connect"><a href="#mysql-real-connect" class="headerlink" title="mysql_real_connect()"></a>mysql_real_connect()</h1><p><code>MYSQL *mysql_real_connect(MYSQL *mysql, const char *host, const char *user, const char *passwd, const char *db, unsigned int port, const char *unix_socket, unsigned long clientflag)</code></p>
-<ul>
-<li>建立Mysql服务器连接</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>host：MySQL服务器名称或IP地址。</li>
-<li>user：登录MySQL服务器的用户名。</li>
-<li>passwd：登录MySQL服务器的密码。</li>
-<li>db：要连接的数据库名称。</li>
-<li>port：MySQL服务器端口号。</li>
-<li>unix_socket：UNIX套接字文件路径。</li>
-<li>clientflag：客户端标志位。</li>
-<li>返回值说明：成功时返回指向MYSQL结构体的指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
+<h1>mysql_real_connect()</h1>
+<p><code>MYSQL *mysql_real_connect(MYSQL *mysql, const char *host, const char *user, const char *passwd, const char *db, unsigned int port, const char *unix_socket, unsigned long clientflag)</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">建立Mysql服务器连接</li>
+<li class="lvl-2">mysql：MYSQL结构体指针变量。</li>
+<li class="lvl-2">host：MySQL服务器名称或IP地址。</li>
+<li class="lvl-2">user：登录MySQL服务器的用户名。</li>
+<li class="lvl-2">passwd：登录MySQL服务器的密码。</li>
+<li class="lvl-2">db：要连接的数据库名称。</li>
+<li class="lvl-2">port：MySQL服务器端口号。</li>
+<li class="lvl-2">unix_socket：UNIX套接字文件路径。</li>
+<li class="lvl-2">clientflag：客户端标志位。</li>
+<li class="lvl-2">返回值说明：成功时返回指向MYSQL结构体的指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
 </ul>
-<h1 id="mysql-query"><a href="#mysql-query" class="headerlink" title="mysql_query()"></a>mysql_query()</h1><p><code>int mysql_query(MYSQL *mysql, const char *stmt_str)</code></p>
-<ul>
-<li>执行一条SQL查询语句或更新语句。</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>stmt_str：要执行的SQL语句字符串。</li>
-<li>返回值说明：成功时返回0，失败时返回非0错误代码（通过mysql_errno()获取）。</li>
+<h1>mysql_query()</h1>
+<p><code>int mysql_query(MYSQL *mysql, const char *stmt_str)</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">执行一条SQL查询语句或更新语句。</li>
+<li class="lvl-2">mysql：MYSQL结构体指针变量。</li>
+<li class="lvl-2">stmt_str：要执行的SQL语句字符串。</li>
+<li class="lvl-2">返回值说明：成功时返回0，失败时返回非0错误代码（通过mysql_errno()获取）。</li>
 </ul>
-<h1 id="mysql-real-query"><a href="#mysql-real-query" class="headerlink" title="mysql_real_query()"></a>mysql_real_query()</h1><p><code>int mysql_real_query(MYSQL *mysql, const char *stmt_str, unsigned long length)</code></p>
-<ul>
-<li>执行一条SQL查询语句或更新语句。</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>stmt_str：要执行的SQL语句字符串。</li>
-<li>length：SQL语句长度。</li>
-<li>返回值说明：成功时返回0，失败时返回非0错误代码（通过mysql_errno()获取）。</li>
+<h1>mysql_real_query()</h1>
+<p><code>int mysql_real_query(MYSQL *mysql, const char *stmt_str, unsigned long length)</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">执行一条SQL查询语句或更新语句。</li>
+<li class="lvl-2">mysql：MYSQL结构体指针变量。</li>
+<li class="lvl-2">stmt_str：要执行的SQL语句字符串。</li>
+<li class="lvl-2">length：SQL语句长度。</li>
+<li class="lvl-2">返回值说明：成功时返回0，失败时返回非0错误代码（通过mysql_errno()获取）。</li>
 </ul>
-<h1 id="mysql-store-result"><a href="#mysql-store-result" class="headerlink" title="mysql_store_result()"></a>mysql_store_result()</h1><p><code>MYSQL_RES *mysql_store_result(MYSQL *mysql)</code></p>
-<ul>
-<li>说明：将查询结果集保存在客户端内存中。</li>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>返回值说明：成功时返回一个MYSQL_RES结构体指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
+<h1>mysql_store_result()</h1>
+<p><code>MYSQL_RES *mysql_store_result(MYSQL *mysql)</code></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>说明：将查询结果集保存在客户端内存中。</p>
+</li>
+<li class="lvl-2">
+<p>mysql：MYSQL结构体指针变量。</p>
+</li>
+<li class="lvl-2">
+<p>返回值说明：成功时返回一个MYSQL_RES结构体指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</p>
+</li>
 </ul>
-<h1 id="mysql-use-result"><a href="#mysql-use-result" class="headerlink" title="mysql_use_result()"></a>mysql_use_result()</h1><p><code>MYSQL_RES *mysql_use_result(MYSQL *mysql)</code></p>
+<h1>mysql_use_result()</h1>
+<p><code>MYSQL_RES *mysql_use_result(MYSQL *mysql)</code></p>
 <blockquote>
 <p>说明：逐行获取查询结果集。</p>
 </blockquote>
-<ul>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>返回值说明：成功时返回一个MYSQL_RES结构体指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>mysql：MYSQL结构体指针变量。</p>
+</li>
+<li class="lvl-2">
+<p>返回值说明：成功时返回一个MYSQL_RES结构体指针，失败时返回NULL，并设置错误号（通过mysql_errno()获取）。</p>
+</li>
 </ul>
-<h1 id="结果集相关函数"><a href="#结果集相关函数" class="headerlink" title="结果集相关函数"></a>结果集相关函数</h1><h2 id="mysql-fetch-row"><a href="#mysql-fetch-row" class="headerlink" title="mysql_fetch_row()"></a>mysql_fetch_row()</h2><p><code>MYSQL_ROW mysql_fetch_row(MYSQL_RES *result)</code></p>
+<h1>结果集相关函数</h1>
+<h2 id="mysql-fetch-row">mysql_fetch_row()</h2>
+<p><code>MYSQL_ROW mysql_fetch_row(MYSQL_RES *result)</code></p>
 <blockquote>
 <p>说明：逐行获取查询结果集，并返回一个MYSQL_ROW结构体指针。</p>
 </blockquote>
-<ul>
-<li>result：MYSQL_RES结构体指针变量。</li>
-<li>返回值说明：成功时返回一个MYSQL_ROW结构体指针，失败时返回NULL。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>result：MYSQL_RES结构体指针变量。</p>
+</li>
+<li class="lvl-2">
+<p>返回值说明：成功时返回一个MYSQL_ROW结构体指针，失败时返回NULL。</p>
+</li>
 </ul>
-<h2 id="mysql-num-rows"><a href="#mysql-num-rows" class="headerlink" title="mysql_num_rows()"></a>mysql_num_rows()</h2><p><code>unsigned long mysql_num_rows(MYSQL_RES *result)</code></p>
+<h2 id="mysql-num-rows">mysql_num_rows()</h2>
+<p><code>unsigned long mysql_num_rows(MYSQL_RES *result)</code></p>
 <blockquote>
 <p>说明：获取查询结果集中的行数。</p>
 </blockquote>
-<ul>
-<li>result：MYSQL_RES结构体指针变量。</li>
-<li>返回值说明：成功时返回查询结果集中行的数量，失败时返回0。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>result：MYSQL_RES结构体指针变量。</p>
+</li>
+<li class="lvl-2">
+<p>返回值说明：成功时返回查询结果集中行的数量，失败时返回0。</p>
+</li>
 </ul>
-<h2 id="mysql-num-fields"><a href="#mysql-num-fields" class="headerlink" title="mysql_num_fields()"></a>mysql_num_fields()</h2><p><code>unsigned int mysql_num_fields(MYSQL_RES *result)</code></p>
+<h2 id="mysql-num-fields">mysql_num_fields()</h2>
+<p><code>unsigned int mysql_num_fields(MYSQL_RES *result)</code></p>
 <blockquote>
 <p>说明：获取查询结果集中的列数。</p>
 </blockquote>
-<ul>
-<li>result：MYSQL_RES结构体指针变量。</li>
-<li>返回值说明：成功时返回查询结果集中列的数量，失败时返回0。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>result：MYSQL_RES结构体指针变量。</p>
+</li>
+<li class="lvl-2">
+<p>返回值说明：成功时返回查询结果集中列的数量，失败时返回0。</p>
+</li>
 </ul>
-<h2 id="mysql-field-count"><a href="#mysql-field-count" class="headerlink" title="mysql_field_count()"></a>mysql_field_count()</h2><p><code>unsigned int mysql_field_count(MYSQL *mysql)</code></p>
+<h2 id="mysql-field-count">mysql_field_count()</h2>
+<p><code>unsigned int mysql_field_count(MYSQL *mysql)</code></p>
 <blockquote>
 <p>说明：获取最近一次执行的SQL语句所返回的列数。</p>
 </blockquote>
-<ul>
-<li>mysql：MYSQL结构体指针变量。</li>
-<li>返回值说明：成功时返回最近一次执行的SQL语句所返回的列数，失败时返回0。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>mysql：MYSQL结构体指针变量。</p>
+</li>
+<li class="lvl-2">
+<p>返回值说明：成功时返回最近一次执行的SQL语句所返回的列数，失败时返回0。</p>
+</li>
 </ul>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/A_salted_fisher/article/details/131117697">mysql.h函数详解-CSDN博客</a></p>
+<h1>参考</h1>
+<p><a href="https://blog.csdn.net/A_salted_fisher/article/details/131117697">mysql.h函数详解-CSDN博客</a></p>
 
     </div>
 

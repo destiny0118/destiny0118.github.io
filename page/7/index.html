@@ -170,7 +170,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -270,8 +270,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="File-Header"><a href="#File-Header" class="headerlink" title="File Header"></a>File Header</h1><p><a href="https://blog.csdn.net/kingmax54212008/article/details/90754964">IDEA 中设置 File Header 以及自定义类、方法注释模板的方法_idea file head-CSDN博客</a><br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403121044049.png" alt="image.png"></p>
-<p><a href="https://blog.csdn.net/xiaostuart/article/details/108397180">IDEA快速插入当前日期时间-CSDN博客</a><br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403061102147.png" alt="Snipaste_2023-12-22_16-36-59.png"></p>
+          <h1>File Header</h1>
+<p><a href="https://blog.csdn.net/kingmax54212008/article/details/90754964">IDEA 中设置 File Header 以及自定义类、方法注释模板的方法_idea file head-CSDN博客</a><br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403121044049.png" alt="image.png"></p>
+<p><a href="https://blog.csdn.net/xiaostuart/article/details/108397180">IDEA快速插入当前日期时间-CSDN博客</a><br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403061102147.png" alt="Snipaste_2023-12-22_16-36-59.png"></p>
 <p><a href="https://blog.csdn.net/mr_wanter/article/details/109636864#:~:text=%E7%BA%A2%E5%AD%97%E6%8F%90%E7%A4%BA%20No%20application%20contexts%20yes%20%E6%98%AF%E6%8C%87%E6%B2%A1%E6%9C%89%E4%B8%BA%E5%BD%93%E5%89%8D%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E6%98%AF%E6%89%80%E6%9C%89%E5%9C%B0%E6%96%B9%E9%83%BD%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8,%E7%82%B9%E5%87%BB%20Define-%3EEverywhere%20%E3%80%82%20%E4%BF%9D%E5%AD%98%E4%B9%8B%E5%90%8E%E5%9C%A8IDEA%E4%B8%AD%E4%BB%BB%E6%84%8F%E5%9C%B0%E6%96%B9%E9%83%BD%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E3%80%82%20%E8%BE%93%E5%85%A5%20time%2C%E6%8C%89Tab%E9%94%AE%E5%8D%B3%E5%8F%AF%E3%80%82">IDEA快速插入当前时间_idea时间快捷键-CSDN博客</a></p>
 
       
@@ -349,27 +352,42 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202116846.png" alt="image.png"></p>
-<h1 id="1-创建型模式"><a href="#1-创建型模式" class="headerlink" title="1 创建型模式"></a>1 创建型模式</h1><h2 id="1-1-单例模式"><a href="#1-1-单例模式" class="headerlink" title="1.1 单例模式"></a>1.1 单例模式</h2><p>单例模式属于创建型模式，⼀个单例类在任何情况下都只存在⼀个实例，构造⽅法必须是私有的、由⾃⼰创建⼀个静态变量存储实例，对外提供⼀个静态公有⽅法获取实例。</p>
-<h3 id="1-1-1-常见写法"><a href="#1-1-1-常见写法" class="headerlink" title="1.1.1 常见写法"></a>1.1.1 常见写法</h3><ul>
-<li>饿汉式</li>
-<li>懒加载(lazy loading)：使用的时候再创建对象</li>
+<h1>1 创建型模式</h1>
+<h2 id="1-1-单例模式">1.1 单例模式</h2>
+<p>单例模式属于创建型模式，⼀个单例类在任何情况下都只存在⼀个实例，构造⽅法必须是私有的、由⾃⼰创建⼀个静态变量存储实例，对外提供⼀个静态公有⽅法获取实例。</p>
+<h3 id="1-1-1-常见写法">1.1.1 常见写法</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>饿汉式</p>
+</li>
+<li class="lvl-2">
+<p>懒加载(lazy loading)：使用的时候再创建对象</p>
+</li>
 </ul>
 <p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
 <blockquote>
-<p>这⾥的双重检查是指两次⾮空判断，锁指的是 synchronized 加锁，为什么<br>要进⾏双重判断，其实很简单，第⼀重判断，如果实例已经存在，那么就<br>不再需要进⾏同步操作，⽽是直接返回这个实例，如果没有创建，才会进<br>⼊同步块，同步块的⽬的与之前相同，⽬的是为了防⽌有多个线程同时调<br>⽤时，导致⽣成多个实例，有了同步块，每次只能有⼀个线程调⽤访问同<br>步块内容，当第⼀个抢到锁的调⽤获取了实例之后，这个实例就会被创<br>建，之后的所有调⽤都不会进⼊同步块，直接在第⼀重判断就返回了单<br>例。<br>关于内部的第⼆重空判断的作⽤，当多个线程⼀起到达锁位置时，进⾏锁<br>竞争，其中⼀个线程获取锁，如果是第⼀次进⼊则为 null，会进⾏单例对<br>象的创建，完成后释放锁，其他线程获取锁后就会被空判断拦截，直接返<br>回已创建的单例对象。</p>
+<p>这⾥的双重检查是指两次⾮空判断，锁指的是 synchronized 加锁，为什么要进⾏双重判断，其实很简单，第⼀重判断，如果实例已经存在，那么就不再需要进⾏同步操作，⽽是直接返回这个实例，如果没有创建，才会进⼊同步块，同步块的⽬的与之前相同，⽬的是为了防⽌有多个线程同时调⽤时，导致⽣成多个实例，有了同步块，每次只能有⼀个线程调⽤访问同步块内容，当第⼀个抢到锁的调⽤获取了实例之后，这个实例就会被创建，之后的所有调⽤都不会进⼊同步块，直接在第⼀重判断就返回了单例。关于内部的第⼆重空判断的作⽤，当多个线程⼀起到达锁位置时，进⾏锁竞争，其中⼀个线程获取锁，如果是第⼀次进⼊则为 null，会进⾏单例对象的创建，完成后释放锁，其他线程获取锁后就会被空判断拦截，直接返回已创建的单例对象。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">static</span> Singleton <span class="title function_">getUniqueInstance</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//先判断对象是否已经实例过，没有实例化过才进入加锁代码</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//类对象加锁</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    uniqueInstance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><code>uniqueInstance</code> 采用 <code>volatile</code> 关键字修饰也是很有必要的， <code>uniqueInstance = new Singleton();</code> 这段代码其实是分为三步执行：</p>
 <ol>
-<li>为 <code>uniqueInstance</code> 分配内存空间</li>
-<li>初始化 <code>uniqueInstance</code></li>
-<li>将 <code>uniqueInstance</code> 指向分配的内存地址</li>
+<li class="lvl-3">
+<p>为 <code>uniqueInstance</code> 分配内存空间</p>
+</li>
+<li class="lvl-3">
+<p>初始化 <code>uniqueInstance</code></p>
+</li>
+<li class="lvl-3">
+<p>将 <code>uniqueInstance</code> 指向分配的内存地址</p>
+</li>
 </ol>
-<h2 id="1-2-工厂模式"><a href="#1-2-工厂模式" class="headerlink" title="1.2 工厂模式"></a>1.2 工厂模式</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202119797.png" alt="image.png"></p>
+<h2 id="1-2-工厂模式">1.2 工厂模式</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202119797.png" alt="image.png"></p>
 <p>简单⼯⼚模式指由⼀个⼯⼚对象来创建实例，客户端不需要关注创建逻辑，只需提供传⼊⼯⼚的参数。</p>
 <p>适⽤于⼯⼚类负责创建对象较少的情况，缺点是如果要增加新产品，就需要修改⼯⼚类的判断逻辑，违背开闭原则，且产品多的话会使⼯⼚类⽐较复杂。</p>
-<h1 id="2-行为型模式"><a href="#2-行为型模式" class="headerlink" title="2 行为型模式"></a>2 行为型模式</h1><h2 id="2-1-策略模式"><a href="#2-1-策略模式" class="headerlink" title="2.1 策略模式"></a>2.1 策略模式</h2><p>策略模式属于行为模式的一种，一个类的行为或算法可以在运行时进行更改<br>策略模式（Strategy Pattern）属于对象的⾏为模式。其⽤意是针对⼀组算法，将每⼀个算法封装到具有共同接⼝的独⽴的类中，从⽽使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发⽣变化。其主要⽬的是通过定义相似的算法，替换 if else 语句写法，并且可以随时相互替换。</p>
+<h1>2 行为型模式</h1>
+<h2 id="2-1-策略模式">2.1 策略模式</h2>
+<p>策略模式属于行为模式的一种，一个类的行为或算法可以在运行时进行更改策略模式（Strategy Pattern）属于对象的⾏为模式。其⽤意是针对⼀组算法，将每⼀个算法封装到具有共同接⼝的独⽴的类中，从⽽使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发⽣变化。其主要⽬的是通过定义相似的算法，替换 if else 语句写法，并且可以随时相互替换。</p>
 
       
     </div>
@@ -446,18 +464,21 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><code>java.lang.IllegalStateException: Failed to load ApplicationContext</code></p>
-<p><code>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;stateHandlerImpl&#39;: Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type &#39;indiv.lottery.domain.activity.service.stateflow.event.ArraignmentState&#39; available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: &#123;@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)&#125;</code></p>
+<p><code>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'stateHandlerImpl': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'indiv.lottery.domain.activity.service.stateflow.event.ArraignmentState' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: &#123;@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)&#125;</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312141928179.png" alt="image.png"></p>
 <p>没有定义component组件</p>
-<p><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;indiv.lottery.test.domain.ActivityTest&#39;: Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: </code><br>没有定义service</p>
+<p><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indiv.lottery.test.domain.ActivityTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: </code><br>
+没有定义service</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException: </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may exist in file [E:\IDEA\MyLottery\lottery-interfaces\target\classes\mybatis\mapper\Activity_Mapper.xml]</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may involve indiv.lottery.infrastructure.dao.IActivityDAO.insert-Inline</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error occurred while setting parameters</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## SQL: INSERT INTO activity         (activityId, activityName, activityDesc, beginDateTime, endDateTime,          stockCount, takeCount, state, creator, createTime, updateTime)         VALUES (?, ?, ?, ?, ?,                 ?, ?, ?, ?, now(), now())</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line">; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span><br></pre></td></tr></table></figure>
 <p>insert参数名与数据库不匹配</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): indiv.lottery.infrastructure.dao.IAwardDAO.insertList</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><h2 id="Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException"><a href="#Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException" class="headerlink" title="Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException"></a>Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312252241556.png" alt="image.png"></p>
-<h1 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h1><p>lottery-application: Could not resolve dependencies for project cn.itedus.lottery:lottery-application:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT (absent): Could not find artifact cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT -&gt; [Help 1]</p>
-<p>application依赖domain域，但却是在Lottery顶层模块出现版本问题<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312261102257.png" alt="image.png"></p>
+<h1>Mysql</h1>
+<h2 id="Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException">Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312252241556.png" alt="image.png"></p>
+<h1>依赖冲突</h1>
+<p>lottery-application: Could not resolve dependencies for project cn.itedus.lottery:lottery-application:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT (absent): Could not find artifact cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT -&gt; [Help 1]</p>
+<p>application依赖domain域，但却是在Lottery顶层模块出现版本问题<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312261102257.png" alt="image.png"></p>
 
       
     </div>
@@ -625,7 +646,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-package"><a href="#1-package" class="headerlink" title="1 package"></a>1 package</h1><p>indi ：</p>
+          <h1>1 package</h1>
+<p>indi ：</p>
 <p>个体项目，指个人发起，但非自己独自完成的项目，可公开或私有项目，copyright主要属于发起者。</p>
 <p>包名为“indi.发起者名.项目名.模块名.……”。</p>
 <p>pers ：</p>
@@ -641,12 +663,14 @@
 <p>公司项目，copyright由项目发起的公司所有。</p>
 <p>包名为“com.公司名.项目名.模块名.……”。</p>
 <p><a href="https://www.zhihu.com/question/450664324">java 项目的包命名规则是什么</a></p>
-<h1 id="2-命名规范"><a href="#2-命名规范" class="headerlink" title="2 命名规范"></a>2 命名规范</h1><p><a href="https://zhuanlan.zhihu.com/p/448253937">10分钟搞定令人头疼的代码命名规范 | JavaGuide - 知乎 (zhihu.com)</a></p>
-<h1 id="3-Java对象概念：PO-BO-VO-DTO-DAO"><a href="#3-Java对象概念：PO-BO-VO-DTO-DAO" class="headerlink" title="3 Java对象概念：PO BO VO DTO DAO"></a>3 Java对象概念：PO BO VO DTO DAO</h1><p>PO 是 Persistant Object 的缩写，用于表示数据库中的一条记录映射成的 java 对象。PO 仅仅用于表示数据，没有任何数据操作。通常遵守 Java Bean 的规范，拥有 getter&#x2F;setter 方法。</p>
-<p>DAO 是 Data Access Object 的缩写，用于表示一个数据访问对象。使用 DAO 访问数据库，包括插入、更新、删除、查询等操作，与 PO 一起使用。DAO 一般在持久层，完全封装数据库操作，对外暴露的方法使得上层应用不需要关注数据库相关的任何信息。(&#x3D;&#x3D;Maper映射，封装数据库操作的一个映射对象&#x3D;&#x3D;)</p>
-<p>VO 是 Value Object 的缩写，用于表示一个与前端进行交互的 java 对象。有的朋友也许有疑问，这里可不可以使用 PO 传递数据？实际上，这里的 VO 只包含前端需要展示的数据即可，对于前端不需要的数据，比如数据创建和修改的时间等字段，出于减少传输数据量大小和保护数据库结构不外泄的目的，不应该在 VO 中体现出来。通常遵守 Java Bean 的规范，拥有 getter&#x2F;setter 方法。</p>
-<p>DTO 是 Data Transfer Object 的缩写，用于表示一个数据传输对象。DTO 通常用于不同服务或服务不同分层之间的数据传输。DTO 与 VO 概念相似，并且通常情况下字段也基本一致。但 DTO 与 VO 又有一些不同，这个不同主要是设计理念上的，比如 API 服务需要使用的 DTO 就可能与 VO 存在差异。通常遵守 Java Bean 的规范，拥有 getter&#x2F;setter 方法。</p>
-<p>BO 是 Business Object 的缩写，用于表示一个业务对象。BO 包括了业务逻辑，常常封装了对 DAO、RPC 等的调用，可以进行 PO 与 VO&#x2F;DTO 之间的转换。BO 通常位于业务层，要区别于直接对外提供服务的服务层：BO 提供了基本业务单元的基本业务操作，在设计上属于被服务层业务流程调用的对象，一个业务流程可能需要调用多个 BO 来完成。</p>
+<h1>2 命名规范</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/448253937">10分钟搞定令人头疼的代码命名规范 | JavaGuide - 知乎 (zhihu.com)</a></p>
+<h1>3 Java对象概念：PO BO VO DTO DAO</h1>
+<p>PO 是 Persistant Object 的缩写，用于表示数据库中的一条记录映射成的 java 对象。PO 仅仅用于表示数据，没有任何数据操作。通常遵守 Java Bean 的规范，拥有 getter/setter 方法。</p>
+<p>DAO 是 Data Access Object 的缩写，用于表示一个数据访问对象。使用 DAO 访问数据库，包括插入、更新、删除、查询等操作，与 PO 一起使用。DAO 一般在持久层，完全封装数据库操作，对外暴露的方法使得上层应用不需要关注数据库相关的任何信息。(<mark>Maper映射，封装数据库操作的一个映射对象</mark>)</p>
+<p>VO 是 Value Object 的缩写，用于表示一个与前端进行交互的 java 对象。有的朋友也许有疑问，这里可不可以使用 PO 传递数据？实际上，这里的 VO 只包含前端需要展示的数据即可，对于前端不需要的数据，比如数据创建和修改的时间等字段，出于减少传输数据量大小和保护数据库结构不外泄的目的，不应该在 VO 中体现出来。通常遵守 Java Bean 的规范，拥有 getter/setter 方法。</p>
+<p>DTO 是 Data Transfer Object 的缩写，用于表示一个数据传输对象。DTO 通常用于不同服务或服务不同分层之间的数据传输。DTO 与 VO 概念相似，并且通常情况下字段也基本一致。但 DTO 与 VO 又有一些不同，这个不同主要是设计理念上的，比如 API 服务需要使用的 DTO 就可能与 VO 存在差异。通常遵守 Java Bean 的规范，拥有 getter/setter 方法。</p>
+<p>BO 是 Business Object 的缩写，用于表示一个业务对象。BO 包括了业务逻辑，常常封装了对 DAO、RPC 等的调用，可以进行 PO 与 VO/DTO 之间的转换。BO 通常位于业务层，要区别于直接对外提供服务的服务层：BO 提供了基本业务单元的基本业务操作，在设计上属于被服务层业务流程调用的对象，一个业务流程可能需要调用多个 BO 来完成。</p>
 <p>POJO 是 Plain Ordinary Java Object 的缩写，表示一个简单 java 对象。上面说的 PO、VO、DTO 都是典型的 POJO。而 DAO、BO 一般都不是 POJO，只提供一些调用方法。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202312052259482.png" alt="image.png"></p>
 <p><a href="https://www.zhihu.com/question/39651928">PO BO VO DTO POJO DAO DO这些Java中的概念分别指一些什么？ - 知乎 (zhihu.com)</a></p>
@@ -734,12 +758,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Component-Repository-Service-Controller"><a href="#Component-Repository-Service-Controller" class="headerlink" title="@Component, @Repository, @Service, @Controller"></a>@Component, @Repository, @Service, @Controller</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="meta">@Component</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>@Component</code>：标注一个类为Spring容器的Bean，把普通pojo实例化到spring容器中，相当于配置文件中的&lt;bean id&#x3D;”” class&#x3D;””&#x2F;&gt;</li>
-<li><code>@Repository</code>：对应持久层即Dao层，主要用于数据库相关操作</li>
-<li><code>@Service</code>：对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层。</li>
-<li><code>@Controller</code>：对应 Spring MVC 控制层，主要用于接受用户请求并调用 Service 层返回数据给前端页面。表示Web层实现。</li>
+          <h1>@Component, @Repository, @Service, @Controller</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="meta">@Component</span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2"><code>@Component</code>：标注一个类为Spring容器的Bean，把普通pojo实例化到spring容器中，相当于配置文件中的&lt;bean id=“” class=“”/&gt;</li>
+<li class="lvl-2"><code>@Repository</code>：对应持久层即Dao层，主要用于数据库相关操作</li>
+<li class="lvl-2"><code>@Service</code>：对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层。</li>
+<li class="lvl-2"><code>@Controller</code>：对应 Spring MVC 控制层，主要用于接受用户请求并调用 Service 层返回数据给前端页面。表示Web层实现。</li>
 </ul>
 
       
@@ -816,8 +841,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-Dubbo-x-Spring-Boot-开发微服务应用"><a href="#1-Dubbo-x-Spring-Boot-开发微服务应用" class="headerlink" title="1 Dubbo x Spring Boot 开发微服务应用"></a>1 Dubbo x Spring Boot 开发微服务应用</h1><p><a href="https://cn.dubbo.apache.org/zh-cn/overview/quickstart/java/spring-boot/#%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%9B%B6%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E7%89%88">2 - Dubbo Spring Boot Starter 开发微服务应用 | Apache Dubbo</a></p>
-<h1 id="2-Dubbo-x-Spring-Boot-开发微服务应用"><a href="#2-Dubbo-x-Spring-Boot-开发微服务应用" class="headerlink" title="2 Dubbo x Spring Boot 开发微服务应用"></a>2 Dubbo x Spring Boot 开发微服务应用</h1><p><a href="https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/quick-start/spring-xml/">4 - 基于 Spring XML 开发微服务应用 | Apache Dubbo</a></p>
+          <h1>1 Dubbo x Spring Boot 开发微服务应用</h1>
+<p><a href="https://cn.dubbo.apache.org/zh-cn/overview/quickstart/java/spring-boot/#%E5%8A%A8%E6%89%8B%E5%AE%9E%E8%B7%B5%E4%BB%8E%E9%9B%B6%E4%BB%A3%E7%A0%81%E5%BC%80%E5%8F%91%E7%89%88">2 - Dubbo Spring Boot Starter 开发微服务应用 | Apache Dubbo</a></p>
+<h1>2 Dubbo x Spring Boot 开发微服务应用</h1>
+<p><a href="https://cn.dubbo.apache.org/zh-cn/overview/mannual/java-sdk/quick-start/spring-xml/">4 - 基于 Spring XML 开发微服务应用 | Apache Dubbo</a></p>
 
       
     </div>
@@ -964,28 +991,33 @@
     
     <div class="post-body" itemprop="articleBody">
           <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403112127671.png" alt="image.png"></p>
-<ul>
-<li>应用层{application}<ul>
-<li>应用服务位于应用层。用来表述应用和用户行为，负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装。</li>
-<li>应用层的服务包括应用服务和领域事件相关服务。</li>
-<li>应用服务可对微服务内的领域服务以及微服务外的应用服务进行组合和编排，或者对基础层如文件、缓存等数据直接操作形成应用服务，对外提供粗粒度的服务。</li>
-<li>领域事件服务包括两类：领域事件的发布和订阅。通过事件总线和消息队列实现异步数据传输，实现微服务之间的解耦。</li>
+<ul class="lvl-0">
+<li class="lvl-2">应用层{application}
+<ul class="lvl-2">
+<li class="lvl-6">应用服务位于应用层。用来表述应用和用户行为，负责服务的组合、编排和转发，负责处理业务用例的执行顺序以及结果的拼装。</li>
+<li class="lvl-6">应用层的服务包括应用服务和领域事件相关服务。</li>
+<li class="lvl-6">应用服务可对微服务内的领域服务以及微服务外的应用服务进行组合和编排，或者对基础层如文件、缓存等数据直接操作形成应用服务，对外提供粗粒度的服务。</li>
+<li class="lvl-6">领域事件服务包括两类：领域事件的发布和订阅。通过事件总线和消息队列实现异步数据传输，实现微服务之间的解耦。</li>
 </ul>
 </li>
-<li>领域层{domain}<ul>
-<li>领域服务位于领域层，为完成领域中跨实体或值对象的操作转换而封装的服务，领域服务以与实体和值对象相同的方式参与实施过程。</li>
-<li>领域服务对同一个实体的一个或多个方法进行组合和封装，或对多个不同实体的操作进行组合或编排，对外暴露成领域服务。领域服务封装了核心的业务逻辑。实体自身的行为在实体类内部实现，向上封装成领域服务暴露。</li>
-<li>为隐藏领域层的业务逻辑实现，所有领域方法和服务等均须通过领域服务对外暴露。</li>
-<li>为实现微服务内聚合之间的解耦，原则上禁止跨聚合的领域服务调用和跨聚合的数据相互关联。</li>
+<li class="lvl-2">领域层{domain}
+<ul class="lvl-2">
+<li class="lvl-6">领域服务位于领域层，为完成领域中跨实体或值对象的操作转换而封装的服务，领域服务以与实体和值对象相同的方式参与实施过程。</li>
+<li class="lvl-6">领域服务对同一个实体的一个或多个方法进行组合和封装，或对多个不同实体的操作进行组合或编排，对外暴露成领域服务。领域服务封装了核心的业务逻辑。实体自身的行为在实体类内部实现，向上封装成领域服务暴露。</li>
+<li class="lvl-6">为隐藏领域层的业务逻辑实现，所有领域方法和服务等均须通过领域服务对外暴露。</li>
+<li class="lvl-6">为实现微服务内聚合之间的解耦，原则上禁止跨聚合的领域服务调用和跨聚合的数据相互关联。</li>
 </ul>
 </li>
-<li>基础层{infrastructure}<ul>
-<li>基础服务位于基础层。为各层提供资源服务（如数据库、缓存等），实现各层的解耦，降低外部资源变化对业务逻辑的影响。</li>
-<li>基础服务主要为仓储服务，通过依赖反转的方式为各层提供基础资源服务，领域服务和应用服务调用仓储服务接口，利用仓储实现持久化数据对象或直接访问基础资源。</li>
+<li class="lvl-2">基础层{infrastructure}
+<ul class="lvl-2">
+<li class="lvl-6">基础服务位于基础层。为各层提供资源服务（如数据库、缓存等），实现各层的解耦，降低外部资源变化对业务逻辑的影响。</li>
+<li class="lvl-6">基础服务主要为仓储服务，通过依赖反转的方式为各层提供基础资源服务，领域服务和应用服务调用仓储服务接口，利用仓储实现持久化数据对象或直接访问基础资源。</li>
 </ul>
 </li>
-<li>接口层{interfaces}<ul>
-<li>接口服务位于用户接口层，用于处理用户发送的Restful请求和解析用户输入的配置文件等，并将信息传递给应用层。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403112131544.png" alt="image.png"></li>
+<li class="lvl-2">接口层{interfaces}
+<ul class="lvl-2">
+<li class="lvl-6">接口服务位于用户接口层，用于处理用户发送的Restful请求和解析用户输入的配置文件等，并将信息传递给应用层。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403112131544.png" alt="image.png"></li>
 </ul>
 </li>
 </ul>

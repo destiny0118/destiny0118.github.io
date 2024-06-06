@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1 秒杀系统“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。  高性能。 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。  一致性。 秒杀中商品减库存的实现方式同样关键。可想而知，有">
+    <meta name="description" content="1 秒杀系统 “秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。   高性能。 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。   一致性。 秒杀中商品减库存的实现方式同样关键。可想而">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2024/05/21/%E6%A1%86%E6%9E%B6/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%81%E5%9C%BA%E6%99%AF%E9%A2%98/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="1 秒杀系统“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。  高性能。 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。  一致性。 秒杀中商品减库存的实现方式同样关键。可想而知，有">
+<meta property="og:description" content="1 秒杀系统 “秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。   高性能。 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。   一致性。 秒杀中商品减库存的实现方式同样关键。可想而">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-21T01:56:43.572Z">
 <meta property="article:modified_time" content="2024-06-05T12:18:38.592Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%A7%92%E6%9D%80%E7%B3%BB%E7%BB%9F"><span class="nav-text">1 秒杀系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%95%86%E5%93%81%E7%82%B9%E5%87%BB%E7%8E%87%E6%8E%92%E8%A1%8C%E6%A6%9C"><span class="nav-text">2 商品点击率排行榜</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 秒杀系统</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 商品点击率排行榜</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,40 +274,59 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="1-秒杀系统"><a href="#1-秒杀系统" class="headerlink" title="1 秒杀系统"></a>1 秒杀系统</h1><p>“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。</p>
-<ul>
-<li><p><strong>高性能。</strong> 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。</p>
+        <h1>1 秒杀系统</h1>
+<p>“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>高性能。</strong> 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。</p>
 </li>
-<li><p><strong>一致性。</strong> 秒杀中商品减库存的实现方式同样关键。可想而知，有限数量的商品在同一时刻被很多倍的请求同时来减库存，减库存又分为“拍下减库存”“付款减库存”以及预扣等几种，在大并发更新的过程中都要保证数据的准确性，其难度可想而知。因此，我将用一篇文章来专门讲解如何设计秒杀减库存方案。</p>
+<li class="lvl-2">
+<p><strong>一致性。</strong> 秒杀中商品减库存的实现方式同样关键。可想而知，有限数量的商品在同一时刻被很多倍的请求同时来减库存，减库存又分为“拍下减库存”“付款减库存”以及预扣等几种，在大并发更新的过程中都要保证数据的准确性，其难度可想而知。因此，我将用一篇文章来专门讲解如何设计秒杀减库存方案。</p>
 </li>
-<li><p><strong>高可用。</strong> 虽然我介绍了很多极致的优化思路，但现实中总难免出现一些我们考虑不到的情况，所以要保证系统的高可用和正确性，我们还要设计一个 PlanB 来兜底，以便在最坏情况发生时仍然能够从容应对。专栏的最后，我将带你思考可以从哪些环节来设计兜底方案。</p>
+<li class="lvl-2">
+<p><strong>高可用。</strong> 虽然我介绍了很多极致的优化思路，但现实中总难免出现一些我们考虑不到的情况，所以要保证系统的高可用和正确性，我们还要设计一个 PlanB 来兜底，以便在最坏情况发生时仍然能够从容应对。专栏的最后，我将带你思考可以从哪些环节来设计兜底方案。</p>
 </li>
-<li><p>过滤无效流量</p>
+<li class="lvl-2">
+<p>过滤无效流量</p>
 </li>
-<li><p>库存可以少卖不可以超卖</p>
+<li class="lvl-2">
+<p>库存可以少卖不可以超卖</p>
 </li>
-<li><p>热点商品预热</p>
+<li class="lvl-2">
+<p>热点商品预热</p>
 </li>
-<li><p>热点商品信息提前缓存</p>
+<li class="lvl-2">
+<p>热点商品信息提前缓存</p>
 </li>
-<li><p>利用redis缓存</p>
+<li class="lvl-2">
+<p>利用redis缓存</p>
 </li>
-<li><p>静态资源提前加载</p>
+<li class="lvl-2">
+<p>静态资源提前加载</p>
 </li>
-<li><p>利用消息队列进行流量削峰</p>
+<li class="lvl-2">
+<p>利用消息队列进行流量削峰</p>
 </li>
-<li><p>切片集群</p>
+<li class="lvl-2">
+<p>切片集群</p>
 </li>
-<li><p>在用户发起请求前，对用户进行一些校验操作，比如答题、输入验证码</p>
+<li class="lvl-2">
+<p>在用户发起请求前，对用户进行一些校验操作，比如答题、输入验证码</p>
 </li>
-<li><p>服务限流</p>
+<li class="lvl-2">
+<p>服务限流</p>
 </li>
 </ul>
 <p>过滤无效流量</p>
 <p>将用户请求分散</p>
 <p>提高QPS</p>
-<p><a href="https://zhuanlan.zhihu.com/p/273302387">高频面试题：秒杀场景设计 - 知乎 (zhihu.com)</a><br><a href="https://cloud.tencent.com/developer/article/1833184">面试官问我：如何设计一个秒杀场景？-腾讯云开发者社区-腾讯云 (tencent.com)</a><br><a href="https://developer.aliyun.com/article/1325551">秒杀场景的设计思路和方案-阿里云开发者社区 (aliyun.com)</a><br><a href="https://zhuanlan.zhihu.com/p/433618121">万字超详解秒杀系统！ - 知乎 (zhihu.com)</a><br><a href="https://blog.csdn.net/lxw1844912514/article/details/119745812">面试必备：秒杀场景九个细节-CSDN博客</a></p>
-<h1 id="2-商品点击率排行榜"><a href="#2-商品点击率排行榜" class="headerlink" title="2 商品点击率排行榜"></a>2 商品点击率排行榜</h1><p>top K排序</p>
+<p><a href="https://zhuanlan.zhihu.com/p/273302387">高频面试题：秒杀场景设计 - 知乎 (zhihu.com)</a><br>
+<a href="https://cloud.tencent.com/developer/article/1833184">面试官问我：如何设计一个秒杀场景？-腾讯云开发者社区-腾讯云 (tencent.com)</a><br>
+<a href="https://developer.aliyun.com/article/1325551">秒杀场景的设计思路和方案-阿里云开发者社区 (aliyun.com)</a><br>
+<a href="https://zhuanlan.zhihu.com/p/433618121">万字超详解秒杀系统！ - 知乎 (zhihu.com)</a><br>
+<a href="https://blog.csdn.net/lxw1844912514/article/details/119745812">面试必备：秒杀场景九个细节-CSDN博客</a></p>
+<h1>2 商品点击率排行榜</h1>
+<p>top K排序</p>
 <blockquote>
 <p>多并行优化</p>
 </blockquote>

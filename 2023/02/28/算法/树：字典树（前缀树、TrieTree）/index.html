@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E6%A0%91%EF%BC%88%E5%89%8D%E7%BC%80%E6%A0%91%E3%80%81TrieTree%EF%BC%89"><span class="nav-text">字典树（前缀树、TrieTree）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">数据结构</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">字典树（前缀树、TrieTree）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">数据结构</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +175,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -277,35 +277,45 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="字典树（前缀树、TrieTree）"><a href="#字典树（前缀树、TrieTree）" class="headerlink" title="字典树（前缀树、TrieTree）"></a>字典树（前缀树、TrieTree）</h1><blockquote>
-<p>字典树，又称单词查找树，Trie树(&#x3D;&#x3D;Retrieval Tree&#x3D;&#x3D;)，一种树形数据结构，用于高效的存储和检索字符串数据集中的键。</p>
+        <h1>字典树（前缀树、TrieTree）</h1>
+<blockquote>
+<p>字典树，又称单词查找树，Trie树(<mark>Retrieval Tree</mark>)，一种树形数据结构，用于高效的存储和检索字符串数据集中的键。</p>
 <p>用于统计、排序和保存大量的字符串</p>
 <p>优点：利用字符串的公共前缀来减少查询时间，最大限度地减少无谓的字符串比较</p>
-<p>给定字符串集合构建一颗前缀树，判断前缀树中是否存在字符串或该字符串的前缀<br>字典树用于判断字符串是否存在或者是否具有某种字符串前缀</p>
+<p>给定字符串集合构建一颗前缀树，判断前缀树中是否存在字符串或该字符串的前缀字典树用于判断字符串是否存在或者是否具有某种字符串前缀</p>
 </blockquote>
-<p>&#x3D;&#x3D;结点表示从根结点到本结点的路径构成的字符串是否有效&#x3D;&#x3D;</p>
+<p><mark>结点表示从根结点到本结点的路径构成的字符串是否有效</mark></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master//202209202108218.png" alt="image-20220920210823099"></p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><blockquote>
+<h2 id="数据结构">数据结构</h2>
+<blockquote>
 <p>字典树可以视为set，用于判断key是否存在；；但同时字典树也可以作为map，只需要再相应节点添加value值。</p>
 </blockquote>
 <p><a href="https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/solution/by-lfool-w82u/">详解前缀树「TrieTree 汇总级别整理 🔥🔥🔥」 - 字符串的前缀分数和 - 力扣（LeetCode）</a></p>
 <blockquote>
-<ul>
-<li>根据字符串集合构建前缀树</li>
-<li>目标字符串是否存在于前缀树中</li>
-<li>寻找目标字符串的前缀</li>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>根据字符串集合构建前缀树</p>
+</li>
+<li class="lvl-2">
+<p>目标字符串是否存在于前缀树中</p>
+</li>
+<li class="lvl-2">
+<p>寻找目标字符串的前缀</p>
+</li>
 </ul>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//两种存储方式</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TrieNode</span>&#123;</span><br><span class="line">    TrieNode* son[<span class="number">26</span>]=&#123;&#125;;</span><br><span class="line">    boolean val; <span class="comment">//路径构成的字符串是否有效</span></span><br><span class="line">&#125;;</span><br><span class="line">TrieNode *root=<span class="keyword">new</span> TrieNode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构建前缀树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insert</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> c: word)&#123;</span><br><span class="line">        <span class="type">int</span> id=c-<span class="string">&#x27;a&#x27;</span>;	<span class="comment">//当前字符应该存入哪一个孩子结点</span></span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            cur-&gt;son[id]=<span class="keyword">new</span> TrieNode;</span><br><span class="line">        cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    cur-&gt;val=<span class="literal">true</span>;		<span class="comment">//表示当前字符串有效</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询给定的字符串在前缀树中是否存在</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">query</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> ch:word)&#123;</span><br><span class="line">        <span class="type">int</span> id=ch-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="comment">//字符串路径不存在</span></span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">       	cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//路径存在，路径终点处的结点是否有效</span></span><br><span class="line">    <span class="keyword">return</span> cur-&gt;val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//是否有word有前缀prefix</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">startsWith</span><span class="params">(string prefix)</span> </span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> ch:prefix)&#123;</span><br><span class="line">        <span class="type">int</span> id=ch-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//查询完前缀</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//寻找单词的最短前缀</span></span><br><span class="line"><span class="function">string <span class="title">shortestPrefixOf</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    TrieNode *cur=root;</span><br><span class="line">    string ret=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">char</span> ch: word)&#123;</span><br><span class="line">        <span class="type">int</span> id=ch-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;val)</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        <span class="keyword">if</span>(cur-&gt;son[id]==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        ret+=ch;</span><br><span class="line">        cur=cur-&gt;son[id];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//含有通配符的匹配</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">search</span><span class="params">(string word)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">query</span>(root,word,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">query</span><span class="params">(TrieNode *cur, string &amp;word,<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">    <span class="comment">//判断空节点要放在最前面，因为含有.时会遍历26个子节点</span></span><br><span class="line">    <span class="keyword">if</span>(cur==<span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(index==word.<span class="built_in">size</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(word[index]==<span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">query</span>(cur-&gt;son[i],word,index+<span class="number">1</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="type">int</span> id=word[index]-<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">query</span>(cur-&gt;son[id],word,index+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//哈希表存储</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">TrieNode</span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">char</span>,TrieNode*&gt; son;</span><br><span class="line">    boolean val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li><input disabled="" type="checkbox"> <a href="https://leetcode.cn/problems/implement-trie-prefix-tree/">208. 实现 Trie (前缀树)</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://leetcode.cn/problems/design-add-and-search-words-data-structure/">211. 添加与搜索单词 - 数据结构设计</a>(通配符匹配.)</li>
-<li><input disabled="" type="checkbox"> <a href="https://leetcode.cn/problems/implement-magic-dictionary/">676. 实现一个魔法字典</a>（修改一个字符的匹配，类似于存在一个.)</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox23"><label for="checkbox23"></label><a href="https://leetcode.cn/problems/implement-trie-prefix-tree/">208. 实现 Trie (前缀树)</a></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox24"><label for="checkbox24"></label><a href="https://leetcode.cn/problems/design-add-and-search-words-data-structure/">211. 添加与搜索单词 - 数据结构设计</a>(通配符匹配.)</p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox25"><label for="checkbox25"></label><a href="https://leetcode.cn/problems/implement-magic-dictionary/">676. 实现一个魔法字典</a>（修改一个字符的匹配，类似于存在一个.)</p>
+</li>
 </ul>
 
     </div>

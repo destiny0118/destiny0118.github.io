@@ -170,7 +170,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -257,7 +257,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-28 17:01:21" itemprop="dateModified" datetime="2024-05-28T17:01:21+08:00">2024-05-28</time>
+      <time title="修改时间：2024-06-06 15:32:52" itemprop="dateModified" datetime="2024-06-06T15:32:52+08:00">2024-06-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,37 +279,57 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="创建线程方式"><a href="#创建线程方式" class="headerlink" title="创建线程方式"></a>创建线程方式</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> interfact Runnable&#123;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="实现runnable接口"><a href="#实现runnable接口" class="headerlink" title="实现runnable接口"></a>实现runnable接口</h2><blockquote>
+          <h1>1 创建线程方式</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> interfact Runnable&#123;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-实现runnable接口">1.1 实现runnable接口</h2>
+<blockquote>
 <p>创建一个类实现Runnable接口，实现run方法，然后创建Thread类的实例，将实现了Runnable接口的对象作为参数传递给Thread的构造方法，并调用start方法启动线程。</p>
 </blockquote>
 <ol>
-<li>将任务代码移到实现了Runnable接口的类的run方法中（由于Runnable 是一个函数式接口，可以用lambda 表达式建立一个实例）</li>
-<li>用<code>Runnable</code>创建一个<code>Thread</code>对象</li>
-<li>启动线程<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">demo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        Runnable r1=<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;任务开始&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t1=<span class="keyword">new</span> <span class="title class_">Thread</span>(r1);</span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line">        Runnable r2=()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;lambda表达式：任务开始&quot;</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t2=<span class="keyword">new</span> <span class="title class_">Thread</span>(r2);</span><br><span class="line">        t2.start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Thread t3=<span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;在thread中lambda表达式&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        t3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li class="lvl-3">
+<p>将任务代码移到实现了Runnable接口的类的run方法中（由于Runnable 是一个函数式接口，可以用lambda 表达式建立一个实例）</p>
+</li>
+<li class="lvl-3">
+<p>用<code>Runnable</code>创建一个<code>Thread</code>对象</p>
+</li>
+<li class="lvl-3">
+<p>启动线程</p>
+</li>
 </ol>
-<h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">demo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        Runnable r1=<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;任务开始&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t1=<span class="keyword">new</span> <span class="title class_">Thread</span>(r1);</span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line">        Runnable r2=()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;lambda表达式：任务开始&quot;</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t2=<span class="keyword">new</span> <span class="title class_">Thread</span>(r2);</span><br><span class="line">        t2.start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Thread t3=<span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;在thread中lambda表达式&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        t3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-继承Thread类">1.2 继承Thread类</h2>
+<blockquote>
 <p>创建一个类继承自Thread类，并重写run方法，然后创建该类的实例并调用start方法启动线程。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Thread</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;继承Thread类，重写run方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        MyThread myThread=<span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="实现Callable接口"><a href="#实现Callable接口" class="headerlink" title="实现Callable接口"></a>实现Callable接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt;&#123;</span><br><span class="line">	V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>继承Callable实现call方法</li>
-<li>FutureTask包装器将Callable转换成Future和Runnable</li>
+<h2 id="1-3-实现Callable接口">1.3 实现Callable接口</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt;&#123;</span><br><span class="line">	V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>继承Callable实现call方法</p>
+</li>
+<li class="lvl-2">
+<p>FutureTask包装器将Callable转换成Future和Runnable</p>
+</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallableDemo</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">CallableDemo</span>  <span class="variable">callableDemo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CallableDemo</span>();</span><br><span class="line">        FutureTask&lt;String&gt; futureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(callableDemo);</span><br><span class="line">        Thread t=<span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask);</span><br><span class="line">        t.start();</span><br><span class="line">        System.out.println(futureTask.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><h2 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool"></a><code>newCachedThreadPool</code></h2><p> 创建一个可缓存的线程池，线程池的大小可根据需要进行自动扩展，但在某些情况下可能会回收线程。<br> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newCachedThreadPool();</span><br></pre></td></tr></table></figure></p>
-<h2 id="newFixedThreadPool"><a href="#newFixedThreadPool" class="headerlink" title="newFixedThreadPool"></a><code>newFixedThreadPool</code></h2><p>创建一个固定大小的线程池，线程数始终保持不变。</p>
-<h2 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor"></a><code>newSingleThreadExecutor</code></h2><ul>
-<li>创建一个单线程的线程池，保证所有任务按照指定顺序（FIFO，LIFO，优先级）执行。</li>
+<h1>2 线程池</h1>
+<h2 id="2-1-newCachedThreadPool">2.1 <code>newCachedThreadPool</code></h2>
+<p>创建一个可缓存的线程池，线程池的大小可根据需要进行自动扩展，但在某些情况下可能会回收线程。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newCachedThreadPool();</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-newFixedThreadPool">2.2 <code>newFixedThreadPool</code></h2>
+<p>创建一个固定大小的线程池，线程数始终保持不变。</p>
+<h2 id="2-3-newSingleThreadExecutor">2.3 <code>newSingleThreadExecutor</code></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建一个单线程的线程池，保证所有任务按照指定顺序（FIFO，LIFO，优先级）执行。</p>
+</li>
 </ul>
-<h2 id="newScheduledThreadPool"><a href="#newScheduledThreadPool" class="headerlink" title="newScheduledThreadPool"></a><code>newScheduledThreadPool</code></h2><ul>
-<li>创建一个定时执行任务的线程池。</li>
+<h2 id="2-4-newScheduledThreadPool">2.4 <code>newScheduledThreadPool</code></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建一个定时执行任务的线程池。</p>
+</li>
 </ul>
 
       
@@ -386,40 +406,59 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-秒杀系统"><a href="#1-秒杀系统" class="headerlink" title="1 秒杀系统"></a>1 秒杀系统</h1><p>“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。</p>
-<ul>
-<li><p><strong>高性能。</strong> 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。</p>
+          <h1>1 秒杀系统</h1>
+<p>“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>高性能。</strong> 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。</p>
 </li>
-<li><p><strong>一致性。</strong> 秒杀中商品减库存的实现方式同样关键。可想而知，有限数量的商品在同一时刻被很多倍的请求同时来减库存，减库存又分为“拍下减库存”“付款减库存”以及预扣等几种，在大并发更新的过程中都要保证数据的准确性，其难度可想而知。因此，我将用一篇文章来专门讲解如何设计秒杀减库存方案。</p>
+<li class="lvl-2">
+<p><strong>一致性。</strong> 秒杀中商品减库存的实现方式同样关键。可想而知，有限数量的商品在同一时刻被很多倍的请求同时来减库存，减库存又分为“拍下减库存”“付款减库存”以及预扣等几种，在大并发更新的过程中都要保证数据的准确性，其难度可想而知。因此，我将用一篇文章来专门讲解如何设计秒杀减库存方案。</p>
 </li>
-<li><p><strong>高可用。</strong> 虽然我介绍了很多极致的优化思路，但现实中总难免出现一些我们考虑不到的情况，所以要保证系统的高可用和正确性，我们还要设计一个 PlanB 来兜底，以便在最坏情况发生时仍然能够从容应对。专栏的最后，我将带你思考可以从哪些环节来设计兜底方案。</p>
+<li class="lvl-2">
+<p><strong>高可用。</strong> 虽然我介绍了很多极致的优化思路，但现实中总难免出现一些我们考虑不到的情况，所以要保证系统的高可用和正确性，我们还要设计一个 PlanB 来兜底，以便在最坏情况发生时仍然能够从容应对。专栏的最后，我将带你思考可以从哪些环节来设计兜底方案。</p>
 </li>
-<li><p>过滤无效流量</p>
+<li class="lvl-2">
+<p>过滤无效流量</p>
 </li>
-<li><p>库存可以少卖不可以超卖</p>
+<li class="lvl-2">
+<p>库存可以少卖不可以超卖</p>
 </li>
-<li><p>热点商品预热</p>
+<li class="lvl-2">
+<p>热点商品预热</p>
 </li>
-<li><p>热点商品信息提前缓存</p>
+<li class="lvl-2">
+<p>热点商品信息提前缓存</p>
 </li>
-<li><p>利用redis缓存</p>
+<li class="lvl-2">
+<p>利用redis缓存</p>
 </li>
-<li><p>静态资源提前加载</p>
+<li class="lvl-2">
+<p>静态资源提前加载</p>
 </li>
-<li><p>利用消息队列进行流量削峰</p>
+<li class="lvl-2">
+<p>利用消息队列进行流量削峰</p>
 </li>
-<li><p>切片集群</p>
+<li class="lvl-2">
+<p>切片集群</p>
 </li>
-<li><p>在用户发起请求前，对用户进行一些校验操作，比如答题、输入验证码</p>
+<li class="lvl-2">
+<p>在用户发起请求前，对用户进行一些校验操作，比如答题、输入验证码</p>
 </li>
-<li><p>服务限流</p>
+<li class="lvl-2">
+<p>服务限流</p>
 </li>
 </ul>
 <p>过滤无效流量</p>
 <p>将用户请求分散</p>
 <p>提高QPS</p>
-<p><a href="https://zhuanlan.zhihu.com/p/273302387">高频面试题：秒杀场景设计 - 知乎 (zhihu.com)</a><br><a href="https://cloud.tencent.com/developer/article/1833184">面试官问我：如何设计一个秒杀场景？-腾讯云开发者社区-腾讯云 (tencent.com)</a><br><a href="https://developer.aliyun.com/article/1325551">秒杀场景的设计思路和方案-阿里云开发者社区 (aliyun.com)</a><br><a href="https://zhuanlan.zhihu.com/p/433618121">万字超详解秒杀系统！ - 知乎 (zhihu.com)</a><br><a href="https://blog.csdn.net/lxw1844912514/article/details/119745812">面试必备：秒杀场景九个细节-CSDN博客</a></p>
-<h1 id="2-商品点击率排行榜"><a href="#2-商品点击率排行榜" class="headerlink" title="2 商品点击率排行榜"></a>2 商品点击率排行榜</h1><p>top K排序</p>
+<p><a href="https://zhuanlan.zhihu.com/p/273302387">高频面试题：秒杀场景设计 - 知乎 (zhihu.com)</a><br>
+<a href="https://cloud.tencent.com/developer/article/1833184">面试官问我：如何设计一个秒杀场景？-腾讯云开发者社区-腾讯云 (tencent.com)</a><br>
+<a href="https://developer.aliyun.com/article/1325551">秒杀场景的设计思路和方案-阿里云开发者社区 (aliyun.com)</a><br>
+<a href="https://zhuanlan.zhihu.com/p/433618121">万字超详解秒杀系统！ - 知乎 (zhihu.com)</a><br>
+<a href="https://blog.csdn.net/lxw1844912514/article/details/119745812">面试必备：秒杀场景九个细节-CSDN博客</a></p>
+<h1>2 商品点击率排行榜</h1>
+<p>top K排序</p>
 <blockquote>
 <p>多并行优化</p>
 </blockquote>
@@ -757,28 +796,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-单例模式"><a href="#1-单例模式" class="headerlink" title="1 单例模式"></a>1 单例模式</h1><p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
+          <h1>1 单例模式</h1>
+<p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
 <blockquote>
 <p>volatile禁止指令重排序</p>
-<ul>
-<li>分配内存</li>
-<li>对象初始化</li>
-<li>设置对象引用</li>
+<ul class="lvl-1">
+<li class="lvl-2">分配内存</li>
+<li class="lvl-2">对象初始化</li>
+<li class="lvl-2">设置对象引用</li>
 </ul>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">static</span> Singleton <span class="title function_">getUniqueInstance</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//先判断对象是否已经实例过，没有实例化过才进入加锁代码</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//类对象加锁</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    uniqueInstance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><code>uniqueInstance</code> 采用 <code>volatile</code> 关键字修饰也是很有必要的， <code>uniqueInstance = new Singleton();</code> 这段代码其实是分为三步执行：</p>
 <ol>
-<li>为 <code>uniqueInstance</code> 分配内存空间</li>
-<li>初始化 <code>uniqueInstance</code></li>
-<li>将 <code>uniqueInstance</code> 指向分配的内存地址</li>
+<li class="lvl-3">
+<p>为 <code>uniqueInstance</code> 分配内存空间</p>
+</li>
+<li class="lvl-3">
+<p>初始化 <code>uniqueInstance</code></p>
+</li>
+<li class="lvl-3">
+<p>将 <code>uniqueInstance</code> 指向分配的内存地址</p>
+</li>
 </ol>
-<h1 id="2-模拟死锁"><a href="#2-模拟死锁" class="headerlink" title="2 模拟死锁"></a>2 模拟死锁</h1><h2 id="2-1-线程死锁"><a href="#2-1-线程死锁" class="headerlink" title="2.1 线程死锁"></a>2.1 线程死锁</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object a=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object b=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-2-数据库事务死锁"><a href="#2-2-数据库事务死锁" class="headerlink" title="2.2 数据库事务死锁"></a>2.2 数据库事务死锁</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 事务1</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">1</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 事务2</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">3</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">4</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
-
+<h1>2 模拟死锁</h1>
+<h2 id="2-1-线程死锁">2.1 线程死锁</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object a=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object b=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-数据库事务死锁">2.2 数据库事务死锁</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 事务1</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">1</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 事务2</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">3</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">4</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.cnblogs.com/ibigboy/p/16202718.html">面试官：请用SQL模拟一个死锁 - 问北 - 博客园 (cnblogs.com)</a></p>
-<h1 id="3-生产者、消费者模型"><a href="#3-生产者、消费者模型" class="headerlink" title="3 生产者、消费者模型"></a>3 生产者、消费者模型</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生产者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Producer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Producer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> produce(); <span class="comment">// 生产数据</span></span><br><span class="line">                queue.put(value); <span class="comment">// 将数据放入队列</span></span><br><span class="line">                Thread.sleep(<span class="number">1000</span>); <span class="comment">// 模拟生产过程</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">produce</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 生产过程</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Consumer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Consumer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> queue.take(); <span class="comment">// 从队列中取出数据</span></span><br><span class="line">                consume(value); <span class="comment">// 消费数据</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">consume</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="comment">// 消费过程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>3 生产者、消费者模型</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生产者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Producer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Producer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> produce(); <span class="comment">// 生产数据</span></span><br><span class="line">                queue.put(value); <span class="comment">// 将数据放入队列</span></span><br><span class="line">                Thread.sleep(<span class="number">1000</span>); <span class="comment">// 模拟生产过程</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">produce</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 生产过程</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Consumer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Consumer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> queue.take(); <span class="comment">// 从队列中取出数据</span></span><br><span class="line">                consume(value); <span class="comment">// 消费数据</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">consume</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="comment">// 消费过程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -853,15 +901,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h1><p>磁盘调度算法是操作系统中对磁盘访问请求进行排序和调度的算法，其目的是提高磁盘的访问效率。</p>
-<p>一次磁盘读写操作的时间由磁盘寻道&#x2F;寻找时间、延迟时间和传输时间决定。磁盘调度算法可以通过改变到达磁盘请求的处理顺序，减少磁盘寻道时间和延迟时间。</p>
+          <h1>磁盘调度算法</h1>
+<p>磁盘调度算法是操作系统中对磁盘访问请求进行排序和调度的算法，其目的是提高磁盘的访问效率。</p>
+<p>一次磁盘读写操作的时间由磁盘寻道/寻找时间、延迟时间和传输时间决定。磁盘调度算法可以通过改变到达磁盘请求的处理顺序，减少磁盘寻道时间和延迟时间。</p>
 <ol>
-<li><strong>先来先服务算法（First-Come First-Served，FCFS）</strong>：按照请求到达磁盘调度器的顺序进行处理，先到达的请求的先被服务。FCFS 算法实现起来比较简单，不存在算法开销。不过，由于没有考虑磁头移动的路径和方向，平均寻道时间较长。同时，该算法容易出现饥饿问题，即一些后到的磁盘请求可能需要等待很长时间才能得到服务。</li>
-<li><strong>最短寻道时间优先算法（Shortest Seek Time First，SSTF）</strong>：也被称为最佳服务优先（Shortest Service Time First，SSTF）算法，优先选择距离当前磁头位置最近的请求进行服务。SSTF 算法能够最小化磁头的寻道时间，但容易出现饥饿问题，即磁头附近的请求不断被服务，远离磁头的请求长时间得不到响应。实际应用中，需要优化一下该算法的实现，避免出现饥饿问题。</li>
-<li><strong>扫描算法（SCAN）</strong>：也被称为电梯（Elevator）算法，基本思想和电梯非常类似。磁头沿着一个方向扫描磁盘，如果经过的磁道有请求就处理，直到到达磁盘的边界，然后改变移动方向，依此往复。SCAN 算法能够保证所有的请求得到服务，解决了饥饿问题。但是，如果磁头从一个方向刚扫描完，请求才到的话。这个请求就需要等到磁头从相反方向过来之后才能得到处理。</li>
-<li><strong>循环扫描算法（Circular Scan，C-SCAN）</strong>：SCAN 算法的变体，只在磁盘的一侧进行扫描，并且只按照一个方向扫描，直到到达磁盘边界，然后回到磁盘起点，重新开始循环。</li>
-<li><strong>边扫描边观察算法（LOOK）</strong>：SCAN 算法中磁头到了磁盘的边界才改变移动方向，这样可能会做很多无用功，因为磁头移动方向上可能已经没有请求需要处理了。LOOK 算法对 SCAN 算法进行了改进，如果磁头移动方向上已经没有别的请求，就可以立即改变磁头移动方向，依此往复。也就是边扫描边观察指定方向上还有无请求，因此叫 LOOK。</li>
-<li><strong>均衡循环扫描算法（C-LOOK）</strong>：C-SCAN 只有到达磁盘边界时才能改变磁头移动方向，并且磁头返回时也需要返回到磁盘起点，这样可能会做很多无用功。C-LOOK 算法对 C-SCAN 算法进行了改进，如果磁头移动的方向上已经没有磁道访问请求了，就可以立即让磁头返回，并且磁头只需要返回到有磁道访问请求的位置即可。</li>
+<li class="lvl-3">
+<p><strong>先来先服务算法（First-Come First-Served，FCFS）</strong>：按照请求到达磁盘调度器的顺序进行处理，先到达的请求的先被服务。FCFS 算法实现起来比较简单，不存在算法开销。不过，由于没有考虑磁头移动的路径和方向，平均寻道时间较长。同时，该算法容易出现饥饿问题，即一些后到的磁盘请求可能需要等待很长时间才能得到服务。</p>
+</li>
+<li class="lvl-3">
+<p><strong>最短寻道时间优先算法（Shortest Seek Time First，SSTF）</strong>：也被称为最佳服务优先（Shortest Service Time First，SSTF）算法，优先选择距离当前磁头位置最近的请求进行服务。SSTF 算法能够最小化磁头的寻道时间，但容易出现饥饿问题，即磁头附近的请求不断被服务，远离磁头的请求长时间得不到响应。实际应用中，需要优化一下该算法的实现，避免出现饥饿问题。</p>
+</li>
+<li class="lvl-3">
+<p><strong>扫描算法（SCAN）</strong>：也被称为电梯（Elevator）算法，基本思想和电梯非常类似。磁头沿着一个方向扫描磁盘，如果经过的磁道有请求就处理，直到到达磁盘的边界，然后改变移动方向，依此往复。SCAN 算法能够保证所有的请求得到服务，解决了饥饿问题。但是，如果磁头从一个方向刚扫描完，请求才到的话。这个请求就需要等到磁头从相反方向过来之后才能得到处理。</p>
+</li>
+<li class="lvl-3">
+<p><strong>循环扫描算法（Circular Scan，C-SCAN）</strong>：SCAN 算法的变体，只在磁盘的一侧进行扫描，并且只按照一个方向扫描，直到到达磁盘边界，然后回到磁盘起点，重新开始循环。</p>
+</li>
+<li class="lvl-3">
+<p><strong>边扫描边观察算法（LOOK）</strong>：SCAN 算法中磁头到了磁盘的边界才改变移动方向，这样可能会做很多无用功，因为磁头移动方向上可能已经没有请求需要处理了。LOOK 算法对 SCAN 算法进行了改进，如果磁头移动方向上已经没有别的请求，就可以立即改变磁头移动方向，依此往复。也就是边扫描边观察指定方向上还有无请求，因此叫 LOOK。</p>
+</li>
+<li class="lvl-3">
+<p><strong>均衡循环扫描算法（C-LOOK）</strong>：C-SCAN 只有到达磁盘边界时才能改变磁头移动方向，并且磁头返回时也需要返回到磁盘起点，这样可能会做很多无用功。C-LOOK 算法对 C-SCAN 算法进行了改进，如果磁头移动的方向上已经没有磁道访问请求了，就可以立即让磁头返回，并且磁头只需要返回到有磁道访问请求的位置即可。</p>
+</li>
 </ol>
 
       
@@ -939,18 +1000,25 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>进程管理、内存管理、文件管理、设备管理</p>
-<ul>
-<li>设备管理：完成设备（输入输出设备和外部存储设备等）的请求或释放，以及设备启动等功能。</li>
-<li>文件管理：完成文件的读、写、创建及删除等功能。</li>
-<li>进程管理：进程的创建、撤销、阻塞、唤醒，进程间的通信等功能。</li>
-<li>内存管理：完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
+<ul class="lvl-0">
+<li class="lvl-2">设备管理：完成设备（输入输出设备和外部存储设备等）的请求或释放，以及设备启动等功能。</li>
+<li class="lvl-2">文件管理：完成文件的读、写、创建及删除等功能。</li>
+<li class="lvl-2">进程管理：进程的创建、撤销、阻塞、唤醒，进程间的通信等功能。</li>
+<li class="lvl-2">内存管理：完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210729152634.png" alt="操作系统发展与分类"></p>
-<h2 id="0-1-用户态和内核态"><a href="#0-1-用户态和内核态" class="headerlink" title="0.1 用户态和内核态"></a>0.1 用户态和内核态</h2><p>切换方式：系统调用（Trap）、中断（Interrupt）、异常（Exception）</p>
+<h2 id="0-1-用户态和内核态">0.1 用户态和内核态</h2>
+<p>切换方式：系统调用（Trap）、中断（Interrupt）、异常（Exception）</p>
 <ol>
-<li><strong>系统调用（Trap）</strong>：用户态进程 <strong>主动</strong> 要求切换到内核态的一种方式，主要是为了使用内核态才能做的事情比如读取磁盘资源。系统调用的机制其核心还是使用了操作系统为用户特别开放的一个中断来实现。</li>
-<li><strong>中断（Interrupt）</strong>：当外围设备完成用户请求的操作后，会向 CPU 发出相应的中断信号，这时 CPU 会暂停执行下一条即将要执行的指令转而去执行与中断信号对应的处理程序，如果先前执行的指令是用户态下的程序，那么这个转换的过程自然也就发生了由用户态到内核态的切换。比如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后续操作等。</li>
-<li><strong>异常（Exception）</strong>：当 CPU 在执行运行在用户态下的程序时，发生了某些事先不可知的异常，这时会触发由当前运行进程切换到处理此异常的内核相关程序中，也就转到了内核态，比如缺页异常。</li>
+<li class="lvl-3">
+<p><strong>系统调用（Trap）</strong>：用户态进程 <strong>主动</strong> 要求切换到内核态的一种方式，主要是为了使用内核态才能做的事情比如读取磁盘资源。系统调用的机制其核心还是使用了操作系统为用户特别开放的一个中断来实现。</p>
+</li>
+<li class="lvl-3">
+<p><strong>中断（Interrupt）</strong>：当外围设备完成用户请求的操作后，会向 CPU 发出相应的中断信号，这时 CPU 会暂停执行下一条即将要执行的指令转而去执行与中断信号对应的处理程序，如果先前执行的指令是用户态下的程序，那么这个转换的过程自然也就发生了由用户态到内核态的切换。比如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后续操作等。</p>
+</li>
+<li class="lvl-3">
+<p><strong>异常（Exception）</strong>：当 CPU 在执行运行在用户态下的程序时，发生了某些事先不可知的异常，这时会触发由当前运行进程切换到处理此异常的内核相关程序中，也就转到了内核态，比如缺页异常。</p>
+</li>
 </ol>
 <p>在系统的处理上，中断和异常类似，都是通过中断向量表来找到相应的处理程序进行处理。区别在于，中断来自处理器外部，不是由任何一条专门的指令造成，而异常是执行当前指令的结果。</p>
 
@@ -1015,7 +1083,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-05 11:42:14" itemprop="dateModified" datetime="2024-06-05T11:42:14+08:00">2024-06-05</time>
+      <time title="修改时间：2024-06-06 11:46:23" itemprop="dateModified" datetime="2024-06-06T11:46:23+08:00">2024-06-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">

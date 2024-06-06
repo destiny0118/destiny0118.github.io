@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="setmultiset(41条消息) multiset用法总结_二喵君的博客-CSDN博客 常用函数总结：构造、拷贝、析构 操作效果set&amp;nbsp;c产生一个空的set&#x2F;multiset，不含任何元素set c(op)以op为排序准则，产生一个空的set&#x2F;multisetset c1(c2)产生某个set&#x2F;multiset的副本，所有元素都被拷贝set c(beg,end)以区间[beg,end">
+    <meta name="description" content="set multiset (41条消息) multiset用法总结_二喵君的博客-CSDN博客 常用函数总结： 构造、拷贝、析构 操作效果set&amp;nbsp;c产生一个空的set&#x2F;multiset，不含任何元素set c(op)以op为排序准则，产生一个空的set&#x2F;multisetset c1(c2)产生某个set&#x2F;multiset的副本，所有元素都被拷贝set c(beg,end)以区间[beg,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/05/16/%E8%AF%AD%E6%B3%95/C++/c++%20set/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="setmultiset(41条消息) multiset用法总结_二喵君的博客-CSDN博客 常用函数总结：构造、拷贝、析构 操作效果set&amp;nbsp;c产生一个空的set&#x2F;multiset，不含任何元素set c(op)以op为排序准则，产生一个空的set&#x2F;multisetset c1(c2)产生某个set&#x2F;multiset的副本，所有元素都被拷贝set c(beg,end)以区间[beg,end">
+<meta property="og:description" content="set multiset (41条消息) multiset用法总结_二喵君的博客-CSDN博客 常用函数总结： 构造、拷贝、析构 操作效果set&amp;nbsp;c产生一个空的set&#x2F;multiset，不含任何元素set c(op)以op为排序准则，产生一个空的set&#x2F;multisetset c1(c2)产生某个set&#x2F;multiset的副本，所有元素都被拷贝set c(beg,end)以区间[beg,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-16T15:30:26.947Z">
 <meta property="article:modified_time" content="2023-09-20T02:27:07.665Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#set"><span class="nav-text">set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiset"><span class="nav-text">multiset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">常用函数总结：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%8F%98%E5%8A%A8%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="nav-text">非变动性操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%90%9C%E5%AF%BB%E5%87%BD%E6%95%B0"><span class="nav-text">特殊的搜寻函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-text">迭代器相关函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E6%8F%92%E5%92%8C%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-text">安插和删除元素</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">set</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#multiset"><span class="nav-text">multiset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="nav-text">常用函数总结：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E5%8F%98%E5%8A%A8%E6%80%A7%E6%93%8D%E4%BD%9C"><span class="nav-text">非变动性操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%90%9C%E5%AF%BB%E5%87%BD%E6%95%B0"><span class="nav-text">特殊的搜寻函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC"><span class="nav-text">赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0"><span class="nav-text">迭代器相关函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E6%8F%92%E5%92%8C%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-text">安插和删除元素</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,23 +274,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
-<h2 id="常用函数总结："><a href="#常用函数总结：" class="headerlink" title="常用函数总结："></a>常用函数总结：</h2><p><strong>构造、拷贝、析构</strong></p>
+        <h1>set</h1>
+<h2 id="multiset">multiset</h2>
+<p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
+<h2 id="常用函数总结：">常用函数总结：</h2>
+<p><strong>构造、拷贝、析构</strong></p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p><em>set</em>&nbsp;c</p></td><td><p>产生一个空的set/multiset，不含任何元素</p></td></tr><tr><td><p>set c(op)</p></td><td><p>以op为排序准则，产生一个空的set/multiset</p></td></tr><tr><td><p>set c1(c2)</p></td><td><p>产生某个set/multiset的副本，所有元素都被拷贝</p></td></tr><tr><td><p>set c(beg,end)</p></td><td><p>以区间[beg,end)内的所有元素产生一个set/multiset</p></td></tr><tr><td><p>set c(beg,end, op)</p></td><td><p>以op为排序准则，区间[beg,end)内的元素产生一个set/multiset</p></td></tr><tr><td><p>c.~set()</p></td><td><p>销毁所有元素，释放内存</p></td></tr><tr><td><p>set&lt;Elem&gt;</p></td><td><p>产生一个set，以(operator &lt;)为排序准则</p></td></tr><tr><td><p>set&lt;Elem,0p&gt;</p></td><td><p>产生一个set，以op为排序准则</p></td></tr></tbody></table>
-
-<h3 id="非变动性操作"><a href="#非变动性操作" class="headerlink" title="非变动性操作"></a><strong>非变动性操作</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
-
-<h3 id="特殊的搜寻函数"><a href="#特殊的搜寻函数" class="headerlink" title="特殊的搜寻函数"></a><strong>特殊的搜寻函数</strong></h3><p>　　sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
+<h3 id="非变动性操作"><strong>非变动性操作</strong></h3>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
+<h3 id="特殊的搜寻函数"><strong>特殊的搜寻函数</strong></h3>
+<p>sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>count (elem)</p></td><td><p>返回元素值为elem的个数</p></td></tr><tr><td><p>find(elem)</p></td><td><p>返回元素值为elem的第一个元素，如果没有返回end()</p></td></tr><tr><td><p>lower _bound(elem)</p></td><td><p>返回元素值为elem的第一个可安插位置，也就是元素值 &gt;= elem的第一个元素位置</p></td></tr><tr><td><p>upper _bound (elem)</p></td><td><p>返回元素值为elem的最后一个可安插位置，也就是元素值 &gt; elem 的第一个元素位置</p></td></tr><tr><td><p>equal_range (elem)</p></td><td><p>返回elem可安插的第一个位置和最后一个位置，也就是元素值==elem的区间</p></td></tr></tbody></table>
-
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a><strong>赋值</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
-
-<h3 id="迭代器相关函数"><a href="#迭代器相关函数" class="headerlink" title="迭代器相关函数"></a><strong>迭代器相关函数</strong></h3><p>　　sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
+<h3 id="赋值"><strong>赋值</strong></h3>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
+<h3 id="迭代器相关函数"><strong>迭代器相关函数</strong></h3>
+<p>sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.begin()</p></td><td><p>返回一个随机存取迭代器，指向第一个元素</p></td></tr><tr><td><p>c.end()</p></td><td><p>返回一个随机存取迭代器，指向最后一个元素的下一个位置</p></td></tr><tr><td><p>c.rbegin()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的第一个元素</p></td></tr><tr><td><p>c.rend()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的最后一个元素的下一个位置</p></td></tr></tbody></table>
-
-<h3 id="安插和删除元素"><a href="#安插和删除元素" class="headerlink" title="安插和删除元素"></a>安插和删除元素</h3><p>　　必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
+<h3 id="安插和删除元素">安插和删除元素</h3>
+<p>必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.insert(elem)</p></td><td><p>插入一个elem副本，返回新元素位置，无论插入成功与否。</p></td></tr><tr><td><p>c.insert(pos, elem)</p></td><td><p>安插一个elem元素副本，返回新元素位置，pos为收索起点，提升插入速度。</p></td></tr><tr><td><p>c.insert(beg,end)</p></td><td><p>将区间[beg,end)所有的元素安插到c，无返回值。</p></td></tr><tr><td><p>c.erase(elem)</p></td><td><p>删除与elem相等的所有元素，返回被移除的元素个数。</p></td></tr><tr><td><p>c.erase(pos)</p></td><td><p>移除迭代器pos所指位置元素，无返回值。</p></td></tr><tr><td><p>c.erase(beg,end)</p></td><td><p>移除区间[beg,end)所有元素，无返回值。</p></td></tr><tr><td><p>c.clear()</p></td><td><p>移除所有元素，将容器清空</p></td></tr></tbody></table>
-
 
     </div>
 

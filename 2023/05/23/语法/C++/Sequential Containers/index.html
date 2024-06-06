@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Sequential Containers元素在顺序容器中的顺序与其加入容器时的位置相对应。 Container Operations vector&lt;int&gt; vec;vector&lt;int&gt;::iterator iter1 &#x3D; vec.begin(), iter2 &#x3D; vec.end();[begin,end)      定义和初始化容器    C c 默认初始化    C">
+    <meta name="description" content="Sequential Containers 元素在顺序容器中的顺序与其加入容器时的位置相对应。 Container Operations  vector&lt;int&gt; vec;vector&lt;int&gt;::iterator iter1 &#x3D; vec.begin(), iter2 &#x3D; vec.end();[begin,end) 定义和初始化容器    C c 默认初始化     C c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/05/23/%E8%AF%AD%E6%B3%95/C++/Sequential%20Containers/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="Sequential Containers元素在顺序容器中的顺序与其加入容器时的位置相对应。 Container Operations vector&lt;int&gt; vec;vector&lt;int&gt;::iterator iter1 &#x3D; vec.begin(), iter2 &#x3D; vec.end();[begin,end)      定义和初始化容器    C c 默认初始化    C">
+<meta property="og:description" content="Sequential Containers 元素在顺序容器中的顺序与其加入容器时的位置相对应。 Container Operations  vector&lt;int&gt; vec;vector&lt;int&gt;::iterator iter1 &#x3D; vec.begin(), iter2 &#x3D; vec.end();[begin,end) 定义和初始化容器    C c 默认初始化     C c">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sequential-Containers"><span class="nav-text">Sequential Containers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Operations"><span class="nav-text">Container Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Adaptors"><span class="nav-text">Container Adaptors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack"><span class="nav-text">stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue"><span class="nav-text">queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#priority-queue"><span class="nav-text">priority_queue</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Sequential Containers</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Operations"><span class="nav-text">Container Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Container-Adaptors"><span class="nav-text">Container Adaptors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stack"><span class="nav-text">stack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#queue"><span class="nav-text">queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#priority-queue"><span class="nav-text">priority_queue</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -278,14 +278,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Sequential-Containers"><a href="#Sequential-Containers" class="headerlink" title="Sequential Containers"></a>Sequential Containers</h1><p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
-<h2 id="Container-Operations"><a href="#Container-Operations" class="headerlink" title="Container Operations"></a>Container Operations</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
+        <h1>Sequential Containers</h1>
+<p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
+<h2 id="Container-Operations">Container Operations</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator iter1 = vec.<span class="built_in">begin</span>(), iter2 = vec.<span class="built_in">end</span>();</span><br><span class="line">[begin,end)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <p>定义和初始化容器</p>
 <table>
 <thead>
@@ -294,12 +291,13 @@
 <th>默认初始化</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>C c1(c2)</td>
 <td></td>
 </tr>
 <tr>
-<td>C c1&#x3D;c2</td>
+<td>C c1=c2</td>
 <td></td>
 </tr>
 <tr>
@@ -307,7 +305,7 @@
 <td></td>
 </tr>
 <tr>
-<td>C c&#x3D;{a,b,c,…}</td>
+<td>C c={a,b,c,…}</td>
 <td></td>
 </tr>
 <tr>
@@ -322,18 +320,25 @@
 <td>C seq(n,t)</td>
 <td>n个元素，值为t</td>
 </tr>
-</tbody></table>
-<h2 id="Container-Adaptors"><a href="#Container-Adaptors" class="headerlink" title="Container Adaptors"></a>Container Adaptors</h2><blockquote>
+</tbody>
+</table>
+<h2 id="Container-Adaptors">Container Adaptors</h2>
+<blockquote>
 <p>容器适配器</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png" alt="image-20230523175546695"></p>
-<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
-<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
-
+<h3 id="stack">stack</h3>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
+<h3 id="queue">queue</h3>
+<h3 id="priority-queue">priority_queue</h3>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Compare: </p>
+<p>Compare:</p>
 <p>comp(a,b)，如果a应该出现在b前面，返回true，弹出的元素是根据<em>strict weak ordering</em>的最后一个元素</p>
-<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
+<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>
+The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>
+The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>
+This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
 </blockquote>
 
     </div>

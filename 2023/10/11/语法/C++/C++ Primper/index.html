@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="左值和右值C++中左值和右值的理解 - 知乎 (zhihu.com)  lvalue(ell-value)： 左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边 左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。">
+    <meta name="description" content="左值和右值 C++中左值和右值的理解 - 知乎 (zhihu.com)  lvalue(ell-value)：  左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边 左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/10/11/%E8%AF%AD%E6%B3%95/C++/C++%20Primper/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="左值和右值C++中左值和右值的理解 - 知乎 (zhihu.com)  lvalue(ell-value)： 左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边 左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。">
+<meta property="og:description" content="左值和右值 C++中左值和右值的理解 - 知乎 (zhihu.com)  lvalue(ell-value)：  左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边 左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161042659.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161049131.png">
@@ -154,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC"><span class="nav-text">左值和右值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapt-12"><span class="nav-text">chapt 12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#smart-pointer"><span class="nav-text">smart pointer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unique-ptr"><span class="nav-text">unique_ptr</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC"><span class="nav-text">左值和右值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">chapt 12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#smart-pointer"><span class="nav-text">smart pointer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unique-ptr"><span class="nav-text">unique_ptr</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +178,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,34 +279,55 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p><a href="https://zhuanlan.zhihu.com/p/240833006">C++中左值和右值的理解 - 知乎 (zhihu.com)</a></p>
-<ul>
-<li>lvalue(ell-value)：<ul>
-<li>左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边</li>
-<li>左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。</li>
+        <h2 id="左值和右值">左值和右值</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/240833006">C++中左值和右值的理解 - 知乎 (zhihu.com)</a></p>
+<ul class="lvl-0">
+<li class="lvl-2">lvalue(ell-value)：
+<ul class="lvl-2">
+<li class="lvl-6">左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边</li>
+<li class="lvl-6">左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。</li>
 </ul>
 </li>
-<li>rvalue(are-value)：当一个对象被用作右值的时候，用的是对象的值(the object’s content)<ul>
-<li>右值一般是不可寻址的常量，或在表达式求值过程中创建的无名临时对象，短暂性的<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a; <span class="comment">// a 为左值</span></span><br><span class="line">a = <span class="number">3</span>; <span class="comment">// 3 为右值</span></span><br></pre></td></tr></table></figure></li>
+<li class="lvl-3">rvalue(are-value)：当一个对象被用作右值的时候，用的是对象的值(the object’s content)
+<ul class="lvl-2">
+<li class="lvl-7">右值一般是不可寻址的常量，或在表达式求值过程中创建的无名临时对象，短暂性的</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a; <span class="comment">// a 为左值</span></span><br><span class="line">a = <span class="number">3</span>; <span class="comment">// 3 为右值</span></span><br></pre></td></tr></table></figure>
 <p>需要右值时，可以使用左值，反之不行</p>
-<ul>
-<li>左值引用：引用一个对象；</li>
-<li>右值引用（rvalue reference）：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。必须绑定到右值的引用，可以绑定到一个将要销毁的对象<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">6</span>; <span class="comment">// x是左值，6是右值</span></span><br><span class="line"><span class="type">int</span> &amp;y = x; <span class="comment">// 左值引用，y引用x</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;z1 = x * <span class="number">6</span>; <span class="comment">// 错误，x*6是一个右值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;z2 =  x * <span class="number">6</span>; <span class="comment">// 正确，可以将一个const引用绑定到一个右值</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;&amp;z3 = x * <span class="number">6</span>; <span class="comment">// 正确，右值引用</span></span><br><span class="line"><span class="type">int</span> &amp;&amp;z4 = x; <span class="comment">// 错误，x是一个左值</span></span><br></pre></td></tr></table></figure></li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>左值引用：引用一个对象；</p>
+</li>
+<li class="lvl-2">
+<p>右值引用（rvalue reference）：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。必须绑定到右值的引用，可以绑定到一个将要销毁的对象</p>
+</li>
 </ul>
-<h1 id="chapt-12"><a href="#chapt-12" class="headerlink" title="chapt 12"></a>chapt 12</h1><p>smart pointer：管理动态对象<br>shared_ptr：允许多个指针指向同一个对象<br>unique_ptr：独占所指向的对象<br>weak_ptr：弱引用，指向shared_ptr所管理的对象</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">6</span>; <span class="comment">// x是左值，6是右值</span></span><br><span class="line"><span class="type">int</span> &amp;y = x; <span class="comment">// 左值引用，y引用x</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;z1 = x * <span class="number">6</span>; <span class="comment">// 错误，x*6是一个右值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;z2 =  x * <span class="number">6</span>; <span class="comment">// 正确，可以将一个const引用绑定到一个右值</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;&amp;z3 = x * <span class="number">6</span>; <span class="comment">// 正确，右值引用</span></span><br><span class="line"><span class="type">int</span> &amp;&amp;z4 = x; <span class="comment">// 错误，x是一个左值</span></span><br></pre></td></tr></table></figure>
+<h1>chapt 12</h1>
+<p>smart pointer：管理动态对象<br>
+shared_ptr：允许多个指针指向同一个对象<br>
+unique_ptr：独占所指向的对象<br>
+weak_ptr：弱引用，指向shared_ptr所管理的对象</p>
 <p>管理动态内存：</p>
-<ul>
-<li>忘记delete动态分配的内存（内存泄漏）</li>
-<li>在对象delete后使用</li>
-<li>同一块内存delete多次</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>忘记delete动态分配的内存（内存泄漏）</p>
+</li>
+<li class="lvl-2">
+<p>在对象delete后使用</p>
+</li>
+<li class="lvl-2">
+<p>同一块内存delete多次</p>
+</li>
 </ul>
-<h2 id="smart-pointer"><a href="#smart-pointer" class="headerlink" title="smart pointer"></a>smart pointer</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161042659.png" alt="image.png"></p>
+<h2 id="smart-pointer">smart pointer</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161042659.png" alt="image.png"></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161049131.png" alt="image.png"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161040197.png"></p>
-<h2 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a>unique_ptr</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161139098.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161040197.png" alt=""></p>
+<h2 id="unique-ptr">unique_ptr</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161139098.png" alt="image.png"></p>
 
     </div>
 

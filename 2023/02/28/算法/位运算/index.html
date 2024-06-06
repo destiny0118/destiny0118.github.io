@@ -152,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96"><span class="nav-text">异或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-text">位运算基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%97%E5%88%B0%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0x%E6%9C%80%E4%BD%8E%E4%BD%8D%E7%9A%841%EF%BC%88lowbit%EF%BC%89"><span class="nav-text">得到二进制数x最低位的1（lowbit）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%89%B9%E6%80%A7"><span class="nav-text">二进制特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%AE%A1%E6%95%B0%EF%BC%88%E7%BB%9F%E8%AE%A11%E7%9A%84%E6%95%B0%E7%9B%AE%EF%BC%89"><span class="nav-text">位计数（统计1的数目）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Brian-Kernighan%E7%AE%97%E6%B3%95"><span class="nav-text">Brian Kernighan算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96-1"><span class="nav-text">异或</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">位运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96"><span class="nav-text">异或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">位运算基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BE%97%E5%88%B0%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0x%E6%9C%80%E4%BD%8E%E4%BD%8D%E7%9A%841%EF%BC%88lowbit%EF%BC%89"><span class="nav-text">得到二进制数x最低位的1（lowbit）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">二进制特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E8%AE%A1%E6%95%B0%EF%BC%88%E7%BB%9F%E8%AE%A11%E7%9A%84%E6%95%B0%E7%9B%AE%EF%BC%89"><span class="nav-text">位计数（统计1的数目）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Brian-Kernighan%E7%AE%97%E6%B3%95"><span class="nav-text">Brian Kernighan算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%88%96-2"><span class="nav-text">异或</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,26 +279,29 @@
     
     <div class="post-body" itemprop="articleBody">
         <p><a href="https://leetcode.cn/circle/discuss/CaOJ45/">从集合论到位运算，常见位运算技巧分类总结！ - 力扣（LeetCode）</a></p>
-<h1 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h1><p>常用的位运算符号包括：^按位异或，&amp;按位与，|按位或，~取反，&lt;&lt;算术左移，&gt;&gt;算术右移</p>
+<h1>位运算</h1>
+<p>常用的位运算符号包括：^按位异或，&amp;按位与，|按位或，~取反，&lt;&lt;算术左移，&gt;&gt;算术右移</p>
 <table>
 <thead>
 <tr>
-<th>x^0&#x3D;x</th>
-<th>x&amp;0&#x3D;0</th>
-<th>x|0&#x3D;x</th>
+<th>x^0=x</th>
+<th>x&amp;0=0</th>
+<th>x|0=x</th>
 </tr>
 </thead>
-<tbody><tr>
-<td>x^1s&#x3D;~x</td>
-<td>x&amp;1s&#x3D;x</td>
-<td>x|1s&#x3D;1</td>
+<tbody>
+<tr>
+<td>x^1s=~x</td>
+<td>x&amp;1s=x</td>
+<td>x|1s=1</td>
 </tr>
 <tr>
-<td>x^x&#x3D;0</td>
-<td>x&amp;x&#x3D;x</td>
-<td>x|x&#x3D;x</td>
+<td>x^x=0</td>
+<td>x&amp;x=x</td>
+<td>x|x=x</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -307,15 +310,16 @@
 <th>示例</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>去除n的二进制表示中最低的一位</td>
 <td>n&amp;(n-1)</td>
-<td>11010&amp;(11001)&#x3D;11000</td>
+<td>11010&amp;(11001)=11000</td>
 </tr>
 <tr>
 <td>得到n的二进制表示中最低的一位</td>
 <td>n&amp;(-n)</td>
-<td>11010&amp;(00110)&#x3D;00010</td>
+<td>11010&amp;(00110)=00010</td>
 </tr>
 <tr>
 <td></td>
@@ -347,13 +351,25 @@
 <td>__builtin_popcount(n)</td>
 <td></td>
 </tr>
-</tbody></table>
-<h2 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h2><ul>
-<li>$x\oplus x&#x3D;0$</li>
-<li>$x\oplus 0&#x3D;x$</li>
-<li>$x\oplus y&#x3D;y\oplus x$</li>
-<li>$x\oplus y\oplus y&#x3D;x$</li>
-<li>$x\oplus y&#x3D;z\Longrightarrow x\oplus z&#x3D;y$</li>
+</tbody>
+</table>
+<h2 id="异或">异或</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>$x\oplus x=0$</p>
+</li>
+<li class="lvl-2">
+<p>$x\oplus 0=x$</p>
+</li>
+<li class="lvl-2">
+<p>$x\oplus y=y\oplus x$</p>
+</li>
+<li class="lvl-2">
+<p>$x\oplus y\oplus y=x$</p>
+</li>
+<li class="lvl-3">
+<p>$x\oplus y=z\Longrightarrow x\oplus z=y$</p>
+</li>
 </ul>
 <table>
 <thead>
@@ -363,9 +379,10 @@
 <th>结果</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>x&amp;(-x)（得到最低位的1）</td>
-<td>x&#x3D;16(10000)</td>
+<td>x=16(10000)</td>
 <td>10000</td>
 </tr>
 <tr>
@@ -373,86 +390,114 @@
 <td>17(10001)</td>
 <td>10000</td>
 </tr>
-</tbody></table>
-<h1 id="位运算基础知识"><a href="#位运算基础知识" class="headerlink" title="位运算基础知识"></a>位运算基础知识</h1><ol>
-<li><p>判断奇偶：</p>
-<ul>
-<li><p>奇：<code>(x &amp; 1) == 1</code>  ⟺  if⟺<code>(x &amp; 1) != 0</code></p>
+</tbody>
+</table>
+<h1>位运算基础知识</h1>
+<ol>
+<li class="lvl-3">
+<p>判断奇偶：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p>奇：<code>(x &amp; 1) == 1</code>  ⟺  if⟺<code>(x &amp; 1) != 0</code></p>
 </li>
-<li><p>偶：<code>(x &amp; 1) == 0</code>  ⟺  \iff⟺<code>(x &amp; 1) != 1</code></p>
-</li>
-</ul>
-</li>
-<li><p>乘（或除）以 2 的幂次：</p>
-<ul>
-<li><p><code>x &gt;&gt; n</code>  ⟺  iff⟺<code>x / 2^n</code></p>
-</li>
-<li><p><code>x &lt;&lt; n</code>  ⟺  \iff⟺<code>x * 2^n</code></p>
+<li class="lvl-6">
+<p>偶：<code>(x &amp; 1) == 0</code>  ⟺  \iff⟺<code>(x &amp; 1) != 1</code></p>
 </li>
 </ul>
 </li>
-<li><p>去除最后一位 1：<code>x &amp; (x - 1)</code></p>
+<li class="lvl-3">
+<p>乘（或除）以 2 的幂次：</p>
+<ul class="lvl-2">
+<li class="lvl-6">
+<p><code>x &gt;&gt; n</code>  ⟺  iff⟺<code>x / 2^n</code></p>
 </li>
-<li><p>得到最后一位 1：<code>x &amp; -x</code></p>
+<li class="lvl-6">
+<p><code>x &lt;&lt; n</code>  ⟺  \iff⟺<code>x * 2^n</code></p>
 </li>
-<li><p>判断 2 的幂次：<code>x &amp; (x - 1) == 0</code></p>
+</ul>
 </li>
-<li><p>交换两个数：<code>a ^= b; b ^= a; a ^= b;</code></p>
+<li class="lvl-3">
+<p>去除最后一位 1：<code>x &amp; (x - 1)</code></p>
 </li>
-<li><p>交换符号：<code>~x + 1</code>  ⟺  \iff⟺<code>-x</code></p>
+<li class="lvl-3">
+<p>得到最后一位 1：<code>x &amp; -x</code></p>
 </li>
-<li><p>取绝对值：<code>(x ^ x &gt;&gt; size(x) - 1) - (x &gt;&gt; size(x) - 1)</code>  ⟺  \iff⟺<code>x &lt; 0 ? -x : x</code></p>
+<li class="lvl-3">
+<p>判断 2 的幂次：<code>x &amp; (x - 1) == 0</code></p>
 </li>
-<li><p>构造 n 个 1：<code>(1 &lt;&lt; n) - 1</code></p>
+<li class="lvl-3">
+<p>交换两个数：<code>a ^= b; b ^= a; a ^= b;</code></p>
 </li>
-<li><p>将最左边的 n 位清零：<code>x &amp; (~0 &lt;&lt; n)</code></p>
+<li class="lvl-3">
+<p>交换符号：<code>~x + 1</code>  ⟺  \iff⟺<code>-x</code></p>
 </li>
-<li><p>获取 x 的第 n 位值（0 或 1）：<code>(x &gt;&gt; n) &amp; 1</code></p>
+<li class="lvl-3">
+<p>取绝对值：<code>(x ^ x &gt;&gt; size(x) - 1) - (x &gt;&gt; size(x) - 1)</code>  ⟺  \iff⟺<code>x &lt; 0 ? -x : x</code></p>
 </li>
-<li><p>获取 x 的第 n 位的幂值：<code>x &amp; (1 &lt;&lt; n)</code></p>
+<li class="lvl-3">
+<p>构造 n 个 1：<code>(1 &lt;&lt; n) - 1</code></p>
 </li>
-<li><p>仅将第 n 位置为 1：<code>x | (1 &lt;&lt; n)</code></p>
+<li class="lvl-4">
+<p>将最左边的 n 位清零：<code>x &amp; (~0 &lt;&lt; n)</code></p>
 </li>
-<li><p>仅将第 n 位置为 0：<code>x &amp; (~(1 &lt;&lt; n))</code></p>
+<li class="lvl-4">
+<p>获取 x 的第 n 位值（0 或 1）：<code>(x &gt;&gt; n) &amp; 1</code></p>
 </li>
-<li><p>将 x 最高位至第 n 位（含）清零：<code>x &amp; ((1 &lt;&lt; n) - 1)</code></p>
+<li class="lvl-4">
+<p>获取 x 的第 n 位的幂值：<code>x &amp; (1 &lt;&lt; n)</code></p>
 </li>
-<li><p>将第 n 位至第 0 位（含）清零：<code>x &amp; (~((1 &lt;&lt; (n + 1)) - 1))</code></p>
+<li class="lvl-4">
+<p>仅将第 n 位置为 1：<code>x | (1 &lt;&lt; n)</code></p>
 </li>
-<li><p>异或满足交换律、结合律：<code>a ^ b ^ a = b ^ (a ^ a) = b ^ 0 = b</code><br><a href="https://leetcode.cn/problems/insert-into-bits-lcci/solutions/2458770/jian-dan-wei-yun-suan-by-raccooncc-l7jo/?envType=study-plan-v2&envId=cracking-the-coding-interview">面试题 05.01. 插入 - 力扣（LeetCode）</a></p>
+<li class="lvl-4">
+<p>仅将第 n 位置为 0：<code>x &amp; (~(1 &lt;&lt; n))</code></p>
+</li>
+<li class="lvl-4">
+<p>将 x 最高位至第 n 位（含）清零：<code>x &amp; ((1 &lt;&lt; n) - 1)</code></p>
+</li>
+<li class="lvl-4">
+<p>将第 n 位至第 0 位（含）清零：<code>x &amp; (~((1 &lt;&lt; (n + 1)) - 1))</code></p>
+</li>
+<li class="lvl-4">
+<p>异或满足交换律、结合律：<code>a ^ b ^ a = b ^ (a ^ a) = b ^ 0 = b</code><a href="https://leetcode.cn/problems/insert-into-bits-lcci/solutions/2458770/jian-dan-wei-yun-suan-by-raccooncc-l7jo/?envType=study-plan-v2&amp;envId=cracking-the-coding-interview">面试题 05.01. 插入 - 力扣（LeetCode）</a></p>
 </li>
 </ol>
-<h2 id="得到二进制数x最低位的1（lowbit）"><a href="#得到二进制数x最低位的1（lowbit）" class="headerlink" title="得到二进制数x最低位的1（lowbit）"></a>得到二进制数x最低位的1（lowbit）</h2><p>x&amp;-x</p>
+<h2 id="得到二进制数x最低位的1（lowbit）">得到二进制数x最低位的1（lowbit）</h2>
+<p>x&amp;-x</p>
 <blockquote>
 <p>负数按照补码规则在计算机中存储，-n的二进制表示为n的二进制表示的每一位取反加1（包括符号位）</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307151956034.png" alt="image-20221018105315154"></p>
 <p>二进制数最低位的1变成0</p>
-<p>x&#x3D;x&amp;(x-1)</p>
-<p>x-&#x3D;(x&amp;-x)</p>
+<p>x=x&amp;(x-1)</p>
+<p>x-=(x&amp;-x)</p>
 <p>将二进制数x最低位的0变成1</p>
 <blockquote>
 <p>x取反的最低位1是x的最低位0</p>
-<p>y&#x3D;~x</p>
-<p>x|&#x3D;y&amp;(-y)</p>
+<p>y=~x</p>
+<p>x|=y&amp;(-y)</p>
 </blockquote>
-<p>x&#x3D;x| (x+1)</p>
-<h1 id="二进制特性"><a href="#二进制特性" class="headerlink" title="二进制特性"></a>二进制特性</h1><blockquote>
-<p>可以利用二进制和位运算输出一个数组的所有子集。假设有一个长度为n的数组，可以生成长度为n的所有二进制，1表示选取该数字，0表示不选取，可以得到$2^n$个子集。<br>快速判断两个字符串是否含有重复字母：为每个字符串建立一个长度为26的二进制数字，每个位置表示是否存在该字母</p>
+<p>x=x| (x+1)</p>
+<h1>二进制特性</h1>
+<blockquote>
+<p>可以利用二进制和位运算输出一个数组的所有子集。假设有一个长度为n的数组，可以生成长度为n的所有二进制，1表示选取该数字，0表示不选取，可以得到$2^n$个子集。快速判断两个字符串是否含有重复字母：为每个字符串建立一个长度为26的二进制数字，每个位置表示是否存在该字母</p>
 </blockquote>
-<h2 id="位计数（统计1的数目）"><a href="#位计数（统计1的数目）" class="headerlink" title="位计数（统计1的数目）"></a>位计数（统计1的数目）</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnt=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    x=x&amp;(x<span class="number">-1</span>);</span><br><span class="line">    cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    cnt+=x&amp;<span class="number">1</span>;</span><br><span class="line">    x=x&gt;&gt;<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">__builtin_popcount(x)</span><br></pre></td></tr></table></figure>
-
-<h3 id="Brian-Kernighan算法"><a href="#Brian-Kernighan算法" class="headerlink" title="Brian Kernighan算法"></a>Brian Kernighan算法</h3><blockquote>
-<p>对于任意整数 xx，令 x&#x3D;x &amp; (x−1)，该运算将 x 的二进制表示的最后一个 1 变成 0。因此，对 x 重复该操作，直到 x 变成 0，则操作次数即为 x 的「一比特数」。</p>
+<h2 id="位计数（统计1的数目）">位计数（统计1的数目）</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnt=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    x=x&amp;(x<span class="number">-1</span>);</span><br><span class="line">    cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    cnt+=x&amp;<span class="number">1</span>;</span><br><span class="line">    x=x&gt;&gt;<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">__builtin_popcount(x)</span><br></pre></td></tr></table></figure>
+<h3 id="Brian-Kernighan算法">Brian Kernighan算法</h3>
+<blockquote>
+<p>对于任意整数 xx，令 x=x &amp; (x−1)，该运算将 x 的二进制表示的最后一个 1 变成 0。因此，对 x 重复该操作，直到 x 变成 0，则操作次数即为 x 的「一比特数」。</p>
 <p>对于给定的 n，计算从 0 到 n 的每个整数的「一比特数」的时间都不会超过O(logn)，因此总时间复杂度为O(nlogn)。</p>
 </blockquote>
 <blockquote>
 <p>c(x)表示二进制表示x中的1个数</p>
-<p>c(x&amp;y)+c(x|y)&#x3D;c(x)+c(y)</p>
+<p>c(x&amp;y)+c(x|y)=c(x)+c(y)</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305102313302.png" alt="image-20230510231250236"></p>
 <p><a href="https://leetcode.cn/problems/minimum-flips-to-make-a-or-b-equal-to-c/">1318. 或运算的最小翻转次数</a></p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="异或-1"><a href="#异或-1" class="headerlink" title="异或"></a>异或</h2><p><a href="https://leetcode.cn/circle/discuss/sqPZwg/view/A1hGp7/">分享｜异或&#x2F;XOR部分问题汇总 - 力扣（LeetCode）</a></p>
+<h1>题目</h1>
+<h2 id="异或-2">异或</h2>
+<p><a href="https://leetcode.cn/circle/discuss/sqPZwg/view/A1hGp7/">分享｜异或/XOR部分问题汇总 - 力扣（LeetCode）</a></p>
 <table>
 <thead>
 <tr>
@@ -460,7 +505,8 @@
 <th>标签</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/description/">421. 数组中两个数的最大异或值 - 力扣（LeetCode）</a></td>
 <td>字典树</td>
 </tr>
@@ -492,7 +538,8 @@
 <td>$$</td>
 <td></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <pre><code> \begin&#123;align&#125;
  &amp;1734题\\
 &amp;(a,b,c,d,e)\\

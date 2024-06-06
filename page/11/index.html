@@ -170,7 +170,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -270,14 +270,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Sequential-Containers"><a href="#Sequential-Containers" class="headerlink" title="Sequential Containers"></a>Sequential Containers</h1><p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
-<h2 id="Container-Operations"><a href="#Container-Operations" class="headerlink" title="Container Operations"></a>Container Operations</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
+          <h1>Sequential Containers</h1>
+<p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
+<h2 id="Container-Operations">Container Operations</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator iter1 = vec.<span class="built_in">begin</span>(), iter2 = vec.<span class="built_in">end</span>();</span><br><span class="line">[begin,end)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <p>定义和初始化容器</p>
 <table>
 <thead>
@@ -286,12 +283,13 @@
 <th>默认初始化</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>C c1(c2)</td>
 <td></td>
 </tr>
 <tr>
-<td>C c1&#x3D;c2</td>
+<td>C c1=c2</td>
 <td></td>
 </tr>
 <tr>
@@ -299,7 +297,7 @@
 <td></td>
 </tr>
 <tr>
-<td>C c&#x3D;{a,b,c,…}</td>
+<td>C c={a,b,c,…}</td>
 <td></td>
 </tr>
 <tr>
@@ -314,18 +312,25 @@
 <td>C seq(n,t)</td>
 <td>n个元素，值为t</td>
 </tr>
-</tbody></table>
-<h2 id="Container-Adaptors"><a href="#Container-Adaptors" class="headerlink" title="Container Adaptors"></a>Container Adaptors</h2><blockquote>
+</tbody>
+</table>
+<h2 id="Container-Adaptors">Container Adaptors</h2>
+<blockquote>
 <p>容器适配器</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png" alt="image-20230523175546695"></p>
-<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
-<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
-
+<h3 id="stack">stack</h3>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
+<h3 id="queue">queue</h3>
+<h3 id="priority-queue">priority_queue</h3>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>Compare: </p>
+<p>Compare:</p>
 <p>comp(a,b)，如果a应该出现在b前面，返回true，弹出的元素是根据<em>strict weak ordering</em>的最后一个元素</p>
-<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
+<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>
+The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>
+The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>
+This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
 </blockquote>
 
       
@@ -402,23 +407,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
-<h2 id="常用函数总结："><a href="#常用函数总结：" class="headerlink" title="常用函数总结："></a>常用函数总结：</h2><p><strong>构造、拷贝、析构</strong></p>
+          <h1>set</h1>
+<h2 id="multiset">multiset</h2>
+<p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
+<h2 id="常用函数总结：">常用函数总结：</h2>
+<p><strong>构造、拷贝、析构</strong></p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p><em>set</em>&nbsp;c</p></td><td><p>产生一个空的set/multiset，不含任何元素</p></td></tr><tr><td><p>set c(op)</p></td><td><p>以op为排序准则，产生一个空的set/multiset</p></td></tr><tr><td><p>set c1(c2)</p></td><td><p>产生某个set/multiset的副本，所有元素都被拷贝</p></td></tr><tr><td><p>set c(beg,end)</p></td><td><p>以区间[beg,end)内的所有元素产生一个set/multiset</p></td></tr><tr><td><p>set c(beg,end, op)</p></td><td><p>以op为排序准则，区间[beg,end)内的元素产生一个set/multiset</p></td></tr><tr><td><p>c.~set()</p></td><td><p>销毁所有元素，释放内存</p></td></tr><tr><td><p>set&lt;Elem&gt;</p></td><td><p>产生一个set，以(operator &lt;)为排序准则</p></td></tr><tr><td><p>set&lt;Elem,0p&gt;</p></td><td><p>产生一个set，以op为排序准则</p></td></tr></tbody></table>
-
-<h3 id="非变动性操作"><a href="#非变动性操作" class="headerlink" title="非变动性操作"></a><strong>非变动性操作</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
-
-<h3 id="特殊的搜寻函数"><a href="#特殊的搜寻函数" class="headerlink" title="特殊的搜寻函数"></a><strong>特殊的搜寻函数</strong></h3><p>　　sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
+<h3 id="非变动性操作"><strong>非变动性操作</strong></h3>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
+<h3 id="特殊的搜寻函数"><strong>特殊的搜寻函数</strong></h3>
+<p>sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>count (elem)</p></td><td><p>返回元素值为elem的个数</p></td></tr><tr><td><p>find(elem)</p></td><td><p>返回元素值为elem的第一个元素，如果没有返回end()</p></td></tr><tr><td><p>lower _bound(elem)</p></td><td><p>返回元素值为elem的第一个可安插位置，也就是元素值 &gt;= elem的第一个元素位置</p></td></tr><tr><td><p>upper _bound (elem)</p></td><td><p>返回元素值为elem的最后一个可安插位置，也就是元素值 &gt; elem 的第一个元素位置</p></td></tr><tr><td><p>equal_range (elem)</p></td><td><p>返回elem可安插的第一个位置和最后一个位置，也就是元素值==elem的区间</p></td></tr></tbody></table>
-
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a><strong>赋值</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
-
-<h3 id="迭代器相关函数"><a href="#迭代器相关函数" class="headerlink" title="迭代器相关函数"></a><strong>迭代器相关函数</strong></h3><p>　　sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
+<h3 id="赋值"><strong>赋值</strong></h3>
+<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
+<h3 id="迭代器相关函数"><strong>迭代器相关函数</strong></h3>
+<p>sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.begin()</p></td><td><p>返回一个随机存取迭代器，指向第一个元素</p></td></tr><tr><td><p>c.end()</p></td><td><p>返回一个随机存取迭代器，指向最后一个元素的下一个位置</p></td></tr><tr><td><p>c.rbegin()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的第一个元素</p></td></tr><tr><td><p>c.rend()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的最后一个元素的下一个位置</p></td></tr></tbody></table>
-
-<h3 id="安插和删除元素"><a href="#安插和删除元素" class="headerlink" title="安插和删除元素"></a>安插和删除元素</h3><p>　　必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
+<h3 id="安插和删除元素">安插和删除元素</h3>
+<p>必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.insert(elem)</p></td><td><p>插入一个elem副本，返回新元素位置，无论插入成功与否。</p></td></tr><tr><td><p>c.insert(pos, elem)</p></td><td><p>安插一个elem元素副本，返回新元素位置，pos为收索起点，提升插入速度。</p></td></tr><tr><td><p>c.insert(beg,end)</p></td><td><p>将区间[beg,end)所有的元素安插到c，无返回值。</p></td></tr><tr><td><p>c.erase(elem)</p></td><td><p>删除与elem相等的所有元素，返回被移除的元素个数。</p></td></tr><tr><td><p>c.erase(pos)</p></td><td><p>移除迭代器pos所指位置元素，无返回值。</p></td></tr><tr><td><p>c.erase(beg,end)</p></td><td><p>移除区间[beg,end)所有元素，无返回值。</p></td></tr><tr><td><p>c.clear()</p></td><td><p>移除所有元素，将容器清空</p></td></tr></tbody></table>
-
 
       
     </div>
@@ -494,56 +501,76 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h1><h1 id="区间指针"><a href="#区间指针" class="headerlink" title="区间指针"></a>区间指针</h1><h2 id="分组循环"><a href="#分组循环" class="headerlink" title="分组循环"></a>分组循环</h2><blockquote>
+          <h1>双指针</h1>
+<h1>区间指针</h1>
+<h2 id="分组循环">分组循环</h2>
+<blockquote>
 <p>查找符合条件的区间，寻找左右边界</p>
 </blockquote>
-<h4 id="2765-最长交替子序列"><a href="#2765-最长交替子序列" class="headerlink" title="2765. 最长交替子序列"></a><a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">alternatingSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;  </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i+<span class="number">1</span>]-nums[i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> left=i; <span class="comment">//记录左端点</span></span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="number">2</span>])</span><br><span class="line">                i++;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-left);</span><br><span class="line">            i--;        <span class="comment">//回退到上一个区间最后一个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="6900-统计完全子数组的数目"><a href="#6900-统计完全子数组的数目" class="headerlink" title="6900. 统计完全子数组的数目"></a><a href="https://leetcode.cn/problems/count-complete-subarrays-in-an-array/">6900. 统计完全子数组的数目</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countCompleteSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(nums.begin(),nums.end())</span></span>;</span><br><span class="line">        <span class="type">int</span> m=record.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; cnt;        <span class="comment">//记录每个数字出现的个数</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,ans=<span class="number">0</span>,n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">//枚举右端点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> right=<span class="number">0</span>;right&lt;n;right++)&#123;</span><br><span class="line">            cnt[nums[right]]++;</span><br><span class="line">            <span class="keyword">while</span>(cnt.<span class="built_in">size</span>()==m)&#123;</span><br><span class="line">                <span class="type">int</span> x=nums[left++];</span><br><span class="line">                <span class="keyword">if</span>(--cnt[x]==<span class="number">0</span>)</span><br><span class="line">                    cnt.<span class="built_in">erase</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h1><h2 id="floyd判圈"><a href="#floyd判圈" class="headerlink" title="floyd判圈"></a>floyd判圈</h2><p> <a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></p>
+<h4 id="2765-最长交替子序列"><a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">alternatingSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;  </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i+<span class="number">1</span>]-nums[i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> left=i; <span class="comment">//记录左端点</span></span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="number">2</span>])</span><br><span class="line">                i++;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-left);</span><br><span class="line">            i--;        <span class="comment">//回退到上一个区间最后一个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="6900-统计完全子数组的数目"><a href="https://leetcode.cn/problems/count-complete-subarrays-in-an-array/">6900. 统计完全子数组的数目</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countCompleteSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(nums.begin(),nums.end())</span></span>;</span><br><span class="line">        <span class="type">int</span> m=record.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; cnt;        <span class="comment">//记录每个数字出现的个数</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,ans=<span class="number">0</span>,n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">//枚举右端点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> right=<span class="number">0</span>;right&lt;n;right++)&#123;</span><br><span class="line">            cnt[nums[right]]++;</span><br><span class="line">            <span class="keyword">while</span>(cnt.<span class="built_in">size</span>()==m)&#123;</span><br><span class="line">                <span class="type">int</span> x=nums[left++];</span><br><span class="line">                <span class="keyword">if</span>(--cnt[x]==<span class="number">0</span>)</span><br><span class="line">                    cnt.<span class="built_in">erase</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1>快慢指针</h1>
+<h2 id="floyd判圈">floyd判圈</h2>
+<p><a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></p>
 <img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241057961.png" alt="image-20211224105728916" style="zoom: 50%;" />
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241135413.png" alt="image-20211224113536339"></p>
-<ul>
-<li><p>从链表第一个节点开始<br>$$<br>\begin{aligned}<br>r为环的长度，n为圈数 \<br>2(a+x-1)&#x3D;(a-1)+n\times r+x \<br>a&#x3D;n\times r -x+1<br>\end{aligned}<br>$$</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>从链表第一个节点开始<br>
+$$<br>
+\begin{aligned}<br>
+r为环的长度，n为圈数 \<br>
+2(a+x-1)=(a-1)+n\times r+x \<br>
+a=n\times r -x+1<br>
+\end{aligned}<br>
+$$</p>
 </li>
-<li><p>从头节点（不存储数据）开始<br>$$<br>  \begin{aligned}<br>r为环的长度，n为圈数 \<br>2(a+x)&#x3D;a+n\times r+x \<br>a&#x3D;n\times r -x<br>\end{aligned}<br>$$</p>
+<li class="lvl-2">
+<p>从头节点（不存储数据）开始<br>
+$$<br>
+\begin{aligned}<br>
+r为环的长度，n为圈数 \<br>
+2(a+x)=a+n\times r+x \<br>
+a=n\times r -x<br>
+\end{aligned}<br>
+$$</p>
 <p>slow，fast初始时指向同一个位置，而终止条件也是指向同一个位置，因此采用do—while循环比较好</p>
 <p>fast遇到null停止，将判断相遇放到循环里</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 找到相遇点z （对应上图）</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 想到 cycle起点y （对应上图）</span></span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow) &#123;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 找到相遇点z （对应上图）</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 想到 cycle起点y （对应上图）</span></span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow) &#123;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><blockquote>
+<h1>滑动窗口</h1>
+<blockquote>
 <p>窗口大小固定</p>
 </blockquote>
 <p>滑动窗口，可以用来解决一些查找满足一定条件的连续区间的性质（长度等）的问题。由于区间连续，因此当区间发生变化时，可以通过旧有的计算结果对搜索空间进行剪枝，这样便减少了重复计算，降低了时间复杂度。往往类似于“请找到满足xx的最x的区间（子串、子数组）的xx”这类问题都可以使用该方法进行解决。</p>
 <p>一般滑动窗口维护两个指针，左指针和右指针。</p>
-<ul>
-<li>当窗口内的元素未达到题目条件时，右指针右移，探索未知的区间来满足条件</li>
-<li>当窗口内的元素达到题目条件时，左指针右移，压缩区间，使窗口尽可能短得满足题目条件</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当窗口内的元素未达到题目条件时，右指针右移，探索未知的区间来满足条件</p>
+</li>
+<li class="lvl-2">
+<p>当窗口内的元素达到题目条件时，左指针右移，压缩区间，使窗口尽可能短得满足题目条件</p>
+</li>
 </ul>
-<h1 id="首尾指针"><a href="#首尾指针" class="headerlink" title="首尾指针"></a>首尾指针</h1><blockquote>
+<h1>首尾指针</h1>
+<blockquote>
 <p>指针分别指向首位置和尾位置，向中间移动</p>
 </blockquote>
-<h4 id="15-三数之和"><a href="#15-三数之和" class="headerlink" title="15. 三数之和"></a><a href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="type">int</span> m, n;</span><br><span class="line">    <span class="comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        m = i + <span class="number">1</span>;</span><br><span class="line">        n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; m &lt; nums.<span class="built_in">size</span>(); m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m &gt; i + <span class="number">1</span> &amp;&amp; nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//寻找第三个元素</span></span><br><span class="line">            <span class="keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="number">0</span>)</span><br><span class="line">                n--;</span><br><span class="line">            <span class="comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span></span><br><span class="line">            <span class="keyword">if</span> (m == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="number">0</span>)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<h4 id="15-三数之和"><a href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="type">int</span> m, n;</span><br><span class="line">    <span class="comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        m = i + <span class="number">1</span>;</span><br><span class="line">        n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; m &lt; nums.<span class="built_in">size</span>(); m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m &gt; i + <span class="number">1</span> &amp;&amp; nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//寻找第三个元素</span></span><br><span class="line">            <span class="keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="number">0</span>)</span><br><span class="line">                n--;</span><br><span class="line">            <span class="comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span></span><br><span class="line">            <span class="keyword">if</span> (m == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="number">0</span>)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-2</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> left=i+<span class="number">1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="keyword">while</span>(left&lt;right&amp;&amp;left&gt;i+<span class="number">1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">if</span>(left==right)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="type">int</span> sum=nums[i]+nums[left]+nums[right];</span><br><span class="line">                <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(sum&gt;<span class="number">0</span>)</span><br><span class="line">                    right--;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[left],nums[right]&#125;);</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="16-最接近的三数之和"><a href="#16-最接近的三数之和" class="headerlink" title="16. 最接近的三数之和"></a><a href="https://leetcode.cn/problems/3sum-closest/">16. 最接近的三数之和</a></h4><blockquote>
+<h4 id="16-最接近的三数之和"><a href="https://leetcode.cn/problems/3sum-closest/">16. 最接近的三数之和</a></h4>
+<blockquote>
 <p>使用while循环和标记跳过重复元素</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">threeSumClosest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> ans = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">// 跳过相同元素</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> left = i + <span class="number">1</span>, right = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="type">int</span> tmp = nums[i] + nums[left] + nums[right];</span><br><span class="line">                <span class="keyword">if</span>(tmp==target) <span class="keyword">return</span> target;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(target-tmp)&lt;<span class="built_in">abs</span>(target-ans)) ans=tmp;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(tmp&lt;target)&#123;</span><br><span class="line">                    <span class="type">int</span> j=left+<span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(j&lt;right&amp;&amp;nums[j]==nums[left])</span><br><span class="line">                        j++;</span><br><span class="line">                    left=j;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="type">int</span> k=right<span class="number">-1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;k&amp;&amp;nums[k]==nums[right])</span><br><span class="line">                        k--;</span><br><span class="line">                    right=k; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h4 id="18-四数之和"><a href="#18-四数之和" class="headerlink" title="18. 四数之和"></a><a href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h4><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;i+<span class="number">1</span>&amp;&amp;nums[j]==nums[j<span class="number">-1</span>])   <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">long</span> cur=nums[i]+nums[j];</span><br><span class="line">                <span class="comment">// 双指针</span></span><br><span class="line">                <span class="type">int</span> left=j+<span class="number">1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">for</span>(;left&lt;n;left++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(left&gt;j+<span class="number">1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)</span><br><span class="line">                        right--;</span><br><span class="line">                    <span class="keyword">if</span>(left==right)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;</span><br><span class="line">                        ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<h4 id="18-四数之和"><a href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;i+<span class="number">1</span>&amp;&amp;nums[j]==nums[j<span class="number">-1</span>])   <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">long</span> cur=nums[i]+nums[j];</span><br><span class="line">                <span class="comment">// 双指针</span></span><br><span class="line">                <span class="type">int</span> left=j+<span class="number">1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">for</span>(;left&lt;n;left++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(left&gt;j+<span class="number">1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)</span><br><span class="line">                        right--;</span><br><span class="line">                    <span class="keyword">if</span>(left==right)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;</span><br><span class="line">                        ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>方法二</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums.<span class="built_in">size</span>() &lt; <span class="number">4</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//跳过相同的数</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">long</span> partSum = nums[i] + nums[j];</span><br><span class="line">            <span class="type">int</span> m = j + <span class="number">1</span>, n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (m &lt; n)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (partSum + nums[m] + nums[n] &lt; target)</span><br><span class="line">                    m++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (partSum + nums[m] + nums[n] &gt; target)</span><br><span class="line">                    n--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[j], nums[m], nums[n]&#125;);</span><br><span class="line">                    m++;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                        m++;</span><br><span class="line">                    n--;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[n] == nums[n + <span class="number">1</span>])</span><br><span class="line">                        n--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
 <p><a href="https://leetcode.cn/problems/max-number-of-k-sum-pairs/">1679. K 和数对的最大数目</a>（哈希表）</p>
 
@@ -631,7 +658,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> c = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;afa&quot;</span>);</span><br><span class="line">    <span class="type">int</span> x = <span class="number">1</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> *p2 = &amp;x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, *p2);</span><br><span class="line">    x = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//*p2 = 3; //常量指针，指向常量的指针，*p2是一个常量，不能修改</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, *p2);</span><br><span class="line">    <span class="type">int</span> *<span class="type">const</span> p3 = &amp;x;</span><br><span class="line">    <span class="comment">// p3 = &amp;y;  //指针常量</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/image-20210406115550244.png" alt="image-20210406115550244"></p>
 
       
@@ -718,25 +744,30 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>sequence</p>
-<h1 id="列表-lists"><a href="#列表-lists" class="headerlink" title="列表(lists)"></a>列表(lists)</h1><blockquote>
+<h1>列表(lists)</h1>
+<blockquote>
 <p>[1,2,3]</p>
-<p>odds&#x3D;[3,5,7,9,11]</p>
+<p>odds=[3,5,7,9,11]</p>
 <p>list(range(1,3))</p>
 <p>​     	[1,2]</p>
 <p>[odds[i] for i in range(1,3)]</p>
 <p>​	[5,7]</p>
-<p>sum([1,2,3])&#x3D;6</p>
-<p>sum([[1,2],[3]],[])&#x3D;[1,2,3]</p>
+<p>sum([1,2,3])=6</p>
+<p>sum([[1,2],[3]],[])=[1,2,3]</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112018499.png" alt="image-20230911201852400"></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112019380.png" alt="image-20230911201922327"></p>
 <ol>
-<li>函数参数加*号，代表将多个参数组装成列表</li>
-<li>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</li>
+<li class="lvl-3">
+<p>函数参数加*号，代表将多个参数组装成列表</p>
+</li>
+<li class="lvl-3">
+<p>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</p>
+</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">ls=[<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">add(*ls)</span><br></pre></td></tr></table></figure>
-
-<h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p>tuple</p>
+<h2 id="range">range</h2>
+<p>tuple</p>
 <blockquote>
 <p>immutable sequences</p>
 </blockquote>
@@ -826,29 +857,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="lt-stdio-h-gt"><a href="#lt-stdio-h-gt" class="headerlink" title="&lt;stdio.h&gt;"></a>&lt;stdio.h&gt;</h1><ul>
-<li><p>scanf</p>
+          <h1>&lt;stdio.h&gt;</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>scanf</p>
 <blockquote>
 <p>读取空格、换行符</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;c);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;****\n&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;^^^^\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %c\n&quot;</span>, a, c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133356.png" alt="image-20210406120658645"></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133436.png" alt="image-20210406120721087"></p>
 </li>
-<li></li>
+<li class="lvl-2">
+</li>
 </ul>
-<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="1-初始化"><a href="#1-初始化" class="headerlink" title="1. 初始化"></a>1. 初始化</h2><blockquote>
+<h1>数组</h1>
+<h2 id="1-初始化">1. 初始化</h2>
+<blockquote>
 <p>int a[10];	声明，未初始化</p>
-<p>int a[10]&#x3D;{0};  &#x2F;&#x2F;全部初始化为0</p>
-<p>int a[10]&#x3D;{1};	&#x2F;&#x2F;第一个元素为1，后面初始化为0</p>
+<p>int a[10]={0};  //全部初始化为0</p>
+<p>int a[10]={1};	//第一个元素为1，后面初始化为0</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>], b[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;, c[<span class="number">10</span>] = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(b) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, b[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(c) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, c[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210411175728807.png" alt="image-20210411175728807"></p>
-<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><h2 id="1-赋值表达式"><a href="#1-赋值表达式" class="headerlink" title="1. 赋值表达式"></a>1. 赋值表达式</h2><p>结果输出10</p>
+<h1>表达式</h1>
+<h2 id="1-赋值表达式">1. 赋值表达式</h2>
+<p>结果输出10</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    c = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a = b = c);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
@@ -933,36 +968,37 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-sizeof"><a href="#1-sizeof" class="headerlink" title="1. sizeof"></a>1. sizeof</h1><blockquote>
+          <h1>1. sizeof</h1>
+<blockquote>
 <p>sizeof返回占用的字节数，但数组作为参数传递时不能有效计算占用的字节数，需加参数指明占用的字节数</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> len = <span class="keyword">sizeof</span>(a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len: %d\n&quot;</span>, len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    sum(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210406120005828.png" alt="image-20210406120005828"></p>
-<h1 id="2-malloc-realloc"><a href="#2-malloc-realloc" class="headerlink" title="2. malloc realloc"></a>2. malloc realloc</h1><blockquote>
+<h1>2. malloc realloc</h1>
+<blockquote>
 <p>头文件： stdlib.h</p>
 </blockquote>
-<p><a href="https://blog.csdn.net/qq_38810767/article/details/85265541">malloc&#x2F;calloc&#x2F;realloc之间区别详述</a></p>
+<p><a href="https://blog.csdn.net/qq_38810767/article/details/85265541">malloc/calloc/realloc之间区别详述</a></p>
 <blockquote>
 <p>realloc后，申请空间比原来大，重新分配地址空间</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> *a = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, a, a[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *b = (<span class="type">int</span> *)<span class="built_in">realloc</span>(a, <span class="number">20</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, b, b[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *c = (<span class="type">int</span> *)<span class="built_in">realloc</span>(b, <span class="number">5</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, c, c[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210409110803688.png" alt="image-20210409110803688"></p>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210427184809807.png" alt="image-20210427184809807"></p>
-<h1 id="3-memset"><a href="#3-memset" class="headerlink" title="3. memset"></a>3. memset</h1><blockquote>
+<h1>3. memset</h1>
+<blockquote>
 <p>string.h</p>
 </blockquote>
 <blockquote>
 <p>int column[MAX_N];</p>
 <p>memset(column, 0, sizeof(int) * MAX_N);</p>
 </blockquote>
-<h1 id="4-条件表达式"><a href="#4-条件表达式" class="headerlink" title="4. 条件表达式"></a>4. 条件表达式</h1><blockquote>
+<h1>4. 条件表达式</h1>
+<blockquote>
 <p>ax为0时，输出15</p>
 <p>ax不为0时，输出6</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> ax = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> pc = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, pc = ax ? pc + <span class="number">1</span> : pc + <span class="number">10</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
     </div>
