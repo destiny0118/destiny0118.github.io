@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,276 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/15/Resume/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/15/Resume/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-15 15:33:46" itemprop="dateCreated datePublished" datetime="2023-11-15T15:33:46+08:00">2023-11-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-05 16:40:14" itemprop="dateModified" datetime="2024-06-05T16:40:14+08:00">2024-06-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>异步电路EDA<br>参与兰州大学异步电路与系统实验室（LZU-ARC）的PinTu项目（面向FPGA ASIC的全异步开源EDA工具链），目前开源到启智平台（OpenI，新一代人工智能开源开放平台）。主要完成对项目源码的部分分析工作，形成介绍文档。对整个项目的整体介绍及部署开源工作。</p>
+<p>Gitlet<br>Gitlet是一个版本控制系统，实现了git的一些特性和功能，相比git在部分功能和实现上进行了简化。支持add、commit、log、checkout、merge等本地仓库操作，同时实现push、fetch、pull等远端仓库命令操作。利用java序列化的方法实现commit和stage对应数据结构的持久化存储，通过sha1算法计算相应的哈希值实现内容可寻址。实现字典树存储commit哈希值，实现根据6位前缀快速查找对应的commit哈希值。</p>
+<p>主要包括blob，commit，stage，每一个文件对应一个blob对象，commit和stage分别用于提交和暂存区的对象。</p>
+<p>WebServer<br>实现简易的web服务器，</p>
+<p>用户管理、商品管理、订单管理、支付管理、库存管理、物流管理</p>
+<p><strong>营销活动平台-抽奖系统</strong><br><code>Lottery 抽奖系统</code> 项目是一款互联网面向C端人群营销活动类的抽奖系统，可以提供抽奖活动玩法策略的创建、参与、记账、发奖等逻辑功能。在使用的过程中运营人员通过创建概率类奖品的抽奖玩法，对用户进行拉新、促活、留存，通常这样的系统会用在电商、外卖、出行、公众号运营等各类场景中。</p>
+<p>抽奖系统以DDD分层结构的方式，搭建整个抽奖系统架构。抽奖系统是营销平台的重要服务之一，用于，满足C端人群拉新、促活、留存的系统，包括规则引擎、抽奖策略、奖品发放等领域服务。通过规则引擎过滤性别、年龄等各类身份来量化出不同人群可参与的抽奖活动。因活动秒杀的并发场景，将秒杀从数据库行级锁优化为Redis分布式锁。解耦抽奖流程，将抽奖流程和发奖流程通过MQ消息串联起来。实现分库分表，将用户数据拆分到不同的库表中去，减轻数据库压力。</p>
+<ul>
+<li>模块</li>
+<li>库存秒杀：Redis分布式锁</li>
+<li>规则引擎：</li>
+</ul>
+<p>库表设计：关联关系、字段明细、唯一索引、分库分表、数据同步</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/11/08/%E8%AF%AD%E6%B3%95/Linux%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/08/%E8%AF%AD%E6%B3%95/Linux%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0%E3%80%81%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-08 14:53:08" itemprop="dateCreated datePublished" datetime="2023-11-08T14:53:08+08:00">2023-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-09 21:43:32" itemprop="dateModified" datetime="2023-11-09T21:43:32+08:00">2023-11-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="strpbrk"><a href="#strpbrk" class="headerlink" title="strpbrk"></a>strpbrk</h2><blockquote>
+<p>检索字符串 <strong>str1</strong> 中第一个匹配字符串 <strong>str2</strong> 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strpbrk</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>str1</strong> – 要被检索的 C 字符串。</li>
+<li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
+</ul>
+<h2 id="strcasecmp"><a href="#strcasecmp" class="headerlink" title="strcasecmp"></a>strcasecmp</h2><blockquote>
+<p>判断字符串是否相等的函数，忽略大小写。s1和s2中的所有字母字符在比较之前都转换为小写。该strcasecmp()函数对空终止字符串进行操作。<br>函数的字符串参数应包含一个(’\0’)标记字符串结尾的空字符。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">strcasecmp</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *s1, <span class="type">const</span> <span class="type">char</span> *s2)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="strspn"><a href="#strspn" class="headerlink" title="strspn"></a>strspn</h2><blockquote>
+<p>检索字符串 <strong>str1</strong> 中第一个不在字符串 <strong>str2</strong> 中出现的字符下标</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">strspn</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>str1</strong> – 要被检索的 C 字符串。</li>
+<li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
+<li>返回 str1 中第一个不在字符串 str2 中出现的字符下标。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> *s1 = <span class="string">&quot;abcdef ghj\tio&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s2 = <span class="string">&quot; \t&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s3 = <span class="string">&quot;ghj&quot;</span>;</span><br><span class="line">    cout &lt;&lt; *(s1 + <span class="number">7</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="type">char</span> *res = <span class="built_in">strpbrk</span>(s1 + <span class="number">7</span>, s2);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="built_in">strspn</span>(s1 + <span class="number">7</span>, s3) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g</span><br><span class="line"><span class="number">3</span></span><br><span class="line">\tio</span><br></pre></td></tr></table></figure>
+<h2 id="strchr"><a href="#strchr" class="headerlink" title="strchr"></a>strchr</h2><blockquote>
+<p>在参数 <strong>str</strong> 所指向的字符串中搜索第一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>str</strong> – 要查找的字符串。</li>
+<li><strong>c</strong> – 要查找的字符。</li>
+<li>如果在字符串 str 中找到字符 c，则函数返回指向该字符的指针，如果未找到该字符则返回 NULL。</li>
+</ul>
+<h2 id="strrchr"><a href="#strrchr" class="headerlink" title="strrchr"></a>strrchr</h2><blockquote>
+<p>在参数 <strong>str</strong> 所指向的字符串中搜索最后一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strrchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>str</strong> – C 字符串。</li>
+<li><strong>c</strong> – 要搜索的字符，通常以整数形式传递（ASCII 值），但是最终会转换回 char 形式。</li>
+<li>strrchr() 函数从字符串的末尾开始向前搜索，直到找到指定的字符或搜索完整个字符串。如果找到字符，它将返回一个指向该字符的指针，否则返回 NULL。</li>
+</ul>
+<h2 id="strcpy"><a href="#strcpy" class="headerlink" title="strcpy"></a>strcpy</h2><blockquote>
+<p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>。<br>需要注意的是如果目标数组 dest 不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="strncpy"><a href="#strncpy" class="headerlink" title="strncpy"></a>strncpy</h2><blockquote>
+<p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>，最多复制 <strong>n</strong> 个字符。当 src 的长度小于 n 时，dest 的剩余部分将用空字节填充。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>dest</strong> – 指向用于存储复制内容的目标数组。</li>
+<li><strong>src</strong> – 要复制的字符串。</li>
+<li><strong>n</strong> – 要从源中复制的字符数。</li>
+<li>该函数返回最终复制的字符串。</li>
+</ul>
+<h2 id="stdio-h"><a href="#stdio-h" class="headerlink" title="stdio.h"></a>stdio.h</h2><h2 id="flush"><a href="#flush" class="headerlink" title="flush"></a>flush</h2><blockquote>
+<p>刷新流 stream 的输出缓冲区，将缓冲区中的内容写到stream所指的文件中区</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>stream</strong> – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个缓冲流</li>
+<li>如果成功，该函数返回零值。如果发生错误，则返回 EOF，且设置错误标识符（即 feof）。</li>
+</ul>
+<p><a href="https://blog.csdn.net/ShenHang_/article/details/114968557">fflush()函数-CSDN博客</a></p>
+<h2 id="snprintf"><a href="#snprintf" class="headerlink" title="snprintf"></a>snprintf</h2><blockquote>
+<p>用于格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。<br>将可变参数**(…)<strong>按照 <strong>format</strong> 格式化成字符串，并将字符串复制到 <strong>str</strong> 中，</strong>size** 为要写入的字符的最大数目，超过 <strong>size</strong> 会被截断，最多写入 size-1 个字符，并在字符串的末尾添加一个空字符（\0）以表示字符串的结束。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">snprintf</span> <span class="params">( <span class="type">char</span> * str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> * format, ... )</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>str</strong> – 目标字符串，用于存储格式化后的字符串的字符数组的指针。</li>
+<li><strong>size</strong> – 字符数组的大小。</li>
+<li><strong>format</strong> – 格式化字符串。</li>
+<li><strong>…</strong> – 可变参数，可变数量的参数根据 format 中的格式化指令进行格式化。</li>
+<li>snprintf() 函数的返回值是输出到 str 缓冲区中的字符数，不包括字符串结尾的空字符 \0。</li>
+</ul>
+<h2 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h2><blockquote>
+<p>获取文件状态</p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/jikexianfeng/p/5742887.html">C语言stat()函数：获取文件状态 - 极客先锋 - 博客园 (cnblogs.com)</a></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;uninstd.h&gt;</span></span></span><br><span class="line"><span class="comment">//将参数file_name 所指的文件状态, 复制到参数buf 所指的结构中。</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">stat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * file_name, <span class="keyword">struct</span> stat *buf)</span></span></span><br><span class="line"><span class="function"><span class="keyword">struct</span> stat </span>&#123;</span><br><span class="line">    <span class="type">dev_t</span> st_dev; <span class="comment">//device 文件的设备编号</span></span><br><span class="line">    <span class="type">ino_t</span> st_ino; <span class="comment">//inode 文件的i-node</span></span><br><span class="line">    <span class="type">mode_t</span> st_mode; <span class="comment">//protection 文件的类型和存取的权限</span></span><br><span class="line">    <span class="type">nlink_t</span> st_nlink; <span class="comment">//number of hard links 连到该文件的硬连接数目, 刚建立的文件值为1.</span></span><br><span class="line">    <span class="type">uid_t</span> st_uid; <span class="comment">//user ID of owner 文件所有者的用户识别码</span></span><br><span class="line">    <span class="type">gid_t</span> st_gid; <span class="comment">//group ID of owner 文件所有者的组识别码</span></span><br><span class="line">    <span class="type">dev_t</span> st_rdev; <span class="comment">//device type 若此文件为装置设备文件, 则为其设备编号</span></span><br><span class="line">    <span class="type">off_t</span> st_size; <span class="comment">//total size, in bytes 文件大小, 以字节计算</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> st_blksize; <span class="comment">//blocksize for filesystem I/O 文件系统的I/O 缓冲区大小.</span></span><br><span class="line">    u nsigned <span class="type">long</span> st_blocks; <span class="comment">//number of blocks allocated 占用文件区块的个数, 每一区块大小为512 个字节.</span></span><br><span class="line">    <span class="type">time_t</span> st_atime; <span class="comment">//time of lastaccess 文件最近一次被存取或被执行的时间, 一般只有在用mknod、 utime、read、write 与tructate 时改变.</span></span><br><span class="line">    <span class="type">time_t</span> st_mtime; <span class="comment">//time of last modification 文件最后一次被修改的时间, 一般只有在用mknod、 utime 和write 时才会改变</span></span><br><span class="line">    <span class="type">time_t</span> st_ctime; <span class="comment">//time of last change i-node 最近一次被更改的时间, 此参数会在文件所有者、组、 权限被更改时更新</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="函数参数处理"><a href="#函数参数处理" class="headerlink" title="函数参数处理"></a>函数参数处理</h1><h2 id="va-start"><a href="#va-start" class="headerlink" title="va_start"></a>va_start</h2><blockquote>
+<p>初始化 <strong>ap</strong> 变量，它与 <strong>va_arg</strong> 和 <strong>va_end</strong> 宏是一起使用的。<strong>last_arg</strong> 是最后一个传递给函数的已知的固定参数，即省略号之前的参数。</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">va_start</span><span class="params">(va_list ap, last_arg)</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>ap</strong> – 这是一个 <strong>va_list</strong> 类型的对象，它用来存储通过 <strong>va_arg</strong> 获取额外参数时所必需的信息。</li>
+<li><strong>last_arg</strong> – 最后一个传递给函数的已知的固定参数。</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sum(3,10,20,30)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> num_args, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">   va_list ap;</span><br><span class="line">   <span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">va_start</span>(ap, num_args);</span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; num_args; i++)</span><br><span class="line">   &#123;</span><br><span class="line">      val += <span class="built_in">va_arg</span>(ap, <span class="type">int</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">va_end</span>(ap);</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="vsnprintf"><a href="#vsnprintf" class="headerlink" title="vsnprintf"></a>vsnprintf</h2><p><a href="https://blog.csdn.net/u012351051/article/details/106414950">sprintf、snprintf、vsprintf、vsnprintf格式化函数分析_c++ sprintf vsprintf详解-CSDN博客</a></p>
+<blockquote>
+<p>使用参数列表发送格式化输出到字符串</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">vsnprintf</span><span class="params">(<span class="type">char</span> *str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> *format, va_list ap)</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>str – 目标字符串。 </li>
+<li>size – 最大格式化的字符长度。 </li>
+<li>format – 格式化模式 </li>
+<li>arg – 可变参数列表对象，应由&lt;stdarg&gt;中定义的va_start 宏初始化。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -812,7 +1082,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/09/%E8%AF%AD%E6%B3%95/C++/STL%20API/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/09/STL%20API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -830,7 +1100,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/09/%E8%AF%AD%E6%B3%95/C++/STL%20API/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2023/10/09/STL%20API/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -848,7 +1118,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-25 21:50:01" itemprop="dateModified" datetime="2024-04-25T21:50:01+08:00">2024-04-25</time>
+      <time title="修改时间：2024-06-05 19:26:17" itemprop="dateModified" datetime="2024-06-05T19:26:17+08:00">2024-06-05</time>
     </span>
 
   
@@ -861,7 +1131,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1><ol>
+          <h1 id="1-STL"><a href="#1-STL" class="headerlink" title="1 STL"></a>1 STL</h1><ol>
 <li>Sequence Containers：顺序容器<ol>
 <li>vector：动态数组，O(1)的随机存取。在尾部增删的复杂度是O(1)，可以用作stack。</li>
 <li>list：双向链表，不支持随机存取。</li>
@@ -891,7 +1161,7 @@
 </ol>
 </li>
 </ol>
-<h1 id="set、multiset"><a href="#set、multiset" class="headerlink" title="set、multiset"></a>set、multiset</h1><p><a href="http://c.biancheng.net/view/7203.html">C++ STL multiset容器详解 (biancheng.net)</a><br>multiset可以存储int, string, struct, class等类型，对于自定义类型需要实现比较函数</p>
+<h1 id="2-set、multiset"><a href="#2-set、multiset" class="headerlink" title="2 set、multiset"></a>2 set、multiset</h1><p><a href="http://c.biancheng.net/view/7203.html">C++ STL multiset容器详解 (biancheng.net)</a><br>multiset可以存储int, string, struct, class等类型，对于自定义类型需要实现比较函数</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;</span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Node&amp;a, <span class="type">const</span> Node&amp;b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.x==b.x?a.y&lt;b.y:a.x&lt;b.x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">multiset&lt;Node,cmp&gt; s;</span><br></pre></td></tr></table></figure>
 
 <table>
@@ -995,20 +1265,20 @@
 </tr>
 </tbody></table>
 <p>       c++语言中，multiset是<set>库中一个非常有用的类型，它可以看成一个序列，插入一个数，删除一个数都能够在O(logn)的时间内完成，而且他能时刻保证序列中的数是有序的，而且序列中可以存在重复的数。</p>
-<h3 id="简单应用："><a href="#简单应用：" class="headerlink" title="简单应用："></a>简单应用：</h3><p>通过一个程序来看如何使用multiset：</p>
+<h3 id="2-1-1-简单应用："><a href="#2-1-1-简单应用：" class="headerlink" title="2.1.1 简单应用："></a>2.1.1 简单应用：</h3><p>通过一个程序来看如何使用multiset：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;      </span><br><span class="line">    <span class="type">int</span> x;  </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%ld&quot;</span>,&amp;x);      </span><br><span class="line">    multiset&lt;<span class="type">int</span>&gt;h;            </span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;          </span><br><span class="line">        h.<span class="built_in">insert</span>(x);           </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%ld&quot;</span>,&amp;x);      </span><br><span class="line">    &#125;      </span><br><span class="line">    <span class="keyword">while</span>(!h.<span class="built_in">empty</span>())&#123;                 </span><br><span class="line">        __typeof(h.<span class="built_in">begin</span>()) c=h.<span class="built_in">begin</span>();  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%ld &quot;</span>,*c);             </span><br><span class="line">        h.<span class="built_in">erase</span>(c);                </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>对于输入数据：32 61 12 2 12 0,该程序的输出是：2 12 12 32 61。  </p>
 </blockquote>
-<h3 id="放入自定义类型的数据："><a href="#放入自定义类型的数据：" class="headerlink" title="放入自定义类型的数据："></a>放入自定义类型的数据：</h3><p>不只是int类型，multiset还可以存储其他的类型诸如 string类型，结构(struct或class)类型。而我们一般在编程当中遇到的问题经常用到自定义的类型，即struct或class。例如下面的例子：</p>
+<h3 id="2-1-2-放入自定义类型的数据："><a href="#2-1-2-放入自定义类型的数据：" class="headerlink" title="2.1.2 放入自定义类型的数据："></a>2.1.2 放入自定义类型的数据：</h3><p>不只是int类型，multiset还可以存储其他的类型诸如 string类型，结构(struct或class)类型。而我们一般在编程当中遇到的问题经常用到自定义的类型，即struct或class。例如下面的例子：</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">rec</span>&#123;<span class="type">int</span> x,y;&#125;;  </span><br><span class="line">multiset&lt;rec&gt;h;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;  </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> rec&amp;a,<span class="type">const</span> rec&amp;b&#123;  </span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="keyword">return</span> a.x&lt;b.x||a.x==b.x&amp;&amp;a.y&lt;b.y;    &#125;  </span></span></span><br><span class="line"><span class="params"><span class="function">&#125;;</span></span></span><br><span class="line"><span class="params"><span class="function">					</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="keyword">struct</span> rec&#123;<span class="type">int</span> x,y;&#125;;  </span></span></span><br><span class="line"><span class="params"><span class="function"><span class="keyword">struct</span> cmp&#123;<span class="type">bool</span> <span class="keyword">operator</span>()(<span class="type">const</span> rec&amp;a,<span class="type">const</span> rec&amp;b)&#123;<span class="keyword">return</span> a.x&lt;b.x||a.x==b.x&amp;&amp;a.y&lt;b.y;    &#125;&#125;;  </span></span></span><br><span class="line"><span class="params"><span class="function">multiset&lt;rec,cmp&gt;h;</span></span></span><br></pre></td></tr></table></figure>
 
 
 <p>不过以上的代码是没有任何用处的，因为multiset并不知道如何去比较一个自定义的类型。怎么办呢？我们可以定义multiset里面rec类型变量之间的小于关系的含义（这里以x为第一关键字为例），具体过程如下：</p>
 <p>定义一个比较类cmp，cmp内部的operator函数的作用是比较rec类型a和b的大小(以x为第一关键字，y为第二关键字)，告诉了序列h如何去比较里面的元素(重载运算符)</p>
-<h1 id="set、unordered-set区别"><a href="#set、unordered-set区别" class="headerlink" title="set、unordered_set区别"></a>set、unordered_set区别</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// unordered_set&lt;pair&lt;int, int&gt;&gt; test;   # error: use of deleted function function</span></span><br><span class="line">set&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; record, gu; <span class="comment">// 记录边</span></span><br></pre></td></tr></table></figure>
+<h1 id="3-set、unordered-set区别"><a href="#3-set、unordered-set区别" class="headerlink" title="3 set、unordered_set区别"></a>3 set、unordered_set区别</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// unordered_set&lt;pair&lt;int, int&gt;&gt; test;   # error: use of deleted function function</span></span><br><span class="line">set&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; record, gu; <span class="comment">// 记录边</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h1><table>
+<h1 id="4-vector"><a href="#4-vector" class="headerlink" title="4 vector"></a>4 vector</h1><table>
 <thead>
 <tr>
 <th>成员方法</th>
@@ -1020,7 +1290,7 @@
 <td>删除下标为index处的元素</td>
 </tr>
 </tbody></table>
-<h1 id="array"><a href="#array" class="headerlink" title="array"></a>array</h1><table>
+<h1 id="5-array"><a href="#5-array" class="headerlink" title="5 array"></a>5 array</h1><table>
 <thead>
 <tr>
 <th>成员方法</th>
@@ -1032,7 +1302,7 @@
 <td>初始化为0，没有{}则为默认初始化</td>
 </tr>
 </tbody></table>
-<h1 id="string"><a href="#string" class="headerlink" title="string"></a>string</h1><blockquote>
+<h1 id="6-string"><a href="#6-string" class="headerlink" title="6 string"></a>6 string</h1><blockquote>
 <p>cin：遇到空格结束读取<br>getline(cin, line)：读取一行（包括换行符），line不包括换行符</p>
 </blockquote>
 <p>to_string<br>stoi</p>
@@ -1075,7 +1345,7 @@
 <td>algorithm</td>
 </tr>
 </tbody></table>
-<h2 id="字符相关函数"><a href="#字符相关函数" class="headerlink" title="字符相关函数"></a>字符相关函数</h2><blockquote>
+<h2 id="6-1-字符相关函数"><a href="#6-1-字符相关函数" class="headerlink" title="6.1 字符相关函数"></a>6.1 字符相关函数</h2><blockquote>
 <p>#include &lt;ctype.h&gt;</p>
 </blockquote>
 <table>
@@ -1090,10 +1360,10 @@
 <td></td>
 </tr>
 </tbody></table>
-<h2 id="根据空格分割字符串"><a href="#根据空格分割字符串" class="headerlink" title="根据空格分割字符串"></a>根据空格分割字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string line=<span class="string">&quot;this student is studious&quot;</span>;</span><br><span class="line">stringstream ss;</span><br><span class="line">string w;</span><br><span class="line">ss&lt;&lt;line;</span><br><span class="line"><span class="keyword">while</span>(ss&gt;&gt;w)&#123;</span><br><span class="line">	cout&lt;&lt;w&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-根据空格分割字符串"><a href="#6-2-根据空格分割字符串" class="headerlink" title="6.2 根据空格分割字符串"></a>6.2 根据空格分割字符串</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string line=<span class="string">&quot;this student is studious&quot;</span>;</span><br><span class="line">stringstream ss;</span><br><span class="line">string w;</span><br><span class="line">ss&lt;&lt;line;</span><br><span class="line"><span class="keyword">while</span>(ss&gt;&gt;w)&#123;</span><br><span class="line">	cout&lt;&lt;w&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>&gt; pq;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义排序，小根堆</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Comp</span>&#123;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(ListNode* a,ListNode *b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;val&gt;b-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">priority_queue&lt;ListNode*,vector&lt;ListNode*&gt;,Comp&gt; pq;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="7-priority-queue"><a href="#7-priority-queue" class="headerlink" title="7 priority_queue"></a>7 priority_queue</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>&gt; pq;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义排序，小根堆</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Comp</span>&#123;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(ListNode* a,ListNode *b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;val&gt;b-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">priority_queue&lt;ListNode*,vector&lt;ListNode*&gt;,Comp&gt; pq;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="type">static</span> <span class="type">bool</span> <span class="title">cmp</span><span class="params">(pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&amp; m, pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&amp; n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m.second &gt; n.second;</span><br><span class="line">&#125;</span><br><span class="line">priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;, <span class="keyword">decltype</span>(&amp;cmp)&gt; <span class="built_in">q</span>(cmp);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -1115,200 +1385,9 @@
 <td>返回最值</td>
 </tr>
 </tbody></table>
-<h1 id="algorithm"><a href="#algorithm" class="headerlink" title="algorithm"></a>algorithm</h1><h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">compare</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;a, vector&lt;<span class="type">int</span>&gt; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//自定义排序</span></span><br><span class="line">	vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; nums=&#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">2</span>, <span class="number">4</span>&#125;, &#123;<span class="number">1</span>, <span class="number">3</span>&#125;&#125;;</span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),[](<span class="keyword">auto</span> &amp;a,<span class="keyword">auto</span> &amp;b)&#123;</span><br><span class="line">		<span class="keyword">return</span> a[<span class="number">1</span>]&lt;b[<span class="number">1</span>];</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">//定义排序函数</span></span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">beign</span>(),nums.<span class="built_in">end</span>(),compare);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>(), greater&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;());从大到小排序</span><br><span class="line">	</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; nums;</span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),<span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="8-algorithm"><a href="#8-algorithm" class="headerlink" title="8 algorithm"></a>8 algorithm</h1><h2 id="8-1-sort"><a href="#8-1-sort" class="headerlink" title="8.1 sort"></a>8.1 sort</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">compare</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;a, vector&lt;<span class="type">int</span>&gt; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//自定义排序</span></span><br><span class="line">	vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; nums=&#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">2</span>, <span class="number">4</span>&#125;, &#123;<span class="number">1</span>, <span class="number">3</span>&#125;&#125;;</span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),[](<span class="keyword">auto</span> &amp;a,<span class="keyword">auto</span> &amp;b)&#123;</span><br><span class="line">		<span class="keyword">return</span> a[<span class="number">1</span>]&lt;b[<span class="number">1</span>];</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">//定义排序函数</span></span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">beign</span>(),nums.<span class="built_in">end</span>(),compare);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>(), greater&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;());从大到小排序</span><br><span class="line">	</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; nums;</span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),<span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  <a href="https://blog.csdn.net/WHEgqing/article/details/42455705?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link">(6条消息) 浅析C&#x2F;C++中sort函数的用法_WHEgqing的专栏-CSDN博客</a></p>
-<h2 id="lower-bound"><a href="#lower-bound" class="headerlink" title="lower_bound"></a>lower_bound</h2><p>查找大于或者等于x的第一个位置</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/10/02/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%92%8C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/10/02/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E5%8C%BA%E9%97%B4%E5%92%8C%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-10-02 12:52:25" itemprop="dateCreated datePublished" datetime="2023-10-02T12:52:25+08:00">2023-10-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-02-28 16:00:58" itemprop="dateModified" datetime="2024-02-28T16:00:58+08:00">2024-02-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>前缀和适用于数组不变<br>适用于单点更新，区间查询</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>构造</th>
-<th>查询</th>
-<th>修改</th>
-<th>适用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>前缀和</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td></td>
-<td>数组不变</td>
-</tr>
-<tr>
-<td>树状数组</td>
-<td>O(nlogn)</td>
-<td>O(logn)</td>
-<td>O(logn)</td>
-<td>区间查询，单点更新</td>
-</tr>
-</tbody></table>
-<p><a href="https://leetcode.cn/problems/range-sum-query-mutable/solutions/632515/guan-yu-ge-lei-qu-jian-he-wen-ti-ru-he-x-41hv/">307. 区域和检索 - 数组可修改 - 力扣（LeetCode）</a></p>
-<ul>
-<li>数组不变，求区间和：「前缀和」、「树状数组」、「线段树」</li>
-<li>多次修改某个数（单点），求区间和：「树状数组」、「线段树」</li>
-<li>多次修改某个区间，输出最终结果：「差分」</li>
-<li>多次修改某个区间，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</li>
-<li>多次将某个区间变成同一个数，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/09/22/%E8%AF%AD%E6%B3%95/C++/STL%20%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/09/22/%E8%AF%AD%E6%B3%95/C++/STL%20%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-09-22 17:06:11" itemprop="dateCreated datePublished" datetime="2023-09-22T17:06:11+08:00">2023-09-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-09 16:57:34" itemprop="dateModified" datetime="2023-10-09T16:57:34+08:00">2023-10-09</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="priority-queue-heap"><a href="#priority-queue-heap" class="headerlink" title="priority_queue(heap)"></a>priority_queue(heap)</h1><h3 id="push"><a href="#push" class="headerlink" title="push"></a>push</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _RandomAccessIterator, <span class="keyword">typename</span> _Distance, <span class="keyword">typename</span> _Tp,</span><br><span class="line">   <span class="keyword">typename</span> _Compare&gt;</span><br><span class="line">   <span class="type">void</span></span><br><span class="line">   __push_heap(_RandomAccessIterator __first,</span><br><span class="line">	_Distance __holeIndex, _Distance __topIndex, _Tp __value,</span><br><span class="line">	_Compare&amp; __comp)</span><br><span class="line"><span class="comment">//首迭代器,插入值索引(__last-1),堆顶索引(0),插入值,比较函数</span></span><br><span class="line">   &#123;</span><br><span class="line">     _Distance __parent = (__holeIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">     <span class="comment">//父节点值与节点值比较，默认less，父节点小，则交换</span></span><br><span class="line">     <span class="keyword">while</span> (__holeIndex &gt; __topIndex &amp;&amp; __comp(__first + __parent, __value))</span><br><span class="line">&#123;</span><br><span class="line">  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));</span><br><span class="line">  __holeIndex = __parent;</span><br><span class="line">  __parent = (__holeIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">     *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<h2 id="8-2-lower-bound"><a href="#8-2-lower-bound" class="headerlink" title="8.2 lower_bound"></a>8.2 lower_bound</h2><p>查找大于或者等于x的第一个位置</p>
 
       
     </div>

@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,298 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/07/11/%E7%AE%97%E6%B3%95/%E5%88%86%E6%9E%90%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/07/11/%E7%AE%97%E6%B3%95/%E5%88%86%E6%9E%90%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-11 19:46:24" itemprop="dateCreated datePublished" datetime="2023-07-11T19:46:24+08:00">2023-07-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-26 11:02:23" itemprop="dateModified" datetime="2024-05-26T11:02:23+08:00">2024-05-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<ul>
+<li><p>最值</p>
+</li>
+<li><p>二分查找（解的值域范围具有单调性，小于x的值范围都符合，大于x的值范围都不符合）</p>
+</li>
+<li><p>动态规划</p>
+</li>
+<li><p>二分查找</p>
+</li>
+<li><p>使……最大值尽可能小</p>
+</li>
+<li><p>前缀和</p>
+</li>
+<li><p>子数组</p>
+</li>
+<li><p>动态规划</p>
+</li>
+<li><p>将数组分割为割为<em>m</em>段，求……</p>
+</li>
+<li></li>
+</ul>
+</blockquote>
+<ul>
+<li>滑动窗口<ul>
+<li>长度固定的子数组</li>
+</ul>
+</li>
+</ul>
+<h1 id="数值范围"><a href="#数值范围" class="headerlink" title="数值范围"></a>数值范围</h1><p>int：4字节，32位，最大值:$2^{31}-1&#x3D;2147483647$，最小值$-2147483648$。</p>
+<p>$10^5$的数据范围不能用$O(n^2)$解法<br>$10^9$的时间复杂度不行</p>
+<table>
+<thead>
+<tr>
+<th>数据范围</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$10^5$</td>
+<td>$nlog(n)$</td>
+</tr>
+</tbody></table>
+<h2 id="区间"><a href="#区间" class="headerlink" title="区间"></a>区间</h2><p>对于两个区间$[S_1,e_1)$和$[S_2,e_2)$，如果两者没有交集，则此时应当满足$s_1 \ge e_2$或者$s_2 \ge  e_1$，即如果$s_1 &lt;e_2 且 s_2&lt;e_1$，两者会产生交集。</p>
+<p>num&#x2F;mid上取整<br>(num-1)&#x2F;mid+1    (num+mid-1)&#x2F;mid</p>
+<h1 id="K小问题"><a href="#K小问题" class="headerlink" title="K小问题"></a>K小问题</h1><p>k 小问题有三种解法：按位确定答案（多用于字符串和二进制数），用堆维护当前最小答案（用于 kkk 比较小的情况），二分（用于 kkk 比较大的情况）。</p>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="出现的大小写字母集合"><a href="#出现的大小写字母集合" class="headerlink" title="出现的大小写字母集合"></a>出现的大小写字母集合</h2><p>因此可以利用二进制位来进行标记，lower标记字符中出现过小写英文字母，upper标记字符中出现过大写英文字母。如果满足lower&#x3D;upper，则认为字符串中所有的字符都满足大小写形式同时出现。</p>
+<p><a href="https://leetcode.cn/problems/longest-nice-substring/">1763. 最长的美好子字符串</a></p>
+<p>字符是否出现<br><a href="https://leetcode.cn/problems/count-the-number-of-consistent-strings/description/">1684. 统计一致字符串的数目 - 力扣（LeetCode）</a></p>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>「长度固定的子数组」就要想到滑动窗口<br>对角线上是否放置元素 </p>
+<ul>
+<li>record.count(x-y)</li>
+<li>record.count(x+y)</li>
+</ul>
+<h2 id="出现超过一半的数字"><a href="#出现超过一半的数字" class="headerlink" title="出现超过一半的数字"></a>出现超过一半的数字</h2><p><a href="https://blog.csdn.net/chris__x/article/details/107781237">找出数组中出现次数超过数组长度一半的数字</a></p>
+<h4 id="169-多数元素"><a href="#169-多数元素" class="headerlink" title="169. 多数元素"></a><a href="https://leetcode.cn/problems/majority-element/">169. 多数元素</a></h4><ol>
+<li>哈希表记录出现次数</li>
+<li>排序后取中位数</li>
+<li>抵消法</li>
+<li>快排取中位数</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">0</span>,pre=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>)&#123;</span><br><span class="line">                pre=num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(num==pre)&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>动态规划的题目分为两大类，一种是求最优解类，典型问题是背包问题，另一种就是计数类，比如这里的统计方案数的问题，它们都存在一定的递推性质。<br>「将数组分割为割为m  段，求……」是动态规划题目常见的问法。<a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></p>
+<h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><blockquote>
+<p>适合求解具有&#x3D;&#x3D;单调最优&#x3D;&#x3D;性质的题目</p>
+</blockquote>
+<p>「使……最大值尽可能小」是二分搜索题目常见的问法。<a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></p>
+<h1 id="预处理回文数"><a href="#预处理回文数" class="headerlink" title="预处理回文数"></a>预处理回文数</h1><blockquote>
+<p>枚举回文数左半部分</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; pal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> init=[]&#123;</span><br><span class="line">    <span class="comment">// 严格按顺序从小到大生成所有回文数（不用字符串转换）</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> base=<span class="number">1</span>;base&lt;=<span class="number">10000</span>;base*=<span class="number">10</span>)&#123;</span><br><span class="line">        <span class="comment">//生成奇数长度回文数</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i=base;i&lt;base*<span class="number">10</span>;i++)&#123;</span><br><span class="line">             <span class="type">int</span> x=i;</span><br><span class="line">             <span class="keyword">for</span>(<span class="type">int</span> t=i/<span class="number">10</span>;t;t/=<span class="number">10</span>)&#123;</span><br><span class="line">                 x=x*<span class="number">10</span>+t%<span class="number">10</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             pal.<span class="built_in">push_back</span>(x);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="comment">//生成偶数长度回文数</span></span><br><span class="line">         <span class="keyword">if</span>(base&lt;=<span class="number">1000</span>)&#123;</span><br><span class="line">             <span class="keyword">for</span>(<span class="type">int</span> i=base;i&lt;base*<span class="number">10</span>;i++)&#123;</span><br><span class="line">                 <span class="type">int</span> x=i;</span><br><span class="line">                 <span class="keyword">for</span>(<span class="type">int</span> t=i;t;t/=<span class="number">10</span>)&#123;</span><br><span class="line">                     x=x*<span class="number">10</span>+t%<span class="number">10</span>;</span><br><span class="line">                 &#125;</span><br><span class="line">                 pal.<span class="built_in">push_back</span>(x);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    pal.<span class="built_in">push_back</span>(<span class="number">1&#x27;000&#x27;000&#x27;001</span>); <span class="comment">// 哨兵，防止下面代码中的 i 下标越界</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/07/10/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E5%89%8D%E7%BC%80%E5%92%8C%E3%80%81%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/07/10/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E5%89%8D%E7%BC%80%E5%92%8C%E3%80%81%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-10 15:55:01" itemprop="dateCreated datePublished" datetime="2023-07-10T15:55:01+08:00">2023-07-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-24 19:27:41" itemprop="dateModified" datetime="2023-09-24T19:27:41+08:00">2023-09-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="差分数组、前缀和"><a href="#差分数组、前缀和" class="headerlink" title="差分数组、前缀和"></a>差分数组、前缀和</h1><blockquote>
+<p>差分数组是与前缀和数组所对应的一种逆操作，类似于求导和积分，也就是说，<strong>对差分数组求前缀和，可以得到原数组，同样的，对前缀和数组求差分，也可以得到原数组。</strong><br>差分数组适用于频繁对数组区间进行增减操作，通过求前缀和得到最终数组每一元素的值。但是不适用求区间和。</p>
+</blockquote>
+<p><a href="https://leetcode.cn/circle/article/P92uug/">前缀和、差分、树状数组、块状数组 - 力扣（LeetCode）</a></p>
+<h1 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h1><p><a href="https://leetcode.cn/problems/contiguous-array/solutions/809683/lian-xu-shu-zu-by-leetcode-solution-mvnm/">525. 连续数组</a><br>$$<br>nums[L:R]&#x3D;\frac{R+1-L}{2}\<br>s[R+1]-S[L]&#x3D;\frac{R+1-L}{2}\<br>2<em>s[R+1]-R&#x3D;2</em>s[L]-(L-1)<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMaxLength</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">s</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; pos;        <span class="comment">//哈希表记录和第一次出现的位置</span></span><br><span class="line">        pos[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i++)&#123;</span><br><span class="line">            s[i + <span class="number">1</span>] = s[i] + nums[i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(pos.<span class="built_in">count</span>(<span class="number">2</span>*s[i+<span class="number">1</span>]-i))&#123;</span><br><span class="line">                <span class="type">int</span> diff = i + <span class="number">1</span> - pos[<span class="number">2</span> * s[i + <span class="number">1</span>] - i];</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, diff);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                pos[<span class="number">2</span> * s[i + <span class="number">1</span>] - i] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>$$<br>0和1数量相同\rightarrow 1的数量-0的数量&#x3D;0<br>$$</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">findMaxLength</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">s</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; pos;        <span class="comment">//哈希表记录和第一次出现的位置</span></span><br><span class="line">        pos[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i++)&#123;</span><br><span class="line">            s[i + <span class="number">1</span>] = s[i] + (nums[i] == <span class="number">1</span> ? <span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(pos.<span class="built_in">count</span>(s[i+<span class="number">1</span>]))&#123;</span><br><span class="line">                <span class="type">int</span> diff = i + <span class="number">1</span> - pos[s[i + <span class="number">1</span>]];</span><br><span class="line">                ans = <span class="built_in">max</span>(ans, diff);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                pos[s[i + <span class="number">1</span>]] = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="差分数组"><a href="#差分数组" class="headerlink" title="差分数组"></a>差分数组</h1><blockquote>
+<p>差分数组对应的概念是前缀和数组，d[i]&#x3D;nums[i]-nums[i-1]，d[0]&#x3D;nums[0]，对差分数组求前缀和可得到原数组。</p>
+<p>对原数组的区间[l,r]增加x时，差分数组对应的改变为：d[l]增加x，d[r+1]减少x。</p>
+<p>d[r+1]&#x3D;nums[r+1]-nums[r]，其中nums[r]增加x。</p>
+<p>这种修改是可以叠加的，即当我们多次对原数组的不同区间施加不同的增量，我们只要按规则修改差分数组即可。</p>
+<p>可以理解为公交车问题，在l站上车，乘坐区间[l,r]，在[r+1]站下车。</p>
+<p>特别地，当 r 为 n 时，我们无需修改 d[r]，因为这个位置溢出了下标范围。如果求前缀和时考虑该位置，那么该位置对应的前缀和值必定为 0。读者们可以自行思考原因，以加深对差分数组的理解。</p>
+</blockquote>
+<h4 id="6919-使数组中的所有元素都等于零"><a href="#6919-使数组中的所有元素都等于零" class="headerlink" title="6919. 使数组中的所有元素都等于零"></a><a href="https://leetcode.cn/problems/apply-operations-to-make-all-array-elements-equal-to-zero/">6919. 使数组中的所有元素都等于零</a></h4><p><a href="https://www.bilibili.com/video/BV1XW4y1f7Wv/?spm_id_from=333.788&vd_source=5427cf02c00273188250be648b53eced">把子数组改成子序列要怎么做？【力扣周赛 353】_哔哩哔哩_bilibili</a></p>
+<img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307101555389.png" alt="Leetcode-动态规划DP-差分数组   6919. 使数组中的所有元素都等于零.png" style="zoom: 25%;" />
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">checkArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">d</span><span class="params">(n + <span class="number">1</span>)</span></span>;</span><br><span class="line">        <span class="comment">// d[0] = nums[0];</span></span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> sum_d = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i++)&#123;</span><br><span class="line">            sum_d += d[i];</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> x = sum_d+nums[i];</span><br><span class="line">            <span class="keyword">if</span>(x==<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>||i+k&gt;n)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            sum_d -= x;</span><br><span class="line">            d[i + k] += x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>方法二</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">checkArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> K)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 计算差分数组</span></span><br><span class="line">        <span class="type">int</span> f[n + <span class="number">1</span>];</span><br><span class="line">        f[<span class="number">0</span>] = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) f[i] = nums[i] - nums[i - <span class="number">1</span>];</span><br><span class="line">        f[n] = -nums[n - <span class="number">1</span>];</span><br><span class="line">        <span class="comment">// 从左到右对差分数组里的每个元素进行操作</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i + K &lt;= n; i++) <span class="keyword">if</span> (f[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            f[i + K] += f[i];</span><br><span class="line">            f[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查差分数组中是否所有元素均为 0</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i++) <span class="keyword">if</span> (f[i] != <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>★★</p>
+<ul>
+<li><p><input checked="" disabled="" type="checkbox"> </p>
+<h4 id="1094-拼车"><a href="#1094-拼车" class="headerlink" title="1094. 拼车"></a><a href="https://leetcode.cn/problems/car-pooling/">1094. 拼车</a></h4></li>
+<li><p><input checked="" disabled="" type="checkbox"> </p>
+<h4 id="1109-航班预订统计"><a href="#1109-航班预订统计" class="headerlink" title="1109. 航班预订统计"></a><a href="https://leetcode.cn/problems/corporate-flight-bookings/">1109. 航班预订统计</a></h4></li>
+<li><p><input disabled="" type="checkbox"> 
+<a href="https://leetcode.cn/problems/my-calendar-iii/">732. 我的日程安排表 III</a>     <a href="https://blog.csdn.net/Miracle_ps/article/details/126573360">https://blog.csdn.net/Miracle_ps/article/details/126573360</a></p>
+</li>
+<li><p><input disabled="" type="checkbox"> </p>
+<ol start="2381">
+<li>字母移位 II</li>
+</ol>
+</li>
+</ul>
+<p>★★★</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <h4 id="1674-使数组互补的最少操作次数（求数据变换范围，将每一对数变换到相应范围分别需要的操作次数）"><a href="#1674-使数组互补的最少操作次数（求数据变换范围，将每一对数变换到相应范围分别需要的操作次数）" class="headerlink" title="1674. 使数组互补的最少操作次数（求数据变换范围，将每一对数变换到相应范围分别需要的操作次数）"></a><a href="https://leetcode.cn/problems/minimum-moves-to-make-array-complementary/">1674. 使数组互补的最少操作次数</a>（求数据变换范围，将每一对数变换到相应范围分别需要的操作次数）</h4></li>
+</ul>
+<p>★★★★★</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> </p>
+<h4 id="798-得分最高的最小轮调"><a href="#798-得分最高的最小轮调" class="headerlink" title="798. 得分最高的最小轮调"></a><a href="https://leetcode.cn/problems/smallest-rotation-with-highest-score/">798. 得分最高的最小轮调</a></h4></li>
+<li><p><input checked="" disabled="" type="checkbox"> </p>
+<h4 id="2528-最大化城市的最小供电站数目"><a href="#2528-最大化城市的最小供电站数目" class="headerlink" title="2528. 最大化城市的最小供电站数目"></a><a href="https://leetcode.cn/problems/maximize-the-minimum-powered-city/">2528. 最大化城市的最小供电站数目</a></h4></li>
+</ul>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><h2 id="前缀和-1"><a href="#前缀和-1" class="headerlink" title="前缀和"></a>前缀和</h2><table>
+<thead>
+<tr>
+<th>题目</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://leetcode.cn/problems/subarray-sum-equals-k/description/">560. 和为 K 的子数组 - 力扣（LeetCode）</a></td>
+<td>前缀和、哈希表(计数前缀和出现次数)</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1173,230 +1465,6 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="历史版本"><a href="#历史版本" class="headerlink" title="历史版本"></a>历史版本</h1><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><p><a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
 <p><a href="https://blog.csdn.net/sophicchen/article/details/120782209">(48条消息) CUDA版本不同：nvidia-smi和nvcc -V_cuda不同版本_Sophia$的博客-CSDN博客</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/23/%E8%AF%AD%E6%B3%95/C++/Sequential%20Containers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/23/%E8%AF%AD%E6%B3%95/C++/Sequential%20Containers/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-23 17:53:29" itemprop="dateCreated datePublished" datetime="2023-05-23T17:53:29+08:00">2023-05-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-13 21:35:44" itemprop="dateModified" datetime="2023-11-13T21:35:44+08:00">2023-11-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Sequential-Containers"><a href="#Sequential-Containers" class="headerlink" title="Sequential Containers"></a>Sequential Containers</h1><p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
-<h2 id="Container-Operations"><a href="#Container-Operations" class="headerlink" title="Container Operations"></a>Container Operations</h2><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator iter1 = vec.<span class="built_in">begin</span>(), iter2 = vec.<span class="built_in">end</span>();</span><br><span class="line">[begin,end)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>定义和初始化容器</p>
-<table>
-<thead>
-<tr>
-<th>C c</th>
-<th>默认初始化</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>C c1(c2)</td>
-<td></td>
-</tr>
-<tr>
-<td>C c1&#x3D;c2</td>
-<td></td>
-</tr>
-<tr>
-<td>C c{a,b,c,…}</td>
-<td></td>
-</tr>
-<tr>
-<td>C c&#x3D;{a,b,c,…}</td>
-<td></td>
-</tr>
-<tr>
-<td>C c(b,e)</td>
-<td>迭代器初始化，[b,e)</td>
-</tr>
-<tr>
-<td>C seq(n)</td>
-<td></td>
-</tr>
-<tr>
-<td>C seq(n,t)</td>
-<td>n个元素，值为t</td>
-</tr>
-</tbody></table>
-<h2 id="Container-Adaptors"><a href="#Container-Adaptors" class="headerlink" title="Container Adaptors"></a>Container Adaptors</h2><blockquote>
-<p>容器适配器</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png" alt="image-20230523175546695"></p>
-<h3 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h3><p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
-<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3><h3 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h3><figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Compare: </p>
-<p>comp(a,b)，如果a应该出现在b前面，返回true，弹出的元素是根据<em>strict weak ordering</em>的最后一个元素</p>
-<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/05/16/%E8%AF%AD%E6%B3%95/C++/c++%20set/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/05/16/%E8%AF%AD%E6%B3%95/C++/c++%20set/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-16 23:30:26" itemprop="dateCreated datePublished" datetime="2023-05-16T23:30:26+08:00">2023-05-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-20 10:27:07" itemprop="dateModified" datetime="2023-09-20T10:27:07+08:00">2023-09-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
-<h2 id="常用函数总结："><a href="#常用函数总结：" class="headerlink" title="常用函数总结："></a>常用函数总结：</h2><p><strong>构造、拷贝、析构</strong></p>
-<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p><em>set</em>&nbsp;c</p></td><td><p>产生一个空的set/multiset，不含任何元素</p></td></tr><tr><td><p>set c(op)</p></td><td><p>以op为排序准则，产生一个空的set/multiset</p></td></tr><tr><td><p>set c1(c2)</p></td><td><p>产生某个set/multiset的副本，所有元素都被拷贝</p></td></tr><tr><td><p>set c(beg,end)</p></td><td><p>以区间[beg,end)内的所有元素产生一个set/multiset</p></td></tr><tr><td><p>set c(beg,end, op)</p></td><td><p>以op为排序准则，区间[beg,end)内的元素产生一个set/multiset</p></td></tr><tr><td><p>c.~set()</p></td><td><p>销毁所有元素，释放内存</p></td></tr><tr><td><p>set&lt;Elem&gt;</p></td><td><p>产生一个set，以(operator &lt;)为排序准则</p></td></tr><tr><td><p>set&lt;Elem,0p&gt;</p></td><td><p>产生一个set，以op为排序准则</p></td></tr></tbody></table>
-
-<h3 id="非变动性操作"><a href="#非变动性操作" class="headerlink" title="非变动性操作"></a><strong>非变动性操作</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
-
-<h3 id="特殊的搜寻函数"><a href="#特殊的搜寻函数" class="headerlink" title="特殊的搜寻函数"></a><strong>特殊的搜寻函数</strong></h3><p>　　sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
-<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>count (elem)</p></td><td><p>返回元素值为elem的个数</p></td></tr><tr><td><p>find(elem)</p></td><td><p>返回元素值为elem的第一个元素，如果没有返回end()</p></td></tr><tr><td><p>lower _bound(elem)</p></td><td><p>返回元素值为elem的第一个可安插位置，也就是元素值 &gt;= elem的第一个元素位置</p></td></tr><tr><td><p>upper _bound (elem)</p></td><td><p>返回元素值为elem的最后一个可安插位置，也就是元素值 &gt; elem 的第一个元素位置</p></td></tr><tr><td><p>equal_range (elem)</p></td><td><p>返回elem可安插的第一个位置和最后一个位置，也就是元素值==elem的区间</p></td></tr></tbody></table>
-
-<h3 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a><strong>赋值</strong></h3><table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
-
-<h3 id="迭代器相关函数"><a href="#迭代器相关函数" class="headerlink" title="迭代器相关函数"></a><strong>迭代器相关函数</strong></h3><p>　　sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
-<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.begin()</p></td><td><p>返回一个随机存取迭代器，指向第一个元素</p></td></tr><tr><td><p>c.end()</p></td><td><p>返回一个随机存取迭代器，指向最后一个元素的下一个位置</p></td></tr><tr><td><p>c.rbegin()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的第一个元素</p></td></tr><tr><td><p>c.rend()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的最后一个元素的下一个位置</p></td></tr></tbody></table>
-
-<h3 id="安插和删除元素"><a href="#安插和删除元素" class="headerlink" title="安插和删除元素"></a>安插和删除元素</h3><p>　　必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
-<table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.insert(elem)</p></td><td><p>插入一个elem副本，返回新元素位置，无论插入成功与否。</p></td></tr><tr><td><p>c.insert(pos, elem)</p></td><td><p>安插一个elem元素副本，返回新元素位置，pos为收索起点，提升插入速度。</p></td></tr><tr><td><p>c.insert(beg,end)</p></td><td><p>将区间[beg,end)所有的元素安插到c，无返回值。</p></td></tr><tr><td><p>c.erase(elem)</p></td><td><p>删除与elem相等的所有元素，返回被移除的元素个数。</p></td></tr><tr><td><p>c.erase(pos)</p></td><td><p>移除迭代器pos所指位置元素，无返回值。</p></td></tr><tr><td><p>c.erase(beg,end)</p></td><td><p>移除区间[beg,end)所有元素，无返回值。</p></td></tr><tr><td><p>c.clear()</p></td><td><p>移除所有元素，将容器清空</p></td></tr></tbody></table>
-
 
       
     </div>

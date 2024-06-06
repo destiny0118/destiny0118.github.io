@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,321 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/24/%E8%AF%AD%E6%B3%95/Java/Java%E5%B9%B6%E5%8F%91(6)%EF%BC%9A%E4%BB%A3%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/24/%E8%AF%AD%E6%B3%95/Java/Java%E5%B9%B6%E5%8F%91(6)%EF%BC%9A%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">Java并发(6)：代码</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-24T00:00:00+08:00">2024-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-28 17:01:21" itemprop="dateModified" datetime="2024-05-28T17:01:21+08:00">2024-05-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="创建线程方式"><a href="#创建线程方式" class="headerlink" title="创建线程方式"></a>创建线程方式</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> interfact Runnable&#123;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现runnable接口"><a href="#实现runnable接口" class="headerlink" title="实现runnable接口"></a>实现runnable接口</h2><blockquote>
+<p>创建一个类实现Runnable接口，实现run方法，然后创建Thread类的实例，将实现了Runnable接口的对象作为参数传递给Thread的构造方法，并调用start方法启动线程。</p>
+</blockquote>
+<ol>
+<li>将任务代码移到实现了Runnable接口的类的run方法中（由于Runnable 是一个函数式接口，可以用lambda 表达式建立一个实例）</li>
+<li>用<code>Runnable</code>创建一个<code>Thread</code>对象</li>
+<li>启动线程<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">demo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        Runnable r1=<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;任务开始&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t1=<span class="keyword">new</span> <span class="title class_">Thread</span>(r1);</span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line">        Runnable r2=()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;lambda表达式：任务开始&quot;</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t2=<span class="keyword">new</span> <span class="title class_">Thread</span>(r2);</span><br><span class="line">        t2.start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Thread t3=<span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;在thread中lambda表达式&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        t3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h2><blockquote>
+<p>创建一个类继承自Thread类，并重写run方法，然后创建该类的实例并调用start方法启动线程。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Thread</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;继承Thread类，重写run方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        MyThread myThread=<span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现Callable接口"><a href="#实现Callable接口" class="headerlink" title="实现Callable接口"></a>实现Callable接口</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt;&#123;</span><br><span class="line">	V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>继承Callable实现call方法</li>
+<li>FutureTask包装器将Callable转换成Future和Runnable</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallableDemo</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">CallableDemo</span>  <span class="variable">callableDemo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CallableDemo</span>();</span><br><span class="line">        FutureTask&lt;String&gt; futureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(callableDemo);</span><br><span class="line">        Thread t=<span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask);</span><br><span class="line">        t.start();</span><br><span class="line">        System.out.println(futureTask.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h1><h2 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool"></a><code>newCachedThreadPool</code></h2><p> 创建一个可缓存的线程池，线程池的大小可根据需要进行自动扩展，但在某些情况下可能会回收线程。<br> <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newCachedThreadPool();</span><br></pre></td></tr></table></figure></p>
+<h2 id="newFixedThreadPool"><a href="#newFixedThreadPool" class="headerlink" title="newFixedThreadPool"></a><code>newFixedThreadPool</code></h2><p>创建一个固定大小的线程池，线程数始终保持不变。</p>
+<h2 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor"></a><code>newSingleThreadExecutor</code></h2><ul>
+<li>创建一个单线程的线程池，保证所有任务按照指定顺序（FIFO，LIFO，优先级）执行。</li>
+</ul>
+<h2 id="newScheduledThreadPool"><a href="#newScheduledThreadPool" class="headerlink" title="newScheduledThreadPool"></a><code>newScheduledThreadPool</code></h2><ul>
+<li>创建一个定时执行任务的线程池。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/21/%E6%A1%86%E6%9E%B6/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%81%E5%9C%BA%E6%99%AF%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/21/%E6%A1%86%E6%9E%B6/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%81%E5%9C%BA%E6%99%AF%E9%A2%98/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-21 09:56:43" itemprop="dateCreated datePublished" datetime="2024-05-21T09:56:43+08:00">2024-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-05 20:18:38" itemprop="dateModified" datetime="2024-06-05T20:18:38+08:00">2024-06-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-秒杀系统"><a href="#1-秒杀系统" class="headerlink" title="1 秒杀系统"></a>1 秒杀系统</h1><p>“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。</p>
+<ul>
+<li><p><strong>高性能。</strong> 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。</p>
+</li>
+<li><p><strong>一致性。</strong> 秒杀中商品减库存的实现方式同样关键。可想而知，有限数量的商品在同一时刻被很多倍的请求同时来减库存，减库存又分为“拍下减库存”“付款减库存”以及预扣等几种，在大并发更新的过程中都要保证数据的准确性，其难度可想而知。因此，我将用一篇文章来专门讲解如何设计秒杀减库存方案。</p>
+</li>
+<li><p><strong>高可用。</strong> 虽然我介绍了很多极致的优化思路，但现实中总难免出现一些我们考虑不到的情况，所以要保证系统的高可用和正确性，我们还要设计一个 PlanB 来兜底，以便在最坏情况发生时仍然能够从容应对。专栏的最后，我将带你思考可以从哪些环节来设计兜底方案。</p>
+</li>
+<li><p>过滤无效流量</p>
+</li>
+<li><p>库存可以少卖不可以超卖</p>
+</li>
+<li><p>热点商品预热</p>
+</li>
+<li><p>热点商品信息提前缓存</p>
+</li>
+<li><p>利用redis缓存</p>
+</li>
+<li><p>静态资源提前加载</p>
+</li>
+<li><p>利用消息队列进行流量削峰</p>
+</li>
+<li><p>切片集群</p>
+</li>
+<li><p>在用户发起请求前，对用户进行一些校验操作，比如答题、输入验证码</p>
+</li>
+<li><p>服务限流</p>
+</li>
+</ul>
+<p>过滤无效流量</p>
+<p>将用户请求分散</p>
+<p>提高QPS</p>
+<p><a href="https://zhuanlan.zhihu.com/p/273302387">高频面试题：秒杀场景设计 - 知乎 (zhihu.com)</a><br><a href="https://cloud.tencent.com/developer/article/1833184">面试官问我：如何设计一个秒杀场景？-腾讯云开发者社区-腾讯云 (tencent.com)</a><br><a href="https://developer.aliyun.com/article/1325551">秒杀场景的设计思路和方案-阿里云开发者社区 (aliyun.com)</a><br><a href="https://zhuanlan.zhihu.com/p/433618121">万字超详解秒杀系统！ - 知乎 (zhihu.com)</a><br><a href="https://blog.csdn.net/lxw1844912514/article/details/119745812">面试必备：秒杀场景九个细节-CSDN博客</a></p>
+<h1 id="2-商品点击率排行榜"><a href="#2-商品点击率排行榜" class="headerlink" title="2 商品点击率排行榜"></a>2 商品点击率排行榜</h1><p>top K排序</p>
+<blockquote>
+<p>多并行优化</p>
+</blockquote>
+<p>多个top K排序，在合并求top K</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(4)%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(4)%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82/" class="post-title-link" itemprop="url">计算机网络：应用层</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-05-20 17:17:20 / 修改时间：19:52:19" itemprop="dateCreated datePublished" datetime="2024-05-20T17:17:20+08:00">2024-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">计算机基础</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>HTTP协议</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/05/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(4)%EF%BC%9A%E7%BD%91%E7%BB%9C%E5%B1%82/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -429,7 +744,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-16 16:17:58" itemprop="dateModified" datetime="2024-05-16T16:17:58+08:00">2024-05-16</time>
+      <time title="修改时间：2024-06-05 15:00:25" itemprop="dateModified" datetime="2024-06-05T15:00:25+08:00">2024-06-05</time>
     </span>
 
   
@@ -442,7 +757,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
+          <h1 id="1-单例模式"><a href="#1-单例模式" class="headerlink" title="1 单例模式"></a>1 单例模式</h1><p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
 <blockquote>
 <p>volatile禁止指令重排序</p>
 <ul>
@@ -459,11 +774,11 @@
 <li>初始化 <code>uniqueInstance</code></li>
 <li>将 <code>uniqueInstance</code> 指向分配的内存地址</li>
 </ol>
-<h1 id="模拟死锁"><a href="#模拟死锁" class="headerlink" title="模拟死锁"></a>模拟死锁</h1><h2 id="线程死锁"><a href="#线程死锁" class="headerlink" title="线程死锁"></a>线程死锁</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object a=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object b=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="数据库事务死锁"><a href="#数据库事务死锁" class="headerlink" title="数据库事务死锁"></a>数据库事务死锁</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 事务1</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">1</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 事务2</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">3</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">4</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="2-模拟死锁"><a href="#2-模拟死锁" class="headerlink" title="2 模拟死锁"></a>2 模拟死锁</h1><h2 id="2-1-线程死锁"><a href="#2-1-线程死锁" class="headerlink" title="2.1 线程死锁"></a>2.1 线程死锁</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object a=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object b=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-数据库事务死锁"><a href="#2-2-数据库事务死锁" class="headerlink" title="2.2 数据库事务死锁"></a>2.2 数据库事务死锁</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 事务1</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">1</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 事务2</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">3</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">4</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
 
 <p><a href="https://www.cnblogs.com/ibigboy/p/16202718.html">面试官：请用SQL模拟一个死锁 - 问北 - 博客园 (cnblogs.com)</a></p>
-<h1 id="生产者、消费者模型"><a href="#生产者、消费者模型" class="headerlink" title="生产者、消费者模型"></a>生产者、消费者模型</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生产者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Producer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Producer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> produce(); <span class="comment">// 生产数据</span></span><br><span class="line">                queue.put(value); <span class="comment">// 将数据放入队列</span></span><br><span class="line">                Thread.sleep(<span class="number">1000</span>); <span class="comment">// 模拟生产过程</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">produce</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 生产过程</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Consumer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Consumer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> queue.take(); <span class="comment">// 从队列中取出数据</span></span><br><span class="line">                consume(value); <span class="comment">// 消费数据</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">consume</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="comment">// 消费过程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="3-生产者、消费者模型"><a href="#3-生产者、消费者模型" class="headerlink" title="3 生产者、消费者模型"></a>3 生产者、消费者模型</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生产者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Producer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Producer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> produce(); <span class="comment">// 生产数据</span></span><br><span class="line">                queue.put(value); <span class="comment">// 将数据放入队列</span></span><br><span class="line">                Thread.sleep(<span class="number">1000</span>); <span class="comment">// 模拟生产过程</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">produce</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 生产过程</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Consumer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Consumer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> queue.take(); <span class="comment">// 从队列中取出数据</span></span><br><span class="line">                consume(value); <span class="comment">// 消费数据</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">consume</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="comment">// 消费过程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -602,9 +917,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-05-10 11:12:05 / 修改时间：11:15:07" itemprop="dateCreated datePublished" datetime="2024-05-10T11:12:05+08:00">2024-05-10</time>
+      <time title="创建时间：2024-05-10 11:12:05" itemprop="dateCreated datePublished" datetime="2024-05-10T11:12:05+08:00">2024-05-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-05 20:19:33" itemprop="dateModified" datetime="2024-06-05T20:19:33+08:00">2024-06-05</time>
     </span>
 
   
@@ -625,7 +946,7 @@
 <li>内存管理：完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210729152634.png" alt="操作系统发展与分类"></p>
-<h2 id="用户态和内核态"><a href="#用户态和内核态" class="headerlink" title="用户态和内核态"></a>用户态和内核态</h2><p>切换方式：系统调用（Trap）、中断（Interrupt）、异常（Exception）</p>
+<h2 id="0-1-用户态和内核态"><a href="#0-1-用户态和内核态" class="headerlink" title="0.1 用户态和内核态"></a>0.1 用户态和内核态</h2><p>切换方式：系统调用（Trap）、中断（Interrupt）、异常（Exception）</p>
 <ol>
 <li><strong>系统调用（Trap）</strong>：用户态进程 <strong>主动</strong> 要求切换到内核态的一种方式，主要是为了使用内核态才能做的事情比如读取磁盘资源。系统调用的机制其核心还是使用了操作系统为用户特别开放的一个中断来实现。</li>
 <li><strong>中断（Interrupt）</strong>：当外围设备完成用户请求的操作后，会向 CPU 发出相应的中断信号，这时 CPU 会暂停执行下一条即将要执行的指令转而去执行与中断信号对应的处理程序，如果先前执行的指令是用户态下的程序，那么这个转换的过程自然也就发生了由用户态到内核态的切换。比如硬盘读写操作完成，系统会切换到硬盘读写的中断处理程序中执行后续操作等。</li>
@@ -658,7 +979,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -676,7 +997,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">消息队列</a>
         </h2>
 
         <div class="post-meta-container">
@@ -694,7 +1015,16 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-29 11:30:52" itemprop="dateModified" datetime="2024-05-29T11:30:52+08:00">2024-05-29</time>
+      <time title="修改时间：2024-06-05 11:42:14" itemprop="dateModified" datetime="2024-06-05T11:42:14+08:00">2024-06-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">消息队列</span></a>
+        </span>
     </span>
 
   
@@ -707,80 +1037,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-消息队列"><a href="#1-消息队列" class="headerlink" title="1 消息队列"></a>1 消息队列</h1><p><strong>使用队列来通信</strong>的组件。它的本质，就是个<strong>转发器</strong>，包含<strong>发消息、存消息、消费消息</strong>的过程。</p>
-<p><strong>消息队列</strong> 是指利用 <strong>高效可靠</strong> 的 <strong>消息传递机制</strong> 进行与平台无关的 <strong>数据交流</strong>，并基于<strong>数据通信</strong>来进行分布式系统的集成。<br>通过提供 <strong>消息传递</strong> 和 <strong>消息排队</strong> 模型，它可以在 <strong>分布式环境</strong> 下提供 <strong>应用解耦</strong>、<strong>弹性伸缩</strong>、<strong>冗余存储</strong>、<strong>流量削峰</strong>、<strong>异步通信</strong>、<strong>数据同步</strong> 等等功能，其作为 <strong>分布式系统架构</strong> 中的一个重要组件，有着举足轻重的地位。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404291638324.png" alt="image.png"></p>
-<h1 id="2-作用"><a href="#2-作用" class="headerlink" title="2 作用"></a>2 作用</h1><h2 id="2-1-异步处理"><a href="#2-1-异步处理" class="headerlink" title="2.1 异步处理"></a>2.1 异步处理</h2><p>用户抽奖成功后，直接返回中奖消息，实际的结果落库通过消息队列处理。</p>
-<h2 id="2-2-应用解耦"><a href="#2-2-应用解耦" class="headerlink" title="2.2 应用解耦"></a>2.2 应用解耦</h2><p>如果没有消息队列，每当一个新的业务接入，我们都要在主系统调用新接口、或者当我们取消某些业务，我们也得在主系统删除某些接口调用。有了消息队列，我们只需要关心消息是否送达了队列，至于谁希望订阅，接下来收到消息如何处理，是下游的事情，无疑极大地减少了开发和联调的工作量。</p>
-<h2 id="2-3-流量削峰"><a href="#2-3-流量削峰" class="headerlink" title="2.3 流量削峰"></a>2.3 流量削峰</h2><blockquote>
-<p>可能导致消息积压</p>
-</blockquote>
-<p>在秒杀情景下，将用户请求写入消息队列，再进行后续业务处理</p>
-<h2 id="2-4-消息通讯"><a href="#2-4-消息通讯" class="headerlink" title="2.4 消息通讯"></a>2.4 消息通讯</h2><p>消息队列内置了高效的通信机制，可用于消息通讯。如实现点对点消息队列、聊天室等。</p>
-<h1 id="3-存在问题"><a href="#3-存在问题" class="headerlink" title="3 存在问题"></a>3 存在问题</h1><p>消息队列挂掉<br>发送失败重试（重试、重复消息）</p>
-<p>重复消费消息<br>消息的顺序消费<br>分布式事务<br>消息堆积</p>
-<h1 id="4-解决办法"><a href="#4-解决办法" class="headerlink" title="4 解决办法"></a>4 解决办法</h1><h2 id="4-1-消息可靠性（消息丢失）"><a href="#4-1-消息可靠性（消息丢失）" class="headerlink" title="4.1 消息可靠性（消息丢失）"></a>4.1 消息可靠性（消息丢失）</h2><p>生产者不丢消息、消息队列不丢消息、消费者不丢消息</p>
-<ul>
-<li>生产者：同步发送，发送成功返回ACK，发送失败重试（<strong>重复发送</strong>）</li>
-<li>消息队列：消息持久化到磁盘（同步刷盘、异步刷盘）、主从集群部署（同步复制、异步复制）</li>
-<li>消费者：消费成功确认、死信队列、消息补偿机制。</li>
-</ul>
-<h2 id="4-2-消息顺序性"><a href="#4-2-消息顺序性" class="headerlink" title="4.2 消息顺序性"></a>4.2 消息顺序性</h2><ul>
-<li>消息发到同一个队列，当M1发送完收到ack后，M2再发送（无法保证消费者接收顺序）</li>
-<li>将M1和M2发送到同一个消费者，发送M1后，等到消费端ACK成功后，才发送M2</li>
-</ul>
-<h2 id="4-3-高可用"><a href="#4-3-高可用" class="headerlink" title="4.3 高可用"></a>4.3 高可用</h2><p>持久化存储<br>主从：主节点的数据会同步给从节点，主节点出问题后，从节点可以顶上来提供服务，同时从节点也可以提供读的操作，为主节点减轻压力。<br>分片：在设计的时候还要考虑数据分片的场景，一个Topic的数据可以分成很多份进行存储，分别存储在不同的Broker上，这样当磁盘不够的时候，可以通过增加Broker的节点来扩容。</p>
-<h2 id="4-4-重复消费"><a href="#4-4-重复消费" class="headerlink" title="4.4 重复消费"></a>4.4 重复消费</h2><ul>
-<li>生产端为了保证消息的可靠性，它可能往MQ服务器重复发送消息，直到拿到成功的ACK。</li>
-<li>再然后就是消费端，消费端消费消息一般是这个流程：拉取消息、业务逻辑处理、提交消费位移。假设业务逻辑处理完，事务提交了，但是需要更新消费位移时，消费者挂了，这时候另一个消费者就会拉到重复消息了。</li>
-</ul>
-<p>幂等处理重复消费：</p>
-<ul>
-<li>Redis缓存标记</li>
-</ul>
-<h2 id="4-5-消息积压"><a href="#4-5-消息积压" class="headerlink" title="4.5 消息积压"></a>4.5 消息积压</h2><ul>
-<li>排查是否存在bug</li>
-<li>批量处理消息</li>
-<li>水平扩容，增加Topic的队列数</li>
-</ul>
-<h2 id="4-6-分布式事务"><a href="#4-6-分布式事务" class="headerlink" title="4.6 分布式事务"></a>4.6 分布式事务</h2><p><strong>分布式应用必定涉及到各个系统之间的通信问题</strong><br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404291641487.png" alt="image.png"></p>
-<ol>
-<li>生产者产生消息，发送一条半事务消息到MQ服务器</li>
-<li>MQ收到消息后，将消息持久化到存储系统，这条消息的状态是待发送状态。</li>
-<li>MQ服务器返回ACK确认到生产者，此时MQ不会触发消息推送事件</li>
-<li>生产者执行本地事务</li>
-<li>如果本地事务执行成功，即commit执行结果到MQ服务器；如果执行失败，发送rollback。</li>
-<li>如果是正常的commit，MQ服务器更新消息状态为可发送；如果是rollback，即删除消息。</li>
-<li>如果消息状态更新为可发送，则MQ服务器会push消息给消费者。消费者消费完就回ACK。</li>
-<li>如果MQ服务器长时间没有收到生产者的commit或者rollback，它会反查生产者，然后根据查询到的结果执行最终状态。</li>
-</ol>
-<h1 id="5-模型"><a href="#5-模型" class="headerlink" title="5 模型"></a>5 模型</h1><h2 id="5-1-队列模型"><a href="#5-1-队列模型" class="headerlink" title="5.1 队列模型"></a>5.1 队列模型</h2><p>多消费者：生产者需要知道具体消费者个数然后去复制对应数量的消息队列</p>
-<h2 id="5-2-主题模型"><a href="#5-2-主题模型" class="headerlink" title="5.2 主题模型"></a>5.2 主题模型</h2><h1 id="6-RPC、消息队列、HTTP"><a href="#6-RPC、消息队列、HTTP" class="headerlink" title="6 RPC、消息队列、HTTP"></a>6 RPC、消息队列、HTTP</h1><h2 id="6-1-RPC-和消息队列的区别"><a href="#6-1-RPC-和消息队列的区别" class="headerlink" title="6.1 RPC 和消息队列的区别"></a>6.1 RPC 和消息队列的区别</h2><p>RPC 和消息队列都是分布式微服务系统中重要的组件之一，下面我们来简单对比一下两者：</p>
-<ul>
-<li><strong>从用途来看</strong>：RPC 主要用来解决两个服务的远程通信问题，不需要了解底层网络的通信机制。通过 RPC 可以帮助我们调用远程计算机上某个服务的方法，这个过程就像调用本地方法一样简单。消息队列主要用来降低系统耦合性、实现任务异步、有效地进行流量削峰。</li>
-<li><strong>从通信方式来看</strong>：RPC 是双向直接网络通讯，消息队列是单向引入中间载体的网络通讯。</li>
-<li><strong>从架构上来看</strong>：消息队列需要把消息存储起来，RPC 则没有这个要求，因为前面也说了 RPC 是双向直接网络通讯。</li>
-<li><strong>从请求处理的时效性来看</strong>：通过 RPC 发出的调用一般会立即被处理，存放在消息队列中的消息并不一定会立即被处理。</li>
-</ul>
-<p>RPC 和消息队列本质上是网络通讯的两种不同的实现机制，两者的用途不同，万不可将两者混为一谈</p>
-<h1 id="7-MQ幂等性"><a href="#7-MQ幂等性" class="headerlink" title="7 MQ幂等性"></a>7 MQ幂等性</h1><p>消息队列（MQ）中的幂等性是指无论消息被消费多少次，最终的效果应该是一致的。在分布式系统中，由于网络延迟、重试机制等原因，消息可能被处理多次，而幂等性可以确保系统的一致性。</p>
-<h2 id="7-1-实现MQ幂等性的方法："><a href="#7-1-实现MQ幂等性的方法：" class="headerlink" title="7.1 实现MQ幂等性的方法："></a>7.1 实现MQ幂等性的方法：</h2><ol>
-<li><p><strong>唯一标识符：</strong> 每条消息都应该包含一个唯一的标识符（Message ID），该标识符可以用来检测消息的重复。当消息处理完成后，可以记录已处理的消息标识符，下次收到相同标识符的消息时，直接判断为重复消息，不再处理。</p>
-</li>
-<li><p><strong>幂等性检测逻辑：</strong> 在消息的处理逻辑中加入幂等性检测的逻辑，确保同一消息在多次处理时不会产生不一致的结果。例如，在数据库中存储已处理消息的信息，每次处理消息前检查是否已经处理过。</p>
-</li>
-<li><p><strong>版本号：</strong> 每个消息可以包含一个版本号，表示消息的版本信息。消费者在处理消息时，可以检查消息的版本号，如果版本号相同，即使消息重复到达，也可以认为是幂等的。</p>
-</li>
-<li><p><strong>幂等性接口设计：</strong> 对于消息的消费者，可以设计幂等性接口，确保相同输入产生相同的输出。通过合理设计接口，消费者可以在处理相同消息时返回相同结果，保证了幂等性。</p>
-</li>
-<li><p><strong>事务性操作：</strong> 如果消息的处理涉及到事务性操作，可以利用数据库事务的特性来保证幂等性。通过将消息的处理和数据库的更新放在同一个事务中，可以确保即使消息多次到达，数据库的状态也能正确更新。</p>
-</li>
-<li><p><strong>分布式锁：</strong> 使用分布式锁机制，确保在同一时间只有一个消费者能够处理消息。这可以避免多个消费者同时处理同一消息，从而保证幂等性。</p>
-</li>
-</ol>
-<p>实现MQ的幂等性需要结合业务场景和具体的消息处理逻辑，采用合适的方式来防止重复处理相同的消息。选择合适的幂等性策略可以提高系统的可靠性和一致性。</p>
-<h1 id="8-参考"><a href="#8-参考" class="headerlink" title="8 参考"></a>8 参考</h1><p><a href="https://zhuanlan.zhihu.com/p/471374718">十道经典消息队列面试题 - 知乎 (zhihu.com)</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzkyMzU5Mzk1NQ==&mid=2247506349&idx=1&sn=47b8ae3a94176440a6e5d5ad3505b4f3&source=41#wechat_redirect">聊聊幂等设计 (qq.com)</a><br><a href="https://www.cnblogs.com/jiagoubaiduren/p/16213891.html">如何设计一个牛逼的消息队列？ - 架构摆渡人 - 博客园 (cnblogs.com)</a></p>
-
+          <p>消息丢失；重复消费；顺序消费</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -806,7 +1071,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/11/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -824,7 +1089,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="post-title-link" itemprop="url">负载均衡</a>
+          <a href="/2024/04/11/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/" class="post-title-link" itemprop="url">负载均衡</a>
         </h2>
 
         <div class="post-meta-container">
@@ -858,509 +1123,12 @@
           <p>负载均衡分类、负载均衡常见算法</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/04/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+              <a class="btn" href="/2024/04/11/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
                 阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-10 21:40:22" itemprop="dateCreated datePublished" datetime="2024-04-10T21:40:22+08:00">2024-04-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-21 11:19:41" itemprop="dateModified" datetime="2024-05-21T11:19:41+08:00">2024-05-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><strong><code>jps</code></strong> (JVM Process Status）: 类似 UNIX 的 <code>ps</code> 命令。用于查看所有 Java 进程的启动类、传入参数和 Java 虚拟机参数等信息；</li>
-<li>**<code>jstat</code>**（JVM Statistics Monitoring Tool）: 用于收集 HotSpot 虚拟机各方面的运行数据;</li>
-<li><strong><code>jinfo</code></strong> (Configuration Info for Java) : Configuration Info for Java,显示虚拟机配置信息;</li>
-<li><strong><code>jmap</code></strong> (Memory Map for Java) : 生成堆转储快照;</li>
-<li><strong><code>jhat</code></strong> (JVM Heap Dump Browser) : 用于分析 heapdump 文件，它会建立一个 HTTP&#x2F;HTML 服务器，让用户可以在浏览器上查看分析结果;</li>
-<li><strong><code>jstack</code></strong> (Stack Trace for Java) : 生成虚拟机当前时刻的线程快照，线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。</li>
-</ul>
-<h1 id="JVM参数"><a href="#JVM参数" class="headerlink" title="JVM参数"></a>JVM参数</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404102245741.png" alt="image.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404112053964.png" alt="image.png"></p>
-<h2 id="堆参数"><a href="#堆参数" class="headerlink" title="堆参数"></a>堆参数</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">初始堆(memory start)大小、最大堆大小</span><br><span class="line">-Xms&lt;heap size&gt;[unit]</span><br><span class="line">-Xmx&lt;heap size&gt;[unit]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">年轻代大小</span><br><span class="line">-XX:NewSize=n </span><br><span class="line">-XX:NewRatio=n  年轻代和年老代比值为1:n</span><br><span class="line">-XX:SurvivorRatio=n 年轻代中Eden区与两个Survivor区的比值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">格式：-XX:[+-]&lt;name&gt; 表示启用或者禁用name属性。</span><br><span class="line">例子：-XX:+UseG1GC（表示启用G1垃圾收集器）</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="jstack-生成虚拟机当前时刻的线程快照"><a href="#jstack-生成虚拟机当前时刻的线程快照" class="headerlink" title="jstack :生成虚拟机当前时刻的线程快照"></a>jstack :生成虚拟机当前时刻的线程快照</h1><p><code>jstack</code>（Stack Trace for Java）命令用于生成虚拟机当前时刻的线程快照。线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合.</p>
-<p>生成线程快照的目的主要是定位线程长时间出现停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等都是导致线程长时间停顿的原因。线程出现停顿的时候通过<code>jstack</code>来查看各个线程的调用堆栈，就可以知道没有响应的线程到底在后台做些什么事情，或者在等待些什么资源。</p>
-<h1 id="OOM排查"><a href="#OOM排查" class="headerlink" title="OOM排查"></a>OOM排查</h1><blockquote>
-<p>OOM 全称 “Out Of Memory”，表示内存耗尽。当 JVM 因为没有足够的内存来为对象分配空间，并且垃圾回收器也已经没有空间可回收时，就会抛出这个错误。<br>产生原因：</p>
-<ol>
-<li>分配过少：JVM 初始化内存小，业务使用了大量内存；或者不同 JVM 区域分配内存不合理</li>
-<li>代码漏洞：某一个对象被频繁申请，不用了之后却没有被释放，导致内存耗尽</li>
-</ol>
-</blockquote>
-<p><strong>内存泄漏</strong>：申请使用完的内存没有释放，导致虚拟机不能再次使用该内存，此时这段内存就泄露了。因为申请者不用了，而又不能被虚拟机分配给别人用</p>
-<p><strong>内存溢出</strong>：申请的内存超出了 JVM 能提供的内存大小，此时称之为溢出</p>
-<h2 id="OOM类型"><a href="#OOM类型" class="headerlink" title="OOM类型"></a>OOM类型</h2><p><strong>java.lang.OutOfMemoryError: PermGen space</strong></p>
-<p>Java7 永久代（方法区）溢出，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。每当一个类初次加载的时候，元数据都会存放到永久代</p>
-<p>一般出现于大量 Class 对象或者 JSP 页面，或者采用 CgLib 动态代理技术导致</p>
-<p>我们可以通过 <code>-XX：PermSize</code> 和 <code>-XX：MaxPermSize</code> 修改方法区大小</p>
-<blockquote>
-<p>Java8 将永久代变更为元空间，报错：java.lang.OutOfMemoryError: Metadata space，元空间内存不足默认进行动态扩展</p>
-</blockquote>
-<p><strong>java.lang.StackOverflowError</strong></p>
-<p><strong>虚拟机栈溢出</strong>，一般是由于程序中存在 <strong>死循环或者深度递归调用</strong> 造成的。如果栈大小设置过小也会出现溢出，可以通过 <code>-Xss</code> 设置栈的大小</p>
-<p>虚拟机抛出栈溢出错误，可以在日志中定位到错误的类、方法</p>
-<p><strong>java.lang.OutOfMemoryError: Java heap space</strong></p>
-<p><strong>Java 堆内存溢出</strong>，溢出的原因一般由于 JVM 堆内存设置不合理或者内存泄漏导致</p>
-<p>如果是内存泄漏，可以通过工具查看泄漏对象到 GC Roots 的引用链。掌握了泄漏对象的类型信息以及 GC Roots 引用链信息，就可以精准地定位出泄漏代码的位置</p>
-<p>如果不存在内存泄漏，就是内存中的对象确实都还必须存活着，那就应该检查虚拟机的堆参数（-Xmx 与 -Xms），查看是否可以将虚拟机的内存调大些</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tasklist | findstr &quot;java&quot;</span><br><span class="line"></span><br><span class="line">查看内存堆栈信息  </span><br><span class="line">//查看jvm内存分布</span><br><span class="line">jmap -heap pid</span><br><span class="line">jhsdb jmap --heap --pid 16279  </span><br><span class="line">(对于jdk8之后的版本，不能再使用jmap -heap pid的命令了，需要使用上面的命令)。</span><br><span class="line"></span><br><span class="line">- 查看gc情况  </span><br><span class="line">    jstat -gc pid 刷新时间  </span><br><span class="line">    例如：jstat -gc 1289 5000 表示每5秒查看一次pid为1289的gc时间。</span><br><span class="line">- 查看内存对象实例数量  </span><br><span class="line">    jmap -histo:live 16279 &gt; c.jmap  </span><br><span class="line">    将结果导入到c.jmap的文件中，这个是自定义的文件。</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="案例1（Xmn-x3D-Xmx，老年代内存为0）"><a href="#案例1（Xmn-x3D-Xmx，老年代内存为0）" class="headerlink" title="案例1（Xmn&#x3D;Xmx，老年代内存为0）"></a>案例1（Xmn&#x3D;Xmx，老年代内存为0）</h2><p><code>Heap Space Size = Young Space Size + Old Space Size</code>，而<code>-Xmn</code>参数控制的正是 Young 区的大小，当堆区被 Young Gen 完全挤占，又有对象想要升代到 Old Gen 时，发现 Old 区空间不足，于是触发 Full GC，触发 Full GC 以后呢，通常又会面临两种情况：</p>
-<ul>
-<li>Young 区又刚好腾出来一点空间，对象又不用放到 Old 区里面了，皆大欢喜</li>
-<li>Young 区空间还是不够，对象还是得放到 Old 区，Old 区空间不够，卒，喜提<code>OOM</code></li>
-<li>诶，就是奔着 Old 区去的，管你 Young 不 Young，Old 区空间不够，卒，喜提<code>OOM</code></li>
-</ul>
-<p>这个就解释了为什么系统刚刚启动时，会有一个短时间正常工作的现象，随后，当某段程序触发 Old Gen 升代时，就会发生随机的<code>OOM</code>错误。那么什么时候对象会进入老年代呢？这里也很有意思，不妨结合日志里面出现<code>OOM</code>的地方，对号入座：</p>
-<ul>
-<li>经历足够多次数 GC 依然存活的对象</li>
-<li>申请一个大对象（比如超过 Eden 区一半大小）</li>
-<li>GC 后 Eden 区对象大小超过 S 区之和</li>
-<li>Eden 区 + S0 区 GC 后，S1 区放不下</li>
-</ul>
-<p>换言之，正常情况下，<code>-Xmn</code>参数总是应当小于<code>-Xmx</code>参数，否则就会触发<code>OOM</code>错误。</p>
-<h1 id="CPU占用过高，排查和处理"><a href="#CPU占用过高，排查和处理" class="headerlink" title="CPU占用过高，排查和处理"></a>CPU占用过高，排查和处理</h1><p>在Linux环境下，项目出现CPU占用过高的情况时，可以按照以下步骤进行排查和处理：</p>
-<ol>
-<li><strong>定位高CPU占用的进程</strong>：<ul>
-<li>使用<code>top</code>命令查看系统中CPU占用率最高的进程。</li>
-</ul>
-</li>
-<li><strong>分析进程中的线程</strong>：<ul>
-<li>如果发现某个进程的CPU占用率特别高，可以使用<code>top -H -p [PID]</code>来查看该进程中各个线程的CPU占用情况。</li>
-<li>找出占用CPU最高的线程ID。</li>
-</ul>
-</li>
-<li><strong>转换线程ID为16进制</strong>：<ul>
-<li>使用<code>printf &quot;%x\n&quot; [线程ID]</code>命令将线程ID转换为16进制格式。</li>
-</ul>
-</li>
-<li><strong>获取线程堆栈信息</strong>：<ul>
-<li>使用<code>jstack [进程PID] | grep [线程ID的16进制] -A 30</code>命令获取该线程的Java堆栈信息（如果是Java进程）。这可以帮助定位到具体的代码行或方法调用。</li>
-<li>如果不是Java进程，可以使用<code>gdb</code>或其他相应的调试工具来获取线程的堆栈信息。</li>
-</ul>
-</li>
-<li><strong>分析代码和日志</strong>：<ul>
-<li>根据堆栈信息，检查相关的代码逻辑，看是否有死循环、资源泄露、复杂计算等导致CPU占用过高的问题。</li>
-<li>同时检查应用程序的日志，看是否有异常或错误信息与高CPU占用相关。</li>
-</ul>
-</li>
-<li><strong>处理措施</strong>：<ul>
-<li>如果是代码问题，修复相应的bug或优化算法。</li>
-<li>如果是配置问题，调整系统或应用程序的配置参数。</li>
-<li>如果是资源不足，考虑增加硬件资源或优化资源分配。</li>
-<li>如果是外部攻击，加强系统的安全防护措施。<br><a href="https://blog.csdn.net/baiye_xing/article/details/90483169">线上Java 高CPU占用、高内存占用排查思路_java程序,在线metaspace使用高-CSDN博客</a><br><a href="https://zhuanlan.zhihu.com/p/312276166">助你了解jvm命令，查找JVM堆栈信息，分析性能问题 - 知乎 (zhihu.com)</a></li>
-</ul>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>JVM参数<br><a href="https://javaguide.cn/java/jvm/jvm-parameters-intro.html">最重要的JVM参数总结 | JavaGuide</a><br><a href="https://blog.csdn.net/o9109003234/article/details/119951151">美团面试：熟悉哪些JVM调优参数，幸好我准备过！-CSDN博客</a></p>
-<p><a href="https://javaguide.cn/java/jvm/jdk-monitoring-and-troubleshooting-tools.html">JDK监控和故障处理工具总结 | JavaGuide</a><br><a href="https://www.cnblogs.com/mylibs/p/production-accident-0002.html">生产事故-记一次特殊的OOM排查 - 程语有云 - 博客园 (cnblogs.com)</a><br><a href="https://heapdump.cn/article/1661497">YGC问题排查，又让我涨姿势了！ | HeapDump性能社区</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-08 23:17:31" itemprop="dateCreated datePublished" datetime="2024-04-08T23:17:31+08:00">2024-04-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-21 10:44:53" itemprop="dateModified" datetime="2024-05-21T10:44:53+08:00">2024-05-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="什么时候会触发GC"><a href="#什么时候会触发GC" class="headerlink" title="什么时候会触发GC"></a>什么时候会触发GC</h1><p>在Java虚拟机中，垃圾回收（GC）会在以下几种情况下触发：</p>
-<ol>
-<li><strong>系统内存不足</strong>：当Java虚拟机检测到系统内存不足时，会触发垃圾回收来释放内存空间，以确保应用程序的正常运行。这通常是通过监视堆内存的使用情况来检测的。</li>
-<li><strong>调用System.gc()方法</strong>：虽然调用System.gc()方法并不会立即触发垃圾回收，但它会向Java虚拟机发出建议性的垃圾回收请求。Java虚拟机可以选择是否立即响应这个请求。</li>
-<li><strong>长时间停顿</strong>：当应用程序执行时间较长，而且没有进行垃圾回收时，Java虚拟机可能会为了避免堆内存耗尽而触发垃圾回收。这种情况下，垃圾回收通常会引起一段较长的停顿时间，称为Full GC。</li>
-<li><strong>Young Generation满</strong>：在分代垃圾回收器中，当Young Generation区域满时，会触发一次Minor GC。这会导致Eden区和Survivor区的垃圾回收。</li>
-<li><strong>Old Generation满</strong>：如果Old Generation区域满了，会触发一次Major GC（也称为Full GC）。这种情况下，整个堆内存都会进行垃圾回收。</li>
-<li><strong>永久代&#x2F;元空间满</strong>：对于HotSpot虚拟机，如果永久代（Java 7之前）或者元空间（Java 8及之后）满了，会触发一次垃圾回收。这种情况下，垃圾回收主要针对类的元数据和常量池。</li>
-</ol>
-<h1 id="Full-GC、Minor-GC"><a href="#Full-GC、Minor-GC" class="headerlink" title="Full GC、Minor GC"></a>Full GC、Minor GC</h1><h2 id="Full-GC"><a href="#Full-GC" class="headerlink" title="Full GC"></a>Full GC</h2><p><strong>调用System.gc()方法</strong><br><strong>Old Generation满</strong><br><strong>空间分配担保</strong>：在发生Minor GC 时，虚拟机会检测之前每次晋升到老年代的平均大小是否大于老年代的剩余空间大小，如果大于，则改为直接进行一次Full GC 。如果小于，则查看HandlePromotionFailure 设置是否允许担保失败；如果允许，那只会进行Minor GC; 如果不允许，则也要改为进行一次Full GC 。</p>
-<h1 id="内存分配与回收"><a href="#内存分配与回收" class="headerlink" title="内存分配与回收"></a>内存分配与回收</h1><ol>
-<li>对象优先在 Eden 区分配：大多数情况下，对象在新生代中 Eden 区分配。当 Eden 区没有足够空间进行分配时，虚拟机将发起一次 Minor GC。</li>
-<li>大对象直接进入老年代：大对象就是需要大量连续内存空间的对象（比如：字符串、数组）。</li>
-<li>长期存活的对象将进入老年代：对象在 Survivor 中每熬过一次 MinorGC,年龄就增加 1 岁，当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中。</li>
-<li>动态对象年龄判定</li>
-<li>空间分配担保</li>
-<li>只要老年代的连续空间大于（新生代所有对象的总大小或者历次晋升的平均大小）就会进行minor GC，否则会进行full GC</li>
-</ol>
-<p>空间分配担保：空间分配担保是为了确保在 Minor GC 之前老年代本身还有容纳新生代所有对象的剩余空间。</p>
-<h1 id="死亡对象判断方法"><a href="#死亡对象判断方法" class="headerlink" title="死亡对象判断方法"></a>死亡对象判断方法</h1><h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><ul>
-<li>引用为0的对象不再被使用</li>
-<li>实现简单、效率高</li>
-<li>无法解决对象之间的循环引用问题</li>
-</ul>
-<h2 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h2><blockquote>
-<p>根搜索算法(GC Roots Tracing)：通过一系列的称为 <strong>“GC Roots”</strong> 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，需要被回收。</p>
-</blockquote>
-<p>可作为GC Roots的对象：</p>
-<ul>
-<li>虚拟机栈(栈帧中的本地变量表)中引用的对象</li>
-<li>本地方法栈(Native 方法)中引用的对象</li>
-<li>方法区中&#x3D;&#x3D;类静态属性&#x3D;&#x3D;引用的对象</li>
-<li>方法区中&#x3D;&#x3D;常量引用&#x3D;&#x3D;的对象</li>
-</ul>
-<blockquote>
-<p>快速找到GC Roots：<br>**OopMap存储两种对象引用：对象内的引用   栈、寄存器中的引用</p>
-</blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/125765937">Java虚拟机如何快速找到GC Roots？又是如何中断线程？ - 知乎 (zhihu.com)</a></p>
-<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p><strong>1．强引用（StrongReference）</strong><br>当内存空间不足，Java 虚拟机抛出 OutOfMemoryError 错误，使程序异常终止</p>
-<p><strong>2．软引用（SoftReference）</strong><br>可有可无，如果内存空间足够，垃圾回收器就不会回收它，如果&#x3D;&#x3D;内存空间不足，就会回收这些对象的内存&#x3D;&#x3D;。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。</p>
-<p><strong>3．弱引用（WeakReference）</strong><br>可有可无，弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。</p>
-<p><strong>4．虚引用（PhantomReference）</strong><br>虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。<strong>虚引用主要用来跟踪对象被垃圾回收的活动</strong>。</p>
-<p>虚引用必须和引用队列（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</p>
-<h2 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h2><p>永久代的垃圾收集主要回收两部分内容：废弃常量和无用的类</p>
-<p>废弃常量：假如在字符串常量池中存在字符串 “abc”，如果当前没有任何 String 对象引用该字符串常量的话，就说明常量 “abc” 就是废弃常量，如果这时发生内存回收的话而且有必要的话，”abc” 就会被系统清理出常量池了。</p>
-<p>无用的类：</p>
-<ul>
-<li>该类所有的实例都已经被回收，也就是 Java 堆中不存在该类的任何实例。</li>
-<li>加载该类的 <code>ClassLoader</code> 已经被回收。</li>
-<li>该类对应的 <code>java.lang.Class</code> 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
-</ul>
-<h1 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h1><p>部分收集（ Partial GC）：指目标不是完整收集整个 Java堆的垃圾收集，其中又分为：</p>
-<ul>
-<li>新生代收集（ Minor GC&#x2F;Young GC）：指目标只是新生代的垃圾收集。通常采用复制算法，速度较快且频繁。</li>
-<li>老年代收集（ Major GC&#x2F;Old GC）：指目标只是老年代的垃圾收集。目前只有 CMS收集器会有单独收集老年代的行为。<br>混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行收集器会有这种行为。</li>
-</ul>
-<p>整堆收集（ Full GC）：收集整个 Java堆和方法区的垃圾收集。而Full GC则发生在整个堆空间中，包括新生代和老年代（Old Generation），用于清理整个堆中的垃圾对象，速度较慢且可能导致较大的应用停顿。</p>
-<p>因此，Minor GC和Full GC的主要区别在于它们发生的区域和影响范围。  </p>
-<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>标记-清除（Mark-and-Sweep）算法分为“标记（Mark）”和“清除（Sweep）”阶段：首先标记出所有不需要回收的对象，在标记完成后统一回收掉所有没有被标记的对象。</p>
-<p>存在问题：</p>
-<ol>
-<li><strong>效率问题</strong>：标记和清除两个过程效率都不高。</li>
-<li><strong>空间问题</strong>：标记清除后会产生大量不连续的内存碎片。</li>
-</ol>
-<h2 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h2><p>将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。这样就使每次的内存回收都是对内存区间的一半进行回收。</p>
-<p>存在问题：</p>
-<ul>
-<li><strong>可用内存变小</strong>：可用内存缩小为原来的一半。</li>
-<li><strong>不适合老年代</strong>：如果存活对象数量比较大，复制性能会变得很差。</li>
-</ul>
-<p>这种收集算法主要用于回收新生代，将内存划分为1：1的比例会浪费大量内存。</p>
-<p>Appel式回收的具体做法是把新生代分为一块较大的 Eden空间和两块较小的 Survivor空间，每次分配内存只使用Eden和其中一块 Survivor。发生垃圾搜集时，将 Eden和 Survivor中仍然存活的对象一次性复制到另外一块 Survivor空间上，然后直接清理掉 Eden和已用过的那块 Survivor空间。</p>
-<p>回收后存活的对象可能大于Survivor空间的大小，当Survivor空间不足以容纳一次空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域（实际上大多就是老年代）进行<strong>分配担保（Handle Promotion）</strong>。</p>
-<p>如果另外一块Survivor空间没有足够空间存放上一次新生代收集下来的存活对象，这些对象便将通过分配担保机制直接进入老年代。</p>
-<h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><p>标记-整理（Mark-and-Compact）算法是根据<strong>老年代</strong>的特点提出的一种标记算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是<code>让所有存活的对象向一端移动</code>，然后直接清理掉端边界以外的内存。</p>
-<p>存在问题：<br>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动象操作操作必须全程暂停用户应用程序才能进行必须全程暂停用户应用程序才能进行（<strong>Stop The World</strong>）</p>
-<h2 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h2><p>根据对象存活周期的不同将内存分为几块。一般将 Java 堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法。</p>
-<p>比如在新生代中，每次收集都会有大量对象死去，所以可以选择”标记-复制“算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p>
-<h1 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404091510064.png" alt="image.png|500"></p>
-<table>
-<thead>
-<tr>
-<th>垃圾收集器</th>
-<th>关注</th>
-<th>垃圾收集算法</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Parallel Scavenge</td>
-<td>吞吐量</td>
-<td>标记-整理</td>
-</tr>
-<tr>
-<td>CMS</td>
-<td>延迟</td>
-<td>标记-清除</td>
-</tr>
-</tbody></table>
-<h2 id="Serial-串行-收集器"><a href="#Serial-串行-收集器" class="headerlink" title="Serial(串行)收集器"></a>Serial(串行)收集器</h2><p>单线程收集器，使用一条垃圾收集线程去完成垃圾收集工作，在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ <strong>“Stop The World”</strong> ），直到它收集结束。用户线程因垃圾收集而导致停顿。<br><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
-<ul>
-<li>简单高效</li>
-<li>运行在客户端模式下的默认新生代收集器</li>
-</ul>
-<h2 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h2><p><strong>Serial 收集器的老年代版本</strong>，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092110885.png" alt="image.png"></p>
-<h2 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h2><p>ParNew 收集器其实就是 Serial 收集器的多线程&#x3D;&#x3D;并行&#x3D;&#x3D;版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和 Serial 收集器完全一样。</p>
-<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
-<p>它是许多运行在 Server 模式下的虚拟机的首要选择，除了 Serial 收集器外，只有它能与 CMS 收集器（真正意义上的并发收集器，后面会介绍到）配合工作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092128082.png" alt="image.png"></p>
-<p>并行（并行（Parallel）：并行描述的是多条垃圾收集器线程之间的关系，说明同一时间有多条这样的线程在协同工作，通常默认此时用户线程是处于等待状态。</p>
-<p>并发（ Concurrent）：并发描述的是垃圾收集器线程与用户线程之间的关系，说明同一时间垃圾收集器线程与用户线程都在运行。由于用户线程并未被冻结，所以程序仍然能响应服务请户线程都在运行。但由于垃圾收集器线程占用了一部分系统资源，此时应用程序的处理的吞吐量将受到一定影响。</p>
-<h2 id="Parallel-Scavenge-收集器（吞吐量）"><a href="#Parallel-Scavenge-收集器（吞吐量）" class="headerlink" title="Parallel Scavenge 收集器（吞吐量）"></a>Parallel Scavenge 收集器（吞吐量）</h2><p>Parallel Scavenge 收集器也是使用标记-复制算法的多线程收集器，Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU）。CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。<br>$$<br>吞吐量&#x3D;\frac{运行用户代码时间}{运行用户代码时间+运行垃圾收集时间}<br>$$<br>停顿时间越短就越适合需要与用户交互或需要保证服务响应质量的程序，良好的响应速度能提升用户体验；<br>而高吞吐量则可以最高效率地利用处理器资源，尽快完成程序的运算任务，主要适合在后台运算而不需要太多交的分析任务。</p>
-<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
-<h2 id="Parallel-Old-收集器（吞吐量）"><a href="#Parallel-Old-收集器（吞吐量）" class="headerlink" title="Parallel Old 收集器（吞吐量）"></a>Parallel Old 收集器（吞吐量）</h2><p><strong>Parallel Scavenge 收集器的老年代版本</strong>。使用多线程和“标记-整理”算法。在注重吞吐量以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092138889.png" alt="image.png"></p>
-<h2 id="CMS-Concurrent-Mark-Sweep-（停顿时间）"><a href="#CMS-Concurrent-Mark-Sweep-（停顿时间）" class="headerlink" title="CMS(Concurrent Mark Sweep)（停顿时间）"></a>CMS(Concurrent Mark Sweep)（停顿时间）</h2><p>支持并发的垃圾收集器，它首次实现了让垃圾收集线程与用户线程（基本上）同时工作。并发的垃圾收集器，它首次实现了让垃圾收集线程与用户线程（基本上）同时工作。</p>
-<p><strong>CMS（Concurrent Mark Sweep）收集器是一种以获取&#x3D;&#x3D;最短回收停顿时间&#x3D;&#x3D;为目标的收集器。它非常符合在注重用户体验的应用上使用。</strong><br><strong>CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。</strong></p>
-<p><strong>采用标记-清除算法实现</strong></p>
-<ul>
-<li><strong>初始标记：</strong> 暂停所有的其他线程，并记录下直接与 root 相连的对象，速度很快 ；</li>
-<li><strong>并发标记</strong>：并发标记阶段就是从 GC Roots的直接关联对象开始遍历整个对象图的过程 ，这个过程耗时较长但是不需要停顿用户线程，可以与垃圾收集线程一起并发运行；</li>
-<li><strong>重新标记：</strong> 重新标记阶段就是为了修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录</li>
-<li><strong>并发清除：</strong> 比并发标记阶段的时间短；最后是并发清除阶段，清理删除掉标记阶段判断的已经死亡的对象，由于不需要移动存活对象，所以这个阶段也是可以与用户线程同时并发的。</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092147011.png" alt="image.png"></p>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：并发收集、低停顿</p>
-<ul>
-<li><strong>对 CPU 资源敏感；</strong>  在并发阶段，它虽然不会导致用户线程停顿，但是会因为占用了一部分线程（或者说CPU 资源）而导致应用程序变慢，总吞吐量会降低。</li>
-<li><strong>无法处理浮动垃圾；</strong> 可能出现“Concurrent Mode Failure” 失败而导致另一次Full GC 的产生。由于CMS 并发清理阶段用户线程还在运行着，伴随程序的运行自然还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后， CMS 无法在本次收集中处理掉它们，只好留待下一次GC 时再将其清理掉。这一部分垃圾就称为“浮动垃圾＂。</li>
-<li>它使用的回收算法-“标记-清除”算法会导致收集结束时会有大量<strong>空间碎片</strong>产生。 空间碎片过多时，将会给大对象分配带来很大的麻烦，往往会出现老年代还有很大的空间剩余，但是无法找到足够大的连续空间来分配当前对象，不得不提前触发一次Full GC 。</li>
-</ul>
-<p>在 CMS的并发标记和并发清理阶段，用户线程是还在继续运行的，程序在运行自然就还会伴随有新的垃圾对象不断产生，但这一部分垃圾对象是出现在标记过程结束以后， CMS无法在当次收集中处理掉它们，只好留待下一次垃圾收集时再清理掉。这一部分垃圾就称为 “浮动垃圾 ”</p>
-<h2 id="Garbage-First-G1"><a href="#Garbage-First-G1" class="headerlink" title="Garbage First(G1)"></a>Garbage First(G1)</h2><p><strong>G1 (Garbage-First) 是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足 GC 停顿时间要求的同时,还具备高吞吐量性能特征.</strong></p>
-<ul>
-<li><strong>并行与并发</strong>：G1 能充分利用 CPU、多核环境下的硬件优势，使用多个 CPU（CPU 或者 CPU 核心）来缩短 Stop-The-World 停顿时间。部分其他收集器原本需要停顿 Java 线程执行的 GC 动作，G1 收集器仍然可以通过并发的方式让 java 程序继续执行。</li>
-<li><strong>分代收集</strong>：虽然 G1 可以不需要其他收集器配合就能独立管理整个 GC 堆，但是还是保留了分代的概念。</li>
-<li><strong>空间整合</strong>：与 CMS 的“标记-清除”算法不同，<strong>G1 从整体来看是基于“标记-整理”算法实现的收集器</strong>；从局部上来看是基于“标记-复制”算法实现的。</li>
-<li><strong>可预测的停顿</strong>：这是 G1 相对于 CMS 的另一个大优势，降低停顿时间是 G1 和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为 M 毫秒的时间片段内，消耗在垃圾收集上的时间不得超过 N 毫秒。</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092200481.png" alt="image.png"></p>
-<p>初始标记：仅仅只是标记一下 GC Roots能直接关联到的对象，并且修改 TAMS 指针的 值，让下一阶段用户线程并发运行时，能正确地在可用的Region中分配新对象。<br>并发标记：从 GC Root开始对堆中对象进行可达性分析，递归扫描整个堆里的对象图，找出要回收的对象，这阶段耗时较<br>最终标记：<br>筛选回收：负责更新 Region的统计数据，对各个 Region的回收价值和成本进行排序，根据用户所期望的停顿时间来制定回收计划，可以自由选择任意多个 Region 构成回收集，然后把决定回收的那一部分</p>
-<p><strong>G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来)</strong> 。这种使用 Region 划分内存空间以及有优先级的区域回收方式，保证了 G1 收集器在有限时间内可以尽可能高的收集效率（把内存化整为零）。</p>
-<p>G1垃圾回收器具有以下特点：</p>
-<ol>
-<li><p><strong>区域化内存管理</strong>：G1将堆内存划分为多个固定大小的区域（Region），每个区域可以是Eden区、Survivor区或Old区。这种区域化的内存管理有助于更好地控制垃圾回收过程，减少停顿时间。</p>
-</li>
-<li><p><strong>分代收集</strong>：虽然G1并不是一个传统的分代收集器，但它仍然将堆内存划分为年轻代和老年代，并且使用不同的垃圾回收策略来处理这两个代。</p>
-</li>
-<li><p><strong>并发标记清除</strong>：G1使用了并发标记（Concurrent Marking）来减少垃圾回收暂停时间。在标记阶段，G1通过并发标记线程来标记活动对象，而在应用程序运行的同时，也会继续标记操作。这样可以减少标记阶段对应用程序的影响。</p>
-</li>
-<li><p><strong>整理内存</strong>：G1使用了复制算法来清理内存，不再使用传统的压缩算法。在垃圾收集过程中，G1会选择一些区域进行垃圾收集，并将存活对象复制到其他区域中，从而实现内存的整理和碎片整理。</p>
-</li>
-<li><p><strong>垃圾优先收集</strong>：G1根据垃圾回收需求来选择优先回收的区域，以此来提高垃圾回收效率。它会优先选择包含垃圾最多的区域进行回收，从而最大程度地减少垃圾对象。</p>
-</li>
-</ol>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/xl_1803/article/details/110823487">标记复制法、标记清除法和标记整理法的区别-CSDN博客</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/02/%E8%AF%AD%E6%B3%95/Java/Java(2)%EF%BC%9A%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%8B%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/02/%E8%AF%AD%E6%B3%95/Java/Java(2)%EF%BC%9A%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%8B%EF%BC%89/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-02 17:02:50" itemprop="dateCreated datePublished" datetime="2024-04-02T17:02:50+08:00">2024-04-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-13 20:32:03" itemprop="dateModified" datetime="2024-05-13T20:32:03+08:00">2024-05-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405132023043.png" alt="image.png|500"></p>
-<h2 id="Exception和Error"><a href="#Exception和Error" class="headerlink" title="Exception和Error"></a>Exception和Error</h2><ul>
-<li><strong><code>Exception</code></strong> :程序本身可以处理的异常，可以通过 <code>catch</code> 来进行捕获。<code>Exception</code> 又可以分为 Checked Exception (受检查异常，必须处理) 和 Unchecked Exception (不受检查异常，可以不处理)。</li>
-<li>**<code>Error</code>**：<code>Error</code> 属于程序无法处理的错误</li>
-</ul>
-<p><code>RuntimeException</code> 及其子类都统称为非受检查异常，常见的有（建议记下来，日常开发中会经常用到）：</p>
-<ul>
-<li><code>NullPointerException</code>(空指针错误)</li>
-<li><code>IllegalArgumentException</code>(参数错误比如方法入参类型错误)</li>
-<li><code>NumberFormatException</code>（字符串转换为数字格式错误，<code>IllegalArgumentException</code>的子类，s包含非数字字符，或者为null）</li>
-<li><code>ArrayIndexOutOfBoundsException</code>（数组越界错误）</li>
-<li><code>ClassCastException</code>（类型转换错误）</li>
-<li><code>ArithmeticException</code>（算术错误）</li>
-<li><code>SecurityException</code> （安全错误比如权限不够）</li>
-<li><code>UnsupportedOperationException</code>(不支持的操作错误比如重复创建同一用户)</li>
-</ul>
-<h3 id="如何使用-try-with-resources-代替try-catch-finally？"><a href="#如何使用-try-with-resources-代替try-catch-finally？" class="headerlink" title="如何使用 try-with-resources 代替try-catch-finally？"></a>如何使用 <code>try-with-resources</code> 代替<code>try-catch-finally</code>？</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//读取文本文件的内容</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    scanner = <span class="keyword">new</span> <span class="title class_">Scanner</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D://read.txt&quot;</span>));</span><br><span class="line">    <span class="keyword">while</span> (scanner.hasNext()) &#123;</span><br><span class="line">        System.out.println(scanner.nextLine());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (scanner != <span class="literal">null</span>) &#123;</span><br><span class="line">        scanner.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用 Java 7 之后的 <code>try-with-resources</code> 语句改造上面的代码:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;test.txt&quot;</span>))) &#123;</span><br><span class="line">    <span class="keyword">while</span> (scanner.hasNext()) &#123;</span><br><span class="line">        System.out.println(scanner.nextLine());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException fnfe) &#123;</span><br><span class="line">    fnfe.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><blockquote>
-<p>在 java 中泛型只是一个占位符，必须在传递类型后才能使用。类在实例化时才能真正的传递类型参数，由于静态方法的加载先于类的实例化，也就是说类中的泛型还没有传递真正的类型参数，静态的方法的加载就已经完成了，所以静态泛型方法是没有办法使用类上声明的泛型的。只能使用自己声明的 <code>&lt;E&gt;</code></p>
-</blockquote>
-<p>泛型一般有三种使用方式:<strong>泛型类</strong>、<strong>泛型接口</strong>、<strong>泛型方法</strong>。</p>
-
       
     </div>
 

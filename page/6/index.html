@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,406 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/20/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/20/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-20 23:12:29" itemprop="dateCreated datePublished" datetime="2024-02-20T23:12:29+08:00">2024-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-06-05 10:50:52" itemprop="dateModified" datetime="2024-06-05T10:50:52+08:00">2024-06-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><strong>CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。</strong></p>
+</blockquote>
+<h1 id="1-CAP理论"><a href="#1-CAP理论" class="headerlink" title="1 CAP理论"></a>1 CAP理论</h1><p><strong>CAP</strong> 也就是 <strong>Consistency（一致性）</strong>、<strong>Availability（可用性）</strong>、<strong>Partition Tolerance（分区容错性）</strong></p>
+<ul>
+<li><strong>一致性（Consistency）</strong> : 所有节点访问同一份最新的数据副本</li>
+<li><strong>可用性（Availability）</strong>: 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。</li>
+<li><strong>分区容错性（Partition Tolerance）</strong> : 分布式系统出现网络分区的时候，仍然能够对外提供服务。</li>
+</ul>
+<p>Quorum机制（法定人数机制<br><strong>分布式系统理论上不可能选择 CA 架构，只能选择 CP 或者 AP 架构。</strong> 比如 ZooKeeper、HBase 就是 CP 架构，Cassandra、Eureka 就是 AP 架构，Nacos 不仅支持 CP 架构也支持 AP 架构。</p>
+<h1 id="2-BASE理论"><a href="#2-BASE理论" class="headerlink" title="2 BASE理论"></a>2 BASE理论</h1><p><strong>BASE</strong> 是 <strong>Basically Available（基本可用）</strong>、<strong>Soft-state（软状态）</strong> 和 <strong>Eventually Consistent（最终一致性）</strong> 三个短语的缩写。</p>
+<h2 id="2-1-基本可用"><a href="#2-1-基本可用" class="headerlink" title="2.1 基本可用"></a>2.1 基本可用</h2><p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性。但是，这绝不等价于系统不可用。</p>
+<p><strong>什么叫允许损失部分可用性呢？</strong></p>
+<ul>
+<li><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</li>
+<li><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</li>
+</ul>
+<h2 id="2-2-软状态"><a href="#2-2-软状态" class="headerlink" title="2.2 软状态"></a>2.2 <a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2><p>软状态指允许系统中的数据存在中间状态（<strong>CAP 理论中的数据不一致</strong>），并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</p>
+<h2 id="2-3-最终一致性"><a href="#2-3-最终一致性" class="headerlink" title="2.3 最终一致性"></a>2.3 <a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2><p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
+<blockquote>
+<p>分布式一致性的 3 种级别：</p>
+<ol>
+<li><strong>强一致性</strong>：系统写入了什么，读出来的就是什么。</li>
+<li><strong>弱一致性</strong>：不一定可以读取到最新写入的值，也不保证多少时间之后读取到的数据是最新的，只是会尽量保证某个时刻达到数据一致的状态。</li>
+<li><strong>最终一致性</strong>：弱一致性的升级版，系统会保证在一定时间内达到数据一致的状态。</li>
+</ol>
+<p><strong>业界比较推崇是最终一致性级别，但是某些对数据一致要求十分严格的场景比如银行转账还是要保证强一致性。</strong></p>
+</blockquote>
+<h1 id="3-共识算法"><a href="#3-共识算法" class="headerlink" title="3 共识算法"></a>3 共识算法</h1><blockquote>
+<p>共识算法的作用是让分布式系统中的多个节点之间对某个提案（Proposal）达成一致的看法。提案的含义在分布式系统中十分宽泛，像哪一个节点是 Leader 节点、多个事件发生的顺序等等都可以是一个提案。</p>
+</blockquote>
+<p>共识是可容错系统中的一个基本问题：即使面对故障，服务器也可以在共享状态上达成一致。</p>
+<p>共识算法允许一组节点像一个整体一样一起工作，即使其中的一些节点出现故障也能够继续工作下去，其正确性主要是源于复制状态机的性质：一组<code>Server</code>的状态机计算相同状态的副本，即使有一部分的<code>Server</code>宕机了它们仍然能够继续运行。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png" alt="image.png"></p>
+<p><a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html">https://javaguide.cn/distributed-system/protocol/raft-algorithm.html</a></p>
+<h1 id="4-Basic-Paxos-算法"><a href="#4-Basic-Paxos-算法" class="headerlink" title="4 Basic Paxos 算法"></a>4 Basic Paxos 算法</h1><ul>
+<li><strong>提议者（Proposer）</strong>：也可以叫做协调者（coordinator），提议者负责接受客户端的请求并发起提案。提案信息通常包括提案编号 (Proposal ID) 和提议的值 (Value)。</li>
+<li><strong>接受者（Acceptor）</strong>：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；</li>
+<li><strong>学习者（Learner）</strong>：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png" alt="image.png|450"></li>
+</ul>
+<h1 id="5-Raft"><a href="#5-Raft" class="headerlink" title="5 Raft"></a>5 Raft</h1><h2 id="5-1-基础"><a href="#5-1-基础" class="headerlink" title="5.1 基础"></a>5.1 基础</h2><h3 id="5-1-1-节点类型"><a href="#5-1-1-节点类型" class="headerlink" title="5.1.1 节点类型"></a>5.1.1 节点类型</h3><ul>
+<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
+<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
+<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。</li>
+</ul>
+<h3 id="5-1-2-任期"><a href="#5-1-2-任期" class="headerlink" title="5.1.2 任期"></a>5.1.2 任期</h3><h3 id="5-1-3-日志"><a href="#5-1-3-日志" class="headerlink" title="5.1.3 日志"></a>5.1.3 日志</h3><h2 id="5-2-领导人选举"><a href="#5-2-领导人选举" class="headerlink" title="5.2 领导人选举"></a>5.2 领导人选举</h2><p>raft 使用心跳机制来触发 Leader 的选举。</p>
+<p>如果一台服务器能够收到来自 Leader 或者 Candidate 的有效信息，那么它会一直保持为 Follower 状态，并且刷新自己的 electionElapsed，重新计时。</p>
+<p>Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。如果一个 Follower 在一个周期内没有收到心跳信息，就叫做选举超时，然后它就会认为此时没有可用的 Leader，并且开始进行一次选举以选出一个新的 Leader。</p>
+<h2 id="5-3-日志复制"><a href="#5-3-日志复制" class="headerlink" title="5.3 日志复制"></a>5.3 日志复制</h2><p>一旦选出了 Leader，它就开始接受客户端的请求。每一个客户端的请求都包含一条需要被复制状态机（<code>Replicated State Machine</code>）执行的命令。</p>
+<p>Leader 收到客户端请求后，会生成一个 entry，包含<code>&lt;index,term,cmd&gt;</code>，再将这个 entry 添加到自己的日志末尾后，向所有的节点广播该 entry，要求其他服务器复制这条 entry。</p>
+<p>如果 Follower 接受该 entry，则会将 entry 添加到自己的日志后面，同时返回给 Leader 同意。</p>
+<p>如果 Leader 收到了多数的成功响应，Leader 会将这个 entry 应用到自己的状态机中，之后可以称这个 entry 是 committed 的，并且向客户端返回执行结果。</p>
+<p>raft 保证以下两个性质：</p>
+<ul>
+<li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们一定有相同的 cmd</li>
+<li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们前面的 entry 也一定相同</li>
+</ul>
+<h1 id="6-主从、集群、分布式的区别"><a href="#6-主从、集群、分布式的区别" class="headerlink" title="6 主从、集群、分布式的区别"></a>6 主从、集群、分布式的区别</h1><ul>
+<li>分布式：多个系统协同合作完成一个特定任务的系统。分布式是解决中心化管理的问题，把所有的任务叠加到一个节点处理，太慢了。所以把一个大的问题拆分为多个小的问题，并分别解决，最终协同合作。分布式的主要工作是分解任务，将职能拆解。</li>
+<li>集群：集群主要的使用场景是为了分担请求的压力，也就是在几个服务器上部署相同的应用程序，来分担客户端请求。当压力进一步增大的时候，可能在需要存储的部分，mysql 无法面对很多的写压力。因为在 mysql 做成集群之后，主要的写压力还是在 master 的机器上面，其他 slave 机器无法分担写压力，从而这个时候，也就引出来分布式。</li>
+</ul>
+<p> <strong>将一套系统拆分成不同子系统部署在不同服务器上（这叫分布式），</strong></p>
+<p> <strong>然后部署多个相同的子系统在不同的服务器上（这叫集群），部署在不同服务器上的同一个子系统应做负载均衡。</strong> </p>
+<p><strong>分布式：一个业务拆分为多个子业务，部署在多个服务器上 。</strong> </p>
+<p><strong>集群：同一个业务，部署在多个服务器上 。</strong></p>
+<p>主从、集群和分布式是计算机系统中常见的架构模式，它们有不同的特点和用途：</p>
+<ol>
+<li>主从（Master-Slave）：<ul>
+<li>主从架构是一种单点控制的架构，其中有一个主节点和一个或多个从节点。</li>
+<li>主节点通常负责处理所有的请求和决策，而从节点用于执行主节点分派的任务或保存数据的备份副本。</li>
+<li>主从架构通常用于提高系统的可用性和容错性。如果主节点失败，可以将其中一个从节点提升为主节点，以保持系统的运行。</li>
+<li>主从架构适用于那些需要单一决策权和数据同步的应用，如数据库复制、负载均衡等。</li>
+</ul>
+</li>
+<li>集群（Cluster）：<ul>
+<li><strong>集群是由多个节点组成的计算机系统</strong>，这些节点共同协作以提供某种服务或功能。</li>
+<li>集群节点通常是对等的，它们可以相互协作，共同处理请求，以提高性能和容错性。</li>
+<li>集群可以用于各种用途，包括负载均衡、高可用性、并行计算等。</li>
+<li>集群可以是对称的（每个节点都具有相同的角色和功能）或非对称的（某些节点具有特殊的角色，如主节点）。</li>
+</ul>
+</li>
+<li>分布式（Distributed）：<ul>
+<li>分布式架构是指系统的组件分布在多个地理位置或计算节点上，它们通过网络通信协同工作。</li>
+<li>分布式系统的目标是提高性能、扩展性和可用性，允许系统在多个节点上并行执行任务。</li>
+<li>分布式系统可以包括多个集群，每个集群可能都有自己的主从结构，以满足系统的需求。</li>
+<li>分布式系统通常需要处理分布式计算、数据同步、一致性和容错性等复杂问题。</li>
+</ul>
+</li>
+</ol>
+<p>总之，主从是一种单点控制的架构，集群是多个节点共同协作的架构，分布式是多个节点分布在不同地方并通过网络通信协同工作的架构。这些不同的架构模式在不同的应用场景中有不同的优点和局限性。选择哪种架构取决于应用的需求和目标。</p>
+<p>集群是个物理形态，分布式是个工作方式。分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。<br>分布式：一个业务分拆多个子业务，部署在不同的服务器上。<br>集群：同一个业务，部署在多个服务器上</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-01 14:23:48" itemprop="dateCreated datePublished" datetime="2024-02-01T14:23:48+08:00">2024-02-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-24 15:21:52" itemprop="dateModified" datetime="2024-05-24T15:21:52+08:00">2024-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>term(任期)</p>
+<p>Leader发出heartbeat(AppendEntries RPC不带有log entries)</p>
+<blockquote>
+<p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg" alt="QQ图片20240205215524.jpg"></p>
+<h1 id="2A-Leader-election-领导人选举"><a href="#2A-Leader-election-领导人选举" class="headerlink" title="2A Leader election(领导人选举)"></a>2A Leader election(领导人选举)</h1><ul>
+<li>网络延迟、分区、包丢失、复制和重新排序。</li>
+</ul>
+<blockquote>
+<p>This election term will continue until a follower stops receiving heartbeats and becomes a candidate.</p>
+</blockquote>
+<p>导致Follower进行选举的原因</p>
+<ul>
+<li>网络延迟或者包丢失没有在选举超时前收到心跳</li>
+<li>网络分区而导致收不到心跳（disconnect）</li>
+<li>Leader宕机、崩溃（crash）</li>
+</ul>
+<h2 id="1-节点类型"><a href="#1-节点类型" class="headerlink" title="1. 节点类型"></a>1. 节点类型</h2><ul>
+<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
+<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
+<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png" alt="image-20240203110252535"></p>
+<ul>
+<li>Follower$\rightarrow$Candidate（超时：一段时间内未收到heartbeat）</li>
+</ul>
+<p>Leader(AppendEntries RPC)</p>
+<ul>
+<li>term过时：<ul>
+<li>发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
+<li>收到RequestVote发现更高term号</li>
+</ul>
+</li>
+</ul>
+<p>Candidate(RequestVote RPC)</p>
+<ul>
+<li>term过时<ul>
+<li>收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
+<li>收到RequestVote RPC的response，返回的term号更大</li>
+</ul>
+</li>
+</ul>
+<p>Follower：被动的，对来自Leader和Candidate的请求进行相应</p>
+<ul>
+<li>收到Leader的心跳，且term号大于自身term号（更新自身term号）</li>
+<li>收到Candidate请求</li>
+</ul>
+<p>Server：</p>
+<ul>
+<li>拒绝过时term的请求</li>
+</ul>
+<h2 id="选举超时时间和心跳时间"><a href="#选举超时时间和心跳时间" class="headerlink" title="选举超时时间和心跳时间"></a>选举超时时间和心跳时间</h2><ul>
+<li><p>心跳间隔时间(heartbeat timeout)：Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。</p>
+</li>
+<li><p>选举超时时间(election timeout)：如果一个 Follower 在一个周期内没有收到心跳信息或者请求投票信息，就叫做选举超时，并开始一次新的选举。</p>
+</li>
+</ul>
+<p>这两个时间需要保持一定的关系，网络无故障时，在选举超时前应该收到心跳，以保持Leader不变。选举超时时间至少需要大于AppendEntries RPC发送到server所需的最长时间。</p>
+<h3 id="选举超时时间更新"><a href="#选举超时时间更新" class="headerlink" title="选举超时时间更新"></a>选举超时时间更新</h3><ul>
+<li>candidate成为leader</li>
+<li>candidate收到RequestVote response并变为follower</li>
+<li>server收到AppendEntries</li>
+<li>server收到RequestVote</li>
+<li>leader收到AppendEntries response发现更高term号</li>
+</ul>
+<h3 id="超时选举实现"><a href="#超时选举实现" class="headerlink" title="超时选举实现"></a>超时选举实现</h3><p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间<br>这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png"></p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><h3 id="sendAppendEntries没有启用新的协程"><a href="#sendAppendEntries没有启用新的协程" class="headerlink" title="sendAppendEntries没有启用新的协程"></a><code>sendAppendEntries</code>没有启用新的协程</h3><p>在<code>sendHeartbeat</code>中，异步发送<code>sendAppendEntries</code>，向所有server发送heartbeat，无需等待RPC完成。因为leader可能无法与其他server通信，或者server不可达，由于等待rpc返回，造成超时重新选举</p>
+<p>异步发送<code>RequestVote</code>，并且收到超过半数选票后就成为Leader，发送心跳</p>
+<p><code> go test -race -run 2A</code></p>
+<h1 id="2B-Log-replication-日志复制"><a href="#2B-Log-replication-日志复制" class="headerlink" title="2B Log replication(日志复制)"></a>2B Log replication(日志复制)</h1><blockquote>
+<p>&#x3D;&#x3D;<strong>Leader Completeness</strong>&#x3D;&#x3D;: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br>&#x3D;&#x3D;<strong>State Machine Safety</strong>&#x3D;&#x3D;: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3</p>
+</blockquote>
+<ul>
+<li>leader收到client请求，将entry添加到log</li>
+<li>leader将添加的entry复制到其他server</li>
+<li>如果大多数server成功复制entry，则该entry已经committed</li>
+<li></li>
+<li>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061214812.png" alt="Raft-第 1 页.png"></p>
+<h2 id="Election-restriction-5-4-1"><a href="#Election-restriction-5-4-1" class="headerlink" title="Election restriction(5.4.1)"></a>Election restriction(5.4.1)</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png"></p>
+<p>log backtracking</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png" alt="Raft-加速log回溯"></p>
+<p>S1首先成为leader，成功发送了第一个entry</p>
+<p>S1和S2与其他服务器断开后重连</p>
+<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><blockquote>
+<p>遇到的bug</p>
+</blockquote>
+<p>s1断联，添加了一系列entry</p>
+<p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
+<h1 id="2C"><a href="#2C" class="headerlink" title="2C"></a>2C</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>同一任期选出两个leader</p>
+<p>乱序收到RPC response</p>
+<p>AppendEntries的RPC response与当前term不一致</p>
+<p>在变成follower时都重置了election time</p>
+<h1 id="2D"><a href="#2D" class="headerlink" title="2D"></a>2D</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611"></p>
+<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><ol>
+<li><p>每10条command创建一个快照，快照会调用rf.mu这个互斥锁，当存在新的提交命令时，通过applyCh管道进行发送，而测试程序调用snapshot需要获取互斥锁，无法读取管道中的数据，则会产生死锁</p>
+</li>
+<li><p><code>apply error: server 2 apply out of order, expected index 10, got 18</code></p>
+<p>当snapshot存在未commit的命令时，snapshot和log分别放入applyCh，应当一次性放入applyCh</p>
+</li>
+<li></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>result</th>
+<th>the time that the test took in seconds</th>
+<th>the number of Raft peers</th>
+<th>the number of RPCs sent during the test</th>
+<th>the total number of bytes in the RPC messages</th>
+<th>the number of log entries that Raft reports were committed</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PASSED</td>
+<td>3.9</td>
+<td>3</td>
+<td>490</td>
+<td>154736</td>
+<td>207</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="raft"><a href="#raft" class="headerlink" title="raft"></a>raft</h2><p>raft是分布式一致性算法，基于复制状态机的思想，对于初始状态一样的节点，在他们上运行同样的命令，还会保持一致性的状态。raft主要包括领导者选举、日志复制、持久化以及快照等。</p>
+<h2 id="raft应用场景"><a href="#raft应用场景" class="headerlink" title="raft应用场景"></a>raft应用场景</h2><p>Raft 是一种共识算法，通常用于构建分布式系统中的可靠复制日志。它可以应用于各种分布式系统的场景，包括但不限于：</p>
+<ol>
+<li><p><strong>分布式数据库系统</strong>：Raft 可以用于构建分布式数据库系统，确保数据的一致性和可靠性，比如 etcd、Consul 等。</p>
+</li>
+<li><p><strong>分布式文件系统</strong>：在分布式文件系统中，Raft 可以确保各个节点之间的文件操作的一致性，比如 HDFS、Ceph 等。</p>
+</li>
+<li><p><strong>分布式消息队列</strong>：Raft 可以确保消息队列中的消息传递和处理的一致性，比如 Kafka 等。</p>
+</li>
+<li><p><strong>分布式计算</strong>：在分布式计算中，Raft 可以确保各个节点之间的任务调度和执行的一致性，比如 Spark、MapReduce 等。</p>
+</li>
+<li><p><strong>分布式存储系统</strong>：Raft 可以确保分布式存储系统中数据的可靠性和一致性，比如分布式缓存系统如 Redis、分布式块存储系统如 Ceph 等。</p>
+</li>
+</ol>
+<p>总的来说，任何需要在分布式环境中保证一致性和可靠性的系统都可以考虑使用 Raft 算法来实现。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://raft.github.io/">Raft Consensus Algorithm 官网介绍</a></p>
+<p><a href="http://thesecretlivesofdata.com/raft/">Raft (thesecretlivesofdata.com)</a>（Raft图示）</p>
+<p><a href="https://raw.githubusercontent.com/ongardie/dissertation/master/book.pdf">Raft作者博士论文</a></p>
+<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/instructors-guide-to-raft/">Instructors’ Guide to Raft</a>[4]</p>
+<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/students-guide-to-raft/">Students’ Guide to Raft</a>[5]</p>
+<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/raft-qa/">Raft Q&amp;A</a>[6]</p>
+<p>paxos 2015版的lab</p>
+<p><a href="https://github.com/hashicorp/raft">hashicorp&#x2F;raft: Golang implementation of the Raft consensus protocol (github.com)</a></p>
+<p><a href="https://www.zhihu.com/question/29597104">如何的才能更好地学习 MIT6.824 分布式系统课程？ - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1013,181 +1413,6 @@
 <p><a href="https://bugstack.cn/md/java/interview/2021-03-30-%E9%9D%A2%E7%BB%8F%E6%89%8B%E5%86%8C%20%C2%B7%20%E7%AC%AC28%E7%AF%87%E3%80%8A%E4%BD%A0%E8%AF%B4%EF%BC%8C%E6%80%8E%E4%B9%88%E6%8A%8ABean%E5%A1%9E%E5%88%B0Spring%E5%AE%B9%E5%99%A8%E3%80%8B.html">面经手册 · 第28篇《你说，怎么把Bean塞到Spring容器？》 | 小傅哥 bugstack 虫洞栈</a></p>
 <p>spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\support\InstantiationStrategy：实例化策略抽象接口<br>spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\support\SimpleInstantiationStrategy.java：简单的对象实例化功能</p>
 <h1 id="5-参考"><a href="#5-参考" class="headerlink" title="5 参考"></a>5 参考</h1><p><a href="https://javaguide.cn/java/basis/reflection.html#%E5%8F%8D%E5%B0%84%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E4%BA%86%E8%A7%A3%E4%B9%88">Java 反射机制详解 | JavaGuide(Java面试+学习指南)</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-25 16:38:24" itemprop="dateCreated datePublished" datetime="2023-12-25T16:38:24+08:00">2023-12-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-12 10:44:36" itemprop="dateModified" datetime="2024-03-12T10:44:36+08:00">2024-03-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="File-Header"><a href="#File-Header" class="headerlink" title="File Header"></a>File Header</h1><p><a href="https://blog.csdn.net/kingmax54212008/article/details/90754964">IDEA 中设置 File Header 以及自定义类、方法注释模板的方法_idea file head-CSDN博客</a><br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403121044049.png" alt="image.png"></p>
-<p><a href="https://blog.csdn.net/xiaostuart/article/details/108397180">IDEA快速插入当前日期时间-CSDN博客</a><br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403061102147.png" alt="Snipaste_2023-12-22_16-36-59.png"></p>
-<p><a href="https://blog.csdn.net/mr_wanter/article/details/109636864#:~:text=%E7%BA%A2%E5%AD%97%E6%8F%90%E7%A4%BA%20No%20application%20contexts%20yes%20%E6%98%AF%E6%8C%87%E6%B2%A1%E6%9C%89%E4%B8%BA%E5%BD%93%E5%89%8D%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E6%98%AF%E6%89%80%E6%9C%89%E5%9C%B0%E6%96%B9%E9%83%BD%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8,%E7%82%B9%E5%87%BB%20Define-%3EEverywhere%20%E3%80%82%20%E4%BF%9D%E5%AD%98%E4%B9%8B%E5%90%8E%E5%9C%A8IDEA%E4%B8%AD%E4%BB%BB%E6%84%8F%E5%9C%B0%E6%96%B9%E9%83%BD%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E3%80%82%20%E8%BE%93%E5%85%A5%20time%2C%E6%8C%89Tab%E9%94%AE%E5%8D%B3%E5%8F%AF%E3%80%82">IDEA快速插入当前时间_idea时间快捷键-CSDN博客</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-14 19:49:28" itemprop="dateCreated datePublished" datetime="2023-12-14T19:49:28+08:00">2023-12-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-29 11:24:32" itemprop="dateModified" datetime="2024-05-29T11:24:32+08:00">2024-05-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202116846.png" alt="image.png"></p>
-<h1 id="1-创建型模式"><a href="#1-创建型模式" class="headerlink" title="1 创建型模式"></a>1 创建型模式</h1><h2 id="1-1-单例模式"><a href="#1-1-单例模式" class="headerlink" title="1.1 单例模式"></a>1.1 单例模式</h2><p>单例模式属于创建型模式，⼀个单例类在任何情况下都只存在⼀个实例，构造⽅法必须是私有的、由⾃⼰创建⼀个静态变量存储实例，对外提供⼀个静态公有⽅法获取实例。</p>
-<h3 id="1-1-1-常见写法"><a href="#1-1-1-常见写法" class="headerlink" title="1.1.1 常见写法"></a>1.1.1 常见写法</h3><ul>
-<li>饿汉式</li>
-<li>懒加载(lazy loading)：使用的时候再创建对象</li>
-</ul>
-<p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
-<blockquote>
-<p>这⾥的双重检查是指两次⾮空判断，锁指的是 synchronized 加锁，为什么<br>要进⾏双重判断，其实很简单，第⼀重判断，如果实例已经存在，那么就<br>不再需要进⾏同步操作，⽽是直接返回这个实例，如果没有创建，才会进<br>⼊同步块，同步块的⽬的与之前相同，⽬的是为了防⽌有多个线程同时调<br>⽤时，导致⽣成多个实例，有了同步块，每次只能有⼀个线程调⽤访问同<br>步块内容，当第⼀个抢到锁的调⽤获取了实例之后，这个实例就会被创<br>建，之后的所有调⽤都不会进⼊同步块，直接在第⼀重判断就返回了单<br>例。<br>关于内部的第⼆重空判断的作⽤，当多个线程⼀起到达锁位置时，进⾏锁<br>竞争，其中⼀个线程获取锁，如果是第⼀次进⼊则为 null，会进⾏单例对<br>象的创建，完成后释放锁，其他线程获取锁后就会被空判断拦截，直接返<br>回已创建的单例对象。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">static</span> Singleton <span class="title function_">getUniqueInstance</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//先判断对象是否已经实例过，没有实例化过才进入加锁代码</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//类对象加锁</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    uniqueInstance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>uniqueInstance</code> 采用 <code>volatile</code> 关键字修饰也是很有必要的， <code>uniqueInstance = new Singleton();</code> 这段代码其实是分为三步执行：</p>
-<ol>
-<li>为 <code>uniqueInstance</code> 分配内存空间</li>
-<li>初始化 <code>uniqueInstance</code></li>
-<li>将 <code>uniqueInstance</code> 指向分配的内存地址</li>
-</ol>
-<h2 id="1-2-工厂模式"><a href="#1-2-工厂模式" class="headerlink" title="1.2 工厂模式"></a>1.2 工厂模式</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202119797.png" alt="image.png"></p>
-<p>简单⼯⼚模式指由⼀个⼯⼚对象来创建实例，客户端不需要关注创建逻辑，只需提供传⼊⼯⼚的参数。</p>
-<p>适⽤于⼯⼚类负责创建对象较少的情况，缺点是如果要增加新产品，就需要修改⼯⼚类的判断逻辑，违背开闭原则，且产品多的话会使⼯⼚类⽐较复杂。</p>
-<h1 id="2-行为型模式"><a href="#2-行为型模式" class="headerlink" title="2 行为型模式"></a>2 行为型模式</h1><h2 id="2-1-策略模式"><a href="#2-1-策略模式" class="headerlink" title="2.1 策略模式"></a>2.1 策略模式</h2><p>策略模式属于行为模式的一种，一个类的行为或算法可以在运行时进行更改<br>策略模式（Strategy Pattern）属于对象的⾏为模式。其⽤意是针对⼀组算法，将每⼀个算法封装到具有共同接⼝的独⽴的类中，从⽽使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发⽣变化。其主要⽬的是通过定义相似的算法，替换 if else 语句写法，并且可以随时相互替换。</p>
 
       
     </div>

@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">124</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -221,7 +221,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/01/%E6%A1%86%E6%9E%B6/Kafka/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -239,7 +239,504 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/01/%E6%A1%86%E6%9E%B6/Kafka/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-10 21:40:22" itemprop="dateCreated datePublished" datetime="2024-04-10T21:40:22+08:00">2024-04-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-21 11:19:41" itemprop="dateModified" datetime="2024-05-21T11:19:41+08:00">2024-05-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><strong><code>jps</code></strong> (JVM Process Status）: 类似 UNIX 的 <code>ps</code> 命令。用于查看所有 Java 进程的启动类、传入参数和 Java 虚拟机参数等信息；</li>
+<li>**<code>jstat</code>**（JVM Statistics Monitoring Tool）: 用于收集 HotSpot 虚拟机各方面的运行数据;</li>
+<li><strong><code>jinfo</code></strong> (Configuration Info for Java) : Configuration Info for Java,显示虚拟机配置信息;</li>
+<li><strong><code>jmap</code></strong> (Memory Map for Java) : 生成堆转储快照;</li>
+<li><strong><code>jhat</code></strong> (JVM Heap Dump Browser) : 用于分析 heapdump 文件，它会建立一个 HTTP&#x2F;HTML 服务器，让用户可以在浏览器上查看分析结果;</li>
+<li><strong><code>jstack</code></strong> (Stack Trace for Java) : 生成虚拟机当前时刻的线程快照，线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。</li>
+</ul>
+<h1 id="JVM参数"><a href="#JVM参数" class="headerlink" title="JVM参数"></a>JVM参数</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404102245741.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404112053964.png" alt="image.png"></p>
+<h2 id="堆参数"><a href="#堆参数" class="headerlink" title="堆参数"></a>堆参数</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">初始堆(memory start)大小、最大堆大小</span><br><span class="line">-Xms&lt;heap size&gt;[unit]</span><br><span class="line">-Xmx&lt;heap size&gt;[unit]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">年轻代大小</span><br><span class="line">-XX:NewSize=n </span><br><span class="line">-XX:NewRatio=n  年轻代和年老代比值为1:n</span><br><span class="line">-XX:SurvivorRatio=n 年轻代中Eden区与两个Survivor区的比值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">格式：-XX:[+-]&lt;name&gt; 表示启用或者禁用name属性。</span><br><span class="line">例子：-XX:+UseG1GC（表示启用G1垃圾收集器）</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="jstack-生成虚拟机当前时刻的线程快照"><a href="#jstack-生成虚拟机当前时刻的线程快照" class="headerlink" title="jstack :生成虚拟机当前时刻的线程快照"></a>jstack :生成虚拟机当前时刻的线程快照</h1><p><code>jstack</code>（Stack Trace for Java）命令用于生成虚拟机当前时刻的线程快照。线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合.</p>
+<p>生成线程快照的目的主要是定位线程长时间出现停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等都是导致线程长时间停顿的原因。线程出现停顿的时候通过<code>jstack</code>来查看各个线程的调用堆栈，就可以知道没有响应的线程到底在后台做些什么事情，或者在等待些什么资源。</p>
+<h1 id="OOM排查"><a href="#OOM排查" class="headerlink" title="OOM排查"></a>OOM排查</h1><blockquote>
+<p>OOM 全称 “Out Of Memory”，表示内存耗尽。当 JVM 因为没有足够的内存来为对象分配空间，并且垃圾回收器也已经没有空间可回收时，就会抛出这个错误。<br>产生原因：</p>
+<ol>
+<li>分配过少：JVM 初始化内存小，业务使用了大量内存；或者不同 JVM 区域分配内存不合理</li>
+<li>代码漏洞：某一个对象被频繁申请，不用了之后却没有被释放，导致内存耗尽</li>
+</ol>
+</blockquote>
+<p><strong>内存泄漏</strong>：申请使用完的内存没有释放，导致虚拟机不能再次使用该内存，此时这段内存就泄露了。因为申请者不用了，而又不能被虚拟机分配给别人用</p>
+<p><strong>内存溢出</strong>：申请的内存超出了 JVM 能提供的内存大小，此时称之为溢出</p>
+<h2 id="OOM类型"><a href="#OOM类型" class="headerlink" title="OOM类型"></a>OOM类型</h2><p><strong>java.lang.OutOfMemoryError: PermGen space</strong></p>
+<p>Java7 永久代（方法区）溢出，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。每当一个类初次加载的时候，元数据都会存放到永久代</p>
+<p>一般出现于大量 Class 对象或者 JSP 页面，或者采用 CgLib 动态代理技术导致</p>
+<p>我们可以通过 <code>-XX：PermSize</code> 和 <code>-XX：MaxPermSize</code> 修改方法区大小</p>
+<blockquote>
+<p>Java8 将永久代变更为元空间，报错：java.lang.OutOfMemoryError: Metadata space，元空间内存不足默认进行动态扩展</p>
+</blockquote>
+<p><strong>java.lang.StackOverflowError</strong></p>
+<p><strong>虚拟机栈溢出</strong>，一般是由于程序中存在 <strong>死循环或者深度递归调用</strong> 造成的。如果栈大小设置过小也会出现溢出，可以通过 <code>-Xss</code> 设置栈的大小</p>
+<p>虚拟机抛出栈溢出错误，可以在日志中定位到错误的类、方法</p>
+<p><strong>java.lang.OutOfMemoryError: Java heap space</strong></p>
+<p><strong>Java 堆内存溢出</strong>，溢出的原因一般由于 JVM 堆内存设置不合理或者内存泄漏导致</p>
+<p>如果是内存泄漏，可以通过工具查看泄漏对象到 GC Roots 的引用链。掌握了泄漏对象的类型信息以及 GC Roots 引用链信息，就可以精准地定位出泄漏代码的位置</p>
+<p>如果不存在内存泄漏，就是内存中的对象确实都还必须存活着，那就应该检查虚拟机的堆参数（-Xmx 与 -Xms），查看是否可以将虚拟机的内存调大些</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tasklist | findstr &quot;java&quot;</span><br><span class="line"></span><br><span class="line">查看内存堆栈信息  </span><br><span class="line">//查看jvm内存分布</span><br><span class="line">jmap -heap pid</span><br><span class="line">jhsdb jmap --heap --pid 16279  </span><br><span class="line">(对于jdk8之后的版本，不能再使用jmap -heap pid的命令了，需要使用上面的命令)。</span><br><span class="line"></span><br><span class="line">- 查看gc情况  </span><br><span class="line">    jstat -gc pid 刷新时间  </span><br><span class="line">    例如：jstat -gc 1289 5000 表示每5秒查看一次pid为1289的gc时间。</span><br><span class="line">- 查看内存对象实例数量  </span><br><span class="line">    jmap -histo:live 16279 &gt; c.jmap  </span><br><span class="line">    将结果导入到c.jmap的文件中，这个是自定义的文件。</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="案例1（Xmn-x3D-Xmx，老年代内存为0）"><a href="#案例1（Xmn-x3D-Xmx，老年代内存为0）" class="headerlink" title="案例1（Xmn&#x3D;Xmx，老年代内存为0）"></a>案例1（Xmn&#x3D;Xmx，老年代内存为0）</h2><p><code>Heap Space Size = Young Space Size + Old Space Size</code>，而<code>-Xmn</code>参数控制的正是 Young 区的大小，当堆区被 Young Gen 完全挤占，又有对象想要升代到 Old Gen 时，发现 Old 区空间不足，于是触发 Full GC，触发 Full GC 以后呢，通常又会面临两种情况：</p>
+<ul>
+<li>Young 区又刚好腾出来一点空间，对象又不用放到 Old 区里面了，皆大欢喜</li>
+<li>Young 区空间还是不够，对象还是得放到 Old 区，Old 区空间不够，卒，喜提<code>OOM</code></li>
+<li>诶，就是奔着 Old 区去的，管你 Young 不 Young，Old 区空间不够，卒，喜提<code>OOM</code></li>
+</ul>
+<p>这个就解释了为什么系统刚刚启动时，会有一个短时间正常工作的现象，随后，当某段程序触发 Old Gen 升代时，就会发生随机的<code>OOM</code>错误。那么什么时候对象会进入老年代呢？这里也很有意思，不妨结合日志里面出现<code>OOM</code>的地方，对号入座：</p>
+<ul>
+<li>经历足够多次数 GC 依然存活的对象</li>
+<li>申请一个大对象（比如超过 Eden 区一半大小）</li>
+<li>GC 后 Eden 区对象大小超过 S 区之和</li>
+<li>Eden 区 + S0 区 GC 后，S1 区放不下</li>
+</ul>
+<p>换言之，正常情况下，<code>-Xmn</code>参数总是应当小于<code>-Xmx</code>参数，否则就会触发<code>OOM</code>错误。</p>
+<h1 id="CPU占用过高，排查和处理"><a href="#CPU占用过高，排查和处理" class="headerlink" title="CPU占用过高，排查和处理"></a>CPU占用过高，排查和处理</h1><p>在Linux环境下，项目出现CPU占用过高的情况时，可以按照以下步骤进行排查和处理：</p>
+<ol>
+<li><strong>定位高CPU占用的进程</strong>：<ul>
+<li>使用<code>top</code>命令查看系统中CPU占用率最高的进程。</li>
+</ul>
+</li>
+<li><strong>分析进程中的线程</strong>：<ul>
+<li>如果发现某个进程的CPU占用率特别高，可以使用<code>top -H -p [PID]</code>来查看该进程中各个线程的CPU占用情况。</li>
+<li>找出占用CPU最高的线程ID。</li>
+</ul>
+</li>
+<li><strong>转换线程ID为16进制</strong>：<ul>
+<li>使用<code>printf &quot;%x\n&quot; [线程ID]</code>命令将线程ID转换为16进制格式。</li>
+</ul>
+</li>
+<li><strong>获取线程堆栈信息</strong>：<ul>
+<li>使用<code>jstack [进程PID] | grep [线程ID的16进制] -A 30</code>命令获取该线程的Java堆栈信息（如果是Java进程）。这可以帮助定位到具体的代码行或方法调用。</li>
+<li>如果不是Java进程，可以使用<code>gdb</code>或其他相应的调试工具来获取线程的堆栈信息。</li>
+</ul>
+</li>
+<li><strong>分析代码和日志</strong>：<ul>
+<li>根据堆栈信息，检查相关的代码逻辑，看是否有死循环、资源泄露、复杂计算等导致CPU占用过高的问题。</li>
+<li>同时检查应用程序的日志，看是否有异常或错误信息与高CPU占用相关。</li>
+</ul>
+</li>
+<li><strong>处理措施</strong>：<ul>
+<li>如果是代码问题，修复相应的bug或优化算法。</li>
+<li>如果是配置问题，调整系统或应用程序的配置参数。</li>
+<li>如果是资源不足，考虑增加硬件资源或优化资源分配。</li>
+<li>如果是外部攻击，加强系统的安全防护措施。<br><a href="https://blog.csdn.net/baiye_xing/article/details/90483169">线上Java 高CPU占用、高内存占用排查思路_java程序,在线metaspace使用高-CSDN博客</a><br><a href="https://zhuanlan.zhihu.com/p/312276166">助你了解jvm命令，查找JVM堆栈信息，分析性能问题 - 知乎 (zhihu.com)</a></li>
+</ul>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>JVM参数<br><a href="https://javaguide.cn/java/jvm/jvm-parameters-intro.html">最重要的JVM参数总结 | JavaGuide</a><br><a href="https://blog.csdn.net/o9109003234/article/details/119951151">美团面试：熟悉哪些JVM调优参数，幸好我准备过！-CSDN博客</a></p>
+<p><a href="https://javaguide.cn/java/jvm/jdk-monitoring-and-troubleshooting-tools.html">JDK监控和故障处理工具总结 | JavaGuide</a><br><a href="https://www.cnblogs.com/mylibs/p/production-accident-0002.html">生产事故-记一次特殊的OOM排查 - 程语有云 - 博客园 (cnblogs.com)</a><br><a href="https://heapdump.cn/article/1661497">YGC问题排查，又让我涨姿势了！ | HeapDump性能社区</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 23:17:31" itemprop="dateCreated datePublished" datetime="2024-04-08T23:17:31+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-21 10:44:53" itemprop="dateModified" datetime="2024-05-21T10:44:53+08:00">2024-05-21</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="什么时候会触发GC"><a href="#什么时候会触发GC" class="headerlink" title="什么时候会触发GC"></a>什么时候会触发GC</h1><p>在Java虚拟机中，垃圾回收（GC）会在以下几种情况下触发：</p>
+<ol>
+<li><strong>系统内存不足</strong>：当Java虚拟机检测到系统内存不足时，会触发垃圾回收来释放内存空间，以确保应用程序的正常运行。这通常是通过监视堆内存的使用情况来检测的。</li>
+<li><strong>调用System.gc()方法</strong>：虽然调用System.gc()方法并不会立即触发垃圾回收，但它会向Java虚拟机发出建议性的垃圾回收请求。Java虚拟机可以选择是否立即响应这个请求。</li>
+<li><strong>长时间停顿</strong>：当应用程序执行时间较长，而且没有进行垃圾回收时，Java虚拟机可能会为了避免堆内存耗尽而触发垃圾回收。这种情况下，垃圾回收通常会引起一段较长的停顿时间，称为Full GC。</li>
+<li><strong>Young Generation满</strong>：在分代垃圾回收器中，当Young Generation区域满时，会触发一次Minor GC。这会导致Eden区和Survivor区的垃圾回收。</li>
+<li><strong>Old Generation满</strong>：如果Old Generation区域满了，会触发一次Major GC（也称为Full GC）。这种情况下，整个堆内存都会进行垃圾回收。</li>
+<li><strong>永久代&#x2F;元空间满</strong>：对于HotSpot虚拟机，如果永久代（Java 7之前）或者元空间（Java 8及之后）满了，会触发一次垃圾回收。这种情况下，垃圾回收主要针对类的元数据和常量池。</li>
+</ol>
+<h1 id="Full-GC、Minor-GC"><a href="#Full-GC、Minor-GC" class="headerlink" title="Full GC、Minor GC"></a>Full GC、Minor GC</h1><h2 id="Full-GC"><a href="#Full-GC" class="headerlink" title="Full GC"></a>Full GC</h2><p><strong>调用System.gc()方法</strong><br><strong>Old Generation满</strong><br><strong>空间分配担保</strong>：在发生Minor GC 时，虚拟机会检测之前每次晋升到老年代的平均大小是否大于老年代的剩余空间大小，如果大于，则改为直接进行一次Full GC 。如果小于，则查看HandlePromotionFailure 设置是否允许担保失败；如果允许，那只会进行Minor GC; 如果不允许，则也要改为进行一次Full GC 。</p>
+<h1 id="内存分配与回收"><a href="#内存分配与回收" class="headerlink" title="内存分配与回收"></a>内存分配与回收</h1><ol>
+<li>对象优先在 Eden 区分配：大多数情况下，对象在新生代中 Eden 区分配。当 Eden 区没有足够空间进行分配时，虚拟机将发起一次 Minor GC。</li>
+<li>大对象直接进入老年代：大对象就是需要大量连续内存空间的对象（比如：字符串、数组）。</li>
+<li>长期存活的对象将进入老年代：对象在 Survivor 中每熬过一次 MinorGC,年龄就增加 1 岁，当它的年龄增加到一定程度（默认为 15 岁），就会被晋升到老年代中。</li>
+<li>动态对象年龄判定</li>
+<li>空间分配担保</li>
+<li>只要老年代的连续空间大于（新生代所有对象的总大小或者历次晋升的平均大小）就会进行minor GC，否则会进行full GC</li>
+</ol>
+<p>空间分配担保：空间分配担保是为了确保在 Minor GC 之前老年代本身还有容纳新生代所有对象的剩余空间。</p>
+<h1 id="死亡对象判断方法"><a href="#死亡对象判断方法" class="headerlink" title="死亡对象判断方法"></a>死亡对象判断方法</h1><h2 id="引用计数法"><a href="#引用计数法" class="headerlink" title="引用计数法"></a>引用计数法</h2><ul>
+<li>引用为0的对象不再被使用</li>
+<li>实现简单、效率高</li>
+<li>无法解决对象之间的循环引用问题</li>
+</ul>
+<h2 id="可达性分析算法"><a href="#可达性分析算法" class="headerlink" title="可达性分析算法"></a>可达性分析算法</h2><blockquote>
+<p>根搜索算法(GC Roots Tracing)：通过一系列的称为 <strong>“GC Roots”</strong> 的对象作为起点，从这些节点开始向下搜索，节点所走过的路径称为引用链，当一个对象到 GC Roots 没有任何引用链相连的话，则证明此对象是不可用的，需要被回收。</p>
+</blockquote>
+<p>可作为GC Roots的对象：</p>
+<ul>
+<li>虚拟机栈(栈帧中的本地变量表)中引用的对象</li>
+<li>本地方法栈(Native 方法)中引用的对象</li>
+<li>方法区中&#x3D;&#x3D;类静态属性&#x3D;&#x3D;引用的对象</li>
+<li>方法区中&#x3D;&#x3D;常量引用&#x3D;&#x3D;的对象</li>
+</ul>
+<blockquote>
+<p>快速找到GC Roots：<br>**OopMap存储两种对象引用：对象内的引用   栈、寄存器中的引用</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/125765937">Java虚拟机如何快速找到GC Roots？又是如何中断线程？ - 知乎 (zhihu.com)</a></p>
+<h2 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h2><p><strong>1．强引用（StrongReference）</strong><br>当内存空间不足，Java 虚拟机抛出 OutOfMemoryError 错误，使程序异常终止</p>
+<p><strong>2．软引用（SoftReference）</strong><br>可有可无，如果内存空间足够，垃圾回收器就不会回收它，如果&#x3D;&#x3D;内存空间不足，就会回收这些对象的内存&#x3D;&#x3D;。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。</p>
+<p><strong>3．弱引用（WeakReference）</strong><br>可有可无，弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。</p>
+<p><strong>4．虚引用（PhantomReference）</strong><br>虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。<strong>虚引用主要用来跟踪对象被垃圾回收的活动</strong>。</p>
+<p>虚引用必须和引用队列（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</p>
+<h2 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h2><p>永久代的垃圾收集主要回收两部分内容：废弃常量和无用的类</p>
+<p>废弃常量：假如在字符串常量池中存在字符串 “abc”，如果当前没有任何 String 对象引用该字符串常量的话，就说明常量 “abc” 就是废弃常量，如果这时发生内存回收的话而且有必要的话，”abc” 就会被系统清理出常量池了。</p>
+<p>无用的类：</p>
+<ul>
+<li>该类所有的实例都已经被回收，也就是 Java 堆中不存在该类的任何实例。</li>
+<li>加载该类的 <code>ClassLoader</code> 已经被回收。</li>
+<li>该类对应的 <code>java.lang.Class</code> 对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。</li>
+</ul>
+<h1 id="垃圾收集算法"><a href="#垃圾收集算法" class="headerlink" title="垃圾收集算法"></a>垃圾收集算法</h1><p>部分收集（ Partial GC）：指目标不是完整收集整个 Java堆的垃圾收集，其中又分为：</p>
+<ul>
+<li>新生代收集（ Minor GC&#x2F;Young GC）：指目标只是新生代的垃圾收集。通常采用复制算法，速度较快且频繁。</li>
+<li>老年代收集（ Major GC&#x2F;Old GC）：指目标只是老年代的垃圾收集。目前只有 CMS收集器会有单独收集老年代的行为。<br>混合收集（Mixed GC）：指目标是收集整个新生代以及部分老年代的垃圾收集。目前只有G1收集器会有这种行收集器会有这种行为。</li>
+</ul>
+<p>整堆收集（ Full GC）：收集整个 Java堆和方法区的垃圾收集。而Full GC则发生在整个堆空间中，包括新生代和老年代（Old Generation），用于清理整个堆中的垃圾对象，速度较慢且可能导致较大的应用停顿。</p>
+<p>因此，Minor GC和Full GC的主要区别在于它们发生的区域和影响范围。  </p>
+<h2 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h2><p>标记-清除（Mark-and-Sweep）算法分为“标记（Mark）”和“清除（Sweep）”阶段：首先标记出所有不需要回收的对象，在标记完成后统一回收掉所有没有被标记的对象。</p>
+<p>存在问题：</p>
+<ol>
+<li><strong>效率问题</strong>：标记和清除两个过程效率都不高。</li>
+<li><strong>空间问题</strong>：标记清除后会产生大量不连续的内存碎片。</li>
+</ol>
+<h2 id="标记-复制算法"><a href="#标记-复制算法" class="headerlink" title="标记-复制算法"></a>标记-复制算法</h2><p>将内存分为大小相同的两块，每次使用其中的一块。当这一块的内存使用完后，就将还存活的对象复制到另一块去，然后再把使用的空间一次清理掉。这样就使每次的内存回收都是对内存区间的一半进行回收。</p>
+<p>存在问题：</p>
+<ul>
+<li><strong>可用内存变小</strong>：可用内存缩小为原来的一半。</li>
+<li><strong>不适合老年代</strong>：如果存活对象数量比较大，复制性能会变得很差。</li>
+</ul>
+<p>这种收集算法主要用于回收新生代，将内存划分为1：1的比例会浪费大量内存。</p>
+<p>Appel式回收的具体做法是把新生代分为一块较大的 Eden空间和两块较小的 Survivor空间，每次分配内存只使用Eden和其中一块 Survivor。发生垃圾搜集时，将 Eden和 Survivor中仍然存活的对象一次性复制到另外一块 Survivor空间上，然后直接清理掉 Eden和已用过的那块 Survivor空间。</p>
+<p>回收后存活的对象可能大于Survivor空间的大小，当Survivor空间不足以容纳一次空间不足以容纳一次Minor GC之后存活的对象时，就需要依赖其他内存区域（实际上大多就是老年代）进行<strong>分配担保（Handle Promotion）</strong>。</p>
+<p>如果另外一块Survivor空间没有足够空间存放上一次新生代收集下来的存活对象，这些对象便将通过分配担保机制直接进入老年代。</p>
+<h2 id="标记-整理算法"><a href="#标记-整理算法" class="headerlink" title="标记-整理算法"></a>标记-整理算法</h2><p>标记-整理（Mark-and-Compact）算法是根据<strong>老年代</strong>的特点提出的一种标记算法，标记过程仍然与“标记-清除”算法一样，但后续步骤不是直接对可回收对象回收，而是<code>让所有存活的对象向一端移动</code>，然后直接清理掉端边界以外的内存。</p>
+<p>存在问题：<br>如果移动存活对象，尤其是在老年代这种每次回收都有大量对象存活区域，移动存活对活对象并更新所有引用这些对象的地方将会是一种极为负重的操作，而且这种对象移动象操作操作必须全程暂停用户应用程序才能进行必须全程暂停用户应用程序才能进行（<strong>Stop The World</strong>）</p>
+<h2 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h2><p>根据对象存活周期的不同将内存分为几块。一般将 Java 堆分为新生代和老年代，这样我们就可以根据各个年代的特点选择合适的垃圾收集算法。</p>
+<p>比如在新生代中，每次收集都会有大量对象死去，所以可以选择”标记-复制“算法，只需要付出少量对象的复制成本就可以完成每次垃圾收集。而老年代的对象存活几率是比较高的，而且没有额外的空间对它进行分配担保，所以我们必须选择“标记-清除”或“标记-整理”算法进行垃圾收集。</p>
+<h1 id="垃圾收集器"><a href="#垃圾收集器" class="headerlink" title="垃圾收集器"></a>垃圾收集器</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404091510064.png" alt="image.png|500"></p>
+<table>
+<thead>
+<tr>
+<th>垃圾收集器</th>
+<th>关注</th>
+<th>垃圾收集算法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Parallel Scavenge</td>
+<td>吞吐量</td>
+<td>标记-整理</td>
+</tr>
+<tr>
+<td>CMS</td>
+<td>延迟</td>
+<td>标记-清除</td>
+</tr>
+</tbody></table>
+<h2 id="Serial-串行-收集器"><a href="#Serial-串行-收集器" class="headerlink" title="Serial(串行)收集器"></a>Serial(串行)收集器</h2><p>单线程收集器，使用一条垃圾收集线程去完成垃圾收集工作，在进行垃圾收集工作的时候必须暂停其他所有的工作线程（ <strong>“Stop The World”</strong> ），直到它收集结束。用户线程因垃圾收集而导致停顿。<br><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
+<ul>
+<li>简单高效</li>
+<li>运行在客户端模式下的默认新生代收集器</li>
+</ul>
+<h2 id="Serial-Old收集器"><a href="#Serial-Old收集器" class="headerlink" title="Serial Old收集器"></a>Serial Old收集器</h2><p><strong>Serial 收集器的老年代版本</strong>，它同样是一个单线程收集器。它主要有两大用途：一种用途是在 JDK1.5 以及以前的版本中与 Parallel Scavenge 收集器搭配使用，另一种用途是作为 CMS 收集器的后备方案。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092110885.png" alt="image.png"></p>
+<h2 id="ParNew收集器"><a href="#ParNew收集器" class="headerlink" title="ParNew收集器"></a>ParNew收集器</h2><p>ParNew 收集器其实就是 Serial 收集器的多线程&#x3D;&#x3D;并行&#x3D;&#x3D;版本，除了使用多线程进行垃圾收集外，其余行为（控制参数、收集算法、回收策略等等）和 Serial 收集器完全一样。</p>
+<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
+<p>它是许多运行在 Server 模式下的虚拟机的首要选择，除了 Serial 收集器外，只有它能与 CMS 收集器（真正意义上的并发收集器，后面会介绍到）配合工作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092128082.png" alt="image.png"></p>
+<p>并行（并行（Parallel）：并行描述的是多条垃圾收集器线程之间的关系，说明同一时间有多条这样的线程在协同工作，通常默认此时用户线程是处于等待状态。</p>
+<p>并发（ Concurrent）：并发描述的是垃圾收集器线程与用户线程之间的关系，说明同一时间垃圾收集器线程与用户线程都在运行。由于用户线程并未被冻结，所以程序仍然能响应服务请户线程都在运行。但由于垃圾收集器线程占用了一部分系统资源，此时应用程序的处理的吞吐量将受到一定影响。</p>
+<h2 id="Parallel-Scavenge-收集器（吞吐量）"><a href="#Parallel-Scavenge-收集器（吞吐量）" class="headerlink" title="Parallel Scavenge 收集器（吞吐量）"></a>Parallel Scavenge 收集器（吞吐量）</h2><p>Parallel Scavenge 收集器也是使用标记-复制算法的多线程收集器，Parallel Scavenge 收集器关注点是吞吐量（高效率的利用 CPU）。CMS 等垃圾收集器的关注点更多的是用户线程的停顿时间（提高用户体验）。<br>$$<br>吞吐量&#x3D;\frac{运行用户代码时间}{运行用户代码时间+运行垃圾收集时间}<br>$$<br>停顿时间越短就越适合需要与用户交互或需要保证服务响应质量的程序，良好的响应速度能提升用户体验；<br>而高吞吐量则可以最高效率地利用处理器资源，尽快完成程序的运算任务，主要适合在后台运算而不需要太多交的分析任务。</p>
+<p><strong>新生代采用标记-复制算法，老年代采用标记-整理算法。</strong></p>
+<h2 id="Parallel-Old-收集器（吞吐量）"><a href="#Parallel-Old-收集器（吞吐量）" class="headerlink" title="Parallel Old 收集器（吞吐量）"></a>Parallel Old 收集器（吞吐量）</h2><p><strong>Parallel Scavenge 收集器的老年代版本</strong>。使用多线程和“标记-整理”算法。在注重吞吐量以及 CPU 资源的场合，都可以优先考虑 Parallel Scavenge 收集器和 Parallel Old 收集器。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092138889.png" alt="image.png"></p>
+<h2 id="CMS-Concurrent-Mark-Sweep-（停顿时间）"><a href="#CMS-Concurrent-Mark-Sweep-（停顿时间）" class="headerlink" title="CMS(Concurrent Mark Sweep)（停顿时间）"></a>CMS(Concurrent Mark Sweep)（停顿时间）</h2><p>支持并发的垃圾收集器，它首次实现了让垃圾收集线程与用户线程（基本上）同时工作。并发的垃圾收集器，它首次实现了让垃圾收集线程与用户线程（基本上）同时工作。</p>
+<p><strong>CMS（Concurrent Mark Sweep）收集器是一种以获取&#x3D;&#x3D;最短回收停顿时间&#x3D;&#x3D;为目标的收集器。它非常符合在注重用户体验的应用上使用。</strong><br><strong>CMS（Concurrent Mark Sweep）收集器是 HotSpot 虚拟机第一款真正意义上的并发收集器，它第一次实现了让垃圾收集线程与用户线程（基本上）同时工作。</strong></p>
+<p><strong>采用标记-清除算法实现</strong></p>
+<ul>
+<li><strong>初始标记：</strong> 暂停所有的其他线程，并记录下直接与 root 相连的对象，速度很快 ；</li>
+<li><strong>并发标记</strong>：并发标记阶段就是从 GC Roots的直接关联对象开始遍历整个对象图的过程 ，这个过程耗时较长但是不需要停顿用户线程，可以与垃圾收集线程一起并发运行；</li>
+<li><strong>重新标记：</strong> 重新标记阶段就是为了修正并发标记期间因为用户程序继续运行而导致标记产生变动的那一部分对象的标记记录</li>
+<li><strong>并发清除：</strong> 比并发标记阶段的时间短；最后是并发清除阶段，清理删除掉标记阶段判断的已经死亡的对象，由于不需要移动存活对象，所以这个阶段也是可以与用户线程同时并发的。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092147011.png" alt="image.png"></p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>优点：并发收集、低停顿</p>
+<ul>
+<li><strong>对 CPU 资源敏感；</strong>  在并发阶段，它虽然不会导致用户线程停顿，但是会因为占用了一部分线程（或者说CPU 资源）而导致应用程序变慢，总吞吐量会降低。</li>
+<li><strong>无法处理浮动垃圾；</strong> 可能出现“Concurrent Mode Failure” 失败而导致另一次Full GC 的产生。由于CMS 并发清理阶段用户线程还在运行着，伴随程序的运行自然还会有新的垃圾不断产生，这一部分垃圾出现在标记过程之后， CMS 无法在本次收集中处理掉它们，只好留待下一次GC 时再将其清理掉。这一部分垃圾就称为“浮动垃圾＂。</li>
+<li>它使用的回收算法-“标记-清除”算法会导致收集结束时会有大量<strong>空间碎片</strong>产生。 空间碎片过多时，将会给大对象分配带来很大的麻烦，往往会出现老年代还有很大的空间剩余，但是无法找到足够大的连续空间来分配当前对象，不得不提前触发一次Full GC 。</li>
+</ul>
+<p>在 CMS的并发标记和并发清理阶段，用户线程是还在继续运行的，程序在运行自然就还会伴随有新的垃圾对象不断产生，但这一部分垃圾对象是出现在标记过程结束以后， CMS无法在当次收集中处理掉它们，只好留待下一次垃圾收集时再清理掉。这一部分垃圾就称为 “浮动垃圾 ”</p>
+<h2 id="Garbage-First-G1"><a href="#Garbage-First-G1" class="headerlink" title="Garbage First(G1)"></a>Garbage First(G1)</h2><p><strong>G1 (Garbage-First) 是一款面向服务器的垃圾收集器,主要针对配备多颗处理器及大容量内存的机器. 以极高概率满足 GC 停顿时间要求的同时,还具备高吞吐量性能特征.</strong></p>
+<ul>
+<li><strong>并行与并发</strong>：G1 能充分利用 CPU、多核环境下的硬件优势，使用多个 CPU（CPU 或者 CPU 核心）来缩短 Stop-The-World 停顿时间。部分其他收集器原本需要停顿 Java 线程执行的 GC 动作，G1 收集器仍然可以通过并发的方式让 java 程序继续执行。</li>
+<li><strong>分代收集</strong>：虽然 G1 可以不需要其他收集器配合就能独立管理整个 GC 堆，但是还是保留了分代的概念。</li>
+<li><strong>空间整合</strong>：与 CMS 的“标记-清除”算法不同，<strong>G1 从整体来看是基于“标记-整理”算法实现的收集器</strong>；从局部上来看是基于“标记-复制”算法实现的。</li>
+<li><strong>可预测的停顿</strong>：这是 G1 相对于 CMS 的另一个大优势，降低停顿时间是 G1 和 CMS 共同的关注点，但 G1 除了追求低停顿外，还能建立可预测的停顿时间模型，能让使用者明确指定在一个长度为 M 毫秒的时间片段内，消耗在垃圾收集上的时间不得超过 N 毫秒。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404092200481.png" alt="image.png"></p>
+<p>初始标记：仅仅只是标记一下 GC Roots能直接关联到的对象，并且修改 TAMS 指针的 值，让下一阶段用户线程并发运行时，能正确地在可用的Region中分配新对象。<br>并发标记：从 GC Root开始对堆中对象进行可达性分析，递归扫描整个堆里的对象图，找出要回收的对象，这阶段耗时较<br>最终标记：<br>筛选回收：负责更新 Region的统计数据，对各个 Region的回收价值和成本进行排序，根据用户所期望的停顿时间来制定回收计划，可以自由选择任意多个 Region 构成回收集，然后把决定回收的那一部分</p>
+<p><strong>G1 收集器在后台维护了一个优先列表，每次根据允许的收集时间，优先选择回收价值最大的 Region(这也就是它的名字 Garbage-First 的由来)</strong> 。这种使用 Region 划分内存空间以及有优先级的区域回收方式，保证了 G1 收集器在有限时间内可以尽可能高的收集效率（把内存化整为零）。</p>
+<p>G1垃圾回收器具有以下特点：</p>
+<ol>
+<li><p><strong>区域化内存管理</strong>：G1将堆内存划分为多个固定大小的区域（Region），每个区域可以是Eden区、Survivor区或Old区。这种区域化的内存管理有助于更好地控制垃圾回收过程，减少停顿时间。</p>
+</li>
+<li><p><strong>分代收集</strong>：虽然G1并不是一个传统的分代收集器，但它仍然将堆内存划分为年轻代和老年代，并且使用不同的垃圾回收策略来处理这两个代。</p>
+</li>
+<li><p><strong>并发标记清除</strong>：G1使用了并发标记（Concurrent Marking）来减少垃圾回收暂停时间。在标记阶段，G1通过并发标记线程来标记活动对象，而在应用程序运行的同时，也会继续标记操作。这样可以减少标记阶段对应用程序的影响。</p>
+</li>
+<li><p><strong>整理内存</strong>：G1使用了复制算法来清理内存，不再使用传统的压缩算法。在垃圾收集过程中，G1会选择一些区域进行垃圾收集，并将存活对象复制到其他区域中，从而实现内存的整理和碎片整理。</p>
+</li>
+<li><p><strong>垃圾优先收集</strong>：G1根据垃圾回收需求来选择优先回收的区域，以此来提高垃圾回收效率。它会优先选择包含垃圾最多的区域进行回收，从而最大程度地减少垃圾对象。</p>
+</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/xl_1803/article/details/110823487">标记复制法、标记清除法和标记整理法的区别-CSDN博客</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/02/%E8%AF%AD%E6%B3%95/Java/Java(2)%EF%BC%9A%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%8B%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/02/%E8%AF%AD%E6%B3%95/Java/Java(2)%EF%BC%9A%E5%9F%BA%E7%A1%80%EF%BC%88%E4%B8%8B%EF%BC%89/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-02 17:02:50" itemprop="dateCreated datePublished" datetime="2024-04-02T17:02:50+08:00">2024-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-13 20:32:03" itemprop="dateModified" datetime="2024-05-13T20:32:03+08:00">2024-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405132023043.png" alt="image.png|500"></p>
+<h2 id="Exception和Error"><a href="#Exception和Error" class="headerlink" title="Exception和Error"></a>Exception和Error</h2><ul>
+<li><strong><code>Exception</code></strong> :程序本身可以处理的异常，可以通过 <code>catch</code> 来进行捕获。<code>Exception</code> 又可以分为 Checked Exception (受检查异常，必须处理) 和 Unchecked Exception (不受检查异常，可以不处理)。</li>
+<li>**<code>Error</code>**：<code>Error</code> 属于程序无法处理的错误</li>
+</ul>
+<p><code>RuntimeException</code> 及其子类都统称为非受检查异常，常见的有（建议记下来，日常开发中会经常用到）：</p>
+<ul>
+<li><code>NullPointerException</code>(空指针错误)</li>
+<li><code>IllegalArgumentException</code>(参数错误比如方法入参类型错误)</li>
+<li><code>NumberFormatException</code>（字符串转换为数字格式错误，<code>IllegalArgumentException</code>的子类，s包含非数字字符，或者为null）</li>
+<li><code>ArrayIndexOutOfBoundsException</code>（数组越界错误）</li>
+<li><code>ClassCastException</code>（类型转换错误）</li>
+<li><code>ArithmeticException</code>（算术错误）</li>
+<li><code>SecurityException</code> （安全错误比如权限不够）</li>
+<li><code>UnsupportedOperationException</code>(不支持的操作错误比如重复创建同一用户)</li>
+</ul>
+<h3 id="如何使用-try-with-resources-代替try-catch-finally？"><a href="#如何使用-try-with-resources-代替try-catch-finally？" class="headerlink" title="如何使用 try-with-resources 代替try-catch-finally？"></a>如何使用 <code>try-with-resources</code> 代替<code>try-catch-finally</code>？</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//读取文本文件的内容</span></span><br><span class="line"><span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    scanner = <span class="keyword">new</span> <span class="title class_">Scanner</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D://read.txt&quot;</span>));</span><br><span class="line">    <span class="keyword">while</span> (scanner.hasNext()) &#123;</span><br><span class="line">        System.out.println(scanner.nextLine());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (scanner != <span class="literal">null</span>) &#123;</span><br><span class="line">        scanner.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用 Java 7 之后的 <code>try-with-resources</code> 语句改造上面的代码:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> (<span class="type">Scanner</span> <span class="variable">scanner</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;test.txt&quot;</span>))) &#123;</span><br><span class="line">    <span class="keyword">while</span> (scanner.hasNext()) &#123;</span><br><span class="line">        System.out.println(scanner.nextLine());</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">catch</span> (FileNotFoundException fnfe) &#123;</span><br><span class="line">    fnfe.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h1><blockquote>
+<p>在 java 中泛型只是一个占位符，必须在传递类型后才能使用。类在实例化时才能真正的传递类型参数，由于静态方法的加载先于类的实例化，也就是说类中的泛型还没有传递真正的类型参数，静态的方法的加载就已经完成了，所以静态泛型方法是没有办法使用类上声明的泛型的。只能使用自己声明的 <code>&lt;E&gt;</code></p>
+</blockquote>
+<p>泛型一般有三种使用方式:<strong>泛型类</strong>、<strong>泛型接口</strong>、<strong>泛型方法</strong>。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/01/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E9%80%89%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/01/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E9%80%89%E5%9E%8B/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -257,7 +754,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-21 20:10:22" itemprop="dateModified" datetime="2024-04-21T20:10:22+08:00">2024-04-21</time>
+      <time title="修改时间：2024-06-05 16:12:06" itemprop="dateModified" datetime="2024-06-05T16:12:06+08:00">2024-06-05</time>
     </span>
 
   
@@ -270,7 +767,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="为什么Redis-Pub-x2F-Sub比Kafka更快一些？二者之间如何选取？"><a href="#为什么Redis-Pub-x2F-Sub比Kafka更快一些？二者之间如何选取？" class="headerlink" title="为什么Redis Pub&#x2F;Sub比Kafka更快一些？二者之间如何选取？"></a>为什么Redis Pub&#x2F;Sub比Kafka更快一些？二者之间如何选取？</h2><blockquote>
+          <h1 id="1-Kafka"><a href="#1-Kafka" class="headerlink" title="1 Kafka"></a>1 Kafka</h1><p>Kafka 将生产者发布的消息发送到 <strong>Topic（主题）</strong> 中，需要这些消息的消费者可以订阅这些 <strong>Topic（主题）</strong>。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406051118494.png" alt="image.png"></p>
+<ul>
+<li><strong>Producer（生产者）</strong> : 产生消息的一方。</li>
+<li><strong>Consumer（消费者）</strong> : 消费消息的一方。</li>
+<li><strong>Broker（代理）</strong> : 可以看作是一个独立的 Kafka 实例。多个 Kafka Broker 组成一个 Kafka Cluster。</li>
+<li><strong>Topic（主题）</strong> : Producer 将消息发送到特定的主题，Consumer 通过订阅特定的 Topic(主题) 来消费消息。</li>
+<li><strong>Partition（分区）</strong> : Partition 属于 Topic 的一部分。一个 Topic 可以有多个 Partition ，并且同一 Topic 下的 Partition 可以分布在不同的 Broker 上，这也就表明一个 Topic 可以横跨多个 Broker 。这正如我上面所画的图一样<blockquote>
+<p>同一topic下不同partition中存储的是完整消息流的一部分，所有partition中数据相加是完整的消息流数据，partition中的数据是不一致的。<br>分区存储在不同的broker提升并发处理能力</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="1-1-多副本机制"><a href="#1-1-多副本机制" class="headerlink" title="1.1 多副本机制"></a>1.1 多副本机制</h2><p>Kafka为分区（Partition）引入了多副本（Replica）机制。分区（Partition）中的多个副本之间有一个leader， 其他副本称为 follower。我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。<br>生产者和消费者只与leader副本交互，其他副本是leader副本的拷贝，它们的存在是为了保证消息存储的安全性。</p>
+<h2 id="1-2-多分区-Partition-以及多副本-Replica"><a href="#1-2-多分区-Partition-以及多副本-Replica" class="headerlink" title="1.2 多分区(Partition)以及多副本(Replica)"></a>1.2 多分区(Partition)以及多副本(Replica)</h2><ul>
+<li>Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力（负载均衡）。</li>
+<li>Partition 可以指定对应的 Replica 数, 这也极大地提高了<code>消息存储的安全性</code>, 提高了容灾能力，不过也相应的增加了所需要的存储空间。</li>
+</ul>
+<h2 id="1-3-为什么Redis-Pub-x2F-Sub比Kafka更快一些？二者之间如何选取？"><a href="#1-3-为什么Redis-Pub-x2F-Sub比Kafka更快一些？二者之间如何选取？" class="headerlink" title="1.3 为什么Redis Pub&#x2F;Sub比Kafka更快一些？二者之间如何选取？"></a>1.3 为什么Redis Pub&#x2F;Sub比Kafka更快一些？二者之间如何选取？</h2><blockquote>
 <p><strong>为什么Redis Pub&#x2F;Sub比Kafka更快一些？</strong> Redis是一个内存数据库，其Pub&#x2F;Sub功能将消息保存在内存中。由于内存访问速度通常远快于磁盘访问速度，因此Redis在处理实时性较高的消息推送时具有优势。此外，Redis的Pub&#x2F;Sub模型相对简单，使得它在处理发布和订阅操作时的开销较小。 然而，Kafka是一个完整的系统，提供了高吞吐量、分布式的提交日志。它旨在处理大规模数据流，具有强大的持久化能力和容错性。Kafka的分布式架构和分区机制使得它能够在多个消费者之间实现负载均衡，从而提高整体处理能力。</p>
 </blockquote>
 <blockquote>
@@ -290,6 +803,140 @@
 <li>多样化的消费处理模型</li>
 </ol>
 </blockquote>
+<h2 id="1-4-kafaka消费顺序、消息丢失、重复消费"><a href="#1-4-kafaka消费顺序、消息丢失、重复消费" class="headerlink" title="1.4 kafaka消费顺序、消息丢失、重复消费"></a>1.4 kafaka消费顺序、消息丢失、重复消费</h2><h3 id="1-4-1-消费顺序"><a href="#1-4-1-消费顺序" class="headerlink" title="1.4.1 消费顺序"></a>1.4.1 消费顺序</h3><ul>
+<li>1个Topic只对应一个Partition</li>
+<li>发送消息的时候指定key或Partition</li>
+</ul>
+<p>Kafka 中发送 1 条消息的时候，可以指定<code> topic, partition, key,data（数据）</code> 4 个参数。如果你发送消息的时候指定了 Partition 的话，所有消息都会被发送到指定的 Partition。并且，同一个 key 的消息可以保证只发送到同一个 partition，这个我们可以采用表&#x2F;对象的 id 来作为 key 。</p>
+<h3 id="1-4-2-消息丢失"><a href="#1-4-2-消息丢失" class="headerlink" title="1.4.2 消息丢失"></a>1.4.2 消息丢失</h3><h4 id="生产者丢失消息"><a href="#生产者丢失消息" class="headerlink" title="生产者丢失消息"></a>生产者丢失消息</h4><ul>
+<li>确认机制</li>
+<li>失败重试机制<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SendResult&lt;String, Object&gt; sendResult = kafkaTemplate.send(topic, o).get();</span><br><span class="line"><span class="keyword">if</span> (sendResult.getRecordMetadata() != <span class="literal">null</span>) &#123;</span><br><span class="line">  logger.info(<span class="string">&quot;生产者成功发送消息到&quot;</span> + sendResult.getProducerRecord().topic() + <span class="string">&quot;-&gt; &quot;</span> + sendRe</span><br><span class="line">              sult.getProducerRecord().value().toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>但是一般不推荐这么做！可以采用为其添加回调函数的形式，示例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListenableFuture&lt;SendResult&lt;String, Object&gt;&gt; future = kafkaTemplate.send(topic, o);</span><br><span class="line">future.addCallback(result -&gt; logger.info(<span class="string">&quot;生产者成功发送消息到topic:&#123;&#125; partition:&#123;&#125;的消息&quot;</span>, result.getRecordMetadata().topic(), result.getRecordMetadata().partition()),</span><br><span class="line">                ex -&gt; logger.error(<span class="string">&quot;生产者发送消失败，原因：&#123;&#125;&quot;</span>, ex.getMessage()));</span><br></pre></td></tr></table></figure>
+
+<h4 id="消费者丢失消息"><a href="#消费者丢失消息" class="headerlink" title="消费者丢失消息"></a>消费者丢失消息</h4><ul>
+<li>消费前提交offset（丢失消息）</li>
+<li>消费后提交offset（提交offset失败，重复消费）</li>
+</ul>
+<h4 id="Kafka丢失消息"><a href="#Kafka丢失消息" class="headerlink" title="Kafka丢失消息"></a>Kafka丢失消息</h4><blockquote>
+<p>leader中的数据还有一些没有被follower副本同步的话，会造成消息丢失</p>
+</blockquote>
+<ul>
+<li>设置acks&#x3D;all<br>  acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后就算被成功发送。当我们配置 <strong>acks &#x3D; all</strong> 表示只有所有 ISR 列表的副本全部收到消息时，生产者才会接收到来自服务器的响应</li>
+<li><strong>设置 replication.factor &gt;&#x3D; 3</strong>：保证每个分区有3个副本</li>
+<li><strong>设置 min.insync.replicas &gt; 1（ISR）</strong>：消息至少写入2个副本才算发送成功</li>
+</ul>
+<h3 id="1-4-3-重复消费"><a href="#1-4-3-重复消费" class="headerlink" title="1.4.3 重复消费"></a>1.4.3 重复消费</h3><p><strong>kafka 出现消息重复消费的原因：</strong></p>
+<ul>
+<li>服务端侧已经消费的数据没有成功提交 offset（根本原因）。</li>
+<li>Kafka 侧 由于服务端处理业务时间长或者网络链接等等原因让 Kafka 认为服务假死，触发了<code>分区 rebalance</code>。</li>
+</ul>
+<p><strong>解决方案：</strong></p>
+<ul>
+<li><code>消费消息服务做幂等校验</code>，比如 Redis 的 set、MySQL 的主键等天然的幂等功能。这种方法最有效。</li>
+<li>将 enable.auto.commit 参数设置为 false，<code>关闭自动提交</code>，开发者在代码中手动提交 offset。那么这里会有个问题：什么时候提交 offset 合适？<ul>
+<li>处理完消息再提交：依旧有消息重复消费的风险，和自动提交一样</li>
+<li>拉取到消息即提交：会有<strong>消息丢失</strong>的风险。允许消息延时的场景，一般会采用这种方式。然后，通过定时任务在业务不繁忙（比如凌晨）的时候做数据兜底。</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://cloud.tencent.com/developer/article/1665700">Kafka常见的导致重复消费原因和解决方案-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h2 id="1-5-分区rebalance"><a href="#1-5-分区rebalance" class="headerlink" title="1.5 分区rebalance"></a>1.5 分区rebalance</h2><p><a href="https://cloud.tencent.com/developer/article/1852157">一文理解Kafka的选举机制与Rebalance机制-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h2 id="1-6-Kafka重试机制"><a href="#1-6-Kafka重试机制" class="headerlink" title="1.6 Kafka重试机制"></a>1.6 Kafka重试机制</h2><h3 id="1-6-1-重试失败后的数据如何再次处理"><a href="#1-6-1-重试失败后的数据如何再次处理" class="headerlink" title="1.6.1 重试失败后的数据如何再次处理"></a>1.6.1 重试失败后的数据如何再次处理</h3><p>死信队列（Dead Letter Queue，简称 DLQ） 是消息中间件中的一种特殊队列。它主要用于处理无法被消费者正确处理的消息，通常是因为消息格式错误、处理失败、消费超时等情况导致的消息被”丢弃”或”死亡”的情况。当消息进入队列后，消费者会尝试处理它。如果处理失败，或者超过一定的重试次数仍无法被成功处理，消息可以发送到死信队列中，而不是被永久性地丢弃。在死信队列中，可以进一步分析、处理这些无法正常消费的消息，以便定位问题、修复错误，并采取适当的措施。</p>
+<h2 id="1-7-Kafka消息丢失"><a href="#1-7-Kafka消息丢失" class="headerlink" title="1.7 Kafka消息丢失"></a>1.7 Kafka消息丢失</h2><p><a href="https://blog.csdn.net/jam_yin/article/details/131979567">Kafka消息丢失：原因、解决方案和零丢失的配置-CSDN博客</a></p>
+<h2 id="1-8-Kafka中ISR"><a href="#1-8-Kafka中ISR" class="headerlink" title="1.8 Kafka中ISR"></a>1.8 Kafka中ISR</h2><p>首先，ISR 的全称叫做：In-Sync Replicas （同步副本集）, 我们可以理解为和 leader 保持同步的所有副本的集合。</p>
+<p>一个分区的所有副本集合叫做 AR（ Assigned Repllicas ） ，与 leader-replica 未能保持同步的副本集叫做 OSR（ Out-Sync Relipcas ）。</p>
+<p>因此我们就能得到这么一个表示：AR &#x3D; ISR + OSR，翻译一下就是一个分区的副本集分为同步集合和非同步集合两部分。</p>
+<p>ISR 的作用：是通过副本机制实现消息高可靠，服务高可用时，不可缺少的一环</p>
+<p><a href="https://cloud.tencent.com/developer/article/2231968">说一说你对 Kafka 中 ISR 的理解-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h1 id="2-RocketMQ"><a href="#2-RocketMQ" class="headerlink" title="2 RocketMQ"></a>2 RocketMQ</h1><p><a href="https://blog.csdn.net/ctwctw/article/details/107188474">RocketMQ的核心概念以及架构图_rocketmq架构图-CSDN博客</a></p>
+<h1 id="3-消息队列比较"><a href="#3-消息队列比较" class="headerlink" title="3 消息队列比较"></a>3 消息队列比较</h1><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>ActiveMQ</th>
+<th>RabbitMQ</th>
+<th><code>RocketMQ</code></th>
+<th><code>kafka</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发语言</td>
+<td>java</td>
+<td>erlang</td>
+<td>java</td>
+<td>scala</td>
+</tr>
+<tr>
+<td>单机吞吐量</td>
+<td>万级</td>
+<td>万级</td>
+<td>10万级</td>
+<td>10万级，吞吐量高。一般配合大数据类的系统来进行实时数据计算、日志采集等场景</td>
+</tr>
+<tr>
+<td>时效性</td>
+<td>ms级</td>
+<td>us级，这是rabbitmq的一大特点，延迟是最低的</td>
+<td>ms级</td>
+<td>ms级</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>高（主从架构）</td>
+<td>高（主从架构）</td>
+<td>非常高（分布式架构）</td>
+<td>非常高（分布式架构），kafka是分布式的，一个数据多个副本，少数机器宕机，不会丢失数据，不会导致不可用</td>
+</tr>
+<tr>
+<td>优劣势总结</td>
+<td>非常成熟，功能强大，在业内大量的公司以及项目中都有应用偶尔会有较低概率丢失消息，主要是基于解耦和异步来用的，较少在大规模吞吐的场景中使用</td>
+<td>erlang语言开发，性能极其好，延时很低；吞吐量到万级，MQ功能比较完备而且开源提供的管理界面非常棒</td>
+<td></td>
+<td>提供较少的核心功能，但是提供超高的吞吐量，ms级的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展同时kafka最好是支撑较少的topic数量即可，保证其<strong>超高吞吐量</strong>而且kafka唯一的一点劣势是有可能<strong>消息重复消费</strong>，那么对数据准确性会造成极其轻微的影响，在大数据领域中以及日志采集中，这点轻微影响可以忽略这个特性天然适合<strong>大数据实时计算以及日志收集</strong><br></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>消费推拉模式</strong><br>  客户端消费者获取消息的方式，Kafka和RocketMQ是通过长轮询Pull的方式拉取消息，RabbitMQ、Pulsar、NSQ都是通过Push的方式。</p>
+<p>  pull类型的消息队列更适合高吞吐量的场景，允许消费者自己进行流量控制，根据消费者实际的消费能力去获取消息。而push类型的消息队列，实时性更好，但需要有一套良好的流控策略（backpressure）当消费者消费能力不足时，减少push的消费数量，避免压垮消费端。</p>
+</li>
+<li><p><strong>延迟队列</strong><br>  延迟消息的使用场景比如异常检测重试，订单超时取消等，例如：</p>
+<ul>
+<li>服务请求异常，需要将异常请求放到单独的队列，隔5分钟后进行重试；</li>
+<li>用户购买商品，但一直处于未支付状态，需要定期提醒用户支付，超时则关闭订单；</li>
+<li>面试或者会议预约，在面试或者会议开始前半小时，发送通知再次提醒。<br>  Kafka不支持延迟消息，RocketMQ开源版本延迟消息临时存储在一个内部主题中，不支持任意时间精度，支持特定的level，例如定时5s，10s，1m等。</li>
+</ul>
+</li>
+<li><p><strong>死信队列</strong><br>  Kafka、RocketMQ、Pulsar、NSQ不支持优先级队列，可以通过不同的队列来实现消息优先级。<br>  RabbitMQ支持优先级消息。</p>
+</li>
+<li><p><strong>优先级队列</strong> </p>
+</li>
+<li></li>
+</ul>
+<h1 id="4-消息队列选择建议"><a href="#4-消息队列选择建议" class="headerlink" title="4 消息队列选择建议"></a>4 消息队列选择建议</h1><p><strong>1.Kafka</strong><br>Kafka主要特点是基于Pull的模式来处理消息消费，追求<strong>高吞吐量</strong>，一开始的目的就是用于日志收集和传输，适合产生大量数据的互联网服务的数据收集业务。</p>
+<p>大型公司建议可以选用，如果有日志采集功能，肯定是首选kafka了。</p>
+<p><strong>2.RocketMQ</strong><br>天生为<strong>金融互联网领域</strong>而生，对于<strong>高可靠性</strong>的场景，尤其是电商里面的订单扣款，以及业务削峰，在大量交易涌入时，后端可能无法及时处理的情况。</p>
+<p>RoketMQ在稳定性上可能更值得信赖，这些业务场景在阿里双11已经经历了多次考验，如果你的业务有上述并发场景，建议可以选择RocketMQ。</p>
+<p><strong>3.RabbitMQ</strong><br>RabbitMQ :结合erlang语言本身的并发优势，性能较好，社区活跃度也比较高，但是不利于做二次开发和维护。不过，RabbitMQ的社区十分活跃，可以解决开发过程中遇到的bug。</p>
+<p>如果你的数据量没有那么大，小公司优先选择功能比较完备的RabbitMQ。</p>
+<p><a href="https://cloud.tencent.com/developer/article/1944357">10分钟搞懂！消息队列选型全方位对比-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<p><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/qq_44240587/article/details/104630567">MQ消息队列详解、四大MQ的优缺点分析_四大消息队列的优缺点-CSDN博客</a><br><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
 
       
     </div>
@@ -454,7 +1101,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/03/26/%E6%A1%86%E6%9E%B6/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -472,7 +1119,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">数据库优化</a>
+          <a href="/2024/03/26/%E6%A1%86%E6%9E%B6/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">数据库优化</a>
         </h2>
 
         <div class="post-meta-container">
@@ -490,7 +1137,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-29 11:10:07" itemprop="dateModified" datetime="2024-05-29T11:10:07+08:00">2024-05-29</time>
+      <time title="修改时间：2024-05-29 21:46:33" itemprop="dateModified" datetime="2024-05-29T21:46:33+08:00">2024-05-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -517,296 +1164,12 @@
 3. 数据库查询优化</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/">
+              <a class="btn" href="/2024/03/26/%E6%A1%86%E6%9E%B6/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/">
                 阅读全文 &raquo;
               </a>
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/03/11/%E9%A1%B9%E7%9B%AE/Lottery/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/11/%E9%A1%B9%E7%9B%AE/Lottery/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-03-11 21:34:46" itemprop="dateCreated datePublished" datetime="2024-03-11T21:34:46+08:00">2024-03-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-20 21:31:36" itemprop="dateModified" datetime="2024-05-20T21:31:36+08:00">2024-05-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a>表设计</h1><ul>
-<li><p>活动表：是一个用于配置抽奖活动的总表，用于存放活动信息，包括：ID、名称、描述、时间、库存、参与次数等。</p>
-</li>
-<li><p>奖品表</p>
-</li>
-<li><p>策略表</p>
-</li>
-<li><p>规则表</p>
-</li>
-<li><p>用户参与表</p>
-</li>
-<li><p>中奖信息表</p>
-</li>
-<li><p>抽奖活动配置（活动ID、活动名称、活动描述、活动库存、每人可参与次数、活动状态）</p>
-</li>
-<li><p>奖品策略配置（策略ID、策略描述、策略方式、发放奖品方式）</p>
-</li>
-<li><p>奖品策略明细配置（&#x3D;&#x3D;策略ID、奖品ID&#x3D;&#x3D;、奖品描述、奖品库存、奖品剩余库存、中奖概率）</p>
-</li>
-<li><p>奖品信息配置（奖品ID、奖品类型、奖品名称、奖品内容）</p>
-</li>
-<li><p>用户活动参与次数（用户ID、活动ID、可参与次数、已参与次数）</p>
-</li>
-</ul>
-<p>首先要有活动信息表，记录活动可参与次数等信息；其次，对于每个抽奖活动配置抽奖策略。抽奖策略有具体明细，可以抽取的奖品。最后，抽奖明细中可以抽取到哪些奖品。</p>
-<ul>
-<li>活动配置，activity：提供活动的基本配置</li>
-<li>策略配置，strategy：用于配置抽奖策略，概率、玩法、库存、奖品</li>
-<li>策略明细，strategy_detail：抽奖策略的具体明细配置</li>
-<li>奖品配置，award：用于配置具体可以得到的奖品</li>
-<li>用户参与活动记录表，user_take_activity：每个用户参与活动都会记录下他的参与信息，时间、次数</li>
-<li>用户活动参与次数表，user_take_activity_count：用于记录当前参与了多少次</li>
-<li>用户策略计算结果表，user_strategy_export_001~004：最终策略结果的一个记录，也就是奖品中奖信息的内容</li>
-</ul>
-<h1 id="DDD"><a href="#DDD" class="headerlink" title="DDD"></a>DDD</h1><h2 id="lottery-rpc"><a href="#lottery-rpc" class="headerlink" title="lottery-rpc"></a>lottery-rpc</h2><ul>
-<li>DTO</li>
-<li>req</li>
-<li>res</li>
-<li>服务接口<br>rpc提供接口，供外界调用，在req中封装请求对象，res封装请求结果（将查询的结果DTO对象也封装其中）</li>
-</ul>
-<h2 id="lottery-interfaces"><a href="#lottery-interfaces" class="headerlink" title="lottery-interfaces"></a>lottery-interfaces</h2><ul>
-<li>interfaces</li>
-<li>LotteryApplication</li>
-<li>resources<ul>
-<li>mybatis<ul>
-<li>config</li>
-<li>mapper</li>
-</ul>
-</li>
-<li>application.yml</li>
-</ul>
-</li>
-</ul>
-<p>在interfaces下实现rpc层定义的接口，调用infrastructure层提供的仓储服务进行查询</p>
-<h2 id="lottery-domain"><a href="#lottery-domain" class="headerlink" title="lottery-domain"></a>lottery-domain</h2><p>定义仓储接口</p>
-<h2 id="lottery-infrastructure"><a href="#lottery-infrastructure" class="headerlink" title="lottery-infrastructure"></a>lottery-infrastructure</h2><ul>
-<li>dao：访问数据库，封装数据库操作</li>
-<li>po</li>
-</ul>
-<p>实现仓储接口</p>
-<h1 id="抽奖策略领域（策略模式、模板模式）"><a href="#抽奖策略领域（策略模式、模板模式）" class="headerlink" title="抽奖策略领域（策略模式、模板模式）"></a>抽奖策略领域（策略模式、模板模式）</h1><blockquote>
-<p>抽奖策略使用了策略模式，即提供一个接口，供抽奖调用，同时不同策略方式分别实现该接口</p>
-</blockquote>
-<p>两种抽奖算法描述，场景A20%、B30%、C50%</p>
-<ul>
-<li><strong>总体概率</strong>：如果A奖品抽空后，B和C奖品的概率按照 <code>3:5</code> 均分，相当于B奖品中奖概率由 <code>0.3</code> 升为 <code>0.375</code></li>
-<li><strong>单项概率</strong>：如果A奖品抽空后，B和C保持目前中奖概率，用户抽奖扔有20%中为A，因A库存抽空则结果展示为未中奖。(将奖品依据抽奖概率分配到长度为100的字符数组中，每一个位置可能对应多个奖品，只要该位置奖品没抽完，即算抽中。可以通过哈希散列的方式，将奖品信息分散到数组中去)</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403112313092.png" alt="image.png"></p>
-<ul>
-<li>domain<ul>
-<li>strategy<ul>
-<li>model：用于提供vo、req、res 和 aggregates 聚合对象。</li>
-<li>repository：提供仓储服务，其实也就是对Mysql、Redis等数据的统一包装。</li>
-<li>service：是具体的业务领域逻辑实现层<ul>
-<li>algorithm<ul>
-<li>impl<ul>
-<li>SingleRateRandomDrawAlgorithm</li>
-<li>EntiretyRateRandomDrawAlgorithm</li>
-</ul>
-</li>
-<li>IDrawAlgorithm</li>
-</ul>
-</li>
-<li>draw<ul>
-<li>impl<ul>
-<li>DrawExecImpl</li>
-</ul>
-</li>
-<li>AbstractDrawBase（模板模式定义抽象抽奖过程，涉及到具体差异实现的则在impl下实现）</li>
-<li>DrawConfig（策略配置，哈希表映射到IDrawAlgorithm的具体实现类）</li>
-<li>DrawStrategySupport（提供抽奖策略数据支持，便于查询策略配置、奖品信息。）</li>
-<li>IDrawExel（接口，暴漏抽奖方法接口给外界使用）</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>在draw下处理抽奖流程</p>
-<ul>
-<li>DrawConfig：配置抽奖策略，SingleRateRandomDrawAlgorithm、EntiretyRateRandomDrawAlgorithm</li>
-<li>DrawStrategySupport：提供抽奖策略数据支持，便于查询策略配置、奖品信息。通过这样的方式隔离职责。</li>
-<li>AbstractDrawBase：抽象类定义模板方法流程，在抽象类的 <code>doDrawExec</code> 方法中，处理整个抽奖流程，并提供在流程中需要使用到的抽象方法，由 <code>DrawExecImpl</code> 服务逻辑中做具体实现。</li>
-<li>IDrawExec#doDrawExec<ul>
-<li><code>获取抽奖策略</code>、<code>校验抽奖策略是否已经初始化到内存</code>、<code>获取不在抽奖范围内的列表，包括：奖品库存为空、风控策略、临时调整等</code>、<code>执行抽奖算法</code>、<code>包装中奖结果</code><br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403121148213.png" alt="Lottery-Draw抽奖流程.png"></li>
-</ul>
-</li>
-</ul>
-<h1 id="搭建发奖领域（简单工厂设计模式）"><a href="#搭建发奖领域（简单工厂设计模式）" class="headerlink" title="搭建发奖领域（简单工厂设计模式）"></a>搭建发奖领域（简单工厂设计模式）</h1><blockquote>
-<p>定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。</p>
-<p>利用工厂模式+接口封装奖品，让每一块功能都更加清晰易于扩展和维护。</p>
-<p>简单工厂模式避免创建者与具体的产品逻辑耦合、满足单一职责，每一个业务逻辑实现都在所属自己的类中完成、满足开闭原则，无需更改使用调用方就可以在程序中引入新的产品类型。但这样也会带来一些问题，比如有非常多的奖品类型，那么实现的子类会极速扩张，对于这样的场景就需要在引入其他设计手段进行处理，例如抽象通用的发奖子领域，自动化配置奖品发奖。</p>
-</blockquote>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">└── domain</span><br><span class="line">	└──award</span><br><span class="line">		├── model</span><br><span class="line">		├── repository</span><br><span class="line">		│   ├── impl</span><br><span class="line">		│   │   └── AwardRepository</span><br><span class="line">		│   └── IAwardRepository</span><br><span class="line">		└── service</span><br><span class="line">			├── factory</span><br><span class="line">			│   ├── <span class="module-access"><span class="module"><span class="identifier">DistributionGoodsFactory</span>.</span></span>java（通过提供的奖品类型获取具体的奖品实现类）</span><br><span class="line">			│   └── <span class="module-access"><span class="module"><span class="identifier">GoodsConfig</span>.</span></span>java（配置文件，通过map将奖品类型映射到具体实现类）</span><br><span class="line">			└── goods</span><br><span class="line">				├── impl</span><br><span class="line">				│   ├── <span class="module-access"><span class="module"><span class="identifier">CouponGoods</span>.</span></span>java</span><br><span class="line">				│   ├── <span class="module-access"><span class="module"><span class="identifier">DescGoods</span>.</span></span>java</span><br><span class="line">				│   ├── <span class="module-access"><span class="module"><span class="identifier">PhysicalGoods</span>.</span></span>java</span><br><span class="line">				│   └── <span class="module-access"><span class="module"><span class="identifier">RedeemCodeGoods</span>.</span></span>java</span><br><span class="line">				├── <span class="module-access"><span class="module"><span class="identifier">DistributionBase</span>.</span></span>java（发奖涉及到的对数据仓储的修改）</span><br><span class="line">				└── <span class="module-access"><span class="module"><span class="identifier">IDistributionGoodsc</span>.</span></span>java(接口类，奖品配送接口)</span><br></pre></td></tr></table></figure>
-
-<h1 id="活动领域的配置与状态"><a href="#活动领域的配置与状态" class="headerlink" title="活动领域的配置与状态"></a>活动领域的配置与状态</h1><h2 id="活动创建"><a href="#活动创建" class="headerlink" title="活动创建"></a>活动创建</h2><p>活动的创建操作主要包括：添加活动配置、添加奖品配置、添加策略配置、添加策略明细配置</p>
-<h2 id="状态变更（设计模式：状态模式）"><a href="#状态变更（设计模式：状态模式）" class="headerlink" title="状态变更（设计模式：状态模式）"></a>状态变更（设计模式：状态模式）</h2><blockquote>
-<p>状态模式：类的行为是基于它的状态改变的，这种类型的设计模式属于行为型模式。它描述的是一个行为下的多种状态变更，比如我们最常见的一个网站的页面，在你登录与不登录下展示的内容是略有差异的(不登录不能展示个人信息)，而这种登录与不登录就是我们通过改变状态，而让整个行为发生了变化。</p>
-</blockquote>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">domain.activity</span><br><span class="line">├── model</span><br><span class="line">├── repository</span><br><span class="line">│   └── IActivityRepository</span><br><span class="line">└── service</span><br><span class="line">	├── deploy</span><br><span class="line">	├── partake <span class="literal">[待开发]</span></span><br><span class="line">	└── stateflow</span><br><span class="line">		├── event（都实现了AbstractState接口，当前状态在相应事件下的响应）</span><br><span class="line">		│   ├── <span class="module-access"><span class="module"><span class="identifier">ArraignmentState</span>.</span></span>java</span><br><span class="line">		│   ├── <span class="module-access"><span class="module"><span class="identifier">CloseState</span>.</span></span>java</span><br><span class="line">		│   ├── <span class="module-access"><span class="module"><span class="identifier">DoingState</span>.</span></span>java</span><br><span class="line">		│   ├── <span class="module-access"><span class="module"><span class="identifier">EditingState</span>.</span></span>java</span><br><span class="line">		│   ├── <span class="module-access"><span class="module"><span class="identifier">OpenState</span>.</span></span>java</span><br><span class="line">		│   ├── <span class="module-access"><span class="module"><span class="identifier">PassState</span>.</span></span>java</span><br><span class="line">		│   └── <span class="module-access"><span class="module"><span class="identifier">RefuseState</span>.</span></span>java</span><br><span class="line">		├── impl</span><br><span class="line">		│   └── <span class="module-access"><span class="module"><span class="identifier">StateHandlerImpl</span>.</span></span>java（实现类，获取当前状态的实现类，调用相应事件操作）</span><br><span class="line">		├── <span class="module-access"><span class="module"><span class="identifier">AbstractState</span>.</span></span>java（接口，提供了各项状态之间流转服务的接口，即一个状态到另一个状态的事件）</span><br><span class="line">		├── <span class="module-access"><span class="module"><span class="identifier">IStateHandler</span>.</span></span>java（接口，暴露给外界可用于改变状态的事件操作）</span><br><span class="line">		└── <span class="module-access"><span class="module"><span class="identifier">StateConfig</span>.</span></span>java（提供map，整形到具体event下状态实现类的映射）</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="ID生成策略（策略模式）"><a href="#ID生成策略（策略模式）" class="headerlink" title="ID生成策略（策略模式）"></a>ID生成策略（策略模式）</h1><blockquote>
-<p>策略模式是行为模式的一种：外部的调用方会需要根据不同的场景来选择出适合的ID生成策略</p>
-</blockquote>
-<ul>
-<li>订单号：唯一、大量、订单创建时使用、分库分表</li>
-<li>活动号：唯一、少量、活动创建时使用、单库单表</li>
-<li>策略号：唯一、少量、活动创建时使用、单库单表<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">domain<span class="selector-class">.support</span><span class="selector-class">.ids</span></span><br><span class="line">├── policy（IIdGenerator具体实现类）</span><br><span class="line">│   ├── RandomNumeric<span class="selector-class">.java</span></span><br><span class="line">│   ├── ShortCode<span class="selector-class">.java</span></span><br><span class="line">│   └── SnowFlake<span class="selector-class">.java</span></span><br><span class="line">├── IdContext.java（map，记录枚举类型到ID生成具体实现类的映射）</span><br><span class="line">└── IIdGenerator<span class="selector-class">.java</span>(接口类，定义生成ID的策略接口，供外界调用)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="分库分表"><a href="#分库分表" class="headerlink" title="分库分表"></a>分库分表</h1><p>由于业务体量较大，数据增长较快，所以需要把用户数据拆分到不同的库表中去，减轻数据库压力。</p>
-<p>分库分表操作主要有垂直拆分和水平拆分：</p>
-<ul>
-<li>垂直拆分：指按照业务将表进行分类，分布到不同的数据库上，这样也就将数据的压力分担到不同的库上面。最终一个数据库由很多表的构成，每个表对应着不同的业务，也就是专库专用。</li>
-<li>水平拆分：如果垂直拆分后遇到单机瓶颈，可以使用水平拆分。相对于垂直拆分的区别是：垂直拆分是把不同的表拆到不同的数据库中，而本章节需要实现的水平拆分，是把同一个表拆到不同的数据库中。如：user_001、user_002</li>
-</ul>
-<p>数据库路由设计</p>
-<ul>
-<li>是关于 AOP 切面拦截的使用，这是因为需要给使用数据库路由的方法做上标记，便于处理分库分表逻辑。</li>
-<li>数据源的切换操作，既然有分库那么就会涉及在多个数据源间进行链接切换，以便把数据分配给不同的数据库。</li>
-<li>数据库表寻址操作，一条数据分配到哪个数据库，哪张表，都需要进行索引计算。在方法调用的过程中最终通过 ThreadLocal 记录。</li>
-<li>为了能让数据均匀的分配到不同的库表中去，还需要考虑如何进行数据散列的操作，不能分库分表后，让数据都集中在某个库的某个表，这样就失去了分库分表的意义。</li>
-<li>Mybatis 拦截器处理分表 SQL</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403142000474.png" alt="router.png"></p>
-<h1 id="领取活动（模板模式）"><a href="#领取活动（模板模式）" class="headerlink" title="领取活动（模板模式）"></a>领取活动（模板模式）</h1><blockquote>
-<p>用于领取活动领域功能开发中用户领取活动信息，在一个事务下记录多张表数据。<br>领取活动的流程作为模板实现，具体调用的方法在实现类实现。</p>
-</blockquote>
-<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">domain.activity.service.partake</span><br><span class="line">|<span class="string">-impl</span></span><br><span class="line"><span class="string"></span>|<span class="string">	</span>|<span class="string">-ActivityPartakeImpl</span></span><br><span class="line"><span class="string"></span>|<span class="string">-ActivityPartakeSupport：根据uid,activityID查询活动信息和用户领取信息</span></span><br><span class="line"><span class="string"></span>|<span class="string">-BaseActivityPartake：doPartake处理活动领取，调用抽象方法在实现类进行具体实现</span></span><br><span class="line"><span class="string"></span>|<span class="string">-IActivityPartake</span></span><br></pre></td></tr></table></figure>
-
-<p>领取活动流程：</p>
-<ul>
-<li>根据uid、activityId查询活动账单</li>
-<li>活动信息校验处理（抽象方法）</li>
-<li>扣减活动库存(activity表，可优化为Redis扣减)</li>
-<li>领取活动（个人用户把活动信息写入到用户表）（扣减user_take_activity_count剩余可领取次数，将领取活动信息插入user_take_activity）</li>
-<li>返回策略ID，用于后续抽奖步骤</li>
-</ul>
-<h1 id="应用层：抽奖过程"><a href="#应用层：抽奖过程" class="headerlink" title="应用层：抽奖过程"></a>应用层：抽奖过程</h1><p>在 application 应用层调用领域服务功能，编排抽奖过程，包括：领取活动、执行抽奖、落库结果</p>
-<p>分别在两个分库的表 lottery_01.user_take_activity、lottery_02.user_take_activity 中添加 state<code>【活动单使用状态 0未使用、1已使用】</code> 状态字段，这个状态字段用于写入中奖信息到 user_strategy_export_000~003 表中时候，两个表可以做一个幂等性的事务。</p>
-<p>同时还需要加入 strategy_id 策略ID字段，用于处理领取了活动单但执行抽奖失败时，可以继续获取到此抽奖单继续执行抽奖，而不需要重新领取活动。<em>其实领取活动就像是一种活动镜像信息，可以在控制幂等反复使用</em></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404152300246.png" alt="image.png"></p>
-<ul>
-<li>抽奖整个活动过程的流程编排，主要包括：对活动的领取、对抽奖的操作、对中奖结果的存放，以及如何处理发奖，对于发奖流程我们设计为MQ触发，后续再补全这部分内容。</li>
-<li>对于每一个流程节点编排的内容，都是在领域层开发完成的，而应用层只是做最为简单的且很薄的一层。<em>其实这块也很符合目前很多低代码的使用场景，通过界面可视化控制流程编排，生成代码</em></li>
-</ul>
-<p>抽奖过程：</p>
-<ul>
-<li>用户请求抽奖(doPartake)（uId, activityId），领取活动<ul>
-<li><code>查询是否存在未执行抽奖领取活动单【user_take_activity 存在 state = 0，领取了但抽奖过程失败的，可以直接返回领取结果继续抽奖】</code></li>
-</ul>
-</li>
-<li>执行抽奖（<code>doDrawExec</code>）（uId, strategyId, takeId）</li>
-<li>结果落库（uId, activityId，strategyId, takeId）</li>
-<li>发送MQ，触发发奖流程</li>
-<li>返回结果</li>
-</ul>
-<h1 id="量化人群参与活动（规则引擎、组合模式）"><a href="#量化人群参与活动（规则引擎、组合模式）" class="headerlink" title="量化人群参与活动（规则引擎、组合模式）"></a>量化人群参与活动（规则引擎、组合模式）</h1><blockquote>
-<p>使用组合模式搭建用于量化人群的规则引擎，用于用户参与活动之前，通过规则引擎过滤性别、年龄、首单消费、消费金额、忠实用户等各类身份来量化出具体可参与的抽奖活动。通过这样的方式控制运营成本和精细化运营。</p>
-</blockquote>
-<p>组合模式的特点就像是搭建出一棵二叉树，而库表中则需要把这样一颗二叉树存放进去，那么这里就需要包括：树根、树茎、子叶、果实。在具体的逻辑实现中则需要通过子叶判断走哪个树茎以及最终筛选出一个果实来。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404161042433.png" alt="image.png"></p>
-<ul>
-<li>基于量化决策引擎，筛选用户身份标签，找到符合参与的活动号。拿到活动号后，就可以参与到具体的抽奖活动中了。</li>
-<li>通常量化决策引擎也是一种用于差异化人群的规则过滤器，不只是可以过滤出活动，也可以用于活动唯独的过滤，判断是否可以参与到这个抽奖活动中。</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404161057494.png" alt="image.png"></p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">Lottery</span><br><span class="line">└── <span class="attribute">src</span></span><br><span class="line">    └── <span class="selector-tag">main</span></span><br><span class="line">       └── java</span><br><span class="line">          └── cn<span class="selector-class">.itedus</span><span class="selector-class">.lottery</span><span class="selector-class">.domain</span><span class="selector-class">.rule</span></span><br><span class="line">              ├── model</span><br><span class="line">              │   ├── aggregates</span><br><span class="line">              │   │   └── TreeRich<span class="selector-class">.java</span></span><br><span class="line">              │   ├── req</span><br><span class="line">              │   │   └── DecisionMatterReq<span class="selector-class">.java</span></span><br><span class="line">              │   ├── res</span><br><span class="line">              │   │   └── EngineResult<span class="selector-class">.java</span></span><br><span class="line">              │   └── vo</span><br><span class="line">              │       ├── TreeNodeLineVO<span class="selector-class">.java</span></span><br><span class="line">              │       ├── TreeNodeVO<span class="selector-class">.java</span></span><br><span class="line">              │       └── TreeRootVO<span class="selector-class">.java</span>	</span><br><span class="line">              └── service</span><br><span class="line">                  ├── engine</span><br><span class="line">                  │   ├── impl	</span><br><span class="line">                  │   │   └── TreeEngineHandle.java（实现类，先查询树对应的所有节点以及节点间的连线）</span><br><span class="line">                  │   ├── EngineBase<span class="selector-class">.java</span> （engineDecisionMaker，根据过滤条件筛选出叶子节点）</span><br><span class="line">                  │   ├── EngineConfig.java（配置不同条件使用的过滤器）</span><br><span class="line">                  │   └── IEngine<span class="selector-class">.java</span>	（暴露process接口，调用参数：treeRootId，过滤条件）</span><br><span class="line">                  └── logic</span><br><span class="line">                      ├── impl	</span><br><span class="line">                      │   ├── UserAgeFilter<span class="selector-class">.java</span></span><br><span class="line">                      │   └── UserGenderFilter<span class="selector-class">.java</span></span><br><span class="line">                      ├── BaseLogic.java（根据决策值，对所有连线进行判断）</span><br><span class="line">                      └── LogicFilter.java（暴露接口）</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="MQ：抽奖发货流程"><a href="#MQ：抽奖发货流程" class="headerlink" title="MQ：抽奖发货流程"></a>MQ：抽奖发货流程</h1><p>使用MQ消息的特性，把用户抽奖到发货到流程进行解耦。这个过程中包括了消息的发送、库表中状态的更新、消息的接收消费、发奖状态的处理等。</p>
-<p>在数据库表 <code>user_strategy_export</code> 添加字段 <code>mq_state</code> 这个字段用于发送 MQ 成功更新库表状态，如果 MQ 消息发送失败则需要通过定时任务补偿 MQ 消息。PS：你可以使用本章节分支下的 sql 更新自己的库表。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404172253392.png" alt="image.png"></p>
-<pre><code> // 1. 领取活动
-// 2. 执行抽奖
-// 3. 结果落库
-// 4. 发送MQ，触发发奖流程
-    发奖（消费者收到消息进行发奖）
-`// 4.1 MQ 消息发送完成，更新数据库表 user_strategy_export.mq_state = 1`
-`// 4.2 MQ 消息发送失败，更新数据库表 user_strategy_export.mq_state = 2 【等待定时任务扫码补偿MQ消息】`
-</code></pre>
-<p>消息发送完毕后进行回调处理，更新数据库中 MQ 发送的状态，如果有 MQ 发送失败则更新数据库 mq_state &#x3D; 2 <strong>这里还有可能在更新库表状态的时候失败</strong>，但没关系这些都会被 worker 补偿处理掉，一种是发送 MQ 失败，另外一种是 MQ 状态为 0 但很久都没有发送 MQ 那么也可以触发发送。</p>
-
       
     </div>
 
@@ -1354,374 +1717,6 @@
 <h2 id="3-并发读写map"><a href="#3-并发读写map" class="headerlink" title="3. 并发读写map"></a>3. 并发读写map</h2><p><code>fatal error: concurrent map read and map write</code></p>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line">replyCh := <span class="built_in">make</span>(<span class="keyword">chan</span> ApplierResult, <span class="number">1</span>)</span><br><span class="line">kv.appliedCh[index] = replyCh</span><br><span class="line"><span class="comment">//kv.appliedCh[index] = make(chan ApplierResult, 1)</span></span><br></pre></td></tr></table></figure>
 
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-02-20 23:12:29" itemprop="dateCreated datePublished" datetime="2024-02-20T23:12:29+08:00">2024-02-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-21 15:05:46" itemprop="dateModified" datetime="2024-05-21T15:05:46+08:00">2024-05-21</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p><strong>CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。</strong></p>
-</blockquote>
-<h1 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h1><p><strong>CAP</strong> 也就是 <strong>Consistency（一致性）</strong>、<strong>Availability（可用性）</strong>、<strong>Partition Tolerance（分区容错性）</strong></p>
-<ul>
-<li><strong>一致性（Consistency）</strong> : 所有节点访问同一份最新的数据副本</li>
-<li><strong>可用性（Availability）</strong>: 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。</li>
-<li><strong>分区容错性（Partition Tolerance）</strong> : 分布式系统出现网络分区的时候，仍然能够对外提供服务。</li>
-</ul>
-<p>Quorum机制（法定人数机制<br><strong>分布式系统理论上不可能选择 CA 架构，只能选择 CP 或者 AP 架构。</strong> 比如 ZooKeeper、HBase 就是 CP 架构，Cassandra、Eureka 就是 AP 架构，Nacos 不仅支持 CP 架构也支持 AP 架构。</p>
-<h1 id="BASE理论"><a href="#BASE理论" class="headerlink" title="BASE理论"></a>BASE理论</h1><p><strong>BASE</strong> 是 <strong>Basically Available（基本可用）</strong>、<strong>Soft-state（软状态）</strong> 和 <strong>Eventually Consistent（最终一致性）</strong> 三个短语的缩写。</p>
-<h2 id="基本可用"><a href="#基本可用" class="headerlink" title="基本可用"></a>基本可用</h2><p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性。但是，这绝不等价于系统不可用。</p>
-<p><strong>什么叫允许损失部分可用性呢？</strong></p>
-<ul>
-<li><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</li>
-<li><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</li>
-</ul>
-<h2 id="软状态"><a href="#软状态" class="headerlink" title="软状态"></a><a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2><p>软状态指允许系统中的数据存在中间状态（<strong>CAP 理论中的数据不一致</strong>），并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</p>
-<h2 id="最终一致性"><a href="#最终一致性" class="headerlink" title="最终一致性"></a><a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2><p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
-<blockquote>
-<p>分布式一致性的 3 种级别：</p>
-<ol>
-<li><strong>强一致性</strong>：系统写入了什么，读出来的就是什么。</li>
-<li><strong>弱一致性</strong>：不一定可以读取到最新写入的值，也不保证多少时间之后读取到的数据是最新的，只是会尽量保证某个时刻达到数据一致的状态。</li>
-<li><strong>最终一致性</strong>：弱一致性的升级版，系统会保证在一定时间内达到数据一致的状态。</li>
-</ol>
-<p><strong>业界比较推崇是最终一致性级别，但是某些对数据一致要求十分严格的场景比如银行转账还是要保证强一致性。</strong></p>
-</blockquote>
-<h1 id="共识算法"><a href="#共识算法" class="headerlink" title="共识算法"></a>共识算法</h1><blockquote>
-<p>共识算法的作用是让分布式系统中的多个节点之间对某个提案（Proposal）达成一致的看法。提案的含义在分布式系统中十分宽泛，像哪一个节点是 Leader 节点、多个事件发生的顺序等等都可以是一个提案。</p>
-</blockquote>
-<p>共识是可容错系统中的一个基本问题：即使面对故障，服务器也可以在共享状态上达成一致。</p>
-<p>共识算法允许一组节点像一个整体一样一起工作，即使其中的一些节点出现故障也能够继续工作下去，其正确性主要是源于复制状态机的性质：一组<code>Server</code>的状态机计算相同状态的副本，即使有一部分的<code>Server</code>宕机了它们仍然能够继续运行。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png" alt="image.png"></p>
-<p><a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html">https://javaguide.cn/distributed-system/protocol/raft-algorithm.html</a></p>
-<h1 id="Basic-Paxos-算法"><a href="#Basic-Paxos-算法" class="headerlink" title="Basic Paxos 算法"></a>Basic Paxos 算法</h1><ul>
-<li><strong>提议者（Proposer）</strong>：也可以叫做协调者（coordinator），提议者负责接受客户端的请求并发起提案。提案信息通常包括提案编号 (Proposal ID) 和提议的值 (Value)。</li>
-<li><strong>接受者（Acceptor）</strong>：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；</li>
-<li><strong>学习者（Learner）</strong>：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png" alt="image.png|450"></li>
-</ul>
-<h1 id="Raft"><a href="#Raft" class="headerlink" title="Raft"></a>Raft</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><ul>
-<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
-<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
-<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。</li>
-</ul>
-<h3 id="任期"><a href="#任期" class="headerlink" title="任期"></a>任期</h3><h3 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h3><h2 id="领导人选举"><a href="#领导人选举" class="headerlink" title="领导人选举"></a>领导人选举</h2><p>raft 使用心跳机制来触发 Leader 的选举。</p>
-<p>如果一台服务器能够收到来自 Leader 或者 Candidate 的有效信息，那么它会一直保持为 Follower 状态，并且刷新自己的 electionElapsed，重新计时。</p>
-<p>Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。如果一个 Follower 在一个周期内没有收到心跳信息，就叫做选举超时，然后它就会认为此时没有可用的 Leader，并且开始进行一次选举以选出一个新的 Leader。</p>
-<h2 id="日志复制"><a href="#日志复制" class="headerlink" title="日志复制"></a>日志复制</h2><p>一旦选出了 Leader，它就开始接受客户端的请求。每一个客户端的请求都包含一条需要被复制状态机（<code>Replicated State Machine</code>）执行的命令。</p>
-<p>Leader 收到客户端请求后，会生成一个 entry，包含<code>&lt;index,term,cmd&gt;</code>，再将这个 entry 添加到自己的日志末尾后，向所有的节点广播该 entry，要求其他服务器复制这条 entry。</p>
-<p>如果 Follower 接受该 entry，则会将 entry 添加到自己的日志后面，同时返回给 Leader 同意。</p>
-<p>如果 Leader 收到了多数的成功响应，Leader 会将这个 entry 应用到自己的状态机中，之后可以称这个 entry 是 committed 的，并且向客户端返回执行结果。</p>
-<p>raft 保证以下两个性质：</p>
-<ul>
-<li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们一定有相同的 cmd</li>
-<li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们前面的 entry 也一定相同</li>
-</ul>
-<hr>
-<p>著作权归JavaGuide(javaguide.cn)所有 基于MIT协议 原文链接：<a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html">https://javaguide.cn/distributed-system/protocol/raft-algorithm.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-02-01 14:23:48" itemprop="dateCreated datePublished" datetime="2024-02-01T14:23:48+08:00">2024-02-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-24 15:21:52" itemprop="dateModified" datetime="2024-05-24T15:21:52+08:00">2024-05-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>term(任期)</p>
-<p>Leader发出heartbeat(AppendEntries RPC不带有log entries)</p>
-<blockquote>
-<p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg" alt="QQ图片20240205215524.jpg"></p>
-<h1 id="2A-Leader-election-领导人选举"><a href="#2A-Leader-election-领导人选举" class="headerlink" title="2A Leader election(领导人选举)"></a>2A Leader election(领导人选举)</h1><ul>
-<li>网络延迟、分区、包丢失、复制和重新排序。</li>
-</ul>
-<blockquote>
-<p>This election term will continue until a follower stops receiving heartbeats and becomes a candidate.</p>
-</blockquote>
-<p>导致Follower进行选举的原因</p>
-<ul>
-<li>网络延迟或者包丢失没有在选举超时前收到心跳</li>
-<li>网络分区而导致收不到心跳（disconnect）</li>
-<li>Leader宕机、崩溃（crash）</li>
-</ul>
-<h2 id="1-节点类型"><a href="#1-节点类型" class="headerlink" title="1. 节点类型"></a>1. 节点类型</h2><ul>
-<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
-<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
-<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png" alt="image-20240203110252535"></p>
-<ul>
-<li>Follower$\rightarrow$Candidate（超时：一段时间内未收到heartbeat）</li>
-</ul>
-<p>Leader(AppendEntries RPC)</p>
-<ul>
-<li>term过时：<ul>
-<li>发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
-<li>收到RequestVote发现更高term号</li>
-</ul>
-</li>
-</ul>
-<p>Candidate(RequestVote RPC)</p>
-<ul>
-<li>term过时<ul>
-<li>收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
-<li>收到RequestVote RPC的response，返回的term号更大</li>
-</ul>
-</li>
-</ul>
-<p>Follower：被动的，对来自Leader和Candidate的请求进行相应</p>
-<ul>
-<li>收到Leader的心跳，且term号大于自身term号（更新自身term号）</li>
-<li>收到Candidate请求</li>
-</ul>
-<p>Server：</p>
-<ul>
-<li>拒绝过时term的请求</li>
-</ul>
-<h2 id="选举超时时间和心跳时间"><a href="#选举超时时间和心跳时间" class="headerlink" title="选举超时时间和心跳时间"></a>选举超时时间和心跳时间</h2><ul>
-<li><p>心跳间隔时间(heartbeat timeout)：Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。</p>
-</li>
-<li><p>选举超时时间(election timeout)：如果一个 Follower 在一个周期内没有收到心跳信息或者请求投票信息，就叫做选举超时，并开始一次新的选举。</p>
-</li>
-</ul>
-<p>这两个时间需要保持一定的关系，网络无故障时，在选举超时前应该收到心跳，以保持Leader不变。选举超时时间至少需要大于AppendEntries RPC发送到server所需的最长时间。</p>
-<h3 id="选举超时时间更新"><a href="#选举超时时间更新" class="headerlink" title="选举超时时间更新"></a>选举超时时间更新</h3><ul>
-<li>candidate成为leader</li>
-<li>candidate收到RequestVote response并变为follower</li>
-<li>server收到AppendEntries</li>
-<li>server收到RequestVote</li>
-<li>leader收到AppendEntries response发现更高term号</li>
-</ul>
-<h3 id="超时选举实现"><a href="#超时选举实现" class="headerlink" title="超时选举实现"></a>超时选举实现</h3><p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间<br>这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png"></p>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><h3 id="sendAppendEntries没有启用新的协程"><a href="#sendAppendEntries没有启用新的协程" class="headerlink" title="sendAppendEntries没有启用新的协程"></a><code>sendAppendEntries</code>没有启用新的协程</h3><p>在<code>sendHeartbeat</code>中，异步发送<code>sendAppendEntries</code>，向所有server发送heartbeat，无需等待RPC完成。因为leader可能无法与其他server通信，或者server不可达，由于等待rpc返回，造成超时重新选举</p>
-<p>异步发送<code>RequestVote</code>，并且收到超过半数选票后就成为Leader，发送心跳</p>
-<p><code> go test -race -run 2A</code></p>
-<h1 id="2B-Log-replication-日志复制"><a href="#2B-Log-replication-日志复制" class="headerlink" title="2B Log replication(日志复制)"></a>2B Log replication(日志复制)</h1><blockquote>
-<p>&#x3D;&#x3D;<strong>Leader Completeness</strong>&#x3D;&#x3D;: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br>&#x3D;&#x3D;<strong>State Machine Safety</strong>&#x3D;&#x3D;: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3</p>
-</blockquote>
-<ul>
-<li>leader收到client请求，将entry添加到log</li>
-<li>leader将添加的entry复制到其他server</li>
-<li>如果大多数server成功复制entry，则该entry已经committed</li>
-<li></li>
-<li>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061214812.png" alt="Raft-第 1 页.png"></p>
-<h2 id="Election-restriction-5-4-1"><a href="#Election-restriction-5-4-1" class="headerlink" title="Election restriction(5.4.1)"></a>Election restriction(5.4.1)</h2><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png"></p>
-<p>log backtracking</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png" alt="Raft-加速log回溯"></p>
-<p>S1首先成为leader，成功发送了第一个entry</p>
-<p>S1和S2与其他服务器断开后重连</p>
-<h2 id="注意点-1"><a href="#注意点-1" class="headerlink" title="注意点"></a>注意点</h2><blockquote>
-<p>遇到的bug</p>
-</blockquote>
-<p>s1断联，添加了一系列entry</p>
-<p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
-<h1 id="2C"><a href="#2C" class="headerlink" title="2C"></a>2C</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="Bug"><a href="#Bug" class="headerlink" title="Bug"></a>Bug</h2><p>同一任期选出两个leader</p>
-<p>乱序收到RPC response</p>
-<p>AppendEntries的RPC response与当前term不一致</p>
-<p>在变成follower时都重置了election time</p>
-<h1 id="2D"><a href="#2D" class="headerlink" title="2D"></a>2D</h1><p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611"></p>
-<h2 id="bug"><a href="#bug" class="headerlink" title="bug"></a>bug</h2><ol>
-<li><p>每10条command创建一个快照，快照会调用rf.mu这个互斥锁，当存在新的提交命令时，通过applyCh管道进行发送，而测试程序调用snapshot需要获取互斥锁，无法读取管道中的数据，则会产生死锁</p>
-</li>
-<li><p><code>apply error: server 2 apply out of order, expected index 10, got 18</code></p>
-<p>当snapshot存在未commit的命令时，snapshot和log分别放入applyCh，应当一次性放入applyCh</p>
-</li>
-<li></li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>result</th>
-<th>the time that the test took in seconds</th>
-<th>the number of Raft peers</th>
-<th>the number of RPCs sent during the test</th>
-<th>the total number of bytes in the RPC messages</th>
-<th>the number of log entries that Raft reports were committed</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>PASSED</td>
-<td>3.9</td>
-<td>3</td>
-<td>490</td>
-<td>154736</td>
-<td>207</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="raft"><a href="#raft" class="headerlink" title="raft"></a>raft</h2><p>raft是分布式一致性算法，基于复制状态机的思想，对于初始状态一样的节点，在他们上运行同样的命令，还会保持一致性的状态。raft主要包括领导者选举、日志复制、持久化以及快照等。</p>
-<h2 id="raft应用场景"><a href="#raft应用场景" class="headerlink" title="raft应用场景"></a>raft应用场景</h2><p>Raft 是一种共识算法，通常用于构建分布式系统中的可靠复制日志。它可以应用于各种分布式系统的场景，包括但不限于：</p>
-<ol>
-<li><p><strong>分布式数据库系统</strong>：Raft 可以用于构建分布式数据库系统，确保数据的一致性和可靠性，比如 etcd、Consul 等。</p>
-</li>
-<li><p><strong>分布式文件系统</strong>：在分布式文件系统中，Raft 可以确保各个节点之间的文件操作的一致性，比如 HDFS、Ceph 等。</p>
-</li>
-<li><p><strong>分布式消息队列</strong>：Raft 可以确保消息队列中的消息传递和处理的一致性，比如 Kafka 等。</p>
-</li>
-<li><p><strong>分布式计算</strong>：在分布式计算中，Raft 可以确保各个节点之间的任务调度和执行的一致性，比如 Spark、MapReduce 等。</p>
-</li>
-<li><p><strong>分布式存储系统</strong>：Raft 可以确保分布式存储系统中数据的可靠性和一致性，比如分布式缓存系统如 Redis、分布式块存储系统如 Ceph 等。</p>
-</li>
-</ol>
-<p>总的来说，任何需要在分布式环境中保证一致性和可靠性的系统都可以考虑使用 Raft 算法来实现。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://raft.github.io/">Raft Consensus Algorithm 官网介绍</a></p>
-<p><a href="http://thesecretlivesofdata.com/raft/">Raft (thesecretlivesofdata.com)</a>（Raft图示）</p>
-<p><a href="https://raw.githubusercontent.com/ongardie/dissertation/master/book.pdf">Raft作者博士论文</a></p>
-<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/instructors-guide-to-raft/">Instructors’ Guide to Raft</a>[4]</p>
-<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/students-guide-to-raft/">Students’ Guide to Raft</a>[5]</p>
-<p><a href="https://link.zhihu.com/?target=https://thesquareplanet.com/blog/raft-qa/">Raft Q&amp;A</a>[6]</p>
-<p>paxos 2015版的lab</p>
-<p><a href="https://github.com/hashicorp/raft">hashicorp&#x2F;raft: Golang implementation of the Raft consensus protocol (github.com)</a></p>
-<p><a href="https://www.zhihu.com/question/29597104">如何的才能更好地学习 MIT6.824 分布式系统课程？ - 知乎 (zhihu.com)</a></p>
 
       
     </div>
