@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,7 +172,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -273,27 +273,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>异步电路EDA<br>
+        <p>异步电路EDA<br />
 参与兰州大学异步电路与系统实验室（LZU-ARC）的PinTu项目（面向FPGA ASIC的全异步开源EDA工具链），目前开源到启智平台（OpenI，新一代人工智能开源开放平台）。主要完成对项目源码的部分分析工作，形成介绍文档。对整个项目的整体介绍及部署开源工作。</p>
-<p>Gitlet<br>
+<p>Gitlet<br />
 Gitlet是一个版本控制系统，实现了git的一些特性和功能，相比git在部分功能和实现上进行了简化。支持add、commit、log、checkout、merge等本地仓库操作，同时实现push、fetch、pull等远端仓库命令操作。利用java序列化的方法实现commit和stage对应数据结构的持久化存储，通过sha1算法计算相应的哈希值实现内容可寻址。实现字典树存储commit哈希值，实现根据6位前缀快速查找对应的commit哈希值。</p>
 <p>主要包括blob，commit，stage，每一个文件对应一个blob对象，commit和stage分别用于提交和暂存区的对象。</p>
-<p>WebServer<br>
+<p>WebServer<br />
 实现简易的web服务器，</p>
 <p>用户管理、商品管理、订单管理、支付管理、库存管理、物流管理</p>
-<p><strong>营销活动平台-抽奖系统</strong><br>
+<p><strong>营销活动平台-抽奖系统</strong><br />
 <code>Lottery 抽奖系统</code> 项目是一款互联网面向C端人群营销活动类的抽奖系统，可以提供抽奖活动玩法策略的创建、参与、记账、发奖等逻辑功能。在使用的过程中运营人员通过创建概率类奖品的抽奖玩法，对用户进行拉新、促活、留存，通常这样的系统会用在电商、外卖、出行、公众号运营等各类场景中。</p>
 <p>抽奖系统以DDD分层结构的方式，搭建整个抽奖系统架构。抽奖系统是营销平台的重要服务之一，用于，满足C端人群拉新、促活、留存的系统，包括规则引擎、抽奖策略、奖品发放等领域服务。通过规则引擎过滤性别、年龄等各类身份来量化出不同人群可参与的抽奖活动。因活动秒杀的并发场景，将秒杀从数据库行级锁优化为Redis分布式锁。解耦抽奖流程，将抽奖流程和发奖流程通过MQ消息串联起来。实现分库分表，将用户数据拆分到不同的库表中去，减轻数据库压力。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>模块</p>
-</li>
-<li class="lvl-2">
-<p>库存秒杀：Redis分布式锁</p>
-</li>
-<li class="lvl-2">
-<p>规则引擎：</p>
-</li>
+<ul>
+<li>模块</li>
+<li>库存秒杀：Redis分布式锁</li>
+<li>规则引擎：</li>
 </ul>
 <p>库表设计：关联关系、字段明细、唯一索引、分库分表、数据同步</p>
 

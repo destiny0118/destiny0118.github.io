@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="二、VSCode配置c&#x2F;c++环境 1. 下载VS Code 下载过慢 https:&#x2F;&#x2F;az764295.vo.msecnd.net&#x2F;stable&#x2F;92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9&#x2F;VSCodeUserSetup-x64-1.69.0.exe https:&#x2F;&#x2F;vscode.cdn.azure.cn&#x2F;stable&#x2F;92d25e35d9bf1a6b16f">
+    <meta name="description" content="二、VSCode配置c&#x2F;c++环境  1. 下载VS Code 下载过慢 https:&#x2F;&#x2F;az764295.vo.msecnd.net&#x2F;stable&#x2F;92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9&#x2F;VSCodeUserSetup-x64-1.69.0.exe https:&#x2F;&#x2F;vscode.cdn.azure.cn&#x2F;stable&#x2F;92d25e35d9bf1a6b1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/VSCode%E9%85%8D%E7%BD%AEcc++%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="二、VSCode配置c&#x2F;c++环境 1. 下载VS Code 下载过慢 https:&#x2F;&#x2F;az764295.vo.msecnd.net&#x2F;stable&#x2F;92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9&#x2F;VSCodeUserSetup-x64-1.69.0.exe https:&#x2F;&#x2F;vscode.cdn.azure.cn&#x2F;stable&#x2F;92d25e35d9bf1a6b16f">
+<meta property="og:description" content="二、VSCode配置c&#x2F;c++环境  1. 下载VS Code 下载过慢 https:&#x2F;&#x2F;az764295.vo.msecnd.net&#x2F;stable&#x2F;92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9&#x2F;VSCodeUserSetup-x64-1.69.0.exe https:&#x2F;&#x2F;vscode.cdn.azure.cn&#x2F;stable&#x2F;92d25e35d9bf1a6b1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112251534900.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202203231027513.png">
@@ -157,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81VSCode%E9%85%8D%E7%BD%AEc-c-%E7%8E%AF%E5%A2%83"><span class="nav-text">二、VSCode配置c&#x2F;c++环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BDVS-Code"><span class="nav-text">1. 下载VS Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BDMinGW-w64"><span class="nav-text">2. 下载MinGW-w64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE"><span class="nav-text">3. 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outline%E5%A4%A7%E7%BA%B2"><span class="nav-text">outline大纲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-text">4. 设置终端编码格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode%E4%BA%A7%E7%94%9F%E7%9A%84ipch%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8D%A0%E7%94%A8C%E7%9B%98%E7%A9%BA%E9%97%B4%E8%BF%87%E5%A4%A7%E5%A4%84%E7%90%86"><span class="nav-text">VSCode产生的ipch文件夹占用C盘空间过大处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-text">自动格式化</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-vscode%E9%85%8D%E7%BD%AEcc%E7%8E%AF%E5%A2%83"><span class="nav-text"> 二、VSCode配置c&#x2F;c++环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BDvs-code"><span class="nav-text"> 1. 下载VS Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BDmingw-w64"><span class="nav-text"> 2. 下载MinGW-w64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%85%8D%E7%BD%AE"><span class="nav-text"> 3. 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outline%E5%A4%A7%E7%BA%B2"><span class="nav-text"> outline大纲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE%E7%BB%88%E7%AB%AF%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="nav-text"> 4. 设置终端编码格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vscode%E4%BA%A7%E7%94%9F%E7%9A%84ipch%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8D%A0%E7%94%A8c%E7%9B%98%E7%A9%BA%E9%97%B4%E8%BF%87%E5%A4%A7%E5%A4%84%E7%90%86"><span class="nav-text"> VSCode产生的ipch文件夹占用C盘空间过大处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-text"> 自动格式化</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -170,7 +170,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -181,7 +181,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -282,35 +282,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="二、VSCode配置c-c-环境">二、VSCode配置c/c++环境</h2>
-<h3 id="1-下载VS-Code">1. 下载VS Code</h3>
+        <h2 id="二-vscode配置cc环境"><a class="markdownIt-Anchor" href="#二-vscode配置cc环境"></a> 二、VSCode配置c/c++环境</h2>
+<h3 id="1-下载vs-code"><a class="markdownIt-Anchor" href="#1-下载vs-code"></a> 1. 下载VS Code</h3>
 <p><a href="https://www.cnblogs.com/sctb/p/11919639.html">下载过慢</a></p>
 <p><a href="https://az764295.vo.msecnd.net/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/VSCodeUserSetup-x64-1.69.0.exe">https://az764295.vo.msecnd.net/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/VSCodeUserSetup-x64-1.69.0.exe</a></p>
 <p><a href="https://vscode.cdn.azure.cn/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/VSCodeUserSetup-x64-1.69.0.exe">https://vscode.cdn.azure.cn/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/VSCodeUserSetup-x64-1.69.0.exe</a></p>
-<h3 id="2-下载MinGW-w64">2. 下载MinGW-w64</h3>
-<p><a href="https://blog.csdn.net/m0_38051388/article/details/87000845?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2">安装MinGW-W64提示cannot download repository.txt-解决方法</a>s<br>
+<h3 id="2-下载mingw-w64"><a class="markdownIt-Anchor" href="#2-下载mingw-w64"></a> 2. 下载MinGW-w64</h3>
+<p><a href="https://blog.csdn.net/m0_38051388/article/details/87000845?depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2&amp;utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2">安装MinGW-W64提示cannot download repository.txt-解决方法</a>s<br />
 <a href="https://www.jb51.net/softjc/696089.html">MinGW-w64 离线包安装方法(经测试可用)</a></p>
-<h3 id="3-配置">3. 配置</h3>
+<h3 id="3-配置"><a class="markdownIt-Anchor" href="#3-配置"></a> 3. 配置</h3>
 <p><a href="https://www.jianshu.com/p/febbf1e975b6?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=seo_notes&amp;utm_source=recommendation">VSCode安装，配置，编译运行C++</a></p>
-<p><a href="https://code.visualstudio.com/docs/?dv=win">vs code</a><br>
+<p><a href="https://code.visualstudio.com/docs/?dv=win">vs code</a><br />
 <a href="https://www.cnblogs.com/bpf-1024/p/11597000.html">环境配置</a></p>
 <p>行注释 toggle line comment</p>
 <p>块注释 toggle block comment</p>
-<h3 id="outline大纲">outline大纲</h3>
+<h3 id="outline大纲"><a class="markdownIt-Anchor" href="#outline大纲"></a> outline大纲</h3>
 <p>ctrl+shift+P修改default,setting</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112251534900.png" alt="image-20211225153410652"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112251534900.png" alt="image-20211225153410652" /></p>
 <p>鼠标缩放</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202203231027513.png" alt="image-20220323102733467"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202203231027513.png" alt="image-20220323102733467" /></p>
 <p>缓存大小</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204222107558.png" alt="image-20220422210737429"></p>
-<h3 id="4-设置终端编码格式">4. 设置终端编码格式</h3>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202302081315984.png" alt="image-20230208131559915"></p>
-<h3 id="VSCode产生的ipch文件夹占用C盘空间过大处理">VSCode产生的ipch文件夹占用C盘空间过大处理</h3>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204222107558.png" alt="image-20220422210737429" /></p>
+<h3 id="4-设置终端编码格式"><a class="markdownIt-Anchor" href="#4-设置终端编码格式"></a> 4. 设置终端编码格式</h3>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202302081315984.png" alt="image-20230208131559915" /></p>
+<h3 id="vscode产生的ipch文件夹占用c盘空间过大处理"><a class="markdownIt-Anchor" href="#vscode产生的ipch文件夹占用c盘空间过大处理"></a> VSCode产生的ipch文件夹占用C盘空间过大处理</h3>
 <p>ipch文件夹是Intelli Sense（好像是预编译头文件之类的）这个东西产生的缓存文件</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202303011100137.png" alt="image-20230228094652335"></p>
-<h3 id="自动格式化">自动格式化</h3>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202303011107179.png" alt="image-20230301110726122"></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303011106724.png" alt="image-20230301110654687"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202303011100137.png" alt="image-20230228094652335" /></p>
+<h3 id="自动格式化"><a class="markdownIt-Anchor" href="#自动格式化"></a> 自动格式化</h3>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202303011107179.png" alt="image-20230301110726122" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2013/202303011106724.png" alt="image-20230301110654687" /></p>
 
     </div>
 

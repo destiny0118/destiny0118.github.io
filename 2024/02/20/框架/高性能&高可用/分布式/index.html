@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。  1 CAP理论 CAP 也就是 Consistency（一致性）、Availability（可用性）、Partition Tolerance（分区容错性）  一致性（Consistency） : 所有节点访问同一份最新的数据副本 可用性（Availability）: 非故障的节点在合理的时间内返回合理的响应（不是错">
+    <meta name="description" content="CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。   1 CAP理论 CAP 也就是 Consistency（一致性）、Availability（可用性）、Partition Tolerance（分区容错性）  一致性（Consistency） : 所有节点访问同一份最新的数据副本 可用性（Availability）: 非故障的节点在合理的时间内返回合理的响应（不是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2024/02/20/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。  1 CAP理论 CAP 也就是 Consistency（一致性）、Availability（可用性）、Partition Tolerance（分区容错性）  一致性（Consistency） : 所有节点访问同一份最新的数据副本 可用性（Availability）: 非故障的节点在合理的时间内返回合理的响应（不是错">
+<meta property="og:description" content="CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。   1 CAP理论 CAP 也就是 Consistency（一致性）、Availability（可用性）、Partition Tolerance（分区容错性）  一致性（Consistency） : 所有节点访问同一份最新的数据副本 可用性（Availability）: 非故障的节点在合理的时间内返回合理的响应（不是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png">
@@ -152,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 CAP理论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 BASE理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E5%8F%AF%E7%94%A8"><span class="nav-text">2.1 基本可用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%BD%AF%E7%8A%B6%E6%80%81"><span class="nav-text">2.2 软状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-text">2.3 最终一致性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 共识算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 Basic Paxos 算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 Raft</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%9F%BA%E7%A1%80"><span class="nav-text">5.1 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-text">5.1.1 节点类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-%E4%BB%BB%E6%9C%9F"><span class="nav-text">5.1.2 任期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E6%97%A5%E5%BF%97"><span class="nav-text">5.1.3 日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E9%A2%86%E5%AF%BC%E4%BA%BA%E9%80%89%E4%B8%BE"><span class="nav-text">5.2 领导人选举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E6%97%A5%E5%BF%97%E5%A4%8D%E5%88%B6"><span class="nav-text">5.3 日志复制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 主从、集群、分布式的区别</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-cap%E7%90%86%E8%AE%BA"><span class="nav-text"> 1 CAP理论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-base%E7%90%86%E8%AE%BA"><span class="nav-text"> 2 BASE理论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E5%9F%BA%E6%9C%AC%E5%8F%AF%E7%94%A8"><span class="nav-text"> 2.1 基本可用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E8%BD%AF%E7%8A%B6%E6%80%81"><span class="nav-text"> 2.2 软状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7"><span class="nav-text"> 2.3 最终一致性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%85%B1%E8%AF%86%E7%AE%97%E6%B3%95"><span class="nav-text"> 3 共识算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-basic-paxos-%E7%AE%97%E6%B3%95"><span class="nav-text"> 4 Basic Paxos 算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-raft"><span class="nav-text"> 5 Raft</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E5%9F%BA%E7%A1%80"><span class="nav-text"> 5.1 基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#511-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-text"> 5.1.1 节点类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#512-%E4%BB%BB%E6%9C%9F"><span class="nav-text"> 5.1.2 任期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#513-%E6%97%A5%E5%BF%97"><span class="nav-text"> 5.1.3 日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-%E9%A2%86%E5%AF%BC%E4%BA%BA%E9%80%89%E4%B8%BE"><span class="nav-text"> 5.2 领导人选举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53-%E6%97%A5%E5%BF%97%E5%A4%8D%E5%88%B6"><span class="nav-text"> 5.3 日志复制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E4%B8%BB%E4%BB%8E-%E9%9B%86%E7%BE%A4-%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text"> 6 主从、集群、分布式的区别</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -280,104 +280,80 @@
         <blockquote>
 <p><strong>CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。</strong></p>
 </blockquote>
-<h1>1 CAP理论</h1>
+<h1 id="1-cap理论"><a class="markdownIt-Anchor" href="#1-cap理论"></a> 1 CAP理论</h1>
 <p><strong>CAP</strong> 也就是 <strong>Consistency（一致性）</strong>、<strong>Availability（可用性）</strong>、<strong>Partition Tolerance（分区容错性）</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2"><strong>一致性（Consistency）</strong> : 所有节点访问同一份最新的数据副本</li>
-<li class="lvl-2"><strong>可用性（Availability）</strong>: 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。</li>
-<li class="lvl-2"><strong>分区容错性（Partition Tolerance）</strong> : 分布式系统出现网络分区的时候，仍然能够对外提供服务。</li>
+<ul>
+<li><strong>一致性（Consistency）</strong> : 所有节点访问同一份最新的数据副本</li>
+<li><strong>可用性（Availability）</strong>: 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。</li>
+<li><strong>分区容错性（Partition Tolerance）</strong> : 分布式系统出现网络分区的时候，仍然能够对外提供服务。</li>
 </ul>
-<p>Quorum机制（法定人数机制<br>
+<p>Quorum机制（法定人数机制<br />
 <strong>分布式系统理论上不可能选择 CA 架构，只能选择 CP 或者 AP 架构。</strong> 比如 ZooKeeper、HBase 就是 CP 架构，Cassandra、Eureka 就是 AP 架构，Nacos 不仅支持 CP 架构也支持 AP 架构。</p>
-<h1>2 BASE理论</h1>
+<h1 id="2-base理论"><a class="markdownIt-Anchor" href="#2-base理论"></a> 2 BASE理论</h1>
 <p><strong>BASE</strong> 是 <strong>Basically Available（基本可用）</strong>、<strong>Soft-state（软状态）</strong> 和 <strong>Eventually Consistent（最终一致性）</strong> 三个短语的缩写。</p>
-<h2 id="2-1-基本可用">2.1 基本可用</h2>
+<h2 id="21-基本可用"><a class="markdownIt-Anchor" href="#21-基本可用"></a> 2.1 基本可用</h2>
 <p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性。但是，这绝不等价于系统不可用。</p>
 <p><strong>什么叫允许损失部分可用性呢？</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</p>
-</li>
-<li class="lvl-2">
-<p><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</p>
-</li>
+<ul>
+<li><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</li>
+<li><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</li>
 </ul>
-<h2 id="2-2-软状态">2.2 <a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2>
+<h2 id="22-软状态"><a class="markdownIt-Anchor" href="#22-软状态"></a> 2.2 <a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2>
 <p>软状态指允许系统中的数据存在中间状态（<strong>CAP 理论中的数据不一致</strong>），并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</p>
-<h2 id="2-3-最终一致性">2.3 <a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2>
+<h2 id="23-最终一致性"><a class="markdownIt-Anchor" href="#23-最终一致性"></a> 2.3 <a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2>
 <p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
 <blockquote>
 <p>分布式一致性的 3 种级别：</p>
 <ol>
-<li class="lvl-3"><strong>强一致性</strong>：系统写入了什么，读出来的就是什么。</li>
-<li class="lvl-3"><strong>弱一致性</strong>：不一定可以读取到最新写入的值，也不保证多少时间之后读取到的数据是最新的，只是会尽量保证某个时刻达到数据一致的状态。</li>
-<li class="lvl-3"><strong>最终一致性</strong>：弱一致性的升级版，系统会保证在一定时间内达到数据一致的状态。</li>
+<li><strong>强一致性</strong>：系统写入了什么，读出来的就是什么。</li>
+<li><strong>弱一致性</strong>：不一定可以读取到最新写入的值，也不保证多少时间之后读取到的数据是最新的，只是会尽量保证某个时刻达到数据一致的状态。</li>
+<li><strong>最终一致性</strong>：弱一致性的升级版，系统会保证在一定时间内达到数据一致的状态。</li>
 </ol>
 <p><strong>业界比较推崇是最终一致性级别，但是某些对数据一致要求十分严格的场景比如银行转账还是要保证强一致性。</strong></p>
 </blockquote>
-<h1>3 共识算法</h1>
+<h1 id="3-共识算法"><a class="markdownIt-Anchor" href="#3-共识算法"></a> 3 共识算法</h1>
 <blockquote>
 <p>共识算法的作用是让分布式系统中的多个节点之间对某个提案（Proposal）达成一致的看法。提案的含义在分布式系统中十分宽泛，像哪一个节点是 Leader 节点、多个事件发生的顺序等等都可以是一个提案。</p>
 </blockquote>
 <p>共识是可容错系统中的一个基本问题：即使面对故障，服务器也可以在共享状态上达成一致。</p>
-<p>共识算法允许一组节点像一个整体一样一起工作，即使其中的一些节点出现故障也能够继续工作下去，其正确性主要是源于复制状态机的性质：一组<code>Server</code>的状态机计算相同状态的副本，即使有一部分的<code>Server</code>宕机了它们仍然能够继续运行。<br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png" alt="image.png"></p>
+<p>共识算法允许一组节点像一个整体一样一起工作，即使其中的一些节点出现故障也能够继续工作下去，其正确性主要是源于复制状态机的性质：一组<code>Server</code>的状态机计算相同状态的副本，即使有一部分的<code>Server</code>宕机了它们仍然能够继续运行。<br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png" alt="image.png" /></p>
 <p><a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html">https://javaguide.cn/distributed-system/protocol/raft-algorithm.html</a></p>
-<h1>4 Basic Paxos 算法</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>提议者（Proposer）</strong>：也可以叫做协调者（coordinator），提议者负责接受客户端的请求并发起提案。提案信息通常包括提案编号 (Proposal ID) 和提议的值 (Value)。</p>
-</li>
-<li class="lvl-2">
-<p><strong>接受者（Acceptor）</strong>：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；</p>
-</li>
-<li class="lvl-2">
-<p><strong>学习者（Learner）</strong>：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。<br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png" alt="image.png|450"></p>
-</li>
+<h1 id="4-basic-paxos-算法"><a class="markdownIt-Anchor" href="#4-basic-paxos-算法"></a> 4 Basic Paxos 算法</h1>
+<ul>
+<li><strong>提议者（Proposer）</strong>：也可以叫做协调者（coordinator），提议者负责接受客户端的请求并发起提案。提案信息通常包括提案编号 (Proposal ID) 和提议的值 (Value)。</li>
+<li><strong>接受者（Acceptor）</strong>：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；</li>
+<li><strong>学习者（Learner）</strong>：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。<br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png" alt="image.png|450" /></li>
 </ul>
-<h1>5 Raft</h1>
-<h2 id="5-1-基础">5.1 基础</h2>
-<h3 id="5-1-1-节点类型">5.1.1 节点类型</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</p>
-</li>
-<li class="lvl-2">
-<p><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</p>
-</li>
-<li class="lvl-2">
-<p><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。</p>
-</li>
+<h1 id="5-raft"><a class="markdownIt-Anchor" href="#5-raft"></a> 5 Raft</h1>
+<h2 id="51-基础"><a class="markdownIt-Anchor" href="#51-基础"></a> 5.1 基础</h2>
+<h3 id="511-节点类型"><a class="markdownIt-Anchor" href="#511-节点类型"></a> 5.1.1 节点类型</h3>
+<ul>
+<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
+<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
+<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。</li>
 </ul>
-<h3 id="5-1-2-任期">5.1.2 任期</h3>
-<h3 id="5-1-3-日志">5.1.3 日志</h3>
-<h2 id="5-2-领导人选举">5.2 领导人选举</h2>
+<h3 id="512-任期"><a class="markdownIt-Anchor" href="#512-任期"></a> 5.1.2 任期</h3>
+<h3 id="513-日志"><a class="markdownIt-Anchor" href="#513-日志"></a> 5.1.3 日志</h3>
+<h2 id="52-领导人选举"><a class="markdownIt-Anchor" href="#52-领导人选举"></a> 5.2 领导人选举</h2>
 <p>raft 使用心跳机制来触发 Leader 的选举。</p>
 <p>如果一台服务器能够收到来自 Leader 或者 Candidate 的有效信息，那么它会一直保持为 Follower 状态，并且刷新自己的 electionElapsed，重新计时。</p>
 <p>Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。如果一个 Follower 在一个周期内没有收到心跳信息，就叫做选举超时，然后它就会认为此时没有可用的 Leader，并且开始进行一次选举以选出一个新的 Leader。</p>
-<h2 id="5-3-日志复制">5.3 日志复制</h2>
+<h2 id="53-日志复制"><a class="markdownIt-Anchor" href="#53-日志复制"></a> 5.3 日志复制</h2>
 <p>一旦选出了 Leader，它就开始接受客户端的请求。每一个客户端的请求都包含一条需要被复制状态机（<code>Replicated State Machine</code>）执行的命令。</p>
 <p>Leader 收到客户端请求后，会生成一个 entry，包含<code>&lt;index,term,cmd&gt;</code>，再将这个 entry 添加到自己的日志末尾后，向所有的节点广播该 entry，要求其他服务器复制这条 entry。</p>
 <p>如果 Follower 接受该 entry，则会将 entry 添加到自己的日志后面，同时返回给 Leader 同意。</p>
 <p>如果 Leader 收到了多数的成功响应，Leader 会将这个 entry 应用到自己的状态机中，之后可以称这个 entry 是 committed 的，并且向客户端返回执行结果。</p>
 <p>raft 保证以下两个性质：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们一定有相同的 cmd</p>
-</li>
-<li class="lvl-2">
-<p>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们前面的 entry 也一定相同</p>
-</li>
+<ul>
+<li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们一定有相同的 cmd</li>
+<li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们前面的 entry 也一定相同</li>
 </ul>
-<h1>6 主从、集群、分布式的区别</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分布式：多个系统协同合作完成一个特定任务的系统。分布式是解决中心化管理的问题，把所有的任务叠加到一个节点处理，太慢了。所以把一个大的问题拆分为多个小的问题，并分别解决，最终协同合作。分布式的主要工作是分解任务，将职能拆解。</p>
-</li>
-<li class="lvl-2">
-<p>集群：集群主要的使用场景是为了分担请求的压力，也就是在几个服务器上部署相同的应用程序，来分担客户端请求。当压力进一步增大的时候，可能在需要存储的部分，mysql 无法面对很多的写压力。因为在 mysql 做成集群之后，主要的写压力还是在 master 的机器上面，其他 slave 机器无法分担写压力，从而这个时候，也就引出来分布式。</p>
-</li>
+<h1 id="6-主从-集群-分布式的区别"><a class="markdownIt-Anchor" href="#6-主从-集群-分布式的区别"></a> 6 主从、集群、分布式的区别</h1>
+<ul>
+<li>分布式：多个系统协同合作完成一个特定任务的系统。分布式是解决中心化管理的问题，把所有的任务叠加到一个节点处理，太慢了。所以把一个大的问题拆分为多个小的问题，并分别解决，最终协同合作。分布式的主要工作是分解任务，将职能拆解。</li>
+<li>集群：集群主要的使用场景是为了分担请求的压力，也就是在几个服务器上部署相同的应用程序，来分担客户端请求。当压力进一步增大的时候，可能在需要存储的部分，mysql 无法面对很多的写压力。因为在 mysql 做成集群之后，主要的写压力还是在 master 的机器上面，其他 slave 机器无法分担写压力，从而这个时候，也就引出来分布式。</li>
 </ul>
 <p><strong>将一套系统拆分成不同子系统部署在不同服务器上（这叫分布式），</strong></p>
 <p><strong>然后部署多个相同的子系统在不同的服务器上（这叫集群），部署在不同服务器上的同一个子系统应做负载均衡。</strong></p>
@@ -385,37 +361,34 @@
 <p><strong>集群：同一个业务，部署在多个服务器上 。</strong></p>
 <p>主从、集群和分布式是计算机系统中常见的架构模式，它们有不同的特点和用途：</p>
 <ol>
-<li class="lvl-3">
-<p>主从（Master-Slave）：</p>
-<ul class="lvl-2">
-<li class="lvl-6">主从架构是一种单点控制的架构，其中有一个主节点和一个或多个从节点。</li>
-<li class="lvl-6">主节点通常负责处理所有的请求和决策，而从节点用于执行主节点分派的任务或保存数据的备份副本。</li>
-<li class="lvl-6">主从架构通常用于提高系统的可用性和容错性。如果主节点失败，可以将其中一个从节点提升为主节点，以保持系统的运行。</li>
-<li class="lvl-6">主从架构适用于那些需要单一决策权和数据同步的应用，如数据库复制、负载均衡等。</li>
+<li>主从（Master-Slave）：
+<ul>
+<li>主从架构是一种单点控制的架构，其中有一个主节点和一个或多个从节点。</li>
+<li>主节点通常负责处理所有的请求和决策，而从节点用于执行主节点分派的任务或保存数据的备份副本。</li>
+<li>主从架构通常用于提高系统的可用性和容错性。如果主节点失败，可以将其中一个从节点提升为主节点，以保持系统的运行。</li>
+<li>主从架构适用于那些需要单一决策权和数据同步的应用，如数据库复制、负载均衡等。</li>
 </ul>
 </li>
-<li class="lvl-3">
-<p>集群（Cluster）：</p>
-<ul class="lvl-2">
-<li class="lvl-6"><strong>集群是由多个节点组成的计算机系统</strong>，这些节点共同协作以提供某种服务或功能。</li>
-<li class="lvl-6">集群节点通常是对等的，它们可以相互协作，共同处理请求，以提高性能和容错性。</li>
-<li class="lvl-6">集群可以用于各种用途，包括负载均衡、高可用性、并行计算等。</li>
-<li class="lvl-6">集群可以是对称的（每个节点都具有相同的角色和功能）或非对称的（某些节点具有特殊的角色，如主节点）。</li>
+<li>集群（Cluster）：
+<ul>
+<li><strong>集群是由多个节点组成的计算机系统</strong>，这些节点共同协作以提供某种服务或功能。</li>
+<li>集群节点通常是对等的，它们可以相互协作，共同处理请求，以提高性能和容错性。</li>
+<li>集群可以用于各种用途，包括负载均衡、高可用性、并行计算等。</li>
+<li>集群可以是对称的（每个节点都具有相同的角色和功能）或非对称的（某些节点具有特殊的角色，如主节点）。</li>
 </ul>
 </li>
-<li class="lvl-3">
-<p>分布式（Distributed）：</p>
-<ul class="lvl-2">
-<li class="lvl-6">分布式架构是指系统的组件分布在多个地理位置或计算节点上，它们通过网络通信协同工作。</li>
-<li class="lvl-6">分布式系统的目标是提高性能、扩展性和可用性，允许系统在多个节点上并行执行任务。</li>
-<li class="lvl-6">分布式系统可以包括多个集群，每个集群可能都有自己的主从结构，以满足系统的需求。</li>
-<li class="lvl-6">分布式系统通常需要处理分布式计算、数据同步、一致性和容错性等复杂问题。</li>
+<li>分布式（Distributed）：
+<ul>
+<li>分布式架构是指系统的组件分布在多个地理位置或计算节点上，它们通过网络通信协同工作。</li>
+<li>分布式系统的目标是提高性能、扩展性和可用性，允许系统在多个节点上并行执行任务。</li>
+<li>分布式系统可以包括多个集群，每个集群可能都有自己的主从结构，以满足系统的需求。</li>
+<li>分布式系统通常需要处理分布式计算、数据同步、一致性和容错性等复杂问题。</li>
 </ul>
 </li>
 </ol>
 <p>总之，主从是一种单点控制的架构，集群是多个节点共同协作的架构，分布式是多个节点分布在不同地方并通过网络通信协同工作的架构。这些不同的架构模式在不同的应用场景中有不同的优点和局限性。选择哪种架构取决于应用的需求和目标。</p>
-<p>集群是个物理形态，分布式是个工作方式。分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。<br>
-分布式：一个业务分拆多个子业务，部署在不同的服务器上。<br>
+<p>集群是个物理形态，分布式是个工作方式。分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。<br />
+分布式：一个业务分拆多个子业务，部署在不同的服务器上。<br />
 集群：同一个业务，部署在多个服务器上</p>
 
     </div>

@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException"><span class="nav-text">Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">依赖冲突</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql"><span class="nav-text"> Mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#error-querying-database-cause-orgspringframeworkjdbccannotgetjdbcconnectionexception"><span class="nav-text"> Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BE%9D%E8%B5%96%E5%86%B2%E7%AA%81"><span class="nav-text"> 依赖冲突</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -280,20 +280,20 @@
     <div class="post-body" itemprop="articleBody">
         <p><code>java.lang.IllegalStateException: Failed to load ApplicationContext</code></p>
 <p><code>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'stateHandlerImpl': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'indiv.lottery.domain.activity.service.stateflow.event.ArraignmentState' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: &#123;@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)&#125;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312141928179.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312141928179.png" alt="image.png" /></p>
 <p>没有定义component组件</p>
-<p><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indiv.lottery.test.domain.ActivityTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: </code><br>
+<p><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indiv.lottery.test.domain.ActivityTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException:</code><br />
 没有定义service</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException: </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may exist in file [E:\IDEA\MyLottery\lottery-interfaces\target\classes\mybatis\mapper\Activity_Mapper.xml]</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may involve indiv.lottery.infrastructure.dao.IActivityDAO.insert-Inline</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error occurred while setting parameters</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## SQL: INSERT INTO activity         (activityId, activityName, activityDesc, beginDateTime, endDateTime,          stockCount, takeCount, state, creator, createTime, updateTime)         VALUES (?, ?, ?, ?, ?,                 ?, ?, ?, ?, now(), now())</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line">; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span><br></pre></td></tr></table></figure>
 <p>insert参数名与数据库不匹配</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): indiv.lottery.infrastructure.dao.IAwardDAO.insertList</span><br></pre></td></tr></table></figure>
-<h1>Mysql</h1>
-<h2 id="Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException">Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312252241556.png" alt="image.png"></p>
-<h1>依赖冲突</h1>
+<h1 id="mysql"><a class="markdownIt-Anchor" href="#mysql"></a> Mysql</h1>
+<h2 id="error-querying-database-cause-orgspringframeworkjdbccannotgetjdbcconnectionexception"><a class="markdownIt-Anchor" href="#error-querying-database-cause-orgspringframeworkjdbccannotgetjdbcconnectionexception"></a> Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312252241556.png" alt="image.png" /></p>
+<h1 id="依赖冲突"><a class="markdownIt-Anchor" href="#依赖冲突"></a> 依赖冲突</h1>
 <p>lottery-application: Could not resolve dependencies for project cn.itedus.lottery:lottery-application:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT (absent): Could not find artifact cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT -&gt; [Help 1]</p>
-<p>application依赖domain域，但却是在Lottery顶层模块出现版本问题<br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312261102257.png" alt="image.png"></p>
+<p>application依赖domain域，但却是在Lottery顶层模块出现版本问题<br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312261102257.png" alt="image.png" /></p>
 
     </div>
 

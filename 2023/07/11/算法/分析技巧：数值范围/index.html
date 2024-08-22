@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="最值   二分查找（解的值域范围具有单调性，小于x的值范围都符合，大于x的值范围都不符合）   动态规划   二分查找   使……最大值尽可能小   前缀和   子数组   动态规划   将数组分割为割为m段，求……       滑动窗口  长度固定的子数组    数值范围 int：4字节，32位，最大值:$2^{31}-1&#x3D;2147483647$，最小值$-2147483648$。 $10">
+    <meta name="description" content="最值   二分查找（解的值域范围具有单调性，小于x的值范围都符合，大于x的值范围都不符合）   动态规划   二分查找   使……最大值尽可能小   前缀和   子数组   动态规划   将数组分割为割为m段，求……      滑动窗口  长度固定的子数组     数值范围 int：4字节，32位，最大值:231−1&#x3D;21474836472^{31}-1&#x3D;2147483647231−1&#x3D;21">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/07/11/%E7%AE%97%E6%B3%95/%E5%88%86%E6%9E%90%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="最值   二分查找（解的值域范围具有单调性，小于x的值范围都符合，大于x的值范围都不符合）   动态规划   二分查找   使……最大值尽可能小   前缀和   子数组   动态规划   将数组分割为割为m段，求……       滑动窗口  长度固定的子数组    数值范围 int：4字节，32位，最大值:$2^{31}-1&#x3D;2147483647$，最小值$-2147483648$。 $10">
+<meta property="og:description" content="最值   二分查找（解的值域范围具有单调性，小于x的值范围都符合，大于x的值范围都不符合）   动态规划   二分查找   使……最大值尽可能小   前缀和   子数组   动态规划   将数组分割为割为m段，求……      滑动窗口  长度固定的子数组     数值范围 int：4字节，32位，最大值:231−1&#x3D;21474836472^{31}-1&#x3D;2147483647231−1&#x3D;21">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-11T11:46:24.172Z">
 <meta property="article:modified_time" content="2024-05-26T03:02:23.150Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">数值范围</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4"><span class="nav-text">区间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">K小问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E9%9B%86%E5%90%88"><span class="nav-text">出现的大小写字母集合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-text">出现超过一半的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0"><span class="nav-text">169. 多数元素</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">动态规划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">预处理回文数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4"><span class="nav-text"> 数值范围</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4"><span class="nav-text"> 区间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k%E5%B0%8F%E9%97%AE%E9%A2%98"><span class="nav-text"> K小问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text"> 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99%E5%AD%97%E6%AF%8D%E9%9B%86%E5%90%88"><span class="nav-text"> 出现的大小写字母集合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-text"> 数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BA%E7%8E%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-text"> 出现超过一半的数字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0"><span class="nav-text"> 169. 多数元素</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-text"> 动态规划</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-text"> 二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-text"> 预处理回文数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,49 +275,48 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<ul class="lvl-1">
-<li class="lvl-2">
+<ul>
+<li>
 <p>最值</p>
 </li>
-<li class="lvl-3">
+<li>
 <p>二分查找（解的值域范围具有单调性，小于x的值范围都符合，大于x的值范围都不符合）</p>
 </li>
-<li class="lvl-3">
+<li>
 <p>动态规划</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>二分查找</p>
 </li>
-<li class="lvl-3">
+<li>
 <p>使……最大值尽可能小</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>前缀和</p>
 </li>
-<li class="lvl-3">
+<li>
 <p>子数组</p>
 </li>
-<li class="lvl-2">
+<li>
 <p>动态规划</p>
 </li>
-<li class="lvl-3">
+<li>
 <p>将数组分割为割为<em>m</em>段，求……</p>
 </li>
-<li class="lvl-3">
-</li>
+<li></li>
 </ul>
 </blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">滑动窗口
-<ul class="lvl-2">
-<li class="lvl-6">长度固定的子数组</li>
+<ul>
+<li>滑动窗口
+<ul>
+<li>长度固定的子数组</li>
 </ul>
 </li>
 </ul>
-<h1>数值范围</h1>
-<p>int：4字节，32位，最大值:$2^{31}-1=2147483647$，最小值$-2147483648$。</p>
-<p>$10<sup>5$的数据范围不能用$O(n</sup>2)$解法<br>
-$10^9$的时间复杂度不行</p>
+<h1 id="数值范围"><a class="markdownIt-Anchor" href="#数值范围"></a> 数值范围</h1>
+<p>int：4字节，32位，最大值:<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>31</mn></msup><mo>−</mo><mn>1</mn><mo>=</mo><mn>2147483647</mn></mrow><annotation encoding="application/x-tex">2^{31}-1=2147483647</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">1</span><span class="mord">4</span><span class="mord">7</span><span class="mord">4</span><span class="mord">8</span><span class="mord">3</span><span class="mord">6</span><span class="mord">4</span><span class="mord">7</span></span></span></span>，最小值<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>2147483648</mn></mrow><annotation encoding="application/x-tex">-2147483648</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">2</span><span class="mord">1</span><span class="mord">4</span><span class="mord">7</span><span class="mord">4</span><span class="mord">8</span><span class="mord">3</span><span class="mord">6</span><span class="mord">4</span><span class="mord">8</span></span></span></span>。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span>的数据范围不能用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>解法<br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span>的时间复杂度不行</p>
 <table>
 <thead>
 <tr>
@@ -327,59 +326,49 @@ $10^9$的时间复杂度不行</p>
 </thead>
 <tbody>
 <tr>
-<td>$10^5$</td>
-<td>$nlog(n)$</td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">10^5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">nlog(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span></td>
 </tr>
 </tbody>
 </table>
-<h2 id="区间">区间</h2>
-<p>对于两个区间$[S_1,e_1)$和$[S_2,e_2)$，如果两者没有交集，则此时应当满足$s_1 \ge e_2$或者$s_2 \ge  e_1$，即如果$s_1 &lt;e_2 且 s_2&lt;e_1$，两者会产生交集。</p>
-<p>num/mid上取整<br>
+<h2 id="区间"><a class="markdownIt-Anchor" href="#区间"></a> 区间</h2>
+<p>对于两个区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><msub><mi>S</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>e</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[S_1,e_1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><msub><mi>S</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>e</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">[S_2,e_2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，如果两者没有交集，则此时应当满足<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo>≥</mo><msub><mi>e</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">s_1 \ge e_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>或者<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>2</mn></msub><mo>≥</mo><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_2 \ge  e_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，即如果<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo>&lt;</mo><msub><mi>e</mi><mn>2</mn></msub><mi mathvariant="normal">且</mi><msub><mi>s</mi><mn>2</mn></msub><mo>&lt;</mo><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">s_1 &lt;e_2 且 s_2&lt;e_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.6891em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord cjk_fallback">且</span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，两者会产生交集。</p>
+<p>num/mid上取整<br />
 (num-1)/mid+1    (num+mid-1)/mid</p>
-<h1>K小问题</h1>
+<h1 id="k小问题"><a class="markdownIt-Anchor" href="#k小问题"></a> K小问题</h1>
 <p>k 小问题有三种解法：按位确定答案（多用于字符串和二进制数），用堆维护当前最小答案（用于 kkk 比较小的情况），二分（用于 kkk 比较大的情况）。</p>
-<h1>字符串</h1>
-<h2 id="出现的大小写字母集合">出现的大小写字母集合</h2>
+<h1 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h1>
+<h2 id="出现的大小写字母集合"><a class="markdownIt-Anchor" href="#出现的大小写字母集合"></a> 出现的大小写字母集合</h2>
 <p>因此可以利用二进制位来进行标记，lower标记字符中出现过小写英文字母，upper标记字符中出现过大写英文字母。如果满足lower=upper，则认为字符串中所有的字符都满足大小写形式同时出现。</p>
 <p><a href="https://leetcode.cn/problems/longest-nice-substring/">1763. 最长的美好子字符串</a></p>
-<p>字符是否出现<br>
+<p>字符是否出现<br />
 <a href="https://leetcode.cn/problems/count-the-number-of-consistent-strings/description/">1684. 统计一致字符串的数目 - 力扣（LeetCode）</a></p>
-<h1>数组</h1>
-<p>「长度固定的子数组」就要想到滑动窗口对角线上是否放置元素</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>record.count(x-y)</p>
-</li>
-<li class="lvl-2">
-<p>record.count(x+y)</p>
-</li>
+<h1 id="数组"><a class="markdownIt-Anchor" href="#数组"></a> 数组</h1>
+<p>「长度固定的子数组」就要想到滑动窗口<br />
+对角线上是否放置元素</p>
+<ul>
+<li>record.count(x-y)</li>
+<li>record.count(x+y)</li>
 </ul>
-<h2 id="出现超过一半的数字">出现超过一半的数字</h2>
+<h2 id="出现超过一半的数字"><a class="markdownIt-Anchor" href="#出现超过一半的数字"></a> 出现超过一半的数字</h2>
 <p><a href="https://blog.csdn.net/chris__x/article/details/107781237">找出数组中出现次数超过数组长度一半的数字</a></p>
-<h4 id="169-多数元素"><a href="https://leetcode.cn/problems/majority-element/">169. 多数元素</a></h4>
+<h4 id="169-多数元素"><a class="markdownIt-Anchor" href="#169-多数元素"></a> <a href="https://leetcode.cn/problems/majority-element/">169. 多数元素</a></h4>
 <ol>
-<li class="lvl-3">
-<p>哈希表记录出现次数</p>
-</li>
-<li class="lvl-3">
-<p>排序后取中位数</p>
-</li>
-<li class="lvl-3">
-<p>抵消法</p>
-</li>
-<li class="lvl-3">
-<p>快排取中位数</p>
-</li>
+<li>哈希表记录出现次数</li>
+<li>排序后取中位数</li>
+<li>抵消法</li>
+<li>快排取中位数</li>
 </ol>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">0</span>,pre=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>)&#123;</span><br><span class="line">                pre=num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(num==pre)&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1>动态规划</h1>
-<p>动态规划的题目分为两大类，一种是求最优解类，典型问题是背包问题，另一种就是计数类，比如这里的统计方案数的问题，它们都存在一定的递推性质。「将数组分割为割为m  段，求……」是动态规划题目常见的问法。<a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></p>
-<h1>二分查找</h1>
+<h1 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h1>
+<p>动态规划的题目分为两大类，一种是求最优解类，典型问题是背包问题，另一种就是计数类，比如这里的统计方案数的问题，它们都存在一定的递推性质。<br />
+「将数组分割为割为m  段，求……」是动态规划题目常见的问法。<a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></p>
+<h1 id="二分查找"><a class="markdownIt-Anchor" href="#二分查找"></a> 二分查找</h1>
 <blockquote>
 <p>适合求解具有<mark>单调最优</mark>性质的题目</p>
 </blockquote>
 <p>「使……最大值尽可能小」是二分搜索题目常见的问法。<a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></p>
-<h1>预处理回文数</h1>
+<h1 id="预处理回文数"><a class="markdownIt-Anchor" href="#预处理回文数"></a> 预处理回文数</h1>
 <blockquote>
 <p>枚举回文数左半部分</p>
 </blockquote>

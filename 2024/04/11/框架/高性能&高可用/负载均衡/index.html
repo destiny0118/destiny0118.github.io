@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 七层负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-DNS%E8%A7%A3%E6%9E%90"><span class="nav-text">2.1 DNS解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-text">2.2 反向代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 负载均衡是怎么做的，如何实现一直均衡给一个用户</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-text"> 1 负载均衡</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%83%E5%B1%82%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="nav-text"> 2 七层负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-dns%E8%A7%A3%E6%9E%90"><span class="nav-text"> 2.1 DNS解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-text"> 2.2 反向代理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%80%E7%9B%B4%E5%9D%87%E8%A1%A1%E7%BB%99%E4%B8%80%E4%B8%AA%E7%94%A8%E6%88%B7"><span class="nav-text"> 3 负载均衡是怎么做的，如何实现一直均衡给一个用户</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -275,42 +275,42 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>1 负载均衡</h1>
+        <h1 id="1-负载均衡"><a class="markdownIt-Anchor" href="#1-负载均衡"></a> 1 负载均衡</h1>
 <p><strong>负载均衡</strong> 指的是将用户请求分摊到不同的服务器上处理，以提高系统整体的并发处理能力以及可靠性。负载均衡服务可以有由专门的软件或者硬件来完成，一般情况下，硬件的性能更好，软件的价格更便宜（后文会详细介绍到）。</p>
-<h1>2 七层负载均衡</h1>
-<h2 id="2-1-DNS解析">2.1 DNS解析</h2>
-<h2 id="2-2-反向代理">2.2 反向代理</h2>
+<h1 id="2-七层负载均衡"><a class="markdownIt-Anchor" href="#2-七层负载均衡"></a> 2 七层负载均衡</h1>
+<h2 id="21-dns解析"><a class="markdownIt-Anchor" href="#21-dns解析"></a> 2.1 DNS解析</h2>
+<h2 id="22-反向代理"><a class="markdownIt-Anchor" href="#22-反向代理"></a> 2.2 反向代理</h2>
 <p>客户端将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器，获取数据后再返回给客户端。对外暴露的是反向代理服务器地址，隐藏了真实服务器 IP 地址。反向代理“代理”的是目标服务器，这一个过程对于客户端而言是透明的。</p>
 <p>Nginx 就是最常用的反向代理服务器，它可以将接收到的客户端请求以一定的规则（负载均衡策略）均匀地分配到这个服务器集群中所有的服务器上。</p>
 <p>反向代理负载均衡同样属于七层负载均衡。</p>
-<h1>3 负载均衡是怎么做的，如何实现一直均衡给一个用户</h1>
+<h1 id="3-负载均衡是怎么做的如何实现一直均衡给一个用户"><a class="markdownIt-Anchor" href="#3-负载均衡是怎么做的如何实现一直均衡给一个用户"></a> 3 负载均衡是怎么做的，如何实现一直均衡给一个用户</h1>
 <p>负载均衡实现的一般步骤：</p>
 <ol>
-<li class="lvl-3">
+<li>
 <p><strong>识别负载均衡的需求：</strong> 首先需要确定在网络中的哪些资源需要进行负载均衡，如 Web 服务器、应用服务器或数据库服务器等。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>选择负载均衡算法：</strong> 根据具体的需求选择合适的负载均衡算法，常见的算法包括轮询（Round Robin）、加权轮询（Weighted Round Robin）、最小连接数（Least Connection）等。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>配置负载均衡器：</strong> 配置负载均衡器，设置负载均衡的规则和算法。这包括指定要均衡的服务器、配置健康检查（Health Check）机制以及设置负载均衡策略等。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>请求分发：</strong> 当用户发送请求时，负载均衡器会根据选定的算法将请求分发到相应的服务器上。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>监控和调整：</strong> 监控服务器的负载情况，根据需要动态调整负载均衡策略，以确保各服务器的负载保持均衡。</p>
 </li>
 </ol>
 <p>实现一直均衡给一个用户可能涉及不同的需求和场景，可以通过一些特定的策略来实现：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
+<ul>
+<li>
 <p><strong>基于 IP 地址的持续连接（IP Stickiness）：</strong> 通过将用户的请求路由到同一台服务器，以确保用户的会话状态在同一服务器上保持。这通常通过在负载均衡器上配置 IP 地址和服务器的映射关系来实现。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p><strong>会话保持（Session Affinity）：</strong> 类似于 IP Stickiness，但是更加灵活，可以基于用户的会话信息（如 Cookie）来实现，以确保用户的会话状态在同一服务器上保持。</p>
 </li>
-<li class="lvl-2">
+<li>
 <p><strong>动态负载均衡策略：</strong> 除了静态配置的负载均衡策略外，还可以根据用户的负载情况和服务器的负载情况动态调整负载均衡策略，以实现持续的均衡。</p>
 </li>
 </ul>

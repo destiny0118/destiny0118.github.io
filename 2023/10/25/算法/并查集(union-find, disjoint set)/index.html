@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">简洁写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">路径压缩+按秩合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">删除边</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%80%E6%B4%81%E5%86%99%E6%B3%95"><span class="nav-text"> 简洁写法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%8E%8B%E7%BC%A9%E6%8C%89%E7%A7%A9%E5%90%88%E5%B9%B6"><span class="nav-text"> 路径压缩+按秩合并</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%BE%B9"><span class="nav-text"> 删除边</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,14 +274,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>简洁写法</h1>
+        <h1 id="简洁写法"><a class="markdownIt-Anchor" href="#简洁写法"></a> 简洁写法</h1>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; id;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n):<span class="built_in">id</span>(n)&#123;</span><br><span class="line">        <span class="built_in">iota</span>(id.<span class="built_in">begin</span>(),id.<span class="built_in">end</span>(),<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 找到p的父节点</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=id[p])</span><br><span class="line">            p=id[p];</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 在p和q之间添加边</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        id[<span class="built_in">find</span>(p)]=<span class="built_in">find</span>(q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// p和q是否同属于一个集合</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isConnect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">find</span>(p)==<span class="built_in">find</span>(q);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1>路径压缩+按秩合并</h1>
+<h1 id="路径压缩按秩合并"><a class="markdownIt-Anchor" href="#路径压缩按秩合并"></a> 路径压缩+按秩合并</h1>
 <p><a href="https://leetcode.cn/problems/number-of-operations-to-make-network-connected/solutions/101780/lian-tong-wang-luo-de-cao-zuo-ci-shu-by-leetcode-s/">1319. 连通网络的操作次数 - 力扣（LeetCode）</a>（模板，更清晰）</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span> &#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; id, size;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//把数组初始化为0到n-1</span></span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n) : <span class="built_in">id</span>(n), <span class="built_in">size</span>(n, <span class="number">1</span>) &#123; <span class="built_in">iota</span>(id.<span class="built_in">begin</span>(), id.<span class="built_in">end</span>(), <span class="number">0</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 路径压缩</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// p的父节点</span></span><br><span class="line">        <span class="keyword">while</span> (id[p] != p) &#123;</span><br><span class="line">            id[p] = id[id[p]];</span><br><span class="line">            p = id[p];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="built_in">find</span>(p), j = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">if</span> (i != j) &#123;</span><br><span class="line">            <span class="comment">// 按秩合并，把元素数少的集合合并到元素数多的集合</span></span><br><span class="line">            <span class="keyword">if</span> (size[i] &gt; size[j]) &#123;</span><br><span class="line">                id[j] = i;</span><br><span class="line">                size[i] += size[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                id[i] = j;</span><br><span class="line">                size[j] += size[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isConnect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">find</span>(p) == <span class="built_in">find</span>(q); &#125;</span><br><span class="line">    <span class="comment">// 返回由多少个独立的集合</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getCnt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; id.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (id[i] == i)</span><br><span class="line">                cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1>删除边</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/582511962">并查集优化——树上删除操作 - 知乎 (zhihu.com)</a><br>
-<a href="https://www.cnblogs.com/wingman/p/10387069.html">并查集-并查集的删除操作 - 僚机 - 博客园 (cnblogs.com)</a><br>
+<h1 id="删除边"><a class="markdownIt-Anchor" href="#删除边"></a> 删除边</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/582511962">并查集优化——树上删除操作 - 知乎 (zhihu.com)</a><br />
+<a href="https://www.cnblogs.com/wingman/p/10387069.html">并查集-并查集的删除操作 - 僚机 - 博客园 (cnblogs.com)</a><br />
 <a href="https://blog.csdn.net/qq_41694395/article/details/79253047">并查集——简单易懂（内附并查集删除操作）_可删并查集-CSDN博客</a></p>
 
     </div>

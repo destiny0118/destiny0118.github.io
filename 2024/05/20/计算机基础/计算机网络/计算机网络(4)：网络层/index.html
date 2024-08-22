@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210721162737.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210721171550.png">
 <meta property="article:published_time" content="2024-05-20T09:17:20.579Z">
-<meta property="article:modified_time" content="2024-05-20T11:52:19.588Z">
+<meta property="article:modified_time" content="2024-08-20T16:11:28.991Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#IPv4%EF%BC%9A20%E5%AD%97%E8%8A%82%EF%BC%88%E6%97%A0%E9%80%89%E9%A1%B9%EF%BC%89"><span class="nav-text">IPv4：20字节（无选项）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%A0%E7%89%B9%E7%BD%91%E7%BC%96%E5%9D%80-%E8%AE%A1%E7%BB%84%E5%86%85%E5%AD%98%E5%AF%BB%E5%9D%80%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84%E3%80%81%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84%E3%80%81%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-text">因特网编址-(计组内存寻址：直接映射、全相联映射、组相联映射)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AE%EF%BC%88Dynamic-Host-Configuration-DHCP%EF%BC%89"><span class="nav-text">动态主机配置协议（Dynamic Host Configuration, DHCP）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">网络地址转换（Network Address Translation, NAT）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">ARP协议</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-text"> 1 网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-ipv420%E5%AD%97%E8%8A%82%E6%97%A0%E9%80%89%E9%A1%B9"><span class="nav-text"> 1.1 IPv4：20字节（无选项）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%9B%A0%E7%89%B9%E7%BD%91%E7%BC%96%E5%9D%80-%E8%AE%A1%E7%BB%84%E5%86%85%E5%AD%98%E5%AF%BB%E5%9D%80%E7%9B%B4%E6%8E%A5%E6%98%A0%E5%B0%84-%E5%85%A8%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84-%E7%BB%84%E7%9B%B8%E8%81%94%E6%98%A0%E5%B0%84"><span class="nav-text"> 1.2 因特网编址-(计组内存寻址：直接映射、全相联映射、组相联映射)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E9%85%8D%E7%BD%AE%E5%8D%8F%E8%AE%AEdynamic-host-configuration-dhcp"><span class="nav-text"> 1.3 动态主机配置协议（Dynamic Host Configuration, DHCP）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2network-address-translation-nat"><span class="nav-text"> 2 网络地址转换（Network Address Translation, NAT）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-arp%E5%8D%8F%E8%AE%AE"><span class="nav-text"> 3 ARP协议</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -257,9 +257,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2024-05-20 17:17:20 / 修改时间：19:52:19" itemprop="dateCreated datePublished" datetime="2024-05-20T17:17:20+08:00">2024-05-20</time>
+      <time title="创建时间：2024-05-20 17:17:20" itemprop="dateCreated datePublished" datetime="2024-05-20T17:17:20+08:00">2024-05-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-08-21 00:11:28" itemprop="dateModified" datetime="2024-08-21T00:11:28+08:00">2024-08-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,12 +288,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405201718354.png" alt="image.png"></p>
-<h1>网络层</h1>
+        <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405201718354.png" alt="image.png" /></p>
+<ul>
+<li><strong>IP（Internet Protocol，网际协议）</strong>：TCP/IP 协议中最重要的协议之一，属于网络层的协议，主要作用是定义数据包的格式、对数据包进行路由和寻址，以便它们可以跨网络传播并到达正确的目的地。目前 IP 协议主要分为两种，一种是过去的 IPv4，另一种是较新的 IPv6，目前这两种协议都在使用，但后者已经被提议来取代前者。</li>
+<li><strong>ARP（Address Resolution Protocol，地址解析协议）</strong>：ARP 协议解决的是网络层地址和链路层地址之间的转换问题。因为一个 IP 数据报在物理上传输的过程中，总是需要知道下一跳（物理上的下一个目的地）该去往何处，但 IP 地址属于逻辑地址，而 MAC 地址才是物理地址，ARP 协议解决了 IP 地址转 MAC 地址的一些问题。</li>
+<li><strong>ICMP（Internet Control Message Protocol，互联网控制报文协议）</strong>：一种用于传输网络状态和错误消息的协议，常用于网络诊断和故障排除。例如，Ping 工具就使用了 ICMP 协议来测试网络连通性。</li>
+<li><strong>NAT（Network Address Translation，网络地址转换协议）</strong>：NAT 协议的应用场景如同它的名称——网络地址转换，应用于内部网到外部网的地址转换过程中。具体地说，在一个小的子网（局域网，LAN）内，各主机使用的是同一个 LAN 下的 IP 地址，但在该 LAN 以外，在广域网（WAN）中，需要一个统一的 IP 地址来标识该 LAN 在整个 Internet 上的位置。</li>
+</ul>
+<h1 id="1-网络层"><a class="markdownIt-Anchor" href="#1-网络层"></a> 1 网络层</h1>
 <blockquote>
 <p>MTU(最大传输单元，1500)</p>
 </blockquote>
-<h2 id="IPv4：20字节（无选项）">IPv4：20字节（无选项）</h2>
+<h2 id="11-ipv420字节无选项"><a class="markdownIt-Anchor" href="#11-ipv420字节无选项"></a> 1.1 IPv4：20字节（无选项）</h2>
 <blockquote>
 <p>定义数据包的格式，对数据包进行路由和寻址</p>
 </blockquote>
@@ -295,23 +307,19 @@
 <p>标识号确定数据报的顺序，标志比特为0表示接收到数据报的最后一片，</p>
 <p>数据报通过链路层会分片，偏移量确定应放在数据报的什么位置，</p>
 <p>一个链路层帧能承载的最大数据量叫做最大传送单元（Maximum Transmission Unit, MTU）</p>
-<h2 id="因特网编址-计组内存寻址：直接映射、全相联映射、组相联映射">因特网编址-(计组内存寻址：直接映射、全相联映射、组相联映射)</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>分类编址：具有8、16、24比特子网地址的子网分别被称为A、B、C类网络。</p>
-</li>
-<li class="lvl-2">
-<p>无类别域间路由选择（Classless Interdomain Routing, CIDR)</p>
-</li>
+<h2 id="12-因特网编址-计组内存寻址直接映射-全相联映射-组相联映射"><a class="markdownIt-Anchor" href="#12-因特网编址-计组内存寻址直接映射-全相联映射-组相联映射"></a> 1.2 因特网编址-(计组内存寻址：直接映射、全相联映射、组相联映射)</h2>
+<ul>
+<li>分类编址：具有8、16、24比特子网地址的子网分别被称为A、B、C类网络。</li>
+<li>无类别域间路由选择（Classless Interdomain Routing, CIDR)</li>
 </ul>
-<h2 id="动态主机配置协议（Dynamic-Host-Configuration-DHCP）">动态主机配置协议（Dynamic Host Configuration, DHCP）</h2>
+<h2 id="13-动态主机配置协议dynamic-host-configuration-dhcp"><a class="markdownIt-Anchor" href="#13-动态主机配置协议dynamic-host-configuration-dhcp"></a> 1.3 动态主机配置协议（Dynamic Host Configuration, DHCP）</h2>
 <blockquote>
 <p>获取主机地址</p>
 </blockquote>
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210721171550.png" alt="image-20210721171550242" style="zoom:33%;" />
-<h1>网络地址转换（Network Address Translation, NAT）</h1>
+<h1 id="2-网络地址转换network-address-translation-nat"><a class="markdownIt-Anchor" href="#2-网络地址转换network-address-translation-nat"></a> 2 网络地址转换（Network Address Translation, NAT）</h1>
 <p><strong>NAT（Network Address Translation，网络地址转换）</strong> 主要用于在不同网络之间转换 IP 地址。它允许将私有 IP 地址（如在局域网中使用的 IP 地址）映射为公有 IP 地址（在互联网中使用的 IP 地址）或者反向映射，从而实现局域网内的多个设备通过单一公有 IP 地址访问互联网。</p>
-<h1>ARP协议</h1>
+<h1 id="3-arp协议"><a class="markdownIt-Anchor" href="#3-arp协议"></a> 3 ARP协议</h1>
 <blockquote>
 <p><strong>地址解析协议（Address Resolution Protocol）</strong>，它解决的是网络层地址和链路层地址之间的转换问题</p>
 </blockquote>

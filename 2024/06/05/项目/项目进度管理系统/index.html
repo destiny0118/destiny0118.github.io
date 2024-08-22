@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1 项目难点 对于业务场景项目，很多人自嘲增产改查。在具体去实现的时候，发现确实有些如此，但是这都是在项目成熟之后。难点在于从需求中最初对于整个项目结构、架构等的设计，从需求中分析出核心功能，在确定了核心功能，围绕功能的具体逻辑实现反而简单许多 1.1 快照，每一天的活动状态可追溯 方案一：每一天通过定时任务记录所有项目的状态快照点+状态变更（涉及到延期申请等，无法依据数据库的实际结束时间进行判断">
+    <meta name="description" content="1 项目难点 对于业务场景项目，很多人自嘲增产改查。在具体去实现的时候，发现确实有些如此，但是这都是在项目成熟之后。难点在于从需求中最初对于整个项目结构、架构等的设计，从需求中分析出核心功能，在确定了核心功能，围绕功能的具体逻辑实现反而简单许多  1.1 快照，每一天的活动状态可追溯 方案一：每一天通过定时任务记录所有项目的状态 快照点+状态变更（涉及到延期申请等，无法依据数据库的实际结束时间进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2024/06/05/%E9%A1%B9%E7%9B%AE/%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%BA%A6%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="1 项目难点 对于业务场景项目，很多人自嘲增产改查。在具体去实现的时候，发现确实有些如此，但是这都是在项目成熟之后。难点在于从需求中最初对于整个项目结构、架构等的设计，从需求中分析出核心功能，在确定了核心功能，围绕功能的具体逻辑实现反而简单许多 1.1 快照，每一天的活动状态可追溯 方案一：每一天通过定时任务记录所有项目的状态快照点+状态变更（涉及到延期申请等，无法依据数据库的实际结束时间进行判断">
+<meta property="og:description" content="1 项目难点 对于业务场景项目，很多人自嘲增产改查。在具体去实现的时候，发现确实有些如此，但是这都是在项目成熟之后。难点在于从需求中最初对于整个项目结构、架构等的设计，从需求中分析出核心功能，在确定了核心功能，围绕功能的具体逻辑实现反而简单许多  1.1 快照，每一天的活动状态可追溯 方案一：每一天通过定时任务记录所有项目的状态 快照点+状态变更（涉及到延期申请等，无法依据数据库的实际结束时间进">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-05T13:35:08.801Z">
 <meta property="article:modified_time" content="2024-06-20T08:11:34.942Z">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 项目难点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%BF%AB%E7%85%A7%EF%BC%8C%E6%AF%8F%E4%B8%80%E5%A4%A9%E7%9A%84%E6%B4%BB%E5%8A%A8%E7%8A%B6%E6%80%81%E5%8F%AF%E8%BF%BD%E6%BA%AF"><span class="nav-text">1.1 快照，每一天的活动状态可追溯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text">1.2 多条件查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E7%BB%9F%E8%AE%A1%E6%98%BE%E7%A4%BA"><span class="nav-text">1.3 统计显示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 领域</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E9%A1%B9%E7%9B%AE%E9%9A%BE%E7%82%B9"><span class="nav-text"> 1 项目难点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%BF%AB%E7%85%A7%E6%AF%8F%E4%B8%80%E5%A4%A9%E7%9A%84%E6%B4%BB%E5%8A%A8%E7%8A%B6%E6%80%81%E5%8F%AF%E8%BF%BD%E6%BA%AF"><span class="nav-text"> 1.1 快照，每一天的活动状态可追溯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-text"> 1.2 多条件查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E7%BB%9F%E8%AE%A1%E6%98%BE%E7%A4%BA"><span class="nav-text"> 1.3 统计显示</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%A2%86%E5%9F%9F"><span class="nav-text"> 2 领域</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +162,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,7 +173,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,28 +274,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>1 项目难点</h1>
+        <h1 id="1-项目难点"><a class="markdownIt-Anchor" href="#1-项目难点"></a> 1 项目难点</h1>
 <p>对于业务场景项目，很多人自嘲增产改查。在具体去实现的时候，发现确实有些如此，但是这都是在项目成熟之后。难点在于从需求中最初对于整个项目结构、架构等的设计，从需求中分析出核心功能，在确定了核心功能，围绕功能的具体逻辑实现反而简单许多</p>
-<h2 id="1-1-快照，每一天的活动状态可追溯">1.1 快照，每一天的活动状态可追溯</h2>
-<p>方案一：每一天通过定时任务记录所有项目的状态快照点+状态变更（涉及到延期申请等，无法依据数据库的实际结束时间进行判断）</p>
-<h2 id="1-2-多条件查询">1.2 多条件查询</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>动态SQL语句</p>
-</li>
-<li class="lvl-2">
-<p>定义查询条件参数，过滤后封装传递给SQL语句</p>
-</li>
-<li class="lvl-2">
-<p>Mybatis-plus插件</p>
-</li>
+<h2 id="11-快照每一天的活动状态可追溯"><a class="markdownIt-Anchor" href="#11-快照每一天的活动状态可追溯"></a> 1.1 快照，每一天的活动状态可追溯</h2>
+<p>方案一：每一天通过定时任务记录所有项目的状态<br />
+快照点+状态变更（涉及到延期申请等，无法依据数据库的实际结束时间进行判断）</p>
+<h2 id="12-多条件查询"><a class="markdownIt-Anchor" href="#12-多条件查询"></a> 1.2 多条件查询</h2>
+<ul>
+<li>动态SQL语句</li>
+<li>定义查询条件参数，过滤后封装传递给SQL语句</li>
+<li>Mybatis-plus插件</li>
 </ul>
-<p>某一条件设置查询条件某一条件未设置查询条件</p>
-<h2 id="1-3-统计显示">1.3 统计显示</h2>
-<p>考核日前查当月统计结果是当前查，考核日后查当月统计结果是快照查，考核日后的状态变更与当月无关，记录到下一个月中当前项目状态统计历史归档状态统计</p>
+<p>某一条件设置查询条件<br />
+某一条件未设置查询条件</p>
+<h2 id="13-统计显示"><a class="markdownIt-Anchor" href="#13-统计显示"></a> 1.3 统计显示</h2>
+<p>考核日前查当月统计结果是当前查，考核日后查当月统计结果是快照查，考核日后的状态变更与当月无关，记录到下一个月中<br />
+当前项目状态统计<br />
+历史归档状态统计</p>
 <p>跨考核日节点的统计</p>
-<h1>2 领域</h1>
-<p>项目上报、项目审批、项目状态变更、延期申请、延期审批、项目进度展示、数据统计用户权限配置、项目填报、项目审核、延期申请、延期审核、项目展示、统计界面</p>
+<h1 id="2-领域"><a class="markdownIt-Anchor" href="#2-领域"></a> 2 领域</h1>
+<p>项目上报、项目审批、项目状态变更、延期申请、延期审批、项目进度展示、数据统计<br />
+用户权限配置、项目填报、项目审核、延期申请、延期审核、项目展示、统计界面</p>
 
     </div>
 

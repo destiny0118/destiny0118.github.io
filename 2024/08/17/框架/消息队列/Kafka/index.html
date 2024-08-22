@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Kafka 是一个分布式流式处理平台  消息队列：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。 容错的持久方式存储记录消息流：Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。 流式处理平台： 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。   1 Kafka架构 Kafka 将生产者发布的消息发送到 Topic（主题）">
+    <meta name="description" content="::: tips Kafka 是一个分布式流式处理平台  消息队列：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。 容错的持久方式存储记录消息流：Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。 流式处理平台： 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。 :::   1 Kafka架构 Kafka 将生产者发布的消息发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka">
 <meta property="og:url" content="https://destiny0118.github.io/2024/08/17/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/Kafka/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="Kafka 是一个分布式流式处理平台  消息队列：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。 容错的持久方式存储记录消息流：Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。 流式处理平台： 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。   1 Kafka架构 Kafka 将生产者发布的消息发送到 Topic（主题）">
+<meta property="og:description" content="::: tips Kafka 是一个分布式流式处理平台  消息队列：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。 容错的持久方式存储记录消息流：Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。 流式处理平台： 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。 :::   1 Kafka架构 Kafka 将生产者发布的消息发">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406051118494.png">
 <meta property="article:published_time" content="2024-08-16T16:00:00.000Z">
@@ -151,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 Kafka架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%A4%9A%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6"><span class="nav-text">1.1 多副本机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%A4%9A%E5%88%86%E5%8C%BA-Partition-%E4%BB%A5%E5%8F%8A%E5%A4%9A%E5%89%AF%E6%9C%AC-Replica"><span class="nav-text">1.2 多分区(Partition)以及多副本(Replica)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-Kafka%E4%B8%ADISR"><span class="nav-text">1.3 Kafka中ISR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E4%B8%BA%E4%BB%80%E4%B9%88Redis-Pub-Sub%E6%AF%94Kafka%E6%9B%B4%E5%BF%AB%E4%B8%80%E4%BA%9B%EF%BC%9F%E4%BA%8C%E8%80%85%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%89%E5%8F%96%EF%BC%9F"><span class="nav-text">1.4 为什么Redis Pub&#x2F;Sub比Kafka更快一些？二者之间如何选取？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 Zookeeper和Kafka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 kafaka消费顺序、消息丢失、重复消费</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E9%A1%BA%E5%BA%8F%E6%B6%88%E8%B4%B9"><span class="nav-text">3.1 顺序消费</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%B6%88%E6%81%AF%E4%B8%A2%E5%A4%B1"><span class="nav-text">3.2 消息丢失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E7%94%9F%E4%BA%A7%E8%80%85%E4%B8%A2%E5%A4%B1%E6%B6%88%E6%81%AF"><span class="nav-text">3.2.1 生产者丢失消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-%E6%B6%88%E8%B4%B9%E8%80%85%E4%B8%A2%E5%A4%B1%E6%B6%88%E6%81%AF"><span class="nav-text">3.2.2 消费者丢失消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-Kafka%E4%B8%A2%E5%A4%B1%E6%B6%88%E6%81%AF"><span class="nav-text">3.2.3 Kafka丢失消息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9"><span class="nav-text">3.3 重复消费</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 分区rebalance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 Kafka重试机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E9%87%8D%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E5%86%8D%E6%AC%A1%E5%A4%84%E7%90%86"><span class="nav-text">5.1 重试失败后的数据如何再次处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 RocketMQ</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-kafka%E6%9E%B6%E6%9E%84"><span class="nav-text"> 1 Kafka架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%A4%9A%E5%89%AF%E6%9C%AC%E6%9C%BA%E5%88%B6"><span class="nav-text"> 1.1 多副本机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%A4%9A%E5%88%86%E5%8C%BApartition%E4%BB%A5%E5%8F%8A%E5%A4%9A%E5%89%AF%E6%9C%ACreplica"><span class="nav-text"> 1.2 多分区(Partition)以及多副本(Replica)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-kafka%E4%B8%ADisr"><span class="nav-text"> 1.3 Kafka中ISR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E4%B8%BA%E4%BB%80%E4%B9%88redis-pubsub%E6%AF%94kafka%E6%9B%B4%E5%BF%AB%E4%B8%80%E4%BA%9B%E4%BA%8C%E8%80%85%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E9%80%89%E5%8F%96"><span class="nav-text"> 1.4 为什么Redis Pub&#x2F;Sub比Kafka更快一些？二者之间如何选取？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-zookeeper%E5%92%8Ckafka"><span class="nav-text"> 2 Zookeeper和Kafka</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-kafaka%E6%B6%88%E8%B4%B9%E9%A1%BA%E5%BA%8F-%E6%B6%88%E6%81%AF%E4%B8%A2%E5%A4%B1-%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9"><span class="nav-text"> 3 kafaka消费顺序、消息丢失、重复消费</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E9%A1%BA%E5%BA%8F%E6%B6%88%E8%B4%B9"><span class="nav-text"> 3.1 顺序消费</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E6%B6%88%E6%81%AF%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 3.2 消息丢失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#321-%E7%94%9F%E4%BA%A7%E8%80%85%E4%B8%A2%E5%A4%B1%E6%B6%88%E6%81%AF"><span class="nav-text"> 3.2.1 生产者丢失消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#322-%E6%B6%88%E8%B4%B9%E8%80%85%E4%B8%A2%E5%A4%B1%E6%B6%88%E6%81%AF"><span class="nav-text"> 3.2.2 消费者丢失消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#323-kafka%E4%B8%A2%E5%A4%B1%E6%B6%88%E6%81%AF"><span class="nav-text"> 3.2.3 Kafka丢失消息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9"><span class="nav-text"> 3.3 重复消费</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%88%86%E5%8C%BArebalance"><span class="nav-text"> 4 分区rebalance</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-kafka%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="nav-text"> 5 Kafka重试机制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E9%87%8D%E8%AF%95%E5%A4%B1%E8%B4%A5%E5%90%8E%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E5%86%8D%E6%AC%A1%E5%A4%84%E7%90%86"><span class="nav-text"> 5.1 重试失败后的数据如何再次处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-rocketmq"><span class="nav-text"> 6 RocketMQ</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,7 +164,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -175,7 +175,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,46 +279,44 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <div class="tips">
-<p>Kafka 是一个分布式流式处理平台</p>
-<ul class="lvl-1">
-<li class="lvl-2"><strong>消息队列</strong>：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。</li>
-<li class="lvl-2"><strong>容错的持久方式存储记录消息流</strong>：Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。</li>
-<li class="lvl-2"><strong>流式处理平台：</strong> 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。</li>
+        <p>::: tips<br />
+Kafka 是一个分布式流式处理平台</p>
+<ul>
+<li><strong>消息队列</strong>：发布和订阅消息流，这个功能类似于消息队列，这也是 Kafka 也被归类为消息队列的原因。</li>
+<li><strong>容错的持久方式存储记录消息流</strong>：Kafka 会把消息持久化到磁盘，有效避免了消息丢失的风险。</li>
+<li><strong>流式处理平台：</strong> 在消息发布的时候进行处理，Kafka 提供了一个完整的流式处理类库。<br />
+:::</li>
 </ul>
-</div>
-<h1>1 Kafka架构</h1>
-<p>Kafka 将生产者发布的消息发送到 <strong>Topic（主题）</strong> 中，需要这些消息的消费者可以订阅这些 <strong>Topic（主题）</strong>。<br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406051118494.png" alt="image.png|575"></p>
-<ul class="lvl-0">
-<li class="lvl-2"><strong>Producer（生产者）</strong> : 产生消息的一方。</li>
-<li class="lvl-2"><strong>Consumer（消费者）</strong> : 消费消息的一方。</li>
-<li class="lvl-2"><strong>Broker（代理）</strong> : 可以看作是一个独立的 Kafka 实例。多个 Kafka Broker 组成一个 Kafka Cluster。</li>
-<li class="lvl-2"><strong>Topic（主题）</strong> : Producer 将消息发送到特定的主题，Consumer 通过订阅特定的 Topic(主题) 来消费消息。</li>
-<li class="lvl-2"><strong>Partition（分区）</strong> : Partition 属于 Topic 的一部分。一个 Topic 可以有多个 Partition ，并且同一 Topic 下的 Partition 可以分布在不同的 Broker 上，这也就表明一个 Topic 可以横跨多个 Broker 。这正如我上面所画的图一样</li>
+<h1 id="1-kafka架构"><a class="markdownIt-Anchor" href="#1-kafka架构"></a> 1 Kafka架构</h1>
+<p>Kafka 将生产者发布的消息发送到 <strong>Topic（主题）</strong> 中，需要这些消息的消费者可以订阅这些 <strong>Topic（主题）</strong>。<br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406051118494.png" alt="image.png|575" /></p>
+<ul>
+<li><strong>Producer（生产者）</strong> : 产生消息的一方。</li>
+<li><strong>Consumer（消费者）</strong> : 消费消息的一方。</li>
+<li><strong>Broker（代理）</strong> : 可以看作是一个独立的 Kafka 实例。多个 Kafka Broker 组成一个 Kafka Cluster。</li>
+<li><strong>Topic（主题）</strong> : Producer 将消息发送到特定的主题，Consumer 通过订阅特定的 Topic(主题) 来消费消息。</li>
+<li><strong>Partition（分区）</strong> : Partition 属于 Topic 的一部分。一个 Topic 可以有多个 Partition ，并且同一 Topic 下的 Partition 可以分布在不同的 Broker 上，这也就表明一个 Topic 可以横跨多个 Broker 。这正如我上面所画的图一样</li>
 </ul>
 <blockquote>
-<p>同一topic下不同partition中存储的是完整消息流的一部分，所有partition中数据相加是完整的消息流数据，partition中的数据是不一致的。分区存储在不同的broker提升并发处理能力<br>
+<p>同一topic下不同partition中存储的是完整消息流的一部分，所有partition中数据相加是完整的消息流数据，partition中的数据是不一致的。<br />
+分区存储在不同的broker提升并发处理能力<br />
 <strong>Kafka 中的 Partition（分区） 实际上可以对应成为消息队列中的队列</strong></p>
 </blockquote>
-<h2 id="1-1-多副本机制">1.1 多副本机制</h2>
-<p>Kafka为分区（Partition）引入了多副本（Replica）机制。分区（Partition）中的多个副本之间有一个leader， 其他副本称为 follower。我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。生产者和消费者只与leader副本交互，其他副本是leader副本的拷贝，它们的存在是为了保证消息存储的安全性。</p>
-<h2 id="1-2-多分区-Partition-以及多副本-Replica">1.2 多分区(Partition)以及多副本(Replica)</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>多分区：Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的<mark>并发能力（负载均衡）</mark>。</p>
-</li>
-<li class="lvl-2">
-<p>多副本：Partition 可以指定对应的 Replica 数, 这也极大地提高了<mark>消息存储的安全性</mark>, 提高了容灾能力，不过也相应的增加了所需要的存储空间。</p>
-</li>
+<h2 id="11-多副本机制"><a class="markdownIt-Anchor" href="#11-多副本机制"></a> 1.1 多副本机制</h2>
+<p>Kafka为分区（Partition）引入了多副本（Replica）机制。分区（Partition）中的多个副本之间有一个leader， 其他副本称为 follower。我们发送的消息会被发送到 leader 副本，然后 follower 副本才能从 leader 副本中拉取消息进行同步。<br />
+生产者和消费者只与leader副本交互，其他副本是leader副本的拷贝，它们的存在是为了保证消息存储的安全性。</p>
+<h2 id="12-多分区partition以及多副本replica"><a class="markdownIt-Anchor" href="#12-多分区partition以及多副本replica"></a> 1.2 多分区(Partition)以及多副本(Replica)</h2>
+<ul>
+<li>多分区：Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的<mark>并发能力（负载均衡）</mark>。</li>
+<li>多副本：Partition 可以指定对应的 Replica 数, 这也极大地提高了<mark>消息存储的安全性</mark>, 提高了容灾能力，不过也相应的增加了所需要的存储空间。</li>
 </ul>
-<h2 id="1-3-Kafka中ISR">1.3 Kafka中ISR</h2>
+<h2 id="13-kafka中isr"><a class="markdownIt-Anchor" href="#13-kafka中isr"></a> 1.3 Kafka中ISR</h2>
 <p>首先，ISR 的全称叫做：<mark>In-Sync Replicas （同步副本集）</mark>, 我们可以理解为和 leader 保持同步的所有副本的集合。</p>
 <p>一个分区的所有副本集合叫做 AR（ Assigned Repllicas ） ，与 leader-replica 未能保持同步的副本集叫做 OSR（ Out-Sync Relipcas ）。</p>
 <p>因此我们就能得到这么一个表示：AR = ISR + OSR，翻译一下就是一个分区的副本集分为同步集合和非同步集合两部分。</p>
 <p>ISR 的作用：是通过副本机制实现消息高可靠，服务高可用时，不可缺少的一环</p>
 <p><a href="https://cloud.tencent.com/developer/article/2231968">说一说你对 Kafka 中 ISR 的理解-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<h2 id="1-4-为什么Redis-Pub-Sub比Kafka更快一些？二者之间如何选取？">1.4 为什么Redis Pub/Sub比Kafka更快一些？二者之间如何选取？</h2>
+<h2 id="14-为什么redis-pubsub比kafka更快一些二者之间如何选取"><a class="markdownIt-Anchor" href="#14-为什么redis-pubsub比kafka更快一些二者之间如何选取"></a> 1.4 为什么Redis Pub/Sub比Kafka更快一些？二者之间如何选取？</h2>
 <blockquote>
 <p><strong>为什么Redis Pub/Sub比Kafka更快一些？</strong> Redis是一个内存数据库，其Pub/Sub功能将消息保存在内存中。由于内存访问速度通常远快于磁盘访问速度，因此Redis在处理实时性较高的消息推送时具有优势。此外，Redis的Pub/Sub模型相对简单，使得它在处理发布和订阅操作时的开销较小。 然而，Kafka是一个完整的系统，提供了高吞吐量、分布式的提交日志。它旨在处理大规模数据流，具有强大的持久化能力和容错性。Kafka的分布式架构和分区机制使得它能够在多个消费者之间实现负载均衡，从而提高整体处理能力。</p>
 </blockquote>
@@ -326,130 +324,83 @@
 <p><strong>二者之间如何选取？</strong></p>
 <p><strong>Redis PUB/SUB使用场景：</strong></p>
 <ol>
-<li class="lvl-3">
-<p>消息持久性需求不高</p>
-</li>
-<li class="lvl-3">
-<p>吞吐量要求不高</p>
-</li>
-<li class="lvl-3">
-<p>可以忍受数据丢失</p>
-</li>
-<li class="lvl-3">
-<p>数据量不大</p>
-</li>
+<li>消息持久性需求不高</li>
+<li>吞吐量要求不高</li>
+<li>可以忍受数据丢失</li>
+<li>数据量不大</li>
 </ol>
 <p><strong>Kafka使用场景：</strong>(上面以外的其他场景)</p>
 <ol>
-<li class="lvl-3">
-<p>高可靠性</p>
-</li>
-<li class="lvl-3">
-<p>高吞吐量</p>
-</li>
-<li class="lvl-3">
-<p>持久性高</p>
-</li>
-<li class="lvl-3">
-<p>多样化的消费处理模型</p>
-</li>
+<li>高可靠性</li>
+<li>高吞吐量</li>
+<li>持久性高</li>
+<li>多样化的消费处理模型</li>
 </ol>
 </blockquote>
-<h1>2 Zookeeper和Kafka</h1>
+<h1 id="2-zookeeper和kafka"><a class="markdownIt-Anchor" href="#2-zookeeper和kafka"></a> 2 Zookeeper和Kafka</h1>
 <p>ZooKeeper 主要为 Kafka 提供<mark>元数据的管理</mark>的功能。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>Broker 注册</strong>：在 Zookeeper 上会有一个专门<strong>用来进行 Broker 服务器列表记录</strong>的节点。每个 Broker 在启动时，都会到 Zookeeper 上进行注册，即到 <code>/brokers/ids</code> 下创建属于自己的节点。每个 Broker 就会将自己的 IP 地址和端口等信息记录到该节点中去</p>
-</li>
-<li class="lvl-2">
-<p><strong>Topic 注册</strong>：在 Kafka 中，同一个<strong>Topic 的消息会被分成多个分区</strong>并将其分布在多个 Broker 上，<strong>这些分区信息及与 Broker 的对应关系</strong>也都是由 Zookeeper 在维护。比如我创建了一个名字为 my-topic 的主题并且它有两个分区，对应到 zookeeper 中会创建这些文件夹：<code>/brokers/topics/my-topic/Partitions/0</code>、<code>/brokers/topics/my-topic/Partitions/1</code></p>
-</li>
-<li class="lvl-2">
-<p><strong>负载均衡</strong>：上面也说过了 Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力。 对于同一个 Topic 的不同 Partition，Kafka 会尽力将这些 Partition 分布到不同的 Broker 服务器上。当生产者产生消息后也会尽量投递到不同 Broker 的 Partition 里面。当 Consumer 消费的时候，Zookeeper 可以根据当前的 Partition 数量以及 Consumer 数量来实现动态负载均衡。</p>
-</li>
+<ul>
+<li><strong>Broker 注册</strong>：在 Zookeeper 上会有一个专门<strong>用来进行 Broker 服务器列表记录</strong>的节点。每个 Broker 在启动时，都会到 Zookeeper 上进行注册，即到 <code>/brokers/ids</code> 下创建属于自己的节点。每个 Broker 就会将自己的 IP 地址和端口等信息记录到该节点中去</li>
+<li><strong>Topic 注册</strong>：在 Kafka 中，同一个<strong>Topic 的消息会被分成多个分区</strong>并将其分布在多个 Broker 上，<strong>这些分区信息及与 Broker 的对应关系</strong>也都是由 Zookeeper 在维护。比如我创建了一个名字为 my-topic 的主题并且它有两个分区，对应到 zookeeper 中会创建这些文件夹：<code>/brokers/topics/my-topic/Partitions/0</code>、<code>/brokers/topics/my-topic/Partitions/1</code></li>
+<li><strong>负载均衡</strong>：上面也说过了 Kafka 通过给特定 Topic 指定多个 Partition, 而各个 Partition 可以分布在不同的 Broker 上, 这样便能提供比较好的并发能力。 对于同一个 Topic 的不同 Partition，Kafka 会尽力将这些 Partition 分布到不同的 Broker 服务器上。当生产者产生消息后也会尽量投递到不同 Broker 的 Partition 里面。当 Consumer 消费的时候，Zookeeper 可以根据当前的 Partition 数量以及 Consumer 数量来实现动态负载均衡。</li>
 </ul>
-<h1>3 kafaka消费顺序、消息丢失、重复消费</h1>
-<h2 id="3-1-顺序消费">3.1 顺序消费</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>1个Topic只对应一个Partition</p>
-</li>
-<li class="lvl-2">
-<p>发送消息的时候指定key或Partition</p>
-</li>
+<h1 id="3-kafaka消费顺序-消息丢失-重复消费"><a class="markdownIt-Anchor" href="#3-kafaka消费顺序-消息丢失-重复消费"></a> 3 kafaka消费顺序、消息丢失、重复消费</h1>
+<h2 id="31-顺序消费"><a class="markdownIt-Anchor" href="#31-顺序消费"></a> 3.1 顺序消费</h2>
+<ul>
+<li>1个Topic只对应一个Partition</li>
+<li>发送消息的时候指定key或Partition</li>
 </ul>
-<p>Kafka 中发送 1 条消息的时候，可以指定<code> topic, partition, key,data（数据）</code> 4 个参数。如果你发送消息的时候指定了 Partition 的话，所有消息都会被发送到指定的 Partition。并且，同一个 key 的消息可以保证只发送到同一个 partition，这个我们可以采用表/对象的 id 来作为 key 。</p>
-<h2 id="3-2-消息丢失">3.2 消息丢失</h2>
-<h3 id="3-2-1-生产者丢失消息">3.2.1 生产者丢失消息</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>确认机制</p>
-</li>
-<li class="lvl-2">
-<p>失败重试机制</p>
-</li>
+<p>Kafka 中发送 1 条消息的时候，可以指定<code>topic, partition, key,data（数据）</code> 4 个参数。如果你发送消息的时候指定了 Partition 的话，所有消息都会被发送到指定的 Partition。并且，同一个 key 的消息可以保证只发送到同一个 partition，这个我们可以采用表/对象的 id 来作为 key 。</p>
+<h2 id="32-消息丢失"><a class="markdownIt-Anchor" href="#32-消息丢失"></a> 3.2 消息丢失</h2>
+<h3 id="321-生产者丢失消息"><a class="markdownIt-Anchor" href="#321-生产者丢失消息"></a> 3.2.1 生产者丢失消息</h3>
+<ul>
+<li>确认机制</li>
+<li>失败重试机制</li>
 </ul>
 <p>Kafka 生产者(Producer) 使用 <code>send</code> 方法发送消息实际上是异步的操作，我们可以通过 <code>get()</code>方法获取调用结果，但是这样也让它变为了同步操作</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SendResult&lt;String, Object&gt; sendResult = kafkaTemplate.send(topic, o).get();</span><br><span class="line"><span class="keyword">if</span> (sendResult.getRecordMetadata() != <span class="literal">null</span>) &#123;</span><br><span class="line">  logger.info(<span class="string">&quot;生产者成功发送消息到&quot;</span> + sendResult.getProducerRecord().topic() + <span class="string">&quot;-&gt; &quot;</span> + sendResult.getProducerRecord().value().toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>添加回调函数的形式：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListenableFuture&lt;SendResult&lt;String, Object&gt;&gt; future = kafkaTemplate.send(topic, o);</span><br><span class="line">future.addCallback(result -&gt; logger.info(<span class="string">&quot;生产者成功发送消息到topic:&#123;&#125; partition:&#123;&#125;的消息&quot;</span>, result.getRecordMetadata().topic(), result.getRecordMetadata().partition()),</span><br><span class="line">                ex -&gt; logger.error(<span class="string">&quot;生产者发送消失败，原因：&#123;&#125;&quot;</span>, ex.getMessage()));</span><br></pre></td></tr></table></figure>
-<h3 id="3-2-2-消费者丢失消息">3.2.2 消费者丢失消息</h3>
+<h3 id="322-消费者丢失消息"><a class="markdownIt-Anchor" href="#322-消费者丢失消息"></a> 3.2.2 消费者丢失消息</h3>
 <p>当消费者拉取到了分区的某个消息之后，消费者会自动提交了 offset。自动提交的话会有一个问题，当消费者刚拿到这个消息准备进行真正消费的时候，突然挂掉了，消息实际上并没有被消费，但是 offset 却被自动提交了。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>消费前提交offset（丢失消息）</p>
-</li>
-<li class="lvl-2">
-<p>消费后提交offset（提交offset失败，重复消费）</p>
-</li>
+<ul>
+<li>消费前提交offset（丢失消息）</li>
+<li>消费后提交offset（提交offset失败，重复消费）</li>
 </ul>
-<h3 id="3-2-3-Kafka丢失消息">3.2.3 Kafka丢失消息</h3>
+<h3 id="323-kafka丢失消息"><a class="markdownIt-Anchor" href="#323-kafka丢失消息"></a> 3.2.3 Kafka丢失消息</h3>
 <blockquote>
 <p>leader中的数据还有一些没有被follower副本同步的话，会造成消息丢失</p>
 </blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>设置acks=all<br>
-acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后就算被成功发送。当我们配置 <strong>acks = all</strong> 表示只有所有 ISR 列表的副本全部收到消息时，生产者才会接收到来自服务器的响应</p>
-</li>
-<li class="lvl-2">
-<p><strong>设置 replication.factor &gt;= 3</strong>：保证每个分区有3个副本</p>
-</li>
-<li class="lvl-2">
-<p><strong>设置 min.insync.replicas &gt; 1（ISR）</strong>：消息至少写入2个副本才算发送成功</p>
-</li>
+<ul>
+<li>设置acks=all<br />
+acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后就算被成功发送。当我们配置 <strong>acks = all</strong> 表示只有所有 ISR 列表的副本全部收到消息时，生产者才会接收到来自服务器的响应</li>
+<li><strong>设置 replication.factor &gt;= 3</strong>：保证每个分区有3个副本</li>
+<li><strong>设置 min.insync.replicas &gt; 1（ISR）</strong>：消息至少写入2个副本才算发送成功</li>
 </ul>
 <p><a href="https://blog.csdn.net/jam_yin/article/details/131979567">Kafka消息丢失：原因、解决方案和零丢失的配置-CSDN博客</a></p>
-<h2 id="3-3-重复消费">3.3 重复消费</h2>
+<h2 id="33-重复消费"><a class="markdownIt-Anchor" href="#33-重复消费"></a> 3.3 重复消费</h2>
 <p><strong>kafka 出现消息重复消费的原因：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>服务端侧已经消费的数据没有成功提交 offset（根本原因）。</p>
-</li>
-<li class="lvl-2">
-<p>Kafka 侧 由于服务端处理业务时间长或者网络链接等等原因让 Kafka 认为服务假死，触发了<code>分区 rebalance</code>。</p>
-</li>
+<ul>
+<li>服务端侧已经消费的数据没有成功提交 offset（根本原因）。</li>
+<li>Kafka 侧 由于服务端处理业务时间长或者网络链接等等原因让 Kafka 认为服务假死，触发了<code>分区 rebalance</code>。</li>
 </ul>
 <p><strong>解决方案：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>消费消息服务做幂等校验</code>，比如 Redis 的 set、MySQL 的主键等天然的幂等功能。这种方法最有效。</p>
-</li>
-<li class="lvl-2">
-<p>将 enable.auto.commit 参数设置为 false，<code>关闭自动提交</code>，开发者在代码中手动提交 offset。那么这里会有个问题：什么时候提交 offset 合适？</p>
-<ul class="lvl-2">
-<li class="lvl-6">处理完消息再提交：依旧有消息重复消费的风险，和自动提交一样</li>
-<li class="lvl-6">拉取到消息即提交：会有<strong>消息丢失</strong>的风险。允许消息延时的场景，一般会采用这种方式。然后，通过定时任务在业务不繁忙（比如凌晨）的时候做数据兜底。</li>
+<ul>
+<li><code>消费消息服务做幂等校验</code>，比如 Redis 的 set、MySQL 的主键等天然的幂等功能。这种方法最有效。</li>
+<li>将 enable.auto.commit 参数设置为 false，<code>关闭自动提交</code>，开发者在代码中手动提交 offset。那么这里会有个问题：什么时候提交 offset 合适？
+<ul>
+<li>处理完消息再提交：依旧有消息重复消费的风险，和自动提交一样</li>
+<li>拉取到消息即提交：会有<strong>消息丢失</strong>的风险。允许消息延时的场景，一般会采用这种方式。然后，通过定时任务在业务不繁忙（比如凌晨）的时候做数据兜底。</li>
 </ul>
 </li>
 </ul>
 <p><a href="https://cloud.tencent.com/developer/article/1665700">Kafka常见的导致重复消费原因和解决方案-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<h1>4 分区rebalance</h1>
+<h1 id="4-分区rebalance"><a class="markdownIt-Anchor" href="#4-分区rebalance"></a> 4 分区rebalance</h1>
 <p><a href="https://cloud.tencent.com/developer/article/1852157">一文理解Kafka的选举机制与Rebalance机制-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<h1>5 Kafka重试机制</h1>
-<h2 id="5-1-重试失败后的数据如何再次处理">5.1 重试失败后的数据如何再次处理</h2>
+<h1 id="5-kafka重试机制"><a class="markdownIt-Anchor" href="#5-kafka重试机制"></a> 5 Kafka重试机制</h1>
+<h2 id="51-重试失败后的数据如何再次处理"><a class="markdownIt-Anchor" href="#51-重试失败后的数据如何再次处理"></a> 5.1 重试失败后的数据如何再次处理</h2>
 <p>死信队列（Dead Letter Queue，简称 DLQ） 是消息中间件中的一种特殊队列。它主要用于处理无法被消费者正确处理的消息，通常是因为消息格式错误、处理失败、消费超时等情况导致的消息被&quot;丢弃&quot;或&quot;死亡&quot;的情况。当消息进入队列后，消费者会尝试处理它。如果处理失败，或者超过一定的重试次数仍无法被成功处理，消息可以发送到死信队列中，而不是被永久性地丢弃。在死信队列中，可以进一步分析、处理这些无法正常消费的消息，以便定位问题、修复错误，并采取适当的措施。</p>
-<h1>6 RocketMQ</h1>
+<h1 id="6-rocketmq"><a class="markdownIt-Anchor" href="#6-rocketmq"></a> 6 RocketMQ</h1>
 <p><a href="https://blog.csdn.net/ctwctw/article/details/107188474">RocketMQ的核心概念以及架构图_rocketmq架构图-CSDN博客</a></p>
 
     </div>
@@ -467,8 +418,8 @@ acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后�
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/08/08/2024-03-17/" rel="prev" title="">
-                  <i class="fa fa-chevron-left"></i> 
+                <a href="/2024/08/07/Java/Java(5)%EF%BC%9AIO%E6%A8%A1%E5%9E%8B/" rel="prev" title="Java(5)：IO模型">
+                  <i class="fa fa-chevron-left"></i> Java(5)：IO模型
                 </a>
             </div>
             <div class="post-nav-item">

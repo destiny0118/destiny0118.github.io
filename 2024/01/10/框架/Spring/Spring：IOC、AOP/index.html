@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408181748237.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403132049981.png">
 <meta property="article:published_time" content="2024-01-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-18T10:00:13.903Z">
+<meta property="article:modified_time" content="2024-08-18T14:59:09.308Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="Spring">
 <meta name="twitter:card" content="summary">
@@ -152,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">1.1 依赖注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E5%9F%BA%E4%BA%8E%E5%AD%97%E6%AE%B5%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">1.1.1 基于字段的依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E5%9F%BA%E4%BA%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">1.1.2 基于构造函数的依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E5%9F%BA%E4%BA%8Esetter%E6%96%B9%E6%B3%95%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text">1.1.3 基于setter方法的依赖注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E4%B8%8D%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8%E5%AD%97%E6%AE%B5%E6%B3%A8%E5%85%A5"><span class="nav-text">1.2 为什么依赖注入不适合使用字段注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-FactoryBean"><span class="nav-text">1.3 FactoryBean</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-text">2.1 相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-text">2.2 代理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="nav-text">2.2.1 动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-Cgllib"><span class="nav-text">2.2.2 Cgllib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-AspectJ"><span class="nav-text">2.2.3 AspectJ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-4-Spring-AOP-%E5%92%8C-AspectJ-AOP-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">2.2.4 Spring AOP 和 AspectJ AOP 有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-5-Spring-AOP"><span class="nav-text">2.2.5 Spring AOP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-ioc"><span class="nav-text"> 1 IOC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5dependency-injection%E7%AE%80%E7%A7%B0-di"><span class="nav-text"> 1.1 依赖注入（Dependency Injection，简称 DI）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#111-%E5%9F%BA%E4%BA%8E%E5%AD%97%E6%AE%B5%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text"> 1.1.1 基于字段的依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#112-%E5%9F%BA%E4%BA%8E%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text"> 1.1.2 基于构造函数的依赖注入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#113-%E5%9F%BA%E4%BA%8Esetter%E6%96%B9%E6%B3%95%E7%9A%84%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="nav-text"> 1.1.3 基于setter方法的依赖注入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E4%B8%8D%E9%80%82%E5%90%88%E4%BD%BF%E7%94%A8%E5%AD%97%E6%AE%B5%E6%B3%A8%E5%85%A5"><span class="nav-text"> 1.2 为什么依赖注入不适合使用字段注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-factorybean"><span class="nav-text"> 1.3 FactoryBean</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-aop"><span class="nav-text"> 2 AOP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-text"> 2.1 相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text"> 2.2 应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F"><span class="nav-text"> 2.3 代理方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#231-%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86"><span class="nav-text"> 2.3.1 动态代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#232-cgllib"><span class="nav-text"> 2.3.2 Cgllib</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#233-aspectj"><span class="nav-text"> 2.3.3 AspectJ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#234-spring-aop-%E5%92%8C-aspectj-aop-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="nav-text"> 2.3.4 Spring AOP 和 AspectJ AOP 有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#235-spring-aop"><span class="nav-text"> 2.3.5 Spring AOP</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%8F%82%E8%80%83"><span class="nav-text"> 3 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,7 +165,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -264,7 +264,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-18 18:00:13" itemprop="dateModified" datetime="2024-08-18T18:00:13+08:00">2024-08-18</time>
+      <time title="修改时间：2024-08-18 22:59:09" itemprop="dateModified" datetime="2024-08-18T22:59:09+08:00">2024-08-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,17 +287,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>1 IOC</h1>
+        <h1 id="1-ioc"><a class="markdownIt-Anchor" href="#1-ioc"></a> 1 IOC</h1>
 <blockquote>
 <p><strong>IoC（Inversion of Control:控制反转）</strong> 是一种设计思想，而不是一个具体的技术实现。IoC 的思想就是将原本在程序中手动<mark>创建对象的控制权</mark>，交由 Spring 框架来管理。通过IOC，程序实现了<em>对象的解耦合</em>，使得对象与对象之间是低耦合的，提高了程序的灵活性和可维护性。简单来说，Spring IOC就是让开发者不再需要手动创建对象，而是通过配置或注解等方式，让Spring容器来负责<strong>对象的创建、管理和依赖关系的注入</strong>。</p>
 </blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>控制</strong>：指的是对象创建（实例化、管理）的权力</p>
-</li>
-<li class="lvl-2">
-<p><strong>反转</strong>：控制权交给外部环境（Spring 框架、IoC 容器）</p>
-</li>
+<ul>
+<li><strong>控制</strong>：指的是对象创建（实例化、管理）的权力</li>
+<li><strong>反转</strong>：控制权交给外部环境（Spring 框架、IoC 容器）</li>
 </ul>
 <blockquote>
 <p>在传统的程序设计中，我们直接在对象内部通过new关键字来创建依赖的对象，这种方式会导致代码之间高度耦合，不利于测试和维护。而IoC的思想是，将这些对象的创建权交给Spring容器来管理，由Spring容器负责创建对象并注入依赖。这样，对象与对象之间的依赖关系就交由Spring来管理了，实现了程序的解耦合。在项目中，我们可以通过Spring的配置文件或者注解来定义Bean，然后由Spring容器来创建和管理这些Bean。在Mybatis中，我们可以将SqlSessionFactory、Mapper等对象的创建和依赖关系交由Spring来管理。</p>
@@ -308,34 +304,35 @@
 <p>Spring框架通过XML配置文件、注解或Java代码来描述对象之间的依赖关系，然后由Spring容器在运行时根据这些配置来实现依赖注入。通过IOC容器管理对象之间的依赖关系，使得应用程序的组件解耦，提高了代码的灵活性和可维护性。</p>
 <p>Spring的IOC容器通过控制对象之间的依赖关系，实现了对象之间的解耦，提高了代码的灵活性和可测试性，是Spring框架的核心特性之一。</p>
 </blockquote>
-<h2 id="1-1-依赖注入">1.1 依赖注入</h2>
-<h3 id="1-1-1-基于字段的依赖注入">1.1.1 基于字段的依赖注入</h3>
+<h2 id="11-依赖注入dependency-injection简称-di"><a class="markdownIt-Anchor" href="#11-依赖注入dependency-injection简称-di"></a> 1.1 依赖注入（Dependency Injection，简称 DI）</h2>
+<h3 id="111-基于字段的依赖注入"><a class="markdownIt-Anchor" href="#111-基于字段的依赖注入"></a> 1.1.1 基于字段的依赖注入</h3>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Store</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> Item item; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-1-2-基于构造函数的依赖注入">1.1.2 基于构造函数的依赖注入</h3>
-<h3 id="1-1-3-基于setter方法的依赖注入">1.1.3 基于setter方法的依赖注入</h3>
-<h2 id="1-2-为什么依赖注入不适合使用字段注入">1.2 为什么依赖注入不适合使用字段注入</h2>
+<h3 id="112-基于构造函数的依赖注入"><a class="markdownIt-Anchor" href="#112-基于构造函数的依赖注入"></a> 1.1.2 基于构造函数的依赖注入</h3>
+<h3 id="113-基于setter方法的依赖注入"><a class="markdownIt-Anchor" href="#113-基于setter方法的依赖注入"></a> 1.1.3 基于setter方法的依赖注入</h3>
+<h2 id="12-为什么依赖注入不适合使用字段注入"><a class="markdownIt-Anchor" href="#12-为什么依赖注入不适合使用字段注入"></a> 1.2 为什么依赖注入不适合使用字段注入</h2>
 <p>依赖注入有三种主要的方式：构造函数注入、Setter方法注入和字段注入。虽然字段注入是最简洁的一种方式，但它也存在一些问题，这就是为什么在某些情况下不推荐使用字段注入的原因。</p>
 <ol>
-<li class="lvl-3">
+<li>
 <p><strong>可测试性差：</strong> 字段注入使得依赖关系被硬编码到了类的字段中，这导致在进行单元测试时很难对这些依赖进行模拟或替换。因为字段注入的依赖是直接赋值给类的字段，而不是通过构造函数或Setter方法来传递，所以在测试时很难通过传入不同的依赖实例来进行测试。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>难以追踪依赖关系：</strong> 使用字段注入时，依赖关系是通过字段直接注入到类中的，这使得依赖关系不够明确，很难追踪类与其依赖之间的关系。这可能导致代码的可读性和可维护性下降。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>耦合性高：</strong> 字段注入使得依赖关系与类的实现紧密耦合在一起，从而增加了类与其依赖之间的耦合性。当需要修改依赖关系时，可能需要修改类的字段定义，这违反了开闭原则。</p>
 </li>
 </ol>
 <p>相比之下，构造函数注入和Setter方法注入提供了更好的解耦性和可测试性。构造函数注入将依赖关系通过构造函数传入，而Setter方法注入则通过Setter方法设置依赖。这两种方式都能够清晰地标识出类与其依赖之间的关系，提高了代码的可读性和可维护性，同时也更易于进行单元测试和模拟依赖。因此，在使用依赖注入时，推荐优先考虑使用构造函数注入或Setter方法注入，而尽量避免使用字段注入。</p>
-<h2 id="1-3-FactoryBean">1.3 FactoryBean</h2>
+<h2 id="13-factorybean"><a class="markdownIt-Anchor" href="#13-factorybean"></a> 1.3 FactoryBean</h2>
 <blockquote>
 <p>Spring容器提供的一种可以扩展容器对象实例化逻辑的接口。其本身与其他注册到容器的对象一样，只是一个Bean，只不过，这种类型的Bean本身就是生产对象的工厂（Factory）。</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">FactoryBean</span>&#123;</span><br><span class="line">	<span class="comment">//返回该FactoryBean生产的对象实例，实现该方法给出自己的对象实例化逻辑</span></span><br><span class="line">	Object <span class="title function_">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">	<span class="comment">//返回getObject方法所返回的对象类型</span></span><br><span class="line">	Class <span class="title function_">getObjectType</span><span class="params">()</span>;</span><br><span class="line">	<span class="comment">//getObject生产的对象是否以singleton形式存在于容器中</span></span><br><span class="line">	<span class="type">boolean</span> <span class="title function_">isSingleton</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>FactoryBean类型的bean定义，通过正常的id引用，容器返回的是FactoryBean所生产的对应类型，而非FactoryBean实现本身。可以通过在bean定义的id之前加前缀&amp;来取得FactoryBean本身。</p>
-<h1>2 AOP</h1>
+<p>FactoryBean类型的bean定义，通过正常的id引用，容器返回的是FactoryBean所生产的对应类型，而非FactoryBean实现本身。<br />
+可以通过在bean定义的id之前加前缀&amp;来取得FactoryBean本身。</p>
+<h1 id="2-aop"><a class="markdownIt-Anchor" href="#2-aop"></a> 2 AOP</h1>
 <blockquote>
-<p>[!node]<br>
+<p>[!node]<br />
 AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。</p>
 </blockquote>
 <blockquote>
@@ -345,18 +342,18 @@ AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无�
 <p>AOP的核心概念是切面（Aspect），切面是一个模块化单元，它封装了横切关注点，并定义了在何处、何时应用这些关注点。在Spring框架中，切面通常以Java类的形式存在，并且通过特定的注解或XML配置来定义切面。</p>
 <p>Spring框架提供了几种实现AOP的方式：</p>
 <ol>
-<li class="lvl-3">
+<li>
 <p><strong>基于代理的AOP：</strong> Spring使用动态代理来实现AOP。当一个类被AOP代理后，方法调用会被拦截，从而允许切面在方法调用前、后或者出现异常时执行额外的逻辑。Spring中的基于代理的AOP主要使用JDK动态代理和CGLIB动态代理来实现。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>切点和通知：</strong> 切点（Pointcut）用于定义在哪些连接点（Join Point）应用切面逻辑，通知（Advice）用于定义切面的行为。Spring框架提供了几种通知类型，包括前置通知（Before Advice）、后置通知（After Advice）、返回通知（After Returning Advice）、异常通知（After Throwing Advice）和环绕通知（Around Advice）。</p>
 </li>
-<li class="lvl-3">
+<li>
 <p><strong>切面表达式：</strong> Spring提供了切面表达式语言（AspectJ Expression Language），通过切面表达式可以更精确地定义切点，并在切面中应用通知。切面表达式支持基于方法签名、参数、注解等方式来定义切点。</p>
 </li>
 </ol>
 <p>通过AOP，开发者可以将横切关注点模块化，避免代码重复和耦合度增加，从而提高代码的可维护性和可重用性。在Spring框架中，AOP常用于日志记录、事务管理、安全检查等方面，使得这些与核心业务逻辑无关的功能可以被统一管理和应用。</p>
-<h2 id="2-1-相关概念">2.1 相关概念</h2>
+<h2 id="21-相关概念"><a class="markdownIt-Anchor" href="#21-相关概念"></a> 2.1 相关概念</h2>
 <table>
 <thead>
 <tr>
@@ -395,42 +392,47 @@ AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无�
 </tr>
 </tbody>
 </table>
-<h2 id="2-2-代理方式">2.2 代理方式</h2>
+<h2 id="22-应用场景"><a class="markdownIt-Anchor" href="#22-应用场景"></a> 2.2 应用场景</h2>
+<ul>
+<li>日志记录：自定义日志记录注解，利用 AOP，一行代码即可实现日志记录。</li>
+<li>性能统计：利用 AOP 在目标方法的执行前后统计方法的执行时间，方便优化和分析。</li>
+<li>事务管理：<code>@Transactional</code> 注解可以让 Spring 为我们进行事务管理比如回滚异常操作，免去了重复的事务管理逻辑。<code>@Transactional</code>注解就是基于 AOP 实现的。</li>
+<li>权限控制：利用 AOP 在目标方法执行前判断用户是否具备所需要的权限，如果具备，就执行目标方法，否则就不执行。例如，SpringSecurity 利用<code>@PreAuthorize</code> 注解一行代码即可自定义权限校验。</li>
+<li>接口限流：利用 AOP 在目标方法执行前通过具体的限流算法和实现对请求进行限流处理。</li>
+<li>缓存管理：利用 AOP 在目标方法执行前后进行缓存的读取和更新</li>
+</ul>
+<h2 id="23-代理方式"><a class="markdownIt-Anchor" href="#23-代理方式"></a> 2.3 代理方式</h2>
+<p>AOP 的常见实现方式有动态代理、字节码操作等方式。</p>
 <p>动态代理机制和字节码生成都是在运行期间为目标对象生成一个代理对象，而将横切逻辑织入到这个代理对象中，系统最终使用的是织入了横切逻辑的代理对象，而不是真正的目标对象。</p>
 <ol>
-<li class="lvl-3">
-<p>动态代理</p>
-</li>
-<li class="lvl-3">
-<p>动态字节码增强(CGLIB, Code Generation Library)<br>
-CGLIB可以对实现了某种接口的类，或者没有实现任何接口的类进行扩展</p>
-</li>
-<li class="lvl-3">
-<p>Java代码生成</p>
-</li>
+<li>动态代理</li>
+<li>动态字节码增强(CGLIB, Code Generation Library)<br />
+CGLIB可以对实现了某种接口的类，或者没有实现任何接口的类进行扩展</li>
+<li>Java代码生成</li>
 </ol>
-<h3 id="2-2-1-动态代理">2.2.1 动态代理</h3>
+<h3 id="231-动态代理"><a class="markdownIt-Anchor" href="#231-动态代理"></a> 2.3.1 动态代理</h3>
 <p>Spring AOP 就是基于动态代理的，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 <strong>JDK Proxy</strong>，去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了。</p>
 <p>动态代理（Dynamic Proxy）机制，可以在运行期间，为相应的接口（interface）动态生成对应的代理对象。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408181748237.png" alt="image.png"></p>
-<h3 id="2-2-2-Cgllib">2.2.2 Cgllib</h3>
-<p>要代理的对象，没有实现接口，Spring AOP 会使用 <strong>Cglib</strong> 生成一个被代理对象的子类来作为代理<br>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408181748237.png" alt="image.png" /></p>
+<h3 id="232-cgllib"><a class="markdownIt-Anchor" href="#232-cgllib"></a> 2.3.2 Cgllib</h3>
+<p>要代理的对象，没有实现接口，Spring AOP 会使用 <strong>Cglib</strong> 生成一个被代理对象的子类来作为代理<br />
 CGLIB可以对实现了某种接口的类，或者没有实现任何接口的类进行扩展。</p>
-<h3 id="2-2-3-AspectJ">2.2.3 AspectJ</h3>
-<h3 id="2-2-4-Spring-AOP-和-AspectJ-AOP-有什么区别？">2.2.4 Spring AOP 和 AspectJ AOP 有什么区别？</h3>
+<h3 id="233-aspectj"><a class="markdownIt-Anchor" href="#233-aspectj"></a> 2.3.3 AspectJ</h3>
+<h3 id="234-spring-aop-和-aspectj-aop-有什么区别"><a class="markdownIt-Anchor" href="#234-spring-aop-和-aspectj-aop-有什么区别"></a> 2.3.4 Spring AOP 和 AspectJ AOP 有什么区别？</h3>
 <p><strong>Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。</strong> Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。</p>
 <p>Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。AspectJ 相比于 Spring AOP 功能更加强大，但是 Spring AOP 相对来说更简单，</p>
 <p>如果我们的切面比较少，那么两者性能差异不大。但是，当切面太多的话，最好选择 AspectJ ，它比 Spring AOP 快很多。</p>
-<h3 id="2-2-5-Spring-AOP">2.2.5 Spring AOP</h3>
+<h3 id="235-spring-aop"><a class="markdownIt-Anchor" href="#235-spring-aop"></a> 2.3.5 Spring AOP</h3>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> Object <span class="title function_">postProcessBeforeInstantiation</span><span class="params">(Class&lt;?&gt; beanClass, String beanName)</span> <span class="keyword">throws</span> BeansException &#123;  </span><br><span class="line">    <span class="type">Object</span> <span class="variable">cacheKey</span> <span class="operator">=</span> <span class="built_in">this</span>.getCacheKey(beanClass, beanName);  </span><br><span class="line">    <span class="keyword">if</span> (beanName == <span class="literal">null</span> || !<span class="built_in">this</span>.targetSourcedBeans.contains(beanName)) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.advisedBeans.containsKey(cacheKey)) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.isInfrastructureClass(beanClass) || <span class="built_in">this</span>.shouldSkip(beanClass, beanName)) &#123;  </span><br><span class="line">            <span class="built_in">this</span>.advisedBeans.put(cacheKey, Boolean.FALSE);  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span> (beanName != <span class="literal">null</span>) &#123;  </span><br><span class="line">        <span class="type">TargetSource</span> <span class="variable">targetSource</span> <span class="operator">=</span> <span class="built_in">this</span>.getCustomTargetSource(beanClass, beanName);  </span><br><span class="line">        <span class="keyword">if</span> (targetSource != <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="built_in">this</span>.targetSourcedBeans.add(beanName);  </span><br><span class="line">            Object[] specificInterceptors = <span class="built_in">this</span>.getAdvicesAndAdvisorsForBean(beanClass, beanName, targetSource);  </span><br><span class="line">            <span class="type">Object</span> <span class="variable">proxy</span> <span class="operator">=</span> <span class="built_in">this</span>.createProxy(beanClass, beanName, specificInterceptors, targetSource);  </span><br><span class="line">            <span class="built_in">this</span>.proxyTypes.put(cacheKey, proxy.getClass());  </span><br><span class="line">            <span class="keyword">return</span> proxy;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="type">boolean</span> <span class="title function_">shouldSkip</span><span class="params">(Class&lt;?&gt; beanClass, String beanName)</span> &#123;  </span><br><span class="line">	<span class="comment">//获取切面信息</span></span><br><span class="line">    List&lt;Advisor&gt; candidateAdvisors = <span class="built_in">this</span>.findCandidateAdvisors();  </span><br><span class="line">    <span class="type">Iterator</span> <span class="variable">var4</span> <span class="operator">=</span> candidateAdvisors.iterator();  </span><br><span class="line">  </span><br><span class="line">    Advisor advisor;  </span><br><span class="line">    <span class="keyword">do</span> &#123;  </span><br><span class="line">        <span class="keyword">if</span> (!var4.hasNext()) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">super</span>.shouldSkip(beanClass, beanName);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        advisor = (Advisor)var4.next();  </span><br><span class="line">    &#125; <span class="keyword">while</span>(!(advisor <span class="keyword">instanceof</span> AspectJPointcutAdvisor) || !((AbstractAspectJAdvice)advisor.getAdvice()).getAspectName().equals(beanName));  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> List&lt;Advisor&gt; <span class="title function_">findCandidateAdvisors</span><span class="params">()</span> &#123;  </span><br><span class="line">    List&lt;Advisor&gt; advisors = <span class="built_in">super</span>.findCandidateAdvisors();  </span><br><span class="line">    advisors.addAll(<span class="built_in">this</span>.aspectJAdvisorsBuilder.buildAspectJAdvisors());  </span><br><span class="line">    <span class="keyword">return</span> advisors;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Advisor&gt; <span class="title function_">buildAspectJAdvisors</span><span class="params">()</span> &#123;  </span><br><span class="line">    List&lt;String&gt; aspectNames = <span class="built_in">this</span>.aspectBeanNames;  </span><br><span class="line">    <span class="keyword">if</span> (aspectNames == <span class="literal">null</span>) &#123;  </span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="built_in">this</span>) &#123;  </span><br><span class="line">            aspectNames = <span class="built_in">this</span>.aspectBeanNames;  </span><br><span class="line">            <span class="keyword">if</span> (aspectNames == <span class="literal">null</span>) &#123;  </span><br><span class="line">                List&lt;Advisor&gt; advisors = <span class="keyword">new</span> <span class="title class_">LinkedList</span>();  </span><br><span class="line">                List&lt;String&gt; aspectNames = <span class="keyword">new</span> <span class="title class_">LinkedList</span>();  </span><br><span class="line">                </span><br><span class="line">                String[] beanNames = BeanFactoryUtils.beanNamesForTypeIncludingAncestors(<span class="built_in">this</span>.beanFactory, Object.class, <span class="literal">true</span>, <span class="literal">false</span>);  </span><br><span class="line">                String[] var18 = beanNames;  </span><br><span class="line">                <span class="type">int</span> <span class="variable">var19</span> <span class="operator">=</span> beanNames.length;  </span><br><span class="line">  </span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">var7</span> <span class="operator">=</span> <span class="number">0</span>; var7 &lt; var19; ++var7) &#123;  </span><br><span class="line">                    <span class="type">String</span> <span class="variable">beanName</span> <span class="operator">=</span> var18[var7];  </span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">this</span>.isEligibleBean(beanName)) &#123;  </span><br><span class="line">                        Class&lt;?&gt; beanType = <span class="built_in">this</span>.beanFactory.getType(beanName);  </span><br><span class="line">                        <span class="comment">//判断是否为切面</span></span><br><span class="line">                        <span class="keyword">if</span> (beanType != <span class="literal">null</span> &amp;&amp; <span class="built_in">this</span>.advisorFactory.isAspect(beanType)) &#123;  </span><br><span class="line">                            aspectNames.add(beanName);  </span><br><span class="line">                            <span class="type">AspectMetadata</span> <span class="variable">amd</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AspectMetadata</span>(beanType, beanName);  </span><br><span class="line">                            <span class="keyword">if</span> (amd.getAjType().getPerClause().getKind() == PerClauseKind.SINGLETON) &#123;  </span><br><span class="line">                                <span class="type">MetadataAwareAspectInstanceFactory</span> <span class="variable">factory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BeanFactoryAspectInstanceFactory</span>(<span class="built_in">this</span>.beanFactory, beanName);  </span><br><span class="line">                                <span class="comment">//获取所有的切面列表</span></span><br><span class="line">                                List&lt;Advisor&gt; classAdvisors = <span class="built_in">this</span>.advisorFactory.getAdvisors(factory);  </span><br><span class="line">                                <span class="keyword">if</span> (<span class="built_in">this</span>.beanFactory.isSingleton(beanName)) &#123;  </span><br><span class="line">                                    <span class="built_in">this</span>.advisorsCache.put(beanName, classAdvisors);  </span><br><span class="line">                                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                                    <span class="built_in">this</span>.aspectFactoryCache.put(beanName, factory);  </span><br><span class="line">                                &#125;  </span><br><span class="line">  </span><br><span class="line">                                advisors.addAll(classAdvisors);  </span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                                <span class="keyword">if</span> (<span class="built_in">this</span>.beanFactory.isSingleton(beanName)) &#123;  </span><br><span class="line">                                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Bean with name &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27; is a singleton, but aspect instantiation model is not singleton&quot;</span>);  </span><br><span class="line">                                &#125;  </span><br><span class="line">  </span><br><span class="line">                                <span class="type">MetadataAwareAspectInstanceFactory</span> <span class="variable">factory</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrototypeAspectInstanceFactory</span>(<span class="built_in">this</span>.beanFactory, beanName);  </span><br><span class="line">                                <span class="built_in">this</span>.aspectFactoryCache.put(beanName, factory);  </span><br><span class="line">                                advisors.addAll(<span class="built_in">this</span>.advisorFactory.getAdvisors(factory));  </span><br><span class="line">                            &#125;  </span><br><span class="line">                        &#125;  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line">  </span><br><span class="line">                <span class="built_in">this</span>.aspectBeanNames = aspectNames;  </span><br><span class="line">                <span class="keyword">return</span> advisors;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> Advisor <span class="title function_">getAdvisor</span><span class="params">(Method candidateAdviceMethod, MetadataAwareAspectInstanceFactory aspectInstanceFactory, <span class="type">int</span> declarationOrderInAspect, String aspectName)</span> &#123;  </span><br><span class="line">    <span class="built_in">this</span>.validate(aspectInstanceFactory.getAspectMetadata().getAspectClass());  </span><br><span class="line">    <span class="type">AspectJExpressionPointcut</span> <span class="variable">expressionPointcut</span> <span class="operator">=</span> <span class="built_in">this</span>.getPointcut(candidateAdviceMethod, aspectInstanceFactory.getAspectMetadata().getAspectClass());  </span><br><span class="line">    <span class="keyword">return</span> expressionPointcut == <span class="literal">null</span> ? <span class="literal">null</span> : <span class="keyword">new</span> <span class="title class_">InstantiationModelAwarePointcutAdvisorImpl</span>(expressionPointcut, candidateAdviceMethod, <span class="built_in">this</span>, aspectInstanceFactory, declarationOrderInAspect, aspectName);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403132049981.png" alt="image.png"></p>
-<h1>3 参考</h1>
-<p><a href="https://juejin.cn/post/6844903987062243341">Spring AOP - 注解方式使用介绍（长文详解） - 掘金 (juejin.cn)</a><br>
-<a href="https://blog.csdn.net/ww2651071028/article/details/129486012">深度剖析Spring AOP源码，图文详解，小白也能看明白。-CSDN博客</a><a href="https://blog.csdn.net/hys__handsome/article/details/121011807">动态代理异常com.sun.proxy.$Proxy cannot be cast to-CSDN博客</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403132049981.png" alt="image.png" /></p>
+<h1 id="3-参考"><a class="markdownIt-Anchor" href="#3-参考"></a> 3 参考</h1>
+<p><a href="https://juejin.cn/post/6844903987062243341">Spring AOP - 注解方式使用介绍（长文详解） - 掘金 (juejin.cn)</a><br />
+<a href="https://blog.csdn.net/ww2651071028/article/details/129486012">深度剖析Spring AOP源码，图文详解，小白也能看明白。-CSDN博客</a><br />
+<a href="https://blog.csdn.net/hys__handsome/article/details/121011807">动态代理异常com.sun.proxy.$Proxy cannot be cast to-CSDN博客</a></p>
 
     </div>
 
