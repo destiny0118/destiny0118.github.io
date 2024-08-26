@@ -24,7 +24,7 @@
     <meta name="description" content="DDL、DML、连接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL">
-<meta property="og:url" content="https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL/index.html">
+<meta property="og:url" content="https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="我的个人博客">
 <meta property="og:description" content="DDL、DML、连接">
 <meta property="og:locale" content="zh_CN">
@@ -37,11 +37,11 @@
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403282002516.png">
 
 
-<link rel="canonical" href="https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL/">
+<link rel="canonical" href="https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%9F%BA%E7%A1%80/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL/","path":"2023/08/10/数据库/SQL/","title":"SQL"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%9F%BA%E7%A1%80/","path":"2023/08/10/数据库/SQL基础/","title":"SQL"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>SQL | 我的个人博客</title>
@@ -227,7 +227,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/08/10/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -245,7 +245,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SQL<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          SQL<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93/SQL%E5%9F%BA%E7%A1%80.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -323,7 +323,20 @@ DBA(Datebase Administrator)</p>
 <p>关系型数据库<br />
 关系型数据库（RDB，Relational Database）就是一种建立在关系模型的基础上的数据库。关系模型表明了数据库中所存储的数据之间的联系（一对一、一对多、多对多）。</p>
 <h1 id="2-创建表"><a class="markdownIt-Anchor" href="#2-创建表"></a> 2 创建表</h1>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="operator">&lt;</span>table_name<span class="operator">&gt;</span>(</span><br><span class="line">	`id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;自增ID&#x27;</span>, </span><br><span class="line">	`create_time` datetime <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>, </span><br><span class="line">	element type [<span class="keyword">unique</span>],</span><br><span class="line">	<span class="keyword">primary</span> key(a,b),</span><br><span class="line">	<span class="keyword">UNIQUE</span> KEY ``</span><br><span class="line">);</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">table</span> R;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> <span class="operator">&lt;</span>table_name<span class="operator">&gt;</span> <span class="keyword">ADD</span> ele <span class="type">float</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> <span class="operator">&lt;</span>table_name<span class="operator">&gt;</span> <span class="keyword">ADD</span> ele <span class="type">float</span> <span class="keyword">DEFAULT</span> <span class="number">0.0</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> <span class="operator">&lt;</span>table_name<span class="operator">&gt;</span> <span class="keyword">DROP</span> ele;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> &lt;table_name&gt;(
+	<span class="hljs-string">`id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'自增ID'</span>, 
+	<span class="hljs-string">`create_time`</span> datetime <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'创建时间'</span>, 
+	<span class="hljs-keyword">element</span> <span class="hljs-keyword">type</span> [<span class="hljs-keyword">unique</span>],
+	primary <span class="hljs-keyword">key</span>(a,b),
+	<span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">KEY</span> <span class="hljs-string">``</span>
+);
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">table</span> R;
+
+
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">table</span> &lt;table_name&gt; <span class="hljs-keyword">ADD</span> ele <span class="hljs-built_in">float</span>;
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">table</span> &lt;table_name&gt; <span class="hljs-keyword">ADD</span> ele <span class="hljs-built_in">float</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0.0</span>;
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">table</span> &lt;table_name&gt; <span class="hljs-keyword">DROP</span> ele;
+</code></pre>
 <p>primary key vs unique</p>
 <ul>
 <li>
@@ -357,7 +370,14 @@ DBA(Datebase Administrator)</p>
 <h1 id="3-select查询"><a class="markdownIt-Anchor" href="#3-select查询"></a> 3 Select查询</h1>
 <p><code>DISTINCT</code> 用于返回唯一不同的值。它作用于所有列，也就是说所有列的值都相同才算相同。<br />
 <code>LIMIT</code> 限制返回的行数。可以有两个参数，第一个参数为起始行，从 0 开始；第二个参数为返回的总行数。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">#属性重命名</span><br><span class="line"><span class="keyword">select</span> a <span class="keyword">as</span> a_,b <span class="keyword">as</span> b_</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line"><span class="keyword">where</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">AND</span> <span class="keyword">OR</span> <span class="keyword">NOT</span></span><br><span class="line"><span class="operator">=</span>, <span class="operator">&lt;&gt;</span> <span class="operator">&lt;</span> <span class="operator">&gt;</span> <span class="operator">&lt;=</span> <span class="operator">&gt;=</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sql"><span class="hljs-comment">#属性重命名</span>
+<span class="hljs-keyword">select</span> a <span class="hljs-keyword">as</span> a_,b <span class="hljs-keyword">as</span> b_
+<span class="hljs-keyword">from</span> 
+<span class="hljs-keyword">where</span>
+
+<span class="hljs-keyword">AND</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">NOT</span>
+=, &lt;&gt; &lt; &gt; &lt;= &gt;=
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -413,7 +433,8 @@ DBA(Datebase Administrator)</p>
 <li>ascending (ASC)：升序</li>
 <li>descending(DESC)</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> sells <span class="keyword">where</span> bar<span class="operator">=</span><span class="string">&#x27;&#x27;</span> <span class="keyword">order</span> <span class="keyword">by</span> price <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> sells <span class="hljs-keyword">where</span> bar=<span class="hljs-string">''</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> price <span class="hljs-keyword">ASC</span>;
+</code></pre>
 <h2 id="32-子查询"><a class="markdownIt-Anchor" href="#32-子查询"></a> 3.2 子查询</h2>
 <blockquote>
 <p>子查询就是指将一个 <code>select</code> 查询（子查询）的结果作为另一个 SQL 语句（主查询）的数据来源或者判断条件。<br />
@@ -427,26 +448,51 @@ DBA(Datebase Administrator)</p>
 <li>当用于 <code>FROM</code> 子句时，一般返回多行多列数据，相当于返回一张临时表，这样才符合 <code>FROM</code> 后面是表的规则。这种做法能够实现多表联合查询。</li>
 </ul>
 <h3 id="321-in"><a class="markdownIt-Anchor" href="#321-in"></a> 3.2.1 IN</h3>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tuple</span>&gt;</span> IN (<span class="tag">&lt;<span class="name">subquery</span>&gt;</span>) </span><br><span class="line">NOT IN (<span class="tag">&lt;<span class="name">subquery</span>&gt;</span>)</span><br><span class="line">in表达式可以出现在where子句中</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">&lt;tuple&gt; IN (&lt;subquery&gt;) 
+NOT IN (&lt;subquery&gt;)
+in表达式可以出现在where子句中
+</code></pre>
 <h3 id="322-exists"><a class="markdownIt-Anchor" href="#322-exists"></a> 3.2.2 EXISTS</h3>
-<figure class="highlight oxygene"><table><tr><td class="code"><pre><span class="line">EXISTS(&lt;subquery&gt;) <span class="keyword">is</span> <span class="keyword">true</span> <span class="keyword">if</span> <span class="keyword">and</span> only <span class="keyword">if</span> the subquery <span class="keyword">result</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">empty</span>.</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">EXISTS(&lt;subquery&gt;) is true if and only if the subquery result is not empty.
+</code></pre>
 <h3 id="323-any"><a class="markdownIt-Anchor" href="#323-any"></a> 3.2.3 ANY</h3>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">x = ANY(&lt;subquery&gt;) <span class="keyword">is</span> a <span class="built_in">boolean</span> condition <span class="keyword">that</span> <span class="keyword">is</span> <span class="literal">true</span> iff x <span class="keyword">equals</span> <span class="keyword">at</span> least one</span><br><span class="line">tuple <span class="keyword">in</span> <span class="keyword">the</span> subquery <span class="literal">result</span>.</span><br><span class="line">= could be any comparison operator.</span><br><span class="line">Example: x &gt;= ANY(&lt;subquery&gt;) means x <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">the</span> uniquely smallest tuple</span><br><span class="line">produced <span class="keyword">by</span> <span class="keyword">the</span> subquery.</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">x = ANY(&lt;subquery&gt;) is a boolean condition that is true iff x equals at least one
+tuple in the subquery result.
+= could be any comparison operator.
+Example: x &gt;= ANY(&lt;subquery&gt;) means x is not the uniquely smallest tuple
+produced by the subquery.
+</code></pre>
 <h3 id="324-all"><a class="markdownIt-Anchor" href="#324-all"></a> 3.2.4 ALL</h3>
-<figure class="highlight oxygene"><table><tr><td class="code"><pre><span class="line">x &lt;&gt; ALL(&lt;subquery&gt;) <span class="keyword">is</span> <span class="keyword">true</span> iff <span class="keyword">for</span> every <span class="keyword">tuple</span> t <span class="keyword">in</span> the relation, x <span class="keyword">is</span> <span class="keyword">not</span> equal <span class="keyword">to</span></span><br><span class="line">t.</span><br><span class="line">That <span class="keyword">is</span>, x <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">in</span> the subquery <span class="keyword">result</span>.</span><br><span class="line">&lt;&gt; can be any comparison <span class="keyword">operator</span>.</span><br><span class="line">Example: x &gt;= ALL(&lt;subquery&gt;) means there <span class="keyword">is</span> no <span class="keyword">tuple</span> larger than x <span class="keyword">in</span> the</span><br><span class="line">subquery <span class="keyword">result</span>. </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">x &lt;&gt; ALL(&lt;subquery&gt;) is true iff for every tuple t in the relation, x is not equal to
+t.
+That is, x is not in the subquery result.
+&lt;&gt; can be any comparison operator.
+Example: x &gt;= ALL(&lt;subquery&gt;) means there is no tuple larger than x in the
+subquery result. 
+</code></pre>
 <h3 id="325-bag语义"><a class="markdownIt-Anchor" href="#325-bag语义"></a> 3.2.5 Bag语义</h3>
 <ul>
 <li>Sslect-from-where：bag semantics</li>
 <li>union 、intersection、difference：set semantic</li>
 </ul>
 <h3 id="326-控制duplicate-elimination"><a class="markdownIt-Anchor" href="#326-控制duplicate-elimination"></a> 3.2.6 控制Duplicate Elimination</h3>
-<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">Force <span class="keyword">the</span> <span class="literal">result</span> <span class="keyword">to</span> be a <span class="keyword">set</span> <span class="keyword">by</span> SELECT DISTINCT . . .</span><br><span class="line">Force <span class="keyword">the</span> <span class="literal">result</span> <span class="keyword">to</span> be a bag (i.e., don&#x27;t eliminate duplicates) <span class="keyword">by</span> ALL, <span class="keyword">as</span> <span class="keyword">in</span> . . .</span><br><span class="line">UNION ALL . . .</span><br><span class="line">•</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">Force the result to be a set by SELECT DISTINCT . . .
+Force the result to be a bag (i.e., don't eliminate duplicates) by ALL, as in . . .
+UNION ALL . . .
+•
+</code></pre>
 <h1 id="4-连接join"><a class="markdownIt-Anchor" href="#4-连接join"></a> 4 连接（join）</h1>
 <blockquote>
 <p>SQL JOIN 子句用于将两个或者多个表联合起来进行查询。连接表时需要在每个表中选择一个字段，并对这些字段的值进行比较，值相同的两条记录将合并为一条。<strong>连接表的本质就是将不同表的记录合并起来，形成一张新表。当然，这张新表只是临时的，它仅存在于本次查询期间</strong>。</p>
 </blockquote>
 <h3 id="411-theat-join"><a class="markdownIt-Anchor" href="#411-theat-join"></a> 4.1.1 theat join</h3>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">Drinkers(name, addr)</span><br><span class="line">Frequents(drinker, bar)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span></span><br><span class="line"><span class="keyword">FROM</span> Drinkers <span class="keyword">JOIN</span> Frequents <span class="keyword">ON</span> name <span class="operator">=</span> drinker</span><br><span class="line">(d,a,d,b)</span><br><span class="line">drinker d住在a，并且经常去b</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sql">Drinkers(name, addr)
+Frequents(drinker, bar)
+<span class="hljs-keyword">SELECT</span> *
+<span class="hljs-keyword">FROM</span> Drinkers <span class="hljs-keyword">JOIN</span> Frequents <span class="hljs-keyword">ON</span> <span class="hljs-keyword">name</span> = drinker
+(d,a,d,b)
+drinker d住在a，并且经常去b
+</code></pre>
 <p>inner join：2表值都存在<br />
 outer join：附表中值可能存在null的情况。</p>
 <p>①A inner join B：取交集</p>
@@ -524,9 +570,22 @@ must be either:</p>
 <blockquote>
 <p>From Likes(drinker, beer) and Sells(bar, beer, price), Find the beer which is the favorite of ‘Lynn Conway’ or the price is above 40</p>
 </blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(<span class="keyword">SELECT</span> beer <span class="keyword">FROM</span> Likes</span><br><span class="line"><span class="keyword">WHERE</span> drinker<span class="operator">=</span><span class="string">&#x27;Lynn Conway&#x27;</span>)</span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line">(<span class="keyword">SELECT</span> beer <span class="keyword">FROM</span> Sells</span><br><span class="line"><span class="keyword">WHERE</span> price<span class="operator">&gt;</span><span class="number">40</span>);</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sql">(<span class="hljs-keyword">SELECT</span> beer <span class="hljs-keyword">FROM</span> Likes
+<span class="hljs-keyword">WHERE</span> drinker=<span class="hljs-string">'Lynn Conway'</span>)
+<span class="hljs-keyword">UNION</span>
+(<span class="hljs-keyword">SELECT</span> beer <span class="hljs-keyword">FROM</span> Sells
+<span class="hljs-keyword">WHERE</span> price&gt;<span class="hljs-number">40</span>);
+</code></pre>
 <h1 id="9-数据库修改"><a class="markdownIt-Anchor" href="#9-数据库修改"></a> 9 数据库修改</h1>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="operator">&lt;</span>relation<span class="operator">&gt;</span>(属性列表) <span class="keyword">VALUES</span> ( <span class="operator">&lt;</span>list <span class="keyword">of</span> <span class="keyword">values</span><span class="operator">&gt;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="operator">&lt;</span>relation<span class="operator">&gt;</span> (...) ( <span class="operator">&lt;</span>subquery<span class="operator">&gt;</span> );</span><br><span class="line"></span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> <span class="operator">&lt;</span>relation<span class="operator">&gt;</span> <span class="keyword">WHERE</span> <span class="operator">&lt;</span><span class="keyword">condition</span><span class="operator">&gt;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">UPDATE</span> <span class="operator">&lt;</span>relation<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">SET</span> <span class="operator">&lt;</span>list <span class="keyword">of</span> attribute assignments<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="operator">&lt;</span><span class="keyword">condition</span> <span class="keyword">on</span> tuples<span class="operator">&gt;</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> &lt;relation&gt;(属性列表) <span class="hljs-keyword">VALUES</span> ( &lt;<span class="hljs-keyword">list</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">values</span>&gt;);
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> &lt;relation&gt; (...) ( &lt;subquery&gt; );
+
+<span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> &lt;relation&gt; <span class="hljs-keyword">WHERE</span> &lt;condition&gt;;
+
+<span class="hljs-keyword">UPDATE</span> &lt;relation&gt;
+<span class="hljs-keyword">SET</span> &lt;<span class="hljs-keyword">list</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">attribute</span> assignments&gt;
+<span class="hljs-keyword">WHERE</span> &lt;condition <span class="hljs-keyword">on</span> tuples&gt;;
+</code></pre>
 <h1 id="10-第一范式-第二范式-第三范式-bcnf"><a class="markdownIt-Anchor" href="#10-第一范式-第二范式-第三范式-bcnf"></a> 10 第一范式、第二范式、第三范式、BCNF</h1>
 <ul>
 <li>第一范式：列不可再分</li>

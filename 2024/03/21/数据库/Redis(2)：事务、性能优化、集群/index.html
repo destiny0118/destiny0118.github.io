@@ -28,16 +28,15 @@
 <meta property="og:site_name" content="我的个人博客">
 <meta property="og:description" content="Reactor模式">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403212018322.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405102157934.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403222019815.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403222036276.png">
 <meta property="article:published_time" content="2024-03-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-17T07:42:35.907Z">
+<meta property="article:modified_time" content="2024-08-25T16:12:38.928Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403212018322.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405102157934.png">
 
 
 <link rel="canonical" href="https://destiny0118.github.io/2024/03/21/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(2)%EF%BC%9A%E4%BA%8B%E5%8A%A1%E3%80%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E3%80%81%E9%9B%86%E7%BE%A4/">
@@ -154,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-redis%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 1 Redis线程模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BA%8B%E4%BB%B6"><span class="nav-text"> 2 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E6%96%87%E4%BB%B6%E4%BA%8B%E4%BB%B6"><span class="nav-text"> 2.1 文件事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-redis%E4%BA%8B%E5%8A%A1"><span class="nav-text"> 3 Redis事务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-redis%E9%98%BB%E5%A1%9E"><span class="nav-text"> 4 Redis阻塞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-text"> 5 Redis性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E4%BD%BF%E7%94%A8%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E5%87%8F%E5%B0%91%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93"><span class="nav-text"> 5.1 使用批量操作减少网络传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-%E5%A4%A7%E9%87%8Fkey%E9%9B%86%E4%B8%AD%E8%BF%87%E6%9C%9F%E9%97%AE%E9%A2%98"><span class="nav-text"> 5.2 大量key集中过期问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53-bigkey"><span class="nav-text"> 5.3 Bigkey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#531-%E5%BD%B1%E5%93%8D"><span class="nav-text"> 5.3.1 影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#532-%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text"> 5.3.2 解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#54-hotkeyhotkeys"><span class="nav-text"> 5.4 Hotkey（–hotkeys）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#55-%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4"><span class="nav-text"> 5.5 慢查询命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%A4%9A%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="nav-text"> 6 多机数据库（集群，高可用）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-text"> 6.1 主从复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E5%90%8C%E6%AD%A5%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6"><span class="nav-text"> 6.1.1 同步（全量复制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E5%9F%BA%E4%BA%8E%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%91%BD%E4%BB%A4%E4%BC%A0%E6%92%AD"><span class="nav-text"> 6.1.2 基于长连接的命令传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#613-%E9%83%A8%E5%88%86%E9%87%8D%E5%90%8C%E6%AD%A5%E5%A2%9E%E9%87%8F%E5%A4%8D%E5%88%B6"><span class="nav-text"> 6.1.3 部分重同步（增量复制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#614-%E5%BF%83%E8%B7%B3%E6%A3%80%E6%B5%8B"><span class="nav-text"> 6.1.4 心跳检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#615-%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 6.1.5 数据丢失</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5151-%E5%BC%82%E6%AD%A5%E5%A4%8D%E5%88%B6%E5%90%8C%E6%AD%A5%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 5.1.5.1 异步复制同步丢失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5152-%E9%9B%86%E7%BE%A4%E4%BA%A7%E7%94%9F%E8%84%91%E8%A3%82%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 5.1.5.2 集群产生脑裂数据丢失</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#616-%E4%B8%BB%E4%BB%8E%E6%95%85%E9%9A%9C%E5%88%87%E6%8D%A2"><span class="nav-text"> 6.1.6 主从故障切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62-%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8Fsentinel"><span class="nav-text"> 6.2 哨兵模式(Sentinel)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#621-%E5%88%A4%E6%96%AD%E4%B8%BB%E8%8A%82%E7%82%B9%E6%95%85%E9%9A%9C"><span class="nav-text"> 6.2.1 判断主节点故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#622-%E9%80%89%E4%B8%BE%E9%A2%86%E5%A4%B4sentinel"><span class="nav-text"> 6.2.2 选举领头Sentinel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#623-%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="nav-text"> 6.2.3 故障转移</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-%E5%88%87%E7%89%87%E9%9B%86%E7%BE%A4"><span class="nav-text"> 6.3 切片集群</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83"><span class="nav-text"> 7 参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-redis%E4%BA%8B%E5%8A%A1"><span class="nav-text"> 1 Redis事务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-redis%E9%98%BB%E5%A1%9E"><span class="nav-text"> 2 Redis阻塞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-redis%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-text"> 3 Redis性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E4%BD%BF%E7%94%A8%E6%89%B9%E9%87%8F%E6%93%8D%E4%BD%9C%E5%87%8F%E5%B0%91%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93"><span class="nav-text"> 3.1 使用批量操作减少网络传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E5%A4%A7%E9%87%8Fkey%E9%9B%86%E4%B8%AD%E8%BF%87%E6%9C%9F%E9%97%AE%E9%A2%98"><span class="nav-text"> 3.2 大量key集中过期问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-bigkey"><span class="nav-text"> 3.3 Bigkey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#331-%E5%BD%B1%E5%93%8D"><span class="nav-text"> 3.3.1 影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#332-%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text"> 3.3.2 解决办法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#34-hotkeyhotkeys"><span class="nav-text"> 3.4 Hotkey（–hotkeys）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-%E6%85%A2%E6%9F%A5%E8%AF%A2%E5%91%BD%E4%BB%A4"><span class="nav-text"> 3.5 慢查询命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%A4%9A%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="nav-text"> 4 多机数据库（集群，高可用）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-text"> 4.1 主从复制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#411-%E5%90%8C%E6%AD%A5%E5%85%A8%E9%87%8F%E5%A4%8D%E5%88%B6"><span class="nav-text"> 4.1.1 同步（全量复制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#412-%E5%9F%BA%E4%BA%8E%E9%95%BF%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%91%BD%E4%BB%A4%E4%BC%A0%E6%92%AD"><span class="nav-text"> 4.1.2 基于长连接的命令传播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#413-%E9%83%A8%E5%88%86%E9%87%8D%E5%90%8C%E6%AD%A5%E5%A2%9E%E9%87%8F%E5%A4%8D%E5%88%B6"><span class="nav-text"> 4.1.3 部分重同步（增量复制）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#414-%E5%BF%83%E8%B7%B3%E6%A3%80%E6%B5%8B"><span class="nav-text"> 4.1.4 心跳检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#415-%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 4.1.5 数据丢失</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5151-%E5%BC%82%E6%AD%A5%E5%A4%8D%E5%88%B6%E5%90%8C%E6%AD%A5%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 5.1.5.1 异步复制同步丢失</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5152-%E9%9B%86%E7%BE%A4%E4%BA%A7%E7%94%9F%E8%84%91%E8%A3%82%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1"><span class="nav-text"> 5.1.5.2 集群产生脑裂数据丢失</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#416-%E4%B8%BB%E4%BB%8E%E6%95%85%E9%9A%9C%E5%88%87%E6%8D%A2"><span class="nav-text"> 4.1.6 主从故障切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8Fsentinel%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="nav-text"> 4.2 哨兵模式(Sentinel，高可用)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#421-%E5%88%A4%E6%96%AD%E4%B8%BB%E8%8A%82%E7%82%B9%E6%95%85%E9%9A%9C"><span class="nav-text"> 4.2.1 判断主节点故障</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#422-%E9%80%89%E4%B8%BE%E9%A2%86%E5%A4%B4sentinel"><span class="nav-text"> 4.2.2 选举领头Sentinel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#423-%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="nav-text"> 4.2.3 故障转移</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#43-%E5%88%87%E7%89%87%E9%9B%86%E7%BE%A4"><span class="nav-text"> 4.3 切片集群</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%8F%82%E8%80%83"><span class="nav-text"> 5 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -266,7 +265,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-17 15:42:35" itemprop="dateModified" datetime="2024-08-17T15:42:35+08:00">2024-08-17</time>
+      <time title="修改时间：2024-08-26 00:12:38" itemprop="dateModified" datetime="2024-08-26T00:12:38+08:00">2024-08-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,22 +288,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="1-redis线程模型"><a class="markdownIt-Anchor" href="#1-redis线程模型"></a> 1 Redis线程模型</h1>
-<p><strong>Redis 基于 Reactor 模式设计开发了一套高效的事件处理模型</strong>，这套事件处理模型对应的是 Redis 中的文件事件处理器（file event handler）。由于文件事件处理器（file event handler）是单线程方式运行的，所以我们一般都说 Redis 是单线程模型。</p>
-<p>Redis针对大键值对异步删除。</p>
-<ul>
-<li>文件事件处理器使用 I/O 多路复用（multiplexing）程序来同时监听多个套接字，并根据套接字目前执行的任务来为套接字关联不同的事件处理器。</li>
-<li>当被监听的套接字准备好执行连接应答（accept）、读取（read）、写入（write）、关 闭（close）等操作时，与操作相对应的文件事件就会产生，这时文件事件处理器就会调用套接字之前关联好的事件处理器来处理这些事件。</li>
-</ul>
-<h1 id="2-事件"><a class="markdownIt-Anchor" href="#2-事件"></a> 2 事件</h1>
-<ul>
-<li>文件事件(file event) : Redis 服务器通过套接字与客户端（或者其他Redis服务器）进行连接，而文件事件就是服务器对套接字操作的抽象</li>
-<li>时间事件(time event ) : Redis 服务器中的一些操作（比如serverCron 函数）需要在给定的时间点执行，而时间事件就是服务器对这类定时操作的抽象。</li>
-</ul>
-<h2 id="21-文件事件"><a class="markdownIt-Anchor" href="#21-文件事件"></a> 2.1 文件事件</h2>
-<p>Redis基于Reactor模式开发了文件事件处理器，文件事件处理器以单线程方式运行，使用I/O多路复用(multiplexing)程序监听多个套接字。<br />
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403212018322.png" alt="image.png" /></p>
-<h1 id="3-redis事务"><a class="markdownIt-Anchor" href="#3-redis事务"></a> 3 Redis事务</h1>
+        <h1 id="1-redis事务"><a class="markdownIt-Anchor" href="#1-redis事务"></a> 1 Redis事务</h1>
 <p>**Redis 事务提供了一种将多个命令请求打包的功能。然后，再按顺序执行打包的所有命令，并且不会被中途打断。<br />
 **</p>
 <ul>
@@ -312,7 +296,7 @@
 <li>Redis 事务在运行错误的情况下，除了执行过程中出现错误的命令外，其他命令都能正常执行。并且，Redis 事务是不支持回滚（roll back）操作的。因此，Redis 事务其实是<mark>不满足原子性</mark>的。</li>
 <li>AOF 持久化的<code>fsync</code>策略为 no、everysec 时都会存在数据丢失的情况 。always 下可以基本是可以满足持久性要求的，但性能太差，实际开发过程中不会使用。因此，Redis 事务的持久性也是没办法保证的。</li>
 </ul>
-<h1 id="4-redis阻塞"><a class="markdownIt-Anchor" href="#4-redis阻塞"></a> 4 Redis阻塞</h1>
+<h1 id="2-redis阻塞"><a class="markdownIt-Anchor" href="#2-redis阻塞"></a> 2 Redis阻塞</h1>
 <ul>
 <li>O(n)命令</li>
 <li>SAVE 创建 RDB 快照</li>
@@ -320,8 +304,8 @@
 <li>AOF重写阻塞</li>
 <li>删除大key</li>
 </ul>
-<h1 id="5-redis性能优化"><a class="markdownIt-Anchor" href="#5-redis性能优化"></a> 5 <mark>Redis性能优化</mark></h1>
-<h2 id="51-使用批量操作减少网络传输"><a class="markdownIt-Anchor" href="#51-使用批量操作减少网络传输"></a> 5.1 使用批量操作减少网络传输</h2>
+<h1 id="3-redis性能优化"><a class="markdownIt-Anchor" href="#3-redis性能优化"></a> 3 <mark>Redis性能优化</mark></h1>
+<h2 id="31-使用批量操作减少网络传输"><a class="markdownIt-Anchor" href="#31-使用批量操作减少网络传输"></a> 3.1 使用批量操作减少网络传输</h2>
 <ol>
 <li>发送命令</li>
 <li>命令排队</li>
@@ -335,13 +319,13 @@
 <li>pipeline：将一批 Redis 命令封装成一组，这些 Redis 命令会被一次性提交到 Redis 服务器，只需要一次网络传输</li>
 <li>Lua脚本：一段 Lua 脚本可以视作一条命令执行，可以看作是 <strong>原子操作</strong> 。</li>
 </ul>
-<h2 id="52-大量key集中过期问题"><a class="markdownIt-Anchor" href="#52-大量key集中过期问题"></a> 5.2 大量key集中过期问题</h2>
+<h2 id="32-大量key集中过期问题"><a class="markdownIt-Anchor" href="#32-大量key集中过期问题"></a> 3.2 大量key集中过期问题</h2>
 <p>定期任务线程在Redis主线程中执行，在遇到大量过期key时，客户端需等待定期清理过期key任务线程执行完成。导致客户端请求没办法被及时处理，响应速度会比较慢。</p>
 <ul>
 <li>key设置随机过期时间</li>
 <li>开启惰性删除，异步删除</li>
 </ul>
-<h2 id="53-bigkey"><a class="markdownIt-Anchor" href="#53-bigkey"></a> 5.3 Bigkey</h2>
+<h2 id="33-bigkey"><a class="markdownIt-Anchor" href="#33-bigkey"></a> 3.3 Bigkey</h2>
 <blockquote>
 <p>key对应的value所占用的内存比较大，或者元素比较多</p>
 </blockquote>
@@ -351,19 +335,19 @@
 <li><strong>采用合适的数据结构</strong>：例如，文件二进制数据不使用 String 保存、使用 HyperLogLog 统计页面 UV、Bitmap 保存状态信息（0/1）。</li>
 <li><strong>开启 lazy-free（惰性删除/延迟释放）</strong> ：lazy-free 特性是 Redis 4.0 开始引入的，指的是让 Redis 采用异步方式延迟释放 key 使用的内存，将该操作交给单独的子线程处理，避免阻塞主线程。</li>
 </ul>
-<h3 id="531-影响"><a class="markdownIt-Anchor" href="#531-影响"></a> 5.3.1 影响</h3>
+<h3 id="331-影响"><a class="markdownIt-Anchor" href="#331-影响"></a> 3.3.1 影响</h3>
 <ul>
 <li><strong>客户端超时阻塞</strong>。由于 Redis 执行命令是单线程处理，然后在操作大 key 时会比较耗时，那么就会阻塞 Redis，从客户端这一视角看，就是很久很久都没有响应。</li>
 <li><strong>引发网络阻塞</strong>。每次获取大 key 产生的网络流量较大，如果一个 key 的大小是 1 MB，每秒访问量为 1000，那么每秒会产生 1000MB 的流量，这对于普通千兆网卡的服务器来说是灾难性的。</li>
 <li><strong>阻塞工作线程</strong>。如果使用 del 删除大 key 时，会阻塞工作线程，这样就没办法处理后续的命令。</li>
 <li><strong>内存分布不均</strong>。集群模型在 slot 分片均匀情况下，会出现数据和查询倾斜情况，部分有大 key 的 Redis 节点占用内存多，QPS 也会比较大。</li>
 </ul>
-<h3 id="532-解决办法"><a class="markdownIt-Anchor" href="#532-解决办法"></a> 5.3.2 解决办法</h3>
+<h3 id="332-解决办法"><a class="markdownIt-Anchor" href="#332-解决办法"></a> 3.3.2 解决办法</h3>
 <ul>
 <li>分批次删除</li>
 <li>异步删除（Redis 4.0版本以上）</li>
 </ul>
-<h2 id="54-hotkeyhotkeys"><a class="markdownIt-Anchor" href="#54-hotkeyhotkeys"></a> 5.4 Hotkey（–hotkeys）</h2>
+<h2 id="34-hotkeyhotkeys"><a class="markdownIt-Anchor" href="#34-hotkeyhotkeys"></a> 3.4 Hotkey（–hotkeys）</h2>
 <blockquote>
 <p>一个key的访问次数比较多并且明显多于其他key<br />
 hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的热搜事件、参与秒杀的商品。</p>
@@ -373,7 +357,7 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 <li><strong>使用 Redis Cluster</strong>：将热点数据分散存储在多个 Redis 节点上。</li>
 <li><strong>二级缓存</strong>：hotkey 采用二级缓存的方式进行处理，将 hotkey 存放一份到 JVM 本地内存中（可以用 Caffeine）。</li>
 </ul>
-<h2 id="55-慢查询命令"><a class="markdownIt-Anchor" href="#55-慢查询命令"></a> 5.5 慢查询命令</h2>
+<h2 id="35-慢查询命令"><a class="markdownIt-Anchor" href="#35-慢查询命令"></a> 3.5 慢查询命令</h2>
 <blockquote>
 <p>Redis 慢查询统计的是命令执行这一步骤的耗时，慢查询命令也就是那些命令执行时间较长的命令。</p>
 </blockquote>
@@ -385,11 +369,11 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 </ol>
 <p>在 <code>redis.conf</code> 文件中，我们可以使用 <code>slowlog-log-slower-than</code> 参数设置耗时命令的阈值，并使用 <code>slowlog-max-len</code> 参数设置耗时命令的最大记录条数。</p>
 <p>当 Redis 服务器检测到执行时间超过 <code>slowlog-log-slower-than</code>阈值的命令时，就会将该命令记录在慢查询日志(slow log) 中，这点和 MySQL 记录慢查询语句类似。当慢查询日志超过设定的最大记录条数之后，Redis 会把最早的执行命令依次舍弃。</p>
-<h1 id="6-多机数据库集群高可用"><a class="markdownIt-Anchor" href="#6-多机数据库集群高可用"></a> 6 多机数据库（集群，高可用）</h1>
+<h1 id="4-多机数据库集群高可用"><a class="markdownIt-Anchor" href="#4-多机数据库集群高可用"></a> 4 多机数据库（集群，高可用）</h1>
 <blockquote>
 <p>要想设计一个高可用的 Redis 服务，一定要从 Redis 的多服务节点来考虑，比如 Redis 的主从复制、哨兵模式、切片集群。</p>
 </blockquote>
-<h2 id="61-主从复制"><a class="markdownIt-Anchor" href="#61-主从复制"></a> 6.1 主从复制</h2>
+<h2 id="41-主从复制"><a class="markdownIt-Anchor" href="#41-主从复制"></a> 4.1 主从复制</h2>
 <blockquote>
 <p>主服务器可以进行读写操作，当发生写操作时自动将写操作同步给从服务器，而从服务器一般是只读，并接受主服务器同步过来写操作命令，然后执行这条命令。</p>
 </blockquote>
@@ -398,14 +382,14 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 <li>同步操作由从服务器请求，将数据库状态更新至主服务器数据库状态</li>
 <li>命令传播：</li>
 </ul>
-<h3 id="611-同步全量复制"><a class="markdownIt-Anchor" href="#611-同步全量复制"></a> 6.1.1 同步（全量复制）</h3>
+<h3 id="411-同步全量复制"><a class="markdownIt-Anchor" href="#411-同步全量复制"></a> 4.1.1 同步（全量复制）</h3>
 <ol>
 <li>从服务器向主服务器发送SYNC命令</li>
 <li>主服务器收到命令，执行BGSAVE命令，再后台生成RDB文件，并将之后执行的命令记录到缓冲区</li>
 <li>从服务器收到并载入RDB文件，将自己的数据库状态更新至主服务器执行BGSAVE 命令时的数据库状态</li>
 <li>主服务器将记录在缓冲区里面的所有写命令发送给从服务器，从服务器执行这些写命令</li>
 </ol>
-<h3 id="612-基于长连接的命令传播"><a class="markdownIt-Anchor" href="#612-基于长连接的命令传播"></a> 6.1.2 基于长连接的命令传播</h3>
+<h3 id="412-基于长连接的命令传播"><a class="markdownIt-Anchor" href="#412-基于长连接的命令传播"></a> 4.1.2 基于长连接的命令传播</h3>
 <p>写命令会造成服务器状态不一致，主服务器将执行的写命令发送给从服务器执行</p>
 <p>旧版复制功能再主从服务器断联，并重新连接后，会再次执行SYNC命令，而不仅仅是将断联期间的命令传播给从服务器，要进行一次完整重同步。</p>
 <p>PSYNC命令具有完整重同步( full resynchronization) 和部分重同步(partial resynchronization)两种模式：</p>
@@ -414,14 +398,14 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 <li>部分重同步用于断线重连</li>
 </ul>
 <p>执行SYNC 命令需要生成、传送和载入整个RDB 文件， 而部分重同步只需要将从服务器缺少的写命令发送给从服务器执行就可以了。</p>
-<h3 id="613-部分重同步增量复制"><a class="markdownIt-Anchor" href="#613-部分重同步增量复制"></a> 6.1.3 部分重同步（增量复制）</h3>
+<h3 id="413-部分重同步增量复制"><a class="markdownIt-Anchor" href="#413-部分重同步增量复制"></a> 4.1.3 部分重同步（增量复制）</h3>
 <ul>
 <li>主服务器的复制偏移量和从服务器的复制偏移量</li>
 <li>主服务器的复制积压缓冲区(缓冲区会记录复制偏移量，从服务器断线重连，如果从缓冲区取得缺失命令，执行部分重同步，否则执行完整重同步)</li>
 <li>服务器运行ID（标识主服务器，从服务器重连后连接另一个主服务器，则执行完整重同步）</li>
 <li>当主服务器的写入速度远超于从服务器的读取速度，缓冲区的数据一下就会被覆盖。此时需要进行全量同步。增量复制就与<code>repl_backlog_size</code> 大小有关系，如果它配置的过小，主从服务器网络恢复时，可能发生「从服务器」想读的数据已经被覆盖了，那么这时就会导致主服务器采用全量复制的方式。所以为了避免这种情况的频繁发生，要调大这个参数的值，以降低主从服务器断开后全量同步的概率。</li>
 </ul>
-<h3 id="614-心跳检测"><a class="markdownIt-Anchor" href="#614-心跳检测"></a> 6.1.4 心跳检测</h3>
+<h3 id="414-心跳检测"><a class="markdownIt-Anchor" href="#414-心跳检测"></a> 4.1.4 心跳检测</h3>
 <blockquote>
 <p>命令传播截断。从服务器向主服务器发送心跳</p>
 </blockquote>
@@ -441,31 +425,31 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 </ul>
 </li>
 </ul>
-<h3 id="615-数据丢失"><a class="markdownIt-Anchor" href="#615-数据丢失"></a> 6.1.5 数据丢失</h3>
+<h3 id="415-数据丢失"><a class="markdownIt-Anchor" href="#415-数据丢失"></a> 4.1.5 数据丢失</h3>
 <h4 id="5151-异步复制同步丢失"><a class="markdownIt-Anchor" href="#5151-异步复制同步丢失"></a> 5.1.5.1 异步复制同步丢失</h4>
 <p>主节点将写请求同步给从节点时宕机</p>
 <p>Redis 配置里有一个参数 min-slaves-max-lag，表示一旦所有的从节点数据复制和同步的延迟都超过了 min-slaves-max-lag 定义的值，那么主节点就会拒绝接收任何请求。</p>
 <p>那么对于客户端，当客户端发现 master 不可写后，我们可以采取降级措施，将数据暂时写入本地缓存和磁盘中，在一段时间（等 master 恢复正常）后重新写入 master 来保证数据不丢失，也可以将数据写入 kafka 消息队列，等 master 恢复正常，再隔一段时间去消费 kafka 中的数据，让将数据重新写入 master 。</p>
 <h4 id="5152-集群产生脑裂数据丢失"><a class="markdownIt-Anchor" href="#5152-集群产生脑裂数据丢失"></a> 5.1.5.2 集群产生脑裂数据丢失</h4>
 <p>由于网络问题，集群节点之间失去联系。主从数据不同步；重新平衡选举，产生两个主服务。等网络恢复，旧主节点会降级为从节点，再与新主节点进行同步复制的时候，由于会从节点会清空自己的缓冲区，所以导致之前客户端写入的数据丢失了。</p>
-<h3 id="616-主从故障切换"><a class="markdownIt-Anchor" href="#616-主从故障切换"></a> 6.1.6 主从故障切换</h3>
+<h3 id="416-主从故障切换"><a class="markdownIt-Anchor" href="#416-主从故障切换"></a> 4.1.6 主从故障切换</h3>
 <p>Redis 哨兵机制就登场了，哨兵在发现主节点出现故障时，由哨兵自动完成故障发现和故障转移，并通知给应用方，从而实现高可用性。</p>
-<h2 id="62-哨兵模式sentinel"><a class="markdownIt-Anchor" href="#62-哨兵模式sentinel"></a> 6.2 哨兵模式(Sentinel)</h2>
+<h2 id="42-哨兵模式sentinel高可用"><a class="markdownIt-Anchor" href="#42-哨兵模式sentinel高可用"></a> 4.2 哨兵模式(Sentinel，高可用)</h2>
 <p><mark>选主、故障转移、通知</mark></p>
 <blockquote>
 <p>实现<strong>主从节点故障转移</strong>。它会监测主节点是否存活，如果发现主节点挂了，它就会选举一个从节点切换为主节点，并且把新主节点的相关信息通知给从节点和客户端。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405102157934.png" alt="image.png" /></p>
-<h3 id="621-判断主节点故障"><a class="markdownIt-Anchor" href="#621-判断主节点故障"></a> 6.2.1 判断主节点故障</h3>
+<h3 id="421-判断主节点故障"><a class="markdownIt-Anchor" href="#421-判断主节点故障"></a> 4.2.1 判断主节点故障</h3>
 <p>哨兵会每隔 1 秒给所有主从节点发送 PING 命令，当主从节点收到 PING 命令后，会发送一个响应命令给哨兵，这样就可以判断它们是否在正常运行。</p>
 <p>如果主节点或者从节点没有在规定的时间内响应哨兵的 PING 命令，哨兵就会将它们标记为「<strong>主观下线</strong>」。这个「规定的时间」是配置项 <code>down-after-milliseconds</code> 参数设定的，单位是毫秒。</p>
 <p>哨兵部署多个节点，构成<strong>哨兵集群</strong>，降低误判概率。当一个哨兵判断主节点为「主观下线」后，就会向其他哨兵发起命令，其他哨兵收到这个命令后，就会根据自身和主节点的网络状况，做出赞成投票或者拒绝投票的响应。当超过半数的哨兵判断主节点<strong>主观下线</strong>后，则主节点<strong>客观下线</strong>。</p>
-<h3 id="622-选举领头sentinel"><a class="markdownIt-Anchor" href="#622-选举领头sentinel"></a> 6.2.2 选举领头Sentinel</h3>
+<h3 id="422-选举领头sentinel"><a class="markdownIt-Anchor" href="#422-选举领头sentinel"></a> 4.2.2 选举领头Sentinel</h3>
 <blockquote>
 <p>当一个主服务器被判断为客观下线时，监视这个下线主服务器的各个Sentinel 会进行协商，选举出一个领头Sentinel , 并由领头Sen tinel 对下线主服务器执行故障转移操作。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403222019815.png" alt="image.png" /></p>
-<h3 id="623-故障转移"><a class="markdownIt-Anchor" href="#623-故障转移"></a> 6.2.3 故障转移</h3>
+<h3 id="423-故障转移"><a class="markdownIt-Anchor" href="#423-故障转移"></a> 4.2.3 故障转移</h3>
 <ul>
 <li>在已下线主服务器属下的所有从服务器里面，挑选出一个从服务器，并将其转换为主服务器。</li>
 <li>让已下线主服务器属下的所有从服务器改为复制新的主服务器。</li>
@@ -477,7 +461,7 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 <li>通过Redis的发布者/订阅者机制通知客户的主节点已更换</li>
 <li>将旧主节点变为从节点</li>
 </ol>
-<h2 id="63-切片集群"><a class="markdownIt-Anchor" href="#63-切片集群"></a> 6.3 切片集群</h2>
+<h2 id="43-切片集群"><a class="markdownIt-Anchor" href="#43-切片集群"></a> 4.3 切片集群</h2>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403222036276.png" alt="image.png|475" /></p>
 <blockquote>
 <p>clusterState.slots数组记录了集群中所有槽的指派信息，而clusterNode.slots数组只记录了clusterNode结构所代表的节点的槽指派信息，这是两个slots数组的关键区别所在。</p>
@@ -499,7 +483,7 @@ hotkey 出现的原因主要是某个热点数据访问量暴增，如重大的�
 \end{aligned}
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.831548em;vertical-align:-1.6657740000000003em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.165774em;"><span style="top:-4.165774em;"><span class="pstrut" style="height:3.32144em;"></span><span class="mord"><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">8</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mord">6</span><span class="mord">3</span><span class="mord">8</span><span class="mord">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">4</span><span class="mord">8</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.07153em;">K</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span></span></span><span style="top:-2.315666em;"><span class="pstrut" style="height:3.32144em;"></span><span class="mord"><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">6</span><span class="mord">5</span><span class="mord">5</span><span class="mord">3</span><span class="mord">6</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">6</span><span class="mord">3</span><span class="mord">8</span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.6657740000000003em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
 <p>Redis Cluster没有使用<mark>一致性哈希</mark>，采用的是哈希槽分区，每一个键值对都属于一个 <strong>hash slot</strong>（哈希槽） 。当客户端发送命令请求的时候，需要先根据 key 通过上面的计算公示找到的对应的哈希槽，然后再查询哈希槽和节点的映射关系，即可找到目标 Redis 节点。</p>
-<h1 id="7-参考"><a class="markdownIt-Anchor" href="#7-参考"></a> 7 参考</h1>
+<h1 id="5-参考"><a class="markdownIt-Anchor" href="#5-参考"></a> 5 参考</h1>
 <p><a href="https://xiaolincoding.com/redis/cluster/master_slave_replication.html">主从复制是怎么实现的？ | 小林coding (xiaolincoding.com)</a><br />
 <a href="https://xiaolincoding.com/redis/cluster/sentinel.html#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%93%A8%E5%85%B5%E6%9C%BA%E5%88%B6">为什么要有哨兵？ | 小林coding (xiaolincoding.com)</a><br />
 <a href="https://www.cnblogs.com/rjzheng/p/11430592.html">【原创】为什么Redis集群有16384个槽 - 孤独烟 - 博客园 (cnblogs.com)</a></p>

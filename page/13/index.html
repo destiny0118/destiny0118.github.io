@@ -506,7 +506,7 @@ max\{k,1<k<j且'p_1...p_k'='p_{j-k+1}...p_{j-1}'\}& \text{此集合不空时}\\
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-22 20:59:38" itemprop="dateModified" datetime="2024-08-22T20:59:38+08:00">2024-08-22</time>
+      <time title="修改时间：2024-08-22 23:58:15" itemprop="dateModified" datetime="2024-08-22T23:58:15+08:00">2024-08-22</time>
     </span>
 
   
@@ -531,7 +531,11 @@ npm install # npm install命令会把X包安装到node_modules目录中<br />
 本地运行  hexo s -p 5555本地运行</li>
 <li>npm install hexo-deployer-git --save</li>
 </ol>
-<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">清除缓存: hexo clean</span></span><br><span class="line"><span class="section">生成: hexo g</span></span><br><span class="line"><span class="section">预览:  hexo s</span></span><br><span class="line"><span class="section">部署:  hexo d</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">清除缓存: hexo clean
+生成: hexo g
+预览:  hexo s
+部署:  hexo d
+</code></pre>
 <h1 id="2-基本功能"><a class="markdownIt-Anchor" href="#2-基本功能"></a> 2 基本功能</h1>
 <h2 id="21-添加搜索功能"><a class="markdownIt-Anchor" href="#21-添加搜索功能"></a> 2.1 添加搜索功能</h2>
 <p>npm install hexo-generator-searchdb --save</p>
@@ -543,31 +547,52 @@ npm install # npm install命令会把X包安装到node_modules目录中<br />
 <p><a href="https://forum-zh.obsidian.md/t/topic/435">MarkDown语法 超详细教程 - 经验分享 - Obsidian 中文论坛</a></p>
 <p><a href="https://pkmer.cn/Pkmer-Docs/02-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/markdown/obsidian%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/">PKMer_Obsidian 扩展语法</a></p>
 <h2 id="51-callout"><a class="markdownIt-Anchor" href="#51-callout"></a> 5.1 Callout</h2>
+<p><a href="https://uuanqin.top/p/d4bc55f2/index.html">Hexo 博客适配 Obsidian 新语法 | 半方池水半方田 (uuanqin.top)</a></p>
+<pre class="highlight"><code class="">npm un hexo-renderer-marked --save
+npm i hexo-renderer-markdown-it-plus --save
+</code></pre>
 <p><a href="https://help.obsidian.md/Editing+and+formatting/Callouts">Callouts - Obsidian Help</a></p>
+<details class="custom-callout info" open><summary class="callout-title"><div class="callout-icon"></div><div>Info</div>
+</summary></details><blockquote>
+<p>[!note]</p>
+</blockquote>
+<details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div>Tip</div>
+</summary></details><blockquote>
+<p>[!question]</p>
+</blockquote>
+<details class="custom-callout todo" open><summary class="callout-title"><div class="callout-icon"></div><div>Todo</div>
+</summary></details><details class="custom-callout example"><summary class="callout-title"><div class="callout-icon"></div><div>Example</div>
+</summary></details><details class="custom-callout abstract" open><summary class="callout-title"><div class="callout-icon"></div><div>Abstract</div>
+</summary></details><details class="custom-callout warning" open><summary class="callout-title"><div class="callout-icon"></div><div>Warning</div>
+</summary></details><details class="custom-callout success" open><summary class="callout-title"><div class="callout-icon"></div><div>Success</div>
+</summary></details><details class="custom-callout quote" open><summary class="callout-title"><div class="callout-icon"></div><div>Quote</div>
+</summary></details><p></p>
 <h1 id="6-hexo高级渲染"><a class="markdownIt-Anchor" href="#6-hexo高级渲染"></a> 6 Hexo高级渲染</h1>
 <p><a href="https://blog.csdn.net/qq_42951560/article/details/123596899">【Hexo】选择更高级的Markdown渲染器_hexo-renderer-marked-CSDN博客</a></p>
-<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="name">D</span>:\Hexo\Destiny\themes\hexo-theme-next\source\css\_common\components\post\index.styl</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/qq_36667170/article/details/105846999">hexo 更换 markdown渲染器 @upupming/hexo-renderer-markdown-it-plus_hexo render-CSDN博客</a></p>
+<pre class="highlight"><code class="">D:\Hexo\Destiny\themes\hexo-theme-next\source\css\_common\components\post\index.styl
+</code></pre>
 <p>修改颜色属性</p>
-<p>::: tips<br />
-<strong>提示</strong><br />
-这是一个提示<br />
-:::<br />
-​<br />
-::: warning<br />
-<strong>注意</strong><br />
-这是一个警告<br />
-:::<br />
-​<br />
-::: danger<br />
-<strong>警告</strong><br />
-这是一个危险信号<br />
-:::<br />
-​<br />
-::: success<br />
-<strong>成功</strong><br />
-这是一个成功信号<br />
-:::<br />
-​</p>
+<p>::: tips</p>
+<p><strong>提示</strong></p>
+<p>这是一个提示</p>
+<p>:::</p>
+<p>​</p>
+<p>::: warning</p>
+<p><strong>注意</strong></p>
+<p>这是一个警告</p>
+<p>:::</p>
+<p>​</p>
+<p>::: danger</p>
+<p><strong>警告</strong></p>
+<p>这是一个危险信号</p>
+<p>:::</p>
+<p>​</p>
+<p>::: success</p>
+<p><strong>成功</strong></p>
+<p>这是一个成功信号</p>
+<p>:::</p>
+<p>​</p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406062347265.png" alt="image.png" /></p>
 <ul>
 <li>
@@ -594,11 +619,24 @@ npm install # npm install命令会把X包安装到node_modules目录中<br />
 <h3 id="711-菜单"><a class="markdownIt-Anchor" href="#711-菜单"></a> 7.1.1 菜单</h3>
 <h4 id="增加菜单项目"><a class="markdownIt-Anchor" href="#增加菜单项目"></a> 增加菜单项目</h4>
 <p><code>_config.yml</code></p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">home:</span> / || home</span><br><span class="line"><span class="meta">#about: /about/ || user</span></span><br><span class="line"><span class="symbol">tags:</span> <span class="keyword">/tags/</span> || tags</span><br><span class="line"><span class="meta">#categories: /categories/ || th</span></span><br><span class="line"><span class="symbol">archives:</span> <span class="keyword">/archives/</span> || archive</span><br><span class="line"><span class="meta">#schedule: /schedule/ || calendar</span></span><br><span class="line"><span class="meta">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line"><span class="meta">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">menu:
+home: / || home
+#about: /about/ || user
+tags: /tags/ || tags
+#categories: /categories/ || th
+archives: /archives/ || archive
+#schedule: /schedule/ || calendar
+#sitemap: /sitemap.xml || sitemap
+#commonweal: /404/ || heartbeat
+</code></pre>
 <p>新建页面<code>tags</code>：<code>hexo new page &quot;tags&quot;</code></p>
-<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags </span><br><span class="line"><span class="attribute">date</span>: <span class="number">2019</span>-<span class="number">02</span>-<span class="number">18</span> <span class="number">16</span>:<span class="number">40</span>:<span class="number">41</span></span><br><span class="line"><span class="attribute">type</span>: tags</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">title: tags 
+date: 2019-02-18 16:40:41
+type: tags
+</code></pre>
 <h4 id="更改菜单名称"><a class="markdownIt-Anchor" href="#更改菜单名称"></a> 更改菜单名称</h4>
 <p><code>next/languages/zh-CN.yml</code></p>
+<p></p>
 <h3 id="712-next美化教程"><a class="markdownIt-Anchor" href="#712-next美化教程"></a> 7.1.2 NexT美化教程</h3>
 <p><a href="https://sspai.com/post/85116#!">Hexo+Github Page｜基础教程(二)：NexT 主题基本美化｜全网最细致全面的教程 - 少数派 (sspai.com)</a></p>
 <h1 id="8-部署出错"><a class="markdownIt-Anchor" href="#8-部署出错"></a> 8 部署出错</h1>
@@ -611,6 +649,7 @@ npm install # npm install命令会把X包安装到node_modules目录中<br />
 <p>git config --global http.proxy</p>
 <p>git config --global https.proxy</p>
 </blockquote>
+<p></p>
 <ul>
 <li>
 <p>OpenSSL SSL_connect Connection was reset</p>
@@ -619,6 +658,7 @@ npm install # npm install命令会把X包安装到node_modules目录中<br />
 <p><a href="https://blog.csdn.net/Candle_light/article/details/114992784">生成SSH</a></p>
 </li>
 </ul>
+<p></p>
 <p><a href="https://www.jianshu.com/p/42a4efcdf8d7">解决Hexo博客文章置顶问题 - 简书 (jianshu.com)</a></p>
 <p><a href="https://blog.csdn.net/qwerty200696/article/details/79010629">hexo博客优化之文章置顶+置顶标签_qwerty200696的博客-CSDN博客_hexo 置顶</a></p>
 
@@ -951,7 +991,7 @@ git branch -d callback    //删除分支</p>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-22 22:44:56" itemprop="dateModified" datetime="2024-08-22T22:44:56+08:00">2024-08-22</time>
+      <time title="修改时间：2024-08-24 18:00:31" itemprop="dateModified" datetime="2024-08-24T18:00:31+08:00">2024-08-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
