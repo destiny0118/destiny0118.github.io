@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -257,7 +257,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-10 10:42:06" itemprop="dateModified" datetime="2024-05-10T10:42:06+08:00">2024-05-10</time>
+      <time title="修改时间：2024-09-18 19:40:28" itemprop="dateModified" datetime="2024-09-18T19:40:28+08:00">2024-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -441,7 +441,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-18 22:59:09" itemprop="dateModified" datetime="2024-08-18T22:59:09+08:00">2024-08-18</time>
+      <time title="修改时间：2024-09-19 23:52:07" itemprop="dateModified" datetime="2024-09-19T23:52:07+08:00">2024-09-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -681,6 +681,130 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93/Mybatis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/27/%E6%95%B0%E6%8D%AE%E5%BA%93/Mybatis/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-27 23:12:16" itemprop="dateCreated datePublished" datetime="2024-08-27T23:12:16+08:00">2024-08-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-18 12:58:07" itemprop="dateModified" datetime="2024-09-18T12:58:07+08:00">2024-09-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p>[!question] #{} 和 ${} 的区别是什么？</p>
+<ul>
+<li><code>$&#123;&#125;</code>是 Properties 文件中的<mark>变量占位符</mark>，它可以用于标签属性值和 sql 内部，属于原样文本替换，可以替换任意内容，比如${driver}会被原样替换为<code>com.mysql.jdbc. Driver</code>。</li>
+<li><code>#&#123;&#125;</code>是 sql 的<mark>参数占位符</mark>，MyBatis 会将 sql 中的<code>#&#123;&#125;</code>替换为? 号，在 sql 执行前会使用 PreparedStatement 的参数设置方法，按序给 sql 的? 号占位符设置参数值，比如 ps.setInt(0, parameterValue)，<code>#&#123;item.name&#125;</code> 的取值方式为使用反射从参数对象中获取 item 对象的 name 属性值，相当于 <code>param.getItem().getName()</code>。</li>
+<li>符号$，它会把参数值直接进行替换，而不会进行预编译（如果使用占位符#，就会进行预编译，从而可以防止SQL注入</li>
+</ul>
+</blockquote>
+<h1 id="1-mybatis避免sql注入"><a class="markdownIt-Anchor" href="#1-mybatis避免sql注入"></a> 1 MyBatis避免SQL注入</h1>
+<h1 id="2-sql语句映射模式"><a class="markdownIt-Anchor" href="#2-sql语句映射模式"></a> 2 SQL语句映射模式</h1>
+<p>基于xml</p>
+<pre class="highlight"><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">"mapper.UserMapper"</span>&gt;</span>
+    <span class="hljs-comment">&lt;!--结果集映射(ORM)--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"userResultMap"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"entity.UserEntity"</span>&gt;</span>
+        <span class="hljs-comment">&lt;!-- propery表示UserEntity属性名，column表示tb_user表字段名--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"id"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"id"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"userName"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"user_name"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"password"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"password"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"name"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"age"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"sex"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"sex"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"birthday"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"birthday"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"created"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"created"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"updated"</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"updated"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span>
+
+    <span class="hljs-comment">&lt;!--select查询语句 id表示接口方法名 resultMap表示引用结果集映射--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectUserByAge"</span>  <span class="hljs-attr">resultMap</span>=<span class="hljs-string">"userResultMap"</span>&gt;</span>
+        select * from tb_user where age &gt; #&#123;age&#125;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span>
+
+</code></pre>
+<p>基于注解</p>
+<pre class="highlight"><code class="java"><span class="hljs-meta">@Select</span>(<span class="hljs-string">"select * from tb_user where age &gt; #&#123;age&#125;"</span>)
+<span class="hljs-meta">@Results</span>(value = &#123;
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"id"</span>,column = <span class="hljs-string">"id"</span>,id = <span class="hljs-keyword">true</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"userName"</span>,column = <span class="hljs-string">"userName"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"password"</span>,column = <span class="hljs-string">"password"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"name"</span>,column = <span class="hljs-string">"name"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"sex"</span>,column = <span class="hljs-string">"sex"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"age"</span>,column = <span class="hljs-string">"age"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"birthday"</span>,column = <span class="hljs-string">"birthday"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"created"</span>,column = <span class="hljs-string">"created"</span>),
+            <span class="hljs-meta">@Result</span>(property = <span class="hljs-string">"updated"</span>,column = <span class="hljs-string">"updated"</span>)
+ &#125;)
+ <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;UserEntity&gt; <span class="hljs-title">selectUserByAge</span><span class="hljs-params">(@Param(<span class="hljs-string">"age"</span>)</span> <span class="hljs-keyword">int</span> age)</span>;
+
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/08/17/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%AF%94%E8%BE%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -717,7 +841,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-19 00:13:56" itemprop="dateModified" datetime="2024-08-19T00:13:56+08:00">2024-08-19</time>
+      <time title="修改时间：2024-09-19 23:32:36" itemprop="dateModified" datetime="2024-09-19T23:32:36+08:00">2024-09-19</time>
     </span>
 
   
@@ -838,8 +962,8 @@
 <ul>
 <li>
 <p><strong>消费推拉模式</strong><br />
-客户端消费者获取消息的方式，Kafka和RocketMQ是通过长轮询Pull的方式拉取消息，RabbitMQ、Pulsar、NSQ都是通过Push的方式。</p>
-<p>pull类型的消息队列更适合高吞吐量的场景，允许消费者自己进行流量控制，根据消费者实际的消费能力去获取消息。而push类型的消息队列，实时性更好，但需要有一套良好的流控策略（backpressure）当消费者消费能力不足时，减少push的消费数量，避免压垮消费端。</p>
+客户端消费者获取消息的方式，Kafka和RocketMQ是通过<mark>长轮询Pull的方式拉取消息</mark>，RabbitMQ、Pulsar、NSQ都是通过Push的方式。</p>
+<p>pull类型的消息队列更适合<mark>高吞吐量</mark>的场景，允许消费者自己进行流量控制，根据消费者实际的消费能力去获取消息。而push类型的消息队列，实时性更好，但需要有一套良好的流控策略（backpressure）当消费者消费能力不足时，减少push的消费数量，避免压垮消费端。</p>
 </li>
 <li>
 <p><strong>延迟队列</strong><br />
@@ -859,7 +983,6 @@ RabbitMQ支持优先级消息。</p>
 <li>
 <p><strong>优先级队列</strong></p>
 </li>
-<li></li>
 </ul>
 <h1 id="2-消息队列选择建议"><a class="markdownIt-Anchor" href="#2-消息队列选择建议"></a> 2 消息队列选择建议</h1>
 <p><strong>1.Kafka</strong><br />
@@ -1292,7 +1415,7 @@ acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后�
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-08 22:43:55" itemprop="dateModified" datetime="2024-08-08T22:43:55+08:00">2024-08-08</time>
+      <time title="修改时间：2024-09-21 23:39:42" itemprop="dateModified" datetime="2024-09-21T23:39:42+08:00">2024-09-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1314,23 +1437,15 @@ acks 的默认值即为 1，代表我们的消息被 leader 副本接收之后�
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><strong>同步阻塞 I/O</strong>、<strong>同步非阻塞 I/O</strong>、<strong>I/O 多路复用</strong>、<strong>信号驱动 I/O</strong> 和<strong>异步 I/O</strong></p>
-<h1 id="1-bio-blocking-io"><a class="markdownIt-Anchor" href="#1-bio-blocking-io"></a> 1 BIO (Blocking I/O)</h1>
-<p>BIO属于同步阻塞IO模型。<br />
-同步阻塞 IO 模型中，应用程序发起 read 调用后，会一直阻塞，直到内核把数据拷贝到用户空间。<br />
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408072332308.png" alt="image.png|425" /></p>
-<h1 id="2-nio-non-blockingnew-io"><a class="markdownIt-Anchor" href="#2-nio-non-blockingnew-io"></a> 2 NIO (Non-blocking/New I/O)</h1>
-<p>NIO 可以看作是 <strong>I/O 多路复用模型</strong>。也有很多人认为，Java 中的 NIO 属于同步非阻塞 IO 模型。<br />
- <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408082221001.png" alt="image.png" /></p>
-<h2 id="21-nio零拷贝"><a class="markdownIt-Anchor" href="#21-nio零拷贝"></a> 2.1 NIO零拷贝</h2>
-<p>零拷贝是指计算机执行 IO 操作时，CPU 不需要将数据从一个存储区域复制到另一个存储区域，从而可以减少上下文切换以及 CPU 的拷贝时间。</p>
-<h1 id="3-aio-asynchronous-io"><a class="markdownIt-Anchor" href="#3-aio-asynchronous-io"></a> 3 AIO (Asynchronous I/O)</h1>
-<p>异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。<br />
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408082222440.png" alt="image.png" /></p>
-<h1 id="4-参考"><a class="markdownIt-Anchor" href="#4-参考"></a> 4 参考</h1>
-<p><a href="https://javaguide.cn/java/io/io-model.html">Java IO 模型详解 | JavaGuide</a><br />
-<a href="https://javaguide.cn/java/io/nio-basis.html">Java NIO 核心知识总结 | JavaGuide</a></p>
-
+          <p>同步阻塞IO、同步非阻塞IO、异步IO</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/08/07/Java/Java(5)%EF%BC%9AIO%E6%A8%A1%E5%9E%8B/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1513,89 +1628,6 @@ MetaQ的负载均衡逻辑都在客户端，每台客户端根据自己在Consum
 <figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows环境下启动</span></span><br><span class="line">.\mqbroker -n <span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">9876</span> </span><br><span class="line"><span class="comment"># linux环境下启动</span></span><br><span class="line"><span class="keyword">sh </span>mqbroker -n <span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">9876</span> </span><br><span class="line"><span class="comment"># 后台启动</span></span><br><span class="line">nohup <span class="keyword">sh </span>mqbroker -n localhost:<span class="number">9876</span> &amp;</span><br><span class="line"><span class="comment">#指定配置文件启动</span></span><br><span class="line">nohup <span class="keyword">sh </span>mqbroker -n localhost:<span class="number">9876</span> -c 配置文件目录 &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="63-关闭mq服务"><a class="markdownIt-Anchor" href="#63-关闭mq服务"></a> 6.3 关闭MQ服务</h2>
 <figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># windows环境下启动</span></span><br><span class="line">.\mqshutdown namesrv <span class="comment">//关闭NameServer</span></span><br><span class="line">.\mqshutdown broker	 <span class="comment">//关闭Broker</span></span><br><span class="line"><span class="meta"># linux环境下启动</span></span><br><span class="line">sh bin/mqshutdown namesrv <span class="comment">//关闭NameServer</span></span><br><span class="line">sh bin/mqshutdown broker <span class="comment">//关闭Broker</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/06/30/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A%E6%A0%91%E5%BD%A2DP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/30/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A%E6%A0%91%E5%BD%A2DP/" class="post-title-link" itemprop="url">动态规划：树形DP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-06-30 00:00:00 / 修改时间：23:09:20" itemprop="dateCreated datePublished" datetime="2024-06-30T00:00:00+08:00">2024-06-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/algorithm/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="1-树的直径"><a class="markdownIt-Anchor" href="#1-树的直径"></a> 1 树的直径</h1>
-<p><a href="https://leetcode.cn/problems/find-minimum-diameter-after-merging-two-trees/description/">100318. 合并两棵树后的最小直径 - 力扣（LeetCode）</a></p>
-<h1 id="2-参考"><a class="markdownIt-Anchor" href="#2-参考"></a> 2 参考</h1>
-<p><a href="https://www.bilibili.com/video/BV17o4y187h1/?vd_source=5427cf02c00273188250be648b53eced">树形 DP：树的直径【基础算法精讲 23】_哔哩哔哩_bilibili</a><br />
-<a href="https://leetcode.cn/problems/jC7MId/description/">LCR 051. 二叉树中的最大路径和 - 力扣（LeetCode）</a></p>
-
       
     </div>
 

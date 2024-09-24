@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ThreadLocal、线程池">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java并发(2)：ThreadLocal、线程池">
+<meta property="og:url" content="https://destiny0118.github.io/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/index.html">
+<meta property="og:site_name" content="我的个人博客">
+<meta property="og:description" content="ThreadLocal、线程池">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405151608044.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405151609702.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406132256696.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406112203118.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051648891.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406121642277.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051635350.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406132253307.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406121024843.png">
+<meta property="article:published_time" content="2024-05-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-09-18T14:48:54.208Z">
+<meta property="article:author" content="Destiny">
+<meta property="article:tag" content="并发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405151608044.png">
+
+
+<link rel="canonical" href="https://destiny0118.github.io/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://destiny0118.github.io/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/","path":"2024/05/15/框架/Java并发/Java并发(2)：ThreadLocal、线程池/","title":"Java并发(2)：ThreadLocal、线程池"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Java并发(2)：ThreadLocal、线程池 | 我的个人博客</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">我的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">What past is prolgue.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BA%BF%E7%A8%8B%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8Fthreadlocal"><span class="nav-text"> 1 线程局部变量(ThreadLocal)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F"><span class="nav-text"> 1.1 内存泄漏</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="nav-text"> 1.2 引用类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-text"> 2 线程池</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-text"> 2.1 创建线程池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0"><span class="nav-text"> 2.2 线程池参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="nav-text"> 2.3 拒绝策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#231-callerrunspolicy-%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5%E6%9C%89%E4%BB%80%E4%B9%88%E9%A3%8E%E9%99%A9%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="nav-text"> 2.3.1 CallerRunsPolicy 拒绝策略有什么风险？如何解决？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-text"> 解决办法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97"><span class="nav-text"> 2.4 线程池阻塞队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-%E5%A4%84%E7%90%86%E4%BB%BB%E5%8A%A1%E6%B5%81%E7%A8%8B"><span class="nav-text"> 2.5 处理任务流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%BA%BF%E7%A8%8B%E5%BC%82%E5%B8%B8%E5%90%8E%E9%94%80%E6%AF%81%E8%BF%98%E6%98%AF%E5%A4%8D%E7%94%A8"><span class="nav-text"> 2.6 线程池中线程异常后，销毁还是复用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-%E8%AE%BE%E8%AE%A1%E6%A0%B9%E6%8D%AE%E4%BB%BB%E5%8A%A1%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7%E6%9D%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-text"> 2.7 设计根据任务的优先级来执行的线程池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-executor%E6%A1%86%E6%9E%B6"><span class="nav-text"> 2.8 Executor框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#29-%E5%85%B3%E9%97%AD%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-text"> 2.9 关闭线程池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#210-%E5%8A%A8%E6%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="nav-text"> 2.10 动态线程池</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 3 阻塞队列(生产者&#x2F;消费者模型)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-future"><span class="nav-text"> 4 Future</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%8F%82%E8%80%83"><span class="nav-text"> 5 参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Destiny</p>
+  <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Java并发(2)：ThreadLocal、线程池 | 我的个人博客">
+      <meta itemprop="description" content="ThreadLocal、线程池">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java并发(2)：ThreadLocal、线程池<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-15T00:00:00+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-18 22:48:54" itemprop="dateModified" datetime="2024-09-18T22:48:54+08:00">2024-09-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">ThreadLocal、线程池</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="1-线程局部变量threadlocal"><a class="markdownIt-Anchor" href="#1-线程局部变量threadlocal"></a> 1 线程局部变量(ThreadLocal)</h1>
+<blockquote>
+<p>ThreadLocal的实现依赖于Thread类中的一个ThreadLocalMap字段，这是一个存储ThreadLocal变量本身和对应值的映射。每个线程都有自己的ThreadLocalMap实例，用于存储该线程所持有的所有ThreadLocal变量的值。</p>
+</blockquote>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> SimpleDateFormat dateFormat=<span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyyMMdd HHmm"</span>);
+String dateStamp=dateFormat.format(<span class="hljs-keyword">new</span> Date());
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> ThreadLocal&lt;SimpleDateFormat&gt; formatter = ThreadLocal.withInitial(
+	() -&gt; <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyyMMdd HHmm"</span>)
+);
+
+
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> ThreadLocal&lt;SimpleDateFormat&gt; formatter = <span class="hljs-keyword">new</span> ThreadLocal&lt;SimpleDateFormat&gt;()&#123;
+	<span class="hljs-meta">@Override</span>
+	<span class="hljs-function"><span class="hljs-keyword">protected</span> SimpleDateFormat <span class="hljs-title">initialValue</span><span class="hljs-params">()</span></span>&#123;
+		<span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyyMMdd HHmm"</span>);
+	&#125;
+&#125;;
+String dateStamp=formatter.get().format(<span class="hljs-keyword">new</span> Date());
+
+</code></pre>
+<h2 id="11-内存泄漏"><a class="markdownIt-Anchor" href="#11-内存泄漏"></a> 1.1 内存泄漏</h2>
+<p><code>ThreadLocalMap</code> 中使用的 key 为 <code>ThreadLocal</code> 的弱引用，而 value 是强引用。所以，如果 <code>ThreadLocal</code> 没有被外部强引用的情况下，在垃圾回收的时候，key 会被清理掉，而 value 不会被清理掉。</p>
+<p>这样一来，<code>ThreadLocalMap</code> 中就会出现 key 为 null 的 Entry。假如我们不做任何措施的话，value 永远无法被 GC 回收，这个时候就可能会产生内存泄露。<code>ThreadLocalMap</code> 实现中已经考虑了这种情况，在调用 <code>set()</code>、<code>get()</code>、<code>remove()</code> 方法的时候，会清理掉 key 为 null 的记录。使用完 <code>ThreadLocal</code>方法后最好手动调用<code>remove()</code>方法</p>
+<p>当一个线程结束时，其ThreadLocalMap也会随之销毁，但是ThreadLocal对象本身不会立即被垃圾回收，直到没有其他引用指向它为止。<br />
+因此，在使用ThreadLocal时需要注意，如果不显式调用remove()方法，或者线程结束时未正确清理ThreadLocal变量，可能会导致内存泄漏，因为ThreadLocalMap会持续持有ThreadLocal变量的引用，即使这些变量不再被其他地方引用。<br />
+因此，实际应用中需要在使用完ThreadLocal变量后调用remove()方法释放资源。</p>
+<h2 id="12-引用类型"><a class="markdownIt-Anchor" href="#12-引用类型"></a> 1.2 引用类型</h2>
+<p><strong>1．强引用（StrongReference）</strong><br />
+当内存空间不足，Java 虚拟机抛出 OutOfMemoryError 错误，使程序异常终止</p>
+<p><strong>2．软引用（SoftReference）</strong><br />
+可有可无，如果内存空间足够，垃圾回收器就不会回收它，如果<mark>内存空间不足，就会回收这些对象的内存</mark>。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。</p>
+<p><strong>3．弱引用（WeakReference）</strong><br />
+可有可无，弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。</p>
+<p><strong>4．虚引用（PhantomReference）</strong><br />
+虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。<strong>虚引用主要用来跟踪对象被垃圾回收的活动</strong>。</p>
+<p>虚引用必须和引用队列（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。</p>
+<p>弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java 虚拟机就会把这个弱引用加入到与之关联的引用队列中。</p>
+<p><a href="https://pdai.tech/md/java/thread/java-thread-x-threadlocal.html">Java 并发 - ThreadLocal详解 | Java 全栈知识体系 (pdai.tech)</a></p>
+<h1 id="2-线程池"><a class="markdownIt-Anchor" href="#2-线程池"></a> 2 线程池</h1>
+<blockquote>
+<p>池化技术，线程池、数据库连接池、HTTP 连接池等等都是对这个思想的应用。池化技术的思想主要是为了减少每次获取资源的消耗，提高对资源的利用率。<br />
+线程池是管理一系列线程的资源池。</p>
+</blockquote>
+<ul>
+<li><strong>降低资源消耗</strong>。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。</li>
+<li><strong>提高响应速度</strong>。当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+<li><strong>提高线程的可管理性</strong>。线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一的分配，调优和监控</li>
+</ul>
+<h2 id="21-创建线程池"><a class="markdownIt-Anchor" href="#21-创建线程池"></a> 2.1 创建线程池</h2>
+<p><strong>方式一：通过<code>ThreadPoolExecutor</code>构造函数来创建（推荐）。</strong><br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405151608044.png" alt="image.png" /></p>
+<p><strong>方式二：通过 <code>Executor</code> 框架的工具类 <code>Executors</code> 来创建。</strong><br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405151609702.png" alt="image.png" /></p>
+<ul>
+<li><code>FixedThreadPool</code>：固定线程数量的线程池。该线程池中的线程数量始终不变。当有一个新的任务提交时，线程池中若有空闲线程，则立即执行。若没有，则新的任务会被暂存在一个任务队列中，待有线程空闲时，便处理在任务队列中的任务。</li>
+<li><code>SingleThreadExecutor</code>： 只有一个线程的线程池。若多余一个任务被提交到该线程池，任务会被保存在一个任务队列中，待线程空闲，按先入先出的顺序执行队列中的任务。</li>
+<li><code>CachedThreadPool</code>： 可根据实际情况调整线程数量的线程池。线程池的线程数量不确定，但若有空闲线程可以复用，则会优先使用可复用的线程。若所有线程均在工作，又有新的任务提交，则会创建新的线程处理任务。所有线程在当前任务执行完毕后，将返回线程池进行复用。</li>
+<li><code>ScheduledThreadPool</code>：给定的延迟后运行任务或者定期执行任务的线程池。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newCachedThreadPool</td>
+<td>必要时创建新线程，空闲线程保留60秒</td>
+<td></td>
+</tr>
+<tr>
+<td>newFixedThreadPool</td>
+<td>包含固定数量线程，空闲线程保留</td>
+<td>LinkedBlockingQueue</td>
+</tr>
+<tr>
+<td>newSingleThreadExecutor</td>
+<td>只有一个线程</td>
+<td>LinkedBlockingQueue</td>
+</tr>
+<tr>
+<td>预定执行</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>newScheduledThreadPool</td>
+<td>用于预定执行而构建的固定线程池</td>
+<td></td>
+</tr>
+<tr>
+<td>newSingleThreadSccheduledExecutor</td>
+<td>用于预定执行而构建的单线程池</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>Executors</code> 返回线程池对象的弊端如下：</p>
+<ul>
+<li><code>FixedThreadPool</code> 和 <code>SingleThreadExecutor</code>:使用的是无界的 <code>LinkedBlockingQueue</code>，任务队列最大长度为 <code>Integer.MAX_VALUE</code>,可能堆积大量的请求，从而导致 OOM。</li>
+<li><code>CachedThreadPool</code>:使用的是同步队列 <code>SynchronousQueue</code>, 允许创建的线程数量为 <code>Integer.MAX_VALUE</code> ，如果任务数量过多且执行速度较慢，可能会创建大量的线程，从而导致 OOM。</li>
+<li><code>ScheduledThreadPool</code> 和 <code>SingleThreadScheduledExecutor</code>:使用的无界的延迟阻塞队列<code>DelayedWorkQueue</code>，任务队列最大长度为 <code>Integer.MAX_VALUE</code>,可能堆积大量的请求，从而导致 OOM。</li>
+</ul>
+<h2 id="22-线程池参数"><a class="markdownIt-Anchor" href="#22-线程池参数"></a> 2.2 线程池参数</h2>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">int</span> corePoolSize,<span class="hljs-comment">//线程池的核心线程数量 </span>
+<span class="hljs-keyword">int</span> maximumPoolSize,<span class="hljs-comment">//线程池的最大线程数 </span>
+<span class="hljs-keyword">long</span> keepAliveTime,<span class="hljs-comment">//当线程数大于核心线程数时，多余的空闲线程存活的最长时间 </span>
+TimeUnit unit,<span class="hljs-comment">//时间单位 </span>
+BlockingQueue&lt;Runnable&gt; workQueue,<span class="hljs-comment">//任务队列，用来储存等待执行任务的队列 </span>
+ThreadFactory threadFactory,<span class="hljs-comment">//线程工厂，用来创建线程，一般默认即可 </span>
+RejectedExecutionHandler handler<span class="hljs-comment">//拒绝策略，当提交的任务过多而不能及时处理时，我们可以定制策略来处理任务</span>
+</code></pre>
+<ul>
+<li>
+<p>corePoolSize（核心线程数）：这是线程池的基本大小，即线程池中始终保持的线程数量，不受空闲时间的影响。当有新任务提交时，如果线程池中的线程数小于corePoolSize，即便存在空闲线程，线程池也会创建一个新线程来执行任务。</p>
+</li>
+<li>
+<p>maximumPoolSize（最大线程数）：线程池允许创建的最大线程数量。当线程池中的线程数超过corePoolSize，但小于maximumPoolSize时，只有在队列满的情况下，才会创建新的线程来处理任务。</p>
+</li>
+<li>
+<p>keepAliveTime（空闲线程存活时间）：当线程池中的线程数超过corePoolSize时，多余的线程在空闲时间超过keepAliveTime后会被销毁，直到线程池中的线程数不超过corePoolSize。这有助于在系统空闲时节省资源。</p>
+</li>
+<li>
+<p>unit（时间单位）：这是keepAliveTime的时间单位，如秒、毫秒等。它定义了如何解释keepAliveTime的值。</p>
+</li>
+<li>
+<p>workQueue（工作队列）：这是一个用于存储等待执行的任务的队列。当线程池中的线程数达到corePoolSize，且这些线程都在执行任务时，新提交的任务会被放入workQueue中等待执行。</p>
+</li>
+<li>
+<p>threadFactory（线程工厂）：这是一个用于创建新线程的对象。通过自定义线程工厂，我们可以控制新线程的创建方式，例如设置线程的名字、是否是守护线程等。</p>
+</li>
+<li>
+<p>handler（拒绝策略）：当所有线程都在繁忙，且workQueue也已满时，新提交的任务会被拒绝。此时，就需要一个拒绝策略来处理这种情况。常见的拒绝策略有抛出异常、丢弃当前任务、丢弃队列中最旧的任务或者由调用线程直接执行该任务等。</p>
+</li>
+</ul>
+<p><strong><code>ThreadPoolExecutor</code> 3 个最重要的参数：</strong></p>
+<ul>
+<li><strong><code>corePoolSize</code> :</strong> 任务队列未达到队列容量时，最大可以同时运行的线程数量。</li>
+<li><strong><code>maximumPoolSize</code> :</strong> 任务队列中存放的任务达到队列容量的时候，当前可以同时运行的线程数量变为最大线程数。</li>
+<li><strong><code>workQueue</code>:</strong> 新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。</li>
+</ul>
+<p><code>ThreadPoolExecutor</code>其他常见参数 :</p>
+<ul>
+<li><strong><code>keepAliveTime</code></strong>:线程池中的线程数量大于 <code>corePoolSize</code> 的时候，如果这时没有新的任务提交，多余的空闲线程不会立即销毁，而是会等待，直到等待的时间超过了 <code>keepAliveTime</code>才会被回收销毁，线程池回收线程时，会对核心线程和非核心线程一视同仁，直到线程池中线程的数量等于 <code>corePoolSize</code> ，回收过程才会停止。</li>
+<li><strong><code>unit</code></strong> : <code>keepAliveTime</code> 参数的时间单位。</li>
+<li><strong><code>threadFactory</code></strong> :executor 创建新线程的时候会用到。</li>
+<li><strong><code>handler</code></strong> :饱和策略。关于饱和策略下面单独介绍一下。</li>
+</ul>
+<h2 id="23-拒绝策略"><a class="markdownIt-Anchor" href="#23-拒绝策略"></a> 2.3 拒绝策略</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406132256696.png" alt="image.png" /></p>
+<p>如果当前同时运行的线程数量达到最大线程数量并且队列也已经被放满了任务时，<code>ThreadPoolExecutor</code> 定义一些策略:</p>
+<ul>
+<li><code>ThreadPoolExecutor.AbortPolicy</code>：抛出 RejectedExecutionException来<strong>拒绝新任务的处理</strong>。</li>
+<li><code>ThreadPoolExecutor.CallerRunsPolicy</code>：任务回退给调用者自己运行。调用执行自己的线程运行任务，也就是直接在调用<code>execute</code>方法的线程中运行(<code>run</code>)被拒绝的任务，如果执行程序已关闭，则会丢弃该任务。因此这种策略会降低对于新任务提交速度，影响程序的整体性能。如果你的应用程序可以承受此延迟并且你要求任何一个任务请求都要被执行的话，你可以选择这个策略。</li>
+<li><code>ThreadPoolExecutor.DiscardPolicy</code>：不处理新任务，直接丢弃掉。</li>
+<li><code>ThreadPoolExecutor.DiscardOldestPolicy</code>：此策略将丢弃最早的未处理的任务请求。</li>
+</ul>
+<h3 id="231-callerrunspolicy-拒绝策略有什么风险如何解决"><a class="markdownIt-Anchor" href="#231-callerrunspolicy-拒绝策略有什么风险如何解决"></a> 2.3.1 CallerRunsPolicy 拒绝策略有什么风险？如何解决？</h3>
+<blockquote>
+<p>如果想要保证任何一个任务请求都要被执行的话，那选择 <code>CallerRunsPolicy</code> 拒绝策略更合适一些。</p>
+</blockquote>
+<p>如果走到<code>CallerRunsPolicy</code>的任务是个非常耗时的任务，且处理提交任务的线程是主线程，可能会导致主线程阻塞，影响程序的正常运行。</p>
+<h4 id="解决办法"><a class="markdownIt-Anchor" href="#解决办法"></a> 解决办法</h4>
+<ul>
+<li>增加阻塞队列<code>BlockingQueue</code>的大小并调整堆内存以容纳更多的任务，确保任务能够被准确执行。</li>
+<li>为了充分利用 CPU，我们还可以调整线程池的<code>maximumPoolSize</code> （最大线程数）参数，这样可以提高任务处理速度，避免累计在 <code>BlockingQueue</code>的任务过多导致内存用完。</li>
+<li>任务持久化
+<ol>
+<li>设计一张任务表将任务存储到 MySQL 数据库中。</li>
+<li>Redis缓存任务</li>
+<li>将任务提交到消息队列<br />
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406112203118.png" alt="image.png" /></li>
+</ol>
+</li>
+</ul>
+<p><code>任务持久化</code>：</p>
+<ul>
+<li><strong>拒绝策略</strong>： 实现<code>RejectedExecutionHandler</code>接口自定义拒绝策略，自定义拒绝策略负责将线程池暂时无法处理（此时阻塞队列已满）的任务入库（保存到 MySQL 中）。注意：线程池暂时无法处理的任务会先被放在阻塞队列中，阻塞队列满了才会触发拒绝策略。</li>
+<li><strong>任务队列</strong>：继承<code>BlockingQueue</code>实现一个混合式阻塞队列，该队列包含<code>JDK</code>自带的<code>ArrayBlockingQueue</code>。另外，该混合式阻塞队列需要修改取任务处理的逻辑，也就是重写<code>take()</code>方法，取任务时优先从数据库中读取最早的任务，数据库中无任务时再从 <code>ArrayBlockingQueue</code>中去取任务。</li>
+</ul>
+<h2 id="24-线程池阻塞队列"><a class="markdownIt-Anchor" href="#24-线程池阻塞队列"></a> 2.4 线程池阻塞队列</h2>
+<p>新任务来的时候会先判断当前运行的线程数量是否达到核心线程数，如果达到的话，新任务就会被存放在队列中。</p>
+<ul>
+<li>容量为 <code>Integer.MAX_VALUE</code> 的 <code>LinkedBlockingQueue</code>（无界队列）：<code>FixedThreadPool</code> 和 <code>SingleThreadExector</code> 。<code>FixedThreadPool</code>最多只能创建核心线程数的线程（核心线程数和最大线程数相等），<code>SingleThreadExector</code>只能创建一个线程（核心线程数和最大线程数都是 1），二者的任务队列永远不会被放满。</li>
+<li><code>SynchronousQueue</code>（同步队列）：<code>CachedThreadPool</code> 。<code>SynchronousQueue</code> 没有容量，不存储元素，目的是保证对于提交的任务，如果有空闲线程，则使用空闲线程来处理；否则新建一个线程来处理任务。也就是说，<code>CachedThreadPool</code> 的最大线程数是 <code>Integer.MAX_VALUE</code> ，可以理解为线程数是可以无限扩展的，可能会创建大量线程，从而导致 OOM。</li>
+<li><code>DelayedWorkQueue</code>（延迟阻塞队列）：<code>ScheduledThreadPool</code> 和 <code>SingleThreadScheduledExecutor</code> 。<code>DelayedWorkQueue</code> 的内部元素并不是按照放入的时间排序，而是会按照延迟的时间长短对任务进行排序，内部采用的是“堆”的数据结构，可以保证每次出队的任务都是当前队列中执行时间最靠前的。<code>DelayedWorkQueue</code> 添加元素满了之后会自动扩容原来容量的 1/2，即永远不会阻塞，最大扩容可达 <code>Integer.MAX_VALUE</code>，所以最多只能创建核心线程数的线程。</li>
+</ul>
+<h2 id="25-处理任务流程"><a class="markdownIt-Anchor" href="#25-处理任务流程"></a> 2.5 处理任务流程</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051648891.png" alt="image.png" /></p>
+<ul>
+<li>如果当前运行的线程数小于核心线程数，那么就会新建一个线程来执行任务。</li>
+<li>如果当前运行的线程数等于或大于核心线程数，但是小于最大线程数，那么就把该任务放入到任务队列里等待执行。</li>
+<li>如果向任务队列投放任务失败（任务队列已经满了），但是当前运行的线程数是小于最大线程数的，就新建一个线程来执行任务。</li>
+<li>如果当前运行的线程数已经等同于最大线程数了，新建线程将会使当前运行的线程超出最大线程数，那么当前任务会被拒绝，饱和策略会调用<code>RejectedExecutionHandler.rejectedExecution()</code>方法。</li>
+</ul>
+<h2 id="26-线程池中线程异常后销毁还是复用"><a class="markdownIt-Anchor" href="#26-线程池中线程异常后销毁还是复用"></a> 2.6 线程池中线程异常后，销毁还是复用？</h2>
+<p>先说结论，需要分两种情况：</p>
+<ul>
+<li><strong>使用<code>execute()</code>提交任务</strong>：当任务通过<code>execute()</code>提交到线程池并在执行过程中抛出异常时，如果这个异常没有在任务内被捕获，那么该异常会导致当前线程终止，并且异常会被打印到控制台或日志文件中。线程池会检测到这种线程终止，并创建一个新线程来替换它，从而保持配置的线程数不变。</li>
+<li><strong>使用<code>submit()</code>提交任务</strong>：对于通过<code>submit()</code>提交的任务，如果在任务执行中发生异常，这个异常不会直接打印出来。相反，异常会被封装在由<code>submit()</code>返回的<code>Future</code>对象中。当调用<code>Future.get()</code>方法时，可以捕获到一个<code>ExecutionException</code>。在这种情况下，线程不会因为异常而终止，它会继续存在于线程池中，准备执行后续的任务。</li>
+</ul>
+<p>简单来说：使用<code>execute()</code>时，未捕获异常导致线程终止，线程池创建新线程替代；使用<code>submit()</code>时，异常被封装在<code>Future</code>中，线程继续复用。</p>
+<p>这种设计允许<code>submit()</code>提供更灵活的错误处理机制，因为它允许调用者决定如何处理异常，而<code>execute()</code>则适用于那些不需要关注执行结果的场景。</p>
+<h2 id="27-设计根据任务的优先级来执行的线程池"><a class="markdownIt-Anchor" href="#27-设计根据任务的优先级来执行的线程池"></a> 2.7 设计根据任务的优先级来执行的线程池</h2>
+<p><code>PriorityBlockingQueue</code> 是一个支持优先级的无界阻塞队列，可以看作是线程安全的 <code>PriorityQueue</code>，两者底层都是使用小顶堆形式的二叉堆，即值最小的元素优先出队。不过，<code>PriorityQueue</code> 不支持阻塞操作。</p>
+<p>要想让 <code>PriorityBlockingQueue</code> 实现对任务的排序，传入其中的任务必须是具备排序能力的，方式有两种：</p>
+<ol>
+<li>提交到线程池的任务实现 <code>Comparable</code> 接口，并重写 <code>compareTo</code> 方法来指定任务之间的优先级比较规则。</li>
+<li>创建 <code>PriorityBlockingQueue</code> 时传入一个 <code>Comparator</code> 对象来指定任务之间的排序规则(推荐)。</li>
+</ol>
+<p>::: tips</p>
+<ul>
+<li><code>PriorityBlockingQueue</code> 是无界的，可能堆积大量的请求，从而导致 OOM<br />
+:::<br />
+继承<code>PriorityBlockingQueue</code> 并重写一下 <code>offer</code> 方法(入队)的逻辑，当插入的元素数量超过指定值就返回 false 。</li>
+</ul>
+<h2 id="28-executor框架"><a class="markdownIt-Anchor" href="#28-executor框架"></a> 2.8 Executor框架</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406121642277.png" alt="image.png" /></p>
+<ul>
+<li>主线程首先要创建实现 <code>Runnable</code> 或者 <code>Callable</code> 接口的任务对象。</li>
+<li>把创建完成的实现 <code>Runnable</code>/<code>Callable</code>接口的 对象直接交给 <code>ExecutorService</code> 执行: <code>ExecutorService.execute（Runnable command）</code>）或者也可以把 <code>Runnable</code> 对象或<code>Callable</code> 对象提交给 <code>ExecutorService</code> 执行（<code>ExecutorService.submit（Runnable task）</code>或 <code>ExecutorService.submit（Callable &lt;T&gt; task）</code>）。</li>
+<li>如果执行 <code>ExecutorService.submit（…）</code>，<code>ExecutorService</code> 将返回一个实现<code>Future</code>接口的对象（我们刚刚也提到过了执行 <code>execute()</code>方法和 <code>submit()</code>方法的区别，<code>submit()</code>会返回一个 <code>FutureTask 对象）。由于 FutureTask</code> 实现了 <code>Runnable</code>，我们也可以创建 <code>FutureTask</code>，然后直接交给 <code>ExecutorService</code> 执行。</li>
+<li>最后，主线程可以执行 <code>FutureTask.get()</code>方法来等待任务执行完成。主线程也可以执行 <code>FutureTask.cancel（boolean mayInterruptIfRunning）</code>来取消此任务的执行。</li>
+</ul>
+<h2 id="29-关闭线程池"><a class="markdownIt-Anchor" href="#29-关闭线程池"></a> 2.9 关闭线程池</h2>
+<ul>
+<li><strong><code>shutdown（）</code></strong> :关闭线程池，线程池的状态变为 <code>SHUTDOWN</code>。线程池不再接受新任务了，但是队列里的任务得执行完毕。</li>
+<li><strong><code>shutdownNow（）</code></strong> :关闭线程池，线程池的状态变为 <code>STOP</code>。线程池会终止当前正在运行的任务，停止处理排队的任务并返回正在等待执行的 List。</li>
+</ul>
+<h2 id="210-动态线程池"><a class="markdownIt-Anchor" href="#210-动态线程池"></a> 2.10 动态线程池</h2>
+<p>提供三个方法修改线程池参数，通过配置中心进行变更推送：</p>
+<ul>
+<li>setCorePoolSize</li>
+<li>setMaximumPoolSize</li>
+<li>setKeepAliveTime</li>
+</ul>
+<p><a href="https://javaguide.cn/java/concurrent/java-thread-pool-summary.html">Java 线程池详解 | JavaGuide</a></p>
+<h1 id="3-阻塞队列生产者消费者模型"><a class="markdownIt-Anchor" href="#3-阻塞队列生产者消费者模型"></a> 3 阻塞队列(生产者/消费者模型)</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403051635350.png" alt="image.png" /></p>
+<blockquote>
+<p>poll和peek返回空来表示失败，因此，不能向队列中插入null</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>队列</th>
+<th></th>
+<th>描述</th>
+<th>使用的线程池</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LinkedBlockingQueue</td>
+<td>无界队列</td>
+<td>无上边界，链表实现</td>
+<td><code>FixedThreadPool</code> 和 <code>SingleThreadExector</code></td>
+</tr>
+<tr>
+<td>ArrayBlockingQueue(int capacity, boolean fair)</td>
+<td></td>
+<td>构建指定容量和公平性设置(可选)，循环数组实现</td>
+<td></td>
+</tr>
+<tr>
+<td>PriorityBlockingQueue</td>
+<td>优先级阻塞队列</td>
+<td>无界，阻塞优先队列</td>
+<td></td>
+</tr>
+<tr>
+<td>DelayQueue</td>
+<td></td>
+<td>无界，延迟超过指定时间的元素可以移出</td>
+<td><code>ScheduledThreadPool</code> 和 <code>SingleThreadScheduledExecutor</code></td>
+</tr>
+<tr>
+<td>SynchronousQueue</td>
+<td></td>
+<td>没有容量，不存储元素</td>
+<td><code>CachedThreadPool</code></td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406132253307.png" alt="image.png" /></p>
+<h1 id="4-future"><a class="markdownIt-Anchor" href="#4-future"></a> 4 Future</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406121024843.png" alt="image.png" /></p>
+<h1 id="5-参考"><a class="markdownIt-Anchor" href="#5-参考"></a> 5 参考</h1>
+<ol>
+<li><a href="https://javaguide.cn/java/concurrent/java-thread-pool-summary.html">Java 线程池详解 | JavaGuide</a></li>
+<li><a href="https://javaguide.cn/java/concurrent/java-thread-pool-best-practices.html">Java 线程池最佳实践 | JavaGuide</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B9%B6%E5%8F%91/" rel="tag"># 并发</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(3)%EF%BC%9AAQS/" rel="prev" title="Java并发(3)：AQS">
+                  <i class="fa fa-chevron-left"></i> Java并发(3)：AQS
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/20/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89/" rel="next" title="Java并发(5)：JMM（Java内存模型）">
+                  Java并发(5)：JMM（Java内存模型） <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

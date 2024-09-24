@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082053263.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082024222.png">
 <meta property="article:published_time" content="2023-02-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-12T09:46:16.063Z">
+<meta property="article:modified_time" content="2024-08-27T15:36:10.800Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -155,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-text"> 1 进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#111-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text"> 1.1.1 线程与进程的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%BF%9B%E7%A8%8B"><span class="nav-text"> 2 进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-pcb%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="nav-text"> 2.1 进程控制结构： PCB（进程控制块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-text"> 2.2 进程间通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#221-%E7%AE%A1%E9%81%93"><span class="nav-text"> 2.2.1 管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#222-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-text"> 2.2.2 消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#223-%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98"><span class="nav-text"> 2.2.3 共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#224-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-text"> 2.2.4 信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#225-%E4%BF%A1%E5%8F%B7"><span class="nav-text"> 2.2.5 信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#226-socket"><span class="nav-text"> 2.2.6 socket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E8%BF%9B%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-text"> 2.3 进程上下文切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B-%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B"><span class="nav-text"> 2.4 僵尸进程、孤儿进程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BA%BF%E7%A8%8B"><span class="nav-text"> 3 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F"><span class="nav-text"> 3.1 线程间同步方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E7%BA%BF%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="nav-text"> 3.2 线程分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-text"> 4 进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E8%B0%83%E5%BA%A6%E5%8E%9F%E5%88%99"><span class="nav-text"> 4.1 调度原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%B9%B6%E5%8F%91%E6%80%A7%E4%BA%92%E6%96%A5%E5%92%8C%E5%90%8C%E6%AD%A5"><span class="nav-text"> 5 并发性：互斥和同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E5%90%8C%E6%AD%A5-%E4%BA%92%E6%96%A5"><span class="nav-text"> 5.1 同步、互斥</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%B9%B6%E5%8F%91%E6%80%A7%E6%AD%BB%E9%94%81%E5%92%8C%E9%A5%A5%E9%A5%BF"><span class="nav-text"> 6 并发性：死锁和饥饿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E6%AD%BB%E9%94%81"><span class="nav-text"> 6.1 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-text"> 6.1.1 产生死锁的四个必要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E6%A8%A1%E6%8B%9F%E6%AD%BB%E9%94%81"><span class="nav-text"> 6.1.2 模拟死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#613-%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-text"> 6.1.3 解决死锁的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2prevention"><span class="nav-text"> 死锁预防（prevention）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8Davoidance"><span class="nav-text"> 死锁避免（avoidance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8Bdetection"><span class="nav-text"> 死锁检测（detection）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-text"> 1 进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text"> 1.1 线程与进程的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%BF%9B%E7%A8%8B"><span class="nav-text"> 2 进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-pcb%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="nav-text"> 2.1 进程控制结构： PCB（进程控制块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-text"> 2.2 进程间通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#221-%E7%AE%A1%E9%81%93"><span class="nav-text"> 2.2.1 管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#222-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-text"> 2.2.2 消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#223-%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98"><span class="nav-text"> 2.2.3 共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#224-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-text"> 2.2.4 信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#225-%E4%BF%A1%E5%8F%B7"><span class="nav-text"> 2.2.5 信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#226-socket"><span class="nav-text"> 2.2.6 socket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E8%BF%9B%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-text"> 2.3 进程上下文切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B-%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B"><span class="nav-text"> 2.4 僵尸进程、孤儿进程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BA%BF%E7%A8%8B"><span class="nav-text"> 3 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F"><span class="nav-text"> 3.1 线程间同步方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E7%BA%BF%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="nav-text"> 3.2 线程分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-text"> 4 进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E8%B0%83%E5%BA%A6%E5%8E%9F%E5%88%99"><span class="nav-text"> 4.1 调度原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%B9%B6%E5%8F%91%E6%80%A7%E4%BA%92%E6%96%A5%E5%92%8C%E5%90%8C%E6%AD%A5"><span class="nav-text"> 5 并发性：互斥和同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E5%90%8C%E6%AD%A5-%E4%BA%92%E6%96%A5"><span class="nav-text"> 5.1 同步、互斥</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%B9%B6%E5%8F%91%E6%80%A7%E6%AD%BB%E9%94%81%E5%92%8C%E9%A5%A5%E9%A5%BF"><span class="nav-text"> 6 并发性：死锁和饥饿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E6%AD%BB%E9%94%81"><span class="nav-text"> 6.1 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-text"> 6.1.1 产生死锁的四个必要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E6%A8%A1%E6%8B%9F%E6%AD%BB%E9%94%81"><span class="nav-text"> 6.1.2 模拟死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#613-%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-text"> 6.1.3 解决死锁的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2prevention"><span class="nav-text"> 死锁预防（prevention）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8Davoidance"><span class="nav-text"> 死锁避免（avoidance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8Bdetection"><span class="nav-text"> 死锁检测（detection）</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -267,7 +267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-12 17:46:16" itemprop="dateModified" datetime="2024-06-12T17:46:16+08:00">2024-06-12</time>
+      <time title="修改时间：2024-08-27 23:36:10" itemprop="dateModified" datetime="2024-08-27T23:36:10+08:00">2024-08-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -311,7 +311,7 @@
 <li>多个线程可以并发处理不同的任务，更有效地利用了多处理器和多核计算机。</li>
 <li>同一进程内的线程共享内存和文件，因此它们之间相互通信无须调用内核。</li>
 </ul>
-<h2 id="111-线程与进程的比较"><a class="markdownIt-Anchor" href="#111-线程与进程的比较"></a> 1.1.1 线程与进程的比较</h2>
+<h2 id="11-线程与进程的比较"><a class="markdownIt-Anchor" href="#11-线程与进程的比较"></a> 1.1 线程与进程的比较</h2>
 <p>线程与进程的比较如下：</p>
 <ul>
 <li>进程是资源（包括内存、打开的文件等）分配的单位，线程是 CPU 调度的单位；</li>
@@ -418,6 +418,12 @@
 <li><strong>响应时间</strong>：用户提交请求到系统第一次产生响应所花费的时间，在交互式系统中，响应时间是衡量调度算法好坏的主要标准。</li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082024222.png" alt="单处理器调度.png" /></p>
+<ul>
+<li>先来先服务：</li>
+<li>时间片轮转RR调度算法：一种抢占式调度算法，分配给每个进程一个时间片，时间片结束之后调度下一个就绪的进程执行。</li>
+<li>最短进程优先</li>
+<li>最短剩余时间优先</li>
+</ul>
 <h1 id="5-并发性互斥和同步"><a class="markdownIt-Anchor" href="#5-并发性互斥和同步"></a> 5 并发性：互斥和同步</h1>
 <h2 id="51-同步-互斥"><a class="markdownIt-Anchor" href="#51-同步-互斥"></a> 5.1 同步、互斥</h2>
 <table>
@@ -451,7 +457,43 @@
 <p>必要条件：发生死锁，上述条件成立</p>
 </blockquote>
 <h3 id="612-模拟死锁"><a class="markdownIt-Anchor" href="#612-模拟死锁"></a> 6.1.2 模拟死锁</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object a=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object b=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Object a=<span class="hljs-keyword">new</span> Object();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Object b=<span class="hljs-keyword">new</span> Object();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;
+        <span class="hljs-keyword">new</span> Thread(()-&gt;&#123;
+            <span class="hljs-keyword">synchronized</span> (a)&#123;
+                System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源a"</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    Thread.sleep(<span class="hljs-number">1000</span>);
+                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);
+                &#125;
+                System.out.println(Thread.currentThread()+<span class="hljs-string">"请求资源b"</span>);
+                <span class="hljs-keyword">synchronized</span> (b)&#123;
+                    System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源b"</span>);
+                &#125;
+            &#125;
+        &#125;,<span class="hljs-string">"线程1"</span>).start();
+        <span class="hljs-keyword">new</span> Thread(()-&gt;&#123;
+            <span class="hljs-keyword">synchronized</span> (b)&#123;
+                System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源b"</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    Thread.sleep(<span class="hljs-number">1000</span>);
+                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);
+                &#125;
+                System.out.println(Thread.currentThread()+<span class="hljs-string">"请求资源a"</span>);
+                <span class="hljs-keyword">synchronized</span> (a)&#123;
+                    System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源a"</span>);
+                &#125;
+            &#125;
+        &#125;,<span class="hljs-string">"线程2"</span>).start();
+    &#125;
+&#125;
+
+</code></pre>
 <h3 id="613-解决死锁的办法"><a class="markdownIt-Anchor" href="#613-解决死锁的办法"></a> 6.1.3 解决死锁的办法</h3>
 <ul>
 <li><strong>预防</strong> 是采用某种策略，<strong>限制并发进程对资源的请求</strong>，从而使得死锁的必要条件在系统执行的任何时间上都不满足。</li>

@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,6 +212,101 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" class="post-title-link" itemprop="url">JVM (2)：垃圾回收</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 00:00:00" itemprop="dateCreated datePublished" datetime="2024-04-08T00:00:00+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-18 19:59:21" itemprop="dateModified" datetime="2024-09-18T19:59:21+08:00">2024-09-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>1. GC触发时机
+2. 死亡对象判断方法
+3. 垃圾收集算法
+4. 垃圾收集器</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/08/%E6%A1%86%E6%9E%B6/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -613,7 +708,7 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-25 17:56:45" itemprop="dateModified" datetime="2024-08-25T17:56:45+08:00">2024-08-25</time>
+      <time title="修改时间：2024-08-27 23:51:54" itemprop="dateModified" datetime="2024-08-27T23:51:54+08:00">2024-08-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -778,7 +873,7 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-12 17:30:10" itemprop="dateModified" datetime="2024-06-12T17:30:10+08:00">2024-06-12</time>
+      <time title="修改时间：2024-09-22 11:02:50" itemprop="dateModified" datetime="2024-09-22T11:02:50+08:00">2024-09-22</time>
     </span>
 
   
@@ -791,7 +886,14 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Java 集合，也叫作容器，主要是由两大接口派生而来：一个是 <code>Collection</code>接口，主要用于存放单一元素；另一个是 <code>Map</code> 接口，主要用于存放键值对。对于<code>Collection</code> 接口，下面又有三个主要的子接口：<code>List</code>、<code>Set</code> 、 <code>Queue</code>。<br />
+          <p>ArrayList： 动态数组，实现了List接口，支持动态增长。<br />
+LinkedList： 双向链表，也实现了List接口，支持快速的插入和删除操作。<br />
+HashMap： 基于哈希表的Map实现，存储键值对，通过键快速查找值。<br />
+HashSet： 基于HashMap实现的Set集合，用于存储唯一元素。<br />
+TreeMap： 基于红黑树实现的有序Map集合，可以按照键的顺序进行排序。<br />
+LinkedHashMap： 基于哈希表和双向链表实现的Map集合，保持插入顺序或访问顺序。<br />
+PriorityQueue： 优先队列，可以按照比较器或元素的自然顺序进行排序。</p>
+<p>Java 集合，也叫作容器，主要是由两大接口派生而来：一个是 <code>Collection</code>接口，主要用于存放单一元素；另一个是 <code>Map</code> 接口，主要用于存放键值对。对于<code>Collection</code> 接口，下面又有三个主要的子接口：<code>List</code>、<code>Set</code> 、 <code>Queue</code>。<br />
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405281131352.png" alt="image.png" /></p>
 <ul>
 <li><code>List</code>(对付顺序的好帮手): 存储的元素是有序的、可重复的。</li>
@@ -816,7 +918,7 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
 <tr>
 <td></td>
 <td>vector</td>
-<td></td>
+<td><mark>线程安全</mark></td>
 </tr>
 <tr>
 <td></td>
@@ -851,12 +953,17 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
 <tr>
 <td></td>
 <td>HashTable</td>
-<td>线程安全</td>
+<td><mark>线程安全</mark>，数组+链表组成的，数组是 HashTable 的主体，链表则是主要为了解决哈希冲突而存在的。HashTable 的加锁方法是给每个方法加上synchronized 关键字，不支持null键和值</td>
 </tr>
 <tr>
 <td></td>
 <td>TreeMap</td>
+<td>红黑树</td>
+</tr>
+<tr>
 <td></td>
+<td>ConcurrentHashMap</td>
+<td>Node数组+链表+红黑树实现，线程安全的（jdk1.8以前Segment锁，1.8以后volatile + CAS 或者 synchronized）</td>
 </tr>
 </tbody>
 </table>
@@ -929,7 +1036,21 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
 <h2 id="31-hashmap和treemap"><a class="markdownIt-Anchor" href="#31-hashmap和treemap"></a> 3.1 HashMap和TreeMap</h2>
 <p><strong>相比于<code>HashMap</code>来说， <code>TreeMap</code> 主要多了对集合中的元素根据键排序的能力以及对集合内元素的搜索的能力。</strong></p>
 <h2 id="32-hashmap"><a class="markdownIt-Anchor" href="#32-hashmap"></a> 3.2 HashMap</h2>
-<h3 id="321-扩容机制"><a class="markdownIt-Anchor" href="#321-扩容机制"></a> 3.2.1 扩容机制</h3>
+<blockquote>
+<p>[!note]<br />
+JDK1.8 之前 HashMap 由数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突），JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）时，将链表转化为红黑树，以减少搜索时间</p>
+</blockquote>
+<p>在 JDK 1.7 版本之前， HashMap 数据结构是数组和链表，HashMap通过哈希算法将元素的键（Key）映射到数组中的槽位（Bucket）。如果多个键映射到同一个槽位，它们会以链表的形式存储在同一个槽位上，因为链表的查询时间是O(n)，所以冲突很严重，一个索引上的链表非常长，效率就很低了。</p>
+<h3 id="321-哈希冲突解决方式"><a class="markdownIt-Anchor" href="#321-哈希冲突解决方式"></a> 3.2.1 哈希冲突解决方式</h3>
+<ul>
+<li>链接法：使用链表或其他数据结构来存储冲突的键值对，将它们链接在同一个哈希桶中。</li>
+<li>开放寻址法：在哈希表中找到另一个可用的位置来存储冲突的键值对，而不是存储在链表中。常见的开放寻址方法包括线性探测、二次探测和双重散列。</li>
+<li>再哈希法（Rehashing）：当发生冲突时，使用另一个哈希函数再次计算键的哈希值，直到找到一个空槽来存储键值对。</li>
+<li>哈希桶扩容：当哈希冲突过多时，可以动态地扩大哈希桶的数量，重新分配键值对，以减少冲突的概率。</li>
+</ul>
+<h3 id="322-hashcode和equals"><a class="markdownIt-Anchor" href="#322-hashcode和equals"></a> 3.2.2 hashcode和equals</h3>
+<p>equals相等的两个对象，hashCode一定相等。hashCode相等的两个对象，equals不一定相等</p>
+<h3 id="323-扩容机制"><a class="markdownIt-Anchor" href="#323-扩容机制"></a> 3.2.3 扩容机制</h3>
 <ol>
 <li>
 <p><strong>初始容量和负载因子：</strong></p>
@@ -947,32 +1068,63 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
 </ul>
 </li>
 </ol>
-<h3 id="322-hashmap多线程导致死循环"><a class="markdownIt-Anchor" href="#322-hashmap多线程导致死循环"></a> 3.2.2 HashMap多线程导致死循环</h3>
+<h3 id="324-hashmap多线程导致死循环"><a class="markdownIt-Anchor" href="#324-hashmap多线程导致死循环"></a> 3.2.4 HashMap多线程导致死循环</h3>
 <p>当一个桶位中有多个元素需要进行扩容时，多个线程同时对链表进行操作，<code>头插法</code>可能会导致链表中的节点指向错误的位置，从而形成一个环形链表，进而使得查询元素的操作陷入死循环无法结束。<br />
 为了解决这个问题，JDK1.8 版本的 HashMap 采用了尾插法而不是头插法来避免链表倒置，使得插入的节点永远都是放在链表的末尾，避免了链表中的环形结构。</p>
 <p><a href="https://coolshell.cn/articles/9606.html">疫苗：Java HashMap的死循环 | 酷 壳 - CoolShell</a></p>
-<h3 id="323-hashmap为什么线程不安全"><a class="markdownIt-Anchor" href="#323-hashmap为什么线程不安全"></a> 3.2.3 HashMap为什么线程不安全</h3>
+<h3 id="325-hashmap为什么线程不安全"><a class="markdownIt-Anchor" href="#325-hashmap为什么线程不安全"></a> 3.2.5 HashMap为什么线程不安全</h3>
 <p>多线程环境下，<code>HashMap</code> 扩容时会造成<code>死循环</code> 和<code>数据丢失</code>的问题。<br />
-在 <code>HashMap</code> 中，多个键值对可能会被分配到同一个桶（bucket），并以链表或红黑树的形式存储。多个线程对<code>HashMap</code>的put操作会导致线程不安全，可能产生数据覆盖.</p>
+在 <code>HashMap</code> 中，多个键值对可能会被分配到同一个桶（bucket），并以链表或红黑树的形式存储。多个线程对<code>HashMap</code>的put操作会导致线程不安全，可能产生数据覆盖.<br />
+数据不一致</p>
 <h4 id="3231-同时检测到桶位置为空插入元素"><a class="markdownIt-Anchor" href="#3231-同时检测到桶位置为空插入元素"></a> 3.2.3.1 同时检测到桶位置为空，插入元素</h4>
 <ul>
 <li>两个线程同时进行put操作，并且存在哈希冲突</li>
 <li>由于线程首先都执行完了hash碰撞的判断，桶为空</li>
 <li>每个线程再向空桶中插入元素</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> putVal(hash(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,</span></span><br><span class="line"><span class="params">                   <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// 判断是否出现 hash 碰撞</span></span><br><span class="line">    <span class="comment">// (n - 1) &amp; hash 确定元素存放在哪个桶中，桶为空，新生成结点放入桶中(此时，这个结点是放在数组中)</span></span><br><span class="line">    <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)</span><br><span class="line">        tab[i] = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">    <span class="comment">// 桶中已经存在元素（处理hash冲突）</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">put</span><span class="hljs-params">(K key, V value)</span> </span>&#123;
+    <span class="hljs-keyword">return</span> putVal(hash(key), key, value, <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>);
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">final</span> V <span class="hljs-title">putVal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hash, K key, V value, <span class="hljs-keyword">boolean</span> onlyIfAbsent,
+                   <span class="hljs-keyword">boolean</span> evict)</span> </span>&#123;
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-comment">// 判断是否出现 hash 碰撞</span>
+    <span class="hljs-comment">// (n - 1) &amp; hash 确定元素存放在哪个桶中，桶为空，新生成结点放入桶中(此时，这个结点是放在数组中)</span>
+    <span class="hljs-keyword">if</span> ((p = tab[i = (n - <span class="hljs-number">1</span>) &amp; hash]) == <span class="hljs-keyword">null</span>)
+        tab[i] = newNode(hash, key, value, <span class="hljs-keyword">null</span>);
+    <span class="hljs-comment">// 桶中已经存在元素（处理hash冲突）</span>
+    <span class="hljs-keyword">else</span> &#123;
+    <span class="hljs-comment">// ...</span>
+&#125;
+</code></pre>
 <h4 id="3232-多个线程同时put操作导致size不正确"><a class="markdownIt-Anchor" href="#3232-多个线程同时put操作导致size不正确"></a> 3.2.3.2 多个线程同时put操作导致size不正确</h4>
 <ul>
 <li>两个线程都先获取size，在++size</li>
 <li>添加两次元素，而size只增加1</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> putVal(hash(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,</span></span><br><span class="line"><span class="params">                   <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// 实际大小大于阈值则扩容</span></span><br><span class="line">    <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">        resize();</span><br><span class="line">    <span class="comment">// 插入后回调</span></span><br><span class="line">    afterNodeInsertion(evict);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">put</span><span class="hljs-params">(K key, V value)</span> </span>&#123;
+    <span class="hljs-keyword">return</span> putVal(hash(key), key, value, <span class="hljs-keyword">false</span>, <span class="hljs-keyword">true</span>);
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">final</span> V <span class="hljs-title">putVal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hash, K key, V value, <span class="hljs-keyword">boolean</span> onlyIfAbsent,
+                   <span class="hljs-keyword">boolean</span> evict)</span> </span>&#123;
+    <span class="hljs-comment">// ...</span>
+    <span class="hljs-comment">// 实际大小大于阈值则扩容</span>
+    <span class="hljs-keyword">if</span> (++size &gt; threshold)
+        resize();
+    <span class="hljs-comment">// 插入后回调</span>
+    afterNodeInsertion(evict);
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+&#125;
+
+</code></pre>
 <p><a href="https://zhuanlan.zhihu.com/p/484653028">基于JDK8的HashMap实现(万字详解) - 知乎 (zhihu.com)</a></p>
-<h3 id="324-底层实现"><a class="markdownIt-Anchor" href="#324-底层实现"></a> 3.2.4 底层实现</h3>
+<h3 id="326-底层实现"><a class="markdownIt-Anchor" href="#326-底层实现"></a> 3.2.6 底层实现</h3>
 <p>JDK1.8 之前 <code>HashMap</code> 底层是 <strong>数组和链表</strong> 结合在一起使用也就是 <strong>链表散列</strong>。HashMap 通过 key 的 <code>hashcode</code> 经过扰动函数处理过后得到 hash 值，然后通过 <code>(n - 1) &amp; hash</code> 判断当前元素存放的位置（这里的 n 指的是数组的长度），如果当前位置存在元素的话，就判断该元素与要存入的元素的 hash 值以及 key 是否相同，如果相同的话，直接覆盖，不相同就通过拉链法解决冲突。</p>
 <p>所谓扰动函数指的就是 HashMap 的 <code>hash</code> 方法。使用 <code>hash</code> 方法也就是扰动函数是为了防止一些实现比较差的 <code>hashCode()</code> 方法 换句话说使用扰动函数之后可以减少碰撞。</p>
-<p>相比于之前的版本， JDK1.8 之后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间。</p>
-<h3 id="325-put添加元素过程"><a class="markdownIt-Anchor" href="#325-put添加元素过程"></a> 3.2.5 put添加元素过程</h3>
+<p>相比于之前的版本， JDK1.8 之后在解决哈希冲突时有了较大的变化，当<mark>链表长度大于阈值（默认为 8）</mark>（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间。</p>
+<h3 id="327-put添加元素过程"><a class="markdownIt-Anchor" href="#327-put添加元素过程"></a> 3.2.7 put添加元素过程</h3>
 <ol>
 <li>
 <p><strong>计算哈希码（Hash Code）：</strong></p>
@@ -1003,7 +1155,7 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
 </ul>
 </li>
 </ol>
-<h3 id="326-如何做到让hashmap线程安全"><a class="markdownIt-Anchor" href="#326-如何做到让hashmap线程安全"></a> 3.2.6 如何做到让HashMap线程安全</h3>
+<h3 id="328-如何做到让hashmap线程安全"><a class="markdownIt-Anchor" href="#328-如何做到让hashmap线程安全"></a> 3.2.8 如何做到让HashMap线程安全</h3>
 <ol>
 <li>
 <p><strong>使用<code>Collections.synchronizedMap</code>方法：</strong><br />
@@ -1016,14 +1168,25 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
 </li>
 </ol>
 <h2 id="33-concurrenthashmap"><a class="markdownIt-Anchor" href="#33-concurrenthashmap"></a> 3.3 ConcurrentHashMap</h2>
+<blockquote>
+<p>[!note]<br />
+ConcurrentHashMap：Node数组+链表+红黑树实现，线程安全的（jdk1.8以前Segment锁，1.8以后volatile + CAS 或者 synchronized）</p>
+</blockquote>
 <h3 id="331-jdk-17"><a class="markdownIt-Anchor" href="#331-jdk-17"></a> 3.3.1 JDK 1.7</h3>
 <blockquote>
-<p>通过分段锁（Segmentation）实现线程安全。它将整个哈希表分成多个段（Segment），每个段都是一个小的哈希表，并且拥有自己的锁。这样，多个线程可以并发地访问不同的段，从而减少了锁的竞争，提高了并发性能。</p>
+<p>Segment数组，通过分段锁（Segmentation）实现线程安全。它将整个哈希表分成多个段（Segment），每个段都是一个小的哈希表，并且拥有自己的锁。这样，多个线程可以并发地访问不同的段，从而减少了锁的竞争，提高了并发性能。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404012148392.png" alt="image.png" /></p>
 <h3 id="332-jdk-18"><a class="markdownIt-Anchor" href="#332-jdk-18"></a> 3.3.2 JDK 1.8</h3>
+<p>在 JDK 1.7 中它使用的是数组加链表的形式实现的，而数组又分为：大数组 Segment 和小数组 HashEntry。 Segment 是一种可重入锁（ReentrantLock），在 ConcurrentHashMap 里扮演锁的角色；HashEntry 则用于存储键值对数据。一个 ConcurrentHashMap 里包含一个 Segment 数组，一个 Segment 里包含一个 HashEntry 数组，每个 HashEntry 是一个链表结构的元素。</p>
+<p>直接在table元素上加锁，实现对每一行进行加锁，进一步减小了并发冲突的概率。</p>
+<ul>
+<li>对于put操作，如果Key对应的数组元素为null，则通过CAS操作（Compare and Swap）将其设置为当前值。</li>
+<li>如果Key对应的数组元素（也即链表表头或者树的根元素）不为null，则对该元素使用 synchronized 关键字申请锁，然后进行操作。</li>
+<li>如果该 put 操作使得当前链表长度超过一定阈值，则将该链表转换为红黑树，从而提高寻址效率。</li>
+</ul>
 <blockquote>
-<p>使用了一种更细粒度的锁策略，结合CAS（Compare-and-Swap）无锁算法来实现线程安全。在JDK 1.8中，ConcurrentHashMap将整个哈希表看作一个整体，不再进行分段。而是通过Node数组+链表+红黑树的结构来存储数据，并使用Synchronized和CAS来协调并发访问。</p>
+<p>使用了一种更细粒度的锁策略，结合CAS（Compare-and-Swap）无锁算法来实现线程安全。在JDK 1.8中，ConcurrentHashMap将整个哈希表看作一个整体，不再进行分段。而是通过<mark>Node数组+链表+红黑树</mark>的结构来存储数据，并使用Synchronized和CAS来协调并发访问。</p>
 </blockquote>
 <p>锁粒度更细，<code>synchronized</code> 只锁定当前链表或红黑二叉树的首节点，这样只要 hash 不冲突，就不会产生并发，就不会影响其他 Node 的读写，效率大幅提升。<br />
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404012149783.png" alt="image.png" /></p>
@@ -1087,7 +1250,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/28/Java/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(1)%EF%BC%9A%E5%B9%B6%E5%8F%91/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/28/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(1)%EF%BC%9A%E5%B9%B6%E5%8F%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1105,7 +1268,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/28/Java/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(1)%EF%BC%9A%E5%B9%B6%E5%8F%91/" class="post-title-link" itemprop="url">Java：并发</a>
+          <a href="/2024/02/28/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(1)%EF%BC%9A%E5%B9%B6%E5%8F%91/" class="post-title-link" itemprop="url">Java：并发</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1123,7 +1286,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-12 15:31:25" itemprop="dateModified" datetime="2024-06-12T15:31:25+08:00">2024-06-12</time>
+      <time title="修改时间：2024-09-22 00:03:24" itemprop="dateModified" datetime="2024-09-22T00:03:24+08:00">2024-09-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1148,7 +1311,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
           <p>线程、锁、条件变量</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/02/28/Java/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(1)%EF%BC%9A%E5%B9%B6%E5%8F%91/">
+              <a class="btn" href="/2024/02/28/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(1)%EF%BC%9A%E5%B9%B6%E5%8F%91/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1272,7 +1435,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/20/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/20/%E6%A1%86%E6%9E%B6/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1290,7 +1453,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/02/20/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/02/20/%E6%A1%86%E6%9E%B6/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1308,7 +1471,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-05 10:50:52" itemprop="dateModified" datetime="2024-06-05T10:50:52+08:00">2024-06-05</time>
+      <time title="修改时间：2024-08-26 23:34:50" itemprop="dateModified" datetime="2024-08-26T23:34:50+08:00">2024-08-26</time>
     </span>
 
   
@@ -1333,18 +1496,34 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
 </ul>
 <p>Quorum机制（法定人数机制<br />
 <strong>分布式系统理论上不可能选择 CA 架构，只能选择 CP 或者 AP 架构。</strong> 比如 ZooKeeper、HBase 就是 CP 架构，Cassandra、Eureka 就是 AP 架构，Nacos 不仅支持 CP 架构也支持 AP 架构。</p>
-<h1 id="2-base理论"><a class="markdownIt-Anchor" href="#2-base理论"></a> 2 BASE理论</h1>
+<h1 id="2-数据一致性"><a class="markdownIt-Anchor" href="#2-数据一致性"></a> 2 数据一致性</h1>
+<p>一些分布式系统通过复制数据来提高系统的可靠性和容错性，并且将数据的不同的副本存放在不同的机器，由于维护数据副本的一致性代价高，因此许多系统<strong>采用弱一致性来提高性能</strong>，一些不同的一致性模型也相继被提出。</p>
+<ul>
+<li><strong>强一致性</strong>： 要求无论更新操作实在哪一个副本执行，之后所有的读操作都要能获得最新的数据。</li>
+<li><strong>弱一致性</strong>：用户读到某一操作对系统特定数据的更新需要一段时间，我们称这段时间为“不一致性窗口”。</li>
+<li><strong>最终一致性</strong>：是弱一致性的一种特例，保证用户**最终（即窗口尽量长）**能够读取到某操作对系统特定数据的更新。</li>
+</ul>
+<blockquote>
+<p>[!question] 分布式一致性(缓存与数据库一致性)</p>
+<ol>
+<li>分布式事务：两段提交</li>
+<li>分布式锁</li>
+<li>消息队列、消息持久化、重试、幂等操作</li>
+<li>Raft / Paxos 等一致性算法</li>
+</ol>
+</blockquote>
+<h1 id="3-base理论"><a class="markdownIt-Anchor" href="#3-base理论"></a> 3 BASE理论</h1>
 <p><strong>BASE</strong> 是 <strong>Basically Available（基本可用）</strong>、<strong>Soft-state（软状态）</strong> 和 <strong>Eventually Consistent（最终一致性）</strong> 三个短语的缩写。</p>
-<h2 id="21-基本可用"><a class="markdownIt-Anchor" href="#21-基本可用"></a> 2.1 基本可用</h2>
+<h2 id="31-基本可用"><a class="markdownIt-Anchor" href="#31-基本可用"></a> 3.1 基本可用</h2>
 <p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性。但是，这绝不等价于系统不可用。</p>
 <p><strong>什么叫允许损失部分可用性呢？</strong></p>
 <ul>
 <li><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</li>
 <li><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</li>
 </ul>
-<h2 id="22-软状态"><a class="markdownIt-Anchor" href="#22-软状态"></a> 2.2 <a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2>
+<h2 id="32-软状态"><a class="markdownIt-Anchor" href="#32-软状态"></a> 3.2 <a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2>
 <p>软状态指允许系统中的数据存在中间状态（<strong>CAP 理论中的数据不一致</strong>），并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</p>
-<h2 id="23-最终一致性"><a class="markdownIt-Anchor" href="#23-最终一致性"></a> 2.3 <a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2>
+<h2 id="33-最终一致性"><a class="markdownIt-Anchor" href="#33-最终一致性"></a> 3.3 <a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2>
 <p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
 <blockquote>
 <p>分布式一致性的 3 种级别：</p>
@@ -1355,7 +1534,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
 </ol>
 <p><strong>业界比较推崇是最终一致性级别，但是某些对数据一致要求十分严格的场景比如银行转账还是要保证强一致性。</strong></p>
 </blockquote>
-<h1 id="3-共识算法"><a class="markdownIt-Anchor" href="#3-共识算法"></a> 3 共识算法</h1>
+<h1 id="4-共识算法"><a class="markdownIt-Anchor" href="#4-共识算法"></a> 4 共识算法</h1>
 <blockquote>
 <p>共识算法的作用是让分布式系统中的多个节点之间对某个提案（Proposal）达成一致的看法。提案的含义在分布式系统中十分宽泛，像哪一个节点是 Leader 节点、多个事件发生的顺序等等都可以是一个提案。</p>
 </blockquote>
@@ -1363,28 +1542,28 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
 <p>共识算法允许一组节点像一个整体一样一起工作，即使其中的一些节点出现故障也能够继续工作下去，其正确性主要是源于复制状态机的性质：一组<code>Server</code>的状态机计算相同状态的副本，即使有一部分的<code>Server</code>宕机了它们仍然能够继续运行。<br />
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png" alt="image.png" /></p>
 <p><a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html">https://javaguide.cn/distributed-system/protocol/raft-algorithm.html</a></p>
-<h1 id="4-basic-paxos-算法"><a class="markdownIt-Anchor" href="#4-basic-paxos-算法"></a> 4 Basic Paxos 算法</h1>
+<h1 id="5-basic-paxos-算法"><a class="markdownIt-Anchor" href="#5-basic-paxos-算法"></a> 5 Basic Paxos 算法</h1>
 <ul>
 <li><strong>提议者（Proposer）</strong>：也可以叫做协调者（coordinator），提议者负责接受客户端的请求并发起提案。提案信息通常包括提案编号 (Proposal ID) 和提议的值 (Value)。</li>
 <li><strong>接受者（Acceptor）</strong>：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；</li>
 <li><strong>学习者（Learner）</strong>：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。<br />
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png" alt="image.png|450" /></li>
 </ul>
-<h1 id="5-raft"><a class="markdownIt-Anchor" href="#5-raft"></a> 5 Raft</h1>
-<h2 id="51-基础"><a class="markdownIt-Anchor" href="#51-基础"></a> 5.1 基础</h2>
-<h3 id="511-节点类型"><a class="markdownIt-Anchor" href="#511-节点类型"></a> 5.1.1 节点类型</h3>
+<h1 id="6-raft"><a class="markdownIt-Anchor" href="#6-raft"></a> 6 Raft</h1>
+<h2 id="61-基础"><a class="markdownIt-Anchor" href="#61-基础"></a> 6.1 基础</h2>
+<h3 id="611-节点类型"><a class="markdownIt-Anchor" href="#611-节点类型"></a> 6.1.1 节点类型</h3>
 <ul>
 <li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
 <li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
 <li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。</li>
 </ul>
-<h3 id="512-任期"><a class="markdownIt-Anchor" href="#512-任期"></a> 5.1.2 任期</h3>
-<h3 id="513-日志"><a class="markdownIt-Anchor" href="#513-日志"></a> 5.1.3 日志</h3>
-<h2 id="52-领导人选举"><a class="markdownIt-Anchor" href="#52-领导人选举"></a> 5.2 领导人选举</h2>
+<h3 id="612-任期"><a class="markdownIt-Anchor" href="#612-任期"></a> 6.1.2 任期</h3>
+<h3 id="613-日志"><a class="markdownIt-Anchor" href="#613-日志"></a> 6.1.3 日志</h3>
+<h2 id="62-领导人选举"><a class="markdownIt-Anchor" href="#62-领导人选举"></a> 6.2 领导人选举</h2>
 <p>raft 使用心跳机制来触发 Leader 的选举。</p>
 <p>如果一台服务器能够收到来自 Leader 或者 Candidate 的有效信息，那么它会一直保持为 Follower 状态，并且刷新自己的 electionElapsed，重新计时。</p>
 <p>Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。如果一个 Follower 在一个周期内没有收到心跳信息，就叫做选举超时，然后它就会认为此时没有可用的 Leader，并且开始进行一次选举以选出一个新的 Leader。</p>
-<h2 id="53-日志复制"><a class="markdownIt-Anchor" href="#53-日志复制"></a> 5.3 日志复制</h2>
+<h2 id="63-日志复制"><a class="markdownIt-Anchor" href="#63-日志复制"></a> 6.3 日志复制</h2>
 <p>一旦选出了 Leader，它就开始接受客户端的请求。每一个客户端的请求都包含一条需要被复制状态机（<code>Replicated State Machine</code>）执行的命令。</p>
 <p>Leader 收到客户端请求后，会生成一个 entry，包含<code>&lt;index,term,cmd&gt;</code>，再将这个 entry 添加到自己的日志末尾后，向所有的节点广播该 entry，要求其他服务器复制这条 entry。</p>
 <p>如果 Follower 接受该 entry，则会将 entry 添加到自己的日志后面，同时返回给 Leader 同意。</p>
@@ -1394,7 +1573,7 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
 <li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们一定有相同的 cmd</li>
 <li>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们前面的 entry 也一定相同</li>
 </ul>
-<h1 id="6-主从-集群-分布式的区别"><a class="markdownIt-Anchor" href="#6-主从-集群-分布式的区别"></a> 6 主从、集群、分布式的区别</h1>
+<h1 id="7-主从-集群-分布式的区别"><a class="markdownIt-Anchor" href="#7-主从-集群-分布式的区别"></a> 7 主从、集群、分布式的区别</h1>
 <ul>
 <li>分布式：多个系统协同合作完成一个特定任务的系统。分布式是解决中心化管理的问题，把所有的任务叠加到一个节点处理，太慢了。所以把一个大的问题拆分为多个小的问题，并分别解决，最终协同合作。分布式的主要工作是分解任务，将职能拆解。</li>
 <li>集群：集群主要的使用场景是为了分担请求的压力，也就是在几个服务器上部署相同的应用程序，来分担客户端请求。当压力进一步增大的时候，可能在需要存储的部分，mysql 无法面对很多的写压力。因为在 mysql 做成集群之后，主要的写压力还是在 master 的机器上面，其他 slave 机器无法分担写压力，从而这个时候，也就引出来分布式。</li>
@@ -1700,77 +1879,6 @@ Map&lt;K, V&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;K, 
 <p>paxos 2015版的lab</p>
 <p><a href="https://github.com/hashicorp/raft">hashicorp/raft: Golang implementation of the Raft consensus protocol (github.com)</a></p>
 <p><a href="https://www.zhihu.com/question/29597104">如何的才能更好地学习 MIT6.824 分布式系统课程？ - 知乎 (zhihu.com)</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/01/18/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab1%20MapReduce/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/18/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab1%20MapReduce/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-01-18 21:35:27 / 修改时间：21:35:56" itemprop="dateCreated datePublished" datetime="2024-01-18T21:35:27+08:00">2024-01-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>rpc: gob error encoding body: gob: type mr.JobConfirm has no exported fields</p>
-<p>rpc.go中的定义struct中变量要大写</p>
 
       
     </div>

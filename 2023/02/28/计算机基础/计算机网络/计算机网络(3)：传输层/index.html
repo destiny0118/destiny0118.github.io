@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403152255901.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202408241550434.png">
 <meta property="article:published_time" content="2023-02-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-24T13:33:05.495Z">
+<meta property="article:modified_time" content="2024-09-24T02:28:18.785Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="nav-text"> 1 传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-text"> 1.1 滑动窗口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-udp%E6%97%A0%E8%BF%9E%E6%8E%A5-%E5%B0%BD%E6%9C%80%E5%A4%A7%E5%8A%AA%E5%8A%9B-%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87"><span class="nav-text"> 2 UDP（无连接、尽最大努力、面向报文）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E7%89%B9%E7%82%B9"><span class="nav-text"> 2.1 特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-tcp%E5%8D%8F%E8%AE%AE%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5-%E5%8F%AF%E9%9D%A0-%E5%AD%97%E8%8A%82%E6%B5%81"><span class="nav-text"> 3 TCP协议（面向连接、可靠、字节流）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-tcp%E6%8A%A5%E6%96%87%E6%AE%B5%E7%BB%93%E6%9E%84"><span class="nav-text"> 3.1 TCP报文段结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="nav-text"> 3.2 连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#321-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="nav-text"> 3.2.1 三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#322-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-text"> 3.2.2 四次挥手</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-tcp%E4%BF%9D%E8%AF%81%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="nav-text"> 3.3 TCP保证可靠传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#34-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-text"> 3.4 流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-text"> 3.5 拥塞控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#36-tcp%E7%B2%98%E5%8C%85-%E6%8B%86%E5%8C%85"><span class="nav-text"> 3.6 TCP粘包、拆包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#37-%E5%8D%8A%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97-%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97"><span class="nav-text"> 3.7 半连接队列、全连接队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#38-tcp%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8Fsyn-flood%E6%94%BB%E5%87%BB"><span class="nav-text"> 3.8 TCP网络攻击方式，SYN flood攻击</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-tcp%E4%B8%8Eudp%E5%8C%BA%E5%88%AB"><span class="nav-text"> 4 TCP与UDP区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E5%8C%BA%E5%88%AB"><span class="nav-text"> 4.1 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-tcp%E5%92%8Cudp%E4%BD%BF%E7%94%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-text"> 4.2 TCP和UDP使用同一个端口号</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-arq%E5%8D%8F%E8%AE%AE"><span class="nav-text"> 5 ARQ协议</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BC%A0%E8%BE%93%E5%B1%82"><span class="nav-text"> 1 传输层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="nav-text"> 1.1 滑动窗口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-udp%E6%97%A0%E8%BF%9E%E6%8E%A5-%E5%B0%BD%E6%9C%80%E5%A4%A7%E5%8A%AA%E5%8A%9B-%E9%9D%A2%E5%90%91%E6%8A%A5%E6%96%87"><span class="nav-text"> 2 UDP（无连接、尽最大努力、面向报文）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E7%89%B9%E7%82%B9"><span class="nav-text"> 2.1 特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-tcp%E5%8D%8F%E8%AE%AE%E9%9D%A2%E5%90%91%E8%BF%9E%E6%8E%A5-%E5%8F%AF%E9%9D%A0-%E5%AD%97%E8%8A%82%E6%B5%81"><span class="nav-text"> 3 TCP协议（面向连接、可靠、字节流）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-tcp%E6%8A%A5%E6%96%87%E6%AE%B5%E7%BB%93%E6%9E%84"><span class="nav-text"> 3.1 TCP报文段结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="nav-text"> 3.2 连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#321-%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="nav-text"> 3.2.1 三次握手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#322-%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="nav-text"> 3.2.2 四次挥手</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#33-tcp%E4%BF%9D%E8%AF%81%E5%8F%AF%E9%9D%A0%E4%BC%A0%E8%BE%93"><span class="nav-text"> 3.3 TCP保证可靠传输</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#34-%E6%B5%81%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-text"> 3.4 流量控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#35-%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6"><span class="nav-text"> 3.5 拥塞控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#36-tcp%E7%B2%98%E5%8C%85-%E6%8B%86%E5%8C%85"><span class="nav-text"> 3.6 TCP粘包、拆包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#361-%E7%B2%98%E5%8C%85"><span class="nav-text"> 3.6.1 粘包</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#37-%E5%8D%8A%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97-%E5%85%A8%E8%BF%9E%E6%8E%A5%E9%98%9F%E5%88%97"><span class="nav-text"> 3.7 半连接队列、全连接队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#38-tcp%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8Fsyn-flood%E6%94%BB%E5%87%BB"><span class="nav-text"> 3.8 TCP网络攻击方式，SYN flood攻击</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-tcp%E4%B8%8Eudp%E5%8C%BA%E5%88%AB"><span class="nav-text"> 4 TCP与UDP区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E5%8C%BA%E5%88%AB"><span class="nav-text"> 4.1 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-tcp%E5%92%8Cudp%E4%BD%BF%E7%94%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-text"> 4.2 TCP和UDP使用同一个端口号</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-arq%E5%8D%8F%E8%AE%AE"><span class="nav-text"> 5 ARQ协议</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,7 +172,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -271,7 +271,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-24 21:33:05" itemprop="dateModified" datetime="2024-08-24T21:33:05+08:00">2024-08-24</time>
+      <time title="修改时间：2024-09-24 10:28:18" itemprop="dateModified" datetime="2024-09-24T10:28:18+08:00">2024-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -359,6 +359,7 @@ UDP和TCP报头使用两个字节存放端口号，所以端口号的有效范�
 <li>UDP的<strong>首部开销小</strong>，只有8个字节，比TCP的20个字节的首部要短。</li>
 </ul>
 <h1 id="3-tcp协议面向连接-可靠-字节流"><a class="markdownIt-Anchor" href="#3-tcp协议面向连接-可靠-字节流"></a> 3 TCP协议（面向连接、可靠、字节流）</h1>
+<p>无差错、不丢失、不重复、按序到达</p>
 <blockquote>
 <p>[!note]<br />
 “面向字节流”的含义是：虽然应用程序和TCP的交互是一次一个数据块（大小不等），但TCP把应用程序交下来的数据仅仅看成是一连串的无结构的字节流。</p>
@@ -423,6 +424,12 @@ UDP和TCP报头使用两个字节存放端口号，所以端口号的有效范�
 <li>服务器为该TCP连接分配缓存和变量（<mark>SYN泛洪攻击</mark>），并向客户端发送SYNACK报文段（SEQ=Y, ACK=X+1）</li>
 <li>客户端收到SYNACK报文段，分配缓存和变量，对服务器允许连接的报文段进行确认(ACK=Y+1)</li>
 </ul>
+<p>三次握手的原因：  、</p>
+<ul>
+<li>三次握手才可以阻止重复历史连接的初始化（主要原因）</li>
+<li>三次握手才可以同步双方的初始序列号</li>
+<li>三次握手才可以避免资源浪费</li>
+</ul>
 <blockquote>
 <p>[!question] 两次握手和四次握手</p>
 </blockquote>
@@ -460,6 +467,12 @@ TCP 是全双工通信，可以双向传输数据。任何一方都可以在数�
 </blockquote>
 <p><a href="https://segmentfault.com/a/1190000041875584">tcp - 经典问题：TIME-WAIT 时长为何为2 MSL？ - the_blog - SegmentFault 思否</a></p>
 <h2 id="33-tcp保证可靠传输"><a class="markdownIt-Anchor" href="#33-tcp保证可靠传输"></a> 3.3 TCP保证可靠传输</h2>
+<blockquote>
+<p>[!question]</p>
+<ul>
+<li>通过序列号和确认号解决网络包的乱序和丢包问题</li>
+</ul>
+</blockquote>
 <ol>
 <li>建立连接：通过三次握手建立连接，保证连接实体真实存在</li>
 <li>序号机制：保证数据是按序、完整到达</li>
@@ -469,6 +482,14 @@ TCP 是全双工通信，可以双向传输数据。任何一方都可以在数�
 <li>流量控制：当接收方来不及处理发送方的数据，能通过滑动窗口，提示发送方降低发送的速率，防止包丢失。</li>
 <li>拥塞控制：网络层拥堵造成的拥塞，包括慢启动，拥塞避免，快速重传三种机制</li>
 </ol>
+<ul>
+<li>连接管理：即三次握手和四次挥手。连接管理机制能够建立起可靠的连接，这是保证传输可靠性的前提。</li>
+<li>序列号：TCP将每个字节的数据都进行了编号，这就是序列号。序列号的具体作用如下：能够保证可靠性，既能防止<mark>数据丢失</mark>，又能避免<mark>数据重复</mark>。能够保证<mark>有序性</mark>，按照序列号顺序进行数据包还原。能够提高效率，基于序列号可实现多次发送，一次确认。</li>
+<li>确认应答：接收方接收数据之后，会回传ACK报文，报文中带有此次确认的序列号，用于告知发送方此次接收数据的情况。在指定时间后，若发送端仍未收到确认应答，就会启动超时重传。</li>
+<li>超时重传：超时重传主要有两种场景：数据包丢失：在指定时间后，若发送端仍未收到确认应答，就会启动超时重传，向接收端重新发送数据包。确认包丢失：当接收端收到重复数据(通过序列号进行识别)时将其丢弃，并重新回传ACK报文。</li>
+<li>流量控制：接收端处理数据的速度是有限的，如果发送方发送数据的速度过快，就会导致接收端的缓冲区溢出，进而导致丢包。为了避免上述情况的发生，TCP支持根据接收端的处理能力，来决定发送端的发送速度。这就是流量控制。流量控制是通过在TCP报文段首部维护一个滑动窗口来实现的。</li>
+<li>拥塞控制：拥塞控制就是当网络拥堵严重时，发送端减少数据发送。拥塞控制是通过发送端维护一个拥塞窗口来实现的。可以得出，发送端的发送速度，受限于滑动窗口和拥塞窗口中的最小值。拥塞控制方法分为：慢开始，拥塞避免、快重传和快恢复</li>
+</ul>
 <h2 id="34-流量控制"><a class="markdownIt-Anchor" href="#34-流量控制"></a> 3.4 流量控制</h2>
 <blockquote>
 <p>[!note] 消息队列：消息堆积</p>
@@ -498,9 +519,16 @@ TCP 通过让发送方维护一个称为接收窗口(receive window)的变量来
 <p>为了进行拥塞控制，TCP 发送方要维持一个 <strong>拥塞窗口(cwnd)</strong> 的状态变量。拥塞控制窗口的大小取决于网络的拥塞程度，并且动态变化。发送方让自己的发送窗口取为拥塞窗口和接收方的接受窗口中较小的一个。</p>
 <p>TCP 的拥塞控制采用了四种算法，即 <mark>慢开始、 拥塞避免、快重传 和 快恢复</mark>。在网络层也可以使路由器采用适当的分组丢弃策略（如主动队列管理 AQM），以减少网络拥塞的发生。</p>
 <ul>
-<li><strong>慢开始：</strong> 慢开始算法的思路是当主机开始发送数据时，如果立即把大量数据字节注入到网络，那么可能会引起网络阻塞，因为现在还不知道网络的符合情况。经验表明，较好的方法是先探测一下，即由小到大逐渐增大发送窗口，也就是由小到大逐渐增大拥塞窗口数值。cwnd 初始值为 1，每经过一个传播轮次，cwnd 加倍。</li>
-<li><strong>拥塞避免：</strong> 拥塞避免算法的思路是让拥塞窗口 cwnd 缓慢增大，即每经过一个往返时间 RTT 就把发送方的 cwnd 加 1.</li>
-<li><strong>快恢复：</strong> 在 TCP/IP 中，快速重传和恢复（fast retransmit and recovery，FRR）是一种拥塞控制算法，它能快速恢复丢失的数据包。没有 FRR，如果数据包丢失了，TCP 将会使用定时器来要求传输暂停。在暂停的这段时间内，没有新的或复制的数据包被发送。有了 FRR，如果接收机接收到一个不按顺序的数据段，它会立即给发送机发送一个重复确认。如果发送机接收到三个重复确认，它会假定确认件指出的数据段丢失了，并立即重传这些丢失的数据段。有了 FRR，就不会因为重传时要求的暂停被耽误。 　当有单独的数据包丢失时，快速重传和恢复（FRR）能最有效地工作。当有多个数据信息包在某一段很短的时间内丢失时，它则不能很有效地工作。</li>
+<li><strong>慢开始：</strong> 慢开始算法的思路是当主机开始发送数据时，如果立即把大量数据字节注入到网络，那么可能会引起网络阻塞，因为现在还不知道网络的符合情况。经验表明，较好的方法是先探测一下，即由小到大逐渐增大发送窗口，也就是由小到大逐渐增大拥塞窗口数值。cwnd 初始值为 1，每经过一个传播轮次，cwnd 加倍。（当发送方每收到一个ACK，拥塞窗口cwnd的大小就会加1）</li>
+<li><strong>拥塞避免：</strong> 拥塞窗口 cwnd 「超过」<mark>慢启动门限</mark> ssthresh 就会进入拥塞避免算法，拥塞避免算法的思路是让拥塞窗口 cwnd 缓慢增大，即每经过一个往返时间 RTT 就把发送方的 cwnd 加 1.</li>
+<li><strong>快恢复：</strong> 在 TCP/IP 中，快速重传和恢复（fast retransmit and recovery，FRR）是一种拥塞控制算法，它能快速恢复丢失的数据包。没有 FRR，如果数据包丢失了，TCP 将会使用定时器来要求传输暂停。在暂停的这段时间内，没有新的或复制的数据包被发送。有了 FRR，如果接收机接收到一个不按顺序的数据段，它会立即给发送机发送一个重复确认。如果发送机<mark>接收到三个重复确认</mark>，它会假定确认件指出的数据段丢失了，并立即重传这些丢失的数据段。有了 FRR，就不会因为重传时要求的暂停被耽误。 　当有单独的数据包丢失时，快速重传和恢复（FRR）能最有效地工作。当有多个数据信息包在某一段很短的时间内丢失时，它则不能很有效地工作。</li>
+</ul>
+<blockquote>
+<p>[! note] 拥塞发生</p>
+</blockquote>
+<ul>
+<li>超时重传：ssthresh设为cwnd/2，cwnd重置为1（cwnd初始值）</li>
+<li>快速重传：发送方接收到3次同一个包的ACK，cwnd=cwnd/2，ssthresh=cwnd，进入快速恢复算法</li>
 </ul>
 <p><a href="https://interviewguide.cn/notes/03-hunting_job/02-interview/03-04-net.html">计算机网络-61-80 | 阿秀的学习笔记 (interviewguide.cn)</a></p>
 <h2 id="36-tcp粘包-拆包"><a class="markdownIt-Anchor" href="#36-tcp粘包-拆包"></a> 3.6 TCP粘包、拆包</h2>
@@ -514,6 +542,15 @@ TCP 通过让发送方维护一个称为接收窗口(receive window)的变量来
 <p>2、在包尾部增加回车或者空格符等特殊字符进行分割</p>
 <p>3、将消息分为消息头和消息尾</p>
 <p>4、使用其它复杂的协议，如RTMP协议等。</p>
+<h3 id="361-粘包"><a class="markdownIt-Anchor" href="#361-粘包"></a> 3.6.1 粘包</h3>
+<blockquote>
+<p>粘包的问题出现是因为不知道一个用户消息的边界在哪</p>
+</blockquote>
+<ul>
+<li>固定长度的消息</li>
+<li>特殊字符作为边界</li>
+<li>自定义消息结构（包头和数据，包头有一个字段指定数据大小）</li>
+</ul>
 <p><strong>TCP粘包</strong>是指发送方发送的若干包数据到接收方接收时粘成一包，从接收缓冲区看，后一包数据的头紧接着前一包数据的尾。</p>
 <ul>
 <li>由TCP<strong>连接复用</strong>造成的粘包问题。</li>

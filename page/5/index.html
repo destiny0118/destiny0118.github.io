@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,6 +212,199 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/21/%E6%A1%86%E6%9E%B6/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%81%E5%9C%BA%E6%99%AF%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/21/%E6%A1%86%E6%9E%B6/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E3%80%81%E5%9C%BA%E6%99%AF%E9%A2%98/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-21 09:56:43" itemprop="dateCreated datePublished" datetime="2024-05-21T09:56:43+08:00">2024-05-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-09-23 16:22:02" itemprop="dateModified" datetime="2024-09-23T16:22:02+08:00">2024-09-23</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-评论系统"><a class="markdownIt-Anchor" href="#1-评论系统"></a> 1 评论系统</h1>
+<p>设计一个基于 Redis 的简单评论系统，需要支持发布评论、回复评论和分页展示。请描述你的数据结构和设计。</p>
+<p>在设计一个评论系统中，你如何处理多级评论问题，如何设计数据结构？</p>
+<p>追问：如何高效的查询和展示评论，你会采用什么样的算法或技术来优化查询性能？</p>
+<h1 id="2-设计一个定时任务执行系统"><a class="markdownIt-Anchor" href="#2-设计一个定时任务执行系统"></a> 2 设计一个定时任务执行系统</h1>
+<h1 id="3-库存超卖"><a class="markdownIt-Anchor" href="#3-库存超卖"></a> 3 库存超卖</h1>
+<ul>
+<li>Redis缓存扣减库存</li>
+<li>分布式锁+分段缓存：借鉴ConcurrenthashMap分段锁的机制，把100个商品，分在3个段上，key为分段名字，value为库存数量。用户下单时对用户id进行%3计算，看落在哪个redis的key上，就去取哪个。</li>
+<li>Redis原子操作(Redis incr)+乐观锁：</li>
+<li>stockCount记录库存总量，<code>stockUsedCount</code>记录已使用库存量，对占用的库存设置分布式锁</li>
+</ul>
+<p><a href="https://gitcode.net/KnowledgePlanet/Lottery/-/wikis/%E7%AC%AC-2-%E9%83%A8%E5%88%86-%E9%A2%86%E5%9F%9F%E5%BC%80%E5%8F%91//%E7%AC%AC19%E8%8A%82%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%BB%91%E5%8A%A8%E5%BA%93%E5%AD%98%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E5%A4%84%E7%90%86%E6%B4%BB%E5%8A%A8%E7%A7%92%E6%9D%80">第19节：设计滑动库存分布式锁处理活动秒杀 · Wiki · KnowledgePlanet / Lottery · GitCode</a><br />
+<a href="https://developer.aliyun.com/article/1307527#:~:text=%E5%9C%A8%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E7%A7%92%E6%9D%80%E6%8A%A2">【并发】高并发下库存超卖问题如何解决？-阿里云开发者社区 (aliyun.com)</a><br />
+<a href="https://zhuanlan.zhihu.com/p/368227333#:~:text=1%E3%80%81%E5%BA%93%E5%AD%98%E8%A1%A8.%20%E5%BD%93">万级并发！电商库存扣减如何设计，如何做到不超卖？ - 知乎 (zhihu.com)</a><br />
+<a href="https://blog.csdn.net/E_N_T_J/article/details/104606606#:~:text=%E5%9C%A8%20%E5%B9%B6%E5%8F%91%20%E7%9A%84%E5%9C%BA%E6%99%AF">超卖问题及其解决方法-CSDN博客</a></p>
+<h1 id="4-秒杀系统"><a class="markdownIt-Anchor" href="#4-秒杀系统"></a> 4 秒杀系统</h1>
+<p>“秒杀”，就是在同一个时刻有大量请求争抢购买同一个商品，并完成交易的过程，其间涉及大量的并发读和并发写，并要求高可靠和高性能的系统支持。</p>
+<ul>
+<li>
+<p><strong>高性能。</strong> 秒杀涉及大量的并发读和并发写，因此支持高并发访问这点非常关键。本专栏将从设计数据的动静分离方案、热点的发现与隔离、请求的削峰与分层过滤、服务端的极致优化这 4 个方面重点介绍。</p>
+</li>
+<li>
+<p><strong>一致性。</strong> 秒杀中商品减库存的实现方式同样关键。可想而知，有限数量的商品在同一时刻被很多倍的请求同时来减库存，减库存又分为“拍下减库存”“付款减库存”以及预扣等几种，在大并发更新的过程中都要保证数据的准确性，其难度可想而知。因此，我将用一篇文章来专门讲解如何设计秒杀减库存方案。</p>
+</li>
+<li>
+<p><strong>高可用。</strong> 虽然我介绍了很多极致的优化思路，但现实中总难免出现一些我们考虑不到的情况，所以要保证系统的高可用和正确性，我们还要设计一个 PlanB 来兜底，以便在最坏情况发生时仍然能够从容应对。专栏的最后，我将带你思考可以从哪些环节来设计兜底方案。</p>
+</li>
+<li>
+<p>过滤无效流量</p>
+</li>
+<li>
+<p>库存可以少卖不可以超卖</p>
+</li>
+<li>
+<p>热点商品预热</p>
+</li>
+<li>
+<p>热点商品信息提前缓存</p>
+</li>
+<li>
+<p>利用redis缓存</p>
+</li>
+<li>
+<p>静态资源提前加载</p>
+</li>
+<li>
+<p>利用消息队列进行流量削峰</p>
+</li>
+<li>
+<p>切片集群</p>
+</li>
+<li>
+<p>在用户发起请求前，对用户进行一些校验操作，比如答题、输入验证码</p>
+</li>
+<li>
+<p>服务限流</p>
+</li>
+</ul>
+<p>过滤无效流量</p>
+<p>将用户请求分散</p>
+<p>提高QPS</p>
+<p><a href="https://zhuanlan.zhihu.com/p/273302387">高频面试题：秒杀场景设计 - 知乎 (zhihu.com)</a><br />
+<a href="https://cloud.tencent.com/developer/article/1833184">面试官问我：如何设计一个秒杀场景？-腾讯云开发者社区-腾讯云 (tencent.com)</a><br />
+<a href="https://developer.aliyun.com/article/1325551">秒杀场景的设计思路和方案-阿里云开发者社区 (aliyun.com)</a><br />
+<a href="https://zhuanlan.zhihu.com/p/433618121">万字超详解秒杀系统！ - 知乎 (zhihu.com)</a><br />
+<a href="https://blog.csdn.net/lxw1844912514/article/details/119745812">面试必备：秒杀场景九个细节-CSDN博客</a></p>
+<h1 id="5-商品点击率排行榜"><a class="markdownIt-Anchor" href="#5-商品点击率排行榜"></a> 5 商品点击率排行榜</h1>
+<p>top K排序</p>
+<blockquote>
+<p>多并行优化</p>
+</blockquote>
+<p>多个top K排序，在合并求top K</p>
+<blockquote>
+<p>[!question] 全国的酒店价格（千万级数据）需要在某个瞬间比如7点发生变动（比如说晚上折扣或者升价之类的），怎样高性能准点去进行变更</p>
+</blockquote>
+<ul>
+<li>定时消息+缓存提前预热</li>
+<li>提前计算缓存 定时切换Redis命名空间 然后异步做持久化(使用Hash数据结构，key为商家id，value为价格)</li>
+</ul>
+<blockquote>
+<p>[!question] 外卖系统，一天一千万条数据，用户需要查到近30天的数据，商家也要查询到30天的数据，怎么设计表</p>
+</blockquote>
+<p>数据库冷热分离<br />
+分库分表</p>
+<h1 id="6-游戏开发"><a class="markdownIt-Anchor" href="#6-游戏开发"></a> 6 游戏开发</h1>
+<p>1.以lol为例，玩家的匹配怎么做。</p>
+<p>2.排行榜（其他面经有）。(Redis的zset数据结构)</p>
+<p>3.范围技能命中判定。（其他面经有）。</p>
+<p>1.饥荒里食物放置在地上隔段时间会有新鲜度的变化，从绿色到黄色到红色最终腐烂，如何设计算法使这个服务器每帧更新食物状态？<br />
+我说饥荒联机版搞的是加个组件直接计时，结果就是太多堆积会很卡顿。单纯考虑算法的话整个单调栈，每次食物放地上就把它什么时间需要更新状态存进去，然后按时间读就行</p>
+<blockquote>
+<p>堆排序，取出一个元素后，为下一个元素设置定时器更新</p>
+</blockquote>
+<p>2.抽卡问题，n张卡给个排序要求随机？<br />
+直接rand(1,n)取第一张index k然后把k和n位置换一下，接着rand(1,n-1)取第二张indexj ,j和n-1位置交换 依次类推</p>
+<p>3.手榴弹爆炸范围，对二维空间内造成aoe伤害，怎么找影响的实体单位？<br />
+不太会，后来说可以哈希</p>
+<blockquote>
+<p>从爆炸中心进行BFS找影响的单位</p>
+</blockquote>
+<p>问题1：系统设计（40min）<br />
+设计一个长链接转换为短链接的转换？<br />
+怎么进行转换？<br />
+怎么存储？<br />
+怎么设计给别人用的http的接口？<br />
+设计这个系统的重点是什么，需要关注什么？<br />
+长变短除了随机还有什么比较好的方式转化嘛？</p>
+<p><a href="https://blog.csdn.net/mangomango123/article/details/119910256">长链接转成短链接的原理和实现详解_长链接转化成短链接-CSDN博客</a></p>
+<p>问题2：java中多线程模型，给了一段代码让输出最终结果？多种情况（10min，这个很简单）</p>
+<p>问题3：烧绳法计算15分钟（10min，脑子没转过来，原来可以两端烧）</p>
+<p>1.一条公路上有多个点，每个点都有一辆车，给定公路坐标轴，车的速度和行驶方向，求最早两辆车相遇的时间；<br />
+第一题：无论相向还是相反，最先相遇的必然会发生在相邻的两部车之间。时间=abs（两相邻点之间的距离差）/abs（速度差），速度差为零永远不会相遇，取最小值就行啦</p>
+<p>2.一条直线上多个点运动 知道所有点的位置，和速度包括方向。当两个点相碰时，追及或对撞两个点消失，问什么时候达到稳定状态，也就是以后都不会发生碰撞。<br />
+第二题可以用第一题的思路，首先消除最先相遇的两个点，去掉这两个点后，重新计算最先相遇的两个点…直到所有车无法相遇就达到平衡啦</p>
+<p>可以用优先队列去存相遇时间，每次取最小的，消除之后，会新更新一条进去，用个特殊标记记录两个点不会相遇，比如MAXINT这种，也能处理特殊情况</p>
+<p>第一个是矩阵里找最长路径问题<br />
+第二个是直线上n个移动的点，求最早相遇时间</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -349,7 +542,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-23 22:17:57" itemprop="dateModified" datetime="2024-08-23T22:17:57+08:00">2024-08-23</time>
+      <time title="修改时间：2024-09-24 11:32:01" itemprop="dateModified" datetime="2024-09-24T11:32:01+08:00">2024-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -405,7 +598,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/20/Java/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/20/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -423,7 +616,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/20/Java/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM/" class="post-title-link" itemprop="url">Java并发(5)：JMM</a>
+          <a href="/2024/05/20/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89/" class="post-title-link" itemprop="url">Java并发(5)：JMM（Java内存模型）</a>
         </h2>
 
         <div class="post-meta-container">
@@ -441,7 +634,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-19 23:20:32" itemprop="dateModified" datetime="2024-08-19T23:20:32+08:00">2024-08-19</time>
+      <time title="修改时间：2024-09-18 19:29:45" itemprop="dateModified" datetime="2024-09-18T19:29:45+08:00">2024-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -466,7 +659,7 @@
           <p>JAVA内存模型</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/05/20/Java/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM/">
+              <a class="btn" href="/2024/05/20/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -497,7 +690,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/13/Java/Java(0)%EF%BC%9A%E4%BB%A3%E7%A0%81/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/13/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java(0)%EF%BC%9A%E4%BB%A3%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -515,7 +708,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/13/Java/Java(0)%EF%BC%9A%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/05/13/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java(0)%EF%BC%9A%E4%BB%A3%E7%A0%81/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -556,7 +749,27 @@
 <li>设置对象引用</li>
 </ul>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">static</span> Singleton <span class="title function_">getUniqueInstance</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//先判断对象是否已经实例过，没有实例化过才进入加锁代码</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//类对象加锁</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    uniqueInstance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">static</span> Singleton uniqueInstance;
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span>  <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getUniqueInstance</span><span class="hljs-params">()</span> </span>&#123;
+       <span class="hljs-comment">//先判断对象是否已经实例过，没有实例化过才进入加锁代码</span>
+        <span class="hljs-keyword">if</span> (uniqueInstance == <span class="hljs-keyword">null</span>) &#123;
+            <span class="hljs-comment">//类对象加锁</span>
+            <span class="hljs-keyword">synchronized</span> (Singleton<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>&#123;
+                <span class="hljs-keyword">if</span> (uniqueInstance == <span class="hljs-keyword">null</span>) &#123;
+                    uniqueInstance = <span class="hljs-keyword">new</span> Singleton();
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> uniqueInstance;
+    &#125;
+&#125;
+</code></pre>
 <p><code>uniqueInstance</code> 采用 <code>volatile</code> 关键字修饰也是很有必要的， <code>uniqueInstance = new Singleton();</code> 这段代码其实是分为三步执行：</p>
 <ol>
 <li>为 <code>uniqueInstance</code> 分配内存空间</li>
@@ -565,12 +778,113 @@
 </ol>
 <h1 id="2-模拟死锁"><a class="markdownIt-Anchor" href="#2-模拟死锁"></a> 2 模拟死锁</h1>
 <h2 id="21-线程死锁"><a class="markdownIt-Anchor" href="#21-线程死锁"></a> 2.1 线程死锁</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DeadLock</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object a=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Object b=<span class="keyword">new</span> <span class="title class_">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程1&quot;</span>).start();</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (b)&#123;</span><br><span class="line">                System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源b&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread()+<span class="string">&quot;请求资源a&quot;</span>);</span><br><span class="line">                <span class="keyword">synchronized</span> (a)&#123;</span><br><span class="line">                    System.out.println(Thread.currentThread()+ <span class="string">&quot;获得资源a&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,<span class="string">&quot;线程2&quot;</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeadLock</span> </span>&#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Object a=<span class="hljs-keyword">new</span> Object();
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Object b=<span class="hljs-keyword">new</span> Object();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;
+        <span class="hljs-keyword">new</span> Thread(()-&gt;&#123;
+            <span class="hljs-keyword">synchronized</span> (a)&#123;
+                System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源a"</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    Thread.sleep(<span class="hljs-number">1000</span>);
+                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);
+                &#125;
+                System.out.println(Thread.currentThread()+<span class="hljs-string">"请求资源b"</span>);
+                <span class="hljs-keyword">synchronized</span> (b)&#123;
+                    System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源b"</span>);
+                &#125;
+            &#125;
+        &#125;,<span class="hljs-string">"线程1"</span>).start();
+        <span class="hljs-keyword">new</span> Thread(()-&gt;&#123;
+            <span class="hljs-keyword">synchronized</span> (b)&#123;
+                System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源b"</span>);
+                <span class="hljs-keyword">try</span> &#123;
+                    Thread.sleep(<span class="hljs-number">1000</span>);
+                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);
+                &#125;
+                System.out.println(Thread.currentThread()+<span class="hljs-string">"请求资源a"</span>);
+                <span class="hljs-keyword">synchronized</span> (a)&#123;
+                    System.out.println(Thread.currentThread()+ <span class="hljs-string">"获得资源a"</span>);
+                &#125;
+            &#125;
+        &#125;,<span class="hljs-string">"线程2"</span>).start();
+    &#125;
+&#125;
+</code></pre>
 <h2 id="22-数据库事务死锁"><a class="markdownIt-Anchor" href="#22-数据库事务死锁"></a> 2.2 数据库事务死锁</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- 事务1</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">1</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">2</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 事务2</span></span><br><span class="line"><span class="keyword">begin</span>;</span><br><span class="line"><span class="comment">-- SQL1更新id为2的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">3</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="comment">-- SQL2更新id为1的</span></span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> age <span class="operator">=</span> <span class="number">4</span> <span class="keyword">where</span> id <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="keyword">commit</span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="SQL"><span class="hljs-comment">-- 事务1</span>
+<span class="hljs-keyword">begin</span>;
+<span class="hljs-comment">-- SQL1更新id为1的</span>
+<span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> age = <span class="hljs-number">1</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> = <span class="hljs-number">1</span>;
+<span class="hljs-comment">-- SQL2更新id为2的</span>
+<span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> age = <span class="hljs-number">2</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> = <span class="hljs-number">2</span>;
+<span class="hljs-keyword">commit</span>;
+
+
+<span class="hljs-comment">-- 事务2</span>
+<span class="hljs-keyword">begin</span>;
+<span class="hljs-comment">-- SQL1更新id为2的</span>
+<span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> age = <span class="hljs-number">3</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> = <span class="hljs-number">2</span>;
+<span class="hljs-comment">-- SQL2更新id为1的</span>
+<span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> age = <span class="hljs-number">4</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">id</span> = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">commit</span>;
+</code></pre>
 <p><a href="https://www.cnblogs.com/ibigboy/p/16202718.html">面试官：请用SQL模拟一个死锁 - 问北 - 博客园 (cnblogs.com)</a></p>
 <h1 id="3-生产者-消费者模型"><a class="markdownIt-Anchor" href="#3-生产者-消费者模型"></a> 3 生产者、消费者模型</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 生产者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Producer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Producer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> produce(); <span class="comment">// 生产数据</span></span><br><span class="line">                queue.put(value); <span class="comment">// 将数据放入队列</span></span><br><span class="line">                Thread.sleep(<span class="number">1000</span>); <span class="comment">// 模拟生产过程</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">produce</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 生产过程</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 消费者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Consumer</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> BlockingQueue&lt;Integer&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Consumer</span><span class="params">(BlockingQueue&lt;Integer&gt; queue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.queue = queue;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">value</span> <span class="operator">=</span> queue.take(); <span class="comment">// 从队列中取出数据</span></span><br><span class="line">                consume(value); <span class="comment">// 消费数据</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">consume</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="comment">// 消费过程</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">// 生产者</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Producer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;
+    <span class="hljs-keyword">private</span> BlockingQueue&lt;Integer&gt; queue;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Producer</span><span class="hljs-params">(BlockingQueue&lt;Integer&gt; queue)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.queue = queue;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;
+                <span class="hljs-keyword">int</span> value = produce(); <span class="hljs-comment">// 生产数据</span>
+                queue.put(value); <span class="hljs-comment">// 将数据放入队列</span>
+                Thread.sleep(<span class="hljs-number">1000</span>); <span class="hljs-comment">// 模拟生产过程</span>
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">produce</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-comment">// 生产过程</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    &#125;
+&#125;
+
+<span class="hljs-comment">// 消费者</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Consumer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span> </span>&#123;
+    <span class="hljs-keyword">private</span> BlockingQueue&lt;Integer&gt; queue;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Consumer</span><span class="hljs-params">(BlockingQueue&lt;Integer&gt; queue)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.queue = queue;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">try</span> &#123;
+            <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;
+                <span class="hljs-keyword">int</span> value = queue.take(); <span class="hljs-comment">// 从队列中取出数据</span>
+                consume(value); <span class="hljs-comment">// 消费数据</span>
+            &#125;
+        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">consume</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;
+        <span class="hljs-comment">// 消费过程</span>
+    &#125;
+&#125;
+</code></pre>
+
       
     </div>
 
@@ -718,7 +1032,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-23 22:17:50" itemprop="dateModified" datetime="2024-08-23T22:17:50+08:00">2024-08-23</time>
+      <time title="修改时间：2024-08-27 22:38:55" itemprop="dateModified" datetime="2024-08-27T22:38:55+08:00">2024-08-27</time>
     </span>
 
   
@@ -738,7 +1052,6 @@
 <li>进程管理：进程的创建、撤销、阻塞、唤醒，进程间的通信等功能。</li>
 <li>内存管理：完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210729152634.png" alt="操作系统发展与分类" /></p>
 <h1 id="1-用户态和内核态"><a class="markdownIt-Anchor" href="#1-用户态和内核态"></a> 1 用户态和内核态</h1>
 <ul>
 <li><strong>用户态(User Mode)</strong> : 用户态运行的进程可以直接读取用户程序的数据，拥有较低的权限。当应用程序需要执行某些需要特殊权限的操作，例如读写磁盘、网络通信等，就需要向操作系统发起系统调用请求，进入内核态。</li>
@@ -815,7 +1128,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-18 23:08:04" itemprop="dateModified" datetime="2024-08-18T23:08:04+08:00">2024-08-18</time>
+      <time title="修改时间：2024-09-12 22:30:43" itemprop="dateModified" datetime="2024-09-12T22:30:43+08:00">2024-09-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -954,7 +1267,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/10/Java/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -972,7 +1285,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/10/Java/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
+          <a href="/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta-container">
@@ -990,7 +1303,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-06 15:26:02" itemprop="dateModified" datetime="2024-06-06T15:26:02+08:00">2024-06-06</time>
+      <time title="修改时间：2024-09-20 14:59:58" itemprop="dateModified" datetime="2024-09-20T14:59:58+08:00">2024-09-20</time>
     </span>
 
   
@@ -1005,21 +1318,46 @@
     <div class="post-body" itemprop="articleBody">
           <ul>
 <li><strong><code>jps</code></strong> (JVM Process Status）: 类似 UNIX 的 <code>ps</code> 命令。用于查看所有 Java 进程的启动类、传入参数和 Java 虚拟机参数等信息；</li>
-<li><strong><code>jstat</code></strong>（JVM Statistics Monitoring Tool）: 用于收集 HotSpot 虚拟机各方面的运行数据;</li>
+<li><mark>jstat</mark>（JVM Statistics Monitoring Tool）: 用于收集 HotSpot 虚拟机各方面的运行数据;<mark>gc情况、垃圾回收统计</mark></li>
 <li><strong><code>jinfo</code></strong> (Configuration Info for Java) : Configuration Info for Java,显示虚拟机配置信息;</li>
-<li><strong><code>jmap</code></strong> (Memory Map for Java) : 生成堆转储快照;</li>
+<li><mark>jmap</mark> (Memory Map for Java) : 生成堆转储快照;<mark>内存布局、堆信息</mark></li>
 <li><strong><code>jhat</code></strong> (JVM Heap Dump Browser) : 用于分析 heapdump 文件，它会建立一个 HTTP/HTML 服务器，让用户可以在浏览器上查看分析结果;</li>
-<li><strong><code>jstack</code></strong> (Stack Trace for Java) : 生成虚拟机当前时刻的线程快照，线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。</li>
+<li><mark>jstack</mark> (Stack Trace for Java) : 生成虚拟机当前时刻的线程快照，线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。</li>
 </ul>
 <h1 id="1-jvm参数"><a class="markdownIt-Anchor" href="#1-jvm参数"></a> 1 JVM参数</h1>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404102245741.png" alt="image.png" /></p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404112053964.png" alt="image.png" /></p>
 <h2 id="11-堆参数"><a class="markdownIt-Anchor" href="#11-堆参数"></a> 1.1 堆参数</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">初始堆(memory start)大小、最大堆大小</span><br><span class="line">-Xms&lt;heap size&gt;[unit]</span><br><span class="line">-Xmx&lt;heap size&gt;[unit]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">年轻代大小</span><br><span class="line">-XX:NewSize=n </span><br><span class="line">-XX:NewRatio=n  年轻代和年老代比值为1:n</span><br><span class="line">-XX:SurvivorRatio=n 年轻代中Eden区与两个Survivor区的比值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">格式：-XX:[+-]&lt;name&gt; 表示启用或者禁用name属性。</span><br><span class="line">例子：-XX:+UseG1GC（表示启用G1垃圾收集器）</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">初始堆(memory start)大小、最大堆大小
+-Xms&lt;heap size&gt;[unit]
+-Xmx&lt;heap size&gt;[unit]
+
+
+年轻代大小
+-XX:NewSize=n 
+-XX:NewRatio=n  年轻代和年老代比值为1:n
+-XX:SurvivorRatio=n 年轻代中Eden区与两个Survivor区的比值。
+
+
+
+格式：-XX:[+-]&lt;name&gt; 表示启用或者禁用name属性。
+例子：-XX:+UseG1GC（表示启用G1垃圾收集器）
+</code></pre>
 <h1 id="2-jstack-生成虚拟机当前时刻的线程快照"><a class="markdownIt-Anchor" href="#2-jstack-生成虚拟机当前时刻的线程快照"></a> 2 jstack :生成虚拟机当前时刻的线程快照</h1>
 <p><code>jstack</code>（Stack Trace for Java）命令用于生成虚拟机当前时刻的线程快照。线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合.</p>
 <p>生成线程快照的目的主要是定位线程长时间出现停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等都是导致线程长时间停顿的原因。线程出现停顿的时候通过<code>jstack</code>来查看各个线程的调用堆栈，就可以知道没有响应的线程到底在后台做些什么事情，或者在等待些什么资源。</p>
-<h1 id="3-oom排查"><a class="markdownIt-Anchor" href="#3-oom排查"></a> 3 OOM排查</h1>
+<h1 id="3-oom类型"><a class="markdownIt-Anchor" href="#3-oom类型"></a> 3 OOM类型</h1>
+<ul>
+<li>虚拟机栈：</li>
+<li>固定大小：申请不到栈帧报 StackOverflow</li>
+<li>无限大小：申请不到栈帧报 OutOfMemory</li>
+<li>堆：忘记是不是能固定大小了</li>
+<li>jvm内存满了，对象分配不到堆了就会报OutOfMemory</li>
+<li>方法区：(面试官提示，感谢)</li>
+<li>方法区里面的常量池也是会不断加入数据的</li>
+<li>一直调用string.intern()方法会不断加字符串到字符串常量池导致OOM</li>
+</ul>
+<h1 id="4-oom排查"><a class="markdownIt-Anchor" href="#4-oom排查"></a> 4 OOM排查</h1>
 <blockquote>
 <p>OOM 全称 “Out Of Memory”，表示内存耗尽。当 JVM 因为没有足够的内存来为对象分配空间，并且垃圾回收器也已经没有空间可回收时，就会抛出这个错误。<br />
 产生原因：</p>
@@ -1028,9 +1366,9 @@
 <li>代码漏洞：某一个对象被频繁申请，不用了之后却没有被释放，导致内存耗尽</li>
 </ol>
 </blockquote>
-<p><strong>内存泄漏</strong>：申请使用完的内存没有释放，导致虚拟机不能再次使用该内存，此时这段内存就泄露了。因为申请者不用了，而又不能被虚拟机分配给别人用</p>
+<p><strong>内存泄漏</strong>：<mark>申请使用完的内存没有释放</mark>，导致虚拟机不能再次使用该内存，此时这段内存就泄露了。因为申请者不用了，而又不能被虚拟机分配给别人用</p>
 <p><strong>内存溢出</strong>：申请的内存超出了 JVM 能提供的内存大小，此时称之为溢出</p>
-<h2 id="31-oom类型"><a class="markdownIt-Anchor" href="#31-oom类型"></a> 3.1 OOM类型</h2>
+<h2 id="41-oom类型"><a class="markdownIt-Anchor" href="#41-oom类型"></a> 4.1 OOM类型</h2>
 <p><strong>java.lang.OutOfMemoryError: PermGen space</strong></p>
 <p>Java7 永久代（方法区）溢出，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。每当一个类初次加载的时候，元数据都会存放到永久代</p>
 <p>一般出现于大量 Class 对象或者 JSP 页面，或者采用 CgLib 动态代理技术导致</p>
@@ -1045,8 +1383,22 @@
 <p><strong>Java 堆内存溢出</strong>，溢出的原因一般由于 JVM 堆内存设置不合理或者内存泄漏导致</p>
 <p>如果是内存泄漏，可以通过工具查看泄漏对象到 GC Roots 的引用链。掌握了泄漏对象的类型信息以及 GC Roots 引用链信息，就可以精准地定位出泄漏代码的位置</p>
 <p>如果不存在内存泄漏，就是内存中的对象确实都还必须存活着，那就应该检查虚拟机的堆参数（-Xmx 与 -Xms），查看是否可以将虚拟机的内存调大些</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tasklist | findstr &quot;java&quot;</span><br><span class="line"></span><br><span class="line">查看内存堆栈信息  </span><br><span class="line">//查看jvm内存分布</span><br><span class="line">jmap -heap pid</span><br><span class="line">jhsdb jmap --heap --pid 16279  </span><br><span class="line">(对于jdk8之后的版本，不能再使用jmap -heap pid的命令了，需要使用上面的命令)。</span><br><span class="line"></span><br><span class="line">- 查看gc情况  </span><br><span class="line">    jstat -gc pid 刷新时间  </span><br><span class="line">    例如：jstat -gc 1289 5000 表示每5秒查看一次pid为1289的gc时间。</span><br><span class="line">- 查看内存对象实例数量  </span><br><span class="line">    jmap -histo:live 16279 &gt; c.jmap  </span><br><span class="line">    将结果导入到c.jmap的文件中，这个是自定义的文件。</span><br></pre></td></tr></table></figure>
-<h2 id="32-案例1xmnxmx老年代内存为0"><a class="markdownIt-Anchor" href="#32-案例1xmnxmx老年代内存为0"></a> 3.2 案例1（Xmn=Xmx，老年代内存为0）</h2>
+<pre class="highlight"><code class="shell">tasklist | findstr "java"
+
+查看内存堆栈信息  
+//查看jvm内存分布
+jmap -heap pid
+jhsdb jmap --heap --pid 16279  
+(对于jdk8之后的版本，不能再使用jmap -heap pid的命令了，需要使用上面的命令)。
+
+- 查看gc情况  
+    jstat -gc pid 刷新时间  
+    例如：jstat -gc 1289 5000 表示每5秒查看一次pid为1289的gc时间。
+- 查看内存对象实例数量  
+    jmap -histo:live 16279 &gt; c.jmap  
+    将结果导入到c.jmap的文件中，这个是自定义的文件。
+</code></pre>
+<h2 id="42-案例1xmnxmx老年代内存为0"><a class="markdownIt-Anchor" href="#42-案例1xmnxmx老年代内存为0"></a> 4.2 案例1（Xmn=Xmx，老年代内存为0）</h2>
 <p><code>Heap Space Size = Young Space Size + Old Space Size</code>，而<code>-Xmn</code>参数控制的正是 Young 区的大小，当堆区被 Young Gen 完全挤占，又有对象想要升代到 Old Gen 时，发现 Old 区空间不足，于是触发 Full GC，触发 Full GC 以后呢，通常又会面临两种情况：</p>
 <ul>
 <li>Young 区又刚好腾出来一点空间，对象又不用放到 Old 区里面了，皆大欢喜</li>
@@ -1061,7 +1413,7 @@
 <li>Eden 区 + S0 区 GC 后，S1 区放不下</li>
 </ul>
 <p>换言之，正常情况下，<code>-Xmn</code>参数总是应当小于<code>-Xmx</code>参数，否则就会触发<code>OOM</code>错误。</p>
-<h1 id="4-cpu占用过高排查和处理"><a class="markdownIt-Anchor" href="#4-cpu占用过高排查和处理"></a> 4 CPU占用过高，排查和处理</h1>
+<h1 id="5-cpu占用过高排查和处理"><a class="markdownIt-Anchor" href="#5-cpu占用过高排查和处理"></a> 5 CPU占用过高，排查和处理</h1>
 <p>在Linux环境下，项目出现CPU占用过高的情况时，可以按照以下步骤进行排查和处理：</p>
 <ol>
 <li><strong>定位高CPU占用的进程</strong>：
@@ -1103,7 +1455,7 @@
 </ul>
 </li>
 </ol>
-<h1 id="5-参考"><a class="markdownIt-Anchor" href="#5-参考"></a> 5 参考</h1>
+<h1 id="6-参考"><a class="markdownIt-Anchor" href="#6-参考"></a> 6 参考</h1>
 <p>JVM参数<br />
 <a href="https://javaguide.cn/java/jvm/jvm-parameters-intro.html">最重要的JVM参数总结 | JavaGuide</a><br />
 <a href="https://blog.csdn.net/o9109003234/article/details/119951151">美团面试：熟悉哪些JVM调优参数，幸好我准备过！-CSDN博客</a></p>
@@ -1111,101 +1463,6 @@
 <a href="https://www.cnblogs.com/mylibs/p/production-accident-0002.html">生产事故-记一次特殊的OOM排查 - 程语有云 - 博客园 (cnblogs.com)</a><br />
 <a href="https://heapdump.cn/article/1661497">YGC问题排查，又让我涨姿势了！ | HeapDump性能社区</a></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/08/Java/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/08/Java/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/" class="post-title-link" itemprop="url">JVM (2)：垃圾回收</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-08 00:00:00" itemprop="dateCreated datePublished" datetime="2024-04-08T00:00:00+08:00">2024-04-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-19 23:12:03" itemprop="dateModified" datetime="2024-08-19T23:12:03+08:00">2024-08-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>1. GC触发时机
-2. 死亡对象判断方法
-3. 垃圾收集算法
-4. 垃圾收集器</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/04/08/Java/JVM/JVM%20(2)%EF%BC%9A%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

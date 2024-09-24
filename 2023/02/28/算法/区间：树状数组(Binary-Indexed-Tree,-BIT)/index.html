@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021116874.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021134276.png">
 <meta property="article:published_time" content="2023-02-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-05T01:57:07.260Z">
+<meta property="article:modified_time" content="2024-08-31T10:44:44.014Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="位运算">
@@ -167,7 +167,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">127</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,7 +266,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-05 09:57:07" itemprop="dateModified" datetime="2024-06-05T09:57:07+08:00">2024-06-05</time>
+      <time title="修改时间：2024-08-31 18:44:44" itemprop="dateModified" datetime="2024-08-31T18:44:44+08:00">2024-08-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,27 +301,250 @@
 <h2 id="02-单点更改"><a class="markdownIt-Anchor" href="#02-单点更改"></a> 0.2 单点更改</h2>
 <p>修改a[3]的值，需要修改每一个包含a[3]的bit[i]，当前块的位置加上当前块的长度可以跳到上面的位置<br />
 <img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021116874.png" alt="image.png" /></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> index,<span class="type">long</span> <span class="type">long</span> val)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(index&lt;=n)&#123;</span><br><span class="line">		bit[index]+=val;</span><br><span class="line">		index+=<span class="built_in">lowbit</span>(index);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index,<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> val)</span></span>&#123;
+	<span class="hljs-keyword">while</span>(index&lt;=n)&#123;
+		<span class="hljs-built_in">bit</span>[index]+=val;
+		index+=lowbit(index);
+	&#125;
+&#125;
+</code></pre>
 <h2 id="03-区间求和"><a class="markdownIt-Anchor" href="#03-区间求和"></a> 0.3 区间求和</h2>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310021134276.png" alt="image.png" /></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">	<span class="type">long</span> <span class="type">long</span> sum=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(index&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		sum+=bit[index];</span><br><span class="line">		index-=<span class="built_in">lowbit</span>(index);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span></span>&#123;
+	<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> sum=<span class="hljs-number">0</span>;
+	<span class="hljs-keyword">while</span>(index&gt;<span class="hljs-number">0</span>)&#123;
+		sum+=<span class="hljs-built_in">bit</span>[index];
+		index-=lowbit(index);
+	&#125;
+	<span class="hljs-keyword">return</span> sum;
+&#125;
+</code></pre>
 <h2 id="04-模板"><a class="markdownIt-Anchor" href="#04-模板"></a> 0.4 模板</h2>
 <h3 id="041-bit类实现"><a class="markdownIt-Anchor" href="#041-bit类实现"></a> 0.4.1 BIT类实现</h3>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BIT</span>&#123;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		vector&lt;<span class="type">int</span>&gt; bit;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="comment">//总共有n个数字</span></span><br><span class="line">		<span class="built_in">BIT</span>(<span class="type">int</span> _n)&#123;</span><br><span class="line">			n=_n;</span><br><span class="line">			bit=<span class="built_in">vector</span>&lt;<span class="type">int</span>&gt; (_n<span class="number">+1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//查询前缀和</span></span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">			<span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span>(x)&#123;</span><br><span class="line">				res+=bit[x];</span><br><span class="line">				x-=<span class="built_in">lowbit</span>(x);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> sum;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//单点更新，val为a[x]变化量</span></span><br><span class="line">		<span class="function"><span class="type">int</span> <span class="title">update</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">			<span class="keyword">while</span>(x&lt;=n)&#123;</span><br><span class="line">				bit[x]+=val;</span><br><span class="line">				x+=<span class="built_in">lowbit</span>(x);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BIT</span>&#123;</span>
+	<span class="hljs-keyword">private</span>:
+		<span class="hljs-keyword">int</span> n;
+		<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">bit</span>;
+	<span class="hljs-keyword">public</span>:
+		<span class="hljs-comment">//总共有n个数字</span>
+		BIT(<span class="hljs-keyword">int</span> _n)&#123;
+			n=_n;
+			<span class="hljs-built_in">bit</span>=<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; (_n+<span class="hljs-number">1</span>);
+		&#125;
+		
+		<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;
+		<span class="hljs-keyword">return</span> x&amp;(-x);
+		&#125;
+		<span class="hljs-comment">//查询前缀和</span>
+		<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;
+			<span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>;
+			<span class="hljs-keyword">while</span>(x)&#123;
+				sum+=<span class="hljs-built_in">bit</span>[x];
+				x-=lowbit(x);
+			&#125;
+			<span class="hljs-keyword">return</span> sum;
+		&#125;
+		<span class="hljs-comment">//单点更新，val为a[x]变化量</span>
+		<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+			<span class="hljs-keyword">while</span>(x&lt;=n)&#123;
+				<span class="hljs-built_in">bit</span>[x]+=val;
+				x+=lowbit(x);
+			&#125;
+		&#125;
+&#125;
+</code></pre>
 <h2 id="05-题单"><a class="markdownIt-Anchor" href="#05-题单"></a> 0.5 题单</h2>
 <h3 id="051-315-计算右侧小于当前元素的个数"><a class="markdownIt-Anchor" href="#051-315-计算右侧小于当前元素的个数"></a> 0.5.1 <a href="https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/">315. 计算右侧小于当前元素的个数</a></h3>
 <blockquote>
 <p>给你一个整数数组 nums ，按要求返回一个新数组 counts 。数组 counts 有该性质： counts[i] 的值是  nums[i] 右侧小于 nums[i] 的元素的数量。</p>
 </blockquote>
 <h4 id="方法一离散化树状数组"><a class="markdownIt-Anchor" href="#方法一离散化树状数组"></a> 方法一：离散化树状数组</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BIT</span>&#123;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="type">int</span> n;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tree;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="built_in">BIT</span>(<span class="type">int</span> _n): <span class="built_in">n</span>(_n),<span class="built_in">tree</span>(_n<span class="number">+1</span>)&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 查询前缀和</span></span><br><span class="line">        <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">            <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(x)&#123;</span><br><span class="line">                res+=tree[x];</span><br><span class="line">                x-=<span class="built_in">lowbit</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> res;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新前缀和</span></span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(x&lt;=n)&#123;</span><br><span class="line">                tree[x]++;</span><br><span class="line">                x+=<span class="built_in">lowbit</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countSmaller</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp=nums;</span><br><span class="line">        <span class="built_in">sort</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 将数据离散到[1:n]</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;num:nums)&#123;</span><br><span class="line">            num=<span class="built_in">lower_bound</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>(),num)-tmp.<span class="built_in">begin</span>()<span class="number">+1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">counts</span><span class="params">(n,<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="function">BIT <span class="title">bit</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            counts[i]=bit.<span class="built_in">query</span>(nums[i]<span class="number">-1</span>);</span><br><span class="line">            bit.<span class="built_in">update</span>(nums[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> counts;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BIT</span>&#123;</span>
+    <span class="hljs-keyword">private</span>:
+        <span class="hljs-keyword">int</span> n;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tree;
+    <span class="hljs-keyword">public</span>:
+        BIT(<span class="hljs-keyword">int</span> _n): n(_n),tree(_n+<span class="hljs-number">1</span>)&#123;&#125;
+
+        <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;
+            <span class="hljs-keyword">return</span> x&amp;(-x);
+        &#125;
+        <span class="hljs-comment">// 查询前缀和</span>
+        <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;
+            <span class="hljs-keyword">int</span> res=<span class="hljs-number">0</span>;
+            <span class="hljs-keyword">while</span>(x)&#123;
+                res+=tree[x];
+                x-=lowbit(x);
+            &#125;
+            <span class="hljs-keyword">return</span> res;
+        &#125;
+        <span class="hljs-comment">// 更新前缀和</span>
+        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;
+            <span class="hljs-keyword">while</span>(x&lt;=n)&#123;
+                tree[x]++;
+                x+=lowbit(x);
+            &#125;
+        &#125;
+&#125;;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">countSmaller</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmp=nums;
+        sort(tmp.<span class="hljs-built_in">begin</span>(),tmp.<span class="hljs-built_in">end</span>());
+        <span class="hljs-comment">// 将数据离散到[1:n]</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> &amp;num:nums)&#123;
+            num=lower_bound(tmp.<span class="hljs-built_in">begin</span>(),tmp.<span class="hljs-built_in">end</span>(),num)-tmp.<span class="hljs-built_in">begin</span>()+<span class="hljs-number">1</span>;
+        &#125;
+        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">counts</span><span class="hljs-params">(n,<span class="hljs-number">0</span>)</span></span>;
+        <span class="hljs-function">BIT <span class="hljs-title">bit</span><span class="hljs-params">(n)</span></span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;
+            counts[i]=<span class="hljs-built_in">bit</span>.query(nums[i]<span class="hljs-number">-1</span>);
+            <span class="hljs-built_in">bit</span>.update(nums[i]);
+        &#125;
+        <span class="hljs-keyword">return</span> counts;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="方法二-归并排序"><a class="markdownIt-Anchor" href="#方法二-归并排序"></a> 方法二 归并排序</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution1</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; counts;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; index;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tmpIndex;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">countSmaller</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        counts.<span class="built_in">resize</span>(n);</span><br><span class="line">        tmp.<span class="built_in">resize</span>(n);</span><br><span class="line"></span><br><span class="line">        index.<span class="built_in">resize</span>(n);</span><br><span class="line">        <span class="built_in">iota</span>(index.<span class="built_in">begin</span>(), index.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line">        tmpIndex.<span class="built_in">resize</span>(n);</span><br><span class="line">        <span class="built_in">merge_sort</span>(nums, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> counts;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">merge_sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;record, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &gt;= r) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">merge_sort</span>(record, l, mid);</span><br><span class="line">        <span class="built_in">merge_sort</span>(record, mid + <span class="number">1</span>, r);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 合并两个数组</span></span><br><span class="line">        <span class="type">int</span> i = l, j = mid + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> pos = l;</span><br><span class="line">        <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">if</span> (record[i] &lt;= record[j]) &#123;</span><br><span class="line">                tmpIndex[pos] = index[i];</span><br><span class="line">                counts[index[i]] += j - (mid + <span class="number">1</span>);</span><br><span class="line">                tmp[pos++] = record[i++];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                tmpIndex[pos] = index[j];</span><br><span class="line">                tmp[pos++] = record[j++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = i; k &lt;= mid; k++) &#123;</span><br><span class="line">            tmpIndex[pos] = index[k];</span><br><span class="line">            counts[index[k]] += j - (mid + <span class="number">1</span>);</span><br><span class="line">            tmp[pos++] = record[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = j; k &lt;= r; k++) &#123;</span><br><span class="line">            tmpIndex[pos] = index[k];</span><br><span class="line">            tmp[pos++] = record[k];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">copy</span>(tmp.<span class="built_in">begin</span>() + l, tmp.<span class="built_in">begin</span>() + r + <span class="number">1</span>, record.<span class="built_in">begin</span>() + l);</span><br><span class="line">        <span class="built_in">copy</span>(tmpIndex.<span class="built_in">begin</span>() + l, tmpIndex.<span class="built_in">begin</span>() + r + <span class="number">1</span>, index.<span class="built_in">begin</span>() + l);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution1</span> &#123;</span>
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; counts;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmp;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; index;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmpIndex;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">countSmaller</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();
+        counts.resize(n);
+        tmp.resize(n);
+
+        index.resize(n);
+        iota(index.<span class="hljs-built_in">begin</span>(), index.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);
+        tmpIndex.resize(n);
+        merge_sort(nums, <span class="hljs-number">0</span>, n - <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> counts;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge_sort</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;record, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &gt;= r) &#123;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid = l + (r - l) / <span class="hljs-number">2</span>;
+        merge_sort(record, l, mid);
+        merge_sort(record, mid + <span class="hljs-number">1</span>, r);
+
+        <span class="hljs-comment">// 合并两个数组</span>
+        <span class="hljs-keyword">int</span> i = l, j = mid + <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> pos = l;
+        <span class="hljs-keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= r) &#123;
+            <span class="hljs-keyword">if</span> (record[i] &lt;= record[j]) &#123;
+                tmpIndex[pos] = index[i];
+                counts[index[i]] += j - (mid + <span class="hljs-number">1</span>);
+                tmp[pos++] = record[i++];
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                tmpIndex[pos] = index[j];
+                tmp[pos++] = record[j++];
+            &#125;
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = i; k &lt;= mid; k++) &#123;
+            tmpIndex[pos] = index[k];
+            counts[index[k]] += j - (mid + <span class="hljs-number">1</span>);
+            tmp[pos++] = record[k];
+        &#125;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = j; k &lt;= r; k++) &#123;
+            tmpIndex[pos] = index[k];
+            tmp[pos++] = record[k];
+        &#125;
+        copy(tmp.<span class="hljs-built_in">begin</span>() + l, tmp.<span class="hljs-built_in">begin</span>() + r + <span class="hljs-number">1</span>, record.<span class="hljs-built_in">begin</span>() + l);
+        copy(tmpIndex.<span class="hljs-built_in">begin</span>() + l, tmpIndex.<span class="hljs-built_in">begin</span>() + r + <span class="hljs-number">1</span>, index.<span class="hljs-built_in">begin</span>() + l);
+    &#125;
+&#125;;
+</code></pre>
 <h3 id="052-lcr-170-交易逆序对的总数"><a class="markdownIt-Anchor" href="#052-lcr-170-交易逆序对的总数"></a> 0.5.2 <a href="https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/description/">LCR 170. 交易逆序对的总数 </a></h3>
 <h4 id="方法一离散化树状数组-2"><a class="markdownIt-Anchor" href="#方法一离散化树状数组-2"></a> 方法一：离散化树状数组</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; bit;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=record.<span class="built_in">size</span>();</span><br><span class="line">        bit.<span class="built_in">resize</span>(n<span class="number">+1</span>);</span><br><span class="line"></span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp=record;</span><br><span class="line">        <span class="built_in">sort</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>());</span><br><span class="line">        <span class="comment">// 离散化数组[1,...,n]</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> &amp;num:record)&#123;</span><br><span class="line">            num=<span class="built_in">lower_bound</span>(tmp.<span class="built_in">begin</span>(),tmp.<span class="built_in">end</span>(),num)-tmp.<span class="built_in">begin</span>()<span class="number">+1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            ans+=<span class="built_in">query</span>(record[i]<span class="number">-1</span>);</span><br><span class="line">            <span class="built_in">update</span>(record[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lowbit</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(index&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            sum+=bit[index];</span><br><span class="line">            index-=<span class="built_in">lowbit</span>(index);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> index)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(index&lt;=n)&#123;</span><br><span class="line">            bit[index]++;</span><br><span class="line">            index+=<span class="built_in">lowbit</span>(index);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">bit</span>;
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reversePairs</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; record)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>-&gt;n=record.<span class="hljs-built_in">size</span>();
+        <span class="hljs-built_in">bit</span>.resize(n+<span class="hljs-number">1</span>);
+
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmp=record;
+        sort(tmp.<span class="hljs-built_in">begin</span>(),tmp.<span class="hljs-built_in">end</span>());
+        <span class="hljs-comment">// 离散化数组[1,...,n]</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> &amp;num:record)&#123;
+            num=lower_bound(tmp.<span class="hljs-built_in">begin</span>(),tmp.<span class="hljs-built_in">end</span>(),num)-tmp.<span class="hljs-built_in">begin</span>()+<span class="hljs-number">1</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=n<span class="hljs-number">-1</span>;i&gt;=<span class="hljs-number">0</span>;i--)&#123;
+            ans+=query(record[i]<span class="hljs-number">-1</span>);
+            update(record[i]);
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">lowbit</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span></span>&#123;
+        <span class="hljs-keyword">return</span> x&amp;(-x);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span></span>&#123;
+        <span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span>(index&gt;<span class="hljs-number">0</span>)&#123;
+            sum+=<span class="hljs-built_in">bit</span>[index];
+            index-=lowbit(index);
+        &#125;
+        <span class="hljs-keyword">return</span> sum;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span></span>&#123;
+        <span class="hljs-keyword">while</span>(index&lt;=n)&#123;
+            <span class="hljs-built_in">bit</span>[index]++;
+            index+=lowbit(index);
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="方法二归并排序"><a class="markdownIt-Anchor" href="#方法二归并排序"></a> 方法二：归并排序</h4>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> <span class="title function_">reversePairs</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; record)</span> &#123;</span><br><span class="line">        <span class="type">int</span> n=record.size();</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; <span class="title function_">tmp</span><span class="params">(n)</span>;</span><br><span class="line">        <span class="keyword">return</span> merge_sort(record,tmp,<span class="number">0</span>,n-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="title function_">merge_sort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; record,vector&lt;<span class="type">int</span>&gt;&amp; tmp,<span class="type">int</span> l,<span class="type">int</span> r)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=l+(r-l)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> inv_count=merge_sort(record,tmp,l,mid)+merge_sort(record,tmp,mid+<span class="number">1</span>,r);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//合并两个数组</span></span><br><span class="line">        <span class="type">int</span> i=l,j=mid+<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> pos=l;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">if</span>(record[i]&lt;=record[j])&#123;</span><br><span class="line">                inv_count+=j-(mid+<span class="number">1</span>);</span><br><span class="line">                tmp[pos++]=record[i++];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                tmp[pos++]=record[j++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=i;k&lt;=mid;k++)&#123;</span><br><span class="line">            tmp[pos++]=record[k];</span><br><span class="line">            inv_count+=j-(mid+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=j;k&lt;=r;k++)</span><br><span class="line">            tmp[pos++]=record[k];</span><br><span class="line">        copy(tmp.begin()+l,tmp.begin()+r+<span class="number">1</span>,record.begin()+l);</span><br><span class="line">        <span class="keyword">return</span> inv_count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">reversePairs</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; record)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> n=record.size();
+        <span class="hljs-function">vector&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">tmp</span><span class="hljs-params">(n)</span></span>;
+        <span class="hljs-keyword">return</span> merge_sort(record,tmp,<span class="hljs-number">0</span>,n-<span class="hljs-number">1</span>);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">merge_sort</span><span class="hljs-params">(vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; record,vector&lt;<span class="hljs-keyword">int</span>&gt;&amp; tmp,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&gt;=r)&#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid=l+(r-l)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> inv_count=merge_sort(record,tmp,l,mid)+merge_sort(record,tmp,mid+<span class="hljs-number">1</span>,r);
+
+        <span class="hljs-comment">//合并两个数组</span>
+        <span class="hljs-keyword">int</span> i=l,j=mid+<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">int</span> pos=l;
+        <span class="hljs-keyword">while</span>(i&lt;=mid&amp;&amp;j&lt;=r)&#123;
+            <span class="hljs-keyword">if</span>(record[i]&lt;=record[j])&#123;
+                inv_count+=j-(mid+<span class="hljs-number">1</span>);
+                tmp[pos++]=record[i++];
+            &#125;<span class="hljs-keyword">else</span>&#123;
+                tmp[pos++]=record[j++];
+            &#125;
+        &#125;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=i;k&lt;=mid;k++)&#123;
+            tmp[pos++]=record[k];
+            inv_count+=j-(mid+<span class="hljs-number">1</span>);
+        &#125;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=j;k&lt;=r;k++)
+            tmp[pos++]=record[k];
+        copy(tmp.begin()+l,tmp.begin()+r+<span class="hljs-number">1</span>,record.begin()+l);
+        <span class="hljs-keyword">return</span> inv_count;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="06-参考"><a class="markdownIt-Anchor" href="#06-参考"></a> 0.6 参考</h2>
 <p><a href="https://www.sohu.com/a/471187961_121124361">什么是树状数组？让这个12岁年轻人为你讲解_lowbit (sohu.com)</a></p>
 <p><a href="https://blog.csdn.net/u010598215/article/details/48206959">(78条消息) 树状数组求区间最大值_LbyG的博客-CSDN博客</a></p>
