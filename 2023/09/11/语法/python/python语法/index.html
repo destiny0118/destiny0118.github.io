@@ -299,7 +299,11 @@
 <li>函数参数加*号，代表将多个参数组装成列表</li>
 <li>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">ls=[<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">add(*ls)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x,y)</span>:</span>
+    <span class="hljs-keyword">return</span> x+y
+ls=[<span class="hljs-number">10</span>,<span class="hljs-number">12</span>]
+add(*ls)
+</code></pre>
 <h2 id="range"><a class="markdownIt-Anchor" href="#range"></a> range</h2>
 <p>tuple</p>
 <blockquote>

@@ -286,12 +286,22 @@
 <p>在Lab3中遇到了此问题，考虑在server中记录client已经添加的命令（命令可能未执行成功），在收到更小的command时，则不调用Start添加到leader。这需要启用新的server作为leader时，快速将已有的命令执行完毕（在添加任何新命令之前），这一步难以实现。</p>
 <p>因此考虑在command中添加client的命令标志，重传的命令也可以被添加到log中，但是在执行时会发现该命令已经执行过</p>
 <p>命令没有被执行 TestManyPartitionsManyClients3A</p>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="section">=== RUN   TestManyPartitionsManyClients3A</span></span><br><span class="line">Test: partitions, many clients (3A) ...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">=== RUN   TestManyPartitionsManyClients3A
+Test: partitions, many clients (3A) ...
+
+</code></pre>
 <p>命令结果有额外部分（多执行了？）TestConcurrent3A</p>
-<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Test: </span>unreliable net, restarts, partitions, random keys, many clients (3A) ...</span><br><span class="line">info: wrote history visualization to /tmp/1021001197.html</span><br><span class="line">    test_test.go:382: history is not linearizable</span><br><span class="line">--- FAIL: TestPersistPartitionUnreliableLinearizable3A (30.13s)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">Test: unreliable net, restarts, partitions, random keys, many clients (3A) ...
+info: wrote history visualization to /tmp/1021001197.html
+    test_test.go:382: history is not linearizable
+--- FAIL: TestPersistPartitionUnreliableLinearizable3A (30.13s)
+</code></pre>
 <h2 id="3-并发读写map"><a class="markdownIt-Anchor" href="#3-并发读写map"></a> 3. 并发读写map</h2>
 <p><code>fatal error: concurrent map read and map write</code></p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">replyCh := <span class="built_in">make</span>(<span class="keyword">chan</span> ApplierResult, <span class="number">1</span>)</span><br><span class="line">kv.appliedCh[index] = replyCh</span><br><span class="line"><span class="comment">//kv.appliedCh[index] = make(chan ApplierResult, 1)</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="go">replyCh := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> ApplierResult, <span class="hljs-number">1</span>)
+kv.appliedCh[index] = replyCh
+<span class="hljs-comment">//kv.appliedCh[index] = make(chan ApplierResult, 1)</span>
+</code></pre>
 
     </div>
 

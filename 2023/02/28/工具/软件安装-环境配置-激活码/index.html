@@ -310,16 +310,35 @@
 <li>
 <p>为conda配置（清华）镜像源</p>
 <p>1 添加镜像（永久）</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span></span><br><span class="line"><span class="comment">#设置搜索时显示通道地址</span></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+#设置搜索时显示通道地址
+conda config --set show_channel_urls yes
+</code></pre>
 <p>2 显示添加的源</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">config</span> <span class="comment">--show channels</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda config --show channels
+</code></pre>
 <p>3 删除指定的源</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda<span class="built_in"> config </span>--<span class="built_in">remove</span> channels 源名称或链接 </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda config --remove channels 源名称或链接 
+</code></pre>
 </li>
 <li>
 <p>pip配置国内镜像源</p>
 <p>临时修改</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">pip install numpy -i https:<span class="comment">//mirrors.aliyun.com/pypi/simple/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 清华源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url https:<span class="comment">//pypi.tuna.tsinghua.edu.cn/simple</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 或：</span></span><br><span class="line"><span class="meta"># 阿里源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url https:<span class="comment">//mirrors.aliyun.com/pypi/simple/</span></span><br><span class="line"><span class="meta"># 腾讯源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url http:<span class="comment">//mirrors.cloud.tencent.com/pypi/simple</span></span><br><span class="line"><span class="meta"># 豆瓣源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url http:<span class="comment">//pypi.douban.com/simple/</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">pip install numpy -i https://mirrors.aliyun.com/pypi/simple/
+
+# 清华源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 或：
+# 阿里源
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+# 腾讯源
+pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
+# 豆瓣源
+pip config set global.index-url http://pypi.douban.com/simple/
+</code></pre>
 </li>
 </ul>
 <p>​		国内常用源镜像地址：</p>
@@ -337,13 +356,21 @@
 <ul>
 <li>查看环境</li>
 </ul>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">info</span> --envs</span><br><span class="line">conda env list  查看环境</span><br><span class="line">conda create --name python27 <span class="attribute">python</span>=2.7  创建环境，指定python版本</span><br><span class="line">conda activate python27  激活环境</span><br><span class="line">conda deactivate</span><br><span class="line">conda install <span class="attribute">python</span>=3.8 更新环境版本</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda info --envs
+conda env list  查看环境
+conda create --name python27 python=2.7  创建环境，指定python版本
+conda activate python27  激活环境
+conda deactivate
+conda install python=3.8 更新环境版本
+</code></pre>
 <p>删除环境python27</p>
-<figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line"><span class="comment">conda remove</span> <span class="literal">--</span><span class="comment">name python27</span> <span class="literal">--</span><span class="comment">all</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda remove --name python27 --all
+</code></pre>
 <ul>
 <li>切换环境</li>
 </ul>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> nb_conda </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda install nb_conda 
+</code></pre>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062231739.png" alt="image-20211206223133559" /></p>
 <p>问题</p>
 <ul>
@@ -353,7 +380,8 @@
 <p><a href="https://blog.csdn.net/what_how_why2020/article/details/116290592">(6条消息) 解决问题：EnvironmentLocationNotFound: Not a conda environment: /anaconda3/envs/anaconda3_what_how_why2020的博客-CSDN博客</a></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062232815.png" alt="image-20211206223222635" /></p>
 <p>在新建的环境中安装jupyter</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> ipykernel</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda install ipykernel
+</code></pre>
 <p><a href="https://blog.csdn.net/weixin_39631767/article/details/110423082">(6条消息) anaconda新建环境_Jupyter Notebook中切换conda虚拟环境_weixin_39631767的博客-CSDN博客</a></p>
 <h1 id="2-edge"><a class="markdownIt-Anchor" href="#2-edge"></a> 2 Edge</h1>
 <p><a href="https://www.bilibili.com/read/cv12675669">更改Microsoft Edge浏览器的缓存位置、用户数据目录位置 - 哔哩哔哩 (bilibili.com)</a></p>
@@ -361,13 +389,19 @@
 <p><a href="https://www.cnblogs.com/wsnan/p/11769838.html">nvidia-smi 系列命令，查看gpu ，显存信息</a></p>
 <p>cuda版本：nvcc --version</p>
 <p>实时刷新</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">nvidia-<span class="keyword">smi</span> -l x或者nvidia-<span class="keyword">smi</span> --<span class="keyword">loop</span>=xxx</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">nvidia-smi -l x或者nvidia-smi --loop=xxx
+</code></pre>
 <h2 id="22-detectron2"><a class="markdownIt-Anchor" href="#22-detectron2"></a> 2.2 detectron2</h2>
 <p><a href="https://blog.csdn.net/weixin_42644340/article/details/109178660?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.nonecase">(9条消息) Windows10下安装detectron2超详细教程（小白视角）_小白wwj的博客-CSDN博客_detectron2 windows安装</a></p>
 <p><a href="https://gitanswer.com/detectron2-nvcc-exe-failed-with-exit-status-1-problem-installing-detectron2-on-windows-10-python-638604938">https://gitanswer.com/detectron2-nvcc-exe-failed-with-exit-status-1-problem-installing-detectron2-on-windows-10-python-638604938</a></p>
 <h1 id="3-cuda"><a class="markdownIt-Anchor" href="#3-cuda"></a> 3 cuda</h1>
 <p>检验cuda和pytorch是否兼容</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> torch
+
+print(torch.__version__)
+print(torch.cuda.is_available())
+
+</code></pre>
 <h1 id="4-软件历史版本"><a class="markdownIt-Anchor" href="#4-软件历史版本"></a> 4 软件历史版本</h1>
 <h2 id="41-nvidia"><a class="markdownIt-Anchor" href="#41-nvidia"></a> 4.1 Nvidia</h2>
 <p><a href="https://developer.nvidia.cn/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
@@ -393,11 +427,19 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2<br />
 </blockquote>
 <h1 id="6-listary-pro-激活码"><a class="markdownIt-Anchor" href="#6-listary-pro-激活码"></a> 6 Listary Pro 激活码</h1>
 <p>名称：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Mike Rountree</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="txt">Mike Rountree
+</code></pre>
 <p>Email：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">soft@instant-demo.com</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="txt">soft@instant-demo.com
+</code></pre>
 <p>激活码：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">JE4V8T3M96PWT4SUCNZNVZ37XKLBU2QW</span><br><span class="line">N64LEJQ3VHY7MPL6KY2R5SQZ76QFFTKP</span><br><span class="line">VVE8JBVEAME8MMBRHRGF2P6MAJG7ZSQY</span><br><span class="line">MUY2PGTO2EG3W2YHTU2CFWL7SE6THU3Q</span><br><span class="line">TAL3U894S2BWA9629EFCXYYYG3S65WEQ</span><br><span class="line">5R234G26AT52UWD27PNENP4GR2EKKDK6</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="txt">JE4V8T3M96PWT4SUCNZNVZ37XKLBU2QW
+N64LEJQ3VHY7MPL6KY2R5SQZ76QFFTKP
+VVE8JBVEAME8MMBRHRGF2P6MAJG7ZSQY
+MUY2PGTO2EG3W2YHTU2CFWL7SE6THU3Q
+TAL3U894S2BWA9629EFCXYYYG3S65WEQ
+5R234G26AT52UWD27PNENP4GR2EKKDK6
+</code></pre>
 
     </div>
 

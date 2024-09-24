@@ -295,10 +295,93 @@ unordered_map，统计频率，记录内容<br />
 </ul>
 <h2 id="哈希集合"><a class="markdownIt-Anchor" href="#哈希集合"></a> 哈希集合</h2>
 <p><a href="https://leetcode.cn/problems/design-hashset/description/">705. 设计哈希集合 - 力扣（LeetCode）</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyHashSet</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    vector&lt;list&lt;<span class="type">int</span>&gt;&gt; data;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> base=<span class="number">769</span>;</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">hash</span><span class="params">(<span class="type">int</span> key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> key%base;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyHashSet</span>():<span class="built_in">data</span>(base) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*it==key)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        data[h].<span class="built_in">emplace_back</span>(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*it==key)&#123;</span><br><span class="line">                data[h].<span class="built_in">erase</span>(it);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">contains</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>(*it==key)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHashSet</span> &#123;</span>
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">list</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; data;
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> base=<span class="hljs-number">769</span>;
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">hash</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span></span>&#123;
+        <span class="hljs-keyword">return</span> key%base;
+    &#125;
+<span class="hljs-keyword">public</span>:
+    MyHashSet():data(base) &#123;
+
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> h=hash(key);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it=data[h].<span class="hljs-built_in">begin</span>();it!=data[h].<span class="hljs-built_in">end</span>();++it)&#123;
+            <span class="hljs-keyword">if</span>(*it==key)
+                <span class="hljs-keyword">return</span>;
+        &#125;
+        data[h].emplace_back(key);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> h=hash(key);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it=data[h].<span class="hljs-built_in">begin</span>();it!=data[h].<span class="hljs-built_in">end</span>();++it)&#123;
+            <span class="hljs-keyword">if</span>(*it==key)&#123;
+                data[h].erase(it);
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">contains</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> h=hash(key);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it=data[h].<span class="hljs-built_in">begin</span>();it!=data[h].<span class="hljs-built_in">end</span>();++it)&#123;
+            <span class="hljs-keyword">if</span>(*it==key)&#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="哈希表"><a class="markdownIt-Anchor" href="#哈希表"></a> 哈希表</h2>
 <p><a href="https://leetcode.cn/problems/design-hashmap/description/">706. 设计哈希映射 - 力扣（LeetCode）</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyHashMap</span> &#123;</span><br><span class="line">    vector&lt;list&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;&gt; data;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> base=<span class="number">769</span>;</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">hash</span><span class="params">(<span class="type">int</span> key)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> key%base;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyHashMap</span>():<span class="built_in">data</span>(base) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">put</span><span class="params">(<span class="type">int</span> key, <span class="type">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>((*it).first==key)&#123;</span><br><span class="line">                (*it).second=value;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        data[h].<span class="built_in">emplace_back</span>(key,value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>((*it).first==key)&#123;</span><br><span class="line">                <span class="keyword">return</span> (*it).second;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> h=<span class="built_in">hash</span>(key);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> it=data[h].<span class="built_in">begin</span>();it!=data[h].<span class="built_in">end</span>();++it)&#123;</span><br><span class="line">            <span class="keyword">if</span>((*it).first==key)&#123;</span><br><span class="line">                data[h].<span class="built_in">erase</span>(it);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyHashMap</span> &#123;</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">list</span>&lt;pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;&gt;&gt; data;
+    <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> base=<span class="hljs-number">769</span>;
+    <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">hash</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span></span>&#123;
+        <span class="hljs-keyword">return</span> key%base;
+    &#125;
+<span class="hljs-keyword">public</span>:
+    MyHashMap():data(base) &#123;
+
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">put</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key, <span class="hljs-keyword">int</span> value)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> h=hash(key);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it=data[h].<span class="hljs-built_in">begin</span>();it!=data[h].<span class="hljs-built_in">end</span>();++it)&#123;
+            <span class="hljs-keyword">if</span>((*it).first==key)&#123;
+                (*it).second=value;
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+        data[h].emplace_back(key,value);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> h=hash(key);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it=data[h].<span class="hljs-built_in">begin</span>();it!=data[h].<span class="hljs-built_in">end</span>();++it)&#123;
+            <span class="hljs-keyword">if</span>((*it).first==key)&#123;
+                <span class="hljs-keyword">return</span> (*it).second;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">(<span class="hljs-keyword">int</span> key)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> h=hash(key);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> it=data[h].<span class="hljs-built_in">begin</span>();it!=data[h].<span class="hljs-built_in">end</span>();++it)&#123;
+            <span class="hljs-keyword">if</span>((*it).first==key)&#123;
+                data[h].erase(it);
+                <span class="hljs-keyword">return</span>;
+            &#125;
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
 <h1 id="多重集合multiset"><a class="markdownIt-Anchor" href="#多重集合multiset"></a> 多重集合(multiset)</h1>
 <h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
 <p><a href="https://mp.weixin.qq.com/s/CySTVqEDK9-K1MRUwBKRCg">面经手册 · 第3篇《HashMap核心知识，扰动函数、负载因子、扩容链表拆分深度学习(+实践验证)》 (qq.com)</a></p>

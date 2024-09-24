@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="双指针  区间指针  分组循环  查找符合条件的区间，寻找左右边界   2765. 最长交替子序列 class Solution &amp;#123;public:    int alternatingSubarray(vector&lt;int&gt;&amp; nums) &amp;#123;          int n&#x3D;nums.size();        &#x2F;&#x2F; 分组循环，外层循环枚举起点，内层循环扩">
+    <meta name="description" content="双指针  区间指针  分组循环  查找符合条件的区间，寻找左右边界   2765. 最长交替子序列 class Solution &amp;#123; public:     int alternatingSubarray(vector&lt;int&gt;&amp; nums) &amp;#123;           int n&#x3D;nums.size();         &#x2F;&#x2F; 分组循环，外层循环枚举起点，内">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/05/09/%E7%AE%97%E6%B3%95/%E5%8F%8C%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="双指针  区间指针  分组循环  查找符合条件的区间，寻找左右边界   2765. 最长交替子序列 class Solution &amp;#123;public:    int alternatingSubarray(vector&lt;int&gt;&amp; nums) &amp;#123;          int n&#x3D;nums.size();        &#x2F;&#x2F; 分组循环，外层循环枚举起点，内层循环扩">
+<meta property="og:description" content="双指针  区间指针  分组循环  查找符合条件的区间，寻找左右边界   2765. 最长交替子序列 class Solution &amp;#123; public:     int alternatingSubarray(vector&lt;int&gt;&amp; nums) &amp;#123;           int n&#x3D;nums.size();         &#x2F;&#x2F; 分组循环，外层循环枚举起点，内">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241057961.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241135413.png">
@@ -284,9 +284,53 @@
 <p>查找符合条件的区间，寻找左右边界</p>
 </blockquote>
 <h4 id="2765-最长交替子序列"><a class="markdownIt-Anchor" href="#2765-最长交替子序列"></a> <a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">alternatingSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;  </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i<span class="number">+1</span>]-nums[i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> left=i; <span class="comment">//记录左端点</span></span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="number">2</span>])</span><br><span class="line">                i++;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-left);</span><br><span class="line">            i--;        <span class="comment">//回退到上一个区间最后一个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">alternatingSubarray</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;  
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span>
+        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span>(i&lt;n<span class="hljs-number">-1</span>)&#123;
+            <span class="hljs-keyword">if</span>(nums[i+<span class="hljs-number">1</span>]-nums[i]!=<span class="hljs-number">1</span>)&#123;
+                i++;
+                <span class="hljs-keyword">continue</span>;
+            &#125;
+            <span class="hljs-keyword">int</span> left=i; <span class="hljs-comment">//记录左端点</span>
+            i++;
+            <span class="hljs-keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="hljs-number">2</span>])
+                i++;
+            ans=<span class="hljs-built_in">max</span>(ans,i-left);
+            i--;        <span class="hljs-comment">//回退到上一个区间最后一个位置</span>
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="6900-统计完全子数组的数目"><a class="markdownIt-Anchor" href="#6900-统计完全子数组的数目"></a> <a href="https://leetcode.cn/problems/count-complete-subarrays-in-an-array/">6900. 统计完全子数组的数目</a></h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countCompleteSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(nums.begin(),nums.end())</span></span>;</span><br><span class="line">        <span class="type">int</span> m=record.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; cnt;        <span class="comment">//记录每个数字出现的个数</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,ans=<span class="number">0</span>,n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">//枚举右端点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> right=<span class="number">0</span>;right&lt;n;right++)&#123;</span><br><span class="line">            cnt[nums[right]]++;</span><br><span class="line">            <span class="keyword">while</span>(cnt.<span class="built_in">size</span>()==m)&#123;</span><br><span class="line">                <span class="type">int</span> x=nums[left++];</span><br><span class="line">                <span class="keyword">if</span>(--cnt[x]==<span class="number">0</span>)</span><br><span class="line">                    cnt.<span class="built_in">erase</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">countCompleteSubarrays</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-function"><span class="hljs-built_in">unordered_set</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">record</span><span class="hljs-params">(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>())</span></span>;
+        <span class="hljs-keyword">int</span> m=record.<span class="hljs-built_in">size</span>();
+        <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt; cnt;        <span class="hljs-comment">//记录每个数字出现的个数</span>
+        
+        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,ans=<span class="hljs-number">0</span>,n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-comment">//枚举右端点</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> right=<span class="hljs-number">0</span>;right&lt;n;right++)&#123;
+            cnt[nums[right]]++;
+            <span class="hljs-keyword">while</span>(cnt.<span class="hljs-built_in">size</span>()==m)&#123;
+                <span class="hljs-keyword">int</span> x=nums[left++];
+                <span class="hljs-keyword">if</span>(--cnt[x]==<span class="hljs-number">0</span>)
+                    cnt.erase(x);
+            &#125;
+            ans+=left;
+        &#125;
+
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h1 id="快慢指针"><a class="markdownIt-Anchor" href="#快慢指针"></a> 快慢指针</h1>
 <h2 id="floyd判圈"><a class="markdownIt-Anchor" href="#floyd判圈"></a> floyd判圈</h2>
 <p><a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></p>
@@ -312,7 +356,33 @@ a=n\times r -x
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">环</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">长</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">数</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
 <p>slow，fast初始时指向同一个位置，而终止条件也是指向同一个位置，因此采用do—while循环比较好</p>
 <p>fast遇到null停止，将判断相遇放到循环里</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 找到相遇点z （对应上图）</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 想到 cycle起点y （对应上图）</span></span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow) &#123;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">detectCycle</span><span class="hljs-params">(ListNode head)</span> </span>&#123;
+        <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span> ) &#123;
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        &#125;
+        ListNode fast = head;
+        ListNode slow = head;
+        <span class="hljs-comment">// 找到相遇点z （对应上图）</span>
+        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) &#123;
+            <span class="hljs-keyword">if</span>(fast == <span class="hljs-keyword">null</span> || fast.next == <span class="hljs-keyword">null</span>) &#123;
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+            &#125;
+            fast = fast.next.next;
+            slow = slow.next;
+            <span class="hljs-keyword">if</span> (fast == slow) &#123;
+                <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+        <span class="hljs-comment">// 想到 cycle起点y （对应上图）</span>
+        slow = head;
+        <span class="hljs-keyword">while</span>(fast != slow) &#123;
+            fast = fast.next;
+            slow = slow.next;
+        &#125;
+        <span class="hljs-keyword">return</span> fast;
+        
+    &#125;
+</code></pre>
 </li>
 </ul>
 <h1 id="滑动窗口"><a class="markdownIt-Anchor" href="#滑动窗口"></a> 滑动窗口</h1>
@@ -330,17 +400,185 @@ a=n\times r -x
 <p>指针分别指向首位置和尾位置，向中间移动</p>
 </blockquote>
 <h4 id="15-三数之和"><a class="markdownIt-Anchor" href="#15-三数之和"></a> <a href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="type">int</span> m, n;</span><br><span class="line">    <span class="comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        m = i + <span class="number">1</span>;</span><br><span class="line">        n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; m &lt; nums.<span class="built_in">size</span>(); m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m &gt; i + <span class="number">1</span> &amp;&amp; nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//寻找第三个元素</span></span><br><span class="line">            <span class="keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="number">0</span>)</span><br><span class="line">                n--;</span><br><span class="line">            <span class="comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span></span><br><span class="line">            <span class="keyword">if</span> (m == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="number">0</span>)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-2</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> left=i<span class="number">+1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="keyword">while</span>(left&lt;right&amp;&amp;left&gt;i<span class="number">+1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">if</span>(left==right)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="type">int</span> sum=nums[i]+nums[left]+nums[right];</span><br><span class="line">                <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(sum&gt;<span class="number">0</span>)</span><br><span class="line">                    right--;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[left],nums[right]&#125;);</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">threeSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;
+    sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+    <span class="hljs-keyword">int</span> m, n;
+    <span class="hljs-comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>])
+            <span class="hljs-keyword">continue</span>;
+        m = i + <span class="hljs-number">1</span>;
+        n = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span> (; m &lt; nums.<span class="hljs-built_in">size</span>(); m++) &#123;
+            <span class="hljs-keyword">if</span> (m &gt; i + <span class="hljs-number">1</span> &amp;&amp; nums[m] == nums[m - <span class="hljs-number">1</span>])
+                <span class="hljs-keyword">continue</span>;
+            <span class="hljs-comment">//寻找第三个元素</span>
+            <span class="hljs-keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="hljs-number">0</span>)
+                n--;
+            <span class="hljs-comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span>
+            <span class="hljs-keyword">if</span> (m == n)
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="hljs-number">0</span>)
+                ans.push_back(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> ans;
+&#125;
+&#125;;
+</code></pre>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">threeSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n<span class="hljs-number">-2</span>;i++)&#123;
+            <span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>])
+                <span class="hljs-keyword">continue</span>;
+            
+            <span class="hljs-keyword">int</span> left=i+<span class="hljs-number">1</span>,right=n<span class="hljs-number">-1</span>;
+            <span class="hljs-keyword">while</span>(left&lt;right)&#123;
+                <span class="hljs-keyword">while</span>(left&lt;right&amp;&amp;left&gt;i+<span class="hljs-number">1</span>&amp;&amp;nums[left]==nums[left<span class="hljs-number">-1</span>])
+                    left++;
+                <span class="hljs-keyword">if</span>(left==right)
+                    <span class="hljs-keyword">break</span>;
+                
+                <span class="hljs-keyword">int</span> sum=nums[i]+nums[left]+nums[right];
+                <span class="hljs-keyword">if</span>(sum&lt;<span class="hljs-number">0</span>)
+                    left++;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sum&gt;<span class="hljs-number">0</span>)
+                    right--;
+                <span class="hljs-keyword">else</span>&#123;
+                    ans.push_back(&#123;nums[i],nums[left],nums[right]&#125;);
+                    left++;
+                    right--;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="16-最接近的三数之和"><a class="markdownIt-Anchor" href="#16-最接近的三数之和"></a> <a href="https://leetcode.cn/problems/3sum-closest/">16. 最接近的三数之和</a></h4>
 <blockquote>
 <p>使用while循环和标记跳过重复元素</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">threeSumClosest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> ans = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">// 跳过相同元素</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> left = i + <span class="number">1</span>, right = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="type">int</span> tmp = nums[i] + nums[left] + nums[right];</span><br><span class="line">                <span class="keyword">if</span>(tmp==target) <span class="keyword">return</span> target;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(target-tmp)&lt;<span class="built_in">abs</span>(target-ans)) ans=tmp;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(tmp&lt;target)&#123;</span><br><span class="line">                    <span class="type">int</span> j=left<span class="number">+1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(j&lt;right&amp;&amp;nums[j]==nums[left])</span><br><span class="line">                        j++;</span><br><span class="line">                    left=j;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="type">int</span> k=right<span class="number">-1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;k&amp;&amp;nums[k]==nums[right])</span><br><span class="line">                        k--;</span><br><span class="line">                    right=k; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">threeSumClosest</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
+        sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">int</span> ans = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;
+            <span class="hljs-comment">// 跳过相同元素</span>
+            <span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>])
+                <span class="hljs-keyword">continue</span>;
+
+            <span class="hljs-keyword">int</span> left = i + <span class="hljs-number">1</span>, right = n - <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">while</span>(left&lt;right)&#123;
+                <span class="hljs-keyword">int</span> tmp = nums[i] + nums[left] + nums[right];
+                <span class="hljs-keyword">if</span>(tmp==target) <span class="hljs-keyword">return</span> target;
+
+                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(target-tmp)&lt;<span class="hljs-built_in">abs</span>(target-ans)) ans=tmp;
+
+                <span class="hljs-keyword">if</span>(tmp&lt;target)&#123;
+                    <span class="hljs-keyword">int</span> j=left+<span class="hljs-number">1</span>;
+                    <span class="hljs-keyword">while</span>(j&lt;right&amp;&amp;nums[j]==nums[left])
+                        j++;
+                    left=j;
+                &#125;<span class="hljs-keyword">else</span>&#123;
+                    <span class="hljs-keyword">int</span> k=right<span class="hljs-number">-1</span>;
+                    <span class="hljs-keyword">while</span>(left&lt;k&amp;&amp;nums[k]==nums[right])
+                        k--;
+                    right=k; 
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="18-四数之和"><a class="markdownIt-Anchor" href="#18-四数之和"></a> <a href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i<span class="number">+1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;i<span class="number">+1</span>&amp;&amp;nums[j]==nums[j<span class="number">-1</span>])   <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">long</span> cur=nums[i]+nums[j];</span><br><span class="line">                <span class="comment">// 双指针</span></span><br><span class="line">                <span class="type">int</span> left=j<span class="number">+1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">for</span>(;left&lt;n;left++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(left&gt;j<span class="number">+1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)</span><br><span class="line">                        right--;</span><br><span class="line">                    <span class="keyword">if</span>(left==right)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;</span><br><span class="line">                        ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">fourSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
+        sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;
+            <span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>]) <span class="hljs-keyword">continue</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i+<span class="hljs-number">1</span>;j&lt;n;j++)&#123;
+                <span class="hljs-keyword">if</span>(j&gt;i+<span class="hljs-number">1</span>&amp;&amp;nums[j]==nums[j<span class="hljs-number">-1</span>])   <span class="hljs-keyword">continue</span>;
+                <span class="hljs-keyword">long</span> cur=nums[i]+nums[j];
+                <span class="hljs-comment">// 双指针</span>
+                <span class="hljs-keyword">int</span> left=j+<span class="hljs-number">1</span>,right=n<span class="hljs-number">-1</span>;
+                <span class="hljs-keyword">for</span>(;left&lt;n;left++)&#123;
+                    <span class="hljs-keyword">if</span>(left&gt;j+<span class="hljs-number">1</span>&amp;&amp;nums[left]==nums[left<span class="hljs-number">-1</span>])
+                        <span class="hljs-keyword">continue</span>;
+                    <span class="hljs-keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)
+                        right--;
+                    <span class="hljs-keyword">if</span>(left==right)
+                        <span class="hljs-keyword">break</span>;
+                    <span class="hljs-keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;
+                        ans.push_back(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);
+                    &#125;
+                &#125;
+
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <p>方法二</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums.<span class="built_in">size</span>() &lt; <span class="number">4</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//跳过相同的数</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">long</span> partSum = nums[i] + nums[j];</span><br><span class="line">            <span class="type">int</span> m = j + <span class="number">1</span>, n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (m &lt; n)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (partSum + nums[m] + nums[n] &lt; target)</span><br><span class="line">                    m++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (partSum + nums[m] + nums[n] &gt; target)</span><br><span class="line">                    n--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[j], nums[m], nums[n]&#125;);</span><br><span class="line">                    m++;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                        m++;</span><br><span class="line">                    n--;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[n] == nums[n + <span class="number">1</span>])</span><br><span class="line">                        n--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">fourSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+
+    <span class="hljs-keyword">if</span> (nums.<span class="hljs-built_in">size</span>() &lt; <span class="hljs-number">4</span>)
+        <span class="hljs-keyword">return</span> ans;
+    sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++)
+    &#123;
+        <span class="hljs-comment">//跳过相同的数</span>
+        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>])
+            <span class="hljs-keyword">continue</span>;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.<span class="hljs-built_in">size</span>(); j++)
+        &#123;
+            <span class="hljs-keyword">if</span> (j &gt; i + <span class="hljs-number">1</span> &amp;&amp; nums[j] == nums[j - <span class="hljs-number">1</span>])
+                <span class="hljs-keyword">continue</span>;
+            <span class="hljs-keyword">long</span> partSum = nums[i] + nums[j];
+            <span class="hljs-keyword">int</span> m = j + <span class="hljs-number">1</span>, n = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
+            <span class="hljs-keyword">while</span> (m &lt; n)
+            &#123;
+                <span class="hljs-keyword">if</span> (partSum + nums[m] + nums[n] &lt; target)
+                    m++;
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (partSum + nums[m] + nums[n] &gt; target)
+                    n--;
+                <span class="hljs-keyword">else</span>
+                &#123;
+                    ans.push_back(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&#123;nums[i], nums[j], nums[m], nums[n]&#125;);
+                    m++;
+                    <span class="hljs-keyword">while</span> (m&lt;n&amp;&amp;nums[m] == nums[m - <span class="hljs-number">1</span>])
+                        m++;
+                    n--;
+                    <span class="hljs-keyword">while</span> (m&lt;n&amp;&amp;nums[n] == nums[n + <span class="hljs-number">1</span>])
+                        n--;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
 <p><a href="https://leetcode.cn/problems/max-number-of-k-sum-pairs/">1679. K 和数对的最大数目</a>（哈希表）</p>
 

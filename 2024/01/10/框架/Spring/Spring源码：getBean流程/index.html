@@ -305,15 +305,283 @@
 <li>mbd.isPrototype()，创建其他类型的 bean 实例</li>
 <li>return (T) bean，返回 Bean 实例</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Return an instance, which may be shared or independent, of the specified bean.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> name the name of the bean to retrieve</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> requiredType the required type of the bean to retrieve</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> args arguments to use when creating a bean instance using explicit arguments</span></span><br><span class="line"><span class="comment"> * (only applied when creating a new instance as opposed to retrieving an existing one)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> typeCheckOnly whether the instance is obtained for a type check,</span></span><br><span class="line"><span class="comment"> * not for actual use</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> an instance of the bean</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> BeansException if the bean could not be created</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">protected</span> &lt;T&gt; T <span class="title function_">doGetBean</span><span class="params">(</span></span><br><span class="line"><span class="params">		String name, <span class="meta">@Nullable</span> Class&lt;T&gt; requiredType, <span class="meta">@Nullable</span> Object[] args, <span class="type">boolean</span> typeCheckOnly)</span></span><br><span class="line">		<span class="keyword">throws</span> BeansException &#123;</span><br><span class="line">	<span class="comment">//处理别名name，获取规范名beanName</span></span><br><span class="line">	<span class="comment">//处理带&amp;符的工厂(FactoryBean)beanName</span></span><br><span class="line">	<span class="type">String</span> <span class="variable">beanName</span> <span class="operator">=</span> transformedBeanName(name);</span><br><span class="line">	Object beanInstance;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Eagerly check singleton cache for manually registered singletons.</span></span><br><span class="line">	<span class="comment">//从缓存中获取Bean实例，三级缓存解决循环依赖(singletonObjects, earlySingletonObjects, singletonFactories)</span></span><br><span class="line">	<span class="type">Object</span> <span class="variable">sharedInstance</span> <span class="operator">=</span> getSingleton(beanName);</span><br><span class="line">	<span class="comment">//args 传参其实是 null 的，但是如果 args 不为空的时候，那么意味着调用方不是希望获取 Bean，而是创建 Bean</span></span><br><span class="line">	<span class="keyword">if</span> (sharedInstance != <span class="literal">null</span> &amp;&amp; args == <span class="literal">null</span>) &#123;</span><br><span class="line">		<span class="comment">//1. sharedInstance是普通的bean实例，直接返回</span></span><br><span class="line">		<span class="comment">//2. sharedInstance是FactoryBean类型，则通过FactoryBean实现类的getObject方法获取</span></span><br><span class="line">		beanInstance = getObjectForBeanInstance(sharedInstance, name, beanName, <span class="literal">null</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">// Fail if we&#x27;re already creating this bean instance:</span></span><br><span class="line">		<span class="comment">// We&#x27;re assumably within a circular reference.</span></span><br><span class="line">		<span class="comment">//循环依赖有三种：setter注入(singleton)，setter注入(prototype)，构造函数</span></span><br><span class="line">		<span class="comment">//spring解决setter注入(singleton)，提前暴露创建中的bean</span></span><br><span class="line">		<span class="keyword">if</span> (isPrototypeCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCurrentlyInCreationException</span>(beanName);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Check if bean definition exists in this factory.</span></span><br><span class="line">		<span class="comment">//1. 父bean工厂存在</span></span><br><span class="line">		<span class="comment">//2. beanName不存在于当前Bean工厂，则到父工厂查找bean实例</span></span><br><span class="line">		<span class="type">BeanFactory</span> <span class="variable">parentBeanFactory</span> <span class="operator">=</span> getParentBeanFactory();</span><br><span class="line">		<span class="keyword">if</span> (parentBeanFactory != <span class="literal">null</span> &amp;&amp; !containsBeanDefinition(beanName)) &#123;</span><br><span class="line">			<span class="comment">// Not found -&gt; check parent.</span></span><br><span class="line">			<span class="comment">// 获取 name 对应的 beanName，如果 name 是以 &amp; 开头，则返回 &amp; + beanName</span></span><br><span class="line">			<span class="type">String</span> <span class="variable">nameToLookup</span> <span class="operator">=</span> originalBeanName(name);</span><br><span class="line">			<span class="keyword">if</span> (parentBeanFactory <span class="keyword">instanceof</span> AbstractBeanFactory abf) &#123;</span><br><span class="line">				<span class="keyword">return</span> abf.doGetBean(nameToLookup, requiredType, args, typeCheckOnly);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (args != <span class="literal">null</span>) &#123;</span><br><span class="line">				<span class="comment">// Delegation to parent with explicit args.</span></span><br><span class="line">				<span class="keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup, args);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (requiredType != <span class="literal">null</span>) &#123;</span><br><span class="line">				<span class="comment">// No args -&gt; delegate to standard getBean method.</span></span><br><span class="line">				<span class="keyword">return</span> parentBeanFactory.getBean(nameToLookup, requiredType);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="comment">// 1. typeCheckOnly，用于判断调用 getBean 方法时，是否仅是做类型检查</span></span><br><span class="line">       	<span class="comment">// 2. 如果不是只做类型检查，就会调用 markBeanAsCreated 进行记录</span></span><br><span class="line">		<span class="keyword">if</span> (!typeCheckOnly) &#123;</span><br><span class="line">			markBeanAsCreated(beanName);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="comment">//创建bean</span></span><br><span class="line">		<span class="comment">//singleton：容器中还没有创建过此bean</span></span><br><span class="line">		<span class="comment">//prototype：每次调用都要创建一个新的bean</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">if</span> (requiredType != <span class="literal">null</span>) &#123;</span><br><span class="line">				beanCreation.tag(<span class="string">&quot;beanType&quot;</span>, requiredType::toString);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">			<span class="type">RootBeanDefinition</span> <span class="variable">mbd</span> <span class="operator">=</span> getMergedLocalBeanDefinition(beanName);</span><br><span class="line">			<span class="comment">// 检查当前创建的 bean 定义是否为抽象 bean 定义</span></span><br><span class="line">			checkMergedBeanDefinition(mbd, beanName, args);</span><br><span class="line"></span><br><span class="line">			<span class="comment">// Guarantee initialization of beans that the current bean depends on.</span></span><br><span class="line">			<span class="comment">// 处理使用了 depends-on 注解的依赖创建 bean 实例</span></span><br><span class="line">			String[] dependsOn = mbd.getDependsOn();</span><br><span class="line">			<span class="keyword">if</span> (dependsOn != <span class="literal">null</span>) &#123;</span><br><span class="line">				<span class="keyword">for</span> (String dep : dependsOn) &#123;</span><br><span class="line">					<span class="comment">//检测是否存在depends-on循环依赖</span></span><br><span class="line">					<span class="keyword">if</span> (isDependent(beanName, dep)) &#123;</span><br><span class="line">						<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(mbd.getResourceDescription(), beanName,</span><br><span class="line">								<span class="string">&quot;Circular depends-on relationship between &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27; and &#x27;&quot;</span> + dep + <span class="string">&quot;&#x27;&quot;</span>);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="comment">//注册依赖记录</span></span><br><span class="line">					registerDependentBean(dep, beanName);</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						getBean(dep);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">catch</span> (NoSuchBeanDefinitionException ex) &#123;</span><br><span class="line">						<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(mbd.getResourceDescription(), beanName,</span><br><span class="line">								<span class="string">&quot;&#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27; depends on missing bean &#x27;&quot;</span> + dep + <span class="string">&quot;&#x27;&quot;</span>, ex);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">// Create bean instance.</span></span><br><span class="line">			<span class="comment">//创建bean实例(singleton)</span></span><br><span class="line">			<span class="keyword">if</span> (mbd.isSingleton()) &#123;</span><br><span class="line"></span><br><span class="line">				<span class="comment">// 把 beanName 和 new ObjectFactory 匿名内部类传入回调</span></span><br><span class="line">				sharedInstance = getSingleton(beanName, () -&gt; &#123;</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						<span class="keyword">return</span> createBean(beanName, mbd, args);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">						<span class="comment">// Explicitly remove instance from singleton cache: It might have been put there</span></span><br><span class="line">						<span class="comment">// eagerly by the creation process, to allow for circular reference resolution.</span></span><br><span class="line">						<span class="comment">// Also remove any beans that received a temporary reference to the bean.</span></span><br><span class="line">						destroySingleton(beanName);</span><br><span class="line">						<span class="keyword">throw</span> ex;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;);</span><br><span class="line">				beanInstance = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//创建bean实例(prototype)</span></span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (mbd.isPrototype()) &#123;</span><br><span class="line">				<span class="comment">// It&#x27;s a prototype -&gt; create a new instance.</span></span><br><span class="line">				<span class="type">Object</span> <span class="variable">prototypeInstance</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					beforePrototypeCreation(beanName);</span><br><span class="line">					prototypeInstance = createBean(beanName, mbd, args);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">finally</span> &#123;</span><br><span class="line">					afterPrototypeCreation(beanName);</span><br><span class="line">				&#125;</span><br><span class="line">				beanInstance = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//创建bean实例</span></span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="type">String</span> <span class="variable">scopeName</span> <span class="operator">=</span> mbd.getScope();</span><br><span class="line">				<span class="type">Scope</span> <span class="variable">scope</span> <span class="operator">=</span> <span class="built_in">this</span>.scopes.get(scopeName);</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					<span class="type">Object</span> <span class="variable">scopedInstance</span> <span class="operator">=</span> scope.get(beanName, () -&gt; &#123;</span><br><span class="line">						beforePrototypeCreation(beanName);</span><br><span class="line">						<span class="keyword">try</span> &#123;</span><br><span class="line">							<span class="keyword">return</span> createBean(beanName, mbd, args);</span><br><span class="line">						&#125;</span><br><span class="line">						<span class="keyword">finally</span> &#123;</span><br><span class="line">							afterPrototypeCreation(beanName);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;);</span><br><span class="line">					beanInstance = getObjectForBeanInstance(scopedInstance, name, beanName, mbd);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">catch</span> (IllegalStateException ex) &#123;</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ScopeNotActiveException</span>(beanName, scopeName, ex);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (BeansException ex) &#123;</span><br><span class="line">			cleanupAfterBeanCreationFailure(beanName);</span><br><span class="line">			<span class="keyword">throw</span> ex;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 如果需要类型转换，这里会进行操作</span></span><br><span class="line">	<span class="keyword">if</span> (requiredType != <span class="literal">null</span> &amp;&amp; bean != <span class="literal">null</span> &amp;&amp; !requiredType.isInstance(bean)) &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="keyword">return</span> getTypeConverter().convertIfNecessary(bean, requiredType);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (TypeMismatchException ex) &#123;</span><br><span class="line">			<span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</span><br><span class="line">				logger.debug(<span class="string">&quot;Failed to convert bean &#x27;&quot;</span> + name + <span class="string">&quot;&#x27; to required type &#x27;&quot;</span> +</span><br><span class="line">						ClassUtils.getQualifiedName(requiredType) + <span class="string">&quot;&#x27;&quot;</span>, ex);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanNotOfRequiredTypeException</span>(name, requiredType, bean.getClass());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;    </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回 Bean</span></span><br><span class="line">	<span class="keyword">return</span> (T) bean;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">	<span class="hljs-comment">/**
+	 * Return an instance, which may be shared or independent, of the specified bean.
+	 * <span class="hljs-doctag">@param</span> name the name of the bean to retrieve
+	 * <span class="hljs-doctag">@param</span> requiredType the required type of the bean to retrieve
+	 * <span class="hljs-doctag">@param</span> args arguments to use when creating a bean instance using explicit arguments
+	 * (only applied when creating a new instance as opposed to retrieving an existing one)
+	 * <span class="hljs-doctag">@param</span> typeCheckOnly whether the instance is obtained for a type check,
+	 * not for actual use
+	 * <span class="hljs-doctag">@return</span> an instance of the bean
+	 * <span class="hljs-doctag">@throws</span> BeansException if the bean could not be created
+	 */</span>
+	<span class="hljs-keyword">protected</span> &lt;T&gt; <span class="hljs-function">T <span class="hljs-title">doGetBean</span><span class="hljs-params">(
+			String name, @Nullable Class&lt;T&gt; requiredType, @Nullable Object[] args, <span class="hljs-keyword">boolean</span> typeCheckOnly)</span>
+			<span class="hljs-keyword">throws</span> BeansException </span>&#123;
+		<span class="hljs-comment">//处理别名name，获取规范名beanName</span>
+		<span class="hljs-comment">//处理带&amp;符的工厂(FactoryBean)beanName</span>
+		String beanName = transformedBeanName(name);
+		Object beanInstance;
+
+		<span class="hljs-comment">// Eagerly check singleton cache for manually registered singletons.</span>
+		<span class="hljs-comment">//从缓存中获取Bean实例，三级缓存解决循环依赖(singletonObjects, earlySingletonObjects, singletonFactories)</span>
+		Object sharedInstance = getSingleton(beanName);
+		<span class="hljs-comment">//args 传参其实是 null 的，但是如果 args 不为空的时候，那么意味着调用方不是希望获取 Bean，而是创建 Bean</span>
+		<span class="hljs-keyword">if</span> (sharedInstance != <span class="hljs-keyword">null</span> &amp;&amp; args == <span class="hljs-keyword">null</span>) &#123;
+			<span class="hljs-comment">//1. sharedInstance是普通的bean实例，直接返回</span>
+			<span class="hljs-comment">//2. sharedInstance是FactoryBean类型，则通过FactoryBean实现类的getObject方法获取</span>
+			beanInstance = getObjectForBeanInstance(sharedInstance, name, beanName, <span class="hljs-keyword">null</span>);
+		&#125;
+
+		<span class="hljs-keyword">else</span> &#123;
+			<span class="hljs-comment">// Fail if we're already creating this bean instance:</span>
+			<span class="hljs-comment">// We're assumably within a circular reference.</span>
+			<span class="hljs-comment">//循环依赖有三种：setter注入(singleton)，setter注入(prototype)，构造函数</span>
+			<span class="hljs-comment">//spring解决setter注入(singleton)，提前暴露创建中的bean</span>
+			<span class="hljs-keyword">if</span> (isPrototypeCurrentlyInCreation(beanName)) &#123;
+				<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException(beanName);
+			&#125;
+
+			<span class="hljs-comment">// Check if bean definition exists in this factory.</span>
+			<span class="hljs-comment">//1. 父bean工厂存在</span>
+			<span class="hljs-comment">//2. beanName不存在于当前Bean工厂，则到父工厂查找bean实例</span>
+			BeanFactory parentBeanFactory = getParentBeanFactory();
+			<span class="hljs-keyword">if</span> (parentBeanFactory != <span class="hljs-keyword">null</span> &amp;&amp; !containsBeanDefinition(beanName)) &#123;
+				<span class="hljs-comment">// Not found -&gt; check parent.</span>
+				<span class="hljs-comment">// 获取 name 对应的 beanName，如果 name 是以 &amp; 开头，则返回 &amp; + beanName</span>
+				String nameToLookup = originalBeanName(name);
+				<span class="hljs-keyword">if</span> (parentBeanFactory <span class="hljs-keyword">instanceof</span> AbstractBeanFactory abf) &#123;
+					<span class="hljs-keyword">return</span> abf.doGetBean(nameToLookup, requiredType, args, typeCheckOnly);
+				&#125;
+				<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (args != <span class="hljs-keyword">null</span>) &#123;
+					<span class="hljs-comment">// Delegation to parent with explicit args.</span>
+					<span class="hljs-keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup, args);
+				&#125;
+				<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (requiredType != <span class="hljs-keyword">null</span>) &#123;
+					<span class="hljs-comment">// No args -&gt; delegate to standard getBean method.</span>
+					<span class="hljs-keyword">return</span> parentBeanFactory.getBean(nameToLookup, requiredType);
+				&#125;
+				<span class="hljs-keyword">else</span> &#123;
+					<span class="hljs-keyword">return</span> (T) parentBeanFactory.getBean(nameToLookup);
+				&#125;
+			&#125;
+
+
+			<span class="hljs-comment">// 1. typeCheckOnly，用于判断调用 getBean 方法时，是否仅是做类型检查</span>
+        	<span class="hljs-comment">// 2. 如果不是只做类型检查，就会调用 markBeanAsCreated 进行记录</span>
+			<span class="hljs-keyword">if</span> (!typeCheckOnly) &#123;
+				markBeanAsCreated(beanName);
+			&#125;
+
+
+			<span class="hljs-comment">//创建bean</span>
+			<span class="hljs-comment">//singleton：容器中还没有创建过此bean</span>
+			<span class="hljs-comment">//prototype：每次调用都要创建一个新的bean</span>
+			<span class="hljs-keyword">try</span> &#123;
+				<span class="hljs-keyword">if</span> (requiredType != <span class="hljs-keyword">null</span>) &#123;
+					beanCreation.tag(<span class="hljs-string">"beanType"</span>, requiredType::toString);
+				&#125;
+
+
+				RootBeanDefinition mbd = getMergedLocalBeanDefinition(beanName);
+				<span class="hljs-comment">// 检查当前创建的 bean 定义是否为抽象 bean 定义</span>
+				checkMergedBeanDefinition(mbd, beanName, args);
+
+				<span class="hljs-comment">// Guarantee initialization of beans that the current bean depends on.</span>
+				<span class="hljs-comment">// 处理使用了 depends-on 注解的依赖创建 bean 实例</span>
+				String[] dependsOn = mbd.getDependsOn();
+				<span class="hljs-keyword">if</span> (dependsOn != <span class="hljs-keyword">null</span>) &#123;
+					<span class="hljs-keyword">for</span> (String dep : dependsOn) &#123;
+						<span class="hljs-comment">//检测是否存在depends-on循环依赖</span>
+						<span class="hljs-keyword">if</span> (isDependent(beanName, dep)) &#123;
+							<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+									<span class="hljs-string">"Circular depends-on relationship between '"</span> + beanName + <span class="hljs-string">"' and '"</span> + dep + <span class="hljs-string">"'"</span>);
+						&#125;
+						<span class="hljs-comment">//注册依赖记录</span>
+						registerDependentBean(dep, beanName);
+						<span class="hljs-keyword">try</span> &#123;
+							getBean(dep);
+						&#125;
+						<span class="hljs-keyword">catch</span> (NoSuchBeanDefinitionException ex) &#123;
+							<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+									<span class="hljs-string">"'"</span> + beanName + <span class="hljs-string">"' depends on missing bean '"</span> + dep + <span class="hljs-string">"'"</span>, ex);
+						&#125;
+					&#125;
+				&#125;
+
+				<span class="hljs-comment">// Create bean instance.</span>
+				<span class="hljs-comment">//创建bean实例(singleton)</span>
+				<span class="hljs-keyword">if</span> (mbd.isSingleton()) &#123;
+
+					<span class="hljs-comment">// 把 beanName 和 new ObjectFactory 匿名内部类传入回调</span>
+					sharedInstance = getSingleton(beanName, () -&gt; &#123;
+						<span class="hljs-keyword">try</span> &#123;
+							<span class="hljs-keyword">return</span> createBean(beanName, mbd, args);
+						&#125;
+						<span class="hljs-keyword">catch</span> (BeansException ex) &#123;
+							<span class="hljs-comment">// Explicitly remove instance from singleton cache: It might have been put there</span>
+							<span class="hljs-comment">// eagerly by the creation process, to allow for circular reference resolution.</span>
+							<span class="hljs-comment">// Also remove any beans that received a temporary reference to the bean.</span>
+							destroySingleton(beanName);
+							<span class="hljs-keyword">throw</span> ex;
+						&#125;
+					&#125;);
+					beanInstance = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
+				&#125;
+				<span class="hljs-comment">//创建bean实例(prototype)</span>
+				<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mbd.isPrototype()) &#123;
+					<span class="hljs-comment">// It's a prototype -&gt; create a new instance.</span>
+					Object prototypeInstance = <span class="hljs-keyword">null</span>;
+					<span class="hljs-keyword">try</span> &#123;
+						beforePrototypeCreation(beanName);
+						prototypeInstance = createBean(beanName, mbd, args);
+					&#125;
+					<span class="hljs-keyword">finally</span> &#123;
+						afterPrototypeCreation(beanName);
+					&#125;
+					beanInstance = getObjectForBeanInstance(prototypeInstance, name, beanName, mbd);
+				&#125;
+				<span class="hljs-comment">//创建bean实例</span>
+				<span class="hljs-keyword">else</span> &#123;
+					String scopeName = mbd.getScope();
+					Scope scope = <span class="hljs-keyword">this</span>.scopes.get(scopeName);
+					<span class="hljs-keyword">try</span> &#123;
+						Object scopedInstance = scope.get(beanName, () -&gt; &#123;
+							beforePrototypeCreation(beanName);
+							<span class="hljs-keyword">try</span> &#123;
+								<span class="hljs-keyword">return</span> createBean(beanName, mbd, args);
+							&#125;
+							<span class="hljs-keyword">finally</span> &#123;
+								afterPrototypeCreation(beanName);
+							&#125;
+						&#125;);
+						beanInstance = getObjectForBeanInstance(scopedInstance, name, beanName, mbd);
+					&#125;
+					<span class="hljs-keyword">catch</span> (IllegalStateException ex) &#123;
+						<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ScopeNotActiveException(beanName, scopeName, ex);
+					&#125;
+				&#125;
+			&#125;
+			<span class="hljs-keyword">catch</span> (BeansException ex) &#123;
+				cleanupAfterBeanCreationFailure(beanName);
+				<span class="hljs-keyword">throw</span> ex;
+			&#125;
+		&#125;
+
+		<span class="hljs-comment">// 如果需要类型转换，这里会进行操作</span>
+		<span class="hljs-keyword">if</span> (requiredType != <span class="hljs-keyword">null</span> &amp;&amp; bean != <span class="hljs-keyword">null</span> &amp;&amp; !requiredType.isInstance(bean)) &#123;
+			<span class="hljs-keyword">try</span> &#123;
+				<span class="hljs-keyword">return</span> getTypeConverter().convertIfNecessary(bean, requiredType);
+			&#125;
+			<span class="hljs-keyword">catch</span> (TypeMismatchException ex) &#123;
+				<span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;
+					logger.debug(<span class="hljs-string">"Failed to convert bean '"</span> + name + <span class="hljs-string">"' to required type '"</span> +
+							ClassUtils.getQualifiedName(requiredType) + <span class="hljs-string">"'"</span>, ex);
+				&#125;
+				<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanNotOfRequiredTypeException(name, requiredType, bean.getClass());
+			&#125;
+		&#125;    
+	
+	    <span class="hljs-comment">// 返回 Bean</span>
+		<span class="hljs-keyword">return</span> (T) bean;
+	&#125;
+</code></pre>
 <h1 id="2-transformedbeanname"><a class="markdownIt-Anchor" href="#2-transformedbeanname"></a> 2 transformedBeanName</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">protected</span> String <span class="title function_">transformedBeanName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.canonicalName(BeanFactoryUtils.transformedBeanName(name));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//处理FactoryBean的&amp;标记</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">transformedBeanName</span><span class="params">(String name)</span> &#123;  </span><br><span class="line">    Assert.notNull(name, <span class="string">&quot;&#x27;name&#x27; must not be null&quot;</span>);  </span><br><span class="line">  </span><br><span class="line">    String beanName;  </span><br><span class="line">    <span class="keyword">for</span>(beanName = name; beanName.startsWith(<span class="string">&quot;&amp;&quot;</span>); beanName = beanName.substring(<span class="string">&quot;&amp;&quot;</span>.length())) &#123;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> beanName;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理别名</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">canonicalName</span><span class="params">(String name)</span> &#123;  </span><br><span class="line">    <span class="type">String</span> <span class="variable">canonicalName</span> <span class="operator">=</span> name;  </span><br><span class="line">  </span><br><span class="line">    String resolvedName;  </span><br><span class="line">    <span class="keyword">do</span> &#123;  </span><br><span class="line">        resolvedName = (String)<span class="built_in">this</span>.aliasMap.get(canonicalName);  </span><br><span class="line">        <span class="keyword">if</span> (resolvedName != <span class="literal">null</span>) &#123;  </span><br><span class="line">            canonicalName = resolvedName;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">while</span>(resolvedName != <span class="literal">null</span>);  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> canonicalName;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"> <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">transformedBeanName</span><span class="hljs-params">(String name)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.canonicalName(BeanFactoryUtils.transformedBeanName(name));
+&#125;
+
+
+<span class="hljs-comment">//处理FactoryBean的&amp;标记</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">transformedBeanName</span><span class="hljs-params">(String name)</span> </span>&#123;  
+    Assert.notNull(name, <span class="hljs-string">"'name' must not be null"</span>);  
+  
+    String beanName;  
+    <span class="hljs-keyword">for</span>(beanName = name; beanName.startsWith(<span class="hljs-string">"&amp;"</span>); beanName = beanName.substring(<span class="hljs-string">"&amp;"</span>.length())) &#123;  
+    &#125;  
+  
+    <span class="hljs-keyword">return</span> beanName;  
+&#125;
+
+<span class="hljs-comment">//处理别名</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">canonicalName</span><span class="hljs-params">(String name)</span> </span>&#123;  
+    String canonicalName = name;  
+  
+    String resolvedName;  
+    <span class="hljs-keyword">do</span> &#123;  
+        resolvedName = (String)<span class="hljs-keyword">this</span>.aliasMap.get(canonicalName);  
+        <span class="hljs-keyword">if</span> (resolvedName != <span class="hljs-keyword">null</span>) &#123;  
+            canonicalName = resolvedName;  
+        &#125;  
+    &#125; <span class="hljs-keyword">while</span>(resolvedName != <span class="hljs-keyword">null</span>);  
+  
+    <span class="hljs-keyword">return</span> canonicalName;  
+&#125;
+</code></pre>
 <ul>
 <li>使用 FactoryBean 创建出的对象，会在 DefaultListableBeanFactory 初始化的时候，使用 getBean(FACTORY_BEAN_PREFIX + beanName) 给 beanName 加上 &amp; <code>(String FACTORY_BEAN_PREFIX = &quot;&amp;&quot;)</code></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">preInstantiateSingletons()&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">this</span>.isFactoryBean(beanName)) &#123;  </span><br><span class="line">    <span class="keyword">final</span> FactoryBean&lt;?&gt; factory = (FactoryBean)<span class="built_in">this</span>.getBean(<span class="string">&quot;&amp;&quot;</span> + beanName);  </span><br><span class="line">    <span class="type">boolean</span> isEagerInit;  </span><br><span class="line">    <span class="keyword">if</span> (System.getSecurityManager() != <span class="literal">null</span> &amp;&amp; factory <span class="keyword">instanceof</span> SmartFactoryBean) &#123;  </span><br><span class="line">        isEagerInit = (Boolean)AccessController.doPrivileged(<span class="keyword">new</span> <span class="title class_">PrivilegedAction</span>&lt;Boolean&gt;() &#123;  </span><br><span class="line">            <span class="keyword">public</span> Boolean <span class="title function_">run</span><span class="params">()</span> &#123;  </span><br><span class="line">                <span class="keyword">return</span> ((SmartFactoryBean)factory).isEagerInit();  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;, <span class="built_in">this</span>.getAccessControlContext());  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        isEagerInit = factory <span class="keyword">instanceof</span> SmartFactoryBean &amp;&amp; ((SmartFactoryBean)factory).isEagerInit();  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span> (isEagerInit) &#123;  </span><br><span class="line">        <span class="built_in">this</span>.getBean(beanName);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">preInstantiateSingletons()&#123;
+	<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isFactoryBean(beanName)) &#123;  
+    <span class="hljs-keyword">final</span> FactoryBean&lt;?&gt; factory = (FactoryBean)<span class="hljs-keyword">this</span>.getBean(<span class="hljs-string">"&amp;"</span> + beanName);  
+    <span class="hljs-keyword">boolean</span> isEagerInit;  
+    <span class="hljs-keyword">if</span> (System.getSecurityManager() != <span class="hljs-keyword">null</span> &amp;&amp; factory <span class="hljs-keyword">instanceof</span> SmartFactoryBean) &#123;  
+        isEagerInit = (Boolean)AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedAction&lt;Boolean&gt;() &#123;  
+            <span class="hljs-function"><span class="hljs-keyword">public</span> Boolean <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;  
+                <span class="hljs-keyword">return</span> ((SmartFactoryBean)factory).isEagerInit();  
+            &#125;  
+        &#125;, <span class="hljs-keyword">this</span>.getAccessControlContext());  
+    &#125; <span class="hljs-keyword">else</span> &#123;  
+        isEagerInit = factory <span class="hljs-keyword">instanceof</span> SmartFactoryBean &amp;&amp; ((SmartFactoryBean)factory).isEagerInit();  
+    &#125;  
+  
+    <span class="hljs-keyword">if</span> (isEagerInit) &#123;  
+        <span class="hljs-keyword">this</span>.getBean(beanName);  
+    &#125;  
+&#125;
+&#125;
+</code></pre>
 <h1 id="3-getsingleton从缓存中获取-bean-实例"><a class="markdownIt-Anchor" href="#3-getsingleton从缓存中获取-bean-实例"></a> 3 getSingleton：从缓存中获取 bean 实例</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DefaultSingletonBeanRegistry</span> <span class="keyword">extends</span> <span class="title class_">SimpleAliasRegistry</span> <span class="keyword">implements</span> <span class="title class_">SingletonBeanRegistry</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Maximum number of suppressed exceptions to preserve. */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">SUPPRESSED_EXCEPTIONS_LIMIT</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Cache of singleton objects: bean name to bean instance. */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;(<span class="number">256</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Cache of singleton factories: bean name to ObjectFactory. */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, ObjectFactory&lt;?&gt;&gt; singletonFactories = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** Cache of early singleton objects: bean name to bean instance. */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> Map&lt;String, Object&gt; earlySingletonObjects = <span class="keyword">new</span> <span class="title class_">ConcurrentHashMap</span>&lt;&gt;(<span class="number">16</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">protected</span> Object <span class="title function_">getSingleton</span><span class="params">(String beanName, <span class="type">boolean</span> allowEarlyReference)</span> &#123;  </span><br><span class="line">	<span class="comment">// 从 singletonObjects 获取实例，singletonObjects 中缓存的实例都是完全实例化好的 bean，可以直接使用</span></span><br><span class="line">    <span class="type">Object</span> <span class="variable">singletonObject</span> <span class="operator">=</span> <span class="built_in">this</span>.singletonObjects.get(beanName);  </span><br><span class="line">    <span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; <span class="built_in">this</span>.isSingletonCurrentlyInCreation(beanName)) &#123;  </span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="built_in">this</span>.singletonObjects) &#123;  </span><br><span class="line">            singletonObject = <span class="built_in">this</span>.earlySingletonObjects.get(beanName);  </span><br><span class="line">            <span class="keyword">if</span> (singletonObject == <span class="literal">null</span> &amp;&amp; allowEarlyReference) &#123;  </span><br><span class="line">                ObjectFactory&lt;?&gt; singletonFactory = (ObjectFactory)<span class="built_in">this</span>.singletonFactories.get(beanName);  </span><br><span class="line">                <span class="keyword">if</span> (singletonFactory != <span class="literal">null</span>) &#123;  </span><br><span class="line">	                <span class="comment">// 加入到三级缓存，暴漏早期对象用于解决循环依赖</span></span><br><span class="line">                    singletonObject = singletonFactory.getObject();  </span><br><span class="line">                    <span class="built_in">this</span>.earlySingletonObjects.put(beanName, singletonObject);  </span><br><span class="line">                    <span class="built_in">this</span>.singletonFactories.remove(beanName);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> singletonObject != NULL_OBJECT ? singletonObject : <span class="literal">null</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DefaultSingletonBeanRegistry</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SimpleAliasRegistry</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SingletonBeanRegistry</span> </span>&#123;
+
+	<span class="hljs-comment">/** Maximum number of suppressed exceptions to preserve. */</span>
+	<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> SUPPRESSED_EXCEPTIONS_LIMIT = <span class="hljs-number">100</span>;
+
+
+	<span class="hljs-comment">/** Cache of singleton objects: bean name to bean instance. */</span>
+	<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; singletonObjects = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-number">256</span>);
+
+	<span class="hljs-comment">/** Cache of singleton factories: bean name to ObjectFactory. */</span>
+	<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, ObjectFactory&lt;?&gt;&gt; singletonFactories = <span class="hljs-keyword">new</span> HashMap&lt;&gt;(<span class="hljs-number">16</span>);
+
+	<span class="hljs-comment">/** Cache of early singleton objects: bean name to bean instance. */</span>
+	<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; earlySingletonObjects = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-number">16</span>);
+
+	<span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">getSingleton</span><span class="hljs-params">(String beanName, <span class="hljs-keyword">boolean</span> allowEarlyReference)</span> </span>&#123;  
+	<span class="hljs-comment">// 从 singletonObjects 获取实例，singletonObjects 中缓存的实例都是完全实例化好的 bean，可以直接使用</span>
+    Object singletonObject = <span class="hljs-keyword">this</span>.singletonObjects.get(beanName);  
+    <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span> &amp;&amp; <span class="hljs-keyword">this</span>.isSingletonCurrentlyInCreation(beanName)) &#123;  
+        <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.singletonObjects) &#123;  
+            singletonObject = <span class="hljs-keyword">this</span>.earlySingletonObjects.get(beanName);  
+            <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span> &amp;&amp; allowEarlyReference) &#123;  
+                ObjectFactory&lt;?&gt; singletonFactory = (ObjectFactory)<span class="hljs-keyword">this</span>.singletonFactories.get(beanName);  
+                <span class="hljs-keyword">if</span> (singletonFactory != <span class="hljs-keyword">null</span>) &#123;  
+	                <span class="hljs-comment">// 加入到三级缓存，暴漏早期对象用于解决循环依赖</span>
+                    singletonObject = singletonFactory.getObject();  
+                    <span class="hljs-keyword">this</span>.earlySingletonObjects.put(beanName, singletonObject);  
+                    <span class="hljs-keyword">this</span>.singletonFactories.remove(beanName);  
+                &#125;  
+            &#125;  
+        &#125;  
+    &#125;  
+  
+    <span class="hljs-keyword">return</span> singletonObject != NULL_OBJECT ? singletonObject : <span class="hljs-keyword">null</span>;  
+&#125;
+
+
+&#125;
+</code></pre>
 <ul>
 <li>singletonObjects：用于存放初始化好的 bean 实例。这里的bean是已经创建完成的，该bean经历过<strong>实例化-&gt;属性填充-&gt;初始化</strong>以及各类的后置处理。</li>
 <li>earlySingletonObjects，用于存放初始化中的 bean，来解决循环依赖。</li>
@@ -323,12 +591,138 @@
 <blockquote>
 <p>AbstractBeanFactory -&gt; isDependent(beanName, dep) -&gt; DefaultSingletonBeanRegistry.class</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//isDependent(beanName, dep)</span></span><br><span class="line"><span class="keyword">protected</span> <span class="type">boolean</span> <span class="title function_">isDependent</span><span class="params">(String beanName, String dependentBeanName)</span> &#123;  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.dependentBeanMap) &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.isDependent(beanName, dependentBeanName, (Set)<span class="literal">null</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line"><span class="comment">//transitiveDependency依赖beanName</span></span><br><span class="line"><span class="comment">//如果transitiveDependency被dependentBeanName依赖</span></span><br><span class="line"><span class="comment">//又因为beanName依赖dependentBeanName</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//beanName&lt;-transitiveDependency&lt;-dependentBeanName</span></span><br><span class="line"><span class="comment">//beanName-&gt;dependentBeanName</span></span><br><span class="line"><span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isDependent</span><span class="params">(String beanName, String dependentBeanName, Set&lt;String&gt; alreadySeen)</span> &#123;  </span><br><span class="line">    <span class="keyword">if</span> (alreadySeen != <span class="literal">null</span> &amp;&amp; ((Set)alreadySeen).contains(beanName)) &#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="type">String</span> <span class="variable">canonicalName</span> <span class="operator">=</span> <span class="built_in">this</span>.canonicalName(beanName);  </span><br><span class="line">        Set&lt;String&gt; dependentBeans = (Set)<span class="built_in">this</span>.dependentBeanMap.get(canonicalName);  </span><br><span class="line">        <span class="keyword">if</span> (dependentBeans == <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (dependentBeans.contains(dependentBeanName)) &#123;  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;  </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">            <span class="type">Iterator</span> <span class="variable">var6</span> <span class="operator">=</span> dependentBeans.iterator();  </span><br><span class="line">  </span><br><span class="line">            String transitiveDependency;  </span><br><span class="line">            <span class="keyword">do</span> &#123;  </span><br><span class="line">                <span class="keyword">if</span> (!var6.hasNext()) &#123;  </span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">                &#125;  </span><br><span class="line">  </span><br><span class="line">                transitiveDependency = (String)var6.next();  </span><br><span class="line">                <span class="keyword">if</span> (alreadySeen == <span class="literal">null</span>) &#123;  </span><br><span class="line">                    alreadySeen = <span class="keyword">new</span> <span class="title class_">HashSet</span>();  </span><br><span class="line">                &#125;  </span><br><span class="line">  </span><br><span class="line">                ((Set)alreadySeen).add(beanName);  </span><br><span class="line">            &#125; <span class="keyword">while</span>(!<span class="built_in">this</span>.isDependent(transitiveDependency, dependentBeanName, (Set)alreadySeen));  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//this.registerDependentBean(dep, beanName);</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">registerDependentBean</span><span class="params">(String beanName, String dependentBeanName)</span> &#123;  </span><br><span class="line">    <span class="type">String</span> <span class="variable">canonicalName</span> <span class="operator">=</span> <span class="built_in">this</span>.canonicalName(beanName);  </span><br><span class="line">    Object dependenciesForBean;  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.dependentBeanMap) &#123;  </span><br><span class="line">        dependenciesForBean = (Set)<span class="built_in">this</span>.dependentBeanMap.get(canonicalName);  </span><br><span class="line">        <span class="keyword">if</span> (dependenciesForBean == <span class="literal">null</span>) &#123;  </span><br><span class="line">            dependenciesForBean = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>(<span class="number">8</span>);  </span><br><span class="line">            <span class="built_in">this</span>.dependentBeanMap.put(canonicalName, dependenciesForBean);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        ((Set)dependenciesForBean).add(dependentBeanName);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.dependenciesForBeanMap) &#123;  </span><br><span class="line">        dependenciesForBean = (Set)<span class="built_in">this</span>.dependenciesForBeanMap.get(dependentBeanName);  </span><br><span class="line">        <span class="keyword">if</span> (dependenciesForBean == <span class="literal">null</span>) &#123;  </span><br><span class="line">            dependenciesForBean = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>(<span class="number">8</span>);  </span><br><span class="line">            <span class="built_in">this</span>.dependenciesForBeanMap.put(dependentBeanName, dependenciesForBean);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        ((Set)dependenciesForBean).add(canonicalName);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">//isDependent(beanName, dep)</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isDependent</span><span class="hljs-params">(String beanName, String dependentBeanName)</span> </span>&#123;  
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.dependentBeanMap) &#123;  
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.isDependent(beanName, dependentBeanName, (Set)<span class="hljs-keyword">null</span>);  
+    &#125;  
+&#125;  
+
+<span class="hljs-comment">//transitiveDependency依赖beanName</span>
+<span class="hljs-comment">//如果transitiveDependency被dependentBeanName依赖</span>
+<span class="hljs-comment">//又因为beanName依赖dependentBeanName</span>
+
+<span class="hljs-comment">//beanName&lt;-transitiveDependency&lt;-dependentBeanName</span>
+<span class="hljs-comment">//beanName-&gt;dependentBeanName</span>
+<span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isDependent</span><span class="hljs-params">(String beanName, String dependentBeanName, Set&lt;String&gt; alreadySeen)</span> </span>&#123;  
+    <span class="hljs-keyword">if</span> (alreadySeen != <span class="hljs-keyword">null</span> &amp;&amp; ((Set)alreadySeen).contains(beanName)) &#123;  
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;  
+    &#125; <span class="hljs-keyword">else</span> &#123;  
+        String canonicalName = <span class="hljs-keyword">this</span>.canonicalName(beanName);  
+        Set&lt;String&gt; dependentBeans = (Set)<span class="hljs-keyword">this</span>.dependentBeanMap.get(canonicalName);  
+        <span class="hljs-keyword">if</span> (dependentBeans == <span class="hljs-keyword">null</span>) &#123;  
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;  
+        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (dependentBeans.contains(dependentBeanName)) &#123;  
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;  
+        &#125; <span class="hljs-keyword">else</span> &#123;  
+            Iterator var6 = dependentBeans.iterator();  
+  
+            String transitiveDependency;  
+            <span class="hljs-keyword">do</span> &#123;  
+                <span class="hljs-keyword">if</span> (!var6.hasNext()) &#123;  
+                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;  
+                &#125;  
+  
+                transitiveDependency = (String)var6.next();  
+                <span class="hljs-keyword">if</span> (alreadySeen == <span class="hljs-keyword">null</span>) &#123;  
+                    alreadySeen = <span class="hljs-keyword">new</span> HashSet();  
+                &#125;  
+  
+                ((Set)alreadySeen).add(beanName);  
+            &#125; <span class="hljs-keyword">while</span>(!<span class="hljs-keyword">this</span>.isDependent(transitiveDependency, dependentBeanName, (Set)alreadySeen));  
+  
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;        &#125;  
+    &#125;  
+&#125;
+
+<span class="hljs-comment">//this.registerDependentBean(dep, beanName);</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">registerDependentBean</span><span class="hljs-params">(String beanName, String dependentBeanName)</span> </span>&#123;  
+    String canonicalName = <span class="hljs-keyword">this</span>.canonicalName(beanName);  
+    Object dependenciesForBean;  
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.dependentBeanMap) &#123;  
+        dependenciesForBean = (Set)<span class="hljs-keyword">this</span>.dependentBeanMap.get(canonicalName);  
+        <span class="hljs-keyword">if</span> (dependenciesForBean == <span class="hljs-keyword">null</span>) &#123;  
+            dependenciesForBean = <span class="hljs-keyword">new</span> LinkedHashSet(<span class="hljs-number">8</span>);  
+            <span class="hljs-keyword">this</span>.dependentBeanMap.put(canonicalName, dependenciesForBean);  
+        &#125;  
+  
+        ((Set)dependenciesForBean).add(dependentBeanName);  
+    &#125;  
+  
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.dependenciesForBeanMap) &#123;  
+        dependenciesForBean = (Set)<span class="hljs-keyword">this</span>.dependenciesForBeanMap.get(dependentBeanName);  
+        <span class="hljs-keyword">if</span> (dependenciesForBean == <span class="hljs-keyword">null</span>) &#123;  
+            dependenciesForBean = <span class="hljs-keyword">new</span> LinkedHashSet(<span class="hljs-number">8</span>);  
+            <span class="hljs-keyword">this</span>.dependenciesForBeanMap.put(dependentBeanName, dependenciesForBean);  
+        &#125;  
+  
+        ((Set)dependenciesForBean).add(canonicalName);  
+    &#125;  
+&#125;
+</code></pre>
 <p>dependentBeanMap：依赖bean的map，即key是被依赖的bean。记录一个bean被多少bean依赖；（该bean被多少bean当做成员变量用@Resource、@Autowired修饰）<br />
 dependenciesForBeanMap：bean的依赖，即value是被依赖的bean。记录一个bean依赖了多少bean；（通俗点：一个bean里面有多少个@Atuwowired、@Resource）<br />
 <a href="https://segmentfault.com/a/1190000041468353">java - dependentBeanMap和dependenciesForBeanMap的区别 - 个人文章 - SegmentFault 思否</a></p>
 <h1 id="5-getsingleton获取单实例bean"><a class="markdownIt-Anchor" href="#5-getsingleton获取单实例bean"></a> 5 getSingleton：获取单实例bean</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (mbd.isSingleton()) &#123;  </span><br><span class="line">    sharedInstance = <span class="built_in">this</span>.getSingleton(beanName, <span class="keyword">new</span> <span class="title class_">ObjectFactory</span>&lt;Object&gt;() &#123;  </span><br><span class="line">        <span class="keyword">public</span> Object <span class="title function_">getObject</span><span class="params">()</span> <span class="keyword">throws</span> BeansException &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                <span class="keyword">return</span> AbstractBeanFactory.<span class="built_in">this</span>.createBean(beanName, mbd, args);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (BeansException var2) &#123;  </span><br><span class="line">                AbstractBeanFactory.<span class="built_in">this</span>.destroySingleton(beanName);  </span><br><span class="line">                <span class="keyword">throw</span> var2;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;);  </span><br><span class="line">    bean = <span class="built_in">this</span>.getObjectForBeanInstance(sharedInstance, name, beanName, mbd);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Object <span class="title function_">getSingleton</span><span class="params">(String beanName, ObjectFactory&lt;?&gt; singletonFactory)</span> &#123;  </span><br><span class="line">    Assert.notNull(beanName, <span class="string">&quot;&#x27;beanName&#x27; must not be null&quot;</span>);  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.singletonObjects) &#123;  </span><br><span class="line">        <span class="type">Object</span> <span class="variable">singletonObject</span> <span class="operator">=</span> <span class="built_in">this</span>.singletonObjects.get(beanName);  </span><br><span class="line">        <span class="keyword">if</span> (singletonObject == <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">this</span>.singletonsCurrentlyInDestruction) &#123;  </span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationNotAllowedException</span>();  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="built_in">this</span>.beforeSingletonCreation(beanName);  </span><br><span class="line">            <span class="type">boolean</span> <span class="variable">newSingleton</span> <span class="operator">=</span> <span class="literal">false</span>;  </span><br><span class="line">            <span class="type">boolean</span> <span class="variable">recordSuppressedExceptions</span> <span class="operator">=</span> <span class="built_in">this</span>.suppressedExceptions == <span class="literal">null</span>;  </span><br><span class="line">            <span class="keyword">if</span> (recordSuppressedExceptions) &#123;  </span><br><span class="line">                <span class="built_in">this</span>.suppressedExceptions = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>();  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                singletonObject = singletonFactory.getObject();  </span><br><span class="line">                newSingleton = <span class="literal">true</span>;  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (IllegalStateException var16) &#123;  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (BeanCreationException var17) &#123;  </span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;  </span><br><span class="line">                <span class="built_in">this</span>.afterSingletonCreation(beanName);  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (newSingleton) &#123;  </span><br><span class="line">                <span class="built_in">this</span>.addSingleton(beanName, singletonObject);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">return</span> singletonObject != NULL_OBJECT ? singletonObject : <span class="literal">null</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建好的bean单例加入singletonObjects</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">addSingleton</span><span class="params">(String beanName, Object singletonObject)</span> &#123;  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.singletonObjects) &#123;  </span><br><span class="line">        <span class="built_in">this</span>.singletonObjects.put(beanName, singletonObject != <span class="literal">null</span> ? singletonObject : NULL_OBJECT);  </span><br><span class="line">        <span class="built_in">this</span>.singletonFactories.remove(beanName);  </span><br><span class="line">        <span class="built_in">this</span>.earlySingletonObjects.remove(beanName);  </span><br><span class="line">        <span class="built_in">this</span>.registeredSingletons.add(beanName);  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">if</span> (mbd.isSingleton()) &#123;  
+    sharedInstance = <span class="hljs-keyword">this</span>.getSingleton(beanName, <span class="hljs-keyword">new</span> ObjectFactory&lt;Object&gt;() &#123;  
+        <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getObject</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> BeansException </span>&#123;  
+            <span class="hljs-keyword">try</span> &#123;  
+                <span class="hljs-keyword">return</span> AbstractBeanFactory.<span class="hljs-keyword">this</span>.createBean(beanName, mbd, args);  
+            &#125; <span class="hljs-keyword">catch</span> (BeansException var2) &#123;  
+                AbstractBeanFactory.<span class="hljs-keyword">this</span>.destroySingleton(beanName);  
+                <span class="hljs-keyword">throw</span> var2;  
+            &#125;  
+        &#125;  
+    &#125;);  
+    bean = <span class="hljs-keyword">this</span>.getObjectForBeanInstance(sharedInstance, name, beanName, mbd);  
+&#125;
+
+
+<span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">getSingleton</span><span class="hljs-params">(String beanName, ObjectFactory&lt;?&gt; singletonFactory)</span> </span>&#123;  
+    Assert.notNull(beanName, <span class="hljs-string">"'beanName' must not be null"</span>);  
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.singletonObjects) &#123;  
+        Object singletonObject = <span class="hljs-keyword">this</span>.singletonObjects.get(beanName);  
+        <span class="hljs-keyword">if</span> (singletonObject == <span class="hljs-keyword">null</span>) &#123;  
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.singletonsCurrentlyInDestruction) &#123;  
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationNotAllowedException();  
+            &#125;  
+  
+            <span class="hljs-keyword">this</span>.beforeSingletonCreation(beanName);  
+            <span class="hljs-keyword">boolean</span> newSingleton = <span class="hljs-keyword">false</span>;  
+            <span class="hljs-keyword">boolean</span> recordSuppressedExceptions = <span class="hljs-keyword">this</span>.suppressedExceptions == <span class="hljs-keyword">null</span>;  
+            <span class="hljs-keyword">if</span> (recordSuppressedExceptions) &#123;  
+                <span class="hljs-keyword">this</span>.suppressedExceptions = <span class="hljs-keyword">new</span> LinkedHashSet();  
+            &#125;  
+  
+            <span class="hljs-keyword">try</span> &#123;  
+                singletonObject = singletonFactory.getObject();  
+                newSingleton = <span class="hljs-keyword">true</span>;  
+            &#125; <span class="hljs-keyword">catch</span> (IllegalStateException var16) &#123;  
+            &#125; <span class="hljs-keyword">catch</span> (BeanCreationException var17) &#123;  
+            &#125; <span class="hljs-keyword">finally</span> &#123;  
+                <span class="hljs-keyword">this</span>.afterSingletonCreation(beanName);  
+            &#125;  
+  
+            <span class="hljs-keyword">if</span> (newSingleton) &#123;  
+                <span class="hljs-keyword">this</span>.addSingleton(beanName, singletonObject);  
+            &#125;  
+        &#125;  
+  
+        <span class="hljs-keyword">return</span> singletonObject != NULL_OBJECT ? singletonObject : <span class="hljs-keyword">null</span>;  
+    &#125;  
+&#125;
+
+<span class="hljs-comment">//创建好的bean单例加入singletonObjects</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addSingleton</span><span class="hljs-params">(String beanName, Object singletonObject)</span> </span>&#123;  
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.singletonObjects) &#123;  
+        <span class="hljs-keyword">this</span>.singletonObjects.put(beanName, singletonObject != <span class="hljs-keyword">null</span> ? singletonObject : NULL_OBJECT);  
+        <span class="hljs-keyword">this</span>.singletonFactories.remove(beanName);  
+        <span class="hljs-keyword">this</span>.earlySingletonObjects.remove(beanName);  
+        <span class="hljs-keyword">this</span>.registeredSingletons.add(beanName);  
+    &#125;  
+&#125;
+</code></pre>
 <ul>
 <li>this.singletonObjects.get(beanName)，先尝试从缓存池中获取对象，没有就继续往下执行</li>
 <li>beforeSingletonCreation(beanName)，标记当前 bean 被创建，如果有构造函数注入的循环依赖会报错</li>
@@ -338,11 +732,225 @@ dependenciesForBeanMap：bean的依赖，即value是被依赖的bean。记录一
 </ul>
 <h1 id="6-factorybean-中获取-bean-实例"><a class="markdownIt-Anchor" href="#6-factorybean-中获取-bean-实例"></a> 6 FactoryBean 中获取 bean 实例</h1>
 <p>getObjectForBeanInstance-&gt;getObjectFromFactoryBean</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> Object <span class="title function_">getObjectFromFactoryBean</span><span class="params">(FactoryBean&lt;?&gt; factory, String beanName, <span class="type">boolean</span> shouldPostProcess)</span> &#123;  </span><br><span class="line">	<span class="comment">//单例</span></span><br><span class="line">    <span class="keyword">if</span> (factory.isSingleton() &amp;&amp; <span class="built_in">this</span>.containsSingleton(beanName)) &#123;  </span><br><span class="line">        <span class="keyword">synchronized</span>(<span class="built_in">this</span>.getSingletonMutex()) &#123;  </span><br><span class="line">            <span class="type">Object</span> <span class="variable">object</span> <span class="operator">=</span> <span class="built_in">this</span>.factoryBeanObjectCache.get(beanName);  </span><br><span class="line">            <span class="keyword">if</span> (object == <span class="literal">null</span>) &#123;  </span><br><span class="line">                object = <span class="built_in">this</span>.doGetObjectFromFactoryBean(factory, beanName);  </span><br><span class="line">                <span class="type">Object</span> <span class="variable">alreadyThere</span> <span class="operator">=</span> <span class="built_in">this</span>.factoryBeanObjectCache.get(beanName);  </span><br><span class="line">                <span class="keyword">if</span> (alreadyThere != <span class="literal">null</span>) &#123;  </span><br><span class="line">                    object = alreadyThere;  </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                    <span class="keyword">if</span> (object != <span class="literal">null</span> &amp;&amp; shouldPostProcess) &#123;  </span><br><span class="line">                        <span class="keyword">if</span> (<span class="built_in">this</span>.isSingletonCurrentlyInCreation(beanName)) &#123;  </span><br><span class="line">                            <span class="keyword">return</span> object;  </span><br><span class="line">                        &#125;  </span><br><span class="line">  </span><br><span class="line">                        <span class="built_in">this</span>.beforeSingletonCreation(beanName);  </span><br><span class="line">  </span><br><span class="line">                        <span class="keyword">try</span> &#123;  </span><br><span class="line">                            object = <span class="built_in">this</span>.postProcessObjectFromFactoryBean(object, beanName);  </span><br><span class="line">                        &#125; <span class="keyword">catch</span> (Throwable var14) &#123;  </span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(beanName, <span class="string">&quot;Post-processing of FactoryBean&#x27;s singleton object failed&quot;</span>, var14);  </span><br><span class="line">                        &#125; <span class="keyword">finally</span> &#123;  </span><br><span class="line">                            <span class="built_in">this</span>.afterSingletonCreation(beanName);  </span><br><span class="line">                        &#125;  </span><br><span class="line">                    &#125;  </span><br><span class="line">  </span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">this</span>.containsSingleton(beanName)) &#123;  </span><br><span class="line">                        <span class="built_in">this</span>.factoryBeanObjectCache.put(beanName, object != <span class="literal">null</span> ? object : NULL_OBJECT);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">return</span> object != NULL_OBJECT ? object : <span class="literal">null</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">//非单例</span></span><br><span class="line">    <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="type">Object</span> <span class="variable">object</span> <span class="operator">=</span> <span class="built_in">this</span>.doGetObjectFromFactoryBean(factory, beanName);  </span><br><span class="line">        <span class="keyword">if</span> (object != <span class="literal">null</span> &amp;&amp; shouldPostProcess) &#123;  </span><br><span class="line">            <span class="keyword">try</span> &#123;  </span><br><span class="line">                object = <span class="built_in">this</span>.postProcessObjectFromFactoryBean(object, beanName);  </span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable var17) &#123;  </span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(beanName, <span class="string">&quot;Post-processing of FactoryBean&#x27;s object failed&quot;</span>, var17);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">return</span> object;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Object <span class="title function_">doGetObjectFromFactoryBean</span><span class="params">(<span class="keyword">final</span> FactoryBean&lt;?&gt; factory, String beanName)</span> <span class="keyword">throws</span> BeanCreationException &#123;</span><br><span class="line">        Object object;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    object = AccessController.doPrivileged(<span class="keyword">new</span> <span class="title class_">PrivilegedExceptionAction</span>&lt;Object&gt;() &#123;</span><br><span class="line">                        <span class="keyword">public</span> Object <span class="title function_">run</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                            <span class="keyword">return</span> factory.getObject();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;, acc);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (PrivilegedActionException var6) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> var6.getException();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                object = factory.getObject();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (object == <span class="literal">null</span> &amp;&amp; <span class="built_in">this</span>.isSingletonCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCurrentlyInCreationException</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> object;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">getObjectFromFactoryBean</span><span class="hljs-params">(FactoryBean&lt;?&gt; factory, String beanName, <span class="hljs-keyword">boolean</span> shouldPostProcess)</span> </span>&#123;  
+	<span class="hljs-comment">//单例</span>
+    <span class="hljs-keyword">if</span> (factory.isSingleton() &amp;&amp; <span class="hljs-keyword">this</span>.containsSingleton(beanName)) &#123;  
+        <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.getSingletonMutex()) &#123;  
+            Object object = <span class="hljs-keyword">this</span>.factoryBeanObjectCache.get(beanName);  
+            <span class="hljs-keyword">if</span> (object == <span class="hljs-keyword">null</span>) &#123;  
+                object = <span class="hljs-keyword">this</span>.doGetObjectFromFactoryBean(factory, beanName);  
+                Object alreadyThere = <span class="hljs-keyword">this</span>.factoryBeanObjectCache.get(beanName);  
+                <span class="hljs-keyword">if</span> (alreadyThere != <span class="hljs-keyword">null</span>) &#123;  
+                    object = alreadyThere;  
+                &#125; <span class="hljs-keyword">else</span> &#123;  
+                    <span class="hljs-keyword">if</span> (object != <span class="hljs-keyword">null</span> &amp;&amp; shouldPostProcess) &#123;  
+                        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.isSingletonCurrentlyInCreation(beanName)) &#123;  
+                            <span class="hljs-keyword">return</span> object;  
+                        &#125;  
+  
+                        <span class="hljs-keyword">this</span>.beforeSingletonCreation(beanName);  
+  
+                        <span class="hljs-keyword">try</span> &#123;  
+                            object = <span class="hljs-keyword">this</span>.postProcessObjectFromFactoryBean(object, beanName);  
+                        &#125; <span class="hljs-keyword">catch</span> (Throwable var14) &#123;  
+                            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName, <span class="hljs-string">"Post-processing of FactoryBean's singleton object failed"</span>, var14);  
+                        &#125; <span class="hljs-keyword">finally</span> &#123;  
+                            <span class="hljs-keyword">this</span>.afterSingletonCreation(beanName);  
+                        &#125;  
+                    &#125;  
+  
+                    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.containsSingleton(beanName)) &#123;  
+                        <span class="hljs-keyword">this</span>.factoryBeanObjectCache.put(beanName, object != <span class="hljs-keyword">null</span> ? object : NULL_OBJECT);  
+                    &#125;  
+                &#125;  
+            &#125;  
+  
+            <span class="hljs-keyword">return</span> object != NULL_OBJECT ? object : <span class="hljs-keyword">null</span>;  
+        &#125;  
+    &#125; 
+    <span class="hljs-comment">//非单例</span>
+    <span class="hljs-keyword">else</span> &#123;  
+        Object object = <span class="hljs-keyword">this</span>.doGetObjectFromFactoryBean(factory, beanName);  
+        <span class="hljs-keyword">if</span> (object != <span class="hljs-keyword">null</span> &amp;&amp; shouldPostProcess) &#123;  
+            <span class="hljs-keyword">try</span> &#123;  
+                object = <span class="hljs-keyword">this</span>.postProcessObjectFromFactoryBean(object, beanName);  
+            &#125; <span class="hljs-keyword">catch</span> (Throwable var17) &#123;  
+                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(beanName, <span class="hljs-string">"Post-processing of FactoryBean's object failed"</span>, var17);  
+            &#125;  
+        &#125;  
+  
+        <span class="hljs-keyword">return</span> object;  
+    &#125;  
+&#125;
+
+
+  <span class="hljs-function"><span class="hljs-keyword">private</span> Object <span class="hljs-title">doGetObjectFromFactoryBean</span><span class="hljs-params">(<span class="hljs-keyword">final</span> FactoryBean&lt;?&gt; factory, String beanName)</span> <span class="hljs-keyword">throws</span> BeanCreationException </span>&#123;
+        Object object;
+        <span class="hljs-keyword">try</span> &#123;
+                <span class="hljs-keyword">try</span> &#123;
+                    object = AccessController.doPrivileged(<span class="hljs-keyword">new</span> PrivilegedExceptionAction&lt;Object&gt;() &#123;
+                        <span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">run</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;
+                            <span class="hljs-keyword">return</span> factory.getObject();
+                        &#125;
+                    &#125;, acc);
+                &#125; <span class="hljs-keyword">catch</span> (PrivilegedActionException var6) &#123;
+                    <span class="hljs-keyword">throw</span> var6.getException();
+                &#125;
+            &#125; <span class="hljs-keyword">else</span> &#123;
+                object = factory.getObject();
+            &#125;
+        &#125; 
+
+        <span class="hljs-keyword">if</span> (object == <span class="hljs-keyword">null</span> &amp;&amp; <span class="hljs-keyword">this</span>.isSingletonCurrentlyInCreation(beanName)) &#123;
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException();
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-keyword">return</span> object;
+        &#125;
+    &#125;
+</code></pre>
 <h1 id="7-createbean"><a class="markdownIt-Anchor" href="#7-createbean"></a> 7 createBean</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> Object <span class="title function_">createBean</span><span class="params">(String beanName, RootBeanDefinition mbd, Object[] args)</span> <span class="keyword">throws</span> BeanCreationException &#123;  </span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.logger.isDebugEnabled()) &#123;  </span><br><span class="line">        <span class="built_in">this</span>.logger.debug(<span class="string">&quot;Creating instance of bean &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27;&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="type">RootBeanDefinition</span> <span class="variable">mbdToUse</span> <span class="operator">=</span> mbd;  </span><br><span class="line">    Class&lt;?&gt; resolvedClass = <span class="built_in">this</span>.resolveBeanClass(mbd, beanName, <span class="keyword">new</span> <span class="title class_">Class</span>[<span class="number">0</span>]);  </span><br><span class="line">    <span class="keyword">if</span> (resolvedClass != <span class="literal">null</span> &amp;&amp; !mbd.hasBeanClass() &amp;&amp; mbd.getBeanClassName() != <span class="literal">null</span>) &#123;  </span><br><span class="line">        mbdToUse = <span class="keyword">new</span> <span class="title class_">RootBeanDefinition</span>(mbd);  </span><br><span class="line">        mbdToUse.setBeanClass(resolvedClass);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">try</span> &#123;  </span><br><span class="line">        mbdToUse.prepareMethodOverrides();  </span><br><span class="line">    &#125; <span class="keyword">catch</span> (BeanDefinitionValidationException var7) &#123;  </span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanDefinitionStoreException</span>(mbdToUse.getResourceDescription(), beanName, <span class="string">&quot;Validation of method overrides failed&quot;</span>, var7);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    Object beanInstance;  </span><br><span class="line">    <span class="keyword">try</span> &#123;  </span><br><span class="line">        beanInstance = <span class="built_in">this</span>.resolveBeforeInstantiation(beanName, mbdToUse);  </span><br><span class="line">        <span class="keyword">if</span> (beanInstance != <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="keyword">return</span> beanInstance;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">catch</span> (Throwable var8) &#123;  </span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(mbdToUse.getResourceDescription(), beanName, <span class="string">&quot;BeanPostProcessor before instantiation of bean failed&quot;</span>, var8);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    beanInstance = <span class="built_in">this</span>.doCreateBean(beanName, mbdToUse, args);  </span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.logger.isDebugEnabled()) &#123;  </span><br><span class="line">        <span class="built_in">this</span>.logger.debug(<span class="string">&quot;Finished creating instance of bean &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27;&quot;</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> beanInstance;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">createBean</span><span class="hljs-params">(String beanName, RootBeanDefinition mbd, Object[] args)</span> <span class="hljs-keyword">throws</span> BeanCreationException </span>&#123;  
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logger.isDebugEnabled()) &#123;  
+        <span class="hljs-keyword">this</span>.logger.debug(<span class="hljs-string">"Creating instance of bean '"</span> + beanName + <span class="hljs-string">"'"</span>);  
+    &#125;  
+  
+    RootBeanDefinition mbdToUse = mbd;  
+    Class&lt;?&gt; resolvedClass = <span class="hljs-keyword">this</span>.resolveBeanClass(mbd, beanName, <span class="hljs-keyword">new</span> Class[<span class="hljs-number">0</span>]);  
+    <span class="hljs-keyword">if</span> (resolvedClass != <span class="hljs-keyword">null</span> &amp;&amp; !mbd.hasBeanClass() &amp;&amp; mbd.getBeanClassName() != <span class="hljs-keyword">null</span>) &#123;  
+        mbdToUse = <span class="hljs-keyword">new</span> RootBeanDefinition(mbd);  
+        mbdToUse.setBeanClass(resolvedClass);  
+    &#125;  
+  
+    <span class="hljs-keyword">try</span> &#123;  
+        mbdToUse.prepareMethodOverrides();  
+    &#125; <span class="hljs-keyword">catch</span> (BeanDefinitionValidationException var7) &#123;  
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(mbdToUse.getResourceDescription(), beanName, <span class="hljs-string">"Validation of method overrides failed"</span>, var7);  
+    &#125;  
+  
+    Object beanInstance;  
+    <span class="hljs-keyword">try</span> &#123;  
+        beanInstance = <span class="hljs-keyword">this</span>.resolveBeforeInstantiation(beanName, mbdToUse);  
+        <span class="hljs-keyword">if</span> (beanInstance != <span class="hljs-keyword">null</span>) &#123;  
+            <span class="hljs-keyword">return</span> beanInstance;  
+        &#125;  
+    &#125; <span class="hljs-keyword">catch</span> (Throwable var8) &#123;  
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbdToUse.getResourceDescription(), beanName, <span class="hljs-string">"BeanPostProcessor before instantiation of bean failed"</span>, var8);  
+    &#125;  
+  
+    beanInstance = <span class="hljs-keyword">this</span>.doCreateBean(beanName, mbdToUse, args);  
+    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logger.isDebugEnabled()) &#123;  
+        <span class="hljs-keyword">this</span>.logger.debug(<span class="hljs-string">"Finished creating instance of bean '"</span> + beanName + <span class="hljs-string">"'"</span>);  
+    &#125;  
+  
+    <span class="hljs-keyword">return</span> beanInstance;  
+&#125;
+</code></pre>
 <h1 id="8-docreatebean"><a class="markdownIt-Anchor" href="#8-docreatebean"></a> 8 doCreateBean</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Actually create the specified bean. Pre-creation processing has already happened</span></span><br><span class="line"><span class="comment">	 * at this point, e.g. checking &#123;<span class="doctag">@code</span> postProcessBeforeInstantiation&#125; callbacks.</span></span><br><span class="line"><span class="comment">	 * &lt;p&gt;Differentiates between default bean instantiation, use of a</span></span><br><span class="line"><span class="comment">	 * factory method, and autowiring a constructor.</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> beanName the name of the bean</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> mbd the merged bean definition for the bean</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> args explicit arguments to use for constructor or factory method invocation</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span> a new instance of the bean</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@throws</span> BeanCreationException if the bean could not be created</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> #instantiateBean</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> #instantiateUsingFactoryMethod</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@see</span> #autowireConstructor</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">protected</span> Object <span class="title function_">doCreateBean</span><span class="params">(String beanName, RootBeanDefinition mbd, <span class="meta">@Nullable</span> Object[] args)</span></span><br><span class="line">			<span class="keyword">throws</span> BeanCreationException &#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Instantiate the bean.</span></span><br><span class="line">		<span class="type">BeanWrapper</span> <span class="variable">instanceWrapper</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">if</span> (mbd.isSingleton()) &#123;</span><br><span class="line">			instanceWrapper = <span class="built_in">this</span>.factoryBeanInstanceCache.remove(beanName);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (instanceWrapper == <span class="literal">null</span>) &#123;</span><br><span class="line">			instanceWrapper = createBeanInstance(beanName, mbd, args);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">Object</span> <span class="variable">bean</span> <span class="operator">=</span> instanceWrapper.getWrappedInstance();</span><br><span class="line">		Class&lt;?&gt; beanType = instanceWrapper.getWrappedClass();</span><br><span class="line">		<span class="keyword">if</span> (beanType != NullBean.class) &#123;</span><br><span class="line">			mbd.resolvedTargetType = beanType;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Allow post-processors to modify the merged bean definition.</span></span><br><span class="line">		<span class="keyword">synchronized</span> (mbd.postProcessingLock) &#123;</span><br><span class="line">			<span class="keyword">if</span> (!mbd.postProcessed) &#123;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(mbd.getResourceDescription(), beanName,</span><br><span class="line">							<span class="string">&quot;Post-processing of merged bean definition failed&quot;</span>, ex);</span><br><span class="line">				&#125;</span><br><span class="line">				mbd.markAsPostProcessed();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Eagerly cache singletons to be able to resolve circular references</span></span><br><span class="line">		<span class="comment">// even when triggered by lifecycle interfaces like BeanFactoryAware.</span></span><br><span class="line">		<span class="type">boolean</span> <span class="variable">earlySingletonExposure</span> <span class="operator">=</span> (mbd.isSingleton() &amp;&amp; <span class="built_in">this</span>.allowCircularReferences &amp;&amp;</span><br><span class="line">				isSingletonCurrentlyInCreation(beanName));</span><br><span class="line">		<span class="keyword">if</span> (earlySingletonExposure) &#123;</span><br><span class="line">			<span class="keyword">if</span> (logger.isTraceEnabled()) &#123;</span><br><span class="line">				logger.trace(<span class="string">&quot;Eagerly caching bean &#x27;&quot;</span> + beanName +</span><br><span class="line">						<span class="string">&quot;&#x27; to allow for resolving potential circular references&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			addSingletonFactory(beanName, () -&gt; getEarlyBeanReference(beanName, mbd, bean));</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Initialize the bean instance.</span></span><br><span class="line">		<span class="type">Object</span> <span class="variable">exposedObject</span> <span class="operator">=</span> bean;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			populateBean(beanName, mbd, instanceWrapper);</span><br><span class="line">			exposedObject = initializeBean(beanName, exposedObject, mbd);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (Throwable ex) &#123;</span><br><span class="line">			<span class="keyword">if</span> (ex <span class="keyword">instanceof</span> BeanCreationException bce &amp;&amp; beanName.equals(bce.getBeanName())) &#123;</span><br><span class="line">				<span class="keyword">throw</span> bce;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(mbd.getResourceDescription(), beanName, ex.getMessage(), ex);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (earlySingletonExposure) &#123;</span><br><span class="line">			<span class="type">Object</span> <span class="variable">earlySingletonReference</span> <span class="operator">=</span> getSingleton(beanName, <span class="literal">false</span>);</span><br><span class="line">			<span class="keyword">if</span> (earlySingletonReference != <span class="literal">null</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (exposedObject == bean) &#123;</span><br><span class="line">					exposedObject = earlySingletonReference;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">this</span>.allowRawInjectionDespiteWrapping &amp;&amp; hasDependentBean(beanName)) &#123;</span><br><span class="line">					String[] dependentBeans = getDependentBeans(beanName);</span><br><span class="line">					Set&lt;String&gt; actualDependentBeans = <span class="keyword">new</span> <span class="title class_">LinkedHashSet</span>&lt;&gt;(dependentBeans.length);</span><br><span class="line">					<span class="keyword">for</span> (String dependentBean : dependentBeans) &#123;</span><br><span class="line">						<span class="keyword">if</span> (!removeSingletonIfCreatedForTypeCheckOnly(dependentBean)) &#123;</span><br><span class="line">							actualDependentBeans.add(dependentBean);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span> (!actualDependentBeans.isEmpty()) &#123;</span><br><span class="line">						<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCurrentlyInCreationException</span>();</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Register bean as disposable.</span></span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			registerDisposableBeanIfNecessary(beanName, bean, mbd);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">catch</span> (BeanDefinitionValidationException ex) &#123;</span><br><span class="line">			<span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanCreationException</span>(</span><br><span class="line">					mbd.getResourceDescription(), beanName, <span class="string">&quot;Invalid destruction signature&quot;</span>, ex);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> exposedObject;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">/**
+	 * Actually create the specified bean. Pre-creation processing has already happened
+	 * at this point, e.g. checking &#123;<span class="hljs-doctag">@code</span> postProcessBeforeInstantiation&#125; callbacks.
+	 * &lt;p&gt;Differentiates between default bean instantiation, use of a
+	 * factory method, and autowiring a constructor.
+	 * <span class="hljs-doctag">@param</span> beanName the name of the bean
+	 * <span class="hljs-doctag">@param</span> mbd the merged bean definition for the bean
+	 * <span class="hljs-doctag">@param</span> args explicit arguments to use for constructor or factory method invocation
+	 * <span class="hljs-doctag">@return</span> a new instance of the bean
+	 * <span class="hljs-doctag">@throws</span> BeanCreationException if the bean could not be created
+	 * <span class="hljs-doctag">@see</span> #instantiateBean
+	 * <span class="hljs-doctag">@see</span> #instantiateUsingFactoryMethod
+	 * <span class="hljs-doctag">@see</span> #autowireConstructor
+	 */</span>
+	<span class="hljs-function"><span class="hljs-keyword">protected</span> Object <span class="hljs-title">doCreateBean</span><span class="hljs-params">(String beanName, RootBeanDefinition mbd, @Nullable Object[] args)</span>
+			<span class="hljs-keyword">throws</span> BeanCreationException </span>&#123;
+
+		<span class="hljs-comment">// Instantiate the bean.</span>
+		BeanWrapper instanceWrapper = <span class="hljs-keyword">null</span>;
+		<span class="hljs-keyword">if</span> (mbd.isSingleton()) &#123;
+			instanceWrapper = <span class="hljs-keyword">this</span>.factoryBeanInstanceCache.remove(beanName);
+		&#125;
+		<span class="hljs-keyword">if</span> (instanceWrapper == <span class="hljs-keyword">null</span>) &#123;
+			instanceWrapper = createBeanInstance(beanName, mbd, args);
+		&#125;
+		Object bean = instanceWrapper.getWrappedInstance();
+		Class&lt;?&gt; beanType = instanceWrapper.getWrappedClass();
+		<span class="hljs-keyword">if</span> (beanType != NullBean<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>&#123;
+			mbd.resolvedTargetType = beanType;
+		&#125;
+
+		<span class="hljs-comment">// Allow post-processors to modify the merged bean definition.</span>
+		<span class="hljs-keyword">synchronized</span> (mbd.postProcessingLock) &#123;
+			<span class="hljs-keyword">if</span> (!mbd.postProcessed) &#123;
+				<span class="hljs-keyword">try</span> &#123;
+					applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);
+				&#125;
+				<span class="hljs-keyword">catch</span> (Throwable ex) &#123;
+					<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName,
+							<span class="hljs-string">"Post-processing of merged bean definition failed"</span>, ex);
+				&#125;
+				mbd.markAsPostProcessed();
+			&#125;
+		&#125;
+
+		<span class="hljs-comment">// Eagerly cache singletons to be able to resolve circular references</span>
+		<span class="hljs-comment">// even when triggered by lifecycle interfaces like BeanFactoryAware.</span>
+		<span class="hljs-keyword">boolean</span> earlySingletonExposure = (mbd.isSingleton() &amp;&amp; <span class="hljs-keyword">this</span>.allowCircularReferences &amp;&amp;
+				isSingletonCurrentlyInCreation(beanName));
+		<span class="hljs-keyword">if</span> (earlySingletonExposure) &#123;
+			<span class="hljs-keyword">if</span> (logger.isTraceEnabled()) &#123;
+				logger.trace(<span class="hljs-string">"Eagerly caching bean '"</span> + beanName +
+						<span class="hljs-string">"' to allow for resolving potential circular references"</span>);
+			&#125;
+			addSingletonFactory(beanName, () -&gt; getEarlyBeanReference(beanName, mbd, bean));
+		&#125;
+
+		<span class="hljs-comment">// Initialize the bean instance.</span>
+		Object exposedObject = bean;
+		<span class="hljs-keyword">try</span> &#123;
+			populateBean(beanName, mbd, instanceWrapper);
+			exposedObject = initializeBean(beanName, exposedObject, mbd);
+		&#125;
+		<span class="hljs-keyword">catch</span> (Throwable ex) &#123;
+			<span class="hljs-keyword">if</span> (ex <span class="hljs-keyword">instanceof</span> BeanCreationException bce &amp;&amp; beanName.equals(bce.getBeanName())) &#123;
+				<span class="hljs-keyword">throw</span> bce;
+			&#125;
+			<span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(mbd.getResourceDescription(), beanName, ex.getMessage(), ex);
+			&#125;
+		&#125;
+
+		<span class="hljs-keyword">if</span> (earlySingletonExposure) &#123;
+			Object earlySingletonReference = getSingleton(beanName, <span class="hljs-keyword">false</span>);
+			<span class="hljs-keyword">if</span> (earlySingletonReference != <span class="hljs-keyword">null</span>) &#123;
+				<span class="hljs-keyword">if</span> (exposedObject == bean) &#123;
+					exposedObject = earlySingletonReference;
+				&#125;
+				<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.allowRawInjectionDespiteWrapping &amp;&amp; hasDependentBean(beanName)) &#123;
+					String[] dependentBeans = getDependentBeans(beanName);
+					Set&lt;String&gt; actualDependentBeans = <span class="hljs-keyword">new</span> LinkedHashSet&lt;&gt;(dependentBeans.length);
+					<span class="hljs-keyword">for</span> (String dependentBean : dependentBeans) &#123;
+						<span class="hljs-keyword">if</span> (!removeSingletonIfCreatedForTypeCheckOnly(dependentBean)) &#123;
+							actualDependentBeans.add(dependentBean);
+						&#125;
+					&#125;
+					<span class="hljs-keyword">if</span> (!actualDependentBeans.isEmpty()) &#123;
+						<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCurrentlyInCreationException();
+					&#125;
+				&#125;
+			&#125;
+		&#125;
+
+		<span class="hljs-comment">// Register bean as disposable.</span>
+		<span class="hljs-keyword">try</span> &#123;
+			registerDisposableBeanIfNecessary(beanName, bean, mbd);
+		&#125;
+		<span class="hljs-keyword">catch</span> (BeanDefinitionValidationException ex) &#123;
+			<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanCreationException(
+					mbd.getResourceDescription(), beanName, <span class="hljs-string">"Invalid destruction signature"</span>, ex);
+		&#125;
+
+		<span class="hljs-keyword">return</span> exposedObject;
+	&#125;
+</code></pre>
 <h1 id="9-参考"><a class="markdownIt-Anchor" href="#9-参考"></a> 9 参考：</h1>
 <ol>
 <li><a href="https://bugstack.cn/md/java/interview/2021-04-18-%E9%9D%A2%E7%BB%8F%E6%89%8B%E5%86%8C%20%C2%B7%20%E7%AC%AC30%E7%AF%87%E3%80%8A%E5%85%B3%E4%BA%8E%20Spring%20%E4%B8%AD%20getBean%20%E7%9A%84%E5%85%A8%E6%B5%81%E7%A8%8B%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E3%80%8B.html">面经手册 · 第30篇《关于 Spring 中 getBean 的全流程源码解析》 | 小傅哥 bugstack 虫洞栈</a></li>

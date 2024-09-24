@@ -323,22 +323,146 @@
 <p>例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示：[0,1] 。<br />
 返回你为了学完所有课程所安排的学习顺序。可能会有多个正确的顺序，你只要返回 任意一种 就可以了。如果不可能完成所有课程，返回 一个空数组 。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">// 存储有向图</span></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; edges;</span><br><span class="line">    <span class="comment">// 存储每个节点的入度</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; indeg;</span><br><span class="line">    <span class="comment">// 存储答案</span></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; result;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">findOrder</span><span class="params">(<span class="type">int</span> numCourses, vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; prerequisites)</span> </span>&#123;</span><br><span class="line">        edges.<span class="built_in">resize</span>(numCourses);</span><br><span class="line">        indeg.<span class="built_in">resize</span>(numCourses);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; info: prerequisites) &#123;</span><br><span class="line">            edges[info[<span class="number">1</span>]].<span class="built_in">push_back</span>(info[<span class="number">0</span>]);</span><br><span class="line">            ++indeg[info[<span class="number">0</span>]];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        queue&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">        <span class="comment">// 将所有入度为 0 的节点放入队列中</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; numCourses; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (indeg[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                q.<span class="built_in">push</span>(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!q.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">            <span class="comment">// 从队首取出一个节点</span></span><br><span class="line">            <span class="type">int</span> u = q.<span class="built_in">front</span>();</span><br><span class="line">            q.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="comment">// 放入答案中</span></span><br><span class="line">            result.<span class="built_in">push_back</span>(u);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> v: edges[u]) &#123;</span><br><span class="line">                --indeg[v];</span><br><span class="line">                <span class="comment">// 如果相邻节点 v 的入度为 0，就可以选 v 对应的课程了</span></span><br><span class="line">                <span class="keyword">if</span> (indeg[v] == <span class="number">0</span>) &#123;</span><br><span class="line">                    q.<span class="built_in">push</span>(v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (result.<span class="built_in">size</span>() != numCourses) &#123;</span><br><span class="line">            <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">private</span>:
+    <span class="hljs-comment">// 存储有向图</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; edges;
+    <span class="hljs-comment">// 存储每个节点的入度</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; indeg;
+    <span class="hljs-comment">// 存储答案</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; result;
+
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">findOrder</span><span class="hljs-params">(<span class="hljs-keyword">int</span> numCourses, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; prerequisites)</span> </span>&#123;
+        edges.resize(numCourses);
+        indeg.resize(numCourses);
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; info: prerequisites) &#123;
+            edges[info[<span class="hljs-number">1</span>]].push_back(info[<span class="hljs-number">0</span>]);
+            ++indeg[info[<span class="hljs-number">0</span>]];
+        &#125;
+
+        <span class="hljs-built_in">queue</span>&lt;<span class="hljs-keyword">int</span>&gt; q;
+        <span class="hljs-comment">// 将所有入度为 0 的节点放入队列中</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; numCourses; ++i) &#123;
+            <span class="hljs-keyword">if</span> (indeg[i] == <span class="hljs-number">0</span>) &#123;
+                q.push(i);
+            &#125;
+        &#125;
+
+        <span class="hljs-keyword">while</span> (!q.empty()) &#123;
+            <span class="hljs-comment">// 从队首取出一个节点</span>
+            <span class="hljs-keyword">int</span> u = q.front();
+            q.pop();
+            <span class="hljs-comment">// 放入答案中</span>
+            result.push_back(u);
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> v: edges[u]) &#123;
+                --indeg[v];
+                <span class="hljs-comment">// 如果相邻节点 v 的入度为 0，就可以选 v 对应的课程了</span>
+                <span class="hljs-keyword">if</span> (indeg[v] == <span class="hljs-number">0</span>) &#123;
+                    q.push(v);
+                &#125;
+            &#125;
+        &#125;
+
+        <span class="hljs-keyword">if</span> (result.<span class="hljs-built_in">size</span>() != numCourses) &#123;
+            <span class="hljs-keyword">return</span> &#123;&#125;;
+        &#125;
+        <span class="hljs-keyword">return</span> result;
+    &#125;
+&#125;;
+</code></pre>
 <p>访问标记设置：可以通过额外的访问标记数组进行记录，或者通过修改原数组数值表明已经访问过</p>
 <h1 id="深度优先搜索"><a class="markdownIt-Anchor" href="#深度优先搜索"></a> 深度优先搜索</h1>
 <blockquote>
 <p>深度优先搜索（depth-first search, DFS）在搜索到一个新的节点时，立即堆该新节点进行遍历；深度优先搜索用<mark>先入后出的栈</mark>来实现，也可以通过递归实现。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//采用邻接表存储，递归实现</span></span><br><span class="line"><span class="built_in">DFS</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; g,vector&lt;<span class="type">bool</span>&gt;&amp; visited,<span class="type">int</span> cur)&#123;</span><br><span class="line">    <span class="keyword">if</span>(visited[cur])&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    visited[cur]=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> &amp;next:g[cur])&#123;</span><br><span class="line">        <span class="built_in">DFS</span>(g,visited,next);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//采用邻接表存储，递归实现</span>
+DFS(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; g,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;&amp; visited,<span class="hljs-keyword">int</span> cur)&#123;
+    <span class="hljs-keyword">if</span>(visited[cur])&#123;
+        <span class="hljs-keyword">return</span>;
+    &#125;
+    visited[cur]=<span class="hljs-literal">true</span>;
+    
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> &amp;next:g[cur])&#123;
+        DFS(g,visited,next);
+    &#125;
+&#125;
+</code></pre>
 <h3 id="695-岛屿的最大面积"><a class="markdownIt-Anchor" href="#695-岛屿的最大面积"></a> <a href="https://leetcode.cn/problems/max-area-of-island/">695. 岛屿的最大面积</a></h3>
 <p>递归写法：先判断是否满足条件，再进行递归，可以在访问节点时设置访问标记</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> area=<span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; direction=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="type">int</span> m,n;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m=grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j])&#123;</span><br><span class="line">                    area=<span class="built_in">max</span>(area,<span class="built_in">DFS</span>(grid,i,j));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> area;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">DFS</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid,<span class="type">int</span> i,<span class="type">int</span> j)</span></span>&#123;</span><br><span class="line">        grid[i][j]=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">            <span class="type">int</span> x=i+direction[k],y=j+direction[k<span class="number">+1</span>];</span><br><span class="line">            <span class="keyword">if</span>(x&gt;=<span class="number">0</span>&amp;&amp;x&lt;m&amp;&amp;y&gt;=<span class="number">0</span>&amp;&amp;y&lt;n&amp;&amp;grid[x][y]==<span class="number">1</span>)&#123;          </span><br><span class="line">                cnt+=<span class="built_in">DFS</span>(grid,x,y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">int</span> area=<span class="hljs-number">0</span>;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; direction=&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;;
+    <span class="hljs-keyword">int</span> m,n;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxAreaOfIsland</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>-&gt;m=grid.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">this</span>-&gt;n=grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)&#123;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;n;j++)&#123;
+                <span class="hljs-keyword">if</span>(grid[i][j])&#123;
+                    area=<span class="hljs-built_in">max</span>(area,DFS(grid,i,j));
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> area;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">DFS</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid,<span class="hljs-keyword">int</span> i,<span class="hljs-keyword">int</span> j)</span></span>&#123;
+        grid[i][j]=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> cnt=<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">4</span>;k++)&#123;
+            <span class="hljs-keyword">int</span> x=i+direction[k],y=j+direction[k+<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">if</span>(x&gt;=<span class="hljs-number">0</span>&amp;&amp;x&lt;m&amp;&amp;y&gt;=<span class="hljs-number">0</span>&amp;&amp;y&lt;n&amp;&amp;grid[x][y]==<span class="hljs-number">1</span>)&#123;          
+                cnt+=DFS(grid,x,y);
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> cnt;
+    &#125;
+&#125;;
+</code></pre>
 <p>栈实现</p>
 <blockquote>
 <p>在入队时设置访问标记，如果出队时设置访问标记，可能导致多次入队，2、3出队列时分别导致4进入队列。</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305251704677.png" alt="image-20230525170426579" /></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> area=<span class="number">0</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; direction=&#123;<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="type">int</span> m,n;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m=grid.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j])&#123;</span><br><span class="line">                    <span class="type">int</span> local=<span class="number">1</span>;</span><br><span class="line">                    queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; qu;</span><br><span class="line">                    grid[i][j]=<span class="number">0</span>;</span><br><span class="line">                    qu.<span class="built_in">push</span>(&#123;i,j&#125;);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">while</span>(!qu.<span class="built_in">empty</span>())&#123;</span><br><span class="line">                        <span class="keyword">auto</span> [x,y]=qu.<span class="built_in">front</span>();</span><br><span class="line">                        <span class="comment">// grid[x][y]=0;</span></span><br><span class="line">                        qu.<span class="built_in">pop</span>();</span><br><span class="line">                        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">                            <span class="type">int</span> r=x+direction[k],c=y+direction[k<span class="number">+1</span>];</span><br><span class="line">                            <span class="keyword">if</span>(r&gt;=<span class="number">0</span>&amp;&amp;r&lt;m&amp;&amp;c&gt;=<span class="number">0</span>&amp;&amp;c&lt;n&amp;&amp;grid[r][c]==<span class="number">1</span>)&#123;</span><br><span class="line">                                ++local;</span><br><span class="line">                                grid[r][c]=<span class="number">0</span>;</span><br><span class="line">                                qu.<span class="built_in">push</span>(&#123;r,c&#125;);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    area=<span class="built_in">max</span>(area,local);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> area;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">int</span> area=<span class="hljs-number">0</span>;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; direction=&#123;<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>&#125;;
+    <span class="hljs-keyword">int</span> m,n;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxAreaOfIsland</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>-&gt;m=grid.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">this</span>-&gt;n=grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)&#123;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;n;j++)&#123;
+                <span class="hljs-keyword">if</span>(grid[i][j])&#123;
+                    <span class="hljs-keyword">int</span> local=<span class="hljs-number">1</span>;
+                    <span class="hljs-built_in">queue</span>&lt;pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;&gt; qu;
+                    grid[i][j]=<span class="hljs-number">0</span>;
+                    qu.push(&#123;i,j&#125;);
+
+                    <span class="hljs-keyword">while</span>(!qu.empty())&#123;
+                        <span class="hljs-keyword">auto</span> [x,y]=qu.front();
+                        <span class="hljs-comment">// grid[x][y]=0;</span>
+                        qu.pop();
+                        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">4</span>;k++)&#123;
+                            <span class="hljs-keyword">int</span> r=x+direction[k],c=y+direction[k+<span class="hljs-number">1</span>];
+                            <span class="hljs-keyword">if</span>(r&gt;=<span class="hljs-number">0</span>&amp;&amp;r&lt;m&amp;&amp;c&gt;=<span class="hljs-number">0</span>&amp;&amp;c&lt;n&amp;&amp;grid[r][c]==<span class="hljs-number">1</span>)&#123;
+                                ++local;
+                                grid[r][c]=<span class="hljs-number">0</span>;
+                                qu.push(&#123;r,c&#125;);
+                            &#125;
+                        &#125;
+                    &#125;
+                    area=<span class="hljs-built_in">max</span>(area,local);
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> area;
+    &#125;
+&#125;;
+</code></pre>
 <h1 id="广度优先搜索"><a class="markdownIt-Anchor" href="#广度优先搜索"></a> 广度优先搜索</h1>
 <blockquote>
 <p>广度优先搜索(breadth-first search,BFS)逐层进行遍历，使用<mark>先入先出的队列</mark>进行遍历。可用于处理<mark>无权最短路径</mark>。</p>
@@ -358,7 +482,28 @@
 </li>
 </ul>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//邻接表存储</span></span><br><span class="line"><span class="built_in">BFS</span>(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; g)&#123;</span><br><span class="line">    <span class="type">int</span> n=g.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">bool</span>&gt; <span class="title">visited</span><span class="params">(n)</span></span>;</span><br><span class="line">    </span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; qu;</span><br><span class="line">    qu.<span class="built_in">push</span>(<span class="number">0</span>);</span><br><span class="line">    visited[<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(!qu.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> cur=qu.<span class="built_in">front</span>();</span><br><span class="line">        qu.<span class="built_in">pop</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> next:g[cur])&#123;</span><br><span class="line">            <span class="keyword">if</span>(!visited[next])&#123;</span><br><span class="line">                visited[next]=<span class="literal">true</span>;</span><br><span class="line">                qu.<span class="built_in">push</span>(next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//邻接表存储</span>
+BFS(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; g)&#123;
+    <span class="hljs-keyword">int</span> n=g.<span class="hljs-built_in">size</span>();
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt; <span class="hljs-title">visited</span><span class="hljs-params">(n)</span></span>;
+    
+    <span class="hljs-built_in">queue</span>&lt;<span class="hljs-keyword">int</span>&gt; qu;
+    qu.push(<span class="hljs-number">0</span>);
+    visited[<span class="hljs-number">0</span>]=<span class="hljs-literal">true</span>;
+    
+    <span class="hljs-keyword">while</span>(!qu.empty())&#123;
+        <span class="hljs-keyword">int</span> cur=qu.front();
+        qu.pop();
+        
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> next:g[cur])&#123;
+            <span class="hljs-keyword">if</span>(!visited[next])&#123;
+                visited[next]=<span class="hljs-literal">true</span>;
+                qu.push(next);
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">时</mi><mi mathvariant="normal">间</mi><mi mathvariant="normal">复</mi><mi mathvariant="normal">杂</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">：</mi><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo>+</mo><mi>m</mi><mo stretchy="false">)</mo><mi mathvariant="normal">，</mi><mi mathvariant="normal">其</mi><mi mathvariant="normal">中</mi><mi>n</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">定</mi><mi mathvariant="normal">点</mi><mi mathvariant="normal">数</mi><mi mathvariant="normal">，</mi><mi>m</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">边</mi><mi mathvariant="normal">数</mi><mspace linebreak="newline"></mspace><mi mathvariant="normal">空</mi><mi mathvariant="normal">间</mi><mi mathvariant="normal">复</mi><mi mathvariant="normal">杂</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">：</mi><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mi mathvariant="normal">，</mi><mi mathvariant="normal">队</mi><mi mathvariant="normal">列</mi><mi mathvariant="normal">开</mi><mi mathvariant="normal">销</mi></mrow><annotation encoding="application/x-tex">时间复杂度：O(n+m)，其中n为定点数，m为边数\\
 空间复杂度：O(n)，队列开销
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">时</span><span class="mord cjk_fallback">间</span><span class="mord cjk_fallback">复</span><span class="mord cjk_fallback">杂</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">：</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">m</span><span class="mclose">)</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">其</span><span class="mord cjk_fallback">中</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">定</span><span class="mord cjk_fallback">点</span><span class="mord cjk_fallback">数</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault">m</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">边</span><span class="mord cjk_fallback">数</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">空</span><span class="mord cjk_fallback">间</span><span class="mord cjk_fallback">复</span><span class="mord cjk_fallback">杂</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">：</span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mclose">)</span><span class="mord cjk_fallback">，</span><span class="mord cjk_fallback">队</span><span class="mord cjk_fallback">列</span><span class="mord cjk_fallback">开</span><span class="mord cjk_fallback">销</span></span></span></span></span></p>
@@ -375,15 +520,106 @@
 </blockquote>
 <p><a href="https://leetcode.cn/problems/subsets/">78. 子集</a></p>
 <p>方法一：回溯</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; subset;</span><br><span class="line">        <span class="built_in">backtrack</span>(nums,subset,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtrack</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, vector&lt;<span class="type">int</span>&gt;&amp;subset, <span class="type">int</span> start)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(start==nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(subset);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        subset.<span class="built_in">push_back</span>(nums[start]);</span><br><span class="line">        <span class="built_in">backtrack</span>(nums,subset,start<span class="number">+1</span>);</span><br><span class="line">        subset.<span class="built_in">pop_back</span>();</span><br><span class="line"></span><br><span class="line">        <span class="built_in">backtrack</span>(nums,subset,start<span class="number">+1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//当前是否必须要选择一个数</span></span><br><span class="line">        <span class="comment">// for(int i=start;i&lt;nums.size();i++)&#123;</span></span><br><span class="line">        <span class="comment">//     subset.push_back(nums[i]);</span></span><br><span class="line">        <span class="comment">//     backtrack(nums,subset,i+1);</span></span><br><span class="line">        <span class="comment">//     subset.pop_back();</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">subsets</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; subset;
+        backtrack(nums,subset,<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtrack</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp;subset, <span class="hljs-keyword">int</span> start)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(start==nums.<span class="hljs-built_in">size</span>())&#123;
+            ans.push_back(subset);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        subset.push_back(nums[start]);
+        backtrack(nums,subset,start+<span class="hljs-number">1</span>);
+        subset.pop_back();
+
+        backtrack(nums,subset,start+<span class="hljs-number">1</span>);
+
+        <span class="hljs-comment">//当前是否必须要选择一个数</span>
+        <span class="hljs-comment">// for(int i=start;i&lt;nums.size();i++)&#123;</span>
+        <span class="hljs-comment">//     subset.push_back(nums[i]);</span>
+        <span class="hljs-comment">//     backtrack(nums,subset,i+1);</span>
+        <span class="hljs-comment">//     subset.pop_back();</span>
+        <span class="hljs-comment">// &#125;</span>
+    &#125;
+
+&#125;;
+</code></pre>
 <p>方法二：位枚举</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">subsets</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;(<span class="number">1</span>&lt;&lt;n);i++)&#123;</span><br><span class="line">            tmp.<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> pos=<span class="number">0</span>;pos&lt;n;pos++)&#123;</span><br><span class="line">                <span class="keyword">if</span>((i&gt;&gt;pos)&amp;<span class="number">1</span>)</span><br><span class="line">                    tmp.<span class="built_in">push_back</span>(nums[pos]);</span><br><span class="line">            &#125;</span><br><span class="line">            ans.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">subsets</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmp;
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;(<span class="hljs-number">1</span>&lt;&lt;n);i++)&#123;
+            tmp.<span class="hljs-built_in">clear</span>();
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> pos=<span class="hljs-number">0</span>;pos&lt;n;pos++)&#123;
+                <span class="hljs-keyword">if</span>((i&gt;&gt;pos)&amp;<span class="hljs-number">1</span>)
+                    tmp.push_back(nums[pos]);
+            &#125;
+            ans.push_back(tmp);
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="47-全排列-ii"><a class="markdownIt-Anchor" href="#47-全排列-ii"></a> <a href="https://leetcode.cn/problems/permutations-ii/">47. 全排列 II</a></h4>
 <blockquote>
 <p>给定一个可包含重复数字的序列 <code>nums</code> ，<em><strong>按任意顺序</strong></em> 返回所有不重复的全排列。</p>
 </blockquote>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">对于重复的数字要保证在结果中的相对位置一致</span><br><span class="line"><span class="section"># 对于降重的处理</span></span><br><span class="line">!visited[i-1]</span><br><span class="line">在寻找index位置数字时，因为回溯会把visited[i-1]修改为0</span><br><span class="line">visited[i]便不会被填到index的位置</span><br><span class="line">而在寻找index+1位置时，由于visited[i-1]为1，则索引为i的数字被填到这一位置</span><br><span class="line">寻找顺序位置，前一个相同数字填入过，则继续填入</span><br><span class="line"><span class="section">## visited[i]</span></span><br><span class="line">寻找逆序位置，前一个相同数字没有填入过，则继续填入</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ret;</span><br><span class="line">    vector&lt;<span class="type">bool</span>&gt; visited;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">permuteUnique</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        visited.<span class="built_in">resize</span>(nums.<span class="built_in">size</span>(),<span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; tmp;</span><br><span class="line">        <span class="built_in">backtracking</span>(<span class="number">0</span>,tmp,nums);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> index,vector&lt;<span class="type">int</span>&gt; &amp;tmp,vector&lt;<span class="type">int</span>&gt; &amp;nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(index==nums.<span class="built_in">size</span>())&#123;</span><br><span class="line">            ret.<span class="built_in">push_back</span>(tmp);</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;****&quot;</span>&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 寻找可以填入下标Index的数字</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(visited[i]||(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]&amp;&amp;!visited[i<span class="number">-1</span>]))</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            cout&lt;&lt;<span class="string">&quot;index:&quot;</span>&lt;&lt;index&lt;&lt;<span class="string">&quot; i:&quot;</span>&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> vis:visited)</span><br><span class="line">                cout&lt;&lt;vis&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">            cout&lt;&lt;endl;</span><br><span class="line">            visited[i]=<span class="literal">true</span>;</span><br><span class="line">            tmp.<span class="built_in">push_back</span>(nums[i]);</span><br><span class="line">            <span class="built_in">backtracking</span>(index<span class="number">+1</span>,tmp,nums);</span><br><span class="line">            tmp.<span class="built_in">pop_back</span>();</span><br><span class="line">            visited[i]=<span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="markdown">对于重复的数字要保证在结果中的相对位置一致
+<span class="hljs-section"># 对于降重的处理</span>
+!visited[i-1]
+在寻找index位置数字时，因为回溯会把visited[i-1]修改为0
+visited[i]便不会被填到index的位置
+而在寻找index+1位置时，由于visited[i-1]为1，则索引为i的数字被填到这一位置
+寻找顺序位置，前一个相同数字填入过，则继续填入
+<span class="hljs-section">## visited[i]</span>
+寻找逆序位置，前一个相同数字没有填入过，则继续填入
+</code></pre>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ret;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt; visited;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">permuteUnique</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        visited.resize(nums.<span class="hljs-built_in">size</span>(),<span class="hljs-literal">false</span>);
+        sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tmp;
+        backtracking(<span class="hljs-number">0</span>,tmp,nums);
+        <span class="hljs-keyword">return</span> ret;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">backtracking</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;tmp,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(index==nums.<span class="hljs-built_in">size</span>())&#123;
+            ret.push_back(tmp);
+            <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"****"</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-comment">// 寻找可以填入下标Index的数字</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>();i++)&#123;
+            <span class="hljs-keyword">if</span>(visited[i]||(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>]&amp;&amp;!visited[i<span class="hljs-number">-1</span>]))
+                <span class="hljs-keyword">continue</span>;
+            <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-string">"index:"</span>&lt;&lt;index&lt;&lt;<span class="hljs-string">" i:"</span>&lt;&lt;i&lt;&lt;<span class="hljs-built_in">endl</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> vis:visited)
+                <span class="hljs-built_in">cout</span>&lt;&lt;vis&lt;&lt;<span class="hljs-string">" "</span>;
+            <span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+            visited[i]=<span class="hljs-literal">true</span>;
+            tmp.push_back(nums[i]);
+            backtracking(index+<span class="hljs-number">1</span>,tmp,nums);
+            tmp.pop_back();
+            visited[i]=<span class="hljs-literal">false</span>;
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="934-最短的桥"><a class="markdownIt-Anchor" href="#934-最短的桥"></a> <a href="https://leetcode.cn/problems/shortest-bridge/">934. 最短的桥</a></h2>
 <blockquote>
 <p>在给定的二维二进制数组 A 中，存在两座岛。（岛是由四面相连的 1 形成的一个最大组。）</p>
@@ -392,7 +628,72 @@
 </blockquote>
 <p>广度优先搜索从一个岛屿出发不断扩展一圈，何时可以找到另外一个岛屿。前提如何保障找到扩展相应第一步时的相应初始位置。</p>
 <p>初始时找到一个岛屿的一个点，不断向外扩展，每一层可以找到从这一点向外n步时可以到达的位置。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="type">int</span> m;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; direction=&#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">shortestBridge</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        m=grid.<span class="built_in">size</span>();</span><br><span class="line">        n=grid[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; q;</span><br><span class="line">        <span class="type">bool</span> flag=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(flag)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(grid[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">                    <span class="built_in">DFS</span>(grid,q,i,j);</span><br><span class="line">                    flag=<span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> layer=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;</span><br><span class="line">            layer++;</span><br><span class="line">            <span class="type">int</span> cnt=q.<span class="built_in">size</span>();</span><br><span class="line">            <span class="comment">// cout&lt;&lt;&quot;cnt:&quot;&lt;&lt;cnt&lt;&lt;endl;</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;cnt;i++)&#123;</span><br><span class="line">                <span class="keyword">auto</span> [x,y]=q.<span class="built_in">front</span>();</span><br><span class="line">                <span class="comment">// cout&lt;&lt;x&lt;&lt;&quot;,&quot;&lt;&lt;y&lt;&lt;endl;</span></span><br><span class="line">                q.<span class="built_in">pop</span>();</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">                    <span class="type">int</span> a=x+direction[k],b=y+direction[k<span class="number">+1</span>];</span><br><span class="line">                    <span class="keyword">if</span>(a&gt;=<span class="number">0</span>&amp;&amp;a&lt;m&amp;&amp;b&gt;=<span class="number">0</span>&amp;&amp;b&lt;n)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(grid[a][b]==<span class="number">2</span>)</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span>(grid[a][b]==<span class="number">1</span>)&#123;</span><br><span class="line">                            <span class="comment">// cout&lt;&lt;&quot;*******&quot;&lt;&lt;endl;</span></span><br><span class="line">                             <span class="keyword">return</span> layer;</span><br><span class="line">                        &#125;</span><br><span class="line">                            grid[a][b]=<span class="number">2</span>;</span><br><span class="line">                            q.<span class="built_in">push</span>(&#123;a,b&#125;);</span><br><span class="line">                           </span><br><span class="line">                        </span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">DFS</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;grid,queue&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt; &amp;q,<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>||x&gt;=m||y&lt;<span class="number">0</span>||y&gt;=n||grid[x][y]==<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span>(grid[x][y]==<span class="number">0</span>)&#123;</span><br><span class="line">            q.<span class="built_in">push</span>(&#123;x,y&#125;);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        grid[x][y]=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">4</span>;k++)&#123;</span><br><span class="line">            <span class="type">int</span> i=x+direction[k],j=y+direction[k<span class="number">+1</span>];</span><br><span class="line">            <span class="built_in">DFS</span>(grid,q,i,j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">int</span> m;
+<span class="hljs-keyword">int</span> n;
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; direction=&#123;<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>&#125;;
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">shortestBridge</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;
+        m=grid.<span class="hljs-built_in">size</span>();
+        n=grid[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();
+        <span class="hljs-built_in">queue</span>&lt;pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;&gt; q;
+        <span class="hljs-keyword">bool</span> flag=<span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;m;i++)&#123;
+            <span class="hljs-keyword">if</span>(flag)
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;j&lt;n;j++)&#123;
+                <span class="hljs-keyword">if</span>(grid[i][j]==<span class="hljs-number">1</span>)&#123;
+                    DFS(grid,q,i,j);
+                    flag=<span class="hljs-literal">true</span>;
+                    <span class="hljs-keyword">break</span>;
+                &#125;
+            &#125;
+        &#125;
+
+        <span class="hljs-keyword">int</span> layer=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span>(!q.empty())&#123;
+            layer++;
+            <span class="hljs-keyword">int</span> cnt=q.<span class="hljs-built_in">size</span>();
+            <span class="hljs-comment">// cout&lt;&lt;"cnt:"&lt;&lt;cnt&lt;&lt;endl;</span>
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;cnt;i++)&#123;
+                <span class="hljs-keyword">auto</span> [x,y]=q.front();
+                <span class="hljs-comment">// cout&lt;&lt;x&lt;&lt;","&lt;&lt;y&lt;&lt;endl;</span>
+                q.pop();
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">4</span>;k++)&#123;
+                    <span class="hljs-keyword">int</span> a=x+direction[k],b=y+direction[k+<span class="hljs-number">1</span>];
+                    <span class="hljs-keyword">if</span>(a&gt;=<span class="hljs-number">0</span>&amp;&amp;a&lt;m&amp;&amp;b&gt;=<span class="hljs-number">0</span>&amp;&amp;b&lt;n)&#123;
+                        <span class="hljs-keyword">if</span>(grid[a][b]==<span class="hljs-number">2</span>)
+                            <span class="hljs-keyword">continue</span>;
+                    <span class="hljs-keyword">if</span>(grid[a][b]==<span class="hljs-number">1</span>)&#123;
+                            <span class="hljs-comment">// cout&lt;&lt;"*******"&lt;&lt;endl;</span>
+                             <span class="hljs-keyword">return</span> layer;
+                        &#125;
+                            grid[a][b]=<span class="hljs-number">2</span>;
+                            q.push(&#123;a,b&#125;);
+                           
+                        
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; &amp;grid,<span class="hljs-built_in">queue</span>&lt;pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;&gt; &amp;q,<span class="hljs-keyword">int</span> x,<span class="hljs-keyword">int</span> y)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span>||x&gt;=m||y&lt;<span class="hljs-number">0</span>||y&gt;=n||grid[x][y]==<span class="hljs-number">2</span>)
+            <span class="hljs-keyword">return</span>;
+        <span class="hljs-keyword">if</span>(grid[x][y]==<span class="hljs-number">0</span>)&#123;
+            q.push(&#123;x,y&#125;);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        grid[x][y]=<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=<span class="hljs-number">0</span>;k&lt;<span class="hljs-number">4</span>;k++)&#123;
+            <span class="hljs-keyword">int</span> i=x+direction[k],j=y+direction[k+<span class="hljs-number">1</span>];
+            DFS(grid,q,i,j);
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="130-被围绕的区域"><a class="markdownIt-Anchor" href="#130-被围绕的区域"></a> <a href="https://leetcode-cn.com/problems/surrounded-regions/">130. 被围绕的区域</a></h2>
 <p>给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code> ，找到所有被 <code>'X'</code> 围绕的区域，并将这些区域里所有的 <code>'O'</code> 用 <code>'X'</code> 填充。</p>
 <h3 id="tip1"><a class="markdownIt-Anchor" href="#tip1"></a> tip1</h3>
@@ -401,7 +702,64 @@
 <p>在遍历所有位置，不能被四周连接到的改为‘X’</p>
 <p>深度优先搜索</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; &amp;board, vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; &amp;status, <span class="type">int</span> r,</span></span></span><br><span class="line"><span class="params"><span class="function">         <span class="type">int</span> c)</span></span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; direction = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; &amp;board)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> m = board.<span class="built_in">size</span>(), n = board[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">    vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; <span class="built_in">status</span>(m, <span class="built_in">vector</span>&lt;<span class="type">bool</span>&gt;(n, <span class="literal">true</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (board[i][<span class="number">0</span>] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, i, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (board[i][n - <span class="number">1</span>] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, i, n - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (board[<span class="number">0</span>][j] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, <span class="number">0</span>, j);</span><br><span class="line">        <span class="keyword">if</span> (board[m - <span class="number">1</span>][j] == <span class="string">&#x27;O&#x27;</span>)</span><br><span class="line">            <span class="built_in">dfs</span>(board, status, m - <span class="number">1</span>, j);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for (const auto &amp;ele : status) &#123;</span></span><br><span class="line">    <span class="comment">//     for (const auto &amp;t : ele)</span></span><br><span class="line">    <span class="comment">//         cout &lt;&lt; t &lt;&lt; &quot; &quot;;</span></span><br><span class="line">    <span class="comment">//     cout &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (status[i][j] == <span class="literal">true</span> &amp;&amp; board[i][j] == <span class="string">&#x27;O&#x27;</span>) &#123;</span><br><span class="line">                <span class="comment">// cout &lt;&lt; i &lt;&lt; &quot; &quot; &lt;&lt; j &lt;&lt; endl;</span></span><br><span class="line">                board[i][j] = <span class="string">&#x27;X&#x27;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; &amp;board, vector&lt;vector&lt;<span class="type">bool</span>&gt;&gt; &amp;status, <span class="type">int</span> r,</span></span></span><br><span class="line"><span class="params"><span class="function">         <span class="type">int</span> c)</span> </span>&#123;</span><br><span class="line">    status[r][c] = <span class="literal">false</span>;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; <span class="number">4</span>; k++) &#123;</span><br><span class="line">        x = r + direction[k];</span><br><span class="line">        y = c + direction[k + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; board.<span class="built_in">size</span>() &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; board[<span class="number">0</span>].<span class="built_in">size</span>() &amp;&amp;</span><br><span class="line">            board[x][y] == <span class="string">&#x27;O&#x27;</span> &amp;&amp; status[x][y] == <span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="comment">// status[x][y] = false;</span></span><br><span class="line">            <span class="comment">// cout &lt;&lt; x &lt;&lt; &quot;,&quot; &lt;&lt; y &lt;&lt; endl;</span></span><br><span class="line">            <span class="built_in">dfs</span>(board, status, x, y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">char</span>&gt;&gt; board = &#123;&#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;,</span><br><span class="line">                                  &#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;,</span><br><span class="line">                                  &#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;,</span><br><span class="line">                                  &#123;<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;O&#x27;</span>, <span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;X&#x27;</span>&#125;&#125;;</span><br><span class="line">    <span class="built_in">solve</span>(board);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt; &amp;board, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;&gt; &amp;status, <span class="hljs-keyword">int</span> r,
+         <span class="hljs-keyword">int</span> c)</span></span>;
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; direction = &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>&#125;;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">solve</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt; &amp;board)</span> </span>&#123;
+    <span class="hljs-keyword">int</span> m = board.<span class="hljs-built_in">size</span>(), n = board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>();
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;&gt; <span class="hljs-title">status</span><span class="hljs-params">(m, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;(n, <span class="hljs-literal">true</span>))</span></span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;
+        <span class="hljs-keyword">if</span> (board[i][<span class="hljs-number">0</span>] == <span class="hljs-string">'O'</span>)
+            dfs(board, status, i, <span class="hljs-number">0</span>);
+        <span class="hljs-keyword">if</span> (board[i][n - <span class="hljs-number">1</span>] == <span class="hljs-string">'O'</span>)
+            dfs(board, status, i, n - <span class="hljs-number">1</span>);
+    &#125;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;
+        <span class="hljs-keyword">if</span> (board[<span class="hljs-number">0</span>][j] == <span class="hljs-string">'O'</span>)
+            dfs(board, status, <span class="hljs-number">0</span>, j);
+        <span class="hljs-keyword">if</span> (board[m - <span class="hljs-number">1</span>][j] == <span class="hljs-string">'O'</span>)
+            dfs(board, status, m - <span class="hljs-number">1</span>, j);
+    &#125;
+
+    <span class="hljs-comment">// for (const auto &amp;ele : status) &#123;</span>
+    <span class="hljs-comment">//     for (const auto &amp;t : ele)</span>
+    <span class="hljs-comment">//         cout &lt;&lt; t &lt;&lt; " ";</span>
+    <span class="hljs-comment">//     cout &lt;&lt; endl;</span>
+    <span class="hljs-comment">// &#125;</span>
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) &#123;
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) &#123;
+            <span class="hljs-keyword">if</span> (status[i][j] == <span class="hljs-literal">true</span> &amp;&amp; board[i][j] == <span class="hljs-string">'O'</span>) &#123;
+                <span class="hljs-comment">// cout &lt;&lt; i &lt;&lt; " " &lt;&lt; j &lt;&lt; endl;</span>
+                board[i][j] = <span class="hljs-string">'X'</span>;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt; &amp;board, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;&gt; &amp;status, <span class="hljs-keyword">int</span> r,
+         <span class="hljs-keyword">int</span> c)</span> </span>&#123;
+    status[r][c] = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">int</span> x, y;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">4</span>; k++) &#123;
+        x = r + direction[k];
+        y = c + direction[k + <span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (x &gt;= <span class="hljs-number">0</span> &amp;&amp; x &lt; board.<span class="hljs-built_in">size</span>() &amp;&amp; y &gt;= <span class="hljs-number">0</span> &amp;&amp; y &lt; board[<span class="hljs-number">0</span>].<span class="hljs-built_in">size</span>() &amp;&amp;
+            board[x][y] == <span class="hljs-string">'O'</span> &amp;&amp; status[x][y] == <span class="hljs-literal">true</span>) &#123;
+            <span class="hljs-comment">// status[x][y] = false;</span>
+            <span class="hljs-comment">// cout &lt;&lt; x &lt;&lt; "," &lt;&lt; y &lt;&lt; endl;</span>
+            dfs(board, status, x, y);
+        &#125;
+    &#125;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">char</span>&gt;&gt; board = &lt;!--swig￼<span class="hljs-number">0</span>--&gt;;
+    solve(board);
+    system(<span class="hljs-string">"pause"</span>);
+&#125;
+</code></pre>
 <h2 id="tip2"><a class="markdownIt-Anchor" href="#tip2"></a> tip2</h2>
 <p>优化？？？</p>
 

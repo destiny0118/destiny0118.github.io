@@ -829,7 +829,8 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <blockquote>
 <p>检索字符串 <strong>str1</strong> 中第一个匹配字符串 <strong>str2</strong> 中字符的字符，不包含空结束字符。依次检验字符串 str1 中的字符，当被检验字符在字符串 str2 中也包含时，则停止检验，并返回该字符位置。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strpbrk</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strpbrk</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str2)</span>
+</span></code></pre>
 <ul>
 <li><strong>str1</strong> – 要被检索的 C 字符串。</li>
 <li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
@@ -839,23 +840,44 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <p>判断字符串是否相等的函数，忽略大小写。s1和s2中的所有字母字符在比较之前都转换为小写。该strcasecmp()函数对空终止字符串进行操作。<br />
 函数的字符串参数应包含一个(’\0’)标记字符串结尾的空字符。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">strcasecmp</span> <span class="params">(<span class="type">const</span> <span class="type">char</span> *s1, <span class="type">const</span> <span class="type">char</span> *s2)</span></span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strcasecmp</span> <span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *s1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *s2)</span></span>;
+</code></pre>
 <h2 id="strspn"><a class="markdownIt-Anchor" href="#strspn"></a> strspn</h2>
 <blockquote>
 <p>检索字符串 <strong>str1</strong> 中第一个不在字符串 <strong>str2</strong> 中出现的字符下标</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">size_t</span> <span class="title">strspn</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str1, <span class="type">const</span> <span class="type">char</span> *str2)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">size_t</span> <span class="hljs-title">strspn</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str1, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str2)</span>
+</span></code></pre>
 <ul>
 <li><strong>str1</strong> – 要被检索的 C 字符串。</li>
 <li><strong>str2</strong> – 该字符串包含了要在 str1 中进行匹配的字符列表。</li>
 <li>返回 str1 中第一个不在字符串 str2 中出现的字符下标。</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> *s1 = <span class="string">&quot;abcdef ghj\tio&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s2 = <span class="string">&quot; \t&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *s3 = <span class="string">&quot;ghj&quot;</span>;</span><br><span class="line">    cout &lt;&lt; *(s1 + <span class="number">7</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="type">char</span> *res = <span class="built_in">strpbrk</span>(s1 + <span class="number">7</span>, s2);</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="built_in">strspn</span>(s1 + <span class="number">7</span>, s3) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g</span><br><span class="line"><span class="number">3</span></span><br><span class="line">\tio</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-keyword">char</span> *s1 = <span class="hljs-string">"abcdef ghj\tio"</span>;
+    <span class="hljs-keyword">char</span> *s2 = <span class="hljs-string">" \t"</span>;
+    <span class="hljs-keyword">char</span> *s3 = <span class="hljs-string">"ghj"</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; *(s1 + <span class="hljs-number">7</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">char</span> *res = <span class="hljs-built_in">strpbrk</span>(s1 + <span class="hljs-number">7</span>, s2);
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">strspn</span>(s1 + <span class="hljs-number">7</span>, s3) &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; res &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+
+g
+<span class="hljs-number">3</span>
+\tio
+</code></pre>
 <h2 id="strchr"><a class="markdownIt-Anchor" href="#strchr"></a> strchr</h2>
 <blockquote>
 <p>在参数 <strong>str</strong> 所指向的字符串中搜索第一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strchr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">int</span> c)</span>
+</span></code></pre>
 <ul>
 <li><strong>str</strong> – 要查找的字符串。</li>
 <li><strong>c</strong> – 要查找的字符。</li>
@@ -865,7 +887,8 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <blockquote>
 <p>在参数 <strong>str</strong> 所指向的字符串中搜索最后一次出现字符 <strong>c</strong>（一个无符号字符）的位置。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strrchr</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *str, <span class="type">int</span> c)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strrchr</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">int</span> c)</span>
+</span></code></pre>
 <ul>
 <li><strong>str</strong> – C 字符串。</li>
 <li><strong>c</strong> – 要搜索的字符，通常以整数形式传递（ASCII 值），但是最终会转换回 char 形式。</li>
@@ -876,12 +899,14 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>。<br />
 需要注意的是如果目标数组 dest 不够大，而源字符串的长度又太长，可能会造成缓冲溢出的情况。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strcpy</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *dest, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *src)</span>
+</span></code></pre>
 <h2 id="strncpy"><a class="markdownIt-Anchor" href="#strncpy"></a> strncpy</h2>
 <blockquote>
 <p>把 <strong>src</strong> 所指向的字符串复制到 <strong>dest</strong>，最多复制 <strong>n</strong> 个字符。当 src 的长度小于 n 时，dest 的剩余部分将用空字节填充。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">char</span> *<span class="title">strcpy</span><span class="params">(<span class="type">char</span> *dest, <span class="type">const</span> <span class="type">char</span> *src)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">char</span> *<span class="hljs-title">strcpy</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *dest, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *src)</span>
+</span></code></pre>
 <ul>
 <li><strong>dest</strong> – 指向用于存储复制内容的目标数组。</li>
 <li><strong>src</strong> – 要复制的字符串。</li>
@@ -893,7 +918,9 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <blockquote>
 <p>刷新流 stream 的输出缓冲区，将缓冲区中的内容写到stream所指的文件中区</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fflush</span><span class="params">(FILE *stream)</span></span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fflush</span><span class="hljs-params">(FILE *stream)</span>
+</span></code></pre>
 <ul>
 <li><strong>stream</strong> – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个缓冲流</li>
 <li>如果成功，该函数返回零值。如果发生错误，则返回 EOF，且设置错误标识符（即 feof）。</li>
@@ -904,7 +931,8 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <p>用于格式化输出字符串，并将结果写入到指定的缓冲区，与 sprintf() 不同的是，snprintf() 会限制输出的字符数，避免缓冲区溢出。<br />
 将可变参数**(…)**按照 <strong>format</strong> 格式化成字符串，并将字符串复制到 <strong>str</strong> 中，<strong>size</strong> 为要写入的字符的最大数目，超过 <strong>size</strong> 会被截断，最多写入 size-1 个字符，并在字符串的末尾添加一个空字符（\0）以表示字符串的结束。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">snprintf</span> <span class="params">( <span class="type">char</span> * str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> * format, ... )</span></span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">snprintf</span> <span class="hljs-params">( <span class="hljs-keyword">char</span> * str, <span class="hljs-keyword">size_t</span> size, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * format, ... )</span></span>;
+</code></pre>
 <ul>
 <li><strong>str</strong> – 目标字符串，用于存储格式化后的字符串的字符数组的指针。</li>
 <li><strong>size</strong> – 字符数组的大小。</li>
@@ -917,24 +945,62 @@ Gitlet是一个版本控制系统，实现了git的一些特性和功能，相�
 <p>获取文件状态</p>
 </blockquote>
 <p><a href="https://www.cnblogs.com/jikexianfeng/p/5742887.html">C语言stat()函数：获取文件状态 - 极客先锋 - 博客园 (cnblogs.com)</a></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;sys/stat.h&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;uninstd.h&gt;</span></span></span><br><span class="line"><span class="comment">//将参数file_name 所指的文件状态, 复制到参数buf 所指的结构中。</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">stat</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * file_name, <span class="keyword">struct</span> stat *buf)</span></span></span><br><span class="line"><span class="function"><span class="keyword">struct</span> stat </span>&#123;</span><br><span class="line">    <span class="type">dev_t</span> st_dev; <span class="comment">//device 文件的设备编号</span></span><br><span class="line">    <span class="type">ino_t</span> st_ino; <span class="comment">//inode 文件的i-node</span></span><br><span class="line">    <span class="type">mode_t</span> st_mode; <span class="comment">//protection 文件的类型和存取的权限</span></span><br><span class="line">    <span class="type">nlink_t</span> st_nlink; <span class="comment">//number of hard links 连到该文件的硬连接数目, 刚建立的文件值为1.</span></span><br><span class="line">    <span class="type">uid_t</span> st_uid; <span class="comment">//user ID of owner 文件所有者的用户识别码</span></span><br><span class="line">    <span class="type">gid_t</span> st_gid; <span class="comment">//group ID of owner 文件所有者的组识别码</span></span><br><span class="line">    <span class="type">dev_t</span> st_rdev; <span class="comment">//device type 若此文件为装置设备文件, 则为其设备编号</span></span><br><span class="line">    <span class="type">off_t</span> st_size; <span class="comment">//total size, in bytes 文件大小, 以字节计算</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> st_blksize; <span class="comment">//blocksize for filesystem I/O 文件系统的I/O 缓冲区大小.</span></span><br><span class="line">    u nsigned <span class="type">long</span> st_blocks; <span class="comment">//number of blocks allocated 占用文件区块的个数, 每一区块大小为512 个字节.</span></span><br><span class="line">    <span class="type">time_t</span> st_atime; <span class="comment">//time of lastaccess 文件最近一次被存取或被执行的时间, 一般只有在用mknod、 utime、read、write 与tructate 时改变.</span></span><br><span class="line">    <span class="type">time_t</span> st_mtime; <span class="comment">//time of last modification 文件最后一次被修改的时间, 一般只有在用mknod、 utime 和write 时才会改变</span></span><br><span class="line">    <span class="type">time_t</span> st_ctime; <span class="comment">//time of last change i-node 最近一次被更改的时间, 此参数会在文件所有者、组、 权限被更改时更新</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;sys/stat.h&gt;  </span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;uninstd.h&gt;</span></span>
+<span class="hljs-comment">//将参数file_name 所指的文件状态, 复制到参数buf 所指的结构中。</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">stat</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> * file_name, struct stat *buf)</span>
+struct stat </span>&#123;
+    <span class="hljs-keyword">dev_t</span> st_dev; <span class="hljs-comment">//device 文件的设备编号</span>
+    <span class="hljs-keyword">ino_t</span> st_ino; <span class="hljs-comment">//inode 文件的i-node</span>
+    <span class="hljs-keyword">mode_t</span> st_mode; <span class="hljs-comment">//protection 文件的类型和存取的权限</span>
+    <span class="hljs-keyword">nlink_t</span> st_nlink; <span class="hljs-comment">//number of hard links 连到该文件的硬连接数目, 刚建立的文件值为1.</span>
+    <span class="hljs-keyword">uid_t</span> st_uid; <span class="hljs-comment">//user ID of owner 文件所有者的用户识别码</span>
+    <span class="hljs-keyword">gid_t</span> st_gid; <span class="hljs-comment">//group ID of owner 文件所有者的组识别码</span>
+    <span class="hljs-keyword">dev_t</span> st_rdev; <span class="hljs-comment">//device type 若此文件为装置设备文件, 则为其设备编号</span>
+    <span class="hljs-keyword">off_t</span> st_size; <span class="hljs-comment">//total size, in bytes 文件大小, 以字节计算</span>
+    <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span> st_blksize; <span class="hljs-comment">//blocksize for filesystem I/O 文件系统的I/O 缓冲区大小.</span>
+    u nsigned <span class="hljs-keyword">long</span> st_blocks; <span class="hljs-comment">//number of blocks allocated 占用文件区块的个数, 每一区块大小为512 个字节.</span>
+    <span class="hljs-keyword">time_t</span> st_atime; <span class="hljs-comment">//time of lastaccess 文件最近一次被存取或被执行的时间, 一般只有在用mknod、 utime、read、write 与tructate 时改变.</span>
+    <span class="hljs-keyword">time_t</span> st_mtime; <span class="hljs-comment">//time of last modification 文件最后一次被修改的时间, 一般只有在用mknod、 utime 和write 时才会改变</span>
+    <span class="hljs-keyword">time_t</span> st_ctime; <span class="hljs-comment">//time of last change i-node 最近一次被更改的时间, 此参数会在文件所有者、组、 权限被更改时更新</span>
+&#125;;
+</code></pre>
 <h1 id="函数参数处理"><a class="markdownIt-Anchor" href="#函数参数处理"></a> 函数参数处理</h1>
 <h2 id="va_start"><a class="markdownIt-Anchor" href="#va_start"></a> va_start</h2>
 <blockquote>
 <p>初始化 <strong>ap</strong> 变量，它与 <strong>va_arg</strong> 和 <strong>va_end</strong> 宏是一起使用的。<strong>last_arg</strong> 是最后一个传递给函数的已知的固定参数，即省略号之前的参数。</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdarg.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">va_start</span><span class="params">(va_list ap, last_arg)</span></span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdarg.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">va_start</span><span class="hljs-params">(va_list ap, last_arg)</span></span>;
+</code></pre>
 <ul>
 <li><strong>ap</strong> – 这是一个 <strong>va_list</strong> 类型的对象，它用来存储通过 <strong>va_arg</strong> 获取额外参数时所必需的信息。</li>
 <li><strong>last_arg</strong> – 最后一个传递给函数的已知的固定参数。</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//sum(3,10,20,30)</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> num_args, ...)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="type">int</span> val = <span class="number">0</span>;</span><br><span class="line">   va_list ap;</span><br><span class="line">   <span class="type">int</span> i;</span><br><span class="line"></span><br><span class="line">   <span class="built_in">va_start</span>(ap, num_args);</span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; num_args; i++)</span><br><span class="line">   &#123;</span><br><span class="line">      val += <span class="built_in">va_arg</span>(ap, <span class="type">int</span>);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="built_in">va_end</span>(ap);</span><br><span class="line"> </span><br><span class="line">   <span class="keyword">return</span> val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-comment">//sum(3,10,20,30)</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num_args, ...)</span>
+</span>&#123;
+   <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;
+   va_list ap;
+   <span class="hljs-keyword">int</span> i;
+
+   va_start(ap, num_args);
+   <span class="hljs-keyword">for</span>(i = <span class="hljs-number">0</span>; i &lt; num_args; i++)
+   &#123;
+      val += va_arg(ap, <span class="hljs-keyword">int</span>);
+   &#125;
+   va_end(ap);
+ 
+   <span class="hljs-keyword">return</span> val;
+&#125;
+</code></pre>
 <h2 id="vsnprintf"><a class="markdownIt-Anchor" href="#vsnprintf"></a> vsnprintf</h2>
 <p><a href="https://blog.csdn.net/u012351051/article/details/106414950">sprintf、snprintf、vsprintf、vsnprintf格式化函数分析_c++ sprintf vsprintf详解-CSDN博客</a></p>
 <blockquote>
 <p>使用参数列表发送格式化输出到字符串</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">vsnprintf</span><span class="params">(<span class="type">char</span> *str, <span class="type">size_t</span> size, <span class="type">const</span> <span class="type">char</span> *format, va_list ap)</span></span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">vsnprintf</span><span class="hljs-params">(<span class="hljs-keyword">char</span> *str, <span class="hljs-keyword">size_t</span> size, <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *format, va_list ap)</span></span>;
+</code></pre>
 <ul>
 <li>str – 目标字符串。</li>
 <li>size – 最大格式化的字符长度。</li>

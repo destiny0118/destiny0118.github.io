@@ -294,13 +294,23 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a; <span class="comment">// a 为左值</span></span><br><span class="line">a = <span class="number">3</span>; <span class="comment">// 3 为右值</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-keyword">int</span> a; <span class="hljs-comment">// a 为左值</span>
+a = <span class="hljs-number">3</span>; <span class="hljs-comment">// 3 为右值</span>
+</code></pre>
 <p>需要右值时，可以使用左值，反之不行</p>
 <ul>
 <li>左值引用：引用一个对象；</li>
 <li>右值引用（rvalue reference）：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。必须绑定到右值的引用，可以绑定到一个将要销毁的对象</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">6</span>; <span class="comment">// x是左值，6是右值</span></span><br><span class="line"><span class="type">int</span> &amp;y = x; <span class="comment">// 左值引用，y引用x</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;z1 = x * <span class="number">6</span>; <span class="comment">// 错误，x*6是一个右值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;z2 =  x * <span class="number">6</span>; <span class="comment">// 正确，可以将一个const引用绑定到一个右值</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;&amp;z3 = x * <span class="number">6</span>; <span class="comment">// 正确，右值引用</span></span><br><span class="line"><span class="type">int</span> &amp;&amp;z4 = x; <span class="comment">// 错误，x是一个左值</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">6</span>; <span class="hljs-comment">// x是左值，6是右值</span>
+<span class="hljs-keyword">int</span> &amp;y = x; <span class="hljs-comment">// 左值引用，y引用x</span>
+
+<span class="hljs-keyword">int</span> &amp;z1 = x * <span class="hljs-number">6</span>; <span class="hljs-comment">// 错误，x*6是一个右值</span>
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;z2 =  x * <span class="hljs-number">6</span>; <span class="hljs-comment">// 正确，可以将一个const引用绑定到一个右值</span>
+
+<span class="hljs-keyword">int</span> &amp;&amp;z3 = x * <span class="hljs-number">6</span>; <span class="hljs-comment">// 正确，右值引用</span>
+<span class="hljs-keyword">int</span> &amp;&amp;z4 = x; <span class="hljs-comment">// 错误，x是一个左值</span>
+</code></pre>
 <h1 id="1-chapt-12"><a class="markdownIt-Anchor" href="#1-chapt-12"></a> 1 chapt 12</h1>
 <p>smart pointer：管理动态对象<br />
 shared_ptr：允许多个指针指向同一个对象<br />

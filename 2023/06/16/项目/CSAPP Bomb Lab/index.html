@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Bomb Lab 查看bomb.c可以看到源代码的大致结构  反汇编main函数： disas main  根据汇编代码和原函数的对应关系，可以猜测方框处为对应的printf函数，打印出相应位置的字符串。   phase_1 phase_1首先调用read_line函数，调用函数时返回值保存至%rax寄存器中，之后调用phase_1(input)，在汇编调用中mov %rax, %rdi，%rd">
+    <meta name="description" content="Bomb Lab 查看bomb.c可以看到源代码的大致结构  反汇编main函数： disas main   根据汇编代码和原函数的对应关系，可以猜测方框处为对应的printf函数，打印出相应位置的字符串。   phase_1 phase_1首先调用read_line函数，调用函数时返回值保存至%rax寄存器中，之后调用phase_1(input)，在汇编调用中mov %rax, %rdi，%r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/06/16/%E9%A1%B9%E7%9B%AE/CSAPP%20Bomb%20Lab/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="Bomb Lab 查看bomb.c可以看到源代码的大致结构  反汇编main函数： disas main  根据汇编代码和原函数的对应关系，可以猜测方框处为对应的printf函数，打印出相应位置的字符串。   phase_1 phase_1首先调用read_line函数，调用函数时返回值保存至%rax寄存器中，之后调用phase_1(input)，在汇编调用中mov %rax, %rdi，%rd">
+<meta property="og:description" content="Bomb Lab 查看bomb.c可以看到源代码的大致结构  反汇编main函数： disas main   根据汇编代码和原函数的对应关系，可以猜测方框处为对应的printf函数，打印出相应位置的字符串。   phase_1 phase_1首先调用read_line函数，调用函数时返回值保存至%rax寄存器中，之后调用phase_1(input)，在汇编调用中mov %rax, %rdi，%r">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042020986.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042024386.png">
@@ -312,7 +312,8 @@
 <p>查看bomb.c可以看到源代码的大致结构</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042020986.png" alt="image-20211204202050832" /></p>
 <p>反汇编main函数：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">disas main</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="sh">disas main
+</code></pre>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042024386.png" alt="image-20211204202454298" /></p>
 <p>根据汇编代码和原函数的对应关系，可以猜测方框处为对应的printf函数，打印出相应位置的字符串。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042027447.png" alt="image-20211204202746414" /></p>
@@ -339,7 +340,8 @@
 <p>在read_six_numbers中（下图为16进制）：</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042132770.png" alt="image-20211204213209675" /></p>
 <p>分析phase_2的汇编代码，先判断(%rsp)处的值是否为1，然后与自己相加，即乘以2后与下一个数比较，依次向下，直到数据末尾。因此要输入的字符串为</p>
-<figure class="highlight basic"><table><tr><td class="code"><pre><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">4</span> <span class="number">8</span> <span class="number">16</span> <span class="number">32</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">1 2 4 8 16 32
+</code></pre>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112042137075.png" alt="image-20211204213743046" /></p>
 <h2 id="phase_3"><a class="markdownIt-Anchor" href="#phase_3"></a> phase_3</h2>
 <p>查看phase_3的汇编代码</p>
@@ -361,7 +363,31 @@
 <p>这里递归调用了func4函数，将汇编代码转换成等价的C代码，用a表示%edi的值，b表示%esi的值，c表示%edx的值</p>
 <p>用标记t表示蓝色框最后%eax的值，则[（c-b）&gt;&gt;31+（c-b）] &gt;&gt; 1</p>
 <p>下面用tmp表示执行完0x400fdf后%ecx的值：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun4</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> tmp = (((c - b) + ((c - b) &gt;&gt; <span class="number">31</span>)) &gt;&gt; <span class="number">1</span>) + b;</span><br><span class="line">    <span class="keyword">if</span> (tmp &lt;= a)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (tmp &gt;= a)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">return</span> (<span class="built_in">fun4</span>(a, tmp + <span class="number">1</span>, c) * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">fun4</span>(a, b, tmp - <span class="number">1</span>) * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">14</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fun4</span>(i, <span class="number">0</span>, <span class="number">14</span>) == <span class="number">0</span>)</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">fun4</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b, <span class="hljs-keyword">int</span> c)</span>
+</span>&#123;
+    <span class="hljs-keyword">int</span> tmp = (((c - b) + ((c - b) &gt;&gt; <span class="hljs-number">31</span>)) &gt;&gt; <span class="hljs-number">1</span>) + b;
+    <span class="hljs-keyword">if</span> (tmp &lt;= a)
+    &#123;
+        <span class="hljs-keyword">if</span> (tmp &gt;= a)
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">return</span> (fun4(a, tmp + <span class="hljs-number">1</span>, c) * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>);
+    &#125;
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">return</span> fun4(a, b, tmp - <span class="hljs-number">1</span>) * <span class="hljs-number">2</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>&#123;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">14</span>; i++)
+    &#123;
+        <span class="hljs-keyword">if</span> (fun4(i, <span class="hljs-number">0</span>, <span class="hljs-number">14</span>) == <span class="hljs-number">0</span>)
+            <span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-string">" "</span>;
+    &#125;
+    getchar();
+&#125;
+</code></pre>
 <p>得到第一个数可能为：0，1，3，7</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051153046.png" alt="image-20211205115347016" /></p>
 <h2 id="phase_5"><a class="markdownIt-Anchor" href="#phase_5"></a> phase_5</h2>
@@ -371,7 +397,8 @@
 <p>则函数栈中相应位置为：</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051602264.png" alt="image-20211205160209218" /></p>
 <p>分析绿色框中的汇编代码，因为%rbx的值为%rdi，即我们输入的字符串首地址，进行一系列操作，实际到红色框时，%rdx的低位字节的低4位对应于对应的字符值，其余全部置0。重要的是这条指令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">and    $0xf,%edx</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="assembly">and    $0xf,%edx
+</code></pre>
 <p>这时是以输入的字符数值大小作为索引，来到0x40108b查找相应的字符，放到位置0x10(%rsp, %rax, 1)处。</p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112051611546.png" alt="image-20211205161111520" /></p>
 <p>这个实验的设置很有意思，哈哈，我们在这个数组中逐字符找到flyers的相应位置下标为：9 F E 5 6 7</p>

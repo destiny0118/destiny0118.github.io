@@ -285,7 +285,9 @@
 <p>ZF71R-DMX85-08DQY-8YMNC-PPHV8<br />
 链接：<a href="https://www.jianshu.com/p/002ede3e0b17">https://www.jianshu.com/p/002ede3e0b17</a></p>
 <h2 id="22-创建root用户"><a class="markdownIt-Anchor" href="#22-创建root用户"></a> 2.2 创建root用户</h2>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">sudo passwd<span class="built_in"> root</span></span><br><span class="line">su<span class="built_in"> root</span>				//切换<span class="built_in">到root</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">sudo passwd root
+su root				//切换到root
+</code></pre>
 <h2 id="23-内存管理"><a class="markdownIt-Anchor" href="#23-内存管理"></a> 2.3 内存管理</h2>
 <table>
 <thead>
@@ -303,17 +305,88 @@
 </table>
 <h2 id="24-进程管理命令"><a class="markdownIt-Anchor" href="#24-进程管理命令"></a> 2.4 进程管理命令</h2>
 <h1 id="3-备份还原linux子系统"><a class="markdownIt-Anchor" href="#3-备份还原linux子系统"></a> 3 备份还原Linux子系统</h1>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl  //进入默认的linux发行版</span><br><span class="line">wsl -l  //列出已安装的linux发行版</span><br><span class="line">wsl --shutdown  //终止正在运行的wsl</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsl --export Ubuntu-22.04 F:/export.tar  //导出需要迁移的Linux发行版</span><br><span class="line"></span><br><span class="line">wsl --import &lt;DistributionName&gt; &lt;InstallLocation&gt; &lt;FileName&gt;</span><br><span class="line">wsl --import Ubuntu F:/Cache/WSL F:/export.tar</span><br><span class="line">（将FileName安装到InstallLocation位置，新的发行版名称DistributionName）</span><br><span class="line">Ubuntu config --default-user &#123;你原来的用户名&#125;</span><br><span class="line"></span><br><span class="line">wsl --unregister Ubuntu</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">wsl  //进入默认的linux发行版
+wsl -l  //列出已安装的linux发行版
+wsl --shutdown  //终止正在运行的wsl
+
+
+wsl --export Ubuntu-22.04 F:/export.tar  //导出需要迁移的Linux发行版
+
+wsl --import &lt;DistributionName&gt; &lt;InstallLocation&gt; &lt;FileName&gt;
+wsl --import Ubuntu F:/Cache/WSL F:/export.tar
+（将FileName安装到InstallLocation位置，新的发行版名称DistributionName）
+Ubuntu config --default-user &#123;你原来的用户名&#125;
+
+wsl --unregister Ubuntu
+</code></pre>
 <p><a href="https://www.xfy-learning.com/2020/05/30/WSL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">WSL备份与还原 | 小肥羊吃草不吃肉 (xfy-learning.com)</a><br />
 <a href="https://zhuanlan.zhihu.com/p/406917270">WSL的安装和位置迁移 - 知乎 (zhihu.com)</a></p>
 <h1 id="4-linux安装go"><a class="markdownIt-Anchor" href="#4-linux安装go"></a> 4 Linux安装Go</h1>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/d/Downloads</span><br><span class="line">tar -C /usr/local/go -zxvf go1.21.6.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//配置环境变量： Linux下有两个文件可以配置环境变量，其中`/etc/profile`是对所有用户生效的；`<span class="variable">$HOME</span>/.profile`是对当前用户生效的，根据自己的情况自行选择一个文件打开，添加如下两行代码，保存退出。</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/go/bin</span><br><span class="line"><span class="built_in">export</span> GOPATH=/home/go</span><br><span class="line"><span class="built_in">export</span> GOBIN=<span class="variable">$GOPATH</span>/bin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> GOROOT=/usr/local/go</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="bash"><span class="hljs-built_in">cd</span> /mnt/d/Downloads
+tar -C /usr/<span class="hljs-built_in">local</span>/go -zxvf go1.21.6.linux-amd64.tar.gz
+
+
+//配置环境变量： Linux下有两个文件可以配置环境变量，其中`/etc/profile`是对所有用户生效的；`<span class="hljs-variable">$HOME</span>/.profile`是对当前用户生效的，根据自己的情况自行选择一个文件打开，添加如下两行代码，保存退出。
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/<span class="hljs-built_in">local</span>/go/bin
+<span class="hljs-built_in">export</span> GOPATH=/home/go
+<span class="hljs-built_in">export</span> GOBIN=<span class="hljs-variable">$GOPATH</span>/bin
+
+
+<span class="hljs-built_in">export</span> GOROOT=/usr/<span class="hljs-built_in">local</span>/go
+<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$GOROOT</span>/bin
+</code></pre>
 <p>go run mrsequential.go <a href="http://wc.so">wc.so</a> pg*.txt</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">[linux修改文件夹下所有文件的权限（常用）_linux如何把文件夹的权限设置为可执行-CSDN博客](https:<span class="regexp">//</span>blog.csdn.net<span class="regexp">/qq_41996454/</span>article<span class="regexp">/details/</span><span class="number">109689314</span>)</span><br><span class="line"><span class="comment">## 虚拟机</span></span><br><span class="line"></span><br><span class="line">windows安装wsl与vmware兼容问题</span><br><span class="line"></span><br><span class="line">关闭windows的Hyper-V功能重启电脑就好了。</span><br><span class="line"></span><br><span class="line">![img](https:<span class="regexp">//gi</span>tee.com<span class="regexp">/destiny0118/</span>picgo<span class="regexp">/raw/m</span>aster/<span class="number">202112311754154</span>.jpeg)</span><br><span class="line"></span><br><span class="line">传输 (VMDB)错误 -<span class="number">14</span>: Pipe connection has been broken。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">
+
+[linux修改文件夹下所有文件的权限（常用）_linux如何把文件夹的权限设置为可执行-CSDN博客](https://blog.csdn.net/qq_41996454/article/details/109689314)
+## 虚拟机
+
+windows安装wsl与vmware兼容问题
+
+关闭windows的Hyper-V功能重启电脑就好了。
+
+![img](https://gitee.com/destiny0118/picgo/raw/master/202112311754154.jpeg)
+
+传输 (VMDB)错误 -14: Pipe connection has been broken。
+
+</code></pre>
 <p>bcdedit /set hypervisorlaunchtype off<br />
 bcdedit /set hypervisorlaunchtype auto<br />
 bcdedit /enum {current}			查看是否启动</p>
-<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">wsl</span> <span class="selector-tag">-l</span> <span class="selector-tag">-v</span></span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[(10条消息) WSL修改默认安装目录到其他盘_Login5&amp;R的博客-CSDN博客]</span>(<span class="attribute">https</span>:<span class="comment">//blog.csdn.net/qq_33157391/article/details/120728021)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Ubuntu root<span class="variable">@localhost</span>‘s <span class="attribute">password</span>: Permission denied,please try again.</span><br><span class="line"></span><br><span class="line">&gt; - 修[ssh](<span class="attribute">https</span>:<span class="comment">//so.csdn.net/so/search?q=ssh&amp;spm=1001.2101.3001.7020)改配置文件，设置为允许root远程登录：</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;   root@[ubuntu](<span class="attribute">https</span>:<span class="comment">//so.csdn.net/so/search?q=ubuntu&amp;spm=1001.2101.3001.7020):~# vim /etc/ssh/sshd_config</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;   新增语句：PermitRootLogin yes 即可。</span><br><span class="line">&gt;</span><br><span class="line">&gt; - 保存退出，重启ssh服务：</span><br><span class="line">&gt;</span><br><span class="line">&gt;   root<span class="variable">@ubuntu</span>:~# /etc/init.d/ssh restart</span><br><span class="line"></span><br><span class="line"># ubuntn</span><br><span class="line"></span><br><span class="line">## <span class="number">1</span>. 问题</span><br><span class="line"></span><br><span class="line">&gt; 无法在宿主环境与虚拟环境之间复制粘贴</span><br><span class="line">&gt; 解决方案</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在Ubuntu的命令行中执行一下命令</span><br><span class="line"></span><br><span class="line"><span class="built_in">``</span>`shell</span><br><span class="line">sudo apt-get autoremove open-vm-tools</span><br><span class="line">sudo apt-get install open-vm-tools</span><br><span class="line">sudo apt-get install open-vm-tools-desktop</span><br><span class="line">#重启虚拟机</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">
+wsl -l -v
+
+[(10条消息) WSL修改默认安装目录到其他盘_Login5&amp;R的博客-CSDN博客](https://blog.csdn.net/qq_33157391/article/details/120728021)
+
+
+
+# Ubuntu root@localhost‘s password: Permission denied,please try again.
+
+&gt; - 修[ssh](https://so.csdn.net/so/search?q=ssh&amp;spm=1001.2101.3001.7020)改配置文件，设置为允许root远程登录：
+&gt;
+&gt;   root@[ubuntu](https://so.csdn.net/so/search?q=ubuntu&amp;spm=1001.2101.3001.7020):~# vim /etc/ssh/sshd_config
+&gt;
+&gt;   新增语句：PermitRootLogin yes 即可。
+&gt;
+&gt; - 保存退出，重启ssh服务：
+&gt;
+&gt;   root@ubuntu:~# /etc/init.d/ssh restart
+
+# ubuntn
+
+## 1. 问题
+
+&gt; 无法在宿主环境与虚拟环境之间复制粘贴
+&gt; 解决方案
+&gt;
+&gt; 在Ubuntu的命令行中执行一下命令
+
+```shell
+sudo apt-get autoremove open-vm-tools
+sudo apt-get install open-vm-tools
+sudo apt-get install open-vm-tools-desktop
+#重启虚拟机
+</code></pre>
 <h2 id="41-字体太小"><a class="markdownIt-Anchor" href="#41-字体太小"></a> 4.1 字体太小</h2>
 <blockquote>
 <p>sudo apt-get install unity-tweak-tool</p>

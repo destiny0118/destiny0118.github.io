@@ -475,7 +475,19 @@
 快速判断两个字符串是否含有重复字母：为每个字符串建立一个长度为26的二进制数字，每个位置表示是否存在该字母</p>
 </blockquote>
 <h2 id="位计数统计1的数目"><a class="markdownIt-Anchor" href="#位计数统计1的数目"></a> 位计数（统计1的数目）</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">cnt=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    x=x&amp;(x<span class="number">-1</span>);</span><br><span class="line">    cnt++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">    cnt+=x&amp;<span class="number">1</span>;</span><br><span class="line">    x=x&gt;&gt;<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">__builtin_popcount(x)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">cnt=<span class="hljs-number">0</span>
+<span class="hljs-keyword">while</span>(x)&#123;
+    x=x&amp;(x<span class="hljs-number">-1</span>);
+    cnt++;
+&#125;
+
+<span class="hljs-keyword">while</span>(x)&#123;
+    cnt+=x&amp;<span class="hljs-number">1</span>;
+    x=x&gt;&gt;<span class="hljs-number">1</span>;
+&#125;
+
+__builtin_popcount(x)
+</code></pre>
 <h3 id="brian-kernighan算法"><a class="markdownIt-Anchor" href="#brian-kernighan算法"></a> Brian Kernighan算法</h3>
 <blockquote>
 <p>对于任意整数 xx，令 x=x &amp; (x−1)，该运算将 x 的二进制表示的最后一个 1 变成 0。因此，对 x 重复该操作，直到 x 变成 0，则操作次数即为 x 的「一比特数」。</p>

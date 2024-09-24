@@ -391,7 +391,30 @@
 <p>s1断联，添加了一系列entry</p>
 <p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
 <h1 id="2c"><a class="markdownIt-Anchor" href="#2c"></a> 2C</h1>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="go">persist
+<span class="hljs-comment">// Your code here (2C).</span>
+<span class="hljs-comment">// Example:</span>
+<span class="hljs-comment">// w := new(bytes.Buffer)</span>
+<span class="hljs-comment">// e := labgob.NewEncoder(w)</span>
+<span class="hljs-comment">// e.Encode(rf.xxx)</span>
+<span class="hljs-comment">// e.Encode(rf.yyy)</span>
+<span class="hljs-comment">// data := w.Bytes()</span>
+<span class="hljs-comment">// rf.persister.SaveRaftState(data)</span>
+readPersist
+<span class="hljs-comment">// Your code here (2C).</span>
+<span class="hljs-comment">// Example:</span>
+<span class="hljs-comment">// r := bytes.NewBuffer(data)</span>
+<span class="hljs-comment">// d := labgob.NewDecoder(r)</span>
+<span class="hljs-comment">// var xxx</span>
+<span class="hljs-comment">// var yyy</span>
+<span class="hljs-comment">// if d.Decode(&amp;xxx) != nil ||</span>
+<span class="hljs-comment">//    d.Decode(&amp;yyy) != nil &#123;</span>
+<span class="hljs-comment">//   error...</span>
+<span class="hljs-comment">// &#125; else &#123;</span>
+<span class="hljs-comment">//   rf.xxx = xxx</span>
+<span class="hljs-comment">//   rf.yyy = yyy</span>
+<span class="hljs-comment">// &#125;</span>
+</code></pre>
 <h2 id="bug"><a class="markdownIt-Anchor" href="#bug"></a> Bug</h2>
 <p>同一任期选出两个leader</p>
 <p>乱序收到RPC response</p>

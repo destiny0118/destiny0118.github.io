@@ -300,7 +300,127 @@
 </ul>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403022103444.png" alt="线性表.png" /></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    线性链表的实现</span></span><br><span class="line"><span class="comment">    单链表：只有一个指向后继的指针</span></span><br><span class="line"><span class="comment">    单向循环链表</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Link_list</span> &#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    Link_list *next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Link_list *<span class="title">Get_node</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Link_list *p = (Link_list *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(Link_list));</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    创建一个含有n个结点的链表（不包括头结点）</span></span><br><span class="line"><span class="comment">    先插入的结点离头结点更远</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Create_List</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    L = (Link_list *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(Link_list));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        Link_list *p = <span class="built_in">Get_node</span>();</span><br><span class="line">        <span class="keyword">if</span> (!p)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;分配结点失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="type">int</span> t;</span><br><span class="line">        cin &gt;&gt; t;</span><br><span class="line">        p-&gt;data = t;</span><br><span class="line"></span><br><span class="line">        p-&gt;next = L-&gt;next;</span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Show_List</span><span class="params">(Link_list *&amp;L)</span> </span>&#123;</span><br><span class="line">    Link_list *p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p) &#123;</span><br><span class="line">        cout &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    带表头结点L</span></span><br><span class="line"><span class="comment">    当第i个元素存在时，用value返回其值</span></span><br><span class="line"><span class="comment">    元素位序从1开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Get_node</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> i, <span class="type">int</span> &amp;value)</span> </span>&#123;</span><br><span class="line">    Link_list *p = L;</span><br><span class="line">    <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; p) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        --i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!p || i &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    value = p-&gt;data;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    在第i个位置插入元素额，第i个位置元素后移</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Insert_node</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> i, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">    Link_list *p = L, *t;</span><br><span class="line">    <span class="comment">//寻找第i-1个结点</span></span><br><span class="line">    <span class="keyword">while</span> (p &amp;&amp; i &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        --i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!p || i &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;i不正确&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    t = <span class="built_in">Get_node</span>();</span><br><span class="line">    t-&gt;data = e;</span><br><span class="line"></span><br><span class="line">    t-&gt;next = p-&gt;next;</span><br><span class="line">    p-&gt;next = t;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    删除第i个位置的元素，并由e返回其值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Delete_node</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> i, <span class="type">int</span> &amp;e)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Delete:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    Link_list *p = L;</span><br><span class="line">    <span class="comment">//寻找第i-1个元素</span></span><br><span class="line">    <span class="keyword">while</span> (p &amp;&amp; i &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        --i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!p || i &gt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    e = p-&gt;next-&gt;data;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;P-&gt;data:&quot;</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; e:&quot;</span> &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    Link_list *t = p-&gt;next;</span><br><span class="line">    p-&gt;next = t-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(t);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Link_list *L;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;要创建的结点数：&quot;</span>;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="built_in">Create_List</span>(L, n);</span><br><span class="line">    <span class="built_in">Show_List</span>(L);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Insert_node</span>(L, <span class="number">3</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">Show_List</span>(L);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line">    <span class="built_in">Delete_node</span>(L, <span class="number">2</span>, value);</span><br><span class="line">    <span class="built_in">Show_List</span>(L);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;value: &quot;</span> &lt;&lt; value &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+<span class="hljs-comment">/*
+    线性链表的实现
+    单链表：只有一个指向后继的指针
+    单向循环链表
+*/</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Link_list</span> &#123;</span>
+    <span class="hljs-keyword">int</span> data;
+    Link_list *next;
+&#125;;
+
+<span class="hljs-function">Link_list *<span class="hljs-title">Get_node</span><span class="hljs-params">()</span> </span>&#123;
+    Link_list *p = (Link_list *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Link_list));
+    <span class="hljs-keyword">return</span> p;
+&#125;
+<span class="hljs-comment">/*
+    创建一个含有n个结点的链表（不包括头结点）
+    先插入的结点离头结点更远
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Create_List</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> n)</span> </span>&#123;
+    L = (Link_list *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Link_list));
+    L-&gt;next = <span class="hljs-literal">NULL</span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;
+        Link_list *p = Get_node();
+        <span class="hljs-keyword">if</span> (!p)
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"分配结点失败"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">int</span> t;
+        <span class="hljs-built_in">cin</span> &gt;&gt; t;
+        p-&gt;data = t;
+
+        p-&gt;next = L-&gt;next;
+        L-&gt;next = p;
+    &#125;
+&#125;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Show_List</span><span class="hljs-params">(Link_list *&amp;L)</span> </span>&#123;
+    Link_list *p = L-&gt;next;
+    <span class="hljs-keyword">while</span> (p) &#123;
+        <span class="hljs-built_in">cout</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="hljs-string">" "</span>;
+        p = p-&gt;next;
+    &#125;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+&#125;
+<span class="hljs-comment">/*
+    带表头结点L
+    当第i个元素存在时，用value返回其值
+    元素位序从1开始
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Get_node</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> &amp;value)</span> </span>&#123;
+    Link_list *p = L;
+    <span class="hljs-keyword">while</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; p) &#123;
+        p = p-&gt;next;
+        --i;
+    &#125;
+    <span class="hljs-keyword">if</span> (!p || i &gt; <span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    value = p-&gt;data;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;
+<span class="hljs-comment">/*
+    在第i个位置插入元素额，第i个位置元素后移
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Insert_node</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> e)</span> </span>&#123;
+    Link_list *p = L, *t;
+    <span class="hljs-comment">//寻找第i-1个结点</span>
+    <span class="hljs-keyword">while</span> (p &amp;&amp; i &gt; <span class="hljs-number">1</span>) &#123;
+        p = p-&gt;next;
+        --i;
+    &#125;
+    <span class="hljs-keyword">if</span> (!p || i &gt; <span class="hljs-number">1</span>) &#123;
+        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"i不正确"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    &#125;
+    t = Get_node();
+    t-&gt;data = e;
+
+    t-&gt;next = p-&gt;next;
+    p-&gt;next = t;
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;
+<span class="hljs-comment">/*
+    删除第i个位置的元素，并由e返回其值
+*/</span>
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Delete_node</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> &amp;e)</span> </span>&#123;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Delete:"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    Link_list *p = L;
+    <span class="hljs-comment">//寻找第i-1个元素</span>
+    <span class="hljs-keyword">while</span> (p &amp;&amp; i &gt; <span class="hljs-number">1</span>) &#123;
+        p = p-&gt;next;
+        --i;
+    &#125;
+    <span class="hljs-keyword">if</span> (!p || i &gt; <span class="hljs-number">1</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+
+    e = p-&gt;next-&gt;data;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"P-&gt;data:"</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="hljs-string">" e:"</span> &lt;&lt; e &lt;&lt; <span class="hljs-built_in">endl</span>;
+    Link_list *t = p-&gt;next;
+    p-&gt;next = t-&gt;next;
+    <span class="hljs-built_in">free</span>(t);
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    Link_list *L;
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"要创建的结点数："</span>;
+    <span class="hljs-built_in">cin</span> &gt;&gt; n;
+    Create_List(L, n);
+    Show_List(L);
+
+    Insert_node(L, <span class="hljs-number">3</span>, <span class="hljs-number">100</span>);
+    Show_List(L);
+
+    <span class="hljs-keyword">int</span> value;
+    Delete_node(L, <span class="hljs-number">2</span>, value);
+    Show_List(L);
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"value: "</span> &lt;&lt; value &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h1 id="3-双向链表"><a class="markdownIt-Anchor" href="#3-双向链表"></a> 3 双向链表</h1>
 <h1 id="4-比较"><a class="markdownIt-Anchor" href="#4-比较"></a> 4 比较</h1>
 <table>
@@ -342,39 +462,249 @@
 <li>dummy node(虚拟节点)</li>
 </ul>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ListNode</span>&#123;</span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	ListNode *next;</span><br><span class="line">	<span class="built_in">ListNode</span>(<span class="type">int</span> x): <span class="built_in">val</span>(x),<span class="built_in">next</span>(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>&#123;</span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	ListNode next;</span><br><span class="line">	ListNode(<span class="type">int</span> x)&#123;</span><br><span class="line">		val=x;</span><br><span class="line">		next=<span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListNode</span>&#123;</span>
+	<span class="hljs-keyword">int</span> val;
+	ListNode *next;
+	ListNode(<span class="hljs-keyword">int</span> x): val(x),next(<span class="hljs-literal">nullptr</span>)&#123;&#125;
+&#125;
+</code></pre>
+<pre class="highlight"><code class="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListNode</span></span>&#123;
+	<span class="hljs-keyword">int</span> val;
+	ListNode next;
+	ListNode(<span class="hljs-keyword">int</span> x)&#123;
+		val=x;
+		next=<span class="hljs-keyword">null</span>;
+	&#125;
+&#125;
+</code></pre>
 <h1 id="6-题单"><a class="markdownIt-Anchor" href="#6-题单"></a> 6 题单</h1>
 <h2 id="61-翻转链表"><a class="markdownIt-Anchor" href="#61-翻转链表"></a> 6.1 翻转链表</h2>
 <h4 id="5111-206-反转链表-力扣leetcode"><a class="markdownIt-Anchor" href="#5111-206-反转链表-力扣leetcode"></a> 5.1.1.1 <a href="https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&amp;envId=top-100-liked">206. 反转链表 - 力扣（Leetcode）</a></h4>
 <h5 id="51111-方法一头插法"><a class="markdownIt-Anchor" href="#51111-方法一头插法"></a> 5.1.1.1.1 方法一：头插法</h5>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *list=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>),*p=head,*tmp;</span><br><span class="line">        <span class="keyword">while</span>(p)&#123;</span><br><span class="line">            tmp=p;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">            tmp-&gt;next=list-&gt;next;</span><br><span class="line">            list-&gt;next=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list-&gt;next;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
+        ListNode *<span class="hljs-built_in">list</span>=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>),*p=head,*tmp;
+        <span class="hljs-keyword">while</span>(p)&#123;
+            tmp=p;
+            p=p-&gt;next;
+            tmp-&gt;next=<span class="hljs-built_in">list</span>-&gt;next;
+            <span class="hljs-built_in">list</span>-&gt;next=tmp;
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>-&gt;next;;
+    &#125;
+&#125;;
+</code></pre>
 <h5 id="51112-方法二迭代法"><a class="markdownIt-Anchor" href="#51112-方法二迭代法"></a> 5.1.1.1.2 方法二：迭代法</h5>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *res=<span class="literal">nullptr</span>,*tmp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(head)&#123;</span><br><span class="line">            tmp=head-&gt;next;</span><br><span class="line">            head-&gt;next=res;</span><br><span class="line">            res=head;</span><br><span class="line"></span><br><span class="line">            head=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
+        ListNode *res=<span class="hljs-literal">nullptr</span>,*tmp;
+
+        <span class="hljs-keyword">while</span>(head)&#123;
+            tmp=head-&gt;next;
+            head-&gt;next=res;
+            res=head;
+
+            head=tmp;
+        &#125;
+        <span class="hljs-keyword">return</span> res;
+    &#125;
+&#125;;
+</code></pre>
 <h5 id="51113-方法三递归法"><a class="markdownIt-Anchor" href="#51113-方法三递归法"></a> 5.1.1.1.3 方法三：递归法</h5>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">nullptr</span>||head-&gt;next==<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* newHead=<span class="built_in">reverseList</span>(head-&gt;next);</span><br><span class="line">        head-&gt;next-&gt;next=head;</span><br><span class="line">        head-&gt;next=<span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> newHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
+        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">nullptr</span>||head-&gt;next==<span class="hljs-literal">nullptr</span>)&#123;
+            <span class="hljs-keyword">return</span> head;
+        &#125;
+
+        ListNode* newHead=reverseList(head-&gt;next);
+        head-&gt;next-&gt;next=head;
+        head-&gt;next=<span class="hljs-literal">nullptr</span>;
+        <span class="hljs-keyword">return</span> newHead;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="62-合并链表"><a class="markdownIt-Anchor" href="#62-合并链表"></a> 6.2 合并链表</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>),*p=dummy;</span><br><span class="line">        <span class="keyword">while</span>(list1&amp;&amp;list2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(list1-&gt;val&lt;=list2-&gt;val)&#123;</span><br><span class="line">                p-&gt;next=list1;</span><br><span class="line">                list1=list1-&gt;next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p-&gt;next=list2;</span><br><span class="line">                list2=list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;next=list1?list1:list2;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode* <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode* list1, ListNode* list2)</span> </span>&#123;
+        ListNode* dummy=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">-1</span>),*p=dummy;
+        <span class="hljs-keyword">while</span>(list1&amp;&amp;list2)&#123;
+            <span class="hljs-keyword">if</span>(list1-&gt;val&lt;=list2-&gt;val)&#123;
+                p-&gt;next=list1;
+                list1=list1-&gt;next;
+            &#125;<span class="hljs-keyword">else</span>&#123;
+                p-&gt;next=list2;
+                list2=list2-&gt;next;
+            &#125;
+            p=p-&gt;next;
+        &#125;
+        p-&gt;next=list1?list1:list2;
+        <span class="hljs-keyword">return</span> dummy-&gt;next;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="5211-143-重排链表"><a class="markdownIt-Anchor" href="#5211-143-重排链表"></a> 5.2.1.1 <a href="https://leetcode.cn/problems/reorder-list/">143. 重排链表</a></h4>
 <blockquote>
 <p>链表中点、链表原地翻转、链表合并</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        ListNode *next;</span><br><span class="line">        <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">ListNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">ListNode</span>(<span class="type">int</span> x, ListNode *next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reorderList</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        ListNode *mid = <span class="built_in">middleNode</span>(head);</span><br><span class="line">        ListNode *l1 = head, *l2 = mid-&gt;next;</span><br><span class="line">        mid-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        l2 = <span class="built_in">reverseList</span>(l2);</span><br><span class="line">        <span class="built_in">mergeList</span>(l1, l2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到链表的中间节点(偏左)</span></span><br><span class="line">    <span class="function">ListNode *<span class="title">middleNode</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *fast = head, *slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast-&gt;next != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 翻转链表，可以使用头插法</span></span><br><span class="line">    <span class="function">ListNode *<span class="title">reverseList</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *pre = <span class="literal">nullptr</span>, *cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            ListNode *nextTemp = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nextTemp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 合并链表</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">mergeList</span><span class="params">(ListNode *l1, ListNode *l2)</span> </span>&#123;</span><br><span class="line">        ListNode *p = l1, *q = l2;</span><br><span class="line">        <span class="keyword">while</span> (l1 &amp;&amp; l2) &#123;</span><br><span class="line">            p = l1-&gt;next;</span><br><span class="line">            q = l2-&gt;next;</span><br><span class="line"></span><br><span class="line">            l1-&gt;next = l2;</span><br><span class="line">            l2-&gt;next = p;</span><br><span class="line">            l1 = p;</span><br><span class="line">            l2 = q;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListNode</span> &#123;</span>
+        <span class="hljs-keyword">int</span> val;
+        ListNode *next;
+        ListNode() : val(<span class="hljs-number">0</span>), next(<span class="hljs-literal">nullptr</span>) &#123;&#125;
+        ListNode(<span class="hljs-keyword">int</span> x) : val(x), next(<span class="hljs-literal">nullptr</span>) &#123;&#125;
+        ListNode(<span class="hljs-keyword">int</span> x, ListNode *next) : val(x), next(next) &#123;&#125;
+    &#125;;
+
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reorderList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">nullptr</span>)
+            <span class="hljs-keyword">return</span>;
+        ListNode *mid = middleNode(head);
+        ListNode *l1 = head, *l2 = mid-&gt;next;
+        mid-&gt;next = <span class="hljs-literal">nullptr</span>;
+        l2 = reverseList(l2);
+        mergeList(l1, l2);
+    &#125;
+
+    <span class="hljs-comment">// 找到链表的中间节点(偏左)</span>
+    <span class="hljs-function">ListNode *<span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;
+        ListNode *fast = head, *slow = head;
+        <span class="hljs-keyword">while</span> (fast-&gt;next != <span class="hljs-literal">nullptr</span> &amp;&amp; fast-&gt;next-&gt;next != <span class="hljs-literal">nullptr</span>) &#123;
+            fast = fast-&gt;next-&gt;next;
+            slow = slow-&gt;next;
+        &#125;
+        <span class="hljs-keyword">return</span> slow;
+    &#125;
+    <span class="hljs-comment">// 翻转链表，可以使用头插法</span>
+    <span class="hljs-function">ListNode *<span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;
+        ListNode *pre = <span class="hljs-literal">nullptr</span>, *cur = head;
+        <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">nullptr</span>) &#123;
+            ListNode *nextTemp = cur-&gt;next;
+            cur-&gt;next = pre;
+            pre = cur;
+            cur = nextTemp;
+        &#125;
+        <span class="hljs-keyword">return</span> pre;
+    &#125;
+    <span class="hljs-comment">// 合并链表</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">mergeList</span><span class="hljs-params">(ListNode *l1, ListNode *l2)</span> </span>&#123;
+        ListNode *p = l1, *q = l2;
+        <span class="hljs-keyword">while</span> (l1 &amp;&amp; l2) &#123;
+            p = l1-&gt;next;
+            q = l2-&gt;next;
+
+            l1-&gt;next = l2;
+            l2-&gt;next = p;
+            l1 = p;
+            l2 = q;
+        &#125;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="5212-160-相交链表"><a class="markdownIt-Anchor" href="#5212-160-相交链表"></a> 5.2.1.2 <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">160. 相交链表</a></h4>
 <p>方法一：哈希表<br />
 方法二：双指针</p>
 <blockquote>
 <p>假设链表 A 的头节点到相交点的距离是 a，链表 B 的头节点到相交点的距离是 b，相交点 到链表终点的距离为 c。我们使用两个指针，分别指向两个链表的头节点，并以相同的速度前进，若到达链表结尾，则移动到另一条链表的头节点继续前进。按照这种前进方法，两个指针会在 a +b +c 次前进后同时到达相交节点。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *h1=headA,*h2=headB;</span><br><span class="line">        <span class="keyword">while</span>(h1!=h2)&#123;</span><br><span class="line">            h1=h1==<span class="literal">nullptr</span>?headB:h1-&gt;next;</span><br><span class="line">            h2=h2==<span class="literal">nullptr</span>?headA:h2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode *<span class="hljs-title">getIntersectionNode</span><span class="hljs-params">(ListNode *headA, ListNode *headB)</span> </span>&#123;
+        ListNode *h1=headA,*h2=headB;
+        <span class="hljs-keyword">while</span>(h1!=h2)&#123;
+            h1=h1==<span class="hljs-literal">nullptr</span>?headB:h1-&gt;next;
+            h2=h2==<span class="hljs-literal">nullptr</span>?headA:h2-&gt;next;
+        &#125;
+        <span class="hljs-keyword">return</span> h1;
+    &#125;
+&#125;;
+</code></pre>
 <h3 id="622-148-排序链表"><a class="markdownIt-Anchor" href="#622-148-排序链表"></a> 6.2.2 148. 排序链表</h3>
 <p>归并排序</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sortList</span>(head,<span class="literal">nullptr</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head,ListNode* tail)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next==tail)&#123;</span><br><span class="line">            head-&gt;next=<span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode* fast=head,*slow=head;</span><br><span class="line">        <span class="keyword">while</span>(fast!=tail)&#123;</span><br><span class="line">            slow=slow-&gt;next;</span><br><span class="line">            fast=fast-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(fast!=tail)</span><br><span class="line">                fast=fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* mid=slow;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">mergeList</span>(<span class="built_in">sortList</span>(head,mid),<span class="built_in">sortList</span>(mid,tail));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeList</span><span class="params">(ListNode* head1,ListNode* head2)</span></span>&#123;</span><br><span class="line">        ListNode* dummy=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        ListNode* p=dummy;</span><br><span class="line">        <span class="keyword">while</span>(head1&amp;&amp;head2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(head1-&gt;val&lt;=head2-&gt;val)&#123;</span><br><span class="line">                p-&gt;next=head1;</span><br><span class="line">                head1=head1-&gt;next;</span><br><span class="line">                p=p-&gt;next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p-&gt;next=head2;</span><br><span class="line">                head2=head2-&gt;next;</span><br><span class="line">                p=p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(head1)&#123;</span><br><span class="line">            p-&gt;next=head1;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(head2)&#123;</span><br><span class="line">            p-&gt;next=head2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">/**
+ * Definition for singly-linked list.
+ * struct ListNode &#123;
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) &#123;&#125;
+ *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
+ *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
+ * &#125;;
+ */</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode* <span class="hljs-title">sortList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> sortList(head,<span class="hljs-literal">nullptr</span>);
+    &#125;
+    <span class="hljs-function">ListNode* <span class="hljs-title">sortList</span><span class="hljs-params">(ListNode* head,ListNode* tail)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">nullptr</span>)
+            <span class="hljs-keyword">return</span> head;
+        <span class="hljs-keyword">if</span>(head-&gt;next==tail)&#123;
+            head-&gt;next=<span class="hljs-literal">nullptr</span>;
+            <span class="hljs-keyword">return</span> head;
+        &#125;
+        
+        ListNode* fast=head,*slow=head;
+        <span class="hljs-keyword">while</span>(fast!=tail)&#123;
+            slow=slow-&gt;next;
+            fast=fast-&gt;next;
+            <span class="hljs-keyword">if</span>(fast!=tail)
+                fast=fast-&gt;next;
+        &#125;
+        ListNode* mid=slow;
+        <span class="hljs-keyword">return</span> mergeList(sortList(head,mid),sortList(mid,tail));
+    &#125;
+    <span class="hljs-function">ListNode* <span class="hljs-title">mergeList</span><span class="hljs-params">(ListNode* head1,ListNode* head2)</span></span>&#123;
+        ListNode* dummy=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">-1</span>);
+        ListNode* p=dummy;
+        <span class="hljs-keyword">while</span>(head1&amp;&amp;head2)&#123;
+            <span class="hljs-keyword">if</span>(head1-&gt;val&lt;=head2-&gt;val)&#123;
+                p-&gt;next=head1;
+                head1=head1-&gt;next;
+                p=p-&gt;next;
+            &#125;<span class="hljs-keyword">else</span>&#123;
+                p-&gt;next=head2;
+                head2=head2-&gt;next;
+                p=p-&gt;next;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">if</span>(head1)&#123;
+            p-&gt;next=head1;
+        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(head2)&#123;
+            p-&gt;next=head2;
+        &#125;
+        <span class="hljs-keyword">return</span> dummy-&gt;next;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="63-链表技巧"><a class="markdownIt-Anchor" href="#63-链表技巧"></a> 6.3 链表技巧</h2>
 <h4 id="5311-328-奇偶链表"><a class="markdownIt-Anchor" href="#5311-328-奇偶链表"></a> 5.3.1.1 <a href="https://leetcode.cn/problems/odd-even-linked-list/">328. 奇偶链表</a></h4>
 <p>分离节点后合并</p>
 <img src="https://assets.leetcode-cn.com/solution-static/328/1.png" alt="fig1" style="zoom:50%;" />
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">oddEvenList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* evenHead=head-&gt;next;</span><br><span class="line">        ListNode* odd=head,* even=evenHead;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(even&amp;&amp;even-&gt;next)&#123;</span><br><span class="line">            odd-&gt;next=even-&gt;next;</span><br><span class="line">            odd=odd-&gt;next;</span><br><span class="line">            even-&gt;next=odd-&gt;next;</span><br><span class="line">            even=even-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        odd-&gt;next=evenHead;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function">ListNode* <span class="hljs-title">oddEvenList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
+        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">nullptr</span>)
+            <span class="hljs-keyword">return</span> head;
+        ListNode* evenHead=head-&gt;next;
+        ListNode* odd=head,* even=evenHead;
+
+        <span class="hljs-keyword">while</span>(even&amp;&amp;even-&gt;next)&#123;
+            odd-&gt;next=even-&gt;next;
+            odd=odd-&gt;next;
+            even-&gt;next=odd-&gt;next;
+            even=even-&gt;next;
+        &#125;
+        odd-&gt;next=evenHead;
+        <span class="hljs-keyword">return</span> head;
+    &#125;
+&#125;;
+</code></pre>
 
     </div>
 

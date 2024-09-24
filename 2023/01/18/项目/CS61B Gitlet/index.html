@@ -716,7 +716,12 @@
 </ol>
 <h1 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h1>
 <p>测试文件存放在<code>proj2\testing\samples</code>目录下</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">//运行所有测试，是否输出额外信息</span><br><span class="line">make check</span><br><span class="line">make check TESTER_FLAGS=&quot;--verbose&quot;</span><br><span class="line">//测试单个文件</span><br><span class="line">python3 tester.py --verbose --keep FILE.in</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">//运行所有测试，是否输出额外信息
+make check
+make check TESTER_FLAGS="--verbose"
+//测试单个文件
+python3 tester.py --verbose --keep FILE.in
+</code></pre>
 <h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
 <p><a href="https://sp21.datastructur.es/materials/proj/proj2/proj2#merge">Project 2: Gitlet | CS 61B Spring 2021 (datastructur.es)</a><br />
 <a href="https://sp21.datastructur.es/materials/lab/lab6/lab6">Lab 6: Getting Started on Project 2 | CS 61B Spring 2021 (datastructur.es)</a>（Serialization Details）<br />

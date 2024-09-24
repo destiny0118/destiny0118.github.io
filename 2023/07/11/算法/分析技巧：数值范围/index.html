@@ -359,7 +359,24 @@
 <li>抵消法</li>
 <li>快排取中位数</li>
 </ol>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">majorityElement</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">0</span>,pre=nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> num:nums)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt==<span class="number">0</span>)&#123;</span><br><span class="line">                pre=num;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(num==pre)&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                cnt--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">majorityElement</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> cnt=<span class="hljs-number">0</span>,pre=nums[<span class="hljs-number">0</span>];
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> num:nums)&#123;
+            <span class="hljs-keyword">if</span>(cnt==<span class="hljs-number">0</span>)&#123;
+                pre=num;
+            &#125;
+            <span class="hljs-keyword">if</span>(num==pre)&#123;
+                cnt++;
+            &#125;<span class="hljs-keyword">else</span>&#123;
+                cnt--;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> pre;
+    &#125;
+&#125;;
+</code></pre>
 <h1 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h1>
 <p>动态规划的题目分为两大类，一种是求最优解类，典型问题是背包问题，另一种就是计数类，比如这里的统计方案数的问题，它们都存在一定的递推性质。<br />
 「将数组分割为割为m  段，求……」是动态规划题目常见的问法。<a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></p>
@@ -372,7 +389,35 @@
 <blockquote>
 <p>枚举回文数左半部分</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; pal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">auto</span> init=[]&#123;</span><br><span class="line">    <span class="comment">// 严格按顺序从小到大生成所有回文数（不用字符串转换）</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> base=<span class="number">1</span>;base&lt;=<span class="number">10000</span>;base*=<span class="number">10</span>)&#123;</span><br><span class="line">        <span class="comment">//生成奇数长度回文数</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i=base;i&lt;base*<span class="number">10</span>;i++)&#123;</span><br><span class="line">             <span class="type">int</span> x=i;</span><br><span class="line">             <span class="keyword">for</span>(<span class="type">int</span> t=i/<span class="number">10</span>;t;t/=<span class="number">10</span>)&#123;</span><br><span class="line">                 x=x*<span class="number">10</span>+t%<span class="number">10</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             pal.<span class="built_in">push_back</span>(x);</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="comment">//生成偶数长度回文数</span></span><br><span class="line">         <span class="keyword">if</span>(base&lt;=<span class="number">1000</span>)&#123;</span><br><span class="line">             <span class="keyword">for</span>(<span class="type">int</span> i=base;i&lt;base*<span class="number">10</span>;i++)&#123;</span><br><span class="line">                 <span class="type">int</span> x=i;</span><br><span class="line">                 <span class="keyword">for</span>(<span class="type">int</span> t=i;t;t/=<span class="number">10</span>)&#123;</span><br><span class="line">                     x=x*<span class="number">10</span>+t%<span class="number">10</span>;</span><br><span class="line">                 &#125;</span><br><span class="line">                 pal.<span class="built_in">push_back</span>(x);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    pal.<span class="built_in">push_back</span>(<span class="number">1&#x27;000&#x27;000&#x27;001</span>); <span class="comment">// 哨兵，防止下面代码中的 i 下标越界</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;();</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; pal;
+
+<span class="hljs-keyword">auto</span> init=[]&#123;
+    <span class="hljs-comment">// 严格按顺序从小到大生成所有回文数（不用字符串转换）</span>
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> base=<span class="hljs-number">1</span>;base&lt;=<span class="hljs-number">10000</span>;base*=<span class="hljs-number">10</span>)&#123;
+        <span class="hljs-comment">//生成奇数长度回文数</span>
+         <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=base;i&lt;base*<span class="hljs-number">10</span>;i++)&#123;
+             <span class="hljs-keyword">int</span> x=i;
+             <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> t=i/<span class="hljs-number">10</span>;t;t/=<span class="hljs-number">10</span>)&#123;
+                 x=x*<span class="hljs-number">10</span>+t%<span class="hljs-number">10</span>;
+             &#125;
+             pal.push_back(x);
+         &#125;
+
+         <span class="hljs-comment">//生成偶数长度回文数</span>
+         <span class="hljs-keyword">if</span>(base&lt;=<span class="hljs-number">1000</span>)&#123;
+             <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=base;i&lt;base*<span class="hljs-number">10</span>;i++)&#123;
+                 <span class="hljs-keyword">int</span> x=i;
+                 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> t=i;t;t/=<span class="hljs-number">10</span>)&#123;
+                     x=x*<span class="hljs-number">10</span>+t%<span class="hljs-number">10</span>;
+                 &#125;
+                 pal.push_back(x);
+             &#125;
+         &#125;
+    &#125;
+    pal.push_back(<span class="hljs-number">1'000'000'001</span>); <span class="hljs-comment">// 哨兵，防止下面代码中的 i 下标越界</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;();
+</code></pre>
 
     </div>
 

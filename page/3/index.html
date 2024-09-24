@@ -1309,9 +1309,16 @@ Kafka 是一个分布式流式处理平台</p>
 <li>失败重试机制</li>
 </ul>
 <p>Kafka 生产者(Producer) 使用 <code>send</code> 方法发送消息实际上是异步的操作，我们可以通过 <code>get()</code>方法获取调用结果，但是这样也让它变为了同步操作</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">SendResult&lt;String, Object&gt; sendResult = kafkaTemplate.send(topic, o).get();</span><br><span class="line"><span class="keyword">if</span> (sendResult.getRecordMetadata() != <span class="literal">null</span>) &#123;</span><br><span class="line">  logger.info(<span class="string">&quot;生产者成功发送消息到&quot;</span> + sendResult.getProducerRecord().topic() + <span class="string">&quot;-&gt; &quot;</span> + sendResult.getProducerRecord().value().toString());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">SendResult&lt;String, Object&gt; sendResult = kafkaTemplate.send(topic, o).get();
+<span class="hljs-keyword">if</span> (sendResult.getRecordMetadata() != <span class="hljs-keyword">null</span>) &#123;
+  logger.info(<span class="hljs-string">"生产者成功发送消息到"</span> + sendResult.getProducerRecord().topic() + <span class="hljs-string">"-&gt; "</span> + sendResult.getProducerRecord().value().toString());
+&#125;
+</code></pre>
 <p>添加回调函数的形式：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ListenableFuture&lt;SendResult&lt;String, Object&gt;&gt; future = kafkaTemplate.send(topic, o);</span><br><span class="line">future.addCallback(result -&gt; logger.info(<span class="string">&quot;生产者成功发送消息到topic:&#123;&#125; partition:&#123;&#125;的消息&quot;</span>, result.getRecordMetadata().topic(), result.getRecordMetadata().partition()),</span><br><span class="line">                ex -&gt; logger.error(<span class="string">&quot;生产者发送消失败，原因：&#123;&#125;&quot;</span>, ex.getMessage()));</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">ListenableFuture&lt;SendResult&lt;String, Object&gt;&gt; future = kafkaTemplate.send(topic, o);
+future.addCallback(result -&gt; logger.info(<span class="hljs-string">"生产者成功发送消息到topic:&#123;&#125; partition:&#123;&#125;的消息"</span>, result.getRecordMetadata().topic(), result.getRecordMetadata().partition()),
+                ex -&gt; logger.error(<span class="hljs-string">"生产者发送消失败，原因：&#123;&#125;"</span>, ex.getMessage()));
+</code></pre>
 <h3 id="322-消费者丢失消息"><a class="markdownIt-Anchor" href="#322-消费者丢失消息"></a> 3.2.2 消费者丢失消息</h3>
 <p>当消费者拉取到了分区的某个消息之后，消费者会自动提交了 offset。自动提交的话会有一个问题，当消费者刚拿到这个消息准备进行真正消费的时候，突然挂掉了，消息实际上并没有被消费，但是 offset 却被自动提交了。</p>
 <ul>
@@ -1623,11 +1630,36 @@ MetaQ的负载均衡逻辑都在客户端，每台客户端根据自己在Consum
 <p>sendfile并没有文件的读写操作，而是直接将文件的数据传输到 target 目标缓冲区，也就是说，sendfile 是无法知道文件的具体的数据的；但是 mmap 不一样，他是可以修改内核缓冲区的数据的。假设如果需要对文件的内容进行修改之后再传输，只有 mmap 可以满足。</p>
 <h1 id="6-启动rocketmq"><a class="markdownIt-Anchor" href="#6-启动rocketmq"></a> 6 启动RocketMQ</h1>
 <h2 id="61-启动nameserver"><a class="markdownIt-Anchor" href="#61-启动nameserver"></a> 6.1 启动NameServer</h2>
-<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows环境下启动</span></span><br><span class="line">.\<span class="keyword">bin\mqnamesrv</span></span><br><span class="line"><span class="keyword"></span><span class="comment"># linux环境下启动</span></span><br><span class="line"><span class="keyword">sh </span>mqnamesrv</span><br><span class="line"><span class="comment"># 后台启动</span></span><br><span class="line">nohup <span class="keyword">sh </span>mqnamesrv &amp;</span><br><span class="line"></span><br><span class="line">start .\<span class="keyword">bin\mqnamesrv </span>&amp;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class=""># windows环境下启动
+.\bin\mqnamesrv
+# linux环境下启动
+sh mqnamesrv
+# 后台启动
+nohup sh mqnamesrv &amp;
+
+start .\bin\mqnamesrv &amp;
+</code></pre>
 <h2 id="62-启动broker"><a class="markdownIt-Anchor" href="#62-启动broker"></a> 6.2 启动Broker</h2>
-<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment"># windows环境下启动</span></span><br><span class="line">.\mqbroker -n <span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">9876</span> </span><br><span class="line"><span class="comment"># linux环境下启动</span></span><br><span class="line"><span class="keyword">sh </span>mqbroker -n <span class="number">127</span>.<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>:<span class="number">9876</span> </span><br><span class="line"><span class="comment"># 后台启动</span></span><br><span class="line">nohup <span class="keyword">sh </span>mqbroker -n localhost:<span class="number">9876</span> &amp;</span><br><span class="line"><span class="comment">#指定配置文件启动</span></span><br><span class="line">nohup <span class="keyword">sh </span>mqbroker -n localhost:<span class="number">9876</span> -c 配置文件目录 &amp;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class=""># windows环境下启动
+.\mqbroker -n 127.0.0.1:9876 
+# linux环境下启动
+sh mqbroker -n 127.0.0.1:9876 
+# 后台启动
+nohup sh mqbroker -n localhost:9876 &amp;
+#指定配置文件启动
+nohup sh mqbroker -n localhost:9876 -c 配置文件目录 &amp;
+
+</code></pre>
 <h2 id="63-关闭mq服务"><a class="markdownIt-Anchor" href="#63-关闭mq服务"></a> 6.3 关闭MQ服务</h2>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="meta"># windows环境下启动</span></span><br><span class="line">.\mqshutdown namesrv <span class="comment">//关闭NameServer</span></span><br><span class="line">.\mqshutdown broker	 <span class="comment">//关闭Broker</span></span><br><span class="line"><span class="meta"># linux环境下启动</span></span><br><span class="line">sh bin/mqshutdown namesrv <span class="comment">//关闭NameServer</span></span><br><span class="line">sh bin/mqshutdown broker <span class="comment">//关闭Broker</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class=""># windows环境下启动
+.\mqshutdown namesrv //关闭NameServer
+.\mqshutdown broker	 //关闭Broker
+# linux环境下启动
+sh bin/mqshutdown namesrv //关闭NameServer
+sh bin/mqshutdown broker //关闭Broker
+
+</code></pre>
+
       
     </div>
 

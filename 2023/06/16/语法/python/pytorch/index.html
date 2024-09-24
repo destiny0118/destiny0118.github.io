@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="pytorch  torch Tensor import torchx&#x3D;torch.arange(12)xtensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])#张量的形状x.shape#含有元素个数x.numel()#维度自动推断X&#x3D;x.reshape(3,4)&#x3D;x.reshape(-1,4)&#x3D;x.reshape(3,-1)torch.">
+    <meta name="description" content="pytorch  torch Tensor import torch  x&#x3D;torch.arange(12) x tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])  #张量的形状 x.shape  #含有元素个数 x.numel()  #维度自动推断 X&#x3D;x.reshape(3,4)&#x3D;x.reshape(-1,4)&#x3D;x.reshap">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/06/16/%E8%AF%AD%E6%B3%95/python/pytorch/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="pytorch  torch Tensor import torchx&#x3D;torch.arange(12)xtensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])#张量的形状x.shape#含有元素个数x.numel()#维度自动推断X&#x3D;x.reshape(3,4)&#x3D;x.reshape(-1,4)&#x3D;x.reshape(3,-1)torch.">
+<meta property="og:description" content="pytorch  torch Tensor import torch  x&#x3D;torch.arange(12) x tensor([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])  #张量的形状 x.shape  #含有元素个数 x.numel()  #维度自动推断 X&#x3D;x.reshape(3,4)&#x3D;x.reshape(-1,4)&#x3D;x.reshap">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/destiny0118/picgo/raw/master/202204141022460.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204251123966.png">
@@ -292,7 +292,25 @@
     <div class="post-body" itemprop="articleBody">
         <h1 id="pytorch"><a class="markdownIt-Anchor" href="#pytorch"></a> pytorch</h1>
 <h1 id="torch-tensor"><a class="markdownIt-Anchor" href="#torch-tensor"></a> torch Tensor</h1>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line">x=torch.arange(<span class="number">12</span>)</span><br><span class="line">x</span><br><span class="line">tensor([ <span class="number">0</span>,  <span class="number">1</span>,  <span class="number">2</span>,  <span class="number">3</span>,  <span class="number">4</span>,  <span class="number">5</span>,  <span class="number">6</span>,  <span class="number">7</span>,  <span class="number">8</span>,  <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#张量的形状</span></span><br><span class="line">x.shape</span><br><span class="line"></span><br><span class="line"><span class="comment">#含有元素个数</span></span><br><span class="line">x.numel()</span><br><span class="line"></span><br><span class="line"><span class="comment">#维度自动推断</span></span><br><span class="line">X=x.reshape(<span class="number">3</span>,<span class="number">4</span>)=x.reshape(-<span class="number">1</span>,<span class="number">4</span>)=x.reshape(<span class="number">3</span>,-<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">torch.zeros((<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line">torch.ones(<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">torch.randn(<span class="number">3</span>,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> torch
+
+x=torch.arange(<span class="hljs-number">12</span>)
+x
+tensor([ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>,  <span class="hljs-number">3</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
+
+<span class="hljs-comment">#张量的形状</span>
+x.shape
+
+<span class="hljs-comment">#含有元素个数</span>
+x.numel()
+
+<span class="hljs-comment">#维度自动推断</span>
+X=x.reshape(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)=x.reshape(<span class="hljs-number">-1</span>,<span class="hljs-number">4</span>)=x.reshape(<span class="hljs-number">3</span>,<span class="hljs-number">-1</span>)
+
+torch.zeros((<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+torch.ones(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+torch.randn(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+</code></pre>
 <h2 id="转置函数"><a class="markdownIt-Anchor" href="#转置函数"></a> 转置函数</h2>
 <p>在<code>pytorch</code>中转置用的函数就只有这两个</p>
 <ol>
@@ -300,7 +318,8 @@
 <li><code>permute()</code></li>
 </ol>
 <h5 id="transpose"><a class="markdownIt-Anchor" href="#transpose"></a> <code>transpose()</code></h5>
-<figure class="highlight fortran"><table><tr><td class="code"><pre><span class="line">torch.<span class="built_in">transpose</span>(input, dim0, dim1, <span class="keyword">out</span>=<span class="keyword">None</span>) → Tensor</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">torch.transpose(input, dim0, dim1, out=None) → Tensor
+</code></pre>
 <p>函数返回输入矩阵<code>input</code>的转置。交换维度<code>dim0</code>和<code>dim1</code></p>
 <p>参数:</p>
 <ul>
@@ -310,7 +329,10 @@
 </ul>
 <p>注意<strong>只能有两个相关的交换</strong>的位置参数。</p>
 <h5 id="permute"><a class="markdownIt-Anchor" href="#permute"></a> <code>permute()</code></h5>
-<figure class="highlight stan"><table><tr><td class="code"><pre><span class="line">参数：</span><br><span class="line"></span><br><span class="line"><span class="built_in">dims</span> (<span class="type">int</span>…*)-换位顺序，必填</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">参数：
+
+dims (int…*)-换位顺序，必填
+</code></pre>
 <h2 id="常用函数"><a class="markdownIt-Anchor" href="#常用函数"></a> 常用函数</h2>
 <p>one_hot</p>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/202204141022460.png" alt="image-20220414102235414" /></p>
@@ -324,13 +346,46 @@
 (h,w)为（行，列），即为（y,x）</p>
 <h2 id="numpy"><a class="markdownIt-Anchor" href="#numpy"></a> numpy</h2>
 <p>numpy库数组属性查看：类型、尺寸、形状、维度</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np  </span><br><span class="line">      </span><br><span class="line">a1 = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],dtype=np.complex128)  </span><br><span class="line"><span class="built_in">print</span>(a1)  </span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数据类型&quot;</span>,<span class="built_in">type</span>(a1))           <span class="comment">#打印数组数据类型  </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数组元素数据类型：&quot;</span>,a1.dtype) <span class="comment">#打印数组元素数据类型  </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数组元素总数：&quot;</span>,a1.size)      <span class="comment">#打印数组尺寸，即数组元素总数  </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数组形状：&quot;</span>,a1.shape)         <span class="comment">#打印数组形状  </span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数组的维度数目&quot;</span>,a1.ndim)      <span class="comment">#打印数组的维度数目  </span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np  
+      
+a1 = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],dtype=np.complex128)  
+print(a1)  
+print(<span class="hljs-string">"数据类型"</span>,type(a1))           <span class="hljs-comment">#打印数组数据类型  </span>
+print(<span class="hljs-string">"数组元素数据类型："</span>,a1.dtype) <span class="hljs-comment">#打印数组元素数据类型  </span>
+print(<span class="hljs-string">"数组元素总数："</span>,a1.size)      <span class="hljs-comment">#打印数组尺寸，即数组元素总数  </span>
+print(<span class="hljs-string">"数组形状："</span>,a1.shape)         <span class="hljs-comment">#打印数组形状  </span>
+print(<span class="hljs-string">"数组的维度数目"</span>,a1.ndim)      <span class="hljs-comment">#打印数组的维度数目  </span>
+</code></pre>
 <h2 id="pil"><a class="markdownIt-Anchor" href="#pil"></a> PIL</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示图片，图片尺寸，通道数</span></span><br><span class="line">img=Image.<span class="built_in">open</span>(<span class="string">&quot;Image/1.jpg&quot;</span>)</span><br><span class="line">plt.imshow(img)</span><br><span class="line">img.size,img.layers</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#图片变为numpy对象，W*H*C,范围[0-256]</span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">img_ndarray=np.asarray(img)</span><br><span class="line"><span class="comment">#W*H*C</span></span><br><span class="line">img_ndarray.shape</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#numpy转化为torch，C*W*H</span></span><br><span class="line">trans=torchvision.transforms.ToTensor()</span><br><span class="line">img2_trans=trans(img2_n)</span><br><span class="line">img2_trans.shape</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image
+<span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment">#显示图片，图片尺寸，通道数</span>
+img=Image.open(<span class="hljs-string">"Image/1.jpg"</span>)
+plt.imshow(img)
+img.size,img.layers
+</code></pre>
+<pre class="highlight"><code class="python"><span class="hljs-comment">#图片变为numpy对象，W*H*C,范围[0-256]</span>
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+img_ndarray=np.asarray(img)
+<span class="hljs-comment">#W*H*C</span>
+img_ndarray.shape
+
+</code></pre>
+<pre class="highlight"><code class="python"><span class="hljs-comment">#numpy转化为torch，C*W*H</span>
+trans=torchvision.transforms.ToTensor()
+img2_trans=trans(img2_n)
+img2_trans.shape
+</code></pre>
 <p>tensor变为整数类型</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = [[<span class="number">1.</span>,<span class="number">2.</span>],[<span class="number">3.</span>,<span class="number">4.</span>]]</span><br><span class="line">b = torch.tensor(a)</span><br><span class="line"><span class="comment"># c = torch.tensor(b,dtype=torch.int)</span></span><br><span class="line">c = b.clone().<span class="built_in">type</span>(torch.<span class="built_in">int</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python">a = [[<span class="hljs-number">1.</span>,<span class="hljs-number">2.</span>],[<span class="hljs-number">3.</span>,<span class="hljs-number">4.</span>]]
+b = torch.tensor(a)
+<span class="hljs-comment"># c = torch.tensor(b,dtype=torch.int)</span>
+c = b.clone().type(torch.int)
+
+print(b)
+print(c)
+</code></pre>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/202204131512427.png" alt="image-20220413151208381" /></p>
 <p>argmax：求某一维度最大值的下标</p>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/202203242018613.png" alt="image-20220324201852580" /></p>

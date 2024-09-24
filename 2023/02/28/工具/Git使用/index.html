@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="distributed versoin control system（分布式版本控制系统）   1 初始化  1.1.1 配置 git config --global user.name &quot;yuyg&quot;git config --global user.email &quot;1632508233@qq.com&quot; Git Intro - Part 2 - YouTube">
+    <meta name="description" content="distributed versoin control system（分布式版本控制系统）   1 初始化  1.1.1 配置 git config --global user.name &quot;yuyg&quot; git config --global user.email &quot;1632508233@qq.com&quot;  Git Intro - Part 2 - YouTube git status">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git使用">
 <meta property="og:url" content="https://destiny0118.github.io/2023/02/28/%E5%B7%A5%E5%85%B7/Git%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="distributed versoin control system（分布式版本控制系统）   1 初始化  1.1.1 配置 git config --global user.name &quot;yuyg&quot;git config --global user.email &quot;1632508233@qq.com&quot; Git Intro - Part 2 - YouTube">
+<meta property="og:description" content="distributed versoin control system（分布式版本控制系统）   1 初始化  1.1.1 配置 git config --global user.name &quot;yuyg&quot; git config --global user.email &quot;1632508233@qq.com&quot;  Git Intro - Part 2 - YouTube git status">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292013895.png">
@@ -296,28 +296,93 @@
 </blockquote>
 <h1 id="1-初始化"><a class="markdownIt-Anchor" href="#1-初始化"></a> 1 初始化</h1>
 <h3 id="111-配置"><a class="markdownIt-Anchor" href="#111-配置"></a> 1.1.1 配置</h3>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yuyg&quot;</span><br><span class="line">git config --global user.email &quot;1632508233@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">git config --global user.name "yuyg"
+git config --global user.email "1632508233@qq.com"
+</code></pre>
 <p><a href="https://www.youtube.com/watch?v=CnMpARAOhFg">Git Intro - Part 2 - YouTube</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status                          # To see what needs to be added or committed.</span><br><span class="line">git add &lt;filepath&gt;                  # To add, or stage, any modified files.</span><br><span class="line">git commit -m &quot;Commit message&quot;      # To commit changes.</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git log                             #查看commit提交日志</span><br><span class="line">git checkout (commit ID)  #切换分支</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">touch a.txt</span><br><span class="line">cat a.txt</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">git status                          # To see what needs to be added or committed.
+git add &lt;filepath&gt;                  # To add, or stage, any modified files.
+git commit -m "Commit message"      # To commit changes.
+git push
+
+git log                             #查看commit提交日志
+git checkout (commit ID)  #切换分支
+git checkout master
+
+touch a.txt
+cat a.txt
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png" alt="image-20230329200310434" /></p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292013895.png" alt="image-20230329201305806" /></p>
 <p><a href="https://www.cnblogs.com/wangiqngpei557/p/6056624.html">聊下git pull --rebase - 王清培 - 博客园 (cnblogs.com)</a></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init 初始化</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加文件到暂存区</span></span><br><span class="line">git add .			当前目录所有文件</span><br><span class="line">git add filename</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">撤销添加到暂存区的文件</span></span><br><span class="line">git reset .</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看添加状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把文件提交到仓库</span></span><br><span class="line"> git commit -m message</span><br><span class="line"> git commit -m &quot;[base] commit&quot;</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看提交状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从最近到最远显示提交日志</span></span><br><span class="line">git log</span><br><span class="line">git log -pretty=oneline		每次提交显示为一行</span><br><span class="line"></span><br><span class="line">还未commit的文件</span><br><span class="line">git rm --cached . -r  删除add的文件</span><br><span class="line">git rm --cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；</span><br><span class="line">git rm --f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">git init 初始化
+<span class="hljs-meta">
+#</span><span class="bash">添加文件到暂存区</span>
+git add .			当前目录所有文件
+git add filename
+<span class="hljs-meta">
+#</span><span class="bash">撤销添加到暂存区的文件</span>
+git reset .
+<span class="hljs-meta">
+#</span><span class="bash">查看添加状态</span>
+git status
+<span class="hljs-meta">
+#</span><span class="bash">把文件提交到仓库</span>
+ git commit -m message
+ git commit -m "[base] commit"
+<span class="hljs-meta"> 
+#</span><span class="bash">查看提交状态</span>
+git status
+<span class="hljs-meta">
+#</span><span class="bash">从最近到最远显示提交日志</span>
+git log
+git log -pretty=oneline		每次提交显示为一行
+
+还未commit的文件
+git rm --cached . -r  删除add的文件
+git rm --cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；
+git rm --f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051791.png" alt="image-20230329205129717" /></p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051832.png" alt="image-20230329205152756" /></p>
 <p>文件回退</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -f lab1/Collatz.java</span><br><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -- lab1/Collatz.java</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="git">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -f lab1/Collatz.java
+git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -- lab1/Collatz.java
+</code></pre>
 <h2 id="12-版本回退"><a class="markdownIt-Anchor" href="#12-版本回退"></a> 1.2 版本回退</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^		回退到上个版本</span><br><span class="line">git reset --hard HEAD^^		回退到上上个版本</span><br><span class="line">git reset --hard HEAD~1</span><br><span class="line"></span><br><span class="line">git reset --hard 版本号	 	回退到最新版本</span><br><span class="line"></span><br><span class="line">git reflog					查看版本号</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">git reset --hard HEAD^		回退到上个版本
+git reset --hard HEAD^^		回退到上上个版本
+git reset --hard HEAD~1
+
+git reset --hard 版本号	 	回退到最新版本
+
+git reflog					查看版本号
+</code></pre>
 <h2 id="13-远程仓库"><a class="markdownIt-Anchor" href="#13-远程仓库"></a> 1.3 远程仓库</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">origin为远程仓库的别名</span></span><br><span class="line">git remote add origin git@github.com:destiny0118/Few-shot-Image-Segmentation.git</span><br><span class="line"></span><br><span class="line">git branch -M master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-u参数，把本地的master分支推送到远程新的master分支，将本地master分支与远程master分支关联起来</span></span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git remote -v			查看远程仓库信息</span><br><span class="line">git remote rm origin	删除已有的远程仓库</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">git remote add [shortname] [url]
+<span class="hljs-meta">#</span><span class="bash">origin为远程仓库的别名</span>
+git remote add origin git@github.com:destiny0118/Few-shot-Image-Segmentation.git
+
+git branch -M master
+<span class="hljs-meta">#</span><span class="bash">-u参数，把本地的master分支推送到远程新的master分支，将本地master分支与远程master分支关联起来</span>
+git push -u origin master
+
+
+
+
+git remote -v			查看远程仓库信息
+git remote rm origin	删除已有的远程仓库
+</code></pre>
 <h2 id="14-git-push"><a class="markdownIt-Anchor" href="#14-git-push"></a> 1.4 git push</h2>
 <p><a href="https://www.runoob.com/git/git-push.html">git push 命令 | 菜鸟教程 (runoob.com)</a></p>
 <p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
 <p>命令格式如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="shell">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
+
+</code></pre>
 <p>如果本地分支名与远程分支名相同，则可以省略冒号：</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git push <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">git push &lt;远程主机名&gt; &lt;本地分支名&gt;
+</code></pre>
 <ol>
 <li>git push origin master：refs/for/master<br />
 即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名  第一个master是本地分支名，第二个master是远程分支名。</li>

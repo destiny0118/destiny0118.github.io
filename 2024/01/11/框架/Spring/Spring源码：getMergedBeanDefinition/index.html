@@ -277,9 +277,81 @@
         <blockquote>
 <p>在Spring中用BeanDefinition来代表一个Spring对象的定义。因此有BeanDefinitionBuilder、BeanDefinitionParser这些常见工具类。简单来说，整个Spring容器也就是读取文件、构造BeanDefinition对象、实例化成Bean的过程。BeanDefinition也可以认为是一个Bean元数据的容器，包含了一个bean实例化和初始化所需要的各种参数，比如class、name、scope、properties等等。</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> BeanDefinition <span class="title function_">getBeanDefinition</span><span class="params">(String beanName)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException &#123;  </span><br><span class="line">    <span class="type">BeanDefinition</span> <span class="variable">bd</span> <span class="operator">=</span> (BeanDefinition)<span class="built_in">this</span>.beanDefinitionMap.get(beanName);  </span><br><span class="line">    <span class="keyword">if</span> (bd == <span class="literal">null</span>) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.logger.isTraceEnabled()) &#123;  </span><br><span class="line">            <span class="built_in">this</span>.logger.trace(<span class="string">&quot;No bean named &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27; found in &quot;</span> + <span class="built_in">this</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchBeanDefinitionException</span>(beanName);  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">return</span> bd;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//beanname(child)</span></span><br><span class="line"><span class="comment">//bd(child BeanDefinition)</span></span><br><span class="line"><span class="keyword">protected</span> RootBeanDefinition <span class="title function_">getMergedBeanDefinition</span><span class="params">(String beanName, BeanDefinition bd)</span> <span class="keyword">throws</span> BeanDefinitionStoreException &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.getMergedBeanDefinition(beanName, bd, (BeanDefinition)<span class="literal">null</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> RootBeanDefinition <span class="title function_">getMergedBeanDefinition</span><span class="params">(String beanName, BeanDefinition bd, BeanDefinition containingBd)</span> <span class="keyword">throws</span> BeanDefinitionStoreException &#123;  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.mergedBeanDefinitions) &#123;  </span><br><span class="line">        <span class="type">RootBeanDefinition</span> <span class="variable">mbd</span> <span class="operator">=</span> <span class="literal">null</span>;  </span><br><span class="line">        <span class="keyword">if</span> (containingBd == <span class="literal">null</span>) &#123;  </span><br><span class="line">            mbd = (RootBeanDefinition)<span class="built_in">this</span>.mergedBeanDefinitions.get(beanName);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (mbd == <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (bd.getParentName() == <span class="literal">null</span>) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (bd <span class="keyword">instanceof</span> RootBeanDefinition) &#123;  </span><br><span class="line">                    mbd = ((RootBeanDefinition)bd).cloneBeanDefinition();  </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                    mbd = <span class="keyword">new</span> <span class="title class_">RootBeanDefinition</span>(bd);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                BeanDefinition pbd;  </span><br><span class="line">                <span class="keyword">try</span> &#123;  </span><br><span class="line">	                <span class="comment">//得到parent BeanName</span></span><br><span class="line">                    <span class="type">String</span> <span class="variable">parentBeanName</span> <span class="operator">=</span> <span class="built_in">this</span>.transformedBeanName(bd.getParentName());  </span><br><span class="line">                    <span class="keyword">if</span> (!beanName.equals(parentBeanName)) &#123;  </span><br><span class="line">	                    <span class="comment">//parent(BeanDefinition</span></span><br><span class="line">	                    )</span><br><span class="line">                        pbd = <span class="built_in">this</span>.getMergedBeanDefinition(parentBeanName);  </span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                        <span class="type">BeanFactory</span> <span class="variable">parent</span> <span class="operator">=</span> <span class="built_in">this</span>.getParentBeanFactory();  </span><br><span class="line">                        <span class="keyword">if</span> (!(parent <span class="keyword">instanceof</span> ConfigurableBeanFactory)) &#123;  </span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchBeanDefinitionException</span>(parentBeanName, <span class="string">&quot;Parent name &#x27;&quot;</span> + parentBeanName + <span class="string">&quot;&#x27; is equal to bean name &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27;: cannot be resolved without an AbstractBeanFactory parent&quot;</span>);  </span><br><span class="line">                        &#125;  </span><br><span class="line">  </span><br><span class="line">                        pbd = ((ConfigurableBeanFactory)parent).getMergedBeanDefinition(parentBeanName);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125; <span class="keyword">catch</span> (NoSuchBeanDefinitionException var10) &#123;  </span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanDefinitionStoreException</span>(bd.getResourceDescription(), beanName, <span class="string">&quot;Could not resolve parent bean definition &#x27;&quot;</span> + bd.getParentName() + <span class="string">&quot;&#x27;&quot;</span>, var10);  </span><br><span class="line">                &#125;  </span><br><span class="line">  </span><br><span class="line">                mbd = <span class="keyword">new</span> <span class="title class_">RootBeanDefinition</span>(pbd);  </span><br><span class="line">                mbd.overrideFrom(bd);  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (!StringUtils.hasLength(mbd.getScope())) &#123;  </span><br><span class="line">                mbd.setScope(<span class="string">&quot;singleton&quot;</span>);  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (containingBd != <span class="literal">null</span> &amp;&amp; !containingBd.isSingleton() &amp;&amp; mbd.isSingleton()) &#123;  </span><br><span class="line">                mbd.setScope(containingBd.getScope());  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (containingBd == <span class="literal">null</span> &amp;&amp; <span class="built_in">this</span>.isCacheBeanMetadata()) &#123;  </span><br><span class="line">                <span class="built_in">this</span>.mergedBeanDefinitions.put(beanName, mbd);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">return</span> mbd;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> BeanDefinition <span class="hljs-title">getBeanDefinition</span><span class="hljs-params">(String beanName)</span> <span class="hljs-keyword">throws</span> NoSuchBeanDefinitionException </span>&#123;  
+    BeanDefinition bd = (BeanDefinition)<span class="hljs-keyword">this</span>.beanDefinitionMap.get(beanName);  
+    <span class="hljs-keyword">if</span> (bd == <span class="hljs-keyword">null</span>) &#123;  
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.logger.isTraceEnabled()) &#123;  
+            <span class="hljs-keyword">this</span>.logger.trace(<span class="hljs-string">"No bean named '"</span> + beanName + <span class="hljs-string">"' found in "</span> + <span class="hljs-keyword">this</span>);  
+        &#125;  
+  
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchBeanDefinitionException(beanName);  
+    &#125; <span class="hljs-keyword">else</span> &#123;  
+        <span class="hljs-keyword">return</span> bd;  
+    &#125;  
+&#125;
+</code></pre>
+<pre class="highlight"><code class="java"><span class="hljs-comment">//beanname(child)</span>
+<span class="hljs-comment">//bd(child BeanDefinition)</span>
+<span class="hljs-function"><span class="hljs-keyword">protected</span> RootBeanDefinition <span class="hljs-title">getMergedBeanDefinition</span><span class="hljs-params">(String beanName, BeanDefinition bd)</span> <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>&#123;  
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.getMergedBeanDefinition(beanName, bd, (BeanDefinition)<span class="hljs-keyword">null</span>);  
+&#125;
+</code></pre>
+<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">protected</span> RootBeanDefinition <span class="hljs-title">getMergedBeanDefinition</span><span class="hljs-params">(String beanName, BeanDefinition bd, BeanDefinition containingBd)</span> <span class="hljs-keyword">throws</span> BeanDefinitionStoreException </span>&#123;  
+    <span class="hljs-keyword">synchronized</span>(<span class="hljs-keyword">this</span>.mergedBeanDefinitions) &#123;  
+        RootBeanDefinition mbd = <span class="hljs-keyword">null</span>;  
+        <span class="hljs-keyword">if</span> (containingBd == <span class="hljs-keyword">null</span>) &#123;  
+            mbd = (RootBeanDefinition)<span class="hljs-keyword">this</span>.mergedBeanDefinitions.get(beanName);  
+        &#125;  
+  
+        <span class="hljs-keyword">if</span> (mbd == <span class="hljs-keyword">null</span>) &#123;  
+            <span class="hljs-keyword">if</span> (bd.getParentName() == <span class="hljs-keyword">null</span>) &#123;  
+                <span class="hljs-keyword">if</span> (bd <span class="hljs-keyword">instanceof</span> RootBeanDefinition) &#123;  
+                    mbd = ((RootBeanDefinition)bd).cloneBeanDefinition();  
+                &#125; <span class="hljs-keyword">else</span> &#123;  
+                    mbd = <span class="hljs-keyword">new</span> RootBeanDefinition(bd);  
+                &#125;  
+            &#125; <span class="hljs-keyword">else</span> &#123;  
+                BeanDefinition pbd;  
+                <span class="hljs-keyword">try</span> &#123;  
+	                <span class="hljs-comment">//得到parent BeanName</span>
+                    String parentBeanName = <span class="hljs-keyword">this</span>.transformedBeanName(bd.getParentName());  
+                    <span class="hljs-keyword">if</span> (!beanName.equals(parentBeanName)) &#123;  
+	                    <span class="hljs-comment">//parent(BeanDefinition</span>
+	                    )
+                        pbd = <span class="hljs-keyword">this</span>.getMergedBeanDefinition(parentBeanName);  
+                    &#125; <span class="hljs-keyword">else</span> &#123;  
+                        BeanFactory parent = <span class="hljs-keyword">this</span>.getParentBeanFactory();  
+                        <span class="hljs-keyword">if</span> (!(parent <span class="hljs-keyword">instanceof</span> ConfigurableBeanFactory)) &#123;  
+                            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchBeanDefinitionException(parentBeanName, <span class="hljs-string">"Parent name '"</span> + parentBeanName + <span class="hljs-string">"' is equal to bean name '"</span> + beanName + <span class="hljs-string">"': cannot be resolved without an AbstractBeanFactory parent"</span>);  
+                        &#125;  
+  
+                        pbd = ((ConfigurableBeanFactory)parent).getMergedBeanDefinition(parentBeanName);  
+                    &#125;  
+                &#125; <span class="hljs-keyword">catch</span> (NoSuchBeanDefinitionException var10) &#123;  
+                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> BeanDefinitionStoreException(bd.getResourceDescription(), beanName, <span class="hljs-string">"Could not resolve parent bean definition '"</span> + bd.getParentName() + <span class="hljs-string">"'"</span>, var10);  
+                &#125;  
+  
+                mbd = <span class="hljs-keyword">new</span> RootBeanDefinition(pbd);  
+                mbd.overrideFrom(bd);  
+            &#125;  
+  
+            <span class="hljs-keyword">if</span> (!StringUtils.hasLength(mbd.getScope())) &#123;  
+                mbd.setScope(<span class="hljs-string">"singleton"</span>);  
+            &#125;  
+  
+            <span class="hljs-keyword">if</span> (containingBd != <span class="hljs-keyword">null</span> &amp;&amp; !containingBd.isSingleton() &amp;&amp; mbd.isSingleton()) &#123;  
+                mbd.setScope(containingBd.getScope());  
+            &#125;  
+  
+            <span class="hljs-keyword">if</span> (containingBd == <span class="hljs-keyword">null</span> &amp;&amp; <span class="hljs-keyword">this</span>.isCacheBeanMetadata()) &#123;  
+                <span class="hljs-keyword">this</span>.mergedBeanDefinitions.put(beanName, mbd);  
+            &#125;  
+        &#125;  
+  
+        <span class="hljs-keyword">return</span> mbd;  
+    &#125;  
+&#125;
+</code></pre>
 <h1 id="1-参考"><a class="markdownIt-Anchor" href="#1-参考"></a> 1 参考</h1>
 <ol>
 <li><a href="https://blog.csdn.net/m0_37607945/article/details/107411096">什么是MergedBeanDefinition?-CSDN博客</a></li>

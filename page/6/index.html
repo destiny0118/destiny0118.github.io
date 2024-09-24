@@ -809,7 +809,34 @@ tar：该命令不仅可以用于压缩，也可以用于解压。解压时常�
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**  </span></span><br><span class="line"><span class="comment"> * Executes the given task sometime in the future.  The task * may execute in a new thread or in an existing pooled thread. * * If the task cannot be submitted for execution, either because this * executor has been shutdown or because its capacity has been reached, * the task is handled by the current &#123;<span class="doctag">@code</span> RejectedExecutionHandler&#125;.  </span></span><br><span class="line"><span class="comment"> * * <span class="doctag">@param</span> command the task to execute  </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span> RejectedExecutionException at discretion of  </span></span><br><span class="line"><span class="comment"> *         &#123;<span class="doctag">@code</span> RejectedExecutionHandler&#125;, if the task  </span></span><br><span class="line"><span class="comment"> *         cannot be accepted for execution * <span class="doctag">@throws</span> NullPointerException if &#123;<span class="doctag">@code</span> command&#125; is null  </span></span><br><span class="line"><span class="comment"> */</span><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">(Runnable command)</span> &#123;  </span><br><span class="line">    <span class="keyword">if</span> (command == <span class="literal">null</span>)  </span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();  </span><br><span class="line">    <span class="comment">/*  </span></span><br><span class="line"><span class="comment">     * Proceed in 3 steps:     *     * 1. If fewer than corePoolSize threads are running, try to     * start a new thread with the given command as its first     * task.  The call to addWorker atomically checks runState and     * workerCount, and so prevents false alarms that would add     * threads when it shouldn&#x27;t, by returning false.     *     * 2. If a task can be successfully queued, then we still need     * to double-check whether we should have added a thread     * (because existing ones died since last checking) or that     * the pool shut down since entry into this method. So we     * recheck state and if necessary roll back the enqueuing if     * stopped, or start a new thread if there are none.     *     * 3. If we cannot queue task, then we try to add a new     * thread.  If it fails, we know we are shut down or saturated     * and so reject the task.     */</span>    </span><br><span class="line">    <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> ctl.get();  </span><br><span class="line">    <span class="keyword">if</span> (workerCountOf(c) &lt; corePoolSize) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (addWorker(command, <span class="literal">true</span>))  </span><br><span class="line">            <span class="keyword">return</span>;  </span><br><span class="line">        c = ctl.get();  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;  </span><br><span class="line">        <span class="type">int</span> <span class="variable">recheck</span> <span class="operator">=</span> ctl.get();  </span><br><span class="line">        <span class="keyword">if</span> (! isRunning(recheck) &amp;&amp; remove(command))  </span><br><span class="line">            reject(command);  </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (workerCountOf(recheck) == <span class="number">0</span>)  </span><br><span class="line">            addWorker(<span class="literal">null</span>, <span class="literal">false</span>);  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (!addWorker(command, <span class="literal">false</span>))  </span><br><span class="line">        reject(command);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <pre class="highlight"><code class="java"><span class="hljs-comment">/**  
+ * Executes the given task sometime in the future.  The task * may execute in a new thread or in an existing pooled thread. * * If the task cannot be submitted for execution, either because this * executor has been shutdown or because its capacity has been reached, * the task is handled by the current &#123;<span class="hljs-doctag">@code</span> RejectedExecutionHandler&#125;.  
+ * * <span class="hljs-doctag">@param</span> command the task to execute  
+ * <span class="hljs-doctag">@throws</span> RejectedExecutionException at discretion of  
+ *         &#123;<span class="hljs-doctag">@code</span> RejectedExecutionHandler&#125;, if the task  
+ *         cannot be accepted for execution * <span class="hljs-doctag">@throws</span> NullPointerException if &#123;<span class="hljs-doctag">@code</span> command&#125; is null  
+ */</span><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">(Runnable command)</span> </span>&#123;  
+    <span class="hljs-keyword">if</span> (command == <span class="hljs-keyword">null</span>)  
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NullPointerException();  
+    <span class="hljs-comment">/*  
+     * Proceed in 3 steps:     *     * 1. If fewer than corePoolSize threads are running, try to     * start a new thread with the given command as its first     * task.  The call to addWorker atomically checks runState and     * workerCount, and so prevents false alarms that would add     * threads when it shouldn't, by returning false.     *     * 2. If a task can be successfully queued, then we still need     * to double-check whether we should have added a thread     * (because existing ones died since last checking) or that     * the pool shut down since entry into this method. So we     * recheck state and if necessary roll back the enqueuing if     * stopped, or start a new thread if there are none.     *     * 3. If we cannot queue task, then we try to add a new     * thread.  If it fails, we know we are shut down or saturated     * and so reject the task.     */</span>    
+    <span class="hljs-keyword">int</span> c = ctl.get();  
+    <span class="hljs-keyword">if</span> (workerCountOf(c) &lt; corePoolSize) &#123;  
+        <span class="hljs-keyword">if</span> (addWorker(command, <span class="hljs-keyword">true</span>))  
+            <span class="hljs-keyword">return</span>;  
+        c = ctl.get();  
+    &#125;  
+    <span class="hljs-keyword">if</span> (isRunning(c) &amp;&amp; workQueue.offer(command)) &#123;  
+        <span class="hljs-keyword">int</span> recheck = ctl.get();  
+        <span class="hljs-keyword">if</span> (! isRunning(recheck) &amp;&amp; remove(command))  
+            reject(command);  
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (workerCountOf(recheck) == <span class="hljs-number">0</span>)  
+            addWorker(<span class="hljs-keyword">null</span>, <span class="hljs-keyword">false</span>);  
+    &#125;  
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!addWorker(command, <span class="hljs-keyword">false</span>))  
+        reject(command);  
+&#125;
+</code></pre>
 <p><a href="https://www.throwx.cn/2020/08/23/java-concurrency-thread-pool-executor/">硬核干货：4W字从源码上分析JUC线程池ThreadPoolExecutor的实现原理 | Throwable (throwx.cn)</a></p>
 
       
@@ -1403,12 +1430,22 @@ ConcurrentHashMap：Node数组+链表+红黑树实现，线程安全的（jdk1.8
 <p>在Lab3中遇到了此问题，考虑在server中记录client已经添加的命令（命令可能未执行成功），在收到更小的command时，则不调用Start添加到leader。这需要启用新的server作为leader时，快速将已有的命令执行完毕（在添加任何新命令之前），这一步难以实现。</p>
 <p>因此考虑在command中添加client的命令标志，重传的命令也可以被添加到log中，但是在执行时会发现该命令已经执行过</p>
 <p>命令没有被执行 TestManyPartitionsManyClients3A</p>
-<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="section">=== RUN   TestManyPartitionsManyClients3A</span></span><br><span class="line">Test: partitions, many clients (3A) ...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">=== RUN   TestManyPartitionsManyClients3A
+Test: partitions, many clients (3A) ...
+
+</code></pre>
 <p>命令结果有额外部分（多执行了？）TestConcurrent3A</p>
-<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Test: </span>unreliable net, restarts, partitions, random keys, many clients (3A) ...</span><br><span class="line">info: wrote history visualization to /tmp/1021001197.html</span><br><span class="line">    test_test.go:382: history is not linearizable</span><br><span class="line">--- FAIL: TestPersistPartitionUnreliableLinearizable3A (30.13s)</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">Test: unreliable net, restarts, partitions, random keys, many clients (3A) ...
+info: wrote history visualization to /tmp/1021001197.html
+    test_test.go:382: history is not linearizable
+--- FAIL: TestPersistPartitionUnreliableLinearizable3A (30.13s)
+</code></pre>
 <h2 id="3-并发读写map"><a class="markdownIt-Anchor" href="#3-并发读写map"></a> 3. 并发读写map</h2>
 <p><code>fatal error: concurrent map read and map write</code></p>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">replyCh := <span class="built_in">make</span>(<span class="keyword">chan</span> ApplierResult, <span class="number">1</span>)</span><br><span class="line">kv.appliedCh[index] = replyCh</span><br><span class="line"><span class="comment">//kv.appliedCh[index] = make(chan ApplierResult, 1)</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="go">replyCh := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> ApplierResult, <span class="hljs-number">1</span>)
+kv.appliedCh[index] = replyCh
+<span class="hljs-comment">//kv.appliedCh[index] = make(chan ApplierResult, 1)</span>
+</code></pre>
 
       
     </div>
@@ -1797,7 +1834,30 @@ ConcurrentHashMap：Node数组+链表+红黑树实现，线程安全的（jdk1.8
 <p>s1断联，添加了一系列entry</p>
 <p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
 <h1 id="2c"><a class="markdownIt-Anchor" href="#2c"></a> 2C</h1>
-<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="go">persist
+<span class="hljs-comment">// Your code here (2C).</span>
+<span class="hljs-comment">// Example:</span>
+<span class="hljs-comment">// w := new(bytes.Buffer)</span>
+<span class="hljs-comment">// e := labgob.NewEncoder(w)</span>
+<span class="hljs-comment">// e.Encode(rf.xxx)</span>
+<span class="hljs-comment">// e.Encode(rf.yyy)</span>
+<span class="hljs-comment">// data := w.Bytes()</span>
+<span class="hljs-comment">// rf.persister.SaveRaftState(data)</span>
+readPersist
+<span class="hljs-comment">// Your code here (2C).</span>
+<span class="hljs-comment">// Example:</span>
+<span class="hljs-comment">// r := bytes.NewBuffer(data)</span>
+<span class="hljs-comment">// d := labgob.NewDecoder(r)</span>
+<span class="hljs-comment">// var xxx</span>
+<span class="hljs-comment">// var yyy</span>
+<span class="hljs-comment">// if d.Decode(&amp;xxx) != nil ||</span>
+<span class="hljs-comment">//    d.Decode(&amp;yyy) != nil &#123;</span>
+<span class="hljs-comment">//   error...</span>
+<span class="hljs-comment">// &#125; else &#123;</span>
+<span class="hljs-comment">//   rf.xxx = xxx</span>
+<span class="hljs-comment">//   rf.yyy = yyy</span>
+<span class="hljs-comment">// &#125;</span>
+</code></pre>
 <h2 id="bug"><a class="markdownIt-Anchor" href="#bug"></a> Bug</h2>
 <p>同一任期选出两个leader</p>
 <p>乱序收到RPC response</p>

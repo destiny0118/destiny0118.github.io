@@ -335,11 +335,21 @@ LLONG_MAX:9223372036854775807</strong></p>
     <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/img/202206021814398.png" width=45%/>
  </center>
 <p>捆绑赋值</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">tie&#123;a,b&#125;=b,c</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">tie&#123;a,b&#125;=b,c
+</code></pre>
 <p>位运算库函数</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">__builtin_popcount(k)	<span class="comment">//计算k二进制表示中1的个数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">iota</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),<span class="number">0</span>)    <span class="comment">//[0,1,2,3,...]</span></span><br><span class="line"><span class="comment">//根据nums1对num排序</span></span><br><span class="line"><span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),[&amp;](<span class="type">int</span> a,<span class="type">int</span> b)&#123;</span><br><span class="line"><span class="keyword">return</span> nums1[a]&lt;nums1[b];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">__builtin_popcount(k)	<span class="hljs-comment">//计算k二进制表示中1的个数</span>
+
+iota(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>(),<span class="hljs-number">0</span>)    <span class="hljs-comment">//[0,1,2,3,...]</span>
+<span class="hljs-comment">//根据nums1对num排序</span>
+sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>(),[&amp;](<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)&#123;
+<span class="hljs-keyword">return</span> nums1[a]&lt;nums1[b];
+&#125;);
+</code></pre>
 <p>匿名表达式</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">auto</span> calMax = [](vector&lt;<span class="type">int</span>&gt; &amp;arr, <span class="type">int</span> boardr) -&gt; <span class="type">int</span> &#123;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="cpp"> <span class="hljs-keyword">auto</span> calMax = [](<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;arr, <span class="hljs-keyword">int</span> boardr) -&gt; <span class="hljs-keyword">int</span> &#123;
+&#125;;
+</code></pre>
 <h2 id="头文件"><a class="markdownIt-Anchor" href="#头文件"></a> 头文件</h2>
 <p><a href="https://www.cnblogs.com/fenghuan/p/4794514.html">C++中头文件（.h）和源文件（.cpp）都应该写些什么</a></p>
 <h2 id="unordered_map和map区别"><a class="markdownIt-Anchor" href="#unordered_map和map区别"></a> unordered_map和map区别</h2>
@@ -421,7 +431,9 @@ LLONG_MAX:9223372036854775807</strong></p>
 <h1 id="类型转换"><a class="markdownIt-Anchor" href="#类型转换"></a> 类型转换</h1>
 <p><a href="https://blog.csdn.net/baidu_34884208/article/details/88342844">(7条消息) C<ins>字符串转换（stoi；stol；stoul；stoll；stoull；stof；stod；stold）_WilliamX2020的博客-CSDN博客_c</ins> stod函数</a></p>
 <h2 id="int-string"><a class="markdownIt-Anchor" href="#int-string"></a> int -&gt;string</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a=<span class="number">10</span>;</span><br><span class="line">string b=<span class="built_in">to_string</span>(a);</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-keyword">int</span> a=<span class="hljs-number">10</span>;
+<span class="hljs-built_in">string</span> b=to_string(a);
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -463,13 +475,37 @@ LLONG_MAX:9223372036854775807</strong></p>
 <blockquote>
 <p>s.size()返回字符串长度，s.size()-1是最后一个字符，s.size()是字符串结束标记<code>\0</code></p>
 </blockquote>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">  <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      string s;</span><br><span class="line">      <span class="keyword">while</span> (<span class="built_in">getline</span>(cin, s)) &#123;</span><br><span class="line">          cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">          cout &lt;&lt; s.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">          cout &lt;&lt; s[s.<span class="built_in">size</span>() - <span class="number">1</span>] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s[s.<span class="built_in">size</span>()] &lt;&lt; endl;</span><br><span class="line">          <span class="keyword">if</span> (s[s.<span class="built_in">size</span>()] == <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">              cout &lt;&lt; <span class="string">&quot;***&quot;</span> &lt;&lt; endl;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-built_in">string</span> s;
+    <span class="hljs-keyword">while</span> (getline(<span class="hljs-built_in">cin</span>, s)) &#123;
+        <span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; s.<span class="hljs-built_in">size</span>() &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-built_in">cout</span> &lt;&lt; s[s.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; s[s.<span class="hljs-built_in">size</span>()] &lt;&lt; <span class="hljs-built_in">endl</span>;
+        <span class="hljs-keyword">if</span> (s[s.<span class="hljs-built_in">size</span>()] == <span class="hljs-string">'\0'</span>)
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"***"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    &#125;
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/img/202204191123698.png" alt="image-20210406114903198" /></p>
 <blockquote>
 <p>从流中读取内容</p>
 <p>文件流&lt;fstream&gt;</p>
 </blockquote>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unordered_map&lt;string, <span class="type">int</span>&gt; keywords;</span><br><span class="line">   <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">   string keyword;</span><br><span class="line">   <span class="function">ifstream <span class="title">inKeyword</span><span class="params">(<span class="string">&quot;lap2/keywords.txt&quot;</span>, ios::in)</span></span>;</span><br><span class="line">   <span class="keyword">while</span> (<span class="built_in">getline</span>(inKeyword, keyword)) &#123;</span><br><span class="line">       <span class="comment">// cout &lt;&lt; keyword &lt;&lt; endl;</span></span><br><span class="line">       keywords[keyword] = i;</span><br><span class="line">       ++i;</span><br><span class="line">   &#125;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"> <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-built_in">string</span>, <span class="hljs-keyword">int</span>&gt; keywords;
+    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+    <span class="hljs-built_in">string</span> keyword;
+    <span class="hljs-function">ifstream <span class="hljs-title">inKeyword</span><span class="hljs-params">(<span class="hljs-string">"lap2/keywords.txt"</span>, ios::in)</span></span>;
+    <span class="hljs-keyword">while</span> (getline(inKeyword, keyword)) &#123;
+        <span class="hljs-comment">// cout &lt;&lt; keyword &lt;&lt; endl;</span>
+        keywords[keyword] = i;
+        ++i;
+    &#125;
+
+</code></pre>
 <h1 id="numeric"><a class="markdownIt-Anchor" href="#numeric"></a> numeric</h1>
 <ul>
 <li>
@@ -487,10 +523,36 @@ LLONG_MAX:9223372036854775807</strong></p>
 </blockquote>
 <h1 id="string"><a class="markdownIt-Anchor" href="#string"></a> string</h1>
 <h2 id="string-vs-c-style-string"><a class="markdownIt-Anchor" href="#string-vs-c-style-string"></a> string vs C-Style string</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字符数组可以作为一个操作数或+=的右操作数</span></span><br><span class="line">string s;</span><br><span class="line">s+=<span class="string">&quot;abc&quot;</span>;</span><br><span class="line">s=s+<span class="string">&quot;13124&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// string转化为字符数组</span></span><br><span class="line"><span class="type">char</span> *str=s.<span class="built_in">c_str</span>()    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="comment">//替换字符串，range is either an index and a length or a pair of iterators into s</span></span><br><span class="line">s.<span class="built_in">replace</span>(range,args)</span><br><span class="line">s.<span class="built_in">replace</span>(<span class="type">int</span> pos,<span class="type">int</span> n,<span class="type">const</span> <span class="type">char</span>* s) <span class="comment">//替换从pos开始的n个字符为字符串s</span></span><br><span class="line">s.<span class="built_in">find</span>(ch)==npos</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">// 字符数组可以作为一个操作数或+=的右操作数</span>
+<span class="hljs-built_in">string</span> s;
+s+=<span class="hljs-string">"abc"</span>;
+s=s+<span class="hljs-string">"13124"</span>
+
+<span class="hljs-comment">// string转化为字符数组</span>
+<span class="hljs-keyword">char</span> *str=s.c_str()    
+    
+    
+<span class="hljs-comment">//替换字符串，range is either an index and a length or a pair of iterators into s</span>
+s.replace(range,args)
+s.replace(<span class="hljs-keyword">int</span> pos,<span class="hljs-keyword">int</span> n,<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s) <span class="hljs-comment">//替换从pos开始的n个字符为字符串s</span>
+s.<span class="hljs-built_in">find</span>(ch)==npos
+</code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202302281602910.png" alt="image-20230228160251850" /></p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202302281650772.png" alt="image-20230228165049715" /></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> main</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Cstring与string转换</span></span><br><span class="line">    string s;</span><br><span class="line">    CString c_s;</span><br><span class="line">    c_s=s.<span class="built_in">c_str</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除最后一个字符</span></span><br><span class="line">    string str=<span class="string">&quot;123456&quot;</span>;</span><br><span class="line">    str=str.<span class="built_in">substr</span>(<span class="number">0</span>,str.<span class="built_in">size</span>() - <span class="number">1</span>)</span><br><span class="line">    str.<span class="built_in">erase</span>(str.<span class="built_in">end</span>()<span class="number">-1</span>)</span><br><span class="line">    str.<span class="built_in">pop_back</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="C++"><span class="hljs-keyword">int</span> main
+&#123;
+    <span class="hljs-comment">//Cstring与string转换</span>
+    <span class="hljs-built_in">string</span> s;
+    CString c_s;
+    c_s=s.c_str();
+
+    <span class="hljs-comment">//删除最后一个字符</span>
+    <span class="hljs-built_in">string</span> str=<span class="hljs-string">"123456"</span>;
+    str=str.substr(<span class="hljs-number">0</span>,str.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>)
+    str.erase(str.<span class="hljs-built_in">end</span>()<span class="hljs-number">-1</span>)
+    str.pop_back()
+&#125;
+</code></pre>
 <p>accumulate</p>
 <h2 id="初始化"><a class="markdownIt-Anchor" href="#初始化"></a> 初始化</h2>
 <h2 id="2-操作"><a class="markdownIt-Anchor" href="#2-操作"></a> 2. 操作</h2>
@@ -526,26 +588,46 @@ int main() &#123;
 <ul>
 <li>
 <p>添加c字符串的一部分</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string s=”hello “；<span class="type">const</span> <span class="type">char</span> *c = “out here “;</span><br><span class="line">s.<span class="built_in">append</span>(c,<span class="number">3</span>); <span class="comment">// 把c类型字符串s的前n个字符连接到当前字符串结尾</span></span><br><span class="line">s = “hello out”;</span><br><span class="line">s.<span class="built_in">append</span>(c,<span class="number">4</span>,<span class="number">4</span>);<span class="comment">//从第4个字符数4个</span></span><br><span class="line">s=<span class="string">&quot;hello here&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">string</span> s=”hello “；<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *c = “out here “;
+s.append(c,<span class="hljs-number">3</span>); <span class="hljs-comment">// 把c类型字符串s的前n个字符连接到当前字符串结尾</span>
+s = “hello out”;
+s.append(c,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>);<span class="hljs-comment">//从第4个字符数4个</span>
+s=<span class="hljs-string">"hello here"</span>
+</code></pre>
 </li>
 <li>
 <p>向string后添加多个字符</p>
-  <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string s1 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">s<span class="number">1.</span><span class="built_in">append</span>(<span class="number">4</span>, <span class="string">&#x27;!&#x27;</span>); <span class="comment">//在当前字符串结尾添加4个字符!</span></span><br><span class="line"></span><br><span class="line">s1=<span class="string">&quot;hello!!!!&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">string</span> s1 = <span class="hljs-string">"hello"</span>;
+s1.append(<span class="hljs-number">4</span>, <span class="hljs-string">'!'</span>); <span class="hljs-comment">//在当前字符串结尾添加4个字符!</span>
+
+s1=<span class="hljs-string">"hello!!!!"</span>
+</code></pre>
 </li>
 <li>
 <p>添加string</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string s1 = “hello “; string s2 = “wide “; string s3 = “world “;</span><br><span class="line">s<span class="number">1.</span><span class="built_in">append</span>(s2); s1 += s3; <span class="comment">//把字符串s连接到当前字符串的结尾</span></span><br><span class="line">s1 = “hello wide “; s1 = “hello wide world “;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">string</span> s1 = “hello “; <span class="hljs-built_in">string</span> s2 = “wide “; <span class="hljs-built_in">string</span> s3 = “world “;
+s1.append(s2); s1 += s3; <span class="hljs-comment">//把字符串s连接到当前字符串的结尾</span>
+s1 = “hello wide “; s1 = “hello wide world “;
+</code></pre>
 </li>
 <li>
 <p>添加string一部分</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string s1 = “hello “, s2 = “wide world “;</span><br><span class="line">s<span class="number">1.</span><span class="built_in">append</span>(s2, <span class="number">5</span>, <span class="number">5</span>); <span class="comment">////把字符串s2中从5开始的5个字符连接到当前字符串的结尾</span></span><br><span class="line">s1 = “hello world”;</span><br><span class="line">string str1 = “hello “, str2 = “wide world “;</span><br><span class="line">str<span class="number">1.</span><span class="built_in">append</span>(str<span class="number">2.</span><span class="built_in">begin</span>()<span class="number">+5</span>, str<span class="number">2.</span><span class="built_in">end</span>()); <span class="comment">//把s2的迭代器begin()+5和end()之间的部分连接到当前字符串的结尾</span></span><br><span class="line">str1 = “hello world”;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">string</span> s1 = “hello “, s2 = “wide world “;
+s1.append(s2, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>); <span class="hljs-comment">////把字符串s2中从5开始的5个字符连接到当前字符串的结尾</span>
+s1 = “hello world”;
+<span class="hljs-built_in">string</span> str1 = “hello “, str2 = “wide world “;
+str1.append(str2.<span class="hljs-built_in">begin</span>()+<span class="hljs-number">5</span>, str2.<span class="hljs-built_in">end</span>()); <span class="hljs-comment">//把s2的迭代器begin()+5和end()之间的部分连接到当前字符串的结尾</span>
+str1 = “hello world”;
+</code></pre>
 </li>
 </ul>
 <h1 id="vector不定长数组"><a class="markdownIt-Anchor" href="#vector不定长数组"></a> vector(不定长数组)</h1>
 <p>push_back和emplace_back区别</p>
 <p><a href="https://www.dyxmq.cn/program/code/c-cpp/emplace-back.html">vector中emplace_back方法的用途 - 马谦的博客 (dyxmq.cn)</a></p>
 <p><a href="https://blog.csdn.net/qq_40250056/article/details/114681940?spm=1001.2101.3001.6661.1&amp;utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_default&amp;utm_relevant_index=1">(7条消息) C++容器vector的数组片段截取操作_stitching的博客-CSDN博客_vector截取一部分</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//比较相等</span></span><br><span class="line">a==b</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//比较相等</span>
+a==b
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -631,7 +713,13 @@ int main() &#123;
 <p>头文件 &lt;algorithm&gt;</p>
 </blockquote>
 <h2 id="6-边界测试"><a class="markdownIt-Anchor" href="#6-边界测试"></a> 6. 边界测试</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(<span class="number">5</span>)</span></span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; b.<span class="built_in">size</span>(); i++)</span><br><span class="line">      cout &lt;&lt; b[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">  cout &lt;&lt; endl;</span><br><span class="line">  b[<span class="number">5</span>] = <span class="number">100</span>;</span><br><span class="line">  cout &lt;&lt; b[<span class="number">5</span>] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"> 	<span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">b</span><span class="hljs-params">(<span class="hljs-number">5</span>)</span></span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; b.<span class="hljs-built_in">size</span>(); i++)
+        <span class="hljs-built_in">cout</span> &lt;&lt; b[i] &lt;&lt; <span class="hljs-string">" "</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    b[<span class="hljs-number">5</span>] = <span class="hljs-number">100</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; b[<span class="hljs-number">5</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+</code></pre>
 <blockquote>
 <p>0 0 0 0 0</p>
 <p>100</p>
@@ -640,16 +728,65 @@ int main() &#123;
 <img src="https://gitee.com/destiny0118/picgo/raw/master/20210521230255.png" alt="image-20210521230248016" style="zoom: 50%;" />
 <h2 id="7-截取一部分"><a class="markdownIt-Anchor" href="#7-截取一部分"></a> 7. 截取一部分</h2>
 <p>截取a的一部分到b的后面，a与b同类型</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; a = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;, b;</span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; c;</span><br><span class="line"><span class="built_in">copy</span>(<span class="built_in">begin</span>(a) + <span class="number">0</span>, <span class="built_in">begin</span>(a) + <span class="number">2</span>, <span class="built_in">back_inserter</span>(b));</span><br><span class="line">c.<span class="built_in">push_back</span>(b);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> t : c[<span class="number">0</span>])</span><br><span class="line">    cout &lt;&lt; t &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"> <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; a = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>&#125;, b;
+ <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; c;
+ copy(<span class="hljs-built_in">begin</span>(a) + <span class="hljs-number">0</span>, <span class="hljs-built_in">begin</span>(a) + <span class="hljs-number">2</span>, back_inserter(b));
+ c.push_back(b);
+ <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> t : c[<span class="hljs-number">0</span>])
+     <span class="hljs-built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+</code></pre>
 <blockquote>
 <p>1 2</p>
 </blockquote>
 <h2 id="8-去除vector重复元素"><a class="markdownIt-Anchor" href="#8-去除vector重复元素"></a> 8. 去除vector重复元素</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">set&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">setVec</span>(ans.<span class="built_in">begin</span>(), ans.<span class="built_in">end</span>());</span><br><span class="line">ans.<span class="built_in">assign</span>(setVec.<span class="built_in">begin</span>(), setVec.<span class="built_in">end</span>());</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
+<span class="hljs-function"><span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">setVec</span><span class="hljs-params">(ans.<span class="hljs-built_in">begin</span>(), ans.<span class="hljs-built_in">end</span>())</span></span>;
+ans.assign(setVec.<span class="hljs-built_in">begin</span>(), setVec.<span class="hljs-built_in">end</span>());
+</code></pre>
 <h2 id="9-查找指定值是否存在"><a class="markdownIt-Anchor" href="#9-查找指定值是否存在"></a> 9. 查找指定值是否存在</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">find</span>(ans.<span class="built_in">begin</span>(),ans.<span class="built_in">end</span>(),value)==ans.<span class="built_in">end</span>())<span class="comment">//查找值不存在</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; ans;
+<span class="hljs-keyword">if</span>(<span class="hljs-built_in">find</span>(ans.<span class="hljs-built_in">begin</span>(),ans.<span class="hljs-built_in">end</span>(),value)==ans.<span class="hljs-built_in">end</span>())<span class="hljs-comment">//查找值不存在</span>
+</code></pre>
 <h2 id="测试代码"><a class="markdownIt-Anchor" href="#测试代码"></a> 测试代码</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector.cpp</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">num</span><span class="params">(<span class="number">10</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">            cout &lt;&lt; num[i];</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; num[i];</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; num.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    num.<span class="built_in">push_back</span>(<span class="number">123</span>);</span><br><span class="line">    cout &lt;&lt; num[<span class="number">10</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// num.pop_back();</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// cout &lt;&lt; num.empty() &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;::iterator itMax = <span class="built_in">max_element</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>());</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;::iterator itMin = <span class="built_in">min_element</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;最大值：&quot;</span> &lt;&lt; *itMax &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; <span class="built_in">distance</span>(num.<span class="built_in">begin</span>(), itMax)</span><br><span class="line">         &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;最小值：&quot;</span> &lt;&lt; *itMin &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; <span class="built_in">distance</span>(num.<span class="built_in">begin</span>(), itMin)</span><br><span class="line">         &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; *<span class="built_in">max_element</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>()) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">max_element</span>(num.<span class="built_in">begin</span>(), num.<span class="built_in">end</span>()) - num.<span class="built_in">begin</span>() &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">vector</span>.cpp
+    
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">num</span><span class="hljs-params">(<span class="hljs-number">10</span>, <span class="hljs-number">1</span>)</span></span>;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; num.<span class="hljs-built_in">size</span>(); i++) &#123;
+        <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span>)
+            <span class="hljs-built_in">cout</span> &lt;&lt; num[i];
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"\t"</span> &lt;&lt; num[i];
+    &#125;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; num.<span class="hljs-built_in">size</span>() &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    num.push_back(<span class="hljs-number">123</span>);
+    <span class="hljs-built_in">cout</span> &lt;&lt; num[<span class="hljs-number">10</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// num.pop_back();</span>
+
+    <span class="hljs-comment">// cout &lt;&lt; num.empty() &lt;&lt; endl;</span>
+
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator itMax = max_element(num.<span class="hljs-built_in">begin</span>(), num.<span class="hljs-built_in">end</span>());
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator itMin = min_element(num.<span class="hljs-built_in">begin</span>(), num.<span class="hljs-built_in">end</span>());
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"最大值："</span> &lt;&lt; *itMax &lt;&lt; <span class="hljs-string">"\t"</span> &lt;&lt; distance(num.<span class="hljs-built_in">begin</span>(), itMax)
+         &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"最小值："</span> &lt;&lt; *itMin &lt;&lt; <span class="hljs-string">"\t"</span> &lt;&lt; distance(num.<span class="hljs-built_in">begin</span>(), itMin)
+         &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-built_in">cout</span> &lt;&lt; *max_element(num.<span class="hljs-built_in">begin</span>(), num.<span class="hljs-built_in">end</span>()) &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; max_element(num.<span class="hljs-built_in">begin</span>(), num.<span class="hljs-built_in">end</span>()) - num.<span class="hljs-built_in">begin</span>() &lt;&lt; <span class="hljs-built_in">endl</span>;
+    system(<span class="hljs-string">"pause"</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210409152320212.png" alt="image-20210409152320212" /></p>
 <h1 id="set集合"><a class="markdownIt-Anchor" href="#set集合"></a> set(集合)</h1>
 <table>
@@ -699,7 +836,13 @@ int main() &#123;
 <p>set_intersect()</p>
 <p>set&lt;string&gt; s;</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历集合中元素</span></span><br><span class="line"><span class="keyword">for</span> (string s : identifier)</span><br><span class="line">		cout &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">	set&lt;string&gt;::iterator it;</span><br><span class="line">	<span class="keyword">for</span> (it = identifier.<span class="built_in">begin</span>(); it != identifier.<span class="built_in">end</span>(); it++)</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//遍历集合中元素</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-built_in">string</span> s : identifier)
+		<span class="hljs-built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="hljs-built_in">endl</span>;
+	<span class="hljs-built_in">set</span>&lt;<span class="hljs-built_in">string</span>&gt;::iterator it;
+	<span class="hljs-keyword">for</span> (it = identifier.<span class="hljs-built_in">begin</span>(); it != identifier.<span class="hljs-built_in">end</span>(); it++)
+		<span class="hljs-built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="hljs-built_in">endl</span>;
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -742,15 +885,58 @@ int main() &#123;
 </tr>
 </tbody>
 </table>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; cnt;</span><br><span class="line">ans+=cnt[x]  会插入不存在的点</span><br><span class="line">pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;不能作为建</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt; cnt;
+ans+=cnt[x]  会插入不存在的点
+pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;不能作为建
+</code></pre>
 <p>使用 <code>[]</code> 运算符对 <code>unordered_map</code> 中的键进行访问时，如果该键不存在，会自动创建该键，并关联一个默认值（对于内置类型，这个默认值是0或者空，对于自定义类型可能是默认构造函数创建的对象）。</p>
 <p>遍历容器</p>
 <p><a href="https://blog.csdn.net/qq_21539375/article/details/122003559">(10条消息) c++ unordered_map4种遍历方式_菊头蝙蝠的博客-CSDN博客_遍历unordered_map</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    遍历每一个元素</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_ele</span><span class="params">(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; &amp;pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">const</span> <span class="keyword">auto</span> &amp;x:pos)&#123;</span><br><span class="line">        <span class="type">int</span> key=x.first,value=x.second;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 结构化绑定 c++17</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [key, value] : pos)</span><br><span class="line">        cout &lt;&lt; key &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; value &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 只使用键</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> [key, _] : pos)</span><br><span class="line">        cout &lt;&lt; key &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 迭代器遍历</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> iter = pos.<span class="built_in">begin</span>(); iter != pos.<span class="built_in">end</span>(); iter++) &#123;</span><br><span class="line">        cout &lt;&lt; iter-&gt;first &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; iter-&gt;second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = map.<span class="built_in">begin</span>(); it != map.<span class="built_in">end</span>();</span><br><span class="line">         it++) &#123;</span><br><span class="line">        cout &lt;&lt; it-&gt;first &lt;&lt; it-&gt;second &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">/*
+    遍历每一个元素
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print_ele</span><span class="hljs-params">(<span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; &amp;pos)</span> </span>&#123;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> &amp;x:pos)&#123;
+        <span class="hljs-keyword">int</span> key=x.first,value=x.second;
+    &#125;
+    
+    <span class="hljs-comment">// 结构化绑定 c++17</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [key, value] : pos)
+        <span class="hljs-built_in">cout</span> &lt;&lt; key &lt;&lt; <span class="hljs-string">":"</span> &lt;&lt; value &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// 只使用键</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [key, _] : pos)
+        <span class="hljs-built_in">cout</span> &lt;&lt; key &lt;&lt; <span class="hljs-built_in">endl</span>;
+
+    <span class="hljs-comment">// 迭代器遍历</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> iter = pos.<span class="hljs-built_in">begin</span>(); iter != pos.<span class="hljs-built_in">end</span>(); iter++) &#123;
+        <span class="hljs-built_in">cout</span> &lt;&lt; iter-&gt;first &lt;&lt; <span class="hljs-string">" "</span> &lt;&lt; iter-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>;
+    &#125;
+
+    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;::iterator it = <span class="hljs-built_in">map</span>.<span class="hljs-built_in">begin</span>(); it != <span class="hljs-built_in">map</span>.<span class="hljs-built_in">end</span>();
+         it++) &#123;
+        <span class="hljs-built_in">cout</span> &lt;&lt; it-&gt;first &lt;&lt; it-&gt;second &lt;&lt; <span class="hljs-built_in">endl</span>;
+    &#125;
+&#125;
+</code></pre>
 <blockquote>
 <p>map.find(key) == map.end()    查找的key不在map中</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unordered_map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; test = &#123;&#123;<span class="number">1</span>, <span class="number">3</span>&#125;&#125;;</span><br><span class="line">    cout &lt;&lt; test[<span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; test[<span class="number">2</span>] &lt;&lt; endl;</span><br><span class="line">    test[<span class="number">3</span>]++;</span><br><span class="line">    cout &lt;&lt; test[<span class="number">3</span>] &lt;&lt; endl;</span><br><span class="line">    test[<span class="number">4</span>];</span><br><span class="line">    cout &lt;&lt; test[<span class="number">4</span>] &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">getchar</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unordered_map&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt; test = &lt;!--swig￼<span class="hljs-number">0</span>--&gt;;
+    <span class="hljs-built_in">cout</span> &lt;&lt; test[<span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">cout</span> &lt;&lt; test[<span class="hljs-number">2</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+    test[<span class="hljs-number">3</span>]++;
+    <span class="hljs-built_in">cout</span> &lt;&lt; test[<span class="hljs-number">3</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+    test[<span class="hljs-number">4</span>];
+    <span class="hljs-built_in">cout</span> &lt;&lt; test[<span class="hljs-number">4</span>] &lt;&lt; <span class="hljs-built_in">endl</span>;
+    getchar();
+&#125;
+</code></pre>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/20210515104051.png" alt="image-20210515104044254" /></p>
 <h1 id="stack栈"><a class="markdownIt-Anchor" href="#stack栈"></a> stack(栈)</h1>
 <p>声明：</p>
@@ -777,7 +963,26 @@ int main() &#123;
 <p>pq.emplace(0,0)</p>
 </blockquote>
 <h2 id="c-vector转set与set转vector"><a class="markdownIt-Anchor" href="#c-vector转set与set转vector"></a> <a href="https://www.cnblogs.com/xwxz/p/13323712.html">C++ Vector转Set与Set转Vector</a></h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">    vec = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">8</span> &#125;;</span><br><span class="line">    <span class="function">set&lt;<span class="type">int</span>&gt; <span class="title">st</span><span class="params">(vec.begin(), vec.end())</span></span>;</span><br><span class="line">    vec.<span class="built_in">assign</span>(st.<span class="built_in">begin</span>(), st.<span class="built_in">end</span>());</span><br><span class="line"></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt;::iterator it;</span><br><span class="line">    <span class="keyword">for</span> (it = vec.<span class="built_in">begin</span>(); it != vec.<span class="built_in">end</span>(); it++)</span><br><span class="line">        cout &lt;&lt; *it&lt;&lt;endl;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;set&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>&#123;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec;
+    vec = &#123; <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">8</span> &#125;;
+    <span class="hljs-function"><span class="hljs-built_in">set</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">st</span><span class="hljs-params">(vec.<span class="hljs-built_in">begin</span>(), vec.<span class="hljs-built_in">end</span>())</span></span>;
+    vec.assign(st.<span class="hljs-built_in">begin</span>(), st.<span class="hljs-built_in">end</span>());
+
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator it;
+    <span class="hljs-keyword">for</span> (it = vec.<span class="hljs-built_in">begin</span>(); it != vec.<span class="hljs-built_in">end</span>(); it++)
+        <span class="hljs-built_in">cout</span> &lt;&lt; *it&lt;&lt;<span class="hljs-built_in">endl</span>;
+    
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h2 id="输入输出"><a class="markdownIt-Anchor" href="#输入输出"></a> 输入输出</h2>
 <p>c++标准库函数，有两种形式</p>
 <ul>
@@ -787,10 +992,27 @@ int main() &#123;
 <li>
 <p>&lt;string&gt;中的普通函数</p>
 <p>getline(cin,s) //读取换行符并丢弃，不保存到s中</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;  is, string&amp; str, <span class="type">char</span> delim)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;&amp; is, string&amp; str, <span class="type">char</span> delim)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;  is, string&amp; str)</span></span>;</span><br><span class="line"><span class="function">istream&amp; <span class="title">getline</span> <span class="params">(istream&amp;&amp; is, string&amp; str)</span></span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	读取delim分隔符并丢弃，不保存到str中</span></span><br><span class="line"><span class="comment">	is ：表示一个输入流，例如 cin。</span></span><br><span class="line"><span class="comment">	str ：string类型的引用，用来存储输入流中的流信息。</span></span><br><span class="line"><span class="comment">	delim ：char类型的变量，所设置的截断字符；在不自定义设置的情况下，遇到’\n’，则终止输入</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//读取一行存放在字符串中，将字符串变为输入流，再进行处理</span></span><br><span class="line"><span class="built_in">getline</span>(cin, str, <span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"><span class="function">stringstream <span class="title">ss</span><span class="params">(str)</span></span>;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-function">istream&amp; <span class="hljs-title">getline</span> <span class="hljs-params">(istream&amp;  is, <span class="hljs-built_in">string</span>&amp; str, <span class="hljs-keyword">char</span> delim)</span></span>;
+<span class="hljs-function">istream&amp; <span class="hljs-title">getline</span> <span class="hljs-params">(istream&amp;&amp; is, <span class="hljs-built_in">string</span>&amp; str, <span class="hljs-keyword">char</span> delim)</span></span>;
+<span class="hljs-function">istream&amp; <span class="hljs-title">getline</span> <span class="hljs-params">(istream&amp;  is, <span class="hljs-built_in">string</span>&amp; str)</span></span>;
+<span class="hljs-function">istream&amp; <span class="hljs-title">getline</span> <span class="hljs-params">(istream&amp;&amp; is, <span class="hljs-built_in">string</span>&amp; str)</span></span>;
+<span class="hljs-comment">/*
+	读取delim分隔符并丢弃，不保存到str中
+	is ：表示一个输入流，例如 cin。
+	str ：string类型的引用，用来存储输入流中的流信息。
+	delim ：char类型的变量，所设置的截断字符；在不自定义设置的情况下，遇到’\n’，则终止输入
+*/</span>
+</code></pre>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//读取一行存放在字符串中，将字符串变为输入流，再进行处理</span>
+getline(<span class="hljs-built_in">cin</span>, str, <span class="hljs-string">'\n'</span>);
+<span class="hljs-function"><span class="hljs-built_in">stringstream</span> <span class="hljs-title">ss</span><span class="hljs-params">(str)</span></span>;
+</code></pre>
 <h2 id="array"><a class="markdownIt-Anchor" href="#array"></a> array</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">#不能用另一个数组初始化一个数组，不能将一个数组赋值给一个数组</span><br><span class="line"><span class="type">int</span> a[]=&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="type">int</span> a2[]=a;</span><br><span class="line">a2=a;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">#不能用另一个数组初始化一个数组，不能将一个数组赋值给一个数组
+<span class="hljs-keyword">int</span> a[]=&#123;<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>&#125;;
+<span class="hljs-keyword">int</span> a2[]=a;
+a2=a;
+</code></pre>
 <p>迭代器并不是都可以进行加减<br />
 迭代器实质上是一个指针，但是，并不是所有的容器的迭代器可以支持加减操作。</p>
 <p>能进行算术运算的迭代器只有随机访问迭代器，要求容器元素存储在连续内存空间内，<br />

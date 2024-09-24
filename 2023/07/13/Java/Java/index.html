@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="@resource postConstruct  1 Map  1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。Map&lt;Integer, Integer&gt; map &#x3D; ne">
+    <meta name="description" content="@resource postConstruct  1 Map  1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。 Map&lt;Integer, Integer&gt; map &#x3D; n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/07/13/Java/Java/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="@resource postConstruct  1 Map  1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。Map&lt;Integer, Integer&gt; map &#x3D; ne">
+<meta property="og:description" content="@resource postConstruct  1 Map  1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。 Map&lt;Integer, Integer&gt; map &#x3D; n">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-13T12:19:46.889Z">
 <meta property="article:modified_time" content="2024-06-05T11:32:15.542Z">
@@ -279,23 +279,137 @@ postConstruct</p>
 <h1 id="1-map"><a class="markdownIt-Anchor" href="#1-map"></a> 1 Map</h1>
 <h2 id="11-map对象遍历"><a class="markdownIt-Anchor" href="#11-map对象遍历"></a> 1.1 Map对象遍历</h2>
 <p><a href="https://blog.csdn.net/tjcyjd/article/details/11111401">(50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。</span></span><br><span class="line">Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Key = &quot;</span> + entry.getKey() + <span class="string">&quot;, Value = &quot;</span> + entry.getValue());</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//遍历map中的键</span></span><br><span class="line"><span class="keyword">for</span> (Integer key : map.keySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Key = &quot;</span> + key);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//遍历map中的值</span></span><br><span class="line"><span class="keyword">for</span> (Integer value : map.values()) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Value = &quot;</span> + value);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">//遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。</span>
+Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;Integer, Integer&gt;();
+<span class="hljs-keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;
+    System.out.println(<span class="hljs-string">"Key = "</span> + entry.getKey() + <span class="hljs-string">", Value = "</span> + entry.getValue());
+ &#125;
+<span class="hljs-comment">//遍历map中的键</span>
+<span class="hljs-keyword">for</span> (Integer key : map.keySet()) &#123;
+    System.out.println(<span class="hljs-string">"Key = "</span> + key);
+&#125;
+ 
+<span class="hljs-comment">//遍历map中的值</span>
+<span class="hljs-keyword">for</span> (Integer value : map.values()) &#123;
+    System.out.println(<span class="hljs-string">"Value = "</span> + value);
+ &#125;
+</code></pre>
 <h2 id="12-treemap"><a class="markdownIt-Anchor" href="#12-treemap"></a> 1.2 TreeMap</h2>
 <h3 id="121-自定义排序"><a class="markdownIt-Anchor" href="#121-自定义排序"></a> 1.2.1 自定义排序</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> indiv.yyg;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yyg</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2024/5/14</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span>  Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(Integer age)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//传入匿名类</span></span><br><span class="line">        TreeMap&lt;Person,String&gt; treeMap=<span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Person&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Person o1, Person o2)</span> &#123;</span><br><span class="line">                <span class="type">int</span> num=o1.getAge()-o2.getAge();</span><br><span class="line">                <span class="keyword">return</span> Integer.compare(num,<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">3</span>), <span class="string">&quot;person1&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">18</span>), <span class="string">&quot;person2&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">35</span>), <span class="string">&quot;person3&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">16</span>), <span class="string">&quot;person4&quot;</span>);</span><br><span class="line">        treeMap.entrySet().stream().forEach(personStringEntry -&gt; &#123;</span><br><span class="line">            System.out.println(personStringEntry.getValue());</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//lamada表达式</span></span><br><span class="line">        TreeMap&lt;Person,String&gt; treeMap1=<span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;((o1,o2)-&gt;&#123;</span><br><span class="line">            <span class="type">int</span> num=o1.getAge()-o2.getAge();</span><br><span class="line">            <span class="keyword">return</span> Integer.compare(num,<span class="number">0</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">package</span> indiv.yyg;
+
+<span class="hljs-keyword">import</span> java.util.Comparator;
+<span class="hljs-keyword">import</span> java.util.TreeMap;
+
+<span class="hljs-comment">/**
+ * <span class="hljs-doctag">@description</span>:
+ * <span class="hljs-doctag">@author</span>: yyg
+ * <span class="hljs-doctag">@date</span>: 2024/5/14
+ */</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;
+    <span class="hljs-keyword">private</span>  Integer age;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">(Integer age)</span></span>&#123;
+        <span class="hljs-keyword">this</span>.age=age;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getAge</span><span class="hljs-params">()</span></span>&#123;
+        <span class="hljs-keyword">return</span> age;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;
+        <span class="hljs-comment">//传入匿名类</span>
+        TreeMap&lt;Person,String&gt; treeMap=<span class="hljs-keyword">new</span> TreeMap&lt;&gt;(<span class="hljs-keyword">new</span> Comparator&lt;Person&gt;() &#123;
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Person o1, Person o2)</span> </span>&#123;
+                <span class="hljs-keyword">int</span> num=o1.getAge()-o2.getAge();
+                <span class="hljs-keyword">return</span> Integer.compare(num,<span class="hljs-number">0</span>);
+            &#125;
+        &#125;);
+        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">3</span>), <span class="hljs-string">"person1"</span>);
+        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">18</span>), <span class="hljs-string">"person2"</span>);
+        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">35</span>), <span class="hljs-string">"person3"</span>);
+        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">16</span>), <span class="hljs-string">"person4"</span>);
+        treeMap.entrySet().stream().forEach(personStringEntry -&gt; &#123;
+            System.out.println(personStringEntry.getValue());
+        &#125;);
+        <span class="hljs-comment">//lamada表达式</span>
+        TreeMap&lt;Person,String&gt; treeMap1=<span class="hljs-keyword">new</span> TreeMap&lt;&gt;((o1,o2)-&gt;&#123;
+            <span class="hljs-keyword">int</span> num=o1.getAge()-o2.getAge();
+            <span class="hljs-keyword">return</span> Integer.compare(num,<span class="hljs-number">0</span>);
+        &#125;);
+    &#125;
+&#125;
+
+</code></pre>
 <h2 id="13-时间"><a class="markdownIt-Anchor" href="#13-时间"></a> 1.3 时间</h2>
 <p><a href="https://blog.csdn.net/qq_36789243/article/details/119362598">(50条消息) Java中如何获取当前日期和时间的4种方法_获取当前时间_小楼星辰的博客-CSDN博客</a></p>
 <h2 id="14-文件"><a class="markdownIt-Anchor" href="#14-文件"></a> 1.4 文件</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取目录下所有文件名</span></span><br><span class="line">File dir;</span><br><span class="line">String[] list=dir.list();</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除目录</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">deleteDir</span><span class="params">(File file)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">        <span class="keyword">for</span>(File f:file.listFiles())&#123;</span><br><span class="line">            deleteDir(f);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    file.delete();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-comment">//获取目录下所有文件名</span>
+File dir;
+String[] list=dir.list();
+
+<span class="hljs-comment">//删除目录</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteDir</span><span class="hljs-params">(File file)</span></span>&#123;
+    <span class="hljs-keyword">if</span>(file.isDirectory())&#123;
+        <span class="hljs-keyword">for</span>(File f:file.listFiles())&#123;
+            deleteDir(f);
+        &#125;
+    &#125;
+    file.delete();
+&#125;
+</code></pre>
 <p><a href="https://www.runoob.com/java/dir-delete.html">Java 实例 – 删除目录 | 菜鸟教程 (runoob.com)</a></p>
 <h3 id="141-复制文件"><a class="markdownIt-Anchor" href="#141-复制文件"></a> 1.4.1 复制文件</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="comment">//from和to是File对象，如果要复制到的文件已经存在，则复制失败</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Files.copy(from.toPath(), to.toPath());</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> java.nio.file.Files;
+<span class="hljs-comment">//from和to是File对象，如果要复制到的文件已经存在，则复制失败</span>
+<span class="hljs-keyword">try</span> &#123;
+    Files.copy(from.toPath(), to.toPath());
+&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+&#125;
+</code></pre>
 <h3 id="142-删除文件"><a class="markdownIt-Anchor" href="#142-删除文件"></a> 1.4.2 删除文件</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.io.File;</span><br><span class="line"></span><br><span class="line">File f;</span><br><span class="line">f.delete();</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 得到当前工作目录下的所有文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">showFileList</span><span class="params">(File filename)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (filename.isDirectory()) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;文件夹：&quot;</span> + filename);</span><br><span class="line">        File[] listfile = filename.listFiles();</span><br><span class="line">        <span class="keyword">for</span> (File f : listfile) &#123;</span><br><span class="line">            showFileList(f);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//    处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">java.io.File;
+
+File f;
+f.delete();
+</code></pre>
+<pre class="highlight"><code class="java">
+    <span class="hljs-comment">/**
+     * 得到当前工作目录下的所有文件
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showFileList</span><span class="hljs-params">(File filename)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (filename.isDirectory()) &#123;
+            System.out.println(<span class="hljs-string">"文件夹："</span> + filename);
+            File[] listfile = filename.listFiles();
+            <span class="hljs-keyword">for</span> (File f : listfile) &#123;
+                showFileList(f);
+            &#125;
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-comment">//    处理</span>
+        &#125;
+    &#125;
+</code></pre>
 <h1 id="2-string"><a class="markdownIt-Anchor" href="#2-string"></a> 2 String</h1>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    sb.append(<span class="string">&quot;message: &quot;</span> + message + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    sb.append(<span class="string">&quot;date: &quot;</span> + date + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (String parent : parentID) &#123;</span><br><span class="line">        sb.append(parent + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String str1=<span class="literal">null</span>; <span class="comment">//引用为空，没有地址，是一个没有被实例化的对象</span></span><br><span class="line">String str2=<span class="string">&quot;&quot;</span>;<span class="comment">//空字符串，它有地址，它是被实例化的对象，值为空而已。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是string对象是null,用 == 来判断，否则会抛出异常 java.lang.NullPointerException</span></span><br><span class="line"></span><br><span class="line">str1==str2; <span class="comment">//“ == ”操作在对String这种引用数据类型来说，比较的是地址</span></span><br><span class="line">str1.equals(str2) <span class="comment">//equals比较的是内容</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="java">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;
+        StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();
+        sb.append(<span class="hljs-string">"message: "</span> + message + <span class="hljs-string">"\n"</span>);
+        sb.append(<span class="hljs-string">"date: "</span> + date + <span class="hljs-string">"\n"</span>);
+        <span class="hljs-keyword">for</span> (String parent : parentID) &#123;
+            sb.append(parent + <span class="hljs-string">"\n"</span>);
+        &#125;
+        <span class="hljs-keyword">return</span> sb.toString();
+    &#125;
+</code></pre>
+<pre class="highlight"><code class="java">String str1=<span class="hljs-keyword">null</span>; <span class="hljs-comment">//引用为空，没有地址，是一个没有被实例化的对象</span>
+String str2=<span class="hljs-string">""</span>;<span class="hljs-comment">//空字符串，它有地址，它是被实例化的对象，值为空而已。</span>
+
+<span class="hljs-comment">//如果是string对象是null,用 == 来判断，否则会抛出异常 java.lang.NullPointerException</span>
+
+str1==str2; <span class="hljs-comment">//“ == ”操作在对String这种引用数据类型来说，比较的是地址</span>
+str1.equals(str2) <span class="hljs-comment">//equals比较的是内容</span>
+</code></pre>
+
     </div>
 
     

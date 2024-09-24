@@ -283,7 +283,21 @@
 <blockquote>
 <p>sizeof返回占用的字节数，但数组作为参数传递时不能有效计算占用的字节数，需加参数指明占用的字节数</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">sum</span><span class="params">(<span class="type">int</span> a[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> len = <span class="keyword">sizeof</span>(a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;len: %d\n&quot;</span>, len);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    sum(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a[])</span> </span>&#123;
+    <span class="hljs-keyword">int</span> ans = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> len = <span class="hljs-keyword">sizeof</span>(a);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"len: %d\n"</span>, len);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, a[<span class="hljs-number">2</span>]);
+    <span class="hljs-keyword">return</span> len;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-keyword">int</span> a[<span class="hljs-number">3</span>] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>&#125;;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, <span class="hljs-keyword">sizeof</span>(a));
+    sum(a);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210406120005828.png" alt="image-20210406120005828" /></p>
 <h1 id="2-malloc-realloc"><a class="markdownIt-Anchor" href="#2-malloc-realloc"></a> 2. malloc realloc</h1>
 <blockquote>
@@ -293,7 +307,21 @@
 <blockquote>
 <p>realloc后，申请空间比原来大，重新分配地址空间</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> *a = (<span class="type">int</span> *)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    a[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, a, a[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *b = (<span class="type">int</span> *)<span class="built_in">realloc</span>(a, <span class="number">20</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, b, b[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> *c = (<span class="type">int</span> *)<span class="built_in">realloc</span>(b, <span class="number">5</span> * <span class="keyword">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d&quot;</span>, c, c[<span class="number">0</span>]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdlib.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-keyword">int</span> *a = (<span class="hljs-keyword">int</span> *)<span class="hljs-built_in">malloc</span>(<span class="hljs-number">10</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+    a[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d %d\n"</span>, a, a[<span class="hljs-number">0</span>]);
+
+    <span class="hljs-keyword">int</span> *b = (<span class="hljs-keyword">int</span> *)<span class="hljs-built_in">realloc</span>(a, <span class="hljs-number">20</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d %d\n"</span>, b, b[<span class="hljs-number">0</span>]);
+
+    <span class="hljs-keyword">int</span> *c = (<span class="hljs-keyword">int</span> *)<span class="hljs-built_in">realloc</span>(b, <span class="hljs-number">5</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>));
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d %d"</span>, c, c[<span class="hljs-number">0</span>]);
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210409110803688.png" alt="image-20210409110803688" /></p>
 <p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210427184809807.png" alt="image-20210427184809807" /></p>
 <h1 id="3-memset"><a class="markdownIt-Anchor" href="#3-memset"></a> 3. memset</h1>
@@ -309,7 +337,15 @@
 <p>ax为0时，输出15</p>
 <p>ax不为0时，输出6</p>
 </blockquote>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> ax = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> pc = <span class="number">5</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, pc = ax ? pc + <span class="number">1</span> : pc + <span class="number">10</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
+    <span class="hljs-keyword">int</span> ax = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">int</span> pc = <span class="hljs-number">5</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d"</span>, pc = ax ? pc + <span class="hljs-number">1</span> : pc + <span class="hljs-number">10</span>);
+    system(<span class="hljs-string">"pause"</span>);
+&#125;
+</code></pre>
 
       
     </div>
@@ -765,10 +801,33 @@
 <p>区间大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><msup><mn>2</mn><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">n=2^k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span></span></span></span>，需要节点数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>+</mo><mn>2</mn><mo>+</mo><msup><mn>2</mn><mn>2</mn></msup><mo>+</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo>+</mo><msup><mn>2</mn><mi>k</mi></msup><mo>=</mo><mn>2</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">1+2+2^2+...+2^k=2n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.849108em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>；<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo>=</mo><msup><mn>2</mn><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">n=2^{k+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>时，需要节点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mi>n</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">4n-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
 <p>当<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>k</mi></msup><mo>&lt;</mo><mi>n</mi><mo>&lt;</mo><msup><mn>2</mn><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">2^k &lt; n&lt;2^{k+1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.888208em;vertical-align:-0.0391em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8491079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>时，节点落在下标[2n,4n-1)内，</p>
 <p>链表表示线段树：</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">    Node *left,*right;</span><br><span class="line">    <span class="type">int</span> val;		<span class="comment">//当前节点值，节点表示区间(区间的和，区间的最大值。。。)</span></span><br><span class="line">    <span class="type">int</span> lazy;		<span class="comment">//懒惰标记</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span>
+    Node *left,*right;
+    <span class="hljs-keyword">int</span> val;		<span class="hljs-comment">//当前节点值，节点表示区间(区间的和，区间的最大值。。。)</span>
+    <span class="hljs-keyword">int</span> lazy;		<span class="hljs-comment">//懒惰标记</span>
+&#125;
+</code></pre>
 <h1 id="4-建立线段树"><a class="markdownIt-Anchor" href="#4-建立线段树"></a> 4 建立线段树</h1>
 <p>给定具体区间范围，根据范围建立线段树，此时可以用数组或者链表表示线段树。<a href="https://leetcode.cn/problems/range-sum-query-mutable/">307. 区域和检索 - 数组可修改</a></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">n=nums.<span class="built_in">size</span>();</span><br><span class="line"><span class="built_in">builtTree</span>(root,<span class="number">0</span>,n<span class="number">-1</span>,nums);</span><br><span class="line"></span><br><span class="line"><span class="comment">//[start,end]是node当前表示的区间范围</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">builtTree</span><span class="params">(Node *node,<span class="type">int</span> start,<span class="type">int</span> end,vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(start==end)&#123;</span><br><span class="line">        node-&gt;val=nums[start];</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">    <span class="keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">builtTree</span>(node-&gt;left,start,mid,nums);</span><br><span class="line">    <span class="built_in">builtTree</span>(node-&gt;right,mid<span class="number">+1</span>,end,nums);</span><br><span class="line">    <span class="comment">//pushUp，向上更新</span></span><br><span class="line">    node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++">n=nums.<span class="hljs-built_in">size</span>();
+builtTree(root,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,nums);
+
+<span class="hljs-comment">//[start,end]是node当前表示的区间范围</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">builtTree</span><span class="hljs-params">(Node *node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span></span>&#123;
+    <span class="hljs-keyword">if</span>(start==<span class="hljs-built_in">end</span>)&#123;
+        node-&gt;val=nums[start];
+        <span class="hljs-keyword">return</span> ;
+    &#125;
+    <span class="hljs-keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="hljs-keyword">new</span> Node();
+    <span class="hljs-keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="hljs-keyword">new</span> Node();
+    
+    <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+    builtTree(node-&gt;left,start,mid,nums);
+    builtTree(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,nums);
+    <span class="hljs-comment">//pushUp，向上更新</span>
+    node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;
+&#125;
+</code></pre>
 <p>如果题目没有具体范围，只有数据的取值范围，可以采用**[动态开点线段树]**。假设数组长度为5，添加元素<code>[2,2], val=3</code>，<code>update(root,0,4,2,2,3)</code>。如果一个节点没有左右孩子，会一下子把左右孩子节点都给创建出来，如下图橙色节点所示。两个橙色的叶子节点仅仅只是被创建出来了，并无实际的值，均为 0；而另外一个橙色的非叶子节点，值为 3 的原因是下面的孩子节点的值向上更新得到的</p>
 <p><img src="C:%5CUsers%5C16325%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20230711215828443.png" alt="image-20230711215828443" /><br />
 添加节点变化，「动态开点」一般是在「更新」或「查询」的时候动态的建立节点：<br />
@@ -776,17 +835,300 @@
 <h1 id="5-线段树的更新"><a class="markdownIt-Anchor" href="#5-线段树的更新"></a> 5 线段树的更新</h1>
 <p>更新区间[2,4]值+1，`update(root,0,4,2,4,1)。此时9号节点代表区间[3,4]都需要+1，则节点值+(end-start+1)*val，对节点添加懒惰标记lazy。当查询区间[3,3]时，懒惰标记在9号节点上，需要将标记下推给4和5号节点，同时取消标记。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202307120943105.png" alt="image.png" /></p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="comment">// 查询区间[l,r]区间+val</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node* node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">    <span class="comment">// 当前区间位于查询区间内，当前区间每一个元素增加val</span></span><br><span class="line">    <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">        node-&gt;val+=(end-start<span class="number">+1</span>)*val;</span><br><span class="line">        <span class="comment">// 查询时可能查找当前区间子区间，记录标记，表示区间的增加量，以下推给子区间</span></span><br><span class="line">        node-&gt;add+=val;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前区间不全部位于查询区间，只有部分元素增加，当前节点的懒惰标记向下推</span></span><br><span class="line">    <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">pushDown</span>(node,mid-start<span class="number">+1</span>,end-mid);</span><br><span class="line">    <span class="comment">// 分为两个区间：[start,mid] [mid+1,end]</span></span><br><span class="line">    <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">        <span class="built_in">update</span>(node-&gt;left,start,mid,l,r,val);</span><br><span class="line">    <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">        <span class="built_in">update</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r,val);</span><br><span class="line">    <span class="built_in">pushUp</span>(node);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushUp</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// leftNum 和 rightNum 表示左右孩子区间的叶子节点数量</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node* node,<span class="type">int</span> leftNum,<span class="type">int</span> rightNum)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">    <span class="keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">    <span class="comment">// 如果add为0，则没有标记，不需要下推</span></span><br><span class="line">    <span class="keyword">if</span>(node-&gt;add==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// node表示区间[start,end]，其左右孩子分别表示区间[start,mid], [mid+1,end]</span></span><br><span class="line">    <span class="comment">// add标记最初添加在node节点，对区间[start,end]的数都添加add</span></span><br><span class="line">    node-&gt;left-&gt;val+=leftNum*node-&gt;add;</span><br><span class="line">    node-&gt;right-&gt;val+=rightNum*node-&gt;add;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把标记下推给子区间</span></span><br><span class="line">    node-&gt;left-&gt;add+=node-&gt;add;</span><br><span class="line">    node-&gt;right-&gt;add+=node-&gt;add;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 已经将标记分别添加到区间[start,mid], [mid+1,end]，当前区间取消标记</span></span><br><span class="line">    node-&gt;add=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"> <span class="hljs-comment">// 查询区间[l,r]区间+val</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+    <span class="hljs-comment">// 当前区间位于查询区间内，当前区间每一个元素增加val</span>
+    <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+        node-&gt;val+=(<span class="hljs-built_in">end</span>-start+<span class="hljs-number">1</span>)*val;
+        <span class="hljs-comment">// 查询时可能查找当前区间子区间，记录标记，表示区间的增加量，以下推给子区间</span>
+        node-&gt;add+=val;
+        <span class="hljs-keyword">return</span>;
+    &#125;
+
+    <span class="hljs-comment">// 当前区间不全部位于查询区间，只有部分元素增加，当前节点的懒惰标记向下推</span>
+    <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+    pushDown(node,mid-start+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>-mid);
+    <span class="hljs-comment">// 分为两个区间：[start,mid] [mid+1,end]</span>
+    <span class="hljs-keyword">if</span>(l&lt;=mid)
+        update(node-&gt;left,start,mid,l,r,val);
+    <span class="hljs-keyword">if</span>(r&gt;mid)
+        update(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r,val);
+    pushUp(node);
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushUp</span><span class="hljs-params">(Node* node)</span></span>&#123;
+    node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;
+&#125;
+
+<span class="hljs-comment">// leftNum 和 rightNum 表示左右孩子区间的叶子节点数量</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> leftNum,<span class="hljs-keyword">int</span> rightNum)</span></span>&#123;
+    <span class="hljs-keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="hljs-keyword">new</span> Node();
+    <span class="hljs-keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="hljs-keyword">new</span> Node();
+    <span class="hljs-comment">// 如果add为0，则没有标记，不需要下推</span>
+    <span class="hljs-keyword">if</span>(node-&gt;add==<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span>;
+
+    <span class="hljs-comment">// node表示区间[start,end]，其左右孩子分别表示区间[start,mid], [mid+1,end]</span>
+    <span class="hljs-comment">// add标记最初添加在node节点，对区间[start,end]的数都添加add</span>
+    node-&gt;left-&gt;val+=leftNum*node-&gt;add;
+    node-&gt;right-&gt;val+=rightNum*node-&gt;add;
+
+    <span class="hljs-comment">// 把标记下推给子区间</span>
+    node-&gt;left-&gt;add+=node-&gt;add;
+    node-&gt;right-&gt;add+=node-&gt;add;
+
+    <span class="hljs-comment">// 已经将标记分别添加到区间[start,mid], [mid+1,end]，当前区间取消标记</span>
+    node-&gt;add=<span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 <h1 id="6-线段树的查询"><a class="markdownIt-Anchor" href="#6-线段树的查询"></a> 6 线段树的查询</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//在当前区间[start,end]，查询区间[l,r]</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node *node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//[start,end]划分为区间[start,mid],[mid+1,right]</span></span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="comment">//下推标记</span></span><br><span class="line">		<span class="built_in">pushDown</span>(node,mid-start<span class="number">+1</span>,end-mid);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;left,start,mid,l,r);</span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//在当前区间[start,end]，查询区间[l,r]</span>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node *node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            <span class="hljs-keyword">return</span> node-&gt;val;
+        &#125;
+        <span class="hljs-comment">//[start,end]划分为区间[start,mid],[mid+1,right]</span>
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-comment">//下推标记</span>
+		pushDown(node,mid-start+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>-mid);
+
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            ans+=query(node-&gt;left,start,mid,l,r);
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            ans+=query(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r);
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+</code></pre>
 <h1 id="7-线段树模板"><a class="markdownIt-Anchor" href="#7-线段树模板"></a> 7 线段树模板</h1>
 <h2 id="71-基于区间和"><a class="markdownIt-Anchor" href="#71-基于区间和"></a> 7.1 基于[区间和]</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SegmentTreeDynamic</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        Node *left,*right;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        <span class="type">int</span> add;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> </span><br><span class="line">    <span class="type">int</span> N=<span class="number">1e9</span>;</span><br><span class="line">    Node* root=<span class="keyword">new</span> <span class="built_in">Node</span>(); </span><br><span class="line"></span><br><span class="line">	<span class="comment">//调用函数</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">book</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">query</span>(root,<span class="number">0</span>,N,start,end<span class="number">-1</span>)!=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">update</span>(root,<span class="number">0</span>,N,start,end<span class="number">-1</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// [l,r]区间+val</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node* node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            node-&gt;val+=(end-start<span class="number">+1</span>)*val;</span><br><span class="line">            node-&gt;add+=val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当前节点的懒惰标记向下推</span></span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(node,mid-start<span class="number">+1</span>,end-mid);</span><br><span class="line">        <span class="comment">// 分为两个区间：[start,mid] [mid+1,end]</span></span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            <span class="built_in">update</span>(node-&gt;left,start,mid,l,r,val);</span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            <span class="built_in">update</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r,val);</span><br><span class="line">        <span class="built_in">pushUp</span>(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushUp</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node* node,<span class="type">int</span> leftNum,<span class="type">int</span> rightNum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="comment">// 如果add为0，则没有标记，不需要下推</span></span><br><span class="line">        <span class="keyword">if</span>(node-&gt;add==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        node-&gt;left-&gt;val+=leftNum*node-&gt;add;</span><br><span class="line">        node-&gt;right-&gt;val+=rightNum*node-&gt;add;</span><br><span class="line"></span><br><span class="line">        node-&gt;left-&gt;add+=node-&gt;add;</span><br><span class="line">        node-&gt;right-&gt;add+=node-&gt;add;</span><br><span class="line"></span><br><span class="line">        node-&gt;add=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查询区间未[l,r]，当前区间为[start,end]</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node* node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(node,mid-start<span class="number">+1</span>,end-mid);</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;left,start,mid,l,r);</span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SegmentTreeDynamic</span> &#123;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span>
+        Node *left,*right;
+        <span class="hljs-keyword">int</span> val;
+        <span class="hljs-keyword">int</span> add;
+    &#125;;
+
+<span class="hljs-keyword">public</span>:
+ 
+    <span class="hljs-keyword">int</span> N=<span class="hljs-number">1e9</span>;
+    Node* root=<span class="hljs-keyword">new</span> Node(); 
+
+	<span class="hljs-comment">//调用函数</span>
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">book</span><span class="hljs-params">(<span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>)</span> </span>&#123;
+        <span class="hljs-keyword">if</span>(query(root,<span class="hljs-number">0</span>,N,start,<span class="hljs-built_in">end</span><span class="hljs-number">-1</span>)!=<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        update(root,<span class="hljs-number">0</span>,N,start,<span class="hljs-built_in">end</span><span class="hljs-number">-1</span>,<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+
+
+
+
+    <span class="hljs-comment">// [l,r]区间+val</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            node-&gt;val+=(<span class="hljs-built_in">end</span>-start+<span class="hljs-number">1</span>)*val;
+            node-&gt;add+=val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-comment">// 当前节点的懒惰标记向下推</span>
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        pushDown(node,mid-start+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>-mid);
+        <span class="hljs-comment">// 分为两个区间：[start,mid] [mid+1,end]</span>
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            update(node-&gt;left,start,mid,l,r,val);
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            update(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r,val);
+        pushUp(node);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushUp</span><span class="hljs-params">(Node* node)</span></span>&#123;
+        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> leftNum,<span class="hljs-keyword">int</span> rightNum)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="hljs-keyword">new</span> Node();
+        <span class="hljs-comment">// 如果add为0，则没有标记，不需要下推</span>
+        <span class="hljs-keyword">if</span>(node-&gt;add==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span>;
+
+        node-&gt;left-&gt;val+=leftNum*node-&gt;add;
+        node-&gt;right-&gt;val+=rightNum*node-&gt;add;
+
+        node-&gt;left-&gt;add+=node-&gt;add;
+        node-&gt;right-&gt;add+=node-&gt;add;
+
+        node-&gt;add=<span class="hljs-number">0</span>;
+    &#125;
+    <span class="hljs-comment">// 查询区间未[l,r]，当前区间为[start,end]</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            <span class="hljs-keyword">return</span> node-&gt;val;
+        &#125;
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        pushDown(node,mid-start+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>-mid);
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            ans+=query(node-&gt;left,start,mid,l,r);
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            ans+=query(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r);
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="72-基于区间最大值"><a class="markdownIt-Anchor" href="#72-基于区间最大值"></a> 7.2 基于区间最大值</h2>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyCalendarTwo</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        Node *left, *right;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        <span class="type">int</span> lazy;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node *root;</span><br><span class="line">    <span class="type">int</span> N = <span class="number">1e9</span>;</span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            root-&gt;val += val;</span><br><span class="line">            root-&gt;lazy += val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 下推懒惰标记</span></span><br><span class="line">        <span class="built_in">pushDown</span>(root, mid - start + <span class="number">1</span>, end - mid);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;left, start, mid, l, r, val);</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r, val);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 更新当前节点区间最大值</span></span><br><span class="line">        root-&gt;val = <span class="built_in">max</span>(root-&gt;left-&gt;val, root-&gt;right-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node *root, <span class="type">int</span> leftNum, <span class="type">int</span> rightNum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;left)</span><br><span class="line">            root-&gt;left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;right)</span><br><span class="line">            root-&gt;right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;lazy == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> val = root-&gt;lazy;</span><br><span class="line">        <span class="comment">// 左右节点最大值分别加val</span></span><br><span class="line">        root-&gt;left-&gt;val += val;</span><br><span class="line">        root-&gt;right-&gt;val += val;</span><br><span class="line">        <span class="comment">// 左右子节点懒惰标记</span></span><br><span class="line">        root-&gt;left-&gt;lazy += val;</span><br><span class="line">        root-&gt;right-&gt;lazy += val;</span><br><span class="line"></span><br><span class="line">        root-&gt;lazy = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查询区间最大值</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root, mid - start + <span class="number">1</span>, end - mid);</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, <span class="built_in">query</span>(root-&gt;left, start, mid, l, r));</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            ans = <span class="built_in">max</span>(ans, <span class="built_in">query</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r));</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">MyCalendarTwo</span>() &#123; root = <span class="keyword">new</span> <span class="built_in">Node</span>(); &#125;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">book</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">query</span>(root, <span class="number">0</span>, N, start, end<span class="number">-1</span>) &gt;= <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">update</span>(root, <span class="number">0</span>, N, start, end<span class="number">-1</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCalendarTwo</span> &#123;</span>
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> &#123;</span>
+        Node *left, *right;
+        <span class="hljs-keyword">int</span> val;
+        <span class="hljs-keyword">int</span> lazy;
+    &#125;;
+    Node *root;
+    <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e9</span>;
+   
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> val)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            root-&gt;val += val;
+            root-&gt;lazy += val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+
+        <span class="hljs-comment">// 下推懒惰标记</span>
+        pushDown(root, mid - start + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span> - mid);
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            update(root-&gt;left, start, mid, l, r, val);
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            update(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r, val);
+
+        <span class="hljs-comment">// 更新当前节点区间最大值</span>
+        root-&gt;val = <span class="hljs-built_in">max</span>(root-&gt;left-&gt;val, root-&gt;right-&gt;val);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> leftNum, <span class="hljs-keyword">int</span> rightNum)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (!root-&gt;left)
+            root-&gt;left = <span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span> (!root-&gt;right)
+            root-&gt;right = <span class="hljs-keyword">new</span> Node();
+
+        <span class="hljs-keyword">if</span> (root-&gt;lazy == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span>;
+
+        <span class="hljs-keyword">int</span> val = root-&gt;lazy;
+        <span class="hljs-comment">// 左右节点最大值分别加val</span>
+        root-&gt;left-&gt;val += val;
+        root-&gt;right-&gt;val += val;
+        <span class="hljs-comment">// 左右子节点懒惰标记</span>
+        root-&gt;left-&gt;lazy += val;
+        root-&gt;right-&gt;lazy += val;
+
+        root-&gt;lazy = <span class="hljs-number">0</span>;
+    &#125;
+    <span class="hljs-comment">// 查询区间最大值</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            <span class="hljs-keyword">return</span> root-&gt;val;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root, mid - start + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span> - mid);
+        <span class="hljs-keyword">int</span> ans = <span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            ans = <span class="hljs-built_in">max</span>(ans, query(root-&gt;left, start, mid, l, r));
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            ans = <span class="hljs-built_in">max</span>(ans, query(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r));
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    MyCalendarTwo() &#123; root = <span class="hljs-keyword">new</span> Node(); &#125;
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">book</span><span class="hljs-params">(<span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (query(root, <span class="hljs-number">0</span>, N, start, <span class="hljs-built_in">end</span><span class="hljs-number">-1</span>) &gt;= <span class="hljs-number">2</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        update(root, <span class="hljs-number">0</span>, N, start, <span class="hljs-built_in">end</span><span class="hljs-number">-1</span>, <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+
+&#125;;
+</code></pre>
 <h2 id="73-区间最小值"><a class="markdownIt-Anchor" href="#73-区间最小值"></a> 7.3 区间最小值</h2>
 <h4 id="1851-包含每个查询的最小区间"><a class="markdownIt-Anchor" href="#1851-包含每个查询的最小区间"></a> <a href="https://leetcode.cn/problems/minimum-interval-to-include-each-query/">1851. 包含每个查询的最小区间</a></h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> N = <span class="number">1e7</span>;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        Node *left, *right;</span><br><span class="line">        <span class="type">int</span> val = INT_MAX;</span><br><span class="line">        <span class="type">int</span> lazy = INT_MAX;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">minInterval</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;intervals,</span></span></span><br><span class="line"><span class="params"><span class="function">                            vector&lt;<span class="type">int</span>&gt; &amp;queries)</span> </span>&#123;</span><br><span class="line">        Node *root = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;interval : intervals) &#123;</span><br><span class="line">            <span class="type">int</span> l = interval[<span class="number">0</span>], r = interval[<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">update</span>(root, <span class="number">0</span>, N, l, r, r - l + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> n = queries.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> t = <span class="built_in">query</span>(root, <span class="number">0</span>, N, queries[i], queries[i]);</span><br><span class="line">            <span class="keyword">if</span> (t != INT_MAX)</span><br><span class="line">                ans[i] = t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//val记录root表示区间的最小值</span></span><br><span class="line">        <span class="comment">//lazy表示可以在当前区间继续向下更新的值</span></span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            root-&gt;val = <span class="built_in">min</span>(root-&gt;val, val);</span><br><span class="line">            root-&gt;lazy = <span class="built_in">min</span>(root-&gt;lazy,val);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;left, start, mid, l, r, val);</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r, val);</span><br><span class="line">        root-&gt;val = <span class="built_in">min</span>(root-&gt;left-&gt;val, root-&gt;right-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;left)</span><br><span class="line">            root-&gt;left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;right)</span><br><span class="line">            root-&gt;right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">		<span class="comment">// 不需要向下更新</span></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;lazy == INT_MAX)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        <span class="comment">//子区间可以进一步向下更新的值</span></span><br><span class="line">        root-&gt;left-&gt;lazy = <span class="built_in">min</span>(root-&gt;lazy,root-&gt;left-&gt;lazy);</span><br><span class="line">        root-&gt;right-&gt;lazy = <span class="built_in">min</span>(root-&gt;lazy,root-&gt;right-&gt;lazy);</span><br><span class="line">		</span><br><span class="line">        <span class="comment">//更新子区间最小值</span></span><br><span class="line">        root-&gt;left-&gt;val = <span class="built_in">min</span>(root-&gt;left-&gt;val,root-&gt;lazy);</span><br><span class="line">        root-&gt;right-&gt;val = <span class="built_in">min</span>(root-&gt;right-&gt;val,root-&gt;lazy);</span><br><span class="line"></span><br><span class="line">        root-&gt;lazy = INT_MAX;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root);</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">query</span>(root-&gt;left, start, mid, l, r));</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">query</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r));</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e7</span>;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> &#123;</span>
+        Node *left, *right;
+        <span class="hljs-keyword">int</span> val = INT_MAX;
+        <span class="hljs-keyword">int</span> lazy = INT_MAX;
+    &#125;;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">minInterval</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; &amp;intervals,
+                            <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;queries)</span> </span>&#123;
+        Node *root = <span class="hljs-keyword">new</span> Node();
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;interval : intervals) &#123;
+            <span class="hljs-keyword">int</span> l = interval[<span class="hljs-number">0</span>], r = interval[<span class="hljs-number">1</span>];
+            update(root, <span class="hljs-number">0</span>, N, l, r, r - l + <span class="hljs-number">1</span>);
+        &#125;
+        <span class="hljs-keyword">int</span> n = queries.<span class="hljs-built_in">size</span>();
+        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n, <span class="hljs-number">-1</span>)</span></span>;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+            <span class="hljs-keyword">int</span> t = query(root, <span class="hljs-number">0</span>, N, queries[i], queries[i]);
+            <span class="hljs-keyword">if</span> (t != INT_MAX)
+                ans[i] = t;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> val)</span> </span>&#123;
+        <span class="hljs-comment">//val记录root表示区间的最小值</span>
+        <span class="hljs-comment">//lazy表示可以在当前区间继续向下更新的值</span>
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            root-&gt;val = <span class="hljs-built_in">min</span>(root-&gt;val, val);
+            root-&gt;lazy = <span class="hljs-built_in">min</span>(root-&gt;lazy,val);
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root);
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            update(root-&gt;left, start, mid, l, r, val);
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            update(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r, val);
+        root-&gt;val = <span class="hljs-built_in">min</span>(root-&gt;left-&gt;val, root-&gt;right-&gt;val);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node *root)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (!root-&gt;left)
+            root-&gt;left = <span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span> (!root-&gt;right)
+            root-&gt;right = <span class="hljs-keyword">new</span> Node();
+		<span class="hljs-comment">// 不需要向下更新</span>
+        <span class="hljs-keyword">if</span> (root-&gt;lazy == INT_MAX)
+            <span class="hljs-keyword">return</span>;
+        <span class="hljs-comment">//子区间可以进一步向下更新的值</span>
+        root-&gt;left-&gt;lazy = <span class="hljs-built_in">min</span>(root-&gt;lazy,root-&gt;left-&gt;lazy);
+        root-&gt;right-&gt;lazy = <span class="hljs-built_in">min</span>(root-&gt;lazy,root-&gt;right-&gt;lazy);
+		
+        <span class="hljs-comment">//更新子区间最小值</span>
+        root-&gt;left-&gt;val = <span class="hljs-built_in">min</span>(root-&gt;left-&gt;val,root-&gt;lazy);
+        root-&gt;right-&gt;val = <span class="hljs-built_in">min</span>(root-&gt;right-&gt;val,root-&gt;lazy);
+
+        root-&gt;lazy = INT_MAX;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            <span class="hljs-keyword">return</span> root-&gt;val;
+        &#125;
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root);
+        <span class="hljs-keyword">int</span> ans = INT_MAX;
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            ans = <span class="hljs-built_in">min</span>(ans, query(root-&gt;left, start, mid, l, r));
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            ans = <span class="hljs-built_in">min</span>(ans, query(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r));
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h1 id="8-题目"><a class="markdownIt-Anchor" href="#8-题目"></a> 8 题目</h1>
 <ul>
 <li>对于表示为「<strong>区间和</strong>」且<strong>对区间进行「加减」的更新操作</strong>的情况，我们在更新节点值的时候『需要✖️左右孩子区间叶子节点的数量 (注意是叶子节点的数量)』；我们在下推懒惰标记的时候『需要累加』！！(这种情况和模版一致！！) <strong>如题目 <a href="https://leetcode.cn/problems/number-of-recent-calls/">最近的请求次数</a></strong></li>
@@ -796,17 +1138,293 @@
 <h2 id="81-固定范围"><a class="markdownIt-Anchor" href="#81-固定范围"></a> 8.1 固定范围</h2>
 <h3 id="811-307-区域和检索-数组可修改固定范围单点更新"><a class="markdownIt-Anchor" href="#811-307-区域和检索-数组可修改固定范围单点更新"></a> 8.1.1 <a href="https://leetcode.cn/problems/range-sum-query-mutable/">307. 区域和检索 - 数组可修改</a>（固定范围，单点更新）</h3>
 <h4 id="方法一链表实现"><a class="markdownIt-Anchor" href="#方法一链表实现"></a> 方法一：链表实现</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NumArray</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        Node *left,*right;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">    &#125;;</span><br><span class="line">    Node *root=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">NumArray</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="built_in">builtTree</span>(root,<span class="number">0</span>,n<span class="number">-1</span>,nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">builtTree</span><span class="params">(Node *node,<span class="type">int</span> start,<span class="type">int</span> end,vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(start==end)&#123;</span><br><span class="line">            node-&gt;val=nums[start];</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="built_in">builtTree</span>(node-&gt;left,start,mid,nums);</span><br><span class="line">        <span class="built_in">builtTree</span>(node-&gt;right,mid<span class="number">+1</span>,end,nums);</span><br><span class="line">        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> index, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">update</span>(root,<span class="number">0</span>,n<span class="number">-1</span>,index,val);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node *node,<span class="type">int</span> start,<span class="type">int</span> end, <span class="type">int</span> index,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(start==end)&#123;</span><br><span class="line">            node-&gt;val=val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(index&lt;=mid)</span><br><span class="line">            <span class="built_in">update</span>(node-&gt;left,start,mid,index,val);</span><br><span class="line">        <span class="keyword">if</span>(index&gt;mid)</span><br><span class="line">            <span class="built_in">update</span>(node-&gt;right,mid<span class="number">+1</span>,end,index,val);</span><br><span class="line">        <span class="comment">// 单点修改后更新节点值</span></span><br><span class="line">        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sumRange</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">query</span>(root,<span class="number">0</span>,n<span class="number">-1</span>,left,right);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node *node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;left,start,mid,l,r);</span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NumArray</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span>
+        Node *left,*right;
+        <span class="hljs-keyword">int</span> val;
+    &#125;;
+    Node *root=<span class="hljs-keyword">new</span> Node();
+    <span class="hljs-keyword">int</span> n;
+    NumArray(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums) &#123;
+        <span class="hljs-keyword">this</span>-&gt;n=nums.<span class="hljs-built_in">size</span>();
+        builtTree(root,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,nums);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">builtTree</span><span class="hljs-params">(Node *node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(start==<span class="hljs-built_in">end</span>)&#123;
+            node-&gt;val=nums[start];
+            <span class="hljs-keyword">return</span> ;
+        &#125;
+        <span class="hljs-keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        builtTree(node-&gt;left,start,mid,nums);
+        builtTree(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,nums);
+        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index, <span class="hljs-keyword">int</span> val)</span> </span>&#123;
+        update(root,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,index,val);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node *node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> index,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(start==<span class="hljs-built_in">end</span>)&#123;
+            node-&gt;val=val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">if</span>(index&lt;=mid)
+            update(node-&gt;left,start,mid,index,val);
+        <span class="hljs-keyword">if</span>(index&gt;mid)
+            update(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,index,val);
+        <span class="hljs-comment">// 单点修改后更新节点值</span>
+        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sumRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> query(root,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,left,right);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node *node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            <span class="hljs-keyword">return</span> node-&gt;val;
+        &#125;
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            ans+=query(node-&gt;left,start,mid,l,r);
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            ans+=query(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r);
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="方法二数组实现"><a class="markdownIt-Anchor" href="#方法二数组实现"></a> 方法二：数组实现</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">NumArray</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; tree;</span><br><span class="line">    <span class="built_in">NumArray</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=nums.<span class="built_in">size</span>();</span><br><span class="line">        tree.<span class="built_in">resize</span>(<span class="number">4</span>*n);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">builtTree</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,nums);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// root节点对应的数组下标索引</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">builtTree</span><span class="params">(<span class="type">int</span> root,<span class="type">int</span> left,<span class="type">int</span> right,vector&lt;<span class="type">int</span>&gt;&amp; nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left==right)&#123;</span><br><span class="line">            tree[root]=nums[left];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="built_in">builtTree</span>(root*<span class="number">2</span><span class="number">+1</span>,left,mid,nums);</span><br><span class="line">        <span class="built_in">builtTree</span>(root*<span class="number">2</span><span class="number">+2</span>,mid<span class="number">+1</span>,right,nums);</span><br><span class="line">        <span class="comment">// 更新</span></span><br><span class="line">        tree[root]=tree[root*<span class="number">2</span><span class="number">+1</span>]+tree[root*<span class="number">2</span><span class="number">+2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> index, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">update</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,index,val);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> root,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> index,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 当前root索引代表区间[index,index]</span></span><br><span class="line">        <span class="keyword">if</span>(start==end)&#123;</span><br><span class="line">            tree[root]=val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="comment">// [index,index]区间在左子树</span></span><br><span class="line">        <span class="keyword">if</span>(index&lt;=mid)</span><br><span class="line">            <span class="built_in">update</span>(root*<span class="number">2</span><span class="number">+1</span>,start,mid,index,val);</span><br><span class="line">        <span class="comment">// 区间位于右子树</span></span><br><span class="line">        <span class="keyword">if</span>(index&gt;mid)</span><br><span class="line">            <span class="built_in">update</span>(root*<span class="number">2</span><span class="number">+2</span>,mid<span class="number">+1</span>,end,index,val);</span><br><span class="line">        <span class="comment">// pushUp</span></span><br><span class="line">        tree[root]=tree[root*<span class="number">2</span><span class="number">+1</span>]+tree[root*<span class="number">2</span><span class="number">+2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">sumRange</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">query</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,left,right);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 当前区间[start,end]，查询区间[l,r]</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(<span class="type">int</span> root,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 当前区间全部位于查询区间</span></span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> tree[root];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="comment">// [l,r]与[start,mid]有交集</span></span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(root*<span class="number">2</span><span class="number">+1</span>,start,mid,l,r);</span><br><span class="line">        <span class="comment">// [l,r]与[mid+1,end]有交集</span></span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(root*<span class="number">2</span><span class="number">+2</span>,mid<span class="number">+1</span>,end,l,r);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NumArray</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">int</span> n;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; tree;
+    NumArray(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums) &#123;
+        <span class="hljs-keyword">this</span>-&gt;n=nums.<span class="hljs-built_in">size</span>();
+        tree.resize(<span class="hljs-number">4</span>*n);
+
+        builtTree(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,nums);
+    &#125;
+
+    <span class="hljs-comment">// root节点对应的数组下标索引</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">builtTree</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root,<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right,<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(left==right)&#123;
+            tree[root]=nums[left];
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
+        builtTree(root*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>,left,mid,nums);
+        builtTree(root*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>,mid+<span class="hljs-number">1</span>,right,nums);
+        <span class="hljs-comment">// 更新</span>
+        tree[root]=tree[root*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>]+tree[root*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>];
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index, <span class="hljs-keyword">int</span> val)</span> </span>&#123;
+        update(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,index,val);
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> index,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+        <span class="hljs-comment">// 当前root索引代表区间[index,index]</span>
+        <span class="hljs-keyword">if</span>(start==<span class="hljs-built_in">end</span>)&#123;
+            tree[root]=val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-comment">// [index,index]区间在左子树</span>
+        <span class="hljs-keyword">if</span>(index&lt;=mid)
+            update(root*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>,start,mid,index,val);
+        <span class="hljs-comment">// 区间位于右子树</span>
+        <span class="hljs-keyword">if</span>(index&gt;mid)
+            update(root*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,index,val);
+        <span class="hljs-comment">// pushUp</span>
+        tree[root]=tree[root*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>]+tree[root*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>];
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">sumRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> query(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,left,right);
+    &#125;
+    <span class="hljs-comment">// 当前区间[start,end]，查询区间[l,r]</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-keyword">int</span> root,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span></span>&#123;
+        <span class="hljs-comment">// 当前区间全部位于查询区间</span>
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            <span class="hljs-keyword">return</span> tree[root];
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        <span class="hljs-comment">// [l,r]与[start,mid]有交集</span>
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            ans+=query(root*<span class="hljs-number">2</span>+<span class="hljs-number">1</span>,start,mid,l,r);
+        <span class="hljs-comment">// [l,r]与[mid+1,end]有交集</span>
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            ans+=query(root*<span class="hljs-number">2</span>+<span class="hljs-number">2</span>,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r);
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="82-不定范围"><a class="markdownIt-Anchor" href="#82-不定范围"></a> 8.2 不定范围</h2>
 <h4 id="729-我的日程安排表-i"><a class="markdownIt-Anchor" href="#729-我的日程安排表-i"></a> <a href="https://leetcode.cn/problems/my-calendar-i/">729. 我的日程安排表 I</a>（动态开点，区间更新）</h4>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyCalendar</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        Node *left,*right;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        <span class="type">int</span> add;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"> </span><br><span class="line">    <span class="type">int</span> N=<span class="number">1e9</span>;</span><br><span class="line">    Node* root=<span class="keyword">new</span> <span class="built_in">Node</span>(); </span><br><span class="line">    <span class="built_in">MyCalendar</span>() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">book</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">query</span>(root,<span class="number">0</span>,N,start,end<span class="number">-1</span>)!=<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">update</span>(root,<span class="number">0</span>,N,start,end<span class="number">-1</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// [l,r]区间+val</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node* node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            node-&gt;val+=(end-start<span class="number">+1</span>)*val;</span><br><span class="line">            node-&gt;add+=val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 当前节点的懒惰标记向下推</span></span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(node,mid-start<span class="number">+1</span>,end-mid);</span><br><span class="line">        <span class="comment">// 分为两个区间：[start,mid] [mid+1,end]</span></span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            <span class="built_in">update</span>(node-&gt;left,start,mid,l,r,val);</span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            <span class="built_in">update</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r,val);</span><br><span class="line">        <span class="built_in">pushUp</span>(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushUp</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node* node,<span class="type">int</span> leftNum,<span class="type">int</span> rightNum)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="comment">// 如果add为0，则没有标记，不需要下推</span></span><br><span class="line">        <span class="keyword">if</span>(node-&gt;add==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        node-&gt;left-&gt;val+=leftNum*node-&gt;add;</span><br><span class="line">        node-&gt;right-&gt;val+=rightNum*node-&gt;add;</span><br><span class="line"></span><br><span class="line">        node-&gt;left-&gt;add+=node-&gt;add;</span><br><span class="line">        node-&gt;right-&gt;add+=node-&gt;add;</span><br><span class="line"></span><br><span class="line">        node-&gt;add=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查询区间未[l,r]，当前区间为[start,end]</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node* node,<span class="type">int</span> start,<span class="type">int</span> end,<span class="type">int</span> l,<span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=start&amp;&amp;end&lt;=r)&#123;</span><br><span class="line">            <span class="keyword">return</span> node-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid=start+(end-start)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(node,mid-start<span class="number">+1</span>,end-mid);</span><br><span class="line">        <span class="keyword">if</span>(l&lt;=mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;left,start,mid,l,r);</span><br><span class="line">        <span class="keyword">if</span>(r&gt;mid)</span><br><span class="line">            ans+=<span class="built_in">query</span>(node-&gt;right,mid<span class="number">+1</span>,end,l,r);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyCalendar</span> &#123;</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span>
+        Node *left,*right;
+        <span class="hljs-keyword">int</span> val;
+        <span class="hljs-keyword">int</span> add;
+    &#125;;
+
+<span class="hljs-keyword">public</span>:
+ 
+    <span class="hljs-keyword">int</span> N=<span class="hljs-number">1e9</span>;
+    Node* root=<span class="hljs-keyword">new</span> Node(); 
+    MyCalendar() &#123;
+
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">book</span><span class="hljs-params">(<span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>)</span> </span>&#123;
+        <span class="hljs-keyword">if</span>(query(root,<span class="hljs-number">0</span>,N,start,<span class="hljs-built_in">end</span><span class="hljs-number">-1</span>)!=<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        update(root,<span class="hljs-number">0</span>,N,start,<span class="hljs-built_in">end</span><span class="hljs-number">-1</span>,<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    &#125;
+    <span class="hljs-comment">// [l,r]区间+val</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            node-&gt;val+=(<span class="hljs-built_in">end</span>-start+<span class="hljs-number">1</span>)*val;
+            node-&gt;add+=val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-comment">// 当前节点的懒惰标记向下推</span>
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        pushDown(node,mid-start+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>-mid);
+        <span class="hljs-comment">// 分为两个区间：[start,mid] [mid+1,end]</span>
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            update(node-&gt;left,start,mid,l,r,val);
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            update(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r,val);
+        pushUp(node);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushUp</span><span class="hljs-params">(Node* node)</span></span>&#123;
+        node-&gt;val=node-&gt;left-&gt;val+node-&gt;right-&gt;val;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> leftNum,<span class="hljs-keyword">int</span> rightNum)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(!node-&gt;left) node-&gt;left=<span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span>(!node-&gt;right) node-&gt;right=<span class="hljs-keyword">new</span> Node();
+        <span class="hljs-comment">// 如果add为0，则没有标记，不需要下推</span>
+        <span class="hljs-keyword">if</span>(node-&gt;add==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span>;
+
+        node-&gt;left-&gt;val+=leftNum*node-&gt;add;
+        node-&gt;right-&gt;val+=rightNum*node-&gt;add;
+
+        node-&gt;left-&gt;add+=node-&gt;add;
+        node-&gt;right-&gt;add+=node-&gt;add;
+
+        node-&gt;add=<span class="hljs-number">0</span>;
+    &#125;
+    <span class="hljs-comment">// 查询区间未[l,r]，当前区间为[start,end]</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node* node,<span class="hljs-keyword">int</span> start,<span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l&lt;=start&amp;&amp;<span class="hljs-built_in">end</span>&lt;=r)&#123;
+            <span class="hljs-keyword">return</span> node-&gt;val;
+        &#125;
+        <span class="hljs-keyword">int</span> mid=start+(<span class="hljs-built_in">end</span>-start)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
+        pushDown(node,mid-start+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>-mid);
+        <span class="hljs-keyword">if</span>(l&lt;=mid)
+            ans+=query(node-&gt;left,start,mid,l,r);
+        <span class="hljs-keyword">if</span>(r&gt;mid)
+            ans+=query(node-&gt;right,mid+<span class="hljs-number">1</span>,<span class="hljs-built_in">end</span>,l,r);
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 <h4 id="715-range-模块"><a class="markdownIt-Anchor" href="#715-range-模块"></a> <a href="https://leetcode.cn/problems/range-module/">715. Range 模块</a></h4>
 <blockquote>
 <p>线段树超时，但是对于track表示范围是否覆盖，lazy定义当前区间操作很有启发意义</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RangeModule</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        Node *left, *right;</span><br><span class="line">        <span class="type">bool</span> track;</span><br><span class="line">        <span class="type">int</span> lazy;           <span class="comment">//1表示跟踪，-1表示排除，0表示无操作</span></span><br><span class="line">    &#125;;</span><br><span class="line">    Node *root;</span><br><span class="line">    <span class="type">int</span> N = <span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            root-&gt;track = (val==<span class="number">1</span>);</span><br><span class="line">            root-&gt;lazy=val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;left, start, mid, l, r, val);</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r, val);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 更新root节点表示的区间范围</span></span><br><span class="line">        root-&gt;track = (root-&gt;left-&gt;track &amp;&amp; root-&gt;right-&gt;track);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;left)</span><br><span class="line">            root-&gt;left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;right)</span><br><span class="line">            root-&gt;right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(root-&gt;lazy==<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        root-&gt;left-&gt;track = (root-&gt;lazy==<span class="number">1</span>);</span><br><span class="line">        root-&gt;right-&gt;track = (root-&gt;lazy==<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        root-&gt;left-&gt;lazy=root-&gt;lazy;</span><br><span class="line">        root-&gt;right-&gt;lazy=root-&gt;lazy;</span><br><span class="line"></span><br><span class="line">        root-&gt;lazy=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">query</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">return</span> root-&gt;track;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root);</span><br><span class="line"></span><br><span class="line">        <span class="type">bool</span> ans = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            ans = (ans &amp;&amp; <span class="built_in">query</span>(root-&gt;left, start, mid, l, r));</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            ans = (ans &amp;&amp; <span class="built_in">query</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r));</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">RangeModule</span>() &#123; root = <span class="keyword">new</span> <span class="built_in">Node</span>(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">addRange</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">update</span>(root, <span class="number">0</span>, N, left, right<span class="number">-1</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">queryRange</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">query</span>(root, <span class="number">0</span>, N, left, right<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">removeRange</span><span class="params">(<span class="type">int</span> left, <span class="type">int</span> right)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">update</span>(root, <span class="number">0</span>, N, left, right<span class="number">-1</span>, <span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RangeModule</span> &#123;</span>
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> &#123;</span>
+        Node *left, *right;
+        <span class="hljs-keyword">bool</span> track;
+        <span class="hljs-keyword">int</span> lazy;           <span class="hljs-comment">//1表示跟踪，-1表示排除，0表示无操作</span>
+    &#125;;
+    Node *root;
+    <span class="hljs-keyword">int</span> N = <span class="hljs-number">1e9</span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> val)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            root-&gt;track = (val==<span class="hljs-number">1</span>);
+            root-&gt;lazy=val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root);
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            update(root-&gt;left, start, mid, l, r, val);
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            update(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r, val);
+
+        <span class="hljs-comment">// 更新root节点表示的区间范围</span>
+        root-&gt;track = (root-&gt;left-&gt;track &amp;&amp; root-&gt;right-&gt;track);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node *root)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (!root-&gt;left)
+            root-&gt;left = <span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span> (!root-&gt;right)
+            root-&gt;right = <span class="hljs-keyword">new</span> Node();
+        
+        <span class="hljs-keyword">if</span>(root-&gt;lazy==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span>;
+
+        root-&gt;left-&gt;track = (root-&gt;lazy==<span class="hljs-number">1</span>);
+        root-&gt;right-&gt;track = (root-&gt;lazy==<span class="hljs-number">1</span>);
+
+        root-&gt;left-&gt;lazy=root-&gt;lazy;
+        root-&gt;right-&gt;lazy=root-&gt;lazy;
+
+        root-&gt;lazy=<span class="hljs-number">0</span>;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">query</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            <span class="hljs-keyword">return</span> root-&gt;track;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root);
+
+        <span class="hljs-keyword">bool</span> ans = <span class="hljs-literal">true</span>;
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            ans = (ans &amp;&amp; query(root-&gt;left, start, mid, l, r));
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            ans = (ans &amp;&amp; query(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r));
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    RangeModule() &#123; root = <span class="hljs-keyword">new</span> Node(); &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">addRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>&#123;
+        update(root, <span class="hljs-number">0</span>, N, left, right<span class="hljs-number">-1</span>, <span class="hljs-number">1</span>);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">queryRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> query(root, <span class="hljs-number">0</span>, N, left, right<span class="hljs-number">-1</span>);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">removeRange</span><span class="hljs-params">(<span class="hljs-keyword">int</span> left, <span class="hljs-keyword">int</span> right)</span> </span>&#123;
+        update(root, <span class="hljs-number">0</span>, N, left, right<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>);
+    &#125;
+&#125;;
+</code></pre>
 <h2 id="83-列表"><a class="markdownIt-Anchor" href="#83-列表"></a> 8.3 列表</h2>
 <ul>
 <li>
@@ -833,13 +1451,136 @@
 <blockquote>
 <p>数组实现线段树</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">BookMyShow</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    vector&lt;<span class="type">long</span>&gt; minPeople,sumPeople;</span><br><span class="line">    <span class="built_in">BookMyShow</span>(<span class="type">int</span> n, <span class="type">int</span> m) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;n=n;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m=m;</span><br><span class="line">        minPeople.<span class="built_in">resize</span>(<span class="number">4</span>*n);  <span class="comment">//区间中一排坐的最少人数</span></span><br><span class="line">        sumPeople.<span class="built_in">resize</span>(<span class="number">4</span>*n);  <span class="comment">//区间中坐的总人数</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将idx排的人数增加val</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> o,<span class="type">int</span> l,<span class="type">int</span> r,<span class="type">int</span> idx,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l==r)&#123;</span><br><span class="line">            minPeople[o]+=val;</span><br><span class="line">            sumPeople[o]+=val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 二分</span></span><br><span class="line">        <span class="type">int</span> mid=l+(r-l)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(idx&lt;=mid)</span><br><span class="line">            <span class="built_in">add</span>(<span class="number">2</span>*o<span class="number">+1</span>,l,mid,idx,val);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">add</span>(<span class="number">2</span>*o<span class="number">+2</span>,mid<span class="number">+1</span>,r,idx,val);</span><br><span class="line">        </span><br><span class="line">        minPeople[o]=<span class="built_in">min</span>(minPeople[<span class="number">2</span>*o<span class="number">+1</span>],minPeople[<span class="number">2</span>*o<span class="number">+2</span>]);</span><br><span class="line">        sumPeople[o]=sumPeople[<span class="number">2</span>*o<span class="number">+1</span>]+sumPeople[<span class="number">2</span>*o<span class="number">+2</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 查询[L,R]之间的区间和</span></span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="title">query_sum</span><span class="params">(<span class="type">int</span> o,<span class="type">int</span> left,<span class="type">int</span> right,<span class="type">int</span> L,<span class="type">int</span> R)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(L&lt;=left&amp;&amp;right&lt;=R)</span><br><span class="line">            <span class="keyword">return</span> sumPeople[o];</span><br><span class="line">        <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="type">long</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(L&lt;=mid)</span><br><span class="line">            sum+=<span class="built_in">query_sum</span>(<span class="number">2</span>*o<span class="number">+1</span>,left,mid,L,R);</span><br><span class="line">        <span class="keyword">if</span>(R&gt;mid)</span><br><span class="line">            sum+=<span class="built_in">query_sum</span>(<span class="number">2</span>*o<span class="number">+2</span>,mid<span class="number">+1</span>,right,L,R);</span><br><span class="line">        <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回区间[0,R]中&lt;=val的最小下标，不存在返回-1</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">index</span><span class="params">(<span class="type">int</span> o,<span class="type">int</span> left,<span class="type">int</span> right,<span class="type">int</span> R,<span class="type">int</span> val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(minPeople[o]&gt;val)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(left==right)</span><br><span class="line">            <span class="keyword">return</span> left;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(minPeople[<span class="number">2</span>*o<span class="number">+1</span>]&lt;=val)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">index</span>(<span class="number">2</span>*o<span class="number">+1</span>,left,mid,R,val);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(mid&lt;R)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">index</span>(<span class="number">2</span>*o<span class="number">+2</span>,mid<span class="number">+1</span>,right,R,val);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">gather</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> maxRow)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i=<span class="built_in">index</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,maxRow,m-k);</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> seats=<span class="built_in">query_sum</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,i,i);</span><br><span class="line">        <span class="built_in">add</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,i,k);</span><br><span class="line">        <span class="keyword">return</span> &#123;i,seats&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">scatter</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> maxRow)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>((<span class="type">long</span>)(maxRow<span class="number">+1</span>)*m-<span class="built_in">query_sum</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,<span class="number">0</span>,maxRow)&lt;k)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// 找到第一个有空位置的排</span></span><br><span class="line">        <span class="type">int</span> i=<span class="built_in">index</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,maxRow,m<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="type">int</span> left_seats=m-<span class="built_in">query_sum</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,i,i);</span><br><span class="line">            <span class="keyword">if</span>(k&lt;=left_seats)&#123;</span><br><span class="line">                <span class="built_in">add</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,i,k);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            k-=left_seats;</span><br><span class="line">            <span class="built_in">add</span>(<span class="number">0</span>,<span class="number">0</span>,n<span class="number">-1</span>,i,left_seats);</span><br><span class="line">            i+=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your BookMyShow object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * BookMyShow* obj = new BookMyShow(n, m);</span></span><br><span class="line"><span class="comment"> * vector&lt;int&gt; param_1 = obj-&gt;gather(k,maxRow);</span></span><br><span class="line"><span class="comment"> * bool param_2 = obj-&gt;scatter(k,maxRow);</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BookMyShow</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">int</span> n,m;
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">long</span>&gt; minPeople,sumPeople;
+    BookMyShow(<span class="hljs-keyword">int</span> n, <span class="hljs-keyword">int</span> m) &#123;
+        <span class="hljs-keyword">this</span>-&gt;n=n;
+        <span class="hljs-keyword">this</span>-&gt;m=m;
+        minPeople.resize(<span class="hljs-number">4</span>*n);  <span class="hljs-comment">//区间中一排坐的最少人数</span>
+        sumPeople.resize(<span class="hljs-number">4</span>*n);  <span class="hljs-comment">//区间中坐的总人数</span>
+    &#125;
+    
+    <span class="hljs-comment">// 将idx排的人数增加val</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> o,<span class="hljs-keyword">int</span> l,<span class="hljs-keyword">int</span> r,<span class="hljs-keyword">int</span> idx,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(l==r)&#123;
+            minPeople[o]+=val;
+            sumPeople[o]+=val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+        <span class="hljs-comment">// 二分</span>
+        <span class="hljs-keyword">int</span> mid=l+(r-l)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">if</span>(idx&lt;=mid)
+            add(<span class="hljs-number">2</span>*o+<span class="hljs-number">1</span>,l,mid,idx,val);
+        <span class="hljs-keyword">else</span>
+            add(<span class="hljs-number">2</span>*o+<span class="hljs-number">2</span>,mid+<span class="hljs-number">1</span>,r,idx,val);
+        
+        minPeople[o]=<span class="hljs-built_in">min</span>(minPeople[<span class="hljs-number">2</span>*o+<span class="hljs-number">1</span>],minPeople[<span class="hljs-number">2</span>*o+<span class="hljs-number">2</span>]);
+        sumPeople[o]=sumPeople[<span class="hljs-number">2</span>*o+<span class="hljs-number">1</span>]+sumPeople[<span class="hljs-number">2</span>*o+<span class="hljs-number">2</span>];
+    &#125;
+    <span class="hljs-comment">// 查询[L,R]之间的区间和</span>
+    <span class="hljs-function"><span class="hljs-keyword">long</span> <span class="hljs-title">query_sum</span><span class="hljs-params">(<span class="hljs-keyword">int</span> o,<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right,<span class="hljs-keyword">int</span> L,<span class="hljs-keyword">int</span> R)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(L&lt;=left&amp;&amp;right&lt;=R)
+            <span class="hljs-keyword">return</span> sumPeople[o];
+        <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">long</span> sum=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span>(L&lt;=mid)
+            sum+=query_sum(<span class="hljs-number">2</span>*o+<span class="hljs-number">1</span>,left,mid,L,R);
+        <span class="hljs-keyword">if</span>(R&gt;mid)
+            sum+=query_sum(<span class="hljs-number">2</span>*o+<span class="hljs-number">2</span>,mid+<span class="hljs-number">1</span>,right,L,R);
+        <span class="hljs-keyword">return</span> sum;
+    &#125;
+
+    <span class="hljs-comment">// 返回区间[0,R]中&lt;=val的最小下标，不存在返回-1</span>
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">index</span><span class="hljs-params">(<span class="hljs-keyword">int</span> o,<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right,<span class="hljs-keyword">int</span> R,<span class="hljs-keyword">int</span> val)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(minPeople[o]&gt;val)
+            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">if</span>(left==right)
+            <span class="hljs-keyword">return</span> left;
+
+        <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
+        <span class="hljs-keyword">if</span>(minPeople[<span class="hljs-number">2</span>*o+<span class="hljs-number">1</span>]&lt;=val)
+            <span class="hljs-keyword">return</span> index(<span class="hljs-number">2</span>*o+<span class="hljs-number">1</span>,left,mid,R,val);
+        
+        <span class="hljs-keyword">if</span>(mid&lt;R)
+            <span class="hljs-keyword">return</span> index(<span class="hljs-number">2</span>*o+<span class="hljs-number">2</span>,mid+<span class="hljs-number">1</span>,right,R,val);
+        
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    &#125;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">gather</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> maxRow)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> i=index(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,maxRow,m-k);
+        <span class="hljs-keyword">if</span>(i==<span class="hljs-number">-1</span>)
+            <span class="hljs-keyword">return</span> &#123;&#125;;
+        
+        <span class="hljs-keyword">int</span> seats=query_sum(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,i,i);
+        add(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,i,k);
+        <span class="hljs-keyword">return</span> &#123;i,seats&#125;;
+    &#125;
+    
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">scatter</span><span class="hljs-params">(<span class="hljs-keyword">int</span> k, <span class="hljs-keyword">int</span> maxRow)</span> </span>&#123;
+        <span class="hljs-keyword">if</span>((<span class="hljs-keyword">long</span>)(maxRow+<span class="hljs-number">1</span>)*m-query_sum(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,<span class="hljs-number">0</span>,maxRow)&lt;k)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-comment">// 找到第一个有空位置的排</span>
+        <span class="hljs-keyword">int</span> i=index(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,maxRow,m<span class="hljs-number">-1</span>);
+
+        <span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>)&#123;
+            <span class="hljs-keyword">int</span> left_seats=m-query_sum(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,i,i);
+            <span class="hljs-keyword">if</span>(k&lt;=left_seats)&#123;
+                add(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,i,k);
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+            &#125;
+            k-=left_seats;
+            add(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>,i,left_seats);
+            i+=<span class="hljs-number">1</span>;
+        &#125;
+    &#125;
+&#125;;
+
+<span class="hljs-comment">/**
+ * Your BookMyShow object will be instantiated and called as such:
+ * BookMyShow* obj = new BookMyShow(n, m);
+ * vector&lt;int&gt; param_1 = obj-&gt;gather(k,maxRow);
+ * bool param_2 = obj-&gt;scatter(k,maxRow);
+ */</span>
+</code></pre>
 <p>线段树区间合并法解决<strong>多次询问</strong>的「区间最长连续上升序列问题」和「区间最大子段和问题」</p>
 <h4 id="53-最大子数组和"><a class="markdownIt-Anchor" href="#53-最大子数组和"></a> <a href="https://leetcode.cn/problems/maximum-subarray/">53. 最大子数组和</a></h4>
 <blockquote>
 <p>适用于大规模查询情况</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// lsum表示[l,r]内以l为左端点的最大子段和</span></span><br><span class="line">    <span class="comment">// rsum表示[l,r]内以r为右端点的最大子段和</span></span><br><span class="line">    <span class="comment">// msum表示[l,r]内的最大子段和</span></span><br><span class="line">    <span class="comment">// isum表示[l,r]的区间和</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Status</span>&#123;</span><br><span class="line">        <span class="type">int</span> lsum,rsum,msum,isum;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function">Status <span class="title">PushUp</span><span class="params">(Status l,Status r)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> isum=l.isum+r.isum;</span><br><span class="line">        <span class="type">int</span> lsum=<span class="built_in">max</span>(l.lsum,l.isum+r.lsum);</span><br><span class="line">        <span class="type">int</span> rsum=<span class="built_in">max</span>(r.rsum,l.rsum+r.isum);</span><br><span class="line">        <span class="type">int</span> msum=<span class="built_in">max</span>(<span class="built_in">max</span>(l.msum,r.msum),l.rsum+r.lsum);</span><br><span class="line">        <span class="keyword">return</span> Status&#123;lsum,rsum,msum,isum&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">Status <span class="title">get</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp;nums,<span class="type">int</span> left,<span class="type">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(left==right)</span><br><span class="line">            <span class="keyword">return</span> Status&#123;nums[left],nums[left],nums[left],nums[left]&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        Status lsub=<span class="built_in">get</span>(nums,left,mid);</span><br><span class="line">        Status rsub=<span class="built_in">get</span>(nums,mid<span class="number">+1</span>,right);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">PushUp</span>(lsub,rsub);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxSubArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">get</span>(nums,<span class="number">0</span>,n<span class="number">-1</span>).msum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-comment">// lsum表示[l,r]内以l为左端点的最大子段和</span>
+    <span class="hljs-comment">// rsum表示[l,r]内以r为右端点的最大子段和</span>
+    <span class="hljs-comment">// msum表示[l,r]内的最大子段和</span>
+    <span class="hljs-comment">// isum表示[l,r]的区间和</span>
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Status</span>&#123;</span>
+        <span class="hljs-keyword">int</span> lsum,rsum,msum,isum;
+    &#125;;
+
+    <span class="hljs-function">Status <span class="hljs-title">PushUp</span><span class="hljs-params">(Status l,Status r)</span></span>&#123;
+        <span class="hljs-keyword">int</span> isum=l.isum+r.isum;
+        <span class="hljs-keyword">int</span> lsum=<span class="hljs-built_in">max</span>(l.lsum,l.isum+r.lsum);
+        <span class="hljs-keyword">int</span> rsum=<span class="hljs-built_in">max</span>(r.rsum,l.rsum+r.isum);
+        <span class="hljs-keyword">int</span> msum=<span class="hljs-built_in">max</span>(<span class="hljs-built_in">max</span>(l.msum,r.msum),l.rsum+r.lsum);
+        <span class="hljs-keyword">return</span> Status&#123;lsum,rsum,msum,isum&#125;;
+    &#125;
+    <span class="hljs-function">Status <span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp;nums,<span class="hljs-keyword">int</span> left,<span class="hljs-keyword">int</span> right)</span></span>&#123;
+        <span class="hljs-keyword">if</span>(left==right)
+            <span class="hljs-keyword">return</span> Status&#123;nums[left],nums[left],nums[left],nums[left]&#125;;
+
+        <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
+        Status lsub=<span class="hljs-built_in">get</span>(nums,left,mid);
+        Status rsub=<span class="hljs-built_in">get</span>(nums,mid+<span class="hljs-number">1</span>,right);
+        <span class="hljs-keyword">return</span> PushUp(lsub,rsub);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxSubArray</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
+        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">get</span>(nums,<span class="hljs-number">0</span>,n<span class="hljs-number">-1</span>).msum;
+    &#125;
+&#125;;
+</code></pre>
 <p>动态开点线段树</p>
 <h4 id="6899-达到末尾下标所需的最大跳跃次数"><a class="markdownIt-Anchor" href="#6899-达到末尾下标所需的最大跳跃次数"></a> <a href="https://leetcode.cn/problems/maximum-number-of-jumps-to-reach-the-last-index/">6899. 达到末尾下标所需的最大跳跃次数</a></h4>
 <h1 id="9-疑问"><a class="markdownIt-Anchor" href="#9-疑问"></a> 9 疑问</h1>
@@ -847,7 +1588,79 @@
 <blockquote>
 <p>结构体中需要初始化指针为空，前面为什么不需要？代码哪里写的存在问题</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> N = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        Node *left = <span class="literal">nullptr</span>, *right = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="type">int</span> val = INT_MAX;</span><br><span class="line">        <span class="type">int</span> lazy = <span class="number">0</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">minInterval</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; &amp;intervals,</span></span></span><br><span class="line"><span class="params"><span class="function">                            vector&lt;<span class="type">int</span>&gt; &amp;queries)</span> </span>&#123;</span><br><span class="line">        Node *root = <span class="keyword">new</span> Node;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;interval : intervals) &#123;</span><br><span class="line">            <span class="type">int</span> l = interval[<span class="number">0</span>], r = interval[<span class="number">1</span>];</span><br><span class="line">            <span class="built_in">update</span>(root, <span class="number">0</span>, N, l, r, r - l + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> n = queries.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ans</span><span class="params">(n, <span class="number">-1</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> t = <span class="built_in">query</span>(root, <span class="number">0</span>, N, queries[i], queries[i]);</span><br><span class="line">            <span class="keyword">if</span> (t != INT_MAX)</span><br><span class="line">                ans[i] = t;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            root-&gt;val = <span class="built_in">min</span>(root-&gt;val, val);</span><br><span class="line">            root-&gt;lazy = root-&gt;val;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root);</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;left, start, mid, l, r, val);</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            <span class="built_in">update</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r, val);</span><br><span class="line">        root-&gt;val = <span class="built_in">min</span>(root-&gt;left-&gt;val, root-&gt;right-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">pushDown</span><span class="params">(Node *root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;left)</span><br><span class="line">            root-&gt;left = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line">        <span class="keyword">if</span> (!root-&gt;right)</span><br><span class="line">            root-&gt;right = <span class="keyword">new</span> <span class="built_in">Node</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (root-&gt;lazy == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        root-&gt;left-&gt;lazy = root-&gt;lazy;</span><br><span class="line">        root-&gt;right-&gt;lazy = root-&gt;lazy;</span><br><span class="line"></span><br><span class="line">        root-&gt;left-&gt;val = root-&gt;val;</span><br><span class="line">        root-&gt;right-&gt;val = root-&gt;val;</span><br><span class="line"></span><br><span class="line">        root-&gt;lazy = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">query</span><span class="params">(Node *root, <span class="type">int</span> start, <span class="type">int</span> end, <span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= start &amp;&amp; end &lt;= r) &#123;</span><br><span class="line">            <span class="keyword">return</span> root-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mid = start + (end - start) / <span class="number">2</span>;</span><br><span class="line">        <span class="built_in">pushDown</span>(root);</span><br><span class="line">        <span class="type">int</span> ans = INT_MAX;</span><br><span class="line">        <span class="keyword">if</span> (l &lt;= mid)</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">query</span>(root-&gt;left, start, mid, l, r));</span><br><span class="line">        <span class="keyword">if</span> (r &gt; mid)</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">query</span>(root-&gt;right, mid + <span class="number">1</span>, end, l, r));</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
+  <span class="hljs-keyword">public</span>:
+    <span class="hljs-keyword">int</span> N = <span class="hljs-number">10</span>;
+    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span> &#123;</span>
+        Node *left = <span class="hljs-literal">nullptr</span>, *right = <span class="hljs-literal">nullptr</span>;
+        <span class="hljs-keyword">int</span> val = INT_MAX;
+        <span class="hljs-keyword">int</span> lazy = <span class="hljs-number">0</span>;
+    &#125;;
+    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">minInterval</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; &amp;intervals,
+                            <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;queries)</span> </span>&#123;
+        Node *root = <span class="hljs-keyword">new</span> Node;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;interval : intervals) &#123;
+            <span class="hljs-keyword">int</span> l = interval[<span class="hljs-number">0</span>], r = interval[<span class="hljs-number">1</span>];
+            update(root, <span class="hljs-number">0</span>, N, l, r, r - l + <span class="hljs-number">1</span>);
+        &#125;
+        <span class="hljs-keyword">int</span> n = queries.<span class="hljs-built_in">size</span>();
+        <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n, <span class="hljs-number">-1</span>)</span></span>;
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) &#123;
+            <span class="hljs-keyword">int</span> t = query(root, <span class="hljs-number">0</span>, N, queries[i], queries[i]);
+            <span class="hljs-keyword">if</span> (t != INT_MAX)
+                ans[i] = t;
+        &#125;
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">update</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r, <span class="hljs-keyword">int</span> val)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            root-&gt;val = <span class="hljs-built_in">min</span>(root-&gt;val, val);
+            root-&gt;lazy = root-&gt;val;
+            <span class="hljs-keyword">return</span>;
+        &#125;
+
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root);
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            update(root-&gt;left, start, mid, l, r, val);
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            update(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r, val);
+        root-&gt;val = <span class="hljs-built_in">min</span>(root-&gt;left-&gt;val, root-&gt;right-&gt;val);
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">pushDown</span><span class="hljs-params">(Node *root)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (!root-&gt;left)
+            root-&gt;left = <span class="hljs-keyword">new</span> Node();
+        <span class="hljs-keyword">if</span> (!root-&gt;right)
+            root-&gt;right = <span class="hljs-keyword">new</span> Node();
+
+        <span class="hljs-keyword">if</span> (root-&gt;lazy == <span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span>;
+        root-&gt;left-&gt;lazy = root-&gt;lazy;
+        root-&gt;right-&gt;lazy = root-&gt;lazy;
+
+        root-&gt;left-&gt;val = root-&gt;val;
+        root-&gt;right-&gt;val = root-&gt;val;
+
+        root-&gt;lazy = <span class="hljs-number">0</span>;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">query</span><span class="hljs-params">(Node *root, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> <span class="hljs-built_in">end</span>, <span class="hljs-keyword">int</span> l, <span class="hljs-keyword">int</span> r)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (l &lt;= start &amp;&amp; <span class="hljs-built_in">end</span> &lt;= r) &#123;
+            <span class="hljs-keyword">return</span> root-&gt;val;
+        &#125;
+        <span class="hljs-keyword">int</span> mid = start + (<span class="hljs-built_in">end</span> - start) / <span class="hljs-number">2</span>;
+        pushDown(root);
+        <span class="hljs-keyword">int</span> ans = INT_MAX;
+        <span class="hljs-keyword">if</span> (l &lt;= mid)
+            ans = <span class="hljs-built_in">min</span>(ans, query(root-&gt;left, start, mid, l, r));
+        <span class="hljs-keyword">if</span> (r &gt; mid)
+            ans = <span class="hljs-built_in">min</span>(ans, query(root-&gt;right, mid + <span class="hljs-number">1</span>, <span class="hljs-built_in">end</span>, l, r));
+        <span class="hljs-keyword">return</span> ans;
+    &#125;
+&#125;;
+</code></pre>
 
       
     </div>
@@ -1132,16 +1945,35 @@
 <li>
 <p>为conda配置（清华）镜像源</p>
 <p>1 添加镜像（永久）</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/free/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>pkgs<span class="regexp">/main/</span></span><br><span class="line">conda config --add channels https:<span class="regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="regexp">/anaconda/</span>cloud<span class="regexp">/conda-forge/</span></span><br><span class="line"><span class="comment">#设置搜索时显示通道地址</span></span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+#设置搜索时显示通道地址
+conda config --set show_channel_urls yes
+</code></pre>
 <p>2 显示添加的源</p>
-<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">config</span> <span class="comment">--show channels</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda config --show channels
+</code></pre>
 <p>3 删除指定的源</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda<span class="built_in"> config </span>--<span class="built_in">remove</span> channels 源名称或链接 </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda config --remove channels 源名称或链接 
+</code></pre>
 </li>
 <li>
 <p>pip配置国内镜像源</p>
 <p>临时修改</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">pip install numpy -i https:<span class="comment">//mirrors.aliyun.com/pypi/simple/</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 清华源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url https:<span class="comment">//pypi.tuna.tsinghua.edu.cn/simple</span></span><br><span class="line"></span><br><span class="line"><span class="meta"># 或：</span></span><br><span class="line"><span class="meta"># 阿里源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url https:<span class="comment">//mirrors.aliyun.com/pypi/simple/</span></span><br><span class="line"><span class="meta"># 腾讯源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url http:<span class="comment">//mirrors.cloud.tencent.com/pypi/simple</span></span><br><span class="line"><span class="meta"># 豆瓣源</span></span><br><span class="line">pip config <span class="keyword">set</span> <span class="keyword">global</span>.index-url http:<span class="comment">//pypi.douban.com/simple/</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">pip install numpy -i https://mirrors.aliyun.com/pypi/simple/
+
+# 清华源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 或：
+# 阿里源
+pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/
+# 腾讯源
+pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
+# 豆瓣源
+pip config set global.index-url http://pypi.douban.com/simple/
+</code></pre>
 </li>
 </ul>
 <p>​		国内常用源镜像地址：</p>
@@ -1159,13 +1991,21 @@
 <ul>
 <li>查看环境</li>
 </ul>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">conda <span class="built_in">info</span> --envs</span><br><span class="line">conda env list  查看环境</span><br><span class="line">conda create --name python27 <span class="attribute">python</span>=2.7  创建环境，指定python版本</span><br><span class="line">conda activate python27  激活环境</span><br><span class="line">conda deactivate</span><br><span class="line">conda install <span class="attribute">python</span>=3.8 更新环境版本</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda info --envs
+conda env list  查看环境
+conda create --name python27 python=2.7  创建环境，指定python版本
+conda activate python27  激活环境
+conda deactivate
+conda install python=3.8 更新环境版本
+</code></pre>
 <p>删除环境python27</p>
-<figure class="highlight brainfuck"><table><tr><td class="code"><pre><span class="line"><span class="comment">conda remove</span> <span class="literal">--</span><span class="comment">name python27</span> <span class="literal">--</span><span class="comment">all</span></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda remove --name python27 --all
+</code></pre>
 <ul>
 <li>切换环境</li>
 </ul>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> nb_conda </span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda install nb_conda 
+</code></pre>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062231739.png" alt="image-20211206223133559" /></p>
 <p>问题</p>
 <ul>
@@ -1175,7 +2015,8 @@
 <p><a href="https://blog.csdn.net/what_how_why2020/article/details/116290592">(6条消息) 解决问题：EnvironmentLocationNotFound: Not a conda environment: /anaconda3/envs/anaconda3_what_how_why2020的博客-CSDN博客</a></p>
 <p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112062232815.png" alt="image-20211206223222635" /></p>
 <p>在新建的环境中安装jupyter</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">conda <span class="keyword">install</span> ipykernel</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">conda install ipykernel
+</code></pre>
 <p><a href="https://blog.csdn.net/weixin_39631767/article/details/110423082">(6条消息) anaconda新建环境_Jupyter Notebook中切换conda虚拟环境_weixin_39631767的博客-CSDN博客</a></p>
 <h1 id="2-edge"><a class="markdownIt-Anchor" href="#2-edge"></a> 2 Edge</h1>
 <p><a href="https://www.bilibili.com/read/cv12675669">更改Microsoft Edge浏览器的缓存位置、用户数据目录位置 - 哔哩哔哩 (bilibili.com)</a></p>
@@ -1183,13 +2024,19 @@
 <p><a href="https://www.cnblogs.com/wsnan/p/11769838.html">nvidia-smi 系列命令，查看gpu ，显存信息</a></p>
 <p>cuda版本：nvcc --version</p>
 <p>实时刷新</p>
-<figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">nvidia-<span class="keyword">smi</span> -l x或者nvidia-<span class="keyword">smi</span> --<span class="keyword">loop</span>=xxx</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="">nvidia-smi -l x或者nvidia-smi --loop=xxx
+</code></pre>
 <h2 id="22-detectron2"><a class="markdownIt-Anchor" href="#22-detectron2"></a> 2.2 detectron2</h2>
 <p><a href="https://blog.csdn.net/weixin_42644340/article/details/109178660?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2.nonecase">(9条消息) Windows10下安装detectron2超详细教程（小白视角）_小白wwj的博客-CSDN博客_detectron2 windows安装</a></p>
 <p><a href="https://gitanswer.com/detectron2-nvcc-exe-failed-with-exit-status-1-problem-installing-detectron2-on-windows-10-python-638604938">https://gitanswer.com/detectron2-nvcc-exe-failed-with-exit-status-1-problem-installing-detectron2-on-windows-10-python-638604938</a></p>
 <h1 id="3-cuda"><a class="markdownIt-Anchor" href="#3-cuda"></a> 3 cuda</h1>
 <p>检验cuda和pytorch是否兼容</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(torch.__version__)</span><br><span class="line"><span class="built_in">print</span>(torch.cuda.is_available())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">import</span> torch
+
+print(torch.__version__)
+print(torch.cuda.is_available())
+
+</code></pre>
 <h1 id="4-软件历史版本"><a class="markdownIt-Anchor" href="#4-软件历史版本"></a> 4 软件历史版本</h1>
 <h2 id="41-nvidia"><a class="markdownIt-Anchor" href="#41-nvidia"></a> 4.1 Nvidia</h2>
 <p><a href="https://developer.nvidia.cn/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
@@ -1215,11 +2062,19 @@ DD9AF44B 99C49590 D2DBDEE1 75860FD2<br />
 </blockquote>
 <h1 id="6-listary-pro-激活码"><a class="markdownIt-Anchor" href="#6-listary-pro-激活码"></a> 6 Listary Pro 激活码</h1>
 <p>名称：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">Mike Rountree</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="txt">Mike Rountree
+</code></pre>
 <p>Email：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">soft@instant-demo.com</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="txt">soft@instant-demo.com
+</code></pre>
 <p>激活码：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">JE4V8T3M96PWT4SUCNZNVZ37XKLBU2QW</span><br><span class="line">N64LEJQ3VHY7MPL6KY2R5SQZ76QFFTKP</span><br><span class="line">VVE8JBVEAME8MMBRHRGF2P6MAJG7ZSQY</span><br><span class="line">MUY2PGTO2EG3W2YHTU2CFWL7SE6THU3Q</span><br><span class="line">TAL3U894S2BWA9629EFCXYYYG3S65WEQ</span><br><span class="line">5R234G26AT52UWD27PNENP4GR2EKKDK6</span><br></pre></td></tr></table></figure>
+<pre class="highlight"><code class="txt">JE4V8T3M96PWT4SUCNZNVZ37XKLBU2QW
+N64LEJQ3VHY7MPL6KY2R5SQZ76QFFTKP
+VVE8JBVEAME8MMBRHRGF2P6MAJG7ZSQY
+MUY2PGTO2EG3W2YHTU2CFWL7SE6THU3Q
+TAL3U894S2BWA9629EFCXYYYG3S65WEQ
+5R234G26AT52UWD27PNENP4GR2EKKDK6
+</code></pre>
 
       
     </div>

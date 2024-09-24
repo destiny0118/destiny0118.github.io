@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082053263.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082024222.png">
 <meta property="article:published_time" content="2023-02-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-27T15:36:10.800Z">
+<meta property="article:modified_time" content="2024-09-24T07:30:11.986Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
@@ -267,7 +267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-27 23:36:10" itemprop="dateModified" datetime="2024-08-27T23:36:10+08:00">2024-08-27</time>
+      <time title="修改时间：2024-09-24 15:30:11" itemprop="dateModified" datetime="2024-09-24T15:30:11+08:00">2024-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -312,6 +312,12 @@
 <li>同一进程内的线程共享内存和文件，因此它们之间相互通信无须调用内核。</li>
 </ul>
 <h2 id="11-线程与进程的比较"><a class="markdownIt-Anchor" href="#11-线程与进程的比较"></a> 1.1 线程与进程的比较</h2>
+<ul>
+<li>本质区别：进程是操作系统资源分配的基本单位，而线程是任务调度和执行的基本单位</li>
+<li>在开销方面：每个进程都有独立的<mark>代码和数据空间</mark>（程序上下文），程序之间的切换会有较大的开销；线程可以看做轻量级的进程，同一类线程共享代码和数据空间，每个线程都有自己独立的运行<mark>栈和程序计数器（PC）、寄存器</mark>，线程之间切换的开销小</li>
+<li>稳定性方面：进程中某个线程如果崩溃了，可能会导致整个进程都崩溃。而进程中的子进程崩溃，并不会影响其他进程。</li>
+<li>内存分配方面：系统在运行的时候会为每个进程分配不同的内存空间；而对线程而言，除了CPU外，系统不会为线程分配内存（线程所使用的资源来自其所属进程的资源），线程组之间只能共享资源</li>
+</ul>
 <p>线程与进程的比较如下：</p>
 <ul>
 <li>进程是资源（包括内存、打开的文件等）分配的单位，线程是 CPU 调度的单位；</li>
@@ -529,13 +535,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/01/18/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="prev" title="排序算法">
-                  <i class="fa fa-chevron-left"></i> 排序算法
+                <a href="/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(2)%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="prev" title="操作系统">
+                  <i class="fa fa-chevron-left"></i> 操作系统
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(2)%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="next" title="操作系统">
-                  操作系统 <i class="fa fa-chevron-right"></i>
+                <a href="/2023/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(3)%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82/" rel="next" title="计算机网络：传输层">
+                  计算机网络：传输层 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
