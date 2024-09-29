@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -14,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="C++标准模板库（Standard Template Library)的使用方法。">
 <meta property="og:type" content="article">
@@ -60,6 +58,9 @@
 
 
 
+
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -73,13 +74,10 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -94,57 +92,20 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
 
-    </div>
-  </div>
-
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -160,16 +121,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tips"><span class="nav-text"> tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-text"> 数据范围</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#malloc%E5%92%8Cnew%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text"> malloc和new的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-text"> 头文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unordered_map%E5%92%8Cmap%E5%8C%BA%E5%88%AB"><span class="nav-text"> unordered_map和map区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text"> 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6"><span class="nav-text"> 数学</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-text"> 常用函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text"> 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#int-string"><span class="nav-text"> int -&gt;string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string-int"><span class="nav-text"> string-&gt;int</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iostream"><span class="nav-text"> iostream</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#numeric"><span class="nav-text"> numeric</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#list"><span class="nav-text"> list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-text"> string</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-vs-c-style-string"><span class="nav-text"> string vs C-Style string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text"> 初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%93%8D%E4%BD%9C"><span class="nav-text"> 2. 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-append%E6%96%B9%E6%B3%95"><span class="nav-text"> 4. append方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector%E4%B8%8D%E5%AE%9A%E9%95%BF%E6%95%B0%E7%BB%84"><span class="nav-text"> vector(不定长数组)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-text"> 2. 添加数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE"><span class="nav-text"> 3. 访问数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%8E%8B%E7%BC%A9"><span class="nav-text"> 4. 压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9C%80%E5%A4%A7%E5%80%BC-%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-text"> 5. 最大值、最小值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E8%BE%B9%E7%95%8C%E6%B5%8B%E8%AF%95"><span class="nav-text"> 6. 边界测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%88%AA%E5%8F%96%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-text"> 7. 截取一部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%8E%BB%E9%99%A4vector%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0"><span class="nav-text"> 8. 去除vector重复元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%9F%A5%E6%89%BE%E6%8C%87%E5%AE%9A%E5%80%BC%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="nav-text"> 9. 查找指定值是否存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-text"> 测试代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set%E9%9B%86%E5%90%88"><span class="nav-text"> set(集合)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-text"> 1. 插入元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map%E6%98%A0%E5%B0%84"><span class="nav-text"> map(映射)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unordered_map"><span class="nav-text"> unordered_map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack%E6%A0%88"><span class="nav-text"> stack(栈)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue%E9%98%9F%E5%88%97%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA"><span class="nav-text"> queue(队列)：先进先出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#c-vector%E8%BD%ACset%E4%B8%8Eset%E8%BD%ACvector"><span class="nav-text"> C++ Vector转Set与Set转Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-text"> 输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array"><span class="nav-text"> array</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tips"><span class="nav-number">1.</span> <span class="nav-text"> tips</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">2.</span> <span class="nav-text"> 数据范围</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#malloc%E5%92%8Cnew%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.1.</span> <span class="nav-text"> malloc和new的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text"> 头文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unordered_map%E5%92%8Cmap%E5%8C%BA%E5%88%AB"><span class="nav-number">2.3.</span> <span class="nav-text"> unordered_map和map区别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.</span> <span class="nav-text"> 运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%A6"><span class="nav-number">3.1.</span> <span class="nav-text"> 数学</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text"> 常用函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">5.</span> <span class="nav-text"> 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#int-string"><span class="nav-number">5.1.</span> <span class="nav-text"> int -&gt;string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string-int"><span class="nav-number">5.2.</span> <span class="nav-text"> string-&gt;int</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iostream"><span class="nav-number">6.</span> <span class="nav-text"> iostream</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#numeric"><span class="nav-number">7.</span> <span class="nav-text"> numeric</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#list"><span class="nav-number">8.</span> <span class="nav-text"> list</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#string"><span class="nav-number">9.</span> <span class="nav-text"> string</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-vs-c-style-string"><span class="nav-number">9.1.</span> <span class="nav-text"> string vs C-Style string</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">9.2.</span> <span class="nav-text"> 初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%93%8D%E4%BD%9C"><span class="nav-number">9.3.</span> <span class="nav-text"> 2. 操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-append%E6%96%B9%E6%B3%95"><span class="nav-number">9.4.</span> <span class="nav-text"> 4. append方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vector%E4%B8%8D%E5%AE%9A%E9%95%BF%E6%95%B0%E7%BB%84"><span class="nav-number">10.</span> <span class="nav-text"> vector(不定长数组)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE"><span class="nav-number">10.1.</span> <span class="nav-text"> 2. 添加数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE"><span class="nav-number">10.2.</span> <span class="nav-text"> 3. 访问数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%8E%8B%E7%BC%A9"><span class="nav-number">10.3.</span> <span class="nav-text"> 4. 压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9C%80%E5%A4%A7%E5%80%BC-%E6%9C%80%E5%B0%8F%E5%80%BC"><span class="nav-number">10.4.</span> <span class="nav-text"> 5. 最大值、最小值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E8%BE%B9%E7%95%8C%E6%B5%8B%E8%AF%95"><span class="nav-number">10.5.</span> <span class="nav-text"> 6. 边界测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E6%88%AA%E5%8F%96%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-number">10.6.</span> <span class="nav-text"> 7. 截取一部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-%E5%8E%BB%E9%99%A4vector%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0"><span class="nav-number">10.7.</span> <span class="nav-text"> 8. 去除vector重复元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E6%9F%A5%E6%89%BE%E6%8C%87%E5%AE%9A%E5%80%BC%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="nav-number">10.8.</span> <span class="nav-text"> 9. 查找指定值是否存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">10.9.</span> <span class="nav-text"> 测试代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set%E9%9B%86%E5%90%88"><span class="nav-number">11.</span> <span class="nav-text"> set(集合)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E5%85%83%E7%B4%A0"><span class="nav-number">11.1.</span> <span class="nav-text"> 1. 插入元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#map%E6%98%A0%E5%B0%84"><span class="nav-number">12.</span> <span class="nav-text"> map(映射)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#unordered_map"><span class="nav-number">13.</span> <span class="nav-text"> unordered_map</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#stack%E6%A0%88"><span class="nav-number">14.</span> <span class="nav-text"> stack(栈)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#queue%E9%98%9F%E5%88%97%E5%85%88%E8%BF%9B%E5%85%88%E5%87%BA"><span class="nav-number">15.</span> <span class="nav-text"> queue(队列)：先进先出</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#c-vector%E8%BD%ACset%E4%B8%8Eset%E8%BD%ACvector"><span class="nav-number">15.1.</span> <span class="nav-text"> C++ Vector转Set与Set转Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="nav-number">15.2.</span> <span class="nav-text"> 输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array"><span class="nav-number">15.3.</span> <span class="nav-text"> array</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -189,41 +150,16 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
-      </span>
-  </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -254,7 +190,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          C++语法<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E8%AF%AD%E6%B3%95/C++/C++%E8%AF%AD%E6%B3%95.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          C++语法
         </h1>
 
         <div class="post-meta-container">
@@ -294,8 +230,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="tips"><a class="markdownIt-Anchor" href="#tips"></a> tips</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="tips"><a class="markdownIt-Anchor" href="#tips"></a> tips</h1>
 <blockquote>
 <p>#define pii pair&lt;int, int&gt;</p>
 <p>typedef pair&lt;int, string&gt; pis;</p>
@@ -1037,12 +972,12 @@ a2=a;
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8/" rel="prev" title="线性表">
-                  <i class="fa fa-chevron-left"></i> 线性表
+                  <i class="fa fa-angle-left"></i> 线性表
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" rel="next" title="C常用函数">
-                  C常用函数 <i class="fa fa-chevron-right"></i>
+                  C常用函数 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -1061,42 +996,51 @@ a2=a;
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Destiny</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Destiny</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
 
 
 
 
+
+
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
+
 
 
 

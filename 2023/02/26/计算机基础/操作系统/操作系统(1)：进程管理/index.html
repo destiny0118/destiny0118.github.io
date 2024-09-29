@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -14,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="进程和线程、进程间通信方式、线程间通信方式">
 <meta property="og:type" content="article">
@@ -28,17 +26,18 @@
 <meta property="og:site_name" content="我的个人博客">
 <meta property="og:description" content="进程和线程、进程间通信方式、线程间通信方式">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202409241546168.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082031929.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210724144342.PNG">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210724144348.PNG">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082053263.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082024222.png">
 <meta property="article:published_time" content="2023-02-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-24T07:30:11.986Z">
+<meta property="article:modified_time" content="2024-09-24T09:14:24.913Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082031929.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202409241546168.png">
 
 
 <link rel="canonical" href="https://destiny0118.github.io/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(1)%EF%BC%9A%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/">
@@ -50,6 +49,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>操作系统 | 我的个人博客</title>
   
+
+
+
 
 
 
@@ -68,13 +70,10 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -89,57 +88,20 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
 
-    </div>
-  </div>
-
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -155,16 +117,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-text"> 1 进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-text"> 1.1 线程与进程的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%BF%9B%E7%A8%8B"><span class="nav-text"> 2 进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-pcb%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="nav-text"> 2.1 进程控制结构： PCB（进程控制块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-text"> 2.2 进程间通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#221-%E7%AE%A1%E9%81%93"><span class="nav-text"> 2.2.1 管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#222-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-text"> 2.2.2 消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#223-%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98"><span class="nav-text"> 2.2.3 共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#224-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-text"> 2.2.4 信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#225-%E4%BF%A1%E5%8F%B7"><span class="nav-text"> 2.2.5 信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#226-socket"><span class="nav-text"> 2.2.6 socket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E8%BF%9B%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-text"> 2.3 进程上下文切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B-%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B"><span class="nav-text"> 2.4 僵尸进程、孤儿进程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BA%BF%E7%A8%8B"><span class="nav-text"> 3 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F"><span class="nav-text"> 3.1 线程间同步方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E7%BA%BF%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="nav-text"> 3.2 线程分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-text"> 4 进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E8%B0%83%E5%BA%A6%E5%8E%9F%E5%88%99"><span class="nav-text"> 4.1 调度原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%B9%B6%E5%8F%91%E6%80%A7%E4%BA%92%E6%96%A5%E5%92%8C%E5%90%8C%E6%AD%A5"><span class="nav-text"> 5 并发性：互斥和同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E5%90%8C%E6%AD%A5-%E4%BA%92%E6%96%A5"><span class="nav-text"> 5.1 同步、互斥</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%B9%B6%E5%8F%91%E6%80%A7%E6%AD%BB%E9%94%81%E5%92%8C%E9%A5%A5%E9%A5%BF"><span class="nav-text"> 6 并发性：死锁和饥饿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E6%AD%BB%E9%94%81"><span class="nav-text"> 6.1 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-text"> 6.1.1 产生死锁的四个必要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E6%A8%A1%E6%8B%9F%E6%AD%BB%E9%94%81"><span class="nav-text"> 6.1.2 模拟死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#613-%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-text"> 6.1.3 解决死锁的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2prevention"><span class="nav-text"> 死锁预防（prevention）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8Davoidance"><span class="nav-text"> 死锁避免（avoidance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8Bdetection"><span class="nav-text"> 死锁检测（detection）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text"> 1 进程和线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E7%BA%BF%E7%A8%8B%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%AF%94%E8%BE%83"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 线程与进程的比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text"> 2 进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84-pcb%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%9D%97"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 进程控制结构： PCB（进程控制块）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 进程状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#221-%E4%BA%94%E7%8A%B6%E6%80%81"><span class="nav-number">2.2.1.</span> <span class="nav-text"> 2.2.1 五状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#222-%E4%B8%83%E7%8A%B6%E6%80%81"><span class="nav-number">2.2.2.</span> <span class="nav-text"> 2.2.2 七状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 进程间通信方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#231-%E7%AE%A1%E9%81%93"><span class="nav-number">2.3.1.</span> <span class="nav-text"> 2.3.1 管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#232-%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97"><span class="nav-number">2.3.2.</span> <span class="nav-text"> 2.3.2 消息队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#233-%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98"><span class="nav-number">2.3.3.</span> <span class="nav-text"> 2.3.3 共享内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#234-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">2.3.4.</span> <span class="nav-text"> 2.3.4 信号量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#235-%E4%BF%A1%E5%8F%B7"><span class="nav-number">2.3.5.</span> <span class="nav-text"> 2.3.5 信号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#236-socket"><span class="nav-number">2.3.6.</span> <span class="nav-text"> 2.3.6 socket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E8%BF%9B%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="nav-number">2.4.</span> <span class="nav-text"> 2.4 进程上下文切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-%E5%83%B5%E5%B0%B8%E8%BF%9B%E7%A8%8B-%E5%AD%A4%E5%84%BF%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.5.</span> <span class="nav-text"> 2.5 僵尸进程、孤儿进程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%BA%BF%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text"> 3 线程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E6%96%B9%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 线程间同步方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E7%BA%BF%E7%A8%8B%E5%88%86%E7%B1%BB"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 线程分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%BF%9B%E7%A8%8B%E8%B0%83%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text"> 4 进程调度</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E8%B0%83%E5%BA%A6%E5%8E%9F%E5%88%99"><span class="nav-number">4.1.</span> <span class="nav-text"> 4.1 调度原则</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%B9%B6%E5%8F%91%E6%80%A7%E4%BA%92%E6%96%A5%E5%92%8C%E5%90%8C%E6%AD%A5"><span class="nav-number">5.</span> <span class="nav-text"> 5 并发性：互斥和同步</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E5%90%8C%E6%AD%A5-%E4%BA%92%E6%96%A5"><span class="nav-number">5.1.</span> <span class="nav-text"> 5.1 同步、互斥</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E5%B9%B6%E5%8F%91%E6%80%A7%E6%AD%BB%E9%94%81%E5%92%8C%E9%A5%A5%E9%A5%BF"><span class="nav-number">6.</span> <span class="nav-text"> 6 并发性：死锁和饥饿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E6%AD%BB%E9%94%81"><span class="nav-number">6.1.</span> <span class="nav-text"> 6.1 死锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E4%BA%A7%E7%94%9F%E6%AD%BB%E9%94%81%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6"><span class="nav-number">6.1.1.</span> <span class="nav-text"> 6.1.1 产生死锁的四个必要条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E6%A8%A1%E6%8B%9F%E6%AD%BB%E9%94%81"><span class="nav-number">6.1.2.</span> <span class="nav-text"> 6.1.2 模拟死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#613-%E8%A7%A3%E5%86%B3%E6%AD%BB%E9%94%81%E7%9A%84%E5%8A%9E%E6%B3%95"><span class="nav-number">6.1.3.</span> <span class="nav-text"> 6.1.3 解决死锁的办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%A2%84%E9%98%B2prevention"><span class="nav-number">6.1.3.1.</span> <span class="nav-text"> 死锁预防（prevention）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E9%81%BF%E5%85%8Davoidance"><span class="nav-number">6.1.3.2.</span> <span class="nav-text"> 死锁避免（avoidance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%BB%E9%94%81%E6%A3%80%E6%B5%8Bdetection"><span class="nav-number">6.1.3.3.</span> <span class="nav-text"> 死锁检测（detection）</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -184,41 +146,16 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
-      </span>
-  </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -249,7 +186,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          操作系统<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(1)%EF%BC%9A%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          操作系统
         </h1>
 
         <div class="post-meta-container">
@@ -267,7 +204,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-24 15:30:11" itemprop="dateModified" datetime="2024-09-24T15:30:11+08:00">2024-09-24</time>
+      <time title="修改时间：2024-09-24 17:14:24" itemprop="dateModified" datetime="2024-09-24T17:14:24+08:00">2024-09-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,8 +226,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="1-进程和线程"><a class="markdownIt-Anchor" href="#1-进程和线程"></a> 1 进程和线程</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="1-进程和线程"><a class="markdownIt-Anchor" href="#1-进程和线程"></a> 1 进程和线程</h1>
 <blockquote>
 <p><strong>线程是调度的基本单位，而进程则是资源拥有的基本单位</strong>。</p>
 </blockquote>
@@ -341,36 +277,47 @@
 <blockquote>
 <p><strong>PCB（Process Control Block）</strong> 即进程控制块，是操作系统中用来管理和跟踪进程的数据结构，每个进程都对应着一个独立的 PCB。</p>
 </blockquote>
-<h2 id="22-进程间通信方式"><a class="markdownIt-Anchor" href="#22-进程间通信方式"></a> 2.2 进程间通信方式</h2>
+<h2 id="22-进程状态"><a class="markdownIt-Anchor" href="#22-进程状态"></a> 2.2 进程状态</h2>
+<h3 id="221-五状态"><a class="markdownIt-Anchor" href="#221-五状态"></a> 2.2.1 五状态</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202409241546168.png" alt="image.png" /></p>
+<p>NULL -&gt; 创建状态：一个新进程被创建时的第一个状态；<br />
+创建状态 -&gt; 就绪状态：当进程被创建完成并初始化后，一切就绪准备运行时，变为就绪状态，这个过程是很快的；<br />
+就绪态 -&gt; 运行状态：处于就绪状态的进程被操作系统的进程调度器选中后，就分配给 CPU 正式运行该进程；<br />
+运行状态 -&gt; 结束状态：当进程已经运行完成或出错时，会被操作系统作结束状态处理；<br />
+运行状态 -&gt; 就绪状态：处于运行状态的进程在运行过程中，由于分配给它的运行时间片用完，操作系统会把该进程变为就绪态，接着从就绪态选中另外一个进程运行；<br />
+运行状态 -&gt; 阻塞状态：当进程请求某个事件且必须等待时，例如请求 I/O 事件；<br />
+阻塞状态 -&gt; 就绪状态：当进程要等待的事件完成时，它从阻塞状态变到就绪状态；</p>
+<h3 id="222-七状态"><a class="markdownIt-Anchor" href="#222-七状态"></a> 2.2.2 七状态</h3>
+<h2 id="23-进程间通信方式"><a class="markdownIt-Anchor" href="#23-进程间通信方式"></a> 2.3 进程间通信方式</h2>
 <ul>
-<li>管道/匿名管道(Pipes)：用于具有亲缘关系的父子进程间或者兄弟进程之间的通信。</li>
+<li>管道/匿名管道(Pipes)：用于具有亲缘关系的父子进程间或者兄弟进程之间的通信。通信的数据是无格式的流并且大小受限，通信的方式是单向的</li>
 <li>有名管道(Named Pipes) : 匿名管道由于没有名字，只能用于亲缘关系的进程间通信。为了克服这个缺点，提出了有名管道。有名管道严格遵循先进先出(First In First Out) 。有名管道以磁盘文件的方式存在，可以实现本机任意两个进程通信。</li>
-<li>信号(Signal)：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生；</li>
-<li>消息队列(Message Queuing)：消息队列是消息的链表,具有特定的格式,存放在内存中并由消息队列标识符标识。管道和消息队列的通信数据都是先进先出的原则。与管道（无名管道：只存在于内存中的文件；命名管道：存在于实际的磁盘介质或者文件系统）不同的是消息队列存放在内核中，只有在内核重启(即，操作系统重启)或者显式地删除一个消息队列时，该消息队列才会被真正的删除。消息队列可以实现消息的随机查询,消息不一定要以先进先出的次序读取,也可以按消息的类型读取.比 FIFO 更有优势。消息队列克服了信号承载信息量少，管道只能承载无格式字 节流以及缓冲区大小受限等缺点。</li>
-<li>信号量(Semaphores)：信号量是一个计数器，用于多进程对共享数据的访问，信号量的意图在于进程间同步。这种通信方式主要用于解决与同步相关的问题并避免竞争条件。</li>
-<li>共享内存(Shared memory)：使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等。可以说这是最有用的进程间通信方式。</li>
+<li>消息队列(Message Queuing)：消息队列是消息的链表,具有特定的格式,存放在内存中并由消息队列标识符标识。管道和消息队列的通信数据都是先进先出的原则。与管道（无名管道：只存在于内存中的文件；命名管道：存在于实际的磁盘介质或者文件系统）不同的是消息队列存放在内核中。消息队列克服了信号承载信息量少，管道只能承载无格式字节流以及缓冲区大小受限等缺点。克服了管道通信的数据是无格式的字节流的问题。</li>
+<li><mark>共享内存</mark>(Shared memory)：使得多个进程可以访问同一块内存空间，不同进程可以及时看到对方进程中对共享内存中数据的更新。这种方式需要依靠某种同步操作，如互斥锁和信号量等。可以说这是最有用的进程间通信方式。可以解决消息队列通信中用户态与内核态之间数据拷贝过程带来的开销，它直接分配一个共享空间，每个进程都可以直接访问</li>
+<li>信号量(Semaphores)：保护共享资源，以确保任何时刻只能有一个进程访问共享资源</li>
+<li>信号(Signal)：信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生；信号是异步通信机制，信号可以在应用进程和内核之间直接交互，内核也可以利用信号来通知用户空间的进程发生了哪些系统事件，信号事件的来源主要有硬件来源（如键盘 Cltr+C ）和软件来源（如 kill 命令）</li>
 <li>套接字(Sockets) : 此方法主要用于在客户端和服务器之间通过网络进行通信。套接字是支持 TCP/IP 的网络通信的基本操作单元，可以看做是不同主机之间的进程进行双向通信的端点，简单的说就是通信的两方的一种约定，用套接字中的相关函数来完成通信过程<br />
 <a href="https://www.jianshu.com/p/c1015f5ffa74">进程间通信IPC (InterProcess Communication) - 简书 (jianshu.com)</a></li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082031929.png" alt="image.png|425" /></p>
 <p>每个进程的用户地址空间都是独立的，一般而言是不能互相访问的，但内核空间是每个进程都共享的，所以<em>进程之间要通信必须通过内核</em>。</p>
-<h3 id="221-管道"><a class="markdownIt-Anchor" href="#221-管道"></a> 2.2.1 管道</h3>
+<h3 id="231-管道"><a class="markdownIt-Anchor" href="#231-管道"></a> 2.3.1 管道</h3>
 <ul>
 <li>匿名管道、命名管道</li>
 <li>单向管道、双向管道</li>
 </ul>
 <p><strong>管道，就是内核里面的一串缓存</strong>。从管道的一段写入的数据，实际上是缓存在内核中的，另一端读取，也就是从内核中读取这段数据。</p>
 <p>管道的通信方式是效率低的，因此管道不适合进程间频繁地交换数据。写入管道的数据在被读取之前处于阻塞状态。</p>
-<h3 id="222-消息队列"><a class="markdownIt-Anchor" href="#222-消息队列"></a> 2.2.2 消息队列</h3>
+<h3 id="232-消息队列"><a class="markdownIt-Anchor" href="#232-消息队列"></a> 2.3.2 消息队列</h3>
 <p><strong>消息队列是保存在内核中的消息链表</strong>，A 进程要给 B 进程发送消息，A 进程把数据放在对应的消息队列后就可以正常返回了，B 进程需要的时候再去读取数据就可以了。同理，B 进程要给 A 进程发送消息也是如此。</p>
 <ul>
 <li><strong>消息队列不适合比较大数据的传输</strong></li>
 <li><strong>消息队列通信过程中，存在用户态与内核态之间的数据拷贝开销</strong>，因为进程写入数据到内核中的消息队列时，会发生从用户态拷贝数据到内核态的过程，同理另一进程读取内核中的消息数据时，会发生从内核态拷贝数据到用户态的过程。</li>
 </ul>
-<h3 id="223-共享内存"><a class="markdownIt-Anchor" href="#223-共享内存"></a> 2.2.3 共享内存</h3>
+<h3 id="233-共享内存"><a class="markdownIt-Anchor" href="#233-共享内存"></a> 2.3.3 共享内存</h3>
 <p>现代操作系统，对于内存管理，采用的是<em>虚拟内存技术</em>，也就是每个进程都有自己独立的虚拟内存空间，不同进程的虚拟内存映射到不同的物理内存中。所以，即使进程 A 和 进程 B 的虚拟地址是一样的，其实访问的是不同的物理内存地址。</p>
 <p><strong>共享内存的机制，就是拿出一块虚拟地址空间来，映射到相同的物理内存中</strong>。这样这个进程写入的东西，另外一个进程马上就能看到了，都不需要拷贝来拷贝去，传来传去，大大提高了进程间通信的速度。不会发生用户态和内核态之间的消息拷贝过程。</p>
-<h3 id="224-信号量"><a class="markdownIt-Anchor" href="#224-信号量"></a> 2.2.4 信号量</h3>
+<h3 id="234-信号量"><a class="markdownIt-Anchor" href="#234-信号量"></a> 2.3.4 信号量</h3>
 <p><strong>共享内存的机制，就是拿出一块虚拟地址空间来，映射到相同的物理内存中</strong>。这样这个进程写入的东西，另外一个进程马上就能看到了，都不需要拷贝来拷贝去，传来传去，大大提高了进程间通信的速度。</p>
 <p><strong>信号量其实是一个整型的计数器，主要用于实现进程间的互斥与同步，而不是用于缓存进程间通信的数据</strong>。<br />
 定义：semphore s</p>
@@ -379,17 +326,19 @@
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210724144342.PNG" alt="IMG_2757(20210724-143103)" /></p>
 <p>进程访问受信号量保护的共享数据：<br />
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic/20210724144348.PNG" alt="IMG_2757(20210724-143103)|400" /></p>
-<h3 id="225-信号"><a class="markdownIt-Anchor" href="#225-信号"></a> 2.2.5 信号</h3>
+<h3 id="235-信号"><a class="markdownIt-Anchor" href="#235-信号"></a> 2.3.5 信号</h3>
 <p>信号是<strong>异步通信机制</strong>，信号可以在应用进程和内核之间直接交互，内核也可以利用信号来通知用户空间的进程发生了哪些系统事件</p>
 <p>信号事件的来源主要有硬件来源（如键盘 Cltr+C ）和软件来源（如 kill 命令）。</p>
 <p>信号是进程间通信机制中<strong>唯一的异步通信机制</strong>，因为可以在任何时候发送信号给某一进程</p>
-<h3 id="226-socket"><a class="markdownIt-Anchor" href="#226-socket"></a> 2.2.6 socket</h3>
+<h3 id="236-socket"><a class="markdownIt-Anchor" href="#236-socket"></a> 2.3.6 socket</h3>
 <p>前面提到的管道、消息队列、共享内存、信号量和信号都是在同一台主机上进行进程间通信，那要想<strong>跨网络与不同主机上的进程之间通信，就需要 Socket 通信了。</strong></p>
 <p>实际上，Socket 通信不仅可以跨网络与不同主机的进程间通信，还可以在同主机上进程间通信。<br />
 <img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082053263.png" alt="image.png" /></p>
 <p><a href="https://xiaolincoding.com/os/4_process/process_commu.html#%E7%AE%A1%E9%81%93">5.2 进程间有哪些通信方式？ | 小林coding (xiaolincoding.com)</a></p>
-<h2 id="23-进程上下文切换"><a class="markdownIt-Anchor" href="#23-进程上下文切换"></a> 2.3 进程上下文切换</h2>
-<h2 id="24-僵尸进程-孤儿进程"><a class="markdownIt-Anchor" href="#24-僵尸进程-孤儿进程"></a> 2.4 僵尸进程、孤儿进程</h2>
+<h2 id="24-进程上下文切换"><a class="markdownIt-Anchor" href="#24-进程上下文切换"></a> 2.4 进程上下文切换</h2>
+<p>CPU上下文：CPu寄存器、程序计数器<br />
+进程的上下文切换不仅包含了虚拟内存、栈、全局变量等用户空间的资源，还包括了内核堆栈、寄存器等内核空间的资源。</p>
+<h2 id="25-僵尸进程-孤儿进程"><a class="markdownIt-Anchor" href="#25-僵尸进程-孤儿进程"></a> 2.5 僵尸进程、孤儿进程</h2>
 <ul>
 <li><strong>僵尸进程</strong>：子进程已经终止，但是其父进程仍在运行，且父进程没有调用 wait()或 waitpid()等系统调用来获取子进程的状态信息，释放子进程占用的资源，导致子进程的 PCB 依然存在于系统中，但无法被进一步使用。这种情况下，子进程被称为“僵尸进程”。避免僵尸进程的产生，父进程需要及时调用 wait()或 waitpid()系统调用来回收子进程。</li>
 <li><strong>孤儿进程</strong>：一个进程的父进程已经终止或者不存在，但是该进程仍在运行。这种情况下，该进程就是孤儿进程。孤儿进程通常是由于父进程意外终止或未及时调用 wait()或 waitpid()等系统调用来回收子进程导致的。为了避免孤儿进程占用系统资源，操作系统会将孤儿进程的父进程设置为 init 进程（进程号为 1），由 init 进程来回收孤儿进程的资源。</li>
@@ -401,8 +350,10 @@
 <blockquote>
 <p>线程同步是两个或多个共享关键资源的线程的并发执行。应该同步线程以避免关键的资源使用冲突。</p>
 </blockquote>
+<p><strong>互斥锁、读写锁、条件变量、自旋锁和信号量</strong></p>
 <ul>
 <li><strong>互斥锁(Mutex)</strong>：采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。比如 Java 中的 <code>synchronized</code> 关键词和各种 <code>Lock</code> 都是这种机制。</li>
+<li>条件变量（Condition Variables）：条件变量(cond)是在多线程程序中用来实现&quot;等待–》唤醒&quot;逻辑常用的方法。条件变量利用线程间共享的全局变量进行同步的一种机制，主要包括两个动作：一个线程等待&quot;条件变量的条件成立&quot;而挂起；另一个线程使“条件成立”。为了防止竞争，条件变量的使用总是和一个互斥锁结合在一起。线程在改变条件状态前必须首先锁住互斥量，函数pthread_cond_wait把自己放到等待条件的线程列表上，然后对互斥锁解锁(这两个操作是原子操作)。在函数返回时，互斥量再次被锁住。</li>
 <li><strong>读写锁（Read-Write Lock）</strong>：允许多个线程同时读取共享资源，但只有一个线程可以对共享资源进行写操作。</li>
 <li><strong>信号量(Semaphore)</strong>：它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
 <li><strong>屏障（Barrier）</strong>：屏障是一种同步原语，用于等待多个线程到达某个点再一起继续执行。当一个线程到达屏障时，它会停止执行并等待其他线程到达屏障，直到所有线程都到达屏障后，它们才会一起继续执行。比如 Java 中的 <code>CyclicBarrier</code> 是这种机制。</li>
@@ -425,10 +376,13 @@
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405082024222.png" alt="单处理器调度.png" /></p>
 <ul>
-<li>先来先服务：</li>
+<li>先来先服务：非抢占式，不利于短作业</li>
 <li>时间片轮转RR调度算法：一种抢占式调度算法，分配给每个进程一个时间片，时间片结束之后调度下一个就绪的进程执行。</li>
 <li>最短进程优先</li>
+<li>高响应比优先：权衡短作业和长作业，等待时间长会获得高响应比</li>
 <li>最短剩余时间优先</li>
+<li>最高优先级调度算法</li>
+<li>多级反馈队列调度算法</li>
 </ul>
 <h1 id="5-并发性互斥和同步"><a class="markdownIt-Anchor" href="#5-并发性互斥和同步"></a> 5 并发性：互斥和同步</h1>
 <h2 id="51-同步-互斥"><a class="markdownIt-Anchor" href="#51-同步-互斥"></a> 5.1 同步、互斥</h2>
@@ -517,6 +471,11 @@
 <p>如果操作系统能够保证所有的进程在有限的时间内得到需要的全部资源，则称系统处于安全状态，否则说系统是不安全的。</p>
 <p>银行家算法<br />
 当一个进程申请使用资源的时候，<strong>银行家算法</strong> 通过先 <strong>试探</strong> 分配给该进程资源，然后通过 <strong>安全性算法</strong> 判断分配后系统是否处于安全状态，若不安全则试探分配作废，让该进程继续等待，若能够进入到安全的状态，则就 <strong>真的分配资源给该进程</strong>。</p>
+<blockquote>
+<p>[!note]</p>
+</blockquote>
+<p>分配给进程资源前，首先判断这个进程的安全性，也就是预执行，判断分配后是否产生死锁现象。如果系统当前资源能满足其执行，则尝试分配，如果不满足则让该进程等待。</p>
+<p>系统给不同进程分配了不同资源，当前资源剩余量满足其中某个进程，调度进程执行，执行后释放分配的资源，找到一个调度顺序不发生死锁</p>
 <h4 id="死锁检测detection"><a class="markdownIt-Anchor" href="#死锁检测detection"></a> 死锁检测（detection）</h4>
 <p>这种方法对资源的分配不加以任何限制，也不采取死锁避免措施，但系统 <strong>定时地运行一个 “死锁检测”</strong> 的程序，判断系统内是否出现死锁，如果检测到系统发生了死锁，再采取措施去解除它。</p>
 
@@ -535,13 +494,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(2)%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="prev" title="操作系统">
-                  <i class="fa fa-chevron-left"></i> 操作系统
+                <a href="/2023/01/18/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="prev" title="排序算法">
+                  <i class="fa fa-angle-left"></i> 排序算法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(3)%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82/" rel="next" title="计算机网络：传输层">
-                  计算机网络：传输层 <i class="fa fa-chevron-right"></i>
+                <a href="/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(2)%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" rel="next" title="操作系统">
+                  操作系统 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -560,42 +519,51 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Destiny</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Destiny</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
 
 
 
 
+
+
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
+
 
 
 

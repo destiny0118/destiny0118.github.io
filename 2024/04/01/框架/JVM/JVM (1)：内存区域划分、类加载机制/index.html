@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
-
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -14,12 +12,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="内存区域划分，垃圾回收机制，内存分配策略，类加载机制；类文件结构">
 <meta property="og:type" content="article">
@@ -55,6 +53,9 @@
 
 
 
+
+
+
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -68,13 +69,10 @@
   <div class="headband"></div>
 
   <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -89,57 +87,20 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
   </div>
 </div>
 
 
 
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup"><div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close" role="button">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div class="search-result-container no-result">
-  <div class="search-result-icon">
-    <i class="fa fa-spinner fa-pulse fa-5x"></i>
-  </div>
-</div>
 
-    </div>
-  </div>
-
-</div>
+</header>
         
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -155,16 +116,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86"><span class="nav-text"> 1 内存区域划分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E7%BA%BF%E7%A8%8B%E7%A7%81%E6%9C%89"><span class="nav-text"> 1.1 线程私有</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#111-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-text"> 1.1.1 程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#112-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-text"> 1.1.2 虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#113-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-text"> 1.1.3 本地方法栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E7%BA%BF%E7%A8%8B%E5%85%B1%E4%BA%AB"><span class="nav-text"> 1.2 线程共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#121-%E5%A0%86%E7%A9%BA%E9%97%B4"><span class="nav-text"> 1.2.1 堆空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#122-%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-text"> 1.2.2 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-text"> 运行时常量池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-text"> 字符串常量池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#123-%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-text"> 1.2.3 直接内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="nav-text"> 2 对象创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-step1%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A3%80%E6%9F%A5"><span class="nav-text"> 2.1 Step1:类加载检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-step2%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="nav-text"> 2.2 Step2:分配内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-step3%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%B6%E5%80%BC"><span class="nav-text"> 2.3 Step3:初始化零值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-step4%E8%AE%BE%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="nav-text"> 2.4 Step4:设置对象头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-step5%E6%89%A7%E8%A1%8C-init-%E6%96%B9%E6%B3%95"><span class="nav-text"> 2.5 Step5:执行 init 方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-text"> 3 对象的内存布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-text"> 4 对象的访问定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E5%8F%A5%E6%9F%84"><span class="nav-text"> 4.1 句柄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88"><span class="nav-text"> 4.2 直接指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-text"> 5 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-text"> 5.1 类的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-text"> 5.2 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#521-%E5%8A%A0%E8%BD%BD"><span class="nav-text"> 5.2.1 加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#522-%E9%AA%8C%E8%AF%81"><span class="nav-text"> 5.2.2 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#523-%E5%87%86%E5%A4%87"><span class="nav-text"> 5.2.3 准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#524-%E8%A7%A3%E6%9E%90"><span class="nav-text"> 5.2.4 解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#525-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-text"> 5.2.5 初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#526-%E7%B1%BB%E5%8D%B8%E8%BD%BD"><span class="nav-text"> 5.2.6 类卸载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-text"> 6 类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 6.1 双亲委派模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%E5%A5%BD%E5%A4%84"><span class="nav-text"> 6.1.1 双亲委派模型好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E6%89%93%E7%A0%B4%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-text"> 6.1.2 打破双亲委派模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83"><span class="nav-text"> 7 参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text"> 1 内存区域划分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-%E7%BA%BF%E7%A8%8B%E7%A7%81%E6%9C%89"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 线程私有</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#111-%E7%A8%8B%E5%BA%8F%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text"> 1.1.1 程序计数器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#112-%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A0%88"><span class="nav-number">1.1.2.</span> <span class="nav-text"> 1.1.2 虚拟机栈</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#113-%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95%E6%A0%88"><span class="nav-number">1.1.3.</span> <span class="nav-text"> 1.1.3 本地方法栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-%E7%BA%BF%E7%A8%8B%E5%85%B1%E4%BA%AB"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 线程共享</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#121-%E5%A0%86%E7%A9%BA%E9%97%B4"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 1.2.1 堆空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#122-%E6%96%B9%E6%B3%95%E5%8C%BA"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 1.2.2 方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.2.2.1.</span> <span class="nav-text"> 运行时常量池</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="nav-number">1.2.2.2.</span> <span class="nav-text"> 字符串常量池</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#123-%E7%9B%B4%E6%8E%A5%E5%86%85%E5%AD%98"><span class="nav-number">1.2.3.</span> <span class="nav-text"> 1.2.3 直接内存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text"> 2 对象创建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#21-step1%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A3%80%E6%9F%A5"><span class="nav-number">2.1.</span> <span class="nav-text"> 2.1 Step1:类加载检查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#22-step2%E5%88%86%E9%85%8D%E5%86%85%E5%AD%98"><span class="nav-number">2.2.</span> <span class="nav-text"> 2.2 Step2:分配内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#23-step3%E5%88%9D%E5%A7%8B%E5%8C%96%E9%9B%B6%E5%80%BC"><span class="nav-number">2.3.</span> <span class="nav-text"> 2.3 Step3:初始化零值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-step4%E8%AE%BE%E7%BD%AE%E5%AF%B9%E8%B1%A1%E5%A4%B4"><span class="nav-number">2.4.</span> <span class="nav-text"> 2.4 Step4:设置对象头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#25-step5%E6%89%A7%E8%A1%8C-init-%E6%96%B9%E6%B3%95"><span class="nav-number">2.5.</span> <span class="nav-text"> 2.5 Step5:执行 init 方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80"><span class="nav-number">3.</span> <span class="nav-text"> 3 对象的内存布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AF%B9%E8%B1%A1%E7%9A%84%E8%AE%BF%E9%97%AE%E5%AE%9A%E4%BD%8D"><span class="nav-number">4.</span> <span class="nav-text"> 4 对象的访问定位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#41-%E5%8F%A5%E6%9F%84"><span class="nav-number">4.1.</span> <span class="nav-text"> 4.1 句柄</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#42-%E7%9B%B4%E6%8E%A5%E6%8C%87%E9%92%88"><span class="nav-number">4.2.</span> <span class="nav-text"> 4.2 直接指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text"> 5 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">5.1.</span> <span class="nav-text"> 5.1 类的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B"><span class="nav-number">5.2.</span> <span class="nav-text"> 5.2 类加载过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#521-%E5%8A%A0%E8%BD%BD"><span class="nav-number">5.2.1.</span> <span class="nav-text"> 5.2.1 加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#522-%E9%AA%8C%E8%AF%81"><span class="nav-number">5.2.2.</span> <span class="nav-text"> 5.2.2 验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#523-%E5%87%86%E5%A4%87"><span class="nav-number">5.2.3.</span> <span class="nav-text"> 5.2.3 准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#524-%E8%A7%A3%E6%9E%90"><span class="nav-number">5.2.4.</span> <span class="nav-text"> 5.2.4 解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#525-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">5.2.5.</span> <span class="nav-text"> 5.2.5 初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#526-%E7%B1%BB%E5%8D%B8%E8%BD%BD"><span class="nav-number">5.2.6.</span> <span class="nav-text"> 5.2.6 类卸载</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text"> 6 类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.1.</span> <span class="nav-text"> 6.1 双亲委派模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B%E5%A5%BD%E5%A4%84"><span class="nav-number">6.1.1.</span> <span class="nav-text"> 6.1.1 双亲委派模型好处</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-%E6%89%93%E7%A0%B4%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%A8%A1%E5%9E%8B"><span class="nav-number">6.1.2.</span> <span class="nav-text"> 6.1.2 打破双亲委派模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text"> 7 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -184,41 +145,16 @@
       </div>
   </nav>
 </div>
-  <div class="links-of-author site-overview-item animated">
-      <span class="links-of-author-item">
-        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
-      </span>
-  </div>
-
-
 
         </div>
       </div>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+  </aside>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
+    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -249,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JVM (1)：内存区域划分、类加载机制<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%A1%86%E6%9E%B6/JVM/JVM%20(1)%EF%BC%9A%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86%E3%80%81%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          JVM (1)：内存区域划分、类加载机制
         </h1>
 
         <div class="post-meta-container">
@@ -289,8 +225,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="1-内存区域划分"><a class="markdownIt-Anchor" href="#1-内存区域划分"></a> 1 内存区域划分</h1>
+    <div class="post-body" itemprop="articleBody"><h1 id="1-内存区域划分"><a class="markdownIt-Anchor" href="#1-内存区域划分"></a> 1 内存区域划分</h1>
 <p>程序计数器：记录当前线程执行的位置，线程切换后能恢复到正确的执行位置<br />
 虚拟机栈：每个 Java 方法在执行之前会创建一个栈帧用于存储局部变量表、操作数栈、常量池引用等信息。<br />
 本地方法栈：</p>
@@ -537,12 +472,12 @@ GC( HashCode ) 、GC 分代年龄( Generational Age ) 等，这部分数据的�
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2024/03/26/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="prev" title="数据库优化">
-                  <i class="fa fa-chevron-left"></i> 数据库优化
+                  <i class="fa fa-angle-left"></i> 数据库优化
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2024/04/01/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/Linux/" rel="next" title="">
-                   <i class="fa fa-chevron-right"></i>
+                   <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -561,42 +496,51 @@ GC( HashCode ) 、GC 分代年龄( Generational Age ) 等，这部分数据的�
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Destiny</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Destiny</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
-<script src="/js/third-party/search/local-search.js"></script>
-
-
-
-
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
 
   
 
 
 
 
+
+
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
+
 
 
 
