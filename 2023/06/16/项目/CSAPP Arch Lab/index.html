@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,19 +14,19 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Arch Lab  环境准备  需要先安装flex、bison，直接安装就好。 安装tcl&#x2F;tk sudo apt install tcl tcl-dev tk tk-dev  需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的make">
+    <meta name="description" content="Arch Lab 环境准备  需要先安装flex、bison，直接安装就好。 安装tcl&#x2F;tk sudo apt install tcl tcl-dev tk tk-dev 需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的makefil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/06/16/%E9%A1%B9%E7%9B%AE/CSAPP%20Arch%20Lab/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="Arch Lab  环境准备  需要先安装flex、bison，直接安装就好。 安装tcl&#x2F;tk sudo apt install tcl tcl-dev tk tk-dev  需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的make">
+<meta property="og:description" content="Arch Lab 环境准备  需要先安装flex、bison，直接安装就好。 安装tcl&#x2F;tk sudo apt install tcl tcl-dev tk tk-dev 需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的makefil">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/destiny0118/picgo/raw/master/202112022026699.png">
 <meta property="og:image" content="https://gitee.com/destiny0118/picgo/raw/master/202112022108921.png">
@@ -60,9 +62,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -76,10 +75,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -94,20 +96,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -123,16 +162,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#arch-lab"><span class="nav-number">1.</span> <span class="nav-text"> Arch Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.1.</span> <span class="nav-text"> 环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part-a"><span class="nav-number">1.2.</span> <span class="nav-text"> Part A</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sumys-%E8%BF%AD%E4%BB%A3%E6%B1%82%E5%92%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text"> sum.ys 迭代求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rsumys-%E9%80%92%E5%BD%92%E6%B1%82%E5%92%8C"><span class="nav-number">1.2.2.</span> <span class="nav-text"> rsum.ys 递归求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copyys-%E5%A4%8D%E5%88%B6%E5%88%B0%E7%9B%AE%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text"> copy.ys 复制到目标位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part-b"><span class="nav-number">1.3.</span> <span class="nav-text"> Part B</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">1.3.1.</span> <span class="nav-text"> 测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#part-c"><span class="nav-number">1.4.</span> <span class="nav-text"> Part C</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">Arch Lab</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-A"><span class="nav-text">Part A</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-ys-%E8%BF%AD%E4%BB%A3%E6%B1%82%E5%92%8C"><span class="nav-text">sum.ys 迭代求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rsum-ys-%E9%80%92%E5%BD%92%E6%B1%82%E5%92%8C"><span class="nav-text">rsum.ys 递归求和</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-ys-%E5%A4%8D%E5%88%B6%E5%88%B0%E7%9B%AE%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-text">copy.ys 复制到目标位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-B"><span class="nav-text">Part B</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part-C"><span class="nav-text">Part C</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -152,16 +191,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -192,7 +256,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          <a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E9%A1%B9%E7%9B%AE/CSAPP%20Arch%20Lab.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -205,13 +269,6 @@
 
       <time title="创建时间：2023-06-16 10:34:21" itemprop="dateCreated datePublished" datetime="2023-06-16T10:34:21+08:00">2023-06-16</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-01 16:42:25" itemprop="dateModified" datetime="2024-03-01T16:42:25+08:00">2024-03-01</time>
-    </span>
 
   
 </div>
@@ -222,273 +279,55 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="arch-lab"><a class="markdownIt-Anchor" href="#arch-lab"></a> Arch Lab</h1>
-<h2 id="环境准备"><a class="markdownIt-Anchor" href="#环境准备"></a> 环境准备</h2>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026699.png" alt="image-20211130101913363" /></p>
+    <div class="post-body" itemprop="articleBody">
+        <h1>Arch Lab</h1>
+<h2 id="环境准备">环境准备</h2>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026699.png" alt="image-20211130101913363"></p>
 <p>需要先安装flex、bison，直接安装就好。</p>
 <p>安装tcl/tk</p>
-<pre class="highlight"><code class="">sudo apt install tcl tcl-dev tk tk-dev
-</code></pre>
+<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">sudo apt install tcl tcl-<span class="built_in">dev</span> tk tk-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
 <p>需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的makefile文件。</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022108921.png" alt="image-20211202210850852" /></p>
-<h2 id="part-a"><a class="markdownIt-Anchor" href="#part-a"></a> Part A</h2>
-<h3 id="sumys-迭代求和"><a class="markdownIt-Anchor" href="#sumys-迭代求和"></a> sum.ys 迭代求和</h3>
-<pre class="highlight"><code class="assembly">.pos 0
-	irmovq stack, %rsp
-	call main
-	halt
-
-# Sample linked list 
-.align 8
-ele1:
-	.quad 0x00a 
-	.quad ele2
-ele2:
-	.quad 0x0b0 
-	.quad ele3
-ele3:
-	.quad 0xc00 
-	.quad 0
-
-main:
-	irmovq ele1, %rdi
-	call sum_list
-	ret
-
-sum_list:
-	xorq %rax, %rax     #sum=0
-	andq %rdi, %rdi	    #set CC, test is pointer=0
-	jmp test
-loop:
-	mrmovq (%rdi), %r9	    #element value
-	addq %r9, %rax
-	mrmovq 8(%rdi), %rdi
-	andq %rdi, %rdi
-test:
-	jne loop
-	ret
-
-	.pos 0x200
-stack:
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026098.png" alt="image-20211202202601014" /></p>
-<h3 id="rsumys-递归求和"><a class="markdownIt-Anchor" href="#rsumys-递归求和"></a> rsum.ys 递归求和</h3>
-<pre class="highlight"><code class="assembly">	.pos 0
-	irmovq stack, %rsp
-	call main
-	halt
-
-# Sample linked list 
-.align 8
-ele1:
-	.quad 0x00a 
-	.quad ele2
-ele2:
-	.quad 0x0b0 
-	.quad ele3
-ele3:
-	.quad 0xc00 
-	.quad 0
-
-main:
-	irmovq ele1, %rdi
-	andq %rax, %rax
-	call rsum_list
-	ret
-
-rsum_list:
-	jmp test
-add:	mrmovq (%rdi),%r8
-	mrmovq 8(%rdi), %rdi
-	pushq %r8
-	call rsum_list
-	popq %r8
-	addq %r8, %rax
-test:
-	andq %rdi, %rdi
-	jne add
-	ret	
-
-
-	.pos 0x200
-stack:
-</code></pre>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022108921.png" alt="image-20211202210850852"></p>
+<h2 id="Part-A">Part A</h2>
+<h3 id="sum-ys-迭代求和">sum.ys 迭代求和</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line"># Sample linked list </span><br><span class="line">.align 8</span><br><span class="line">ele1:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad ele2</span><br><span class="line">ele2:</span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad ele3</span><br><span class="line">ele3:</span><br><span class="line">	.quad 0xc00 </span><br><span class="line">	.quad 0</span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq ele1, %rdi</span><br><span class="line">	call sum_list</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">sum_list:</span><br><span class="line">	xorq %rax, %rax     #sum=0</span><br><span class="line">	andq %rdi, %rdi	    #set CC, test is pointer=0</span><br><span class="line">	jmp test</span><br><span class="line">loop:</span><br><span class="line">	mrmovq (%rdi), %r9	    #element value</span><br><span class="line">	addq %r9, %rax</span><br><span class="line">	mrmovq 8(%rdi), %rdi</span><br><span class="line">	andq %rdi, %rdi</span><br><span class="line">test:</span><br><span class="line">	jne loop</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026098.png" alt="image-20211202202601014"></p>
+<h3 id="rsum-ys-递归求和">rsum.ys 递归求和</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line"># Sample linked list </span><br><span class="line">.align 8</span><br><span class="line">ele1:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad ele2</span><br><span class="line">ele2:</span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad ele3</span><br><span class="line">ele3:</span><br><span class="line">	.quad 0xc00 </span><br><span class="line">	.quad 0</span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq ele1, %rdi</span><br><span class="line">	andq %rax, %rax</span><br><span class="line">	call rsum_list</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">rsum_list:</span><br><span class="line">	jmp test</span><br><span class="line">add:	mrmovq (%rdi),%r8</span><br><span class="line">	mrmovq 8(%rdi), %rdi</span><br><span class="line">	pushq %r8</span><br><span class="line">	call rsum_list</span><br><span class="line">	popq %r8</span><br><span class="line">	addq %r8, %rax</span><br><span class="line">test:</span><br><span class="line">	andq %rdi, %rdi</span><br><span class="line">	jne add</span><br><span class="line">	ret	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br></pre></td></tr></table></figure>
 <p>在递归调用前先保存当前内存位置值到%r8寄存器中，再保存到栈中。</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022028268.png" alt="image-20211202202836226" /></p>
-<h3 id="copyys-复制到目标位置"><a class="markdownIt-Anchor" href="#copyys-复制到目标位置"></a> copy.ys 复制到目标位置</h3>
-<pre class="highlight"><code class="assembly">	.pos 0
-	irmovq stack, %rsp
-	call main
-	halt
-
-	.align 8
-# Source block 
-src:
-	.quad 0x00a 
-	.quad 0x0b0 
-	.quad 0xc00
-
-# Destination block 
-dest:
-	.quad 0x111 
-	.quad 0x222 
-	.quad 0x333
-
-
-main:
-	irmovq src, %rdi
-	irmovq dest, %rsi
-	irmovq $3, %rdx
-
-	irmovq $1, %r9
-	irmovq $8, %r10
-
-	call copy_block
-	halt
-
-copy_block:
-	xorq %rax, %rax		# result=0
-	andq %rdx, %rdx		# set CC
-	jmp test
-loop:
-	mrmovq (%rdi), %r8
-	addq %r10, %rdi		# val=*src++
-
-	rmmovq %r8, (%rsi)
-	addq %r10, %rsi
-	xorq %r8, %rax
-	subq %r9, %rdx
-
-test:
-	jne loop
-	ret
-
-	.pos 0x200
-stack:
-	
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022031188.png" alt="image-20211202203108136" /></p>
-<h2 id="part-b"><a class="markdownIt-Anchor" href="#part-b"></a> Part B</h2>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022028268.png" alt="image-20211202202836226"></p>
+<h3 id="copy-ys-复制到目标位置">copy.ys 复制到目标位置</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line">	.align 8</span><br><span class="line"># Source block </span><br><span class="line">src:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad 0xc00</span><br><span class="line"></span><br><span class="line"># Destination block </span><br><span class="line">dest:</span><br><span class="line">	.quad 0x111 </span><br><span class="line">	.quad 0x222 </span><br><span class="line">	.quad 0x333</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq src, %rdi</span><br><span class="line">	irmovq dest, %rsi</span><br><span class="line">	irmovq $3, %rdx</span><br><span class="line"></span><br><span class="line">	irmovq $1, %r9</span><br><span class="line">	irmovq $8, %r10</span><br><span class="line"></span><br><span class="line">	call copy_block</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line">copy_block:</span><br><span class="line">	xorq %rax, %rax		# result=0</span><br><span class="line">	andq %rdx, %rdx		# set CC</span><br><span class="line">	jmp test</span><br><span class="line">loop:</span><br><span class="line">	mrmovq (%rdi), %r8</span><br><span class="line">	addq %r10, %rdi		# val=*src++</span><br><span class="line"></span><br><span class="line">	rmmovq %r8, (%rsi)</span><br><span class="line">	addq %r10, %rsi</span><br><span class="line">	xorq %r8, %rax</span><br><span class="line">	subq %r9, %rdx</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">	jne loop</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022031188.png" alt="image-20211202203108136"></p>
+<h2 id="Part-B">Part B</h2>
 <p>参考OPq rA, rB和irmovq V, rB指令的执行阶段</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022035063.png" alt="image-20211124161712200" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022035063.png" alt="image-20211124161712200"></p>
 <p>iaddq执行数据流</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112021521713.png" alt="image-20211202152108525" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112021521713.png" alt="image-20211202152108525"></p>
 <p>在instr_valid、need_regids、need_valC</p>
 <p>srcB、dstE</p>
 <p>aluA、aluB、setCC</p>
 <p>相应位置添加IIADDQ</p>
-<h3 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h3>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022042837.png" alt="image-20211202204245751" /></p>
-<pre class="highlight"><code class="">make SIM=../seq/ssim TFLAGS=-i
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022043011.png" alt="image-20211202204322969" /></p>
-<h2 id="part-c"><a class="markdownIt-Anchor" href="#part-c"></a> Part C</h2>
+<h3 id="测试">测试</h3>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022042837.png" alt="image-20211202204245751"></p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">make <span class="attribute">SIM</span>=../seq/ssim <span class="attribute">TFLAGS</span>=-i</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022043011.png" alt="image-20211202204322969"></p>
+<h2 id="Part-C">Part C</h2>
 <p>未修改：</p>
 <p>Average CPE: 15.18</p>
 <p>添加iaddq指令，向Part B那样添加iaddq指令后修改代码，得到CPE: 12.70</p>
-<pre class="highlight"><code class="assembly"># You can modify this portion
-	# Loop header
-	xorq %rax,%rax		# count = 0;
-	andq %rdx,%rdx		# len &lt;= 0?
-	jle Done		# if so, goto Done:
-
-Loop:	mrmovq (%rdi), %r10	# read val from src...
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val &lt;= 0?
-	jle Npos		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos:	
-	iaddq $-1, %rdx		# len--
-	iaddq $8, %rdi		# src++
-	iaddq $8, %rsi		# dst++
-	andq %rdx,%rdx		# len &gt; 0?
-	jg Loop			# if so, goto Loop:
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># You can modify this portion</span><br><span class="line">	# Loop header</span><br><span class="line">	xorq %rax,%rax		# count = 0;</span><br><span class="line">	andq %rdx,%rdx		# len &lt;= 0?</span><br><span class="line">	jle Done		# if so, goto Done:</span><br><span class="line"></span><br><span class="line">Loop:	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos:	</span><br><span class="line">	iaddq $-1, %rdx		# len--</span><br><span class="line">	iaddq $8, %rdi		# src++</span><br><span class="line">	iaddq $8, %rsi		# dst++</span><br><span class="line">	andq %rdx,%rdx		# len &gt; 0?</span><br><span class="line">	jg Loop			# if so, goto Loop:</span><br></pre></td></tr></table></figure>
 <p>Average CPE: 12.70</p>
 <p>采用循环展开，通过增加每次迭代计算的元素的数量，减少循环的迭代次数。</p>
 <p>要减少CPE，需要尽可能充分利用时钟周期，即让每个时钟周期执行对我们的结果有意义的指令。</p>
-<pre class="highlight"><code class="">mrmovq (%rdi), %r10	# read val from src...
-rmmovq %r10, (%rsi)	# ...and store it to dst
-</code></pre>
+<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">mrmov<span class="string">q (<span class="variable">%rdi</span>)</span>, <span class="variable">%r10</span>	<span class="comment"># read val from src...</span></span><br><span class="line">rmmovq <span class="variable">%r10</span>, (<span class="variable">%rsi</span>)	<span class="comment"># ...and store it to dst</span></span><br></pre></td></tr></table></figure>
 <p>第二条指令在译码阶段需要读取%r10寄存器中的值，但第一条指令直到访存阶段才能读取出应该放到%r10寄存器中的值，出现加载/使用数据冒险，编译器会在此间加入一个气泡，可以利用这个时钟周期，执行有意义的指令，预先读出后面内存中的值来提高时钟周期的利用率。</p>
 <p>这里采用四次循环展开，前面4个为一组处理后，剩下的长度可能为1,2,3。通过在Recover中恢复剩余的元素个数。如果小于等于0的话，说明初始长度为4的倍数，直接返回，否则还要复制相应个数的元素。</p>
-<pre class="highlight"><code class="ass"># You can modify this portion
-	# Loop header
-	xorq %rax,%rax		# count = 0;
-	iaddq $-4,%rdx		# len &lt;= 0?
-	jl Recover		# if so, goto Done:
-
-Loop4:	mrmovq (%rdi), %r10	# read val from src...
-	mrmovq 8(%rdi), %r11
-	mrmovq 16(%rdi), %r12
-
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val &lt;= 0?
-	jle Npos		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos:	
-	rmmovq %r11, 8(%rsi)
-	andq %r11, %r11
-	jle Npos1
-	iaddq $1, %rax
-Npos1:
-	mrmovq 24(%rdi), %r13
-	rmmovq %r12, 16(%rsi)
-	andq %r12, %r12
-	jle Npos2
-	iaddq $1, %rax
-Npos2:
-	rmmovq %r13, 24(%rsi)
-	andq %r13, %r13
-	jle Npos3
-	iaddq $1, %rax
-Npos3:
-	iaddq $32, %rdi		# src++
-	iaddq $32, %rsi		# dst++
-	iaddq $-4, %rdx		# len-- len &gt; 0?
-	jge Loop4		# if so, goto Loop:
-
-
-
-
-
-Recover:
-	iaddq $4,%rdx		# len &lt;= 0?
-	jle Done
-
-	mrmovq (%rdi), %r10	# read val from src...
-	mrmovq 8(%rdi), %r11
-	
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val &lt;= 0?
-	jle Npos4		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos4:	
-	iaddq $-1, %rdx
-	jle Done 
-
-	rmmovq %r11, 8(%rsi)
-	andq %r11, %r11
-	jle Npos5
-	iaddq $1, %rax
-Npos5:
-	iaddq $-1, %rdx
-	jle Done 
-	mrmovq 16(%rdi), %r12
-	rmmovq %r12, 16(%rsi)
-	andq %r12, %r12
-	jle Done
-	iaddq $1, %rax
-##################################################################
-# Do not modify the following section of code
-# Function epilogue.
-Done:
-	ret
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># You can modify this portion</span><br><span class="line">	# Loop header</span><br><span class="line">	xorq %rax,%rax		# count = 0;</span><br><span class="line">	iaddq $-4,%rdx		# len &lt;= 0?</span><br><span class="line">	jl Recover		# if so, goto Done:</span><br><span class="line"></span><br><span class="line">Loop4:	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	mrmovq 8(%rdi), %r11</span><br><span class="line">	mrmovq 16(%rdi), %r12</span><br><span class="line"></span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos:	</span><br><span class="line">	rmmovq %r11, 8(%rsi)</span><br><span class="line">	andq %r11, %r11</span><br><span class="line">	jle Npos1</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos1:</span><br><span class="line">	mrmovq 24(%rdi), %r13</span><br><span class="line">	rmmovq %r12, 16(%rsi)</span><br><span class="line">	andq %r12, %r12</span><br><span class="line">	jle Npos2</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos2:</span><br><span class="line">	rmmovq %r13, 24(%rsi)</span><br><span class="line">	andq %r13, %r13</span><br><span class="line">	jle Npos3</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos3:</span><br><span class="line">	iaddq $32, %rdi		# src++</span><br><span class="line">	iaddq $32, %rsi		# dst++</span><br><span class="line">	iaddq $-4, %rdx		# len-- len &gt; 0?</span><br><span class="line">	jge Loop4		# if so, goto Loop:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Recover:</span><br><span class="line">	iaddq $4,%rdx		# len &lt;= 0?</span><br><span class="line">	jle Done</span><br><span class="line"></span><br><span class="line">	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	mrmovq 8(%rdi), %r11</span><br><span class="line">	</span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos4		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos4:	</span><br><span class="line">	iaddq $-1, %rdx</span><br><span class="line">	jle Done </span><br><span class="line"></span><br><span class="line">	rmmovq %r11, 8(%rsi)</span><br><span class="line">	andq %r11, %r11</span><br><span class="line">	jle Npos5</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos5:</span><br><span class="line">	iaddq $-1, %rdx</span><br><span class="line">	jle Done </span><br><span class="line">	mrmovq 16(%rdi), %r12</span><br><span class="line">	rmmovq %r12, 16(%rsi)</span><br><span class="line">	andq %r12, %r12</span><br><span class="line">	jle Done</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">##################################################################</span><br><span class="line"># Do not modify the following section of code</span><br><span class="line"># Function epilogue.</span><br><span class="line">Done:</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
 <p>这里会有条件跳转，在pipe-full.hcl的描述中，是跳转到跳转条件满足的位置，即跳转到Done，但Done后面紧跟ret返回，而大多数情况是跳转到跳转条件不满足的位置，继续向下执行。因此如果跳转到Done执行后面的指令会浪费时钟周期，而如果继续向下执行，读取内存中的值时，如果之后需要用到，则可以利用当前的时钟周期。修改pipe-full.hcl为分支条件不满足的位置，即jmp后面的那条指令位置。</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104261.png" alt="image-20211202210413232" /></p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104201.png" alt="image-20211202210453153" /></p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022105552.png" alt="image-20211202210506511" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104261.png" alt="image-20211202210413232"></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104201.png" alt="image-20211202210453153"></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022105552.png" alt="image-20211202210506511"></p>
 <p>最终Score: 60</p>
 
     </div>
@@ -504,12 +343,12 @@ Done:
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2023/06/16/%E9%A1%B9%E7%9B%AE/CSAPP/" rel="prev" title="CSAPP">
-                  <i class="fa fa-angle-left"></i> CSAPP
+                  <i class="fa fa-chevron-left"></i> CSAPP
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2023/06/16/%E9%A1%B9%E7%9B%AE/CSAPP%20Attack%20Lab/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                   <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -528,51 +367,42 @@ Done:
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

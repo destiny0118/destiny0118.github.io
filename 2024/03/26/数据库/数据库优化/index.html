@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="1. 读写分离 2. 分库分表 3. 数据库查询优化">
 <meta property="og:type" content="article">
@@ -47,9 +49,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -63,10 +62,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -81,20 +83,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -110,16 +149,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93-%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text"> 1 关系型数据库、非关系型数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E4%B8%BB%E9%94%AE-%E8%B6%85%E9%94%AE-%E5%80%99%E9%80%89%E9%94%AE-%E5%A4%96%E9%94%AE%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text"> 2 数据库中的主键、超键、候选键、外键是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A6%E6%9D%9F"><span class="nav-number">3.</span> <span class="nav-text"> 3 数据库约束</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E5%A4%A7%E8%8C%83%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text"> 4 数据库三大范式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96"><span class="nav-number">5.</span> <span class="nav-text"> 5 数据库优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-sql%E4%BC%98%E5%8C%96"><span class="nav-number">5.1.</span> <span class="nav-text"> 5.1 SQL优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96%E9%AB%98%E5%B9%B6%E5%8F%91"><span class="nav-number">6.</span> <span class="nav-text"> 6 数据库优化（高并发）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="nav-number">7.</span> <span class="nav-text"> 7 读写分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%B0%B4%E5%B9%B3%E5%88%86%E5%8C%BA-%E5%9E%82%E7%9B%B4%E5%88%86%E5%8C%BA"><span class="nav-number">8.</span> <span class="nav-text"> 8 数据库水平分区、垂直分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="nav-number">9.</span> <span class="nav-text"> 9 分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#91-%E5%88%86%E5%BA%93"><span class="nav-number">9.1.</span> <span class="nav-text"> 9.1 分库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#92-%E5%88%86%E8%A1%A8"><span class="nav-number">9.2.</span> <span class="nav-text"> 9.2 分表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#93-%E5%88%86%E7%89%87%E7%AE%97%E6%B3%95"><span class="nav-number">9.3.</span> <span class="nav-text"> 9.3 分片算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#94-%E8%A6%81%E7%82%B9"><span class="nav-number">9.4.</span> <span class="nav-text"> 9.4 要点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E6%95%B0%E6%8D%AE%E5%86%B7%E7%83%AD%E5%88%86%E7%A6%BB"><span class="nav-number">10.</span> <span class="nav-text"> 10 数据冷热分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text"> 11 数据库查询优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E6%8E%92%E6%9F%A5"><span class="nav-number">12.</span> <span class="nav-text"> 12 MySQL慢查询排查</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 关系型数据库、非关系型数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 数据库中的主键、超键、候选键、外键是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 数据库约束</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 数据库三大范式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 数据库优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-SQL%E4%BC%98%E5%8C%96"><span class="nav-text">5.1 SQL优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 数据库优化（高并发）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">7 读写分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">8 数据库水平分区、垂直分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">9 分库分表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E5%88%86%E5%BA%93"><span class="nav-text">9.1 分库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-2-%E5%88%86%E8%A1%A8"><span class="nav-text">9.2 分表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-3-%E5%88%86%E7%89%87%E7%AE%97%E6%B3%95"><span class="nav-text">9.3 分片算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-4-%E8%A6%81%E7%82%B9"><span class="nav-text">9.4 要点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">10 数据冷热分离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">11 数据库查询优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">12 MySQL慢查询排查</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -139,16 +178,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -181,7 +245,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据库优化
+          数据库优化<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -193,13 +257,6 @@
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2024-03-26 00:00:00" itemprop="dateCreated datePublished" datetime="2024-03-26T00:00:00+08:00">2024-03-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-27 23:51:54" itemprop="dateModified" datetime="2024-08-27T23:51:54+08:00">2024-08-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -223,22 +280,39 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="1-关系型数据库-非关系型数据库"><a class="markdownIt-Anchor" href="#1-关系型数据库-非关系型数据库"></a> 1 关系型数据库、非关系型数据库</h1>
+    <div class="post-body" itemprop="articleBody">
+        <h1>1 关系型数据库、非关系型数据库</h1>
 <p>非关系型数据库也叫NOSQL，采用键值对的形式进行存储。</p>
 <p>它的读写性能很高，易于扩展，可分为内存性数据库以及文档型数据库，比如 Redis，Mongodb，HBase等等。</p>
 <p>适合使用非关系型数据库的场景：</p>
-<ul>
-<li>日志系统</li>
-<li>地理位置存储</li>
-<li>数据量巨大</li>
-<li>高可用</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>日志系统</p>
+</li>
+<li class="lvl-2">
+<p>地理位置存储</p>
+</li>
+<li class="lvl-2">
+<p>数据量巨大</p>
+</li>
+<li class="lvl-2">
+<p>高可用</p>
+</li>
 </ul>
-<h1 id="2-数据库中的主键-超键-候选键-外键是什么"><a class="markdownIt-Anchor" href="#2-数据库中的主键-超键-候选键-外键是什么"></a> 2 数据库中的主键、超键、候选键、外键是什么？</h1>
-<ul>
-<li><strong>超键</strong>：在关系中能唯一标识<strong>元组的属性集</strong>称为关系模式的超键</li>
-<li><strong>候选键</strong>：不含有<strong>多余属性的超键</strong>称为候选键。也就是在候选键中，若再删除属性，就不是键了！</li>
-<li><strong>主键</strong>：<strong>用户选作元组标识的一个候选键程序主键</strong></li>
-<li><strong>外键</strong>：如果关系模式<strong>R中属性K是其它模式的主键</strong>，那么<strong>k在模式R中称为外键</strong>。</li>
+<h1>2 数据库中的主键、超键、候选键、外键是什么？</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>超键</strong>：在关系中能唯一标识<strong>元组的属性集</strong>称为关系模式的超键</p>
+</li>
+<li class="lvl-2">
+<p><strong>候选键</strong>：不含有<strong>多余属性的超键</strong>称为候选键。也就是在候选键中，若再删除属性，就不是键了！</p>
+</li>
+<li class="lvl-2">
+<p><strong>主键</strong>：<strong>用户选作元组标识的一个候选键程序主键</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong>外键</strong>：如果关系模式<strong>R中属性K是其它模式的主键</strong>，那么<strong>k在模式R中称为外键</strong>。</p>
+</li>
 </ul>
 <table>
 <thead>
@@ -303,79 +377,128 @@
 </tbody>
 </table>
 <ol>
-<li>超键：于是我们从例子中可以发现 学号是标识学生实体的唯一标识。那么该元组的超键就为学号。除此之外我们还可以把它跟其他属性组合起来，比如：(<code>学号</code>，<code>性别</code>)，(<code>学号</code>，<code>年龄</code>)</li>
-<li>候选键：根据例子可知，学号是一个可以唯一标识元组的唯一标识，因此学号是一个候选键，实际上，候选键是超键的子集，比如 （学号，年龄）是超键，但是它不是候选键。因为它还有了额外的属性。</li>
-<li>主键：简单的说，例子中的元组的候选键为学号，但是我们选定他作为该元组的唯一标识，那么学号就为主键。</li>
-<li>外键是相对于主键的，比如在学生记录里，主键为学号，在成绩单表中也有学号字段，因此学号为成绩单表的外键，为学生表的主键。</li>
+<li class="lvl-3">
+<p>超键：于是我们从例子中可以发现 学号是标识学生实体的唯一标识。那么该元组的超键就为学号。除此之外我们还可以把它跟其他属性组合起来，比如：(<code>学号</code>，<code>性别</code>)，(<code>学号</code>，<code>年龄</code>)</p>
+</li>
+<li class="lvl-3">
+<p>候选键：根据例子可知，学号是一个可以唯一标识元组的唯一标识，因此学号是一个候选键，实际上，候选键是超键的子集，比如 （学号，年龄）是超键，但是它不是候选键。因为它还有了额外的属性。</p>
+</li>
+<li class="lvl-3">
+<p>主键：简单的说，例子中的元组的候选键为学号，但是我们选定他作为该元组的唯一标识，那么学号就为主键。</p>
+</li>
+<li class="lvl-3">
+<p>外键是相对于主键的，比如在学生记录里，主键为学号，在成绩单表中也有学号字段，因此学号为成绩单表的外键，为学生表的主键。</p>
+</li>
 </ol>
 <p><strong>主键为候选键的子集，候选键为超键的子集，而外键的确定是相对于主键的</strong></p>
-<h1 id="3-数据库约束"><a class="markdownIt-Anchor" href="#3-数据库约束"></a> 3 数据库约束</h1>
+<h1>3 数据库约束</h1>
 <p>在SQL数据库中，约束是用于确保数据完整性和一致性的规则。它们定义了对表中数据的限制和规定，以确保数据的有效性和准确性。</p>
 <ol>
-<li>
+<li class="lvl-3">
 <p>主键约束（Primary Key Constraint）： 主键约束用于唯一标识表中的每一行数据，并确保该列中的值不重复且不为空。主键约束通常与表中的主键列相关联，以提供快速的数据检索和关联。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p>唯一约束（Unique Constraint）： 唯一约束确保表中某列的值是唯一的，但允许空值。与主键约束不同，唯一约束允许表中存在多个唯一值，但每个值只能出现一次。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p>外键约束（Foreign Key Constraint）： 外键约束用于定义表之间的关系，确保引用表中的外键值必须存在于主表中的主键列中。外键约束用于维护表之间的一致性和关联性，以实现数据的引用完整性。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p>默认约束（Default Constraint）： 默认约束用于在插入新行时为列提供默认值。如果插入操作未为列提供值，则默认约束将自动分配默认值，确保数据的完整性和一致性。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p>检查约束（Check Constraint）： 检查约束用于定义表中列的取值范围或条件，确保插入或更新的数据满足指定的条件。检查约束可以用于限制数据的类型、范围或格式，以确保数据的有效性和准确性。</p>
 </li>
 </ol>
-<h1 id="4-数据库三大范式"><a class="markdownIt-Anchor" href="#4-数据库三大范式"></a> 4 数据库三大范式</h1>
-<p>第一范式：无重复的列；字段不可分（原子性）<br />
-第二范式：非主属性完全依赖与主关键字，而非关键字的一部分；有主键，非主键字段依赖主键（唯一性）<br />
-第三范式：一个数据库表中不包含已在其它表中已包含的非主关键字信息；非主键字段不能相互依赖（<mark>每列都与主键有直接关系，不存在传递依赖</mark>）</p>
-<p>部门表：部门id，部门名称<br />
-员工表：员工id，部门id，（部门名称）</p>
-<h1 id="5-数据库优化"><a class="markdownIt-Anchor" href="#5-数据库优化"></a> 5 数据库优化</h1>
+<h1>4 数据库三大范式</h1>
+<p>第一范式：无重复的列；字段不可分（原子性）第二范式：非主属性完全依赖与主关键字，而非关键字的一部分；有主键，非主键字段依赖主键（唯一性）第三范式：一个数据库表中不包含已在其它表中已包含的非主关键字信息；非主键字段不能相互依赖（<mark>每列都与主键有直接关系，不存在传递依赖</mark>）</p>
+<p>部门表：部门id，部门名称员工表：员工id，部门id，（部门名称）</p>
+<h1>5 数据库优化</h1>
 <ol>
-<li>索引优化，为搜索字段创建索引</li>
-<li>避免使用 Select *，列出需要查询的字段</li>
-<li>读写分离和分库分表</li>
-<li>数据冷热分离</li>
-<li>SQL 优化</li>
-<li>深度分页优化</li>
-<li>适当冗余数据</li>
-<li>使用更高的硬件配置</li>
+<li class="lvl-3">
+<p>索引优化，为搜索字段创建索引</p>
+</li>
+<li class="lvl-3">
+<p>避免使用 Select *，列出需要查询的字段</p>
+</li>
+<li class="lvl-3">
+<p>读写分离和分库分表</p>
+</li>
+<li class="lvl-3">
+<p>数据冷热分离</p>
+</li>
+<li class="lvl-3">
+<p>SQL 优化</p>
+</li>
+<li class="lvl-3">
+<p>深度分页优化</p>
+</li>
+<li class="lvl-3">
+<p>适当冗余数据</p>
+</li>
+<li class="lvl-3">
+<p>使用更高的硬件配置</p>
+</li>
 </ol>
-<h2 id="51-sql优化"><a class="markdownIt-Anchor" href="#51-sql优化"></a> 5.1 SQL优化</h2>
-<ul>
-<li>批量操作</li>
-<li>小表驱动大表（小标筛选，再到大表查询）</li>
-<li>查询SQL尽量不要使用select *，而是具体字段</li>
-<li>避免再where子句中使用or来连接条件，使用union all</li>
+<h2 id="5-1-SQL优化">5.1 SQL优化</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>批量操作</p>
+</li>
+<li class="lvl-2">
+<p>小表驱动大表（小标筛选，再到大表查询）</p>
+</li>
+<li class="lvl-2">
+<p>查询SQL尽量不要使用select *，而是具体字段</p>
+</li>
+<li class="lvl-2">
+<p>避免再where子句中使用or来连接条件，使用union all</p>
+</li>
 </ul>
-<h1 id="6-数据库优化高并发"><a class="markdownIt-Anchor" href="#6-数据库优化高并发"></a> 6 数据库优化（高并发）</h1>
-<ul>
-<li>在web服务框架中加入缓存。在服务器与数据库层之间加入缓存层，将高频访问的数据存入缓存中，减少数据库的读取负担。</li>
-<li>增加数据库索引，进而提高查询速度。（不过索引太多会导致速度变慢，并且数据库的写入会导致索引的更新，也会导致速度变慢）</li>
-<li>主从读写分离，让主服务器负责写，从服务器负责读。</li>
-<li>将数据库进行拆分，使得数据库的表尽可能小，提高查询的速度。</li>
-<li>使用分布式架构，分散计算压力。</li>
+<h1>6 数据库优化（高并发）</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在web服务框架中加入缓存。在服务器与数据库层之间加入缓存层，将高频访问的数据存入缓存中，减少数据库的读取负担。</p>
+</li>
+<li class="lvl-2">
+<p>增加数据库索引，进而提高查询速度。（不过索引太多会导致速度变慢，并且数据库的写入会导致索引的更新，也会导致速度变慢）</p>
+</li>
+<li class="lvl-2">
+<p>主从读写分离，让主服务器负责写，从服务器负责读。</p>
+</li>
+<li class="lvl-2">
+<p>将数据库进行拆分，使得数据库的表尽可能小，提高查询的速度。</p>
+</li>
+<li class="lvl-2">
+<p>使用分布式架构，分散计算压力。</p>
+</li>
 </ul>
-<h1 id="7-读写分离"><a class="markdownIt-Anchor" href="#7-读写分离"></a> 7 读写分离</h1>
+<h1>7 读写分离</h1>
 <blockquote>
 <p>读写分离主要应对数据库读并发</p>
 </blockquote>
-<ul>
-<li>部署多台数据库，选择其中的一台作为主数据库，其他的一台或者多台作为从数据库。</li>
-<li>保证主数据库和从数据库之间的数据是实时同步的，这个过程也就是我们常说的<strong>主从复制</strong>。</li>
-<li>系统将写请求交给主数据库处理，读请求交给从数据库处理。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>部署多台数据库，选择其中的一台作为主数据库，其他的一台或者多台作为从数据库。</p>
+</li>
+<li class="lvl-2">
+<p>保证主数据库和从数据库之间的数据是实时同步的，这个过程也就是我们常说的<strong>主从复制</strong>。</p>
+</li>
+<li class="lvl-2">
+<p>系统将写请求交给主数据库处理，读请求交给从数据库处理。</p>
+</li>
 </ul>
-<h1 id="8-数据库水平分区-垂直分区"><a class="markdownIt-Anchor" href="#8-数据库水平分区-垂直分区"></a> 8 数据库水平分区、垂直分区</h1>
+<h1>8 数据库水平分区、垂直分区</h1>
 <p>数据库的分区有两种方式：<strong>水平分区</strong>和<strong>垂直分区</strong>。</p>
-<ul>
-<li><strong>水平分区</strong>：根据某个字段的值，将数据分布到不同的表或表中不同的行。</li>
-<li><strong>垂直分区</strong>：根据某个字段的列值，将数据分布到不同的表中。通过合理地选择分区键，可以有效地管理大量数据]</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>水平分区</strong>：根据某个字段的值，将数据分布到不同的表或表中不同的行。</p>
+</li>
+<li class="lvl-2">
+<p><strong>垂直分区</strong>：根据某个字段的列值，将数据分布到不同的表中。通过合理地选择分区键，可以有效地管理大量数据]</p>
+</li>
 </ul>
-<h1 id="9-分库分表"><a class="markdownIt-Anchor" href="#9-分库分表"></a> 9 分库分表</h1>
+<h1>9 分库分表</h1>
 <blockquote>
 <p>分库分表是一种数据库水平拆分的策略，旨在应对数据库规模不断增长导致的性能瓶颈和存储容量限制。这种策略将一个大型数据库拆分成多个较小的数据库实例（分库）和表（分表），从而提高并行处理能力、降低单个数据库实例的负载，提升整体系统的性能和可伸缩性。</p>
 <p>分库分表主要解决数据库存储，避免MySQL一张表的数据量过大</p>
@@ -388,107 +511,154 @@
 <p><strong>库内分表</strong>，仅仅是解决了单表数据过大的问题，但并没有把单表的数据分散到不同的物理机上，因此并不能减轻 MySQL 服务器的压力，仍然存在同一个物理机上的资源竞争和瓶颈，包括 CPU、内存、磁盘 IO、网络带宽等。</p>
 <p><strong>分库与分表带来的分布式困境与应对之策</strong> 数据迁移与扩容问题----一般做法是通过程序先读出数据，然后按照指定的分表策略再将数据写入到各个分表中。 分页与排序问题----需要在不同的分表中将数据进行排序并返回，并将不同分表返回的结果集进行汇总和再次排序，最后再返回给用户</p>
 <blockquote>
-<p>[!question] 分库分表后如何查询<br />
-订阅数据库binlog日志，通过canal写到ElasticSearch，建立要搜索字段与数据库的映射</p>
+<p>[!question] 分库分表后如何查询订阅数据库binlog日志，通过canal写到ElasticSearch，建立要搜索字段与数据库的映射</p>
 </blockquote>
-<h2 id="91-分库"><a class="markdownIt-Anchor" href="#91-分库"></a> 9.1 分库</h2>
+<h2 id="9-1-分库">9.1 分库</h2>
 <p><strong>分库</strong> 就是将数据库中的数据分散到不同的数据库上，可以垂直分库，也可以水平分库。</p>
 <p><strong>垂直分库</strong> 就是把单一数据库按照业务进行划分，不同的业务使用不同的数据库，进而将一个数据库的压力分担到多个数据库。</p>
 <p><strong>水平分库</strong> 是把同一个表按一定规则拆分到不同的数据库中，每个库可以位于不同的服务器上，这样就实现了水平扩展，解决了单表的存储和性能瓶颈的问题。</p>
-<h2 id="92-分表"><a class="markdownIt-Anchor" href="#92-分表"></a> 9.2 分表</h2>
+<h2 id="9-2-分表">9.2 分表</h2>
 <p><strong>分表</strong> 就是对单表的数据进行拆分，可以是垂直拆分，也可以是水平拆分。</p>
-<p><strong>垂直分表</strong> 是对数据表列的拆分，把一张列比较多的表拆分为多张表。<br />
+<p><strong>垂直分表</strong> 是对数据表列的拆分，把一张列比较多的表拆分为多张表。<br>
 <strong>水平分表</strong> 是对数据表行的拆分，把一张行比较多的表拆分为多张表，可以解决单一表数据量过大的问题。</p>
 <p>水平拆分只能解决单表数据量大的问题，为了提升性能，我们通常会选择将拆分后的多张表放在不同的数据库中。也就是说，水平分表通常和水平分库同时出现。</p>
-<h2 id="93-分片算法"><a class="markdownIt-Anchor" href="#93-分片算法"></a> 9.3 分片算法</h2>
-<ul>
-<li><strong>哈希分片</strong>：求指定分片键的哈希，然后根据哈希值确定数据应被放置在哪个表中。哈希分片比较适合随机读写的场景，不太适合经常需要范围查询的场景。哈希分片可以使每个表的数据分布相对均匀，但对动态伸缩（例如新增一个表或者库）不友好。</li>
-<li><strong>范围分片</strong>：按照特定的范围区间（比如时间区间、ID 区间）来分配数据，比如 将 <code>id</code> 为 <code>1~299999</code> 的记录分到第一个表， <code>300000~599999</code> 的分到第二个表。范围分片适合需要经常进行范围查找且数据分布均匀的场景，不太适合随机读写的场景（数据未被分散，容易出现热点数据的问题）。</li>
-<li><strong>映射表分片</strong>：使用一个单独的表（称为映射表）来存储分片键和分片位置的对应关系。映射表分片策略可以支持任何类型的分片算法，如哈希分片、范围分片等。映射表分片策略是可以灵活地调整分片规则，不需要修改应用程序代码或重新分布数据。不过，这种方式需要维护额外的表，还增加了查询的开销和复杂度。</li>
-<li><strong>一致性哈希分片</strong>：将哈希空间组织成一个环形结构，将分片键和节点（数据库或表）都映射到这个环上，然后根据顺时针的规则确定数据或请求应该分配到哪个节点上，解决了传统哈希对动态伸缩不友好的问题。</li>
+<h2 id="9-3-分片算法">9.3 分片算法</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>哈希分片</strong>：求指定分片键的哈希，然后根据哈希值确定数据应被放置在哪个表中。哈希分片比较适合随机读写的场景，不太适合经常需要范围查询的场景。哈希分片可以使每个表的数据分布相对均匀，但对动态伸缩（例如新增一个表或者库）不友好。</p>
+</li>
+<li class="lvl-2">
+<p><strong>范围分片</strong>：按照特定的范围区间（比如时间区间、ID 区间）来分配数据，比如 将 <code>id</code> 为 <code>1~299999</code> 的记录分到第一个表， <code>300000~599999</code> 的分到第二个表。范围分片适合需要经常进行范围查找且数据分布均匀的场景，不太适合随机读写的场景（数据未被分散，容易出现热点数据的问题）。</p>
+</li>
+<li class="lvl-2">
+<p><strong>映射表分片</strong>：使用一个单独的表（称为映射表）来存储分片键和分片位置的对应关系。映射表分片策略可以支持任何类型的分片算法，如哈希分片、范围分片等。映射表分片策略是可以灵活地调整分片规则，不需要修改应用程序代码或重新分布数据。不过，这种方式需要维护额外的表，还增加了查询的开销和复杂度。</p>
+</li>
+<li class="lvl-2">
+<p><strong>一致性哈希分片</strong>：将哈希空间组织成一个环形结构，将分片键和节点（数据库或表）都映射到这个环上，然后根据顺时针的规则确定数据或请求应该分配到哪个节点上，解决了传统哈希对动态伸缩不友好的问题。</p>
+</li>
 </ul>
-<h2 id="94-要点"><a class="markdownIt-Anchor" href="#94-要点"></a> 9.4 要点</h2>
+<h2 id="9-4-要点">9.4 要点</h2>
 <ol>
-<li>
+<li class="lvl-3">
 <p><strong>水平拆分：</strong> 分库分表是水平拆分的一种形式，与垂直拆分（按照业务模块划分表）不同。水平拆分指的是将一个表中的数据按照某个规则分散存储在多个数据库实例或表中。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>分库：</strong> 将原来的单个数据库拆分成多个独立的数据库。每个数据库实例都可以独立运行在不同的物理服务器上，从而提高并发处理能力。分库通常采用数据划分的规则，比如按照用户ID的取模或哈希值进行分库。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>分表：</strong> 在每个数据库中，原来的大表被拆分成多个较小的表。<mark>分表的常见策略包括按照时间范围、按照业务模块或按照数据范围等</mark>。分表可以减小每个表的数据量，提高查询性能。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>数据一致性：</strong> 在分库分表的架构中，需要考虑数据一致性的问题。因为数据分散在不同的数据库和表中，应用程序需要确保对跨库、跨表的事务有良好的处理机制。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>全局唯一标识：</strong> 在分库分表的情况下，通常需要一个全局唯一的标识符，以便在多个数据库和表中唯一标识一条记录。这可以是通过分布式ID生成器、UUID等方式实现的。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>路由策略：</strong> 应用程序需要实现合适的路由策略，确保查询时能够正确定位到需要的数据库和表。路由策略可以基于数据划分的规则，例如用户ID的哈希值。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>动态扩展：</strong> 分库分表的优势之一是能够相对容易地进行水平扩展。当数据量增加时，可以通过增加新的数据库实例或表来进行扩展，而不必改变整体系统架构。</p>
 </li>
 </ol>
-<h1 id="10-数据冷热分离"><a class="markdownIt-Anchor" href="#10-数据冷热分离"></a> 10 数据冷热分离</h1>
+<h1>10 数据冷热分离</h1>
 <p>数据冷热分离是指根据数据的访问频率和业务重要性，将数据分为冷数据和热数据，冷数据一般存储在存储在低成本、低性能的介质中，热数据高性能存储介质中。</p>
-<ul>
-<li>优点：热数据的查询性能得到优化（用户的绝大部分操作体验会更好）、节约成本（可以冷热数据的不同存储需求，选择对应的数据库类型和硬件配置，比如将热数据放在 SSD 上，将冷数据放在 HDD 上）</li>
-<li>缺点：系统复杂性和风险增加（需要分离冷热数据，数据错误的风险增加）、统计效率低（统计的时候可能需要用到冷库的数据）。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>优点：热数据的查询性能得到优化（用户的绝大部分操作体验会更好）、节约成本（可以冷热数据的不同存储需求，选择对应的数据库类型和硬件配置，比如将热数据放在 SSD 上，将冷数据放在 HDD 上）</p>
+</li>
+<li class="lvl-2">
+<p>缺点：系统复杂性和风险增加（需要分离冷热数据，数据错误的风险增加）、统计效率低（统计的时候可能需要用到冷库的数据）。</p>
+</li>
 </ul>
-<h1 id="11-数据库查询优化"><a class="markdownIt-Anchor" href="#11-数据库查询优化"></a> 11 数据库查询优化</h1>
-<ul>
-<li>索引优化：前缀索引优化；覆盖索引优化；主键索引最好是自增的；防止索引失效；</li>
-<li>SQL查询优化：避免使用SELECT *，而是选择需要的列。避免在WHERE子句中使用函数或运算，这可能会导致索引失效。使用LIMIT分页查询时，注意性能问题，可以考虑使用索引覆盖扫描或其他分页技术。</li>
-<li>启用查询缓存：启用MySQL的查询缓存功能，缓存频繁查询且结果不经常变动的查询结果。注意在数据变动频繁的场景下，查询缓存可能会成为性能瓶颈，需要谨慎使用。</li>
-<li>分区和分表：对大表进行分区，将数据水平分割到不同的物理区域，提高查询性能。使用分表技术，如垂直分表或水平分表，将一个大表拆分成多个小表。</li>
+<h1>11 数据库查询优化</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>索引优化：前缀索引优化；覆盖索引优化；主键索引最好是自增的；防止索引失效；</p>
+</li>
+<li class="lvl-2">
+<p>SQL查询优化：避免使用SELECT *，而是选择需要的列。避免在WHERE子句中使用函数或运算，这可能会导致索引失效。使用LIMIT分页查询时，注意性能问题，可以考虑使用索引覆盖扫描或其他分页技术。</p>
+</li>
+<li class="lvl-2">
+<p>启用查询缓存：启用MySQL的查询缓存功能，缓存频繁查询且结果不经常变动的查询结果。注意在数据变动频繁的场景下，查询缓存可能会成为性能瓶颈，需要谨慎使用。</p>
+</li>
+<li class="lvl-2">
+<p>分区和分表：对大表进行分区，将数据水平分割到不同的物理区域，提高查询性能。使用分表技术，如垂直分表或水平分表，将一个大表拆分成多个小表。</p>
+</li>
 </ul>
 <blockquote>
 <p>[!question]  假如你所在的公司选择MySQL数据库作数据存储，一天五万条以上的增量，预计运维三年，你有哪些优化手段？</p>
-<ul>
-<li>设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。</li>
-<li>选择合适的表字段数据类型和存储引擎，适当的添加索引。</li>
-<li>MySQL库主从读写分离。</li>
-<li>找规律分表，减少单表中的数据量提高查询速度。</li>
-<li>添加缓存机制，比如Memcached，Apc等。</li>
-<li>不经常改动的页面，生成静态页面。</li>
-<li>书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE。</li>
+<ul class="lvl-1">
+<li class="lvl-2">设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。</li>
+<li class="lvl-2">选择合适的表字段数据类型和存储引擎，适当的添加索引。</li>
+<li class="lvl-2">MySQL库主从读写分离。</li>
+<li class="lvl-2">找规律分表，减少单表中的数据量提高查询速度。</li>
+<li class="lvl-2">添加缓存机制，比如Memcached，Apc等。</li>
+<li class="lvl-2">不经常改动的页面，生成静态页面。</li>
+<li class="lvl-2">书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE。</li>
 </ul>
 </blockquote>
-<h1 id="12-mysql慢查询排查"><a class="markdownIt-Anchor" href="#12-mysql慢查询排查"></a> 12 MySQL慢查询排查</h1>
+<h1>12 MySQL慢查询排查</h1>
 <ol>
-<li><strong>开启慢查询日志</strong>：</li>
+<li class="lvl-3">
+<p><strong>开启慢查询日志</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>确保MySQL的慢查询日志已经开启。通过查看<code>slow_query_log</code>和<code>slow_query_log_file</code>变量来确认。</li>
-<li>如果没有开启，可以在MySQL配置文件（如<code>my.cnf</code>或<code>my.ini</code>）中设置这些变量，然后重启MySQL服务。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>确保MySQL的慢查询日志已经开启。通过查看<code>slow_query_log</code>和<code>slow_query_log_file</code>变量来确认。</p>
+</li>
+<li class="lvl-2">
+<p>如果没有开启，可以在MySQL配置文件（如<code>my.cnf</code>或<code>my.ini</code>）中设置这些变量，然后重启MySQL服务。</p>
+</li>
 </ul>
 <ol start="2">
-<li><strong>分析慢查询日志</strong>：</li>
+<li class="lvl-3">
+<p><strong>分析慢查询日志</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>使用<code>mysqldumpslow</code>或其他慢查询日志分析工具来查看和分析慢查询日志中的条目。</li>
-<li>关注查询的执行时间、锁等待时间以及被调用的次数等信息。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>使用<code>mysqldumpslow</code>或其他慢查询日志分析工具来查看和分析慢查询日志中的条目。</p>
+</li>
+<li class="lvl-2">
+<p>关注查询的执行时间、锁等待时间以及被调用的次数等信息。</p>
+</li>
 </ul>
 <ol start="3">
-<li><strong>使用<code>EXPLAIN</code>命令</strong>：</li>
+<li class="lvl-3">
+<p><strong>使用<code>EXPLAIN</code>命令</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>对于日志中记录的慢查询，使用<code>EXPLAIN</code>命令来<mark>查看查询的执行计划</mark>。</li>
-<li>分析查询是否使用了合适的索引，以及是否存在全表扫描等低效操作。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>对于日志中记录的慢查询，使用<code>EXPLAIN</code>命令来<mark>查看查询的执行计划</mark>。</p>
+</li>
+<li class="lvl-2">
+<p>分析查询是否使用了合适的索引，以及是否存在全表扫描等低效操作。</p>
+</li>
 </ul>
 <ol start="4">
-<li><strong>优化查询</strong>：</li>
+<li class="lvl-3">
+<p><strong>优化查询</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>根据<code>EXPLAIN</code>的输出结果，优化查询语句，比如添加或修改索引。</li>
-<li>避免在查询中使用<code>*</code>，而是指定需要的列。</li>
-<li>减少JOIN操作的数量或复杂性，特别是在大数据集上。</li>
-<li>考虑将计算密集型的操作移到应用层进行。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>根据<code>EXPLAIN</code>的输出结果，优化查询语句，比如添加或修改索引。</p>
+</li>
+<li class="lvl-2">
+<p>避免在查询中使用<code>*</code>，而是指定需要的列。</p>
+</li>
+<li class="lvl-2">
+<p>减少JOIN操作的数量或复杂性，特别是在大数据集上。</p>
+</li>
+<li class="lvl-2">
+<p>考虑将计算密集型的操作移到应用层进行。</p>
+</li>
 </ul>
-<p>作者：BAT后端A师兄<br />
-链接：<a href="https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users">https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users</a><br />
+<p>作者：BAT后端A师兄<br>
+链接：<a href="https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users">https://www.nowcoder.com/discuss/597116383192690688?sourceSSR=users</a><br>
 来源：牛客网</p>
 
     </div>
@@ -507,12 +677,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2024/03/24/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis(3)%EF%BC%9A%E5%BA%94%E7%94%A8/" rel="prev" title="Redis(3)：应用">
-                  <i class="fa fa-angle-left"></i> Redis(3)：应用
+                  <i class="fa fa-chevron-left"></i> Redis(3)：应用
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2024/04/01/%E6%A1%86%E6%9E%B6/JVM/JVM%20(1)%EF%BC%9A%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86%E3%80%81%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/" rel="next" title="JVM (1)：内存区域划分、类加载机制">
-                  JVM (1)：内存区域划分、类加载机制 <i class="fa fa-angle-right"></i>
+                  JVM (1)：内存区域划分、类加载机制 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -531,51 +701,42 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

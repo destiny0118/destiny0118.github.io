@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="凡是过去，皆为序章。">
 <meta property="og:type" content="website">
@@ -45,9 +47,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -61,10 +60,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -79,20 +81,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
@@ -112,11 +151,11 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -136,16 +175,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner index posts-expand">
 
@@ -188,13 +252,6 @@
 
       <time title="创建时间：2023-06-16 10:34:21" itemprop="dateCreated datePublished" datetime="2023-06-16T10:34:21+08:00">2023-06-16</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-01 16:42:25" itemprop="dateModified" datetime="2024-03-01T16:42:25+08:00">2024-03-01</time>
-    </span>
 
   
 </div>
@@ -206,273 +263,54 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="arch-lab"><a class="markdownIt-Anchor" href="#arch-lab"></a> Arch Lab</h1>
-<h2 id="环境准备"><a class="markdownIt-Anchor" href="#环境准备"></a> 环境准备</h2>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026699.png" alt="image-20211130101913363" /></p>
+          <h1>Arch Lab</h1>
+<h2 id="环境准备">环境准备</h2>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026699.png" alt="image-20211130101913363"></p>
 <p>需要先安装flex、bison，直接安装就好。</p>
 <p>安装tcl/tk</p>
-<pre class="highlight"><code class="">sudo apt install tcl tcl-dev tk tk-dev
-</code></pre>
+<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">sudo apt install tcl tcl-<span class="built_in">dev</span> tk tk-<span class="built_in">dev</span></span><br></pre></td></tr></table></figure>
 <p>需要修改相应makefile文件，不需要GUI界面的话第一个就注释掉，第二个需要修改路径。通过命令行直接安装的话时8.6版本，而原来的路径为8.5的，会出现找到到相应文件的问题。后面相应实验出现问题都要修改相应的makefile文件。</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022108921.png" alt="image-20211202210850852" /></p>
-<h2 id="part-a"><a class="markdownIt-Anchor" href="#part-a"></a> Part A</h2>
-<h3 id="sumys-迭代求和"><a class="markdownIt-Anchor" href="#sumys-迭代求和"></a> sum.ys 迭代求和</h3>
-<pre class="highlight"><code class="assembly">.pos 0
-	irmovq stack, %rsp
-	call main
-	halt
-
-# Sample linked list 
-.align 8
-ele1:
-	.quad 0x00a 
-	.quad ele2
-ele2:
-	.quad 0x0b0 
-	.quad ele3
-ele3:
-	.quad 0xc00 
-	.quad 0
-
-main:
-	irmovq ele1, %rdi
-	call sum_list
-	ret
-
-sum_list:
-	xorq %rax, %rax     #sum=0
-	andq %rdi, %rdi	    #set CC, test is pointer=0
-	jmp test
-loop:
-	mrmovq (%rdi), %r9	    #element value
-	addq %r9, %rax
-	mrmovq 8(%rdi), %rdi
-	andq %rdi, %rdi
-test:
-	jne loop
-	ret
-
-	.pos 0x200
-stack:
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026098.png" alt="image-20211202202601014" /></p>
-<h3 id="rsumys-递归求和"><a class="markdownIt-Anchor" href="#rsumys-递归求和"></a> rsum.ys 递归求和</h3>
-<pre class="highlight"><code class="assembly">	.pos 0
-	irmovq stack, %rsp
-	call main
-	halt
-
-# Sample linked list 
-.align 8
-ele1:
-	.quad 0x00a 
-	.quad ele2
-ele2:
-	.quad 0x0b0 
-	.quad ele3
-ele3:
-	.quad 0xc00 
-	.quad 0
-
-main:
-	irmovq ele1, %rdi
-	andq %rax, %rax
-	call rsum_list
-	ret
-
-rsum_list:
-	jmp test
-add:	mrmovq (%rdi),%r8
-	mrmovq 8(%rdi), %rdi
-	pushq %r8
-	call rsum_list
-	popq %r8
-	addq %r8, %rax
-test:
-	andq %rdi, %rdi
-	jne add
-	ret	
-
-
-	.pos 0x200
-stack:
-</code></pre>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022108921.png" alt="image-20211202210850852"></p>
+<h2 id="Part-A">Part A</h2>
+<h3 id="sum-ys-迭代求和">sum.ys 迭代求和</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line"># Sample linked list </span><br><span class="line">.align 8</span><br><span class="line">ele1:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad ele2</span><br><span class="line">ele2:</span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad ele3</span><br><span class="line">ele3:</span><br><span class="line">	.quad 0xc00 </span><br><span class="line">	.quad 0</span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq ele1, %rdi</span><br><span class="line">	call sum_list</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">sum_list:</span><br><span class="line">	xorq %rax, %rax     #sum=0</span><br><span class="line">	andq %rdi, %rdi	    #set CC, test is pointer=0</span><br><span class="line">	jmp test</span><br><span class="line">loop:</span><br><span class="line">	mrmovq (%rdi), %r9	    #element value</span><br><span class="line">	addq %r9, %rax</span><br><span class="line">	mrmovq 8(%rdi), %rdi</span><br><span class="line">	andq %rdi, %rdi</span><br><span class="line">test:</span><br><span class="line">	jne loop</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022026098.png" alt="image-20211202202601014"></p>
+<h3 id="rsum-ys-递归求和">rsum.ys 递归求和</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line"># Sample linked list </span><br><span class="line">.align 8</span><br><span class="line">ele1:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad ele2</span><br><span class="line">ele2:</span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad ele3</span><br><span class="line">ele3:</span><br><span class="line">	.quad 0xc00 </span><br><span class="line">	.quad 0</span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq ele1, %rdi</span><br><span class="line">	andq %rax, %rax</span><br><span class="line">	call rsum_list</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">rsum_list:</span><br><span class="line">	jmp test</span><br><span class="line">add:	mrmovq (%rdi),%r8</span><br><span class="line">	mrmovq 8(%rdi), %rdi</span><br><span class="line">	pushq %r8</span><br><span class="line">	call rsum_list</span><br><span class="line">	popq %r8</span><br><span class="line">	addq %r8, %rax</span><br><span class="line">test:</span><br><span class="line">	andq %rdi, %rdi</span><br><span class="line">	jne add</span><br><span class="line">	ret	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br></pre></td></tr></table></figure>
 <p>在递归调用前先保存当前内存位置值到%r8寄存器中，再保存到栈中。</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022028268.png" alt="image-20211202202836226" /></p>
-<h3 id="copyys-复制到目标位置"><a class="markdownIt-Anchor" href="#copyys-复制到目标位置"></a> copy.ys 复制到目标位置</h3>
-<pre class="highlight"><code class="assembly">	.pos 0
-	irmovq stack, %rsp
-	call main
-	halt
-
-	.align 8
-# Source block 
-src:
-	.quad 0x00a 
-	.quad 0x0b0 
-	.quad 0xc00
-
-# Destination block 
-dest:
-	.quad 0x111 
-	.quad 0x222 
-	.quad 0x333
-
-
-main:
-	irmovq src, %rdi
-	irmovq dest, %rsi
-	irmovq $3, %rdx
-
-	irmovq $1, %r9
-	irmovq $8, %r10
-
-	call copy_block
-	halt
-
-copy_block:
-	xorq %rax, %rax		# result=0
-	andq %rdx, %rdx		# set CC
-	jmp test
-loop:
-	mrmovq (%rdi), %r8
-	addq %r10, %rdi		# val=*src++
-
-	rmmovq %r8, (%rsi)
-	addq %r10, %rsi
-	xorq %r8, %rax
-	subq %r9, %rdx
-
-test:
-	jne loop
-	ret
-
-	.pos 0x200
-stack:
-	
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022031188.png" alt="image-20211202203108136" /></p>
-<h2 id="part-b"><a class="markdownIt-Anchor" href="#part-b"></a> Part B</h2>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022028268.png" alt="image-20211202202836226"></p>
+<h3 id="copy-ys-复制到目标位置">copy.ys 复制到目标位置</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">	.pos 0</span><br><span class="line">	irmovq stack, %rsp</span><br><span class="line">	call main</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line">	.align 8</span><br><span class="line"># Source block </span><br><span class="line">src:</span><br><span class="line">	.quad 0x00a </span><br><span class="line">	.quad 0x0b0 </span><br><span class="line">	.quad 0xc00</span><br><span class="line"></span><br><span class="line"># Destination block </span><br><span class="line">dest:</span><br><span class="line">	.quad 0x111 </span><br><span class="line">	.quad 0x222 </span><br><span class="line">	.quad 0x333</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main:</span><br><span class="line">	irmovq src, %rdi</span><br><span class="line">	irmovq dest, %rsi</span><br><span class="line">	irmovq $3, %rdx</span><br><span class="line"></span><br><span class="line">	irmovq $1, %r9</span><br><span class="line">	irmovq $8, %r10</span><br><span class="line"></span><br><span class="line">	call copy_block</span><br><span class="line">	halt</span><br><span class="line"></span><br><span class="line">copy_block:</span><br><span class="line">	xorq %rax, %rax		# result=0</span><br><span class="line">	andq %rdx, %rdx		# set CC</span><br><span class="line">	jmp test</span><br><span class="line">loop:</span><br><span class="line">	mrmovq (%rdi), %r8</span><br><span class="line">	addq %r10, %rdi		# val=*src++</span><br><span class="line"></span><br><span class="line">	rmmovq %r8, (%rsi)</span><br><span class="line">	addq %r10, %rsi</span><br><span class="line">	xorq %r8, %rax</span><br><span class="line">	subq %r9, %rdx</span><br><span class="line"></span><br><span class="line">test:</span><br><span class="line">	jne loop</span><br><span class="line">	ret</span><br><span class="line"></span><br><span class="line">	.pos 0x200</span><br><span class="line">stack:</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022031188.png" alt="image-20211202203108136"></p>
+<h2 id="Part-B">Part B</h2>
 <p>参考OPq rA, rB和irmovq V, rB指令的执行阶段</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022035063.png" alt="image-20211124161712200" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022035063.png" alt="image-20211124161712200"></p>
 <p>iaddq执行数据流</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112021521713.png" alt="image-20211202152108525" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112021521713.png" alt="image-20211202152108525"></p>
 <p>在instr_valid、need_regids、need_valC</p>
 <p>srcB、dstE</p>
 <p>aluA、aluB、setCC</p>
 <p>相应位置添加IIADDQ</p>
-<h3 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h3>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022042837.png" alt="image-20211202204245751" /></p>
-<pre class="highlight"><code class="">make SIM=../seq/ssim TFLAGS=-i
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022043011.png" alt="image-20211202204322969" /></p>
-<h2 id="part-c"><a class="markdownIt-Anchor" href="#part-c"></a> Part C</h2>
+<h3 id="测试">测试</h3>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022042837.png" alt="image-20211202204245751"></p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">make <span class="attribute">SIM</span>=../seq/ssim <span class="attribute">TFLAGS</span>=-i</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022043011.png" alt="image-20211202204322969"></p>
+<h2 id="Part-C">Part C</h2>
 <p>未修改：</p>
 <p>Average CPE: 15.18</p>
 <p>添加iaddq指令，向Part B那样添加iaddq指令后修改代码，得到CPE: 12.70</p>
-<pre class="highlight"><code class="assembly"># You can modify this portion
-	# Loop header
-	xorq %rax,%rax		# count = 0;
-	andq %rdx,%rdx		# len &lt;= 0?
-	jle Done		# if so, goto Done:
-
-Loop:	mrmovq (%rdi), %r10	# read val from src...
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val &lt;= 0?
-	jle Npos		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos:	
-	iaddq $-1, %rdx		# len--
-	iaddq $8, %rdi		# src++
-	iaddq $8, %rsi		# dst++
-	andq %rdx,%rdx		# len &gt; 0?
-	jg Loop			# if so, goto Loop:
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># You can modify this portion</span><br><span class="line">	# Loop header</span><br><span class="line">	xorq %rax,%rax		# count = 0;</span><br><span class="line">	andq %rdx,%rdx		# len &lt;= 0?</span><br><span class="line">	jle Done		# if so, goto Done:</span><br><span class="line"></span><br><span class="line">Loop:	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos:	</span><br><span class="line">	iaddq $-1, %rdx		# len--</span><br><span class="line">	iaddq $8, %rdi		# src++</span><br><span class="line">	iaddq $8, %rsi		# dst++</span><br><span class="line">	andq %rdx,%rdx		# len &gt; 0?</span><br><span class="line">	jg Loop			# if so, goto Loop:</span><br></pre></td></tr></table></figure>
 <p>Average CPE: 12.70</p>
 <p>采用循环展开，通过增加每次迭代计算的元素的数量，减少循环的迭代次数。</p>
 <p>要减少CPE，需要尽可能充分利用时钟周期，即让每个时钟周期执行对我们的结果有意义的指令。</p>
-<pre class="highlight"><code class="">mrmovq (%rdi), %r10	# read val from src...
-rmmovq %r10, (%rsi)	# ...and store it to dst
-</code></pre>
+<figure class="highlight perl"><table><tr><td class="code"><pre><span class="line">mrmov<span class="string">q (<span class="variable">%rdi</span>)</span>, <span class="variable">%r10</span>	<span class="comment"># read val from src...</span></span><br><span class="line">rmmovq <span class="variable">%r10</span>, (<span class="variable">%rsi</span>)	<span class="comment"># ...and store it to dst</span></span><br></pre></td></tr></table></figure>
 <p>第二条指令在译码阶段需要读取%r10寄存器中的值，但第一条指令直到访存阶段才能读取出应该放到%r10寄存器中的值，出现加载/使用数据冒险，编译器会在此间加入一个气泡，可以利用这个时钟周期，执行有意义的指令，预先读出后面内存中的值来提高时钟周期的利用率。</p>
 <p>这里采用四次循环展开，前面4个为一组处理后，剩下的长度可能为1,2,3。通过在Recover中恢复剩余的元素个数。如果小于等于0的话，说明初始长度为4的倍数，直接返回，否则还要复制相应个数的元素。</p>
-<pre class="highlight"><code class="ass"># You can modify this portion
-	# Loop header
-	xorq %rax,%rax		# count = 0;
-	iaddq $-4,%rdx		# len &lt;= 0?
-	jl Recover		# if so, goto Done:
-
-Loop4:	mrmovq (%rdi), %r10	# read val from src...
-	mrmovq 8(%rdi), %r11
-	mrmovq 16(%rdi), %r12
-
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val &lt;= 0?
-	jle Npos		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos:	
-	rmmovq %r11, 8(%rsi)
-	andq %r11, %r11
-	jle Npos1
-	iaddq $1, %rax
-Npos1:
-	mrmovq 24(%rdi), %r13
-	rmmovq %r12, 16(%rsi)
-	andq %r12, %r12
-	jle Npos2
-	iaddq $1, %rax
-Npos2:
-	rmmovq %r13, 24(%rsi)
-	andq %r13, %r13
-	jle Npos3
-	iaddq $1, %rax
-Npos3:
-	iaddq $32, %rdi		# src++
-	iaddq $32, %rsi		# dst++
-	iaddq $-4, %rdx		# len-- len &gt; 0?
-	jge Loop4		# if so, goto Loop:
-
-
-
-
-
-Recover:
-	iaddq $4,%rdx		# len &lt;= 0?
-	jle Done
-
-	mrmovq (%rdi), %r10	# read val from src...
-	mrmovq 8(%rdi), %r11
-	
-	rmmovq %r10, (%rsi)	# ...and store it to dst
-	andq %r10, %r10		# val &lt;= 0?
-	jle Npos4		# if so, goto Npos:
-	iaddq $1, %rax		# count++
-Npos4:	
-	iaddq $-1, %rdx
-	jle Done 
-
-	rmmovq %r11, 8(%rsi)
-	andq %r11, %r11
-	jle Npos5
-	iaddq $1, %rax
-Npos5:
-	iaddq $-1, %rdx
-	jle Done 
-	mrmovq 16(%rdi), %r12
-	rmmovq %r12, 16(%rsi)
-	andq %r12, %r12
-	jle Done
-	iaddq $1, %rax
-##################################################################
-# Do not modify the following section of code
-# Function epilogue.
-Done:
-	ret
-</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># You can modify this portion</span><br><span class="line">	# Loop header</span><br><span class="line">	xorq %rax,%rax		# count = 0;</span><br><span class="line">	iaddq $-4,%rdx		# len &lt;= 0?</span><br><span class="line">	jl Recover		# if so, goto Done:</span><br><span class="line"></span><br><span class="line">Loop4:	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	mrmovq 8(%rdi), %r11</span><br><span class="line">	mrmovq 16(%rdi), %r12</span><br><span class="line"></span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos:	</span><br><span class="line">	rmmovq %r11, 8(%rsi)</span><br><span class="line">	andq %r11, %r11</span><br><span class="line">	jle Npos1</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos1:</span><br><span class="line">	mrmovq 24(%rdi), %r13</span><br><span class="line">	rmmovq %r12, 16(%rsi)</span><br><span class="line">	andq %r12, %r12</span><br><span class="line">	jle Npos2</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos2:</span><br><span class="line">	rmmovq %r13, 24(%rsi)</span><br><span class="line">	andq %r13, %r13</span><br><span class="line">	jle Npos3</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos3:</span><br><span class="line">	iaddq $32, %rdi		# src++</span><br><span class="line">	iaddq $32, %rsi		# dst++</span><br><span class="line">	iaddq $-4, %rdx		# len-- len &gt; 0?</span><br><span class="line">	jge Loop4		# if so, goto Loop:</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Recover:</span><br><span class="line">	iaddq $4,%rdx		# len &lt;= 0?</span><br><span class="line">	jle Done</span><br><span class="line"></span><br><span class="line">	mrmovq (%rdi), %r10	# read val from src...</span><br><span class="line">	mrmovq 8(%rdi), %r11</span><br><span class="line">	</span><br><span class="line">	rmmovq %r10, (%rsi)	# ...and store it to dst</span><br><span class="line">	andq %r10, %r10		# val &lt;= 0?</span><br><span class="line">	jle Npos4		# if so, goto Npos:</span><br><span class="line">	iaddq $1, %rax		# count++</span><br><span class="line">Npos4:	</span><br><span class="line">	iaddq $-1, %rdx</span><br><span class="line">	jle Done </span><br><span class="line"></span><br><span class="line">	rmmovq %r11, 8(%rsi)</span><br><span class="line">	andq %r11, %r11</span><br><span class="line">	jle Npos5</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">Npos5:</span><br><span class="line">	iaddq $-1, %rdx</span><br><span class="line">	jle Done </span><br><span class="line">	mrmovq 16(%rdi), %r12</span><br><span class="line">	rmmovq %r12, 16(%rsi)</span><br><span class="line">	andq %r12, %r12</span><br><span class="line">	jle Done</span><br><span class="line">	iaddq $1, %rax</span><br><span class="line">##################################################################</span><br><span class="line"># Do not modify the following section of code</span><br><span class="line"># Function epilogue.</span><br><span class="line">Done:</span><br><span class="line">	ret</span><br></pre></td></tr></table></figure>
 <p>这里会有条件跳转，在pipe-full.hcl的描述中，是跳转到跳转条件满足的位置，即跳转到Done，但Done后面紧跟ret返回，而大多数情况是跳转到跳转条件不满足的位置，继续向下执行。因此如果跳转到Done执行后面的指令会浪费时钟周期，而如果继续向下执行，读取内存中的值时，如果之后需要用到，则可以利用当前的时钟周期。修改pipe-full.hcl为分支条件不满足的位置，即jmp后面的那条指令位置。</p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104261.png" alt="image-20211202210413232" /></p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104201.png" alt="image-20211202210453153" /></p>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022105552.png" alt="image-20211202210506511" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104261.png" alt="image-20211202210413232"></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022104201.png" alt="image-20211202210453153"></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112022105552.png" alt="image-20211202210506511"></p>
 <p>最终Score: 60</p>
 
       
@@ -530,13 +368,6 @@ Done:
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2023-06-16 00:00:00" itemprop="dateCreated datePublished" datetime="2023-06-16T00:00:00+08:00">2023-06-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:18:53" itemprop="dateModified" datetime="2024-03-02T21:18:53+08:00">2024-03-02</time>
     </span>
 
   
@@ -614,13 +445,6 @@ Done:
 
       <time title="创建时间：2023-06-12 17:26:54" itemprop="dateCreated datePublished" datetime="2023-06-12T17:26:54+08:00">2023-06-12</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 16:43:17" itemprop="dateModified" datetime="2024-03-02T16:43:17+08:00">2024-03-02</time>
-    </span>
 
   
 </div>
@@ -632,25 +456,29 @@ Done:
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="一-绪论"><a class="markdownIt-Anchor" href="#一-绪论"></a> 一、绪论</h1>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202206021858714.jpg" alt="123" /></p>
-<h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+          <h1>一、绪论</h1>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202206021858714.jpg" alt="123"></p>
+<h2 id="数据结构">数据结构</h2>
 <p>Data_Structure=(D,S)</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="数据结构" /></p>
-<h2 id="抽象数据类型"><a class="markdownIt-Anchor" href="#抽象数据类型"></a> 抽象数据类型</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.png" alt="数据结构"></p>
+<h2 id="抽象数据类型">抽象数据类型</h2>
 <blockquote>
 <p>Abstract Data Type, ADT</p>
 <p>(D, S, P)</p>
 </blockquote>
-<h1 id="算法"><a class="markdownIt-Anchor" href="#算法"></a> 算法</h1>
-<h2 id="枚举"><a class="markdownIt-Anchor" href="#枚举"></a> 枚举</h2>
+<h1>算法</h1>
+<h2 id="枚举">枚举</h2>
 <p>遇到影响全局的操作，一般会想到枚举操作次数。</p>
-<h2 id="二分查找"><a class="markdownIt-Anchor" href="#二分查找"></a> 二分查找</h2>
-<ul>
-<li>最小化最大值、最大化最小值</li>
-<li>有序数组查找目标值</li>
+<h2 id="二分查找">二分查找</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>最小化最大值、最大化最小值</p>
+</li>
+<li class="lvl-2">
+<p>有序数组查找目标值</p>
+</li>
 </ul>
-<h2 id="动态规划"><a class="markdownIt-Anchor" href="#动态规划"></a> 动态规划</h2>
+<h2 id="动态规划">动态规划</h2>
 <blockquote>
 <p>方案数</p>
 </blockquote>
@@ -711,13 +539,6 @@ Done:
 
       <time title="创建时间：2023-06-06 23:20:49" itemprop="dateCreated datePublished" datetime="2023-06-06T23:20:49+08:00">2023-06-06</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-19 10:35:50" itemprop="dateModified" datetime="2024-04-19T10:35:50+08:00">2024-04-19</time>
-    </span>
 
   
 </div>
@@ -729,8 +550,8 @@ Done:
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="历史版本"><a class="markdownIt-Anchor" href="#历史版本"></a> 历史版本</h1>
-<h2 id="cuda"><a class="markdownIt-Anchor" href="#cuda"></a> CUDA</h2>
+          <h1>历史版本</h1>
+<h2 id="CUDA">CUDA</h2>
 <p><a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
 <p><a href="https://blog.csdn.net/sophicchen/article/details/120782209">(48条消息) CUDA版本不同：nvidia-smi和nvcc -V_cuda不同版本_Sophia$的博客-CSDN博客</a></p>
 
@@ -790,13 +611,6 @@ Done:
 
       <time title="创建时间：2023-05-23 17:53:29" itemprop="dateCreated datePublished" datetime="2023-05-23T17:53:29+08:00">2023-05-23</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-13 21:35:44" itemprop="dateModified" datetime="2023-11-13T21:35:44+08:00">2023-11-13</time>
-    </span>
 
   
 </div>
@@ -808,14 +622,11 @@ Done:
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="sequential-containers"><a class="markdownIt-Anchor" href="#sequential-containers"></a> Sequential Containers</h1>
+          <h1>Sequential Containers</h1>
 <p>元素在顺序容器中的顺序与其加入容器时的位置相对应。</p>
-<h2 id="container-operations"><a class="markdownIt-Anchor" href="#container-operations"></a> Container Operations</h2>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746" /></p>
-<pre class="highlight"><code class="c++"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; vec;
-<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;::iterator iter1 = vec.<span class="hljs-built_in">begin</span>(), iter2 = vec.<span class="hljs-built_in">end</span>();
-[<span class="hljs-built_in">begin</span>,<span class="hljs-built_in">end</span>)
-</code></pre>
+<h2 id="Container-Operations">Container Operations</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305241635831.png" alt="image-20230524163541746"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; vec;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator iter1 = vec.<span class="built_in">begin</span>(), iter2 = vec.<span class="built_in">end</span>();</span><br><span class="line">[begin,end)</span><br></pre></td></tr></table></figure>
 <p>定义和初始化容器</p>
 <table>
 <thead>
@@ -855,23 +666,22 @@ Done:
 </tr>
 </tbody>
 </table>
-<h2 id="container-adaptors"><a class="markdownIt-Anchor" href="#container-adaptors"></a> Container Adaptors</h2>
+<h2 id="Container-Adaptors">Container Adaptors</h2>
 <blockquote>
 <p>容器适配器</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png" alt="image-20230523175546695" /></p>
-<h3 id="stack"><a class="markdownIt-Anchor" href="#stack"></a> stack</h3>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310" /></p>
-<h3 id="queue"><a class="markdownIt-Anchor" href="#queue"></a> queue</h3>
-<h3 id="priority_queue"><a class="markdownIt-Anchor" href="#priority_queue"></a> priority_queue</h3>
-<pre class="highlight"><code class="">template &lt;class T, class Container = vector&lt;T&gt;,  class Compare = less&lt;typename Container::value_type&gt; &gt; class priority_queue;
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231755730.png" alt="image-20230523175546695"></p>
+<h3 id="stack">stack</h3>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202305231753373.png" alt="image-20230523175309310"></p>
+<h3 id="queue">queue</h3>
+<h3 id="priority-queue">priority_queue</h3>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> <span class="title class_">T</span>, <span class="keyword">class</span> <span class="title class_">Container</span> = vector&lt;T&gt;,  <span class="keyword">class</span> Compare = less&lt;<span class="keyword">typename</span> Container::value_type&gt; &gt; <span class="keyword">class</span> priority_queue;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>Compare:</p>
 <p>comp(a,b)，如果a应该出现在b前面，返回true，弹出的元素是根据<em>strict weak ordering</em>的最后一个元素</p>
-<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br />
-The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br />
-The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br />
+<p>A binary predicate that takes two elements (of type T) as arguments and returns a <code>bool</code>.<br>
+The expression <code>comp(a,b)</code>, where comp is an object of this type and a and b are elements in the container, shall return <code>true</code> if a is considered to go before b in the <em>strict weak ordering</em> the function defines.<br>
+The priority_queue uses this function to maintain the elements sorted in a way that preserves <em>heap properties</em> (i.e., that the element popped is the last according to this <em>strict weak ordering</em>).<br>
 This can be a function pointer or a function object, and defaults to <code>less&lt;T&gt;</code>, which returns the same as applying the <em>less-than operator</em> (<code>a&lt;b</code>).</p>
 </blockquote>
 
@@ -931,13 +741,6 @@ This can be a function pointer or a function object, and defaults to <code>less&
 
       <time title="创建时间：2023-05-16 23:30:26" itemprop="dateCreated datePublished" datetime="2023-05-16T23:30:26+08:00">2023-05-16</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-20 10:27:07" itemprop="dateModified" datetime="2023-09-20T10:27:07+08:00">2023-09-20</time>
-    </span>
 
   
 </div>
@@ -949,23 +752,23 @@ This can be a function pointer or a function object, and defaults to <code>less&
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="set"><a class="markdownIt-Anchor" href="#set"></a> set</h1>
-<h2 id="multiset"><a class="markdownIt-Anchor" href="#multiset"></a> multiset</h2>
+          <h1>set</h1>
+<h2 id="multiset">multiset</h2>
 <p><a href="https://blog.csdn.net/sodacoco/article/details/84798621">(41条消息) multiset用法总结_二喵君的博客-CSDN博客</a></p>
-<h2 id="常用函数总结"><a class="markdownIt-Anchor" href="#常用函数总结"></a> 常用函数总结：</h2>
+<h2 id="常用函数总结：">常用函数总结：</h2>
 <p><strong>构造、拷贝、析构</strong></p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p><em>set</em>&nbsp;c</p></td><td><p>产生一个空的set/multiset，不含任何元素</p></td></tr><tr><td><p>set c(op)</p></td><td><p>以op为排序准则，产生一个空的set/multiset</p></td></tr><tr><td><p>set c1(c2)</p></td><td><p>产生某个set/multiset的副本，所有元素都被拷贝</p></td></tr><tr><td><p>set c(beg,end)</p></td><td><p>以区间[beg,end)内的所有元素产生一个set/multiset</p></td></tr><tr><td><p>set c(beg,end, op)</p></td><td><p>以op为排序准则，区间[beg,end)内的元素产生一个set/multiset</p></td></tr><tr><td><p>c.~set()</p></td><td><p>销毁所有元素，释放内存</p></td></tr><tr><td><p>set&lt;Elem&gt;</p></td><td><p>产生一个set，以(operator &lt;)为排序准则</p></td></tr><tr><td><p>set&lt;Elem,0p&gt;</p></td><td><p>产生一个set，以op为排序准则</p></td></tr></tbody></table>
-<h3 id="非变动性操作"><a class="markdownIt-Anchor" href="#非变动性操作"></a> <strong>非变动性操作</strong></h3>
+<h3 id="非变动性操作"><strong>非变动性操作</strong></h3>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.size()</p></td><td><p>返回当前的元素数量</p></td></tr><tr><td><p>c.empty ()</p></td><td><p>判断大小是否为零，等同于0 == size()，效率更高</p></td></tr><tr><td><p>c.max_size()</p></td><td><p>返回能容纳的元素最大数量</p></td></tr><tr><td><p>c1 == c2</p></td><td><p>判断c1是否等于c2</p></td></tr><tr><td><p>c1 != c2</p></td><td><p>判断c1是否不等于c2(等同于!(c1==c2))</p></td></tr><tr><td><p>c1 &lt; c2</p></td><td><p>判断c1是否小于c2</p></td></tr><tr><td><p>c1 &gt; c2</p></td><td><p>判断c1是否大于c2</p></td></tr><tr><td><p>c1 &lt;= c2</p></td><td><p>判断c1是否小于等于c2(等同于!(c2&lt;c1))</p></td></tr><tr><td><p>c1 &gt;= c2</p></td><td><p>判断c1是否大于等于c2 (等同于!(c1&lt;c2))</p></td></tr></tbody></table>
-<h3 id="特殊的搜寻函数"><a class="markdownIt-Anchor" href="#特殊的搜寻函数"></a> <strong>特殊的搜寻函数</strong></h3>
+<h3 id="特殊的搜寻函数"><strong>特殊的搜寻函数</strong></h3>
 <p>sets和multisets在元素快速搜寻方面做了优化设计，提供了特殊的搜寻函数，所以应优先使用这些搜寻函数，可获得对数复杂度，而非STL的线性复杂度。比如在1000个元素搜寻，对数复杂度平均十次，而线性复杂度平均需要500次。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>count (elem)</p></td><td><p>返回元素值为elem的个数</p></td></tr><tr><td><p>find(elem)</p></td><td><p>返回元素值为elem的第一个元素，如果没有返回end()</p></td></tr><tr><td><p>lower _bound(elem)</p></td><td><p>返回元素值为elem的第一个可安插位置，也就是元素值 &gt;= elem的第一个元素位置</p></td></tr><tr><td><p>upper _bound (elem)</p></td><td><p>返回元素值为elem的最后一个可安插位置，也就是元素值 &gt; elem 的第一个元素位置</p></td></tr><tr><td><p>equal_range (elem)</p></td><td><p>返回elem可安插的第一个位置和最后一个位置，也就是元素值==elem的区间</p></td></tr></tbody></table>
-<h3 id="赋值"><a class="markdownIt-Anchor" href="#赋值"></a> <strong>赋值</strong></h3>
+<h3 id="赋值"><strong>赋值</strong></h3>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c1 = c2</p></td><td><p>将c2的元素全部给c1</p></td></tr><tr><td><p>c1.swap(c2)</p></td><td><p>将c1和c2 的元素互换</p></td></tr><tr><td><p>swap(c1,c2)</p></td><td><p>同上，全局函数</p></td></tr></tbody></table>
-<h3 id="迭代器相关函数"><a class="markdownIt-Anchor" href="#迭代器相关函数"></a> <strong>迭代器相关函数</strong></h3>
+<h3 id="迭代器相关函数"><strong>迭代器相关函数</strong></h3>
 <p>sets和multisets的迭代器是双向迭代器，对迭代器操作而言，所有的元素都被视为常数，可以确保你不会人为改变元素值，从而打乱既定顺序，所以无法调用变动性算法，如remove()。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.begin()</p></td><td><p>返回一个随机存取迭代器，指向第一个元素</p></td></tr><tr><td><p>c.end()</p></td><td><p>返回一个随机存取迭代器，指向最后一个元素的下一个位置</p></td></tr><tr><td><p>c.rbegin()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的第一个元素</p></td></tr><tr><td><p>c.rend()</p></td><td><p>返回一个逆向迭代器，指向逆向迭代的最后一个元素的下一个位置</p></td></tr></tbody></table>
-<h3 id="安插和删除元素"><a class="markdownIt-Anchor" href="#安插和删除元素"></a> 安插和删除元素</h3>
+<h3 id="安插和删除元素">安插和删除元素</h3>
 <p>必须保证参数有效,迭代器必须指向有效位置，序列起点不能位于终点之后，不能从空容器删除元素。</p>
 <table><tbody><tr><td><p><strong>操作</strong></p></td><td><p><strong>效果</strong></p></td></tr><tr><td><p>c.insert(elem)</p></td><td><p>插入一个elem副本，返回新元素位置，无论插入成功与否。</p></td></tr><tr><td><p>c.insert(pos, elem)</p></td><td><p>安插一个elem元素副本，返回新元素位置，pos为收索起点，提升插入速度。</p></td></tr><tr><td><p>c.insert(beg,end)</p></td><td><p>将区间[beg,end)所有的元素安插到c，无返回值。</p></td></tr><tr><td><p>c.erase(elem)</p></td><td><p>删除与elem相等的所有元素，返回被移除的元素个数。</p></td></tr><tr><td><p>c.erase(pos)</p></td><td><p>移除迭代器pos所指位置元素，无返回值。</p></td></tr><tr><td><p>c.erase(beg,end)</p></td><td><p>移除区间[beg,end)所有元素，无返回值。</p></td></tr><tr><td><p>c.clear()</p></td><td><p>移除所有元素，将容器清空</p></td></tr></tbody></table>
 
@@ -1025,13 +828,6 @@ This can be a function pointer or a function object, and defaults to <code>less&
 
       <time title="创建时间：2023-05-09 21:16:57" itemprop="dateCreated datePublished" datetime="2023-05-09T21:16:57+08:00">2023-05-09</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-08 16:10:10" itemprop="dateModified" datetime="2024-03-08T16:10:10+08:00">2024-03-08</time>
-    </span>
 
   
 </div>
@@ -1043,308 +839,76 @@ This can be a function pointer or a function object, and defaults to <code>less&
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="双指针"><a class="markdownIt-Anchor" href="#双指针"></a> 双指针</h1>
-<h1 id="区间指针"><a class="markdownIt-Anchor" href="#区间指针"></a> 区间指针</h1>
-<h2 id="分组循环"><a class="markdownIt-Anchor" href="#分组循环"></a> 分组循环</h2>
+          <h1>双指针</h1>
+<h1>区间指针</h1>
+<h2 id="分组循环">分组循环</h2>
 <blockquote>
 <p>查找符合条件的区间，寻找左右边界</p>
 </blockquote>
-<h4 id="2765-最长交替子序列"><a class="markdownIt-Anchor" href="#2765-最长交替子序列"></a> <a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">alternatingSubarray</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;  
-        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span>
-        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;
-        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">-1</span>;
-        <span class="hljs-keyword">while</span>(i&lt;n<span class="hljs-number">-1</span>)&#123;
-            <span class="hljs-keyword">if</span>(nums[i+<span class="hljs-number">1</span>]-nums[i]!=<span class="hljs-number">1</span>)&#123;
-                i++;
-                <span class="hljs-keyword">continue</span>;
-            &#125;
-            <span class="hljs-keyword">int</span> left=i; <span class="hljs-comment">//记录左端点</span>
-            i++;
-            <span class="hljs-keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="hljs-number">2</span>])
-                i++;
-            ans=<span class="hljs-built_in">max</span>(ans,i-left);
-            i--;        <span class="hljs-comment">//回退到上一个区间最后一个位置</span>
-        &#125;
-        <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="6900-统计完全子数组的数目"><a class="markdownIt-Anchor" href="#6900-统计完全子数组的数目"></a> <a href="https://leetcode.cn/problems/count-complete-subarrays-in-an-array/">6900. 统计完全子数组的数目</a></h4>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">countCompleteSubarrays</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
-        <span class="hljs-function"><span class="hljs-built_in">unordered_set</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">record</span><span class="hljs-params">(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>())</span></span>;
-        <span class="hljs-keyword">int</span> m=record.<span class="hljs-built_in">size</span>();
-        <span class="hljs-built_in">unordered_map</span>&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt; cnt;        <span class="hljs-comment">//记录每个数字出现的个数</span>
-        
-        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,ans=<span class="hljs-number">0</span>,n=nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-comment">//枚举右端点</span>
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> right=<span class="hljs-number">0</span>;right&lt;n;right++)&#123;
-            cnt[nums[right]]++;
-            <span class="hljs-keyword">while</span>(cnt.<span class="hljs-built_in">size</span>()==m)&#123;
-                <span class="hljs-keyword">int</span> x=nums[left++];
-                <span class="hljs-keyword">if</span>(--cnt[x]==<span class="hljs-number">0</span>)
-                    cnt.erase(x);
-            &#125;
-            ans+=left;
-        &#125;
-
-        <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
-<h1 id="快慢指针"><a class="markdownIt-Anchor" href="#快慢指针"></a> 快慢指针</h1>
-<h2 id="floyd判圈"><a class="markdownIt-Anchor" href="#floyd判圈"></a> floyd判圈</h2>
+<h4 id="2765-最长交替子序列"><a href="https://leetcode.cn/problems/longest-alternating-subarray/">2765. 最长交替子序列</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">alternatingSubarray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;  </span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">// 分组循环，外层循环枚举起点，内层循环扩展右侧边界</span></span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;n<span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i<span class="number">+1</span>]-nums[i]!=<span class="number">1</span>)&#123;</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> left=i; <span class="comment">//记录左端点</span></span><br><span class="line">            i++;</span><br><span class="line">            <span class="keyword">while</span>(i&lt;n&amp;&amp;nums[i]==nums[left+(i-left)%<span class="number">2</span>])</span><br><span class="line">                i++;</span><br><span class="line">            ans=<span class="built_in">max</span>(ans,i-left);</span><br><span class="line">            i--;        <span class="comment">//回退到上一个区间最后一个位置</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="6900-统计完全子数组的数目"><a href="https://leetcode.cn/problems/count-complete-subarrays-in-an-array/">6900. 统计完全子数组的数目</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countCompleteSubarrays</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function">unordered_set&lt;<span class="type">int</span>&gt; <span class="title">record</span><span class="params">(nums.begin(),nums.end())</span></span>;</span><br><span class="line">        <span class="type">int</span> m=record.<span class="built_in">size</span>();</span><br><span class="line">        unordered_map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; cnt;        <span class="comment">//记录每个数字出现的个数</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,ans=<span class="number">0</span>,n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="comment">//枚举右端点</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> right=<span class="number">0</span>;right&lt;n;right++)&#123;</span><br><span class="line">            cnt[nums[right]]++;</span><br><span class="line">            <span class="keyword">while</span>(cnt.<span class="built_in">size</span>()==m)&#123;</span><br><span class="line">                <span class="type">int</span> x=nums[left++];</span><br><span class="line">                <span class="keyword">if</span>(--cnt[x]==<span class="number">0</span>)</span><br><span class="line">                    cnt.<span class="built_in">erase</span>(x);</span><br><span class="line">            &#125;</span><br><span class="line">            ans+=left;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1>快慢指针</h1>
+<h2 id="floyd判圈">floyd判圈</h2>
 <p><a href="https://leetcode.cn/problems/palindrome-linked-list/">234. 回文链表</a></p>
 <img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241057961.png" alt="image-20211224105728916" style="zoom: 50%;" />
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241135413.png" alt="image-20211224113536339" /></p>
-<ul>
-<li>
-<p>从链表第一个节点开始</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>r</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">环</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">长</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">，</mi><mi>n</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">圈</mi><mi mathvariant="normal">数</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mn>2</mn><mo stretchy="false">(</mo><mi>a</mi><mo>+</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>=</mo><mo stretchy="false">(</mo><mi>a</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo>+</mo><mi>n</mi><mo>×</mo><mi>r</mi><mo>+</mo><mi>x</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>a</mi><mo>=</mo><mi>n</mi><mo>×</mo><mi>r</mi><mo>−</mo><mi>x</mi><mo>+</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{aligned}
-r为环的长度，n为圈数 \\
-2(a+x-1)=(a-1)+n\times r+x \\
-a=n\times r -x+1
-\end{aligned}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">环</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">长</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">数</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112241135413.png" alt="image-20211224113536339"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>从链表第一个节点开始<br>
+$$<br>
+\begin{aligned}<br>
+r为环的长度，n为圈数 \<br>
+2(a+x-1)=(a-1)+n\times r+x \<br>
+a=n\times r -x+1<br>
+\end{aligned}<br>
+$$</p>
 </li>
-<li>
-<p>从头节点（不存储数据）开始</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable rowspacing="0.24999999999999992em" columnalign="right" columnspacing=""><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>r</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">环</mi><mi mathvariant="normal">的</mi><mi mathvariant="normal">长</mi><mi mathvariant="normal">度</mi><mi mathvariant="normal">，</mi><mi>n</mi><mi mathvariant="normal">为</mi><mi mathvariant="normal">圈</mi><mi mathvariant="normal">数</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mn>2</mn><mo stretchy="false">(</mo><mi>a</mi><mo>+</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mi>a</mi><mo>+</mo><mi>n</mi><mo>×</mo><mi>r</mi><mo>+</mo><mi>x</mi></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>a</mi><mo>=</mo><mi>n</mi><mo>×</mo><mi>r</mi><mo>−</mo><mi>x</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">  \begin{aligned}
-r为环的长度，n为圈数 \\
-2(a+x)=a+n\times r+x \\
-a=n\times r -x
-\end{aligned}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">环</span><span class="mord cjk_fallback">的</span><span class="mord cjk_fallback">长</span><span class="mord cjk_fallback">度</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">为</span><span class="mord cjk_fallback">圈</span><span class="mord cjk_fallback">数</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<li class="lvl-2">
+<p>从头节点（不存储数据）开始<br>
+$$<br>
+\begin{aligned}<br>
+r为环的长度，n为圈数 \<br>
+2(a+x)=a+n\times r+x \<br>
+a=n\times r -x<br>
+\end{aligned}<br>
+$$</p>
 <p>slow，fast初始时指向同一个位置，而终止条件也是指向同一个位置，因此采用do—while循环比较好</p>
 <p>fast遇到null停止，将判断相遇放到循环里</p>
-<pre class="highlight"><code class="java"><span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">detectCycle</span><span class="hljs-params">(ListNode head)</span> </span>&#123;
-        <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span> ) &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-        &#125;
-        ListNode fast = head;
-        ListNode slow = head;
-        <span class="hljs-comment">// 找到相遇点z （对应上图）</span>
-        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>) &#123;
-            <span class="hljs-keyword">if</span>(fast == <span class="hljs-keyword">null</span> || fast.next == <span class="hljs-keyword">null</span>) &#123;
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
-            &#125;
-            fast = fast.next.next;
-            slow = slow.next;
-            <span class="hljs-keyword">if</span> (fast == slow) &#123;
-                <span class="hljs-keyword">break</span>;
-            &#125;
-        &#125;
-        <span class="hljs-comment">// 想到 cycle起点y （对应上图）</span>
-        slow = head;
-        <span class="hljs-keyword">while</span>(fast != slow) &#123;
-            fast = fast.next;
-            slow = slow.next;
-        &#125;
-        <span class="hljs-keyword">return</span> fast;
-        
-    &#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> ListNode <span class="title function_">detectCycle</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span> ) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">fast</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">slow</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="comment">// 找到相遇点z （对应上图）</span></span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span>(fast == <span class="literal">null</span> || fast.next == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            fast = fast.next.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">            <span class="keyword">if</span> (fast == slow) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 想到 cycle起点y （对应上图）</span></span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span>(fast != slow) &#123;</span><br><span class="line">            fast = fast.next;</span><br><span class="line">            slow = slow.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="滑动窗口"><a class="markdownIt-Anchor" href="#滑动窗口"></a> 滑动窗口</h1>
+<h1>滑动窗口</h1>
 <blockquote>
 <p>窗口大小固定</p>
 </blockquote>
 <p>滑动窗口，可以用来解决一些查找满足一定条件的连续区间的性质（长度等）的问题。由于区间连续，因此当区间发生变化时，可以通过旧有的计算结果对搜索空间进行剪枝，这样便减少了重复计算，降低了时间复杂度。往往类似于“请找到满足xx的最x的区间（子串、子数组）的xx”这类问题都可以使用该方法进行解决。</p>
 <p>一般滑动窗口维护两个指针，左指针和右指针。</p>
-<ul>
-<li>当窗口内的元素未达到题目条件时，右指针右移，探索未知的区间来满足条件</li>
-<li>当窗口内的元素达到题目条件时，左指针右移，压缩区间，使窗口尽可能短得满足题目条件</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>当窗口内的元素未达到题目条件时，右指针右移，探索未知的区间来满足条件</p>
+</li>
+<li class="lvl-2">
+<p>当窗口内的元素达到题目条件时，左指针右移，压缩区间，使窗口尽可能短得满足题目条件</p>
+</li>
 </ul>
-<h1 id="首尾指针"><a class="markdownIt-Anchor" href="#首尾指针"></a> 首尾指针</h1>
+<h1>首尾指针</h1>
 <blockquote>
 <p>指针分别指向首位置和尾位置，向中间移动</p>
 </blockquote>
-<h4 id="15-三数之和"><a class="markdownIt-Anchor" href="#15-三数之和"></a> <a href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h4>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">threeSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums)</span> </span>&#123;
-    sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
-    <span class="hljs-keyword">int</span> m, n;
-    <span class="hljs-comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span>
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
-        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>])
-            <span class="hljs-keyword">continue</span>;
-        m = i + <span class="hljs-number">1</span>;
-        n = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
-        <span class="hljs-keyword">for</span> (; m &lt; nums.<span class="hljs-built_in">size</span>(); m++) &#123;
-            <span class="hljs-keyword">if</span> (m &gt; i + <span class="hljs-number">1</span> &amp;&amp; nums[m] == nums[m - <span class="hljs-number">1</span>])
-                <span class="hljs-keyword">continue</span>;
-            <span class="hljs-comment">//寻找第三个元素</span>
-            <span class="hljs-keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="hljs-number">0</span>)
-                n--;
-            <span class="hljs-comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span>
-            <span class="hljs-keyword">if</span> (m == n)
-                <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="hljs-number">0</span>)
-                ans.push_back(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);
-        &#125;
-    &#125;
-    <span class="hljs-keyword">return</span> ans;
-&#125;
-&#125;;
-</code></pre>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">threeSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums)</span> </span>&#123;
-        sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
-
-        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
-
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n<span class="hljs-number">-2</span>;i++)&#123;
-            <span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>])
-                <span class="hljs-keyword">continue</span>;
-            
-            <span class="hljs-keyword">int</span> left=i+<span class="hljs-number">1</span>,right=n<span class="hljs-number">-1</span>;
-            <span class="hljs-keyword">while</span>(left&lt;right)&#123;
-                <span class="hljs-keyword">while</span>(left&lt;right&amp;&amp;left&gt;i+<span class="hljs-number">1</span>&amp;&amp;nums[left]==nums[left<span class="hljs-number">-1</span>])
-                    left++;
-                <span class="hljs-keyword">if</span>(left==right)
-                    <span class="hljs-keyword">break</span>;
-                
-                <span class="hljs-keyword">int</span> sum=nums[i]+nums[left]+nums[right];
-                <span class="hljs-keyword">if</span>(sum&lt;<span class="hljs-number">0</span>)
-                    left++;
-                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sum&gt;<span class="hljs-number">0</span>)
-                    right--;
-                <span class="hljs-keyword">else</span>&#123;
-                    ans.push_back(&#123;nums[i],nums[left],nums[right]&#125;);
-                    left++;
-                    right--;
-                &#125;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="16-最接近的三数之和"><a class="markdownIt-Anchor" href="#16-最接近的三数之和"></a> <a href="https://leetcode.cn/problems/3sum-closest/">16. 最接近的三数之和</a></h4>
+<h4 id="15-三数之和"><a href="https://leetcode.cn/problems/3sum/">15. 三数之和</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt; &amp;nums) &#123;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    <span class="type">int</span> m, n;</span><br><span class="line">    <span class="comment">//考虑空数组情况，这里i&lt;nums.size()-2为实际范围，这样写不用判断数组大小是否符合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        m = i + <span class="number">1</span>;</span><br><span class="line">        n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; m &lt; nums.<span class="built_in">size</span>(); m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (m &gt; i + <span class="number">1</span> &amp;&amp; nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="comment">//寻找第三个元素</span></span><br><span class="line">            <span class="keyword">while</span> (m &lt; n &amp;&amp; nums[i] + nums[m] + nums[n] &gt; <span class="number">0</span>)</span><br><span class="line">                n--;</span><br><span class="line">            <span class="comment">//比较巧妙的情况，当m==n时，说明三个数相加还是大于0的，因为已经排好序，继续向后寻找第二个数还是会大于0</span></span><br><span class="line">            <span class="keyword">if</span> (m == n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] + nums[m] + nums[n] == <span class="number">0</span>)</span><br><span class="line">                ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[m], nums[n]&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">threeSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n<span class="number">-2</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="type">int</span> left=i<span class="number">+1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="keyword">while</span>(left&lt;right&amp;&amp;left&gt;i<span class="number">+1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">if</span>(left==right)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                </span><br><span class="line">                <span class="type">int</span> sum=nums[i]+nums[left]+nums[right];</span><br><span class="line">                <span class="keyword">if</span>(sum&lt;<span class="number">0</span>)</span><br><span class="line">                    left++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(sum&gt;<span class="number">0</span>)</span><br><span class="line">                    right--;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[left],nums[right]&#125;);</span><br><span class="line">                    left++;</span><br><span class="line">                    right--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="16-最接近的三数之和"><a href="https://leetcode.cn/problems/3sum-closest/">16. 最接近的三数之和</a></h4>
 <blockquote>
 <p>使用while循环和标记跳过重复元素</p>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">threeSumClosest</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());
-        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-keyword">int</span> ans = nums[<span class="hljs-number">0</span>] + nums[<span class="hljs-number">1</span>] + nums[<span class="hljs-number">2</span>];
-
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;
-            <span class="hljs-comment">// 跳过相同元素</span>
-            <span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>])
-                <span class="hljs-keyword">continue</span>;
-
-            <span class="hljs-keyword">int</span> left = i + <span class="hljs-number">1</span>, right = n - <span class="hljs-number">1</span>;
-            <span class="hljs-keyword">while</span>(left&lt;right)&#123;
-                <span class="hljs-keyword">int</span> tmp = nums[i] + nums[left] + nums[right];
-                <span class="hljs-keyword">if</span>(tmp==target) <span class="hljs-keyword">return</span> target;
-
-                <span class="hljs-keyword">if</span>(<span class="hljs-built_in">abs</span>(target-tmp)&lt;<span class="hljs-built_in">abs</span>(target-ans)) ans=tmp;
-
-                <span class="hljs-keyword">if</span>(tmp&lt;target)&#123;
-                    <span class="hljs-keyword">int</span> j=left+<span class="hljs-number">1</span>;
-                    <span class="hljs-keyword">while</span>(j&lt;right&amp;&amp;nums[j]==nums[left])
-                        j++;
-                    left=j;
-                &#125;<span class="hljs-keyword">else</span>&#123;
-                    <span class="hljs-keyword">int</span> k=right<span class="hljs-number">-1</span>;
-                    <span class="hljs-keyword">while</span>(left&lt;k&amp;&amp;nums[k]==nums[right])
-                        k--;
-                    right=k; 
-                &#125;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="18-四数之和"><a class="markdownIt-Anchor" href="#18-四数之和"></a> <a href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h4>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
-    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">fourSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>());
-        <span class="hljs-keyword">int</span> n=nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;n;i++)&#123;
-            <span class="hljs-keyword">if</span>(i&gt;<span class="hljs-number">0</span>&amp;&amp;nums[i]==nums[i<span class="hljs-number">-1</span>]) <span class="hljs-keyword">continue</span>;
-            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=i+<span class="hljs-number">1</span>;j&lt;n;j++)&#123;
-                <span class="hljs-keyword">if</span>(j&gt;i+<span class="hljs-number">1</span>&amp;&amp;nums[j]==nums[j<span class="hljs-number">-1</span>])   <span class="hljs-keyword">continue</span>;
-                <span class="hljs-keyword">long</span> cur=nums[i]+nums[j];
-                <span class="hljs-comment">// 双指针</span>
-                <span class="hljs-keyword">int</span> left=j+<span class="hljs-number">1</span>,right=n<span class="hljs-number">-1</span>;
-                <span class="hljs-keyword">for</span>(;left&lt;n;left++)&#123;
-                    <span class="hljs-keyword">if</span>(left&gt;j+<span class="hljs-number">1</span>&amp;&amp;nums[left]==nums[left<span class="hljs-number">-1</span>])
-                        <span class="hljs-keyword">continue</span>;
-                    <span class="hljs-keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)
-                        right--;
-                    <span class="hljs-keyword">if</span>(left==right)
-                        <span class="hljs-keyword">break</span>;
-                    <span class="hljs-keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;
-                        ans.push_back(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);
-                    &#125;
-                &#125;
-
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">threeSumClosest</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> ans = nums[<span class="number">0</span>] + nums[<span class="number">1</span>] + nums[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="comment">// 跳过相同元素</span></span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">int</span> left = i + <span class="number">1</span>, right = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">                <span class="type">int</span> tmp = nums[i] + nums[left] + nums[right];</span><br><span class="line">                <span class="keyword">if</span>(tmp==target) <span class="keyword">return</span> target;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">abs</span>(target-tmp)&lt;<span class="built_in">abs</span>(target-ans)) ans=tmp;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span>(tmp&lt;target)&#123;</span><br><span class="line">                    <span class="type">int</span> j=left<span class="number">+1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(j&lt;right&amp;&amp;nums[j]==nums[left])</span><br><span class="line">                        j++;</span><br><span class="line">                    left=j;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="type">int</span> k=right<span class="number">-1</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;k&amp;&amp;nums[k]==nums[right])</span><br><span class="line">                        k--;</span><br><span class="line">                    right=k; </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="18-四数之和"><a href="https://leetcode.cn/problems/4sum/">18. 四数之和</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>());</span><br><span class="line">        <span class="type">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(i&gt;<span class="number">0</span>&amp;&amp;nums[i]==nums[i<span class="number">-1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i<span class="number">+1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(j&gt;i<span class="number">+1</span>&amp;&amp;nums[j]==nums[j<span class="number">-1</span>])   <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">long</span> cur=nums[i]+nums[j];</span><br><span class="line">                <span class="comment">// 双指针</span></span><br><span class="line">                <span class="type">int</span> left=j<span class="number">+1</span>,right=n<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">for</span>(;left&lt;n;left++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(left&gt;j<span class="number">+1</span>&amp;&amp;nums[left]==nums[left<span class="number">-1</span>])</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">while</span>(left&lt;right&amp;&amp;cur+nums[left]+nums[right]&gt;target)</span><br><span class="line">                        right--;</span><br><span class="line">                    <span class="keyword">if</span>(left==right)</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">if</span>(cur+nums[left]+nums[right]==target)&#123;</span><br><span class="line">                        ans.<span class="built_in">push_back</span>(&#123;nums[i],nums[j],nums[left],nums[right]&#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>方法二</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; <span class="hljs-title">fourSum</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; ans;
-
-    <span class="hljs-keyword">if</span> (nums.<span class="hljs-built_in">size</span>() &lt; <span class="hljs-number">4</span>)
-        <span class="hljs-keyword">return</span> ans;
-    sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>());
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++)
-    &#123;
-        <span class="hljs-comment">//跳过相同的数</span>
-        <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; nums[i] == nums[i - <span class="hljs-number">1</span>])
-            <span class="hljs-keyword">continue</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = i + <span class="hljs-number">1</span>; j &lt; nums.<span class="hljs-built_in">size</span>(); j++)
-        &#123;
-            <span class="hljs-keyword">if</span> (j &gt; i + <span class="hljs-number">1</span> &amp;&amp; nums[j] == nums[j - <span class="hljs-number">1</span>])
-                <span class="hljs-keyword">continue</span>;
-            <span class="hljs-keyword">long</span> partSum = nums[i] + nums[j];
-            <span class="hljs-keyword">int</span> m = j + <span class="hljs-number">1</span>, n = nums.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
-            <span class="hljs-keyword">while</span> (m &lt; n)
-            &#123;
-                <span class="hljs-keyword">if</span> (partSum + nums[m] + nums[n] &lt; target)
-                    m++;
-                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (partSum + nums[m] + nums[n] &gt; target)
-                    n--;
-                <span class="hljs-keyword">else</span>
-                &#123;
-                    ans.push_back(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&#123;nums[i], nums[j], nums[m], nums[n]&#125;);
-                    m++;
-                    <span class="hljs-keyword">while</span> (m&lt;n&amp;&amp;nums[m] == nums[m - <span class="hljs-number">1</span>])
-                        m++;
-                    n--;
-                    <span class="hljs-keyword">while</span> (m&lt;n&amp;&amp;nums[n] == nums[n + <span class="hljs-number">1</span>])
-                        n--;
-                &#125;
-            &#125;
-        &#125;
-    &#125;
-    <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">fourSum</span>(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target) &#123;</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; ans;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (nums.<span class="built_in">size</span>() &lt; <span class="number">4</span>)</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    <span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//跳过相同的数</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>])</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">long</span> partSum = nums[i] + nums[j];</span><br><span class="line">            <span class="type">int</span> m = j + <span class="number">1</span>, n = nums.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (m &lt; n)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (partSum + nums[m] + nums[n] &lt; target)</span><br><span class="line">                    m++;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (partSum + nums[m] + nums[n] &gt; target)</span><br><span class="line">                    n--;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    ans.<span class="built_in">push_back</span>(vector&lt;<span class="type">int</span>&gt;&#123;nums[i], nums[j], nums[m], nums[n]&#125;);</span><br><span class="line">                    m++;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[m] == nums[m - <span class="number">1</span>])</span><br><span class="line">                        m++;</span><br><span class="line">                    n--;</span><br><span class="line">                    <span class="keyword">while</span> (m&lt;n&amp;&amp;nums[n] == nums[n + <span class="number">1</span>])</span><br><span class="line">                        n--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
 <p><a href="https://leetcode.cn/problems/max-number-of-k-sum-pairs/">1679. K 和数对的最大数目</a>（哈希表）</p>
 
@@ -1406,13 +970,6 @@ a=n\times r -x
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:14:14" itemprop="dateModified" datetime="2024-03-02T21:14:14+08:00">2024-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1431,23 +988,8 @@ a=n\times r -x
     
     
     <div class="post-body" itemprop="articleBody">
-          <pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">char</span> c = <span class="hljs-string">'\0'</span>;
-    <span class="hljs-keyword">if</span> (c)
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"afa"</span>);
-    <span class="hljs-keyword">int</span> x = <span class="hljs-number">1</span>, y = <span class="hljs-number">10</span>;
-    <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> *p2 = &amp;x;
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, *p2);
-    x = <span class="hljs-number">2</span>;
-    <span class="hljs-comment">//*p2 = 3; //常量指针，指向常量的指针，*p2是一个常量，不能修改</span>
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, *p2);
-    <span class="hljs-keyword">int</span> *<span class="hljs-keyword">const</span> p3 = &amp;x;
-    <span class="hljs-comment">// p3 = &amp;y;  //指针常量</span>
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/image-20210406115550244.png" alt="image-20210406115550244" /></p>
+          <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">char</span> c = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;afa&quot;</span>);</span><br><span class="line">    <span class="type">int</span> x = <span class="number">1</span>, y = <span class="number">10</span>;</span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> *p2 = &amp;x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, *p2);</span><br><span class="line">    x = <span class="number">2</span>;</span><br><span class="line">    <span class="comment">//*p2 = 3; //常量指针，指向常量的指针，*p2是一个常量，不能修改</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, *p2);</span><br><span class="line">    <span class="type">int</span> *<span class="type">const</span> p3 = &amp;x;</span><br><span class="line">    <span class="comment">// p3 = &amp;y;  //指针常量</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/image-20210406115550244.png" alt="image-20210406115550244"></p>
 
       
     </div>
@@ -1507,13 +1049,6 @@ a=n\times r -x
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:14:35" itemprop="dateModified" datetime="2024-03-02T21:14:35+08:00">2024-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1533,7 +1068,7 @@ a=n\times r -x
     
     <div class="post-body" itemprop="articleBody">
           <p>sequence</p>
-<h1 id="列表lists"><a class="markdownIt-Anchor" href="#列表lists"></a> 列表(lists)</h1>
+<h1>列表(lists)</h1>
 <blockquote>
 <p>[1,2,3]</p>
 <p>odds=[3,5,7,9,11]</p>
@@ -1544,24 +1079,24 @@ a=n\times r -x
 <p>sum([1,2,3])=6</p>
 <p>sum([[1,2],[3]],[])=[1,2,3]</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112018499.png" alt="image-20230911201852400" /></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112019380.png" alt="image-20230911201922327" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112018499.png" alt="image-20230911201852400"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309112019380.png" alt="image-20230911201922327"></p>
 <ol>
-<li>函数参数加*号，代表将多个参数组装成列表</li>
-<li>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</li>
+<li class="lvl-3">
+<p>函数参数加*号，代表将多个参数组装成列表</p>
+</li>
+<li class="lvl-3">
+<p>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</p>
+</li>
 </ol>
-<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x,y)</span>:</span>
-    <span class="hljs-keyword">return</span> x+y
-ls=[<span class="hljs-number">10</span>,<span class="hljs-number">12</span>]
-add(*ls)
-</code></pre>
-<h2 id="range"><a class="markdownIt-Anchor" href="#range"></a> range</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">ls=[<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">add(*ls)</span><br></pre></td></tr></table></figure>
+<h2 id="range">range</h2>
 <p>tuple</p>
 <blockquote>
 <p>immutable sequences</p>
 </blockquote>
 <p>Lecture18</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309131030411.png" alt="image-20230913103055254" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309131030411.png" alt="image-20230913103055254"></p>
 
       
     </div>
@@ -1621,13 +1156,6 @@ add(*ls)
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-13 21:34:56" itemprop="dateModified" datetime="2023-11-13T21:34:56+08:00">2023-11-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1646,70 +1174,33 @@ add(*ls)
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="stdioh"><a class="markdownIt-Anchor" href="#stdioh"></a> &lt;stdio.h&gt;</h1>
-<ul>
-<li>
+          <h1>&lt;stdio.h&gt;</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p>scanf</p>
 <blockquote>
 <p>读取空格、换行符</p>
 </blockquote>
-<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> a;
-    <span class="hljs-keyword">char</span> c;
-    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%d"</span>, &amp;a);
-    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%c"</span>, &amp;c);
-    <span class="hljs-keyword">if</span> (c == <span class="hljs-string">'\n'</span>)
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"****\n"</span>);
-    <span class="hljs-keyword">if</span> (c == <span class="hljs-string">' '</span>)
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"^^^^\n"</span>);
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d %c\n"</span>, a, c);
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133356.png" alt="image-20210406120658645" /></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133436.png" alt="image-20210406120721087" /></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>, &amp;c);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;****\n&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;^^^^\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %c\n&quot;</span>, a, c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133356.png" alt="image-20210406120658645"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202204191133436.png" alt="image-20210406120721087"></p>
 </li>
-<li></li>
+<li class="lvl-2">
+</li>
 </ul>
-<h1 id="数组"><a class="markdownIt-Anchor" href="#数组"></a> 数组</h1>
-<h2 id="1-初始化"><a class="markdownIt-Anchor" href="#1-初始化"></a> 1. 初始化</h2>
+<h1>数组</h1>
+<h2 id="1-初始化">1. 初始化</h2>
 <blockquote>
 <p>int a[10];	声明，未初始化</p>
 <p>int a[10]={0};  //全部初始化为0</p>
 <p>int a[10]={1};	//第一个元素为1，后面初始化为0</p>
 </blockquote>
-<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> a[<span class="hljs-number">10</span>], b[<span class="hljs-number">10</span>] = &#123;<span class="hljs-number">0</span>&#125;, c[<span class="hljs-number">10</span>] = &#123;<span class="hljs-number">1</span>&#125;;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">sizeof</span>(a) / <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>); ++i)
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, a[i]);
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">sizeof</span>(b) / <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>); ++i)
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, b[i]);
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
-
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">sizeof</span>(c) / <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>); ++i)
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d "</span>, c[i]);
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"\n"</span>);
-    system(<span class="hljs-string">"pause"</span>);
-&#125;
-</code></pre>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210411175728807.png" alt="image-20210411175728807" /></p>
-<h1 id="表达式"><a class="markdownIt-Anchor" href="#表达式"></a> 表达式</h1>
-<h2 id="1-赋值表达式"><a class="markdownIt-Anchor" href="#1-赋值表达式"></a> 1. 赋值表达式</h2>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">10</span>], b[<span class="number">10</span>] = &#123;<span class="number">0</span>&#125;, c[<span class="number">10</span>] = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(a) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(b) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, b[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(c) / <span class="keyword">sizeof</span>(<span class="type">int</span>); ++i)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, c[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/image-20210411175728807.png" alt="image-20210411175728807"></p>
+<h1>表达式</h1>
+<h2 id="1-赋值表达式">1. 赋值表达式</h2>
 <p>结果输出10</p>
-<pre class="highlight"><code class="c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;windows.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-keyword">int</span> a, b, c;
-    c = <span class="hljs-number">10</span>;
-    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, a = b = c);
-    system(<span class="hljs-string">"pause"</span>);
-&#125;
-</code></pre>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    c = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, a = b = c);</span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1729,7 +1220,7 @@ add(*ls)
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1738,51 +1229,42 @@ add(*ls)
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

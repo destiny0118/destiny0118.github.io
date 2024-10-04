@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="原理">
 <meta property="og:type" content="article">
@@ -53,9 +55,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -69,10 +68,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -87,20 +89,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -116,16 +155,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-clh"><span class="nav-number">1.</span> <span class="nav-text"> 1 CLH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-java%E4%B8%AD%E7%9A%84cas"><span class="nav-number">2.</span> <span class="nav-text"> 2 Java中的CAS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-aqs%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text"> 3 AQS原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E5%86%85%E9%83%A8%E7%B1%BBnode"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 内部类Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#311-waitstatus%E7%AD%89%E5%BE%85%E7%8A%B6%E6%80%81"><span class="nav-number">3.1.1.</span> <span class="nav-text"> 3.1.1 waitStatus等待状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 条件变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-aqs%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text"> 4 AQS实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text"> 5 同步工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#51-semaphore%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-number">5.1.</span> <span class="nav-text"> 5.1 Semaphore(信号量)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#52-countdownlatch%E5%80%92%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-number">5.2.</span> <span class="nav-text"> 5.2 CountDownLatch(倒计时器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#53-cyclicbarrier%E5%BE%AA%E7%8E%AF%E6%A0%85%E6%A0%8F"><span class="nav-number">5.3.</span> <span class="nav-text"> 5.3 CyclicBarrier(循环栅栏)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 CLH</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 Java中的CAS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 AQS原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%86%85%E9%83%A8%E7%B1%BBNode"><span class="nav-text">3.1 内部类Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-waitStatus%E7%AD%89%E5%BE%85%E7%8A%B6%E6%80%81"><span class="nav-text">3.1.1 waitStatus等待状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E6%9D%A1%E4%BB%B6%E5%8F%98%E9%87%8F"><span class="nav-text">3.2 条件变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 AQS实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 同步工具类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-Semaphore-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="nav-text">5.1 Semaphore(信号量)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-CountDownLatch-%E5%80%92%E8%AE%A1%E6%97%B6%E5%99%A8"><span class="nav-text">5.2 CountDownLatch(倒计时器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-CyclicBarrier-%E5%BE%AA%E7%8E%AF%E6%A0%85%E6%A0%8F"><span class="nav-text">5.3 CyclicBarrier(循环栅栏)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -145,16 +184,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -185,7 +249,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java并发(3)：AQS
+          Java并发(3)：AQS<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(3)%EF%BC%9AAQS.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -197,13 +261,6 @@
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2024-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-15T00:00:00+08:00">2024-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-18 10:12:43" itemprop="dateModified" datetime="2024-09-18T10:12:43+08:00">2024-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -225,17 +282,15 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>AQS 的全称为 <code>AbstractQueuedSynchronizer</code> ，抽象队列同步器。</p>
+    <div class="post-body" itemprop="articleBody">
+        <p>AQS 的全称为 <code>AbstractQueuedSynchronizer</code> ，抽象队列同步器。</p>
 <p>AQS 就是一个抽象类，主要用来构建锁和同步器。</p>
-<pre class="highlight"><code class="">public abstract class AbstractQueuedSynchronizer extends AbstractOwnableSynchronizer implements java.io.Serializable &#123;
-&#125;
-</code></pre>
+<figure class="highlight scala"><table><tr><td class="code"><pre><span class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractQueuedSynchronizer</span> <span class="keyword">extends</span> <span class="title">AbstractOwnableSynchronizer</span> <span class="title">implements</span> <span class="title">java</span>.<span class="title">io</span>.<span class="title">Serializable</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>AQS 为构建锁和同步器提供了一些通用功能的实现</strong>，因此，使用 AQS 能简单且高效地构造出应用广泛的大量的同步器，比如我们提到的 <code>ReentrantLock</code>，<code>Semaphore</code>，其他的诸如 <code>ReentrantReadWriteLock</code>，<code>SynchronousQueue</code>等等皆是基于 AQS 的。</p>
-<p>AbstractQueuedSynchronizer是个抽象类，所有用到方法的类都要继承此类的若干方法，对应的设计模式就是模版模式。<br />
-模版模式定义：一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</p>
+<p>AbstractQueuedSynchronizer是个抽象类，所有用到方法的类都要继承此类的若干方法，对应的设计模式就是模版模式。模版模式定义：一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。</p>
 <p>为实现阻塞锁和相关的同步器提供一个框架，是一个抽象类的队列式同步器</p>
-<h1 id="1-clh"><a class="markdownIt-Anchor" href="#1-clh"></a> 1 CLH</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406101010308.png" alt="image.png" /></p>
+<h1>1 CLH</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406101010308.png" alt="image.png"></p>
 <p>CLH队列，全称Craig-Landin-Hagersten队列，是一种基于链表结构的自旋锁等待队列。它由一系列节点组成，每个节点代表一个等待锁的线程。这些节点按照FIFO（先进先出）的原则组织在一起，形成一个双向队列。</p>
 <p>在CLH队列中，每个节点都包含一个指向前驱节点的引用和一个指向后继节点的引用。此外，每个节点还维护一个表示锁状态的标志位。当一个线程需要获取锁时，它会检查前驱节点的锁状态。如果前驱节点持有锁，当前线程就会进入自旋等待状态，不断检查前驱节点的锁状态，直到前驱节点释放锁为止。一旦前驱节点释放锁，当前线程就可以获取锁并执行相应的操作。</p>
 <p><strong>自旋锁</strong>没有抢到锁的线程会一直自旋等待锁的释放，处于<strong>busy-waiting</strong>的状态，此时等待锁的线程不会进入休眠状态，而是一直忙等待浪费CPU周期。<strong>因此自旋锁适用于锁占用时间短的场合。</strong></p>
@@ -243,160 +298,126 @@
 <p><strong>CLH锁</strong>其实就是一种是基于逻辑队列非线程饥饿的一种自旋公平锁，由于是 Craig、Landin 和 Hagersten三位发明，因此命名为CLH锁。</p>
 <p><strong>CLH锁原理如下：</strong></p>
 <ol>
-<li>首先有一个尾节点指针，通过这个尾结点指针来构建等待线程的逻辑队列，因此能确保线程线程先到先服务的公平性，因此尾指针可以说是构建逻辑队列的桥梁；此外这个尾节点指针是原子引用类型，避免了多线程并发操作的线程安全性问题；</li>
-<li>通过等待锁的每个线程在自己的某个变量上自旋等待，这个变量将由前一个线程写入。由于某个线程获取锁操作时总是通过尾节点指针获取到前一线程写入的变量，而尾节点指针又是原子引用类型，因此确保了这个变量获取出来总是线程安全的。</li>
+<li class="lvl-3">
+<p>首先有一个尾节点指针，通过这个尾结点指针来构建等待线程的逻辑队列，因此能确保线程线程先到先服务的公平性，因此尾指针可以说是构建逻辑队列的桥梁；此外这个尾节点指针是原子引用类型，避免了多线程并发操作的线程安全性问题；</p>
+</li>
+<li class="lvl-3">
+<p>通过等待锁的每个线程在自己的某个变量上自旋等待，这个变量将由前一个线程写入。由于某个线程获取锁操作时总是通过尾节点指针获取到前一线程写入的变量，而尾节点指针又是原子引用类型，因此确保了这个变量获取出来总是线程安全的。</p>
+</li>
 </ol>
-<p><a href="https://gaoyeming.github.io/2020/05/27/CLH.html">CLH原理解析 - 我爱2B哥の博客 (gaoyeming.github.io)</a><br />
-<a href="https://zhuanlan.zhihu.com/p/210274794">AQS基础——多图详解CLH锁的原理与实现 - 知乎 (zhihu.com)</a><br />
-<a href="https://blog.csdn.net/u012808915/article/details/135965756">深入解析CLH队列：原理、应用与优势-CSDN博客</a><br />
-<a href="https://blog.csdn.net/claram/article/details/83828768">算法：CLH锁的原理及实现_clh算法-CSDN博客</a></p>
-<h1 id="2-java中的cas"><a class="markdownIt-Anchor" href="#2-java中的cas"></a> 2 Java中的CAS</h1>
-<p>compare and swap的缩写，中文翻译成比较并交换,实现并发算法时常用到的一种技术。它包含三个操作数——内存位置、预期原值及更新值。<br />
-执行CAS操作的时候，将内存位置的值与预期原值比较：如果相匹配，那么处理器会自动将该位置值更新为新值，如果不匹配，处理器不做任何操作，多个线程同时执行CAS操作只有一个会成功。</p>
+<p><a href="https://gaoyeming.github.io/2020/05/27/CLH.html">CLH原理解析 - 我爱2B哥の博客 (gaoyeming.github.io)</a><br>
+<a href="https://zhuanlan.zhihu.com/p/210274794">AQS基础——多图详解CLH锁的原理与实现 - 知乎 (zhihu.com)</a><br>
+<a href="https://blog.csdn.net/u012808915/article/details/135965756">深入解析CLH队列：原理、应用与优势-CSDN博客</a><a href="https://blog.csdn.net/claram/article/details/83828768">算法：CLH锁的原理及实现_clh算法-CSDN博客</a></p>
+<h1>2 Java中的CAS</h1>
+<p>compare and swap的缩写，中文翻译成比较并交换,实现并发算法时常用到的一种技术。它包含三个操作数——内存位置、预期原值及更新值。执行CAS操作的时候，将内存位置的值与预期原值比较：如果相匹配，那么处理器会自动将该位置值更新为新值，如果不匹配，处理器不做任何操作，多个线程同时执行CAS操作只有一个会成功。</p>
 <p>CAS （CompareAndSwap） 有3个操作数，位置内存值V，旧的预期值A，要修改的更新值B。当且仅当旧的预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做或重来。</p>
-<ul>
-<li>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p>基本类型原子类 -AtomicLong、AtomicInteger、AtomicBoolean</p>
 </li>
-<li>
+<li class="lvl-2">
 <p>数组类型原子类- AtomicIntegerArray、AtomicLongArray、AtomicReferenceArray</p>
 </li>
-<li>
+<li class="lvl-2">
 <p>引用类型原子类- AtomicReference、AtomicStampedReference、AtomicMarkableReference</p>
 </li>
 </ul>
 <p><a href="https://andyoung.blog.csdn.net/article/details/128951241">源码级别的讲解JAVA 中的CAS_cas源码-CSDN博客</a></p>
-<h1 id="3-aqs原理"><a class="markdownIt-Anchor" href="#3-aqs原理"></a> 3 AQS原理</h1>
+<h1>3 AQS原理</h1>
 <p>CountDownLatch、Semaphore、ReentrantLock、ReentrantReadWriteLock</p>
 <p><strong>AQS 核心思想是，如果被请求的共享资源空闲，则将当前请求资源的线程设置为有效的工作线程，并且将共享资源设置为锁定状态。如果被请求的共享资源被占用，那么就需要一套线程阻塞等待以及被唤醒时锁分配的机制</strong>，这个机制 AQS 是用 <strong>CLH 队列锁</strong> 实现的，即将暂时获取不到锁的线程加入到等待队列中。</p>
 <p>CLH(Craig,Landin,and Hagersten) 队列是一个虚拟的双向队列（虚拟的双向队列即不存在队列实例，仅存在结点之间的关联关系）。AQS 是将每条请求共享资源的线程封装成一个 CLH 锁队列的一个结点（Node）来实现锁的分配。在 CLH 同步队列中，一个节点表示一个线程，它保存着线程的引用（thread）、 当前节点在队列中的状态（waitStatus）、前驱节点（prev）、后继节点（next）。</p>
 <p>AQS 使用 <strong>int 成员变量 <code>state</code> 表示同步状态</strong>，通过内置的 <strong>FIFO 线程等待/等待队列</strong> 来完成获取资源线程的排队工作。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406121504166.png" alt="image.png" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406121504166.png" alt="image.png"></p>
 <p><code>state</code> 变量由 <code>volatile</code> 修饰，用于展示当前临界资源的获锁情况。</p>
-<pre class="highlight"><code class="java"><span class="hljs-comment">// 共享变量，使用volatile修饰保证线程可见性</span>
-<span class="hljs-keyword">private</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">int</span> state;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 共享变量，使用volatile修饰保证线程可见性</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="type">int</span> state;</span><br></pre></td></tr></table></figure>
 <p><strong>状态</strong></p>
-<ul>
-<li><code>getState()</code>：返回同步状态</li>
-<li><code>setState(int newState)</code>：设置同步状态</li>
-<li><code>compareAndSetState(int expect, int update)</code>：使用<code>CAS</code>设置同步状态</li>
-<li><code>isHeldExclusively()</code>：当前线程是否持有资源</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>getState()</code>：返回同步状态</p>
+</li>
+<li class="lvl-2">
+<p><code>setState(int newState)</code>：设置同步状态</p>
+</li>
+<li class="lvl-2">
+<p><code>compareAndSetState(int expect, int update)</code>：使用<code>CAS</code>设置同步状态</p>
+</li>
+<li class="lvl-2">
+<p><code>isHeldExclusively()</code>：当前线程是否持有资源</p>
+</li>
 </ul>
 <p><strong>独占资源（不响应线程中断）</strong></p>
-<ul>
-<li><code>tryAcquire(int arg)</code>：独占式获取资源，子类实现</li>
-<li><code>acquire(int arg)</code>：独占式获取资源模板</li>
-<li><code>tryRelease(int arg)</code>：独占式释放资源，子类实现</li>
-<li><code>release(int arg)</code>：独占式释放资源模板</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>tryAcquire(int arg)</code>：独占式获取资源，子类实现</p>
+</li>
+<li class="lvl-2">
+<p><code>acquire(int arg)</code>：独占式获取资源模板</p>
+</li>
+<li class="lvl-2">
+<p><code>tryRelease(int arg)</code>：独占式释放资源，子类实现</p>
+</li>
+<li class="lvl-2">
+<p><code>release(int arg)</code>：独占式释放资源模板</p>
+</li>
 </ul>
 <p><strong>共享资源（不响应线程中断）</strong></p>
-<ul>
-<li><code>tryAcquireShared(int arg)</code>：共享式获取资源，返回值大于等于0则表示获取成功，否则获取失败，子类实现</li>
-<li><code>acquireShared(int arg)</code>：共享式获取资源模板</li>
-<li><code>tryReleaseShared(int arg)</code>：共享式释放资源，子类实现</li>
-<li><code>releaseShared(int arg)</code>：共享式释放资源模板</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>tryAcquireShared(int arg)</code>：共享式获取资源，返回值大于等于0则表示获取成功，否则获取失败，子类实现</p>
+</li>
+<li class="lvl-2">
+<p><code>acquireShared(int arg)</code>：共享式获取资源模板</p>
+</li>
+<li class="lvl-2">
+<p><code>tryReleaseShared(int arg)</code>：共享式释放资源，子类实现</p>
+</li>
+<li class="lvl-2">
+<p><code>releaseShared(int arg)</code>：共享式释放资源模板</p>
+</li>
 </ul>
-<h2 id="31-内部类node"><a class="markdownIt-Anchor" href="#31-内部类node"></a> 3.1 内部类Node</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405152109388.png" alt="image.png" /></p>
-<h3 id="311-waitstatus等待状态"><a class="markdownIt-Anchor" href="#311-waitstatus等待状态"></a> 3.1.1 waitStatus等待状态</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406101149821.png" alt="image.png" /></p>
-<h2 id="32-条件变量"><a class="markdownIt-Anchor" href="#32-条件变量"></a> 3.2 条件变量</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406101159487.png" alt="image.png" /></p>
+<h2 id="3-1-内部类Node">3.1 内部类Node</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405152109388.png" alt="image.png"></p>
+<h3 id="3-1-1-waitStatus等待状态">3.1.1 waitStatus等待状态</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406101149821.png" alt="image.png"></p>
+<h2 id="3-2-条件变量">3.2 条件变量</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406101159487.png" alt="image.png"></p>
 <p><a href="https://blog.csdn.net/agonie201218/article/details/128150609">谈谈Java多线程离不开的AQS_java中aqs-CSDN博客</a></p>
-<h1 id="4-aqs实现"><a class="markdownIt-Anchor" href="#4-aqs实现"></a> 4 AQS实现</h1>
-<ul>
-<li>tryAcquire</li>
-<li>tryRelease</li>
-<li>tryAcquireShared</li>
-<li>tryReleaseShared</li>
-<li>isHeldExclusively</li>
+<h1>4 AQS实现</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>tryAcquire</p>
+</li>
+<li class="lvl-2">
+<p>tryRelease</p>
+</li>
+<li class="lvl-2">
+<p>tryAcquireShared</p>
+</li>
+<li class="lvl-2">
+<p>tryReleaseShared</p>
+</li>
+<li class="lvl-2">
+<p>isHeldExclusively</p>
+</li>
 </ul>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAQS</span> </span>&#123;
-    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Sync sync = <span class="hljs-keyword">new</span> Sync();
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">lock</span><span class="hljs-params">()</span></span>&#123;
-        sync.acquire(<span class="hljs-number">1</span>);
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">unlock</span><span class="hljs-params">()</span></span>&#123;
-        sync.release(<span class="hljs-number">1</span>);
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isLocked</span><span class="hljs-params">()</span></span>&#123;
-        <span class="hljs-keyword">return</span> sync.isHeldExclusively();
-    &#125;
-
-    <span class="hljs-comment">/**
-     * 静态内部类，继承AQS，重写钩子方法
-     */</span>
-    <span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sync</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractQueuedSynchronizer</span> </span>&#123;
-        <span class="hljs-comment">//独占方式，尝试获取资源</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryAcquire</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>&#123;
-            <span class="hljs-keyword">if</span>(compareAndSetState(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)) &#123;
-                setExclusiveOwnerThread(Thread.currentThread());
-                System.out.println(Thread.currentThread().getName()+<span class="hljs-string">"获取锁成功"</span>);
-                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-            &#125;
-            System.out.println(Thread.currentThread().getName()+<span class="hljs-string">"获取锁失败"</span>);
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;
-        &#125;
-        <span class="hljs-comment">//独占方式，尝试释放资源</span>
-        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">tryRelease</span><span class="hljs-params">(<span class="hljs-keyword">int</span> arg)</span> </span>&#123;
-            <span class="hljs-keyword">if</span>(getState() == <span class="hljs-number">0</span>) &#123;
-                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalMonitorStateException();
-            &#125;
-
-            setExclusiveOwnerThread(<span class="hljs-keyword">null</span>);
-            setState(<span class="hljs-number">0</span>);
-            System.out.println(Thread.currentThread().getName()+<span class="hljs-string">"释放锁成功！"</span>);
-            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;
-        &#125;
-
-        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isHeldExclusively</span><span class="hljs-params">()</span> </span>&#123;
-            <span class="hljs-keyword">return</span> getState() == <span class="hljs-number">1</span>;
-        &#125;
-    &#125;
-&#125;
-
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAQS</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Sync</span> <span class="variable">sync</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sync</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">lock</span><span class="params">()</span>&#123;</span><br><span class="line">        sync.acquire(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">unlock</span><span class="params">()</span>&#123;</span><br><span class="line">        sync.release(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isLocked</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> sync.isHeldExclusively();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 静态内部类，继承AQS，重写钩子方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">class</span> <span class="title class_">Sync</span> <span class="keyword">extends</span> <span class="title class_">AbstractQueuedSynchronizer</span> &#123;</span><br><span class="line">        <span class="comment">//独占方式，尝试获取资源</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">tryAcquire</span><span class="params">(<span class="type">int</span> arg)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(compareAndSetState(<span class="number">0</span>, <span class="number">1</span>)) &#123;</span><br><span class="line">                setExclusiveOwnerThread(Thread.currentThread());</span><br><span class="line">                System.out.println(Thread.currentThread().getName()+<span class="string">&quot;获取锁成功&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;获取锁失败&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//独占方式，尝试释放资源</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">tryRelease</span><span class="params">(<span class="type">int</span> arg)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(getState() == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalMonitorStateException</span>();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            setExclusiveOwnerThread(<span class="literal">null</span>);</span><br><span class="line">            setState(<span class="number">0</span>);</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;释放锁成功！&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">protected</span> <span class="type">boolean</span> <span class="title function_">isHeldExclusively</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> getState() == <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>测试类</p>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAQSTest</span> </span>&#123;
-    <span class="hljs-keyword">private</span> MyAQS myAQS=<span class="hljs-keyword">new</span> MyAQS();
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">use</span><span class="hljs-params">()</span></span>&#123;
-        myAQS.lock();
-        <span class="hljs-keyword">try</span>&#123;
-            Thread.sleep(<span class="hljs-number">1000</span>);
-        &#125;<span class="hljs-keyword">catch</span>(InterruptedException e)&#123;
-            e.printStackTrace();
-        &#125;<span class="hljs-keyword">finally</span> &#123;
-            myAQS.unlock();
-        &#125;
-    &#125;
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
-        MyAQSTest test=<span class="hljs-keyword">new</span> MyAQSTest();
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;<span class="hljs-number">3</span>;i++)&#123;
-            <span class="hljs-keyword">new</span> Thread(()-&gt;&#123;
-                test.use();
-            &#125;).start();
-        &#125;
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyAQSTest</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> MyAQS myAQS=<span class="keyword">new</span> <span class="title class_">MyAQS</span>();</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">use</span><span class="params">()</span>&#123;</span><br><span class="line">        myAQS.lock();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(InterruptedException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            myAQS.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        MyAQSTest test=<span class="keyword">new</span> <span class="title class_">MyAQSTest</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">                test.use();</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://mp.weixin.qq.com/s/W_bs-vG5zUDPW2GLwaBttQ">美团一面，面试官让介绍AQS原理并手写一个同步器，直接凉了 (qq.com)</a></p>
-<h1 id="5-同步工具类"><a class="markdownIt-Anchor" href="#5-同步工具类"></a> 5 同步工具类</h1>
-<h2 id="51-semaphore信号量"><a class="markdownIt-Anchor" href="#51-semaphore信号量"></a> 5.1 Semaphore(信号量)</h2>
+<h1>5 同步工具类</h1>
+<h2 id="5-1-Semaphore-信号量">5.1 Semaphore(信号量)</h2>
 <p><code>synchronized</code> 和 <code>ReentrantLock</code> 都是一次只允许一个线程访问某个资源，而<code>Semaphore</code>(信号量)可以用来控制同时访问特定资源的线程数量。</p>
-<h2 id="52-countdownlatch倒计时器"><a class="markdownIt-Anchor" href="#52-countdownlatch倒计时器"></a> 5.2 CountDownLatch(倒计时器)</h2>
+<h2 id="5-2-CountDownLatch-倒计时器">5.2 CountDownLatch(倒计时器)</h2>
 <p><code>CountDownLatch</code> 允许 <code>count</code> 个线程阻塞在一个地方，直至所有线程的任务都执行完毕。</p>
 <p><code>CountDownLatch</code> 是一次性的，计数器的值只能在构造方法中初始化一次，之后没有任何机制再次对其设置值，当 <code>CountDownLatch</code> 使用完毕后，它不能再次被使用。</p>
-<h2 id="53-cyclicbarrier循环栅栏"><a class="markdownIt-Anchor" href="#53-cyclicbarrier循环栅栏"></a> 5.3 CyclicBarrier(循环栅栏)</h2>
+<h2 id="5-3-CyclicBarrier-循环栅栏">5.3 CyclicBarrier(循环栅栏)</h2>
 <p><code>CyclicBarrier</code> 和 <code>CountDownLatch</code> 非常类似，它也可以实现线程间的技术等待，但是它的功能比 <code>CountDownLatch</code> 更加复杂和强大。主要应用场景和 <code>CountDownLatch</code> 类似。</p>
 <blockquote>
 <p><code>CountDownLatch</code> 的实现是基于 AQS 的，而 <code>CycliBarrier</code> 是基于 <code>ReentrantLock</code>(<code>ReentrantLock</code> 也属于 AQS 同步器)和 <code>Condition</code> 的。</p>
 </blockquote>
 <p><code>CyclicBarrier</code> 的字面意思是可循环使用（Cyclic）的屏障（Barrier）。它要做的事情是：让一组线程到达一个屏障（也可以叫同步点）时被阻塞，直到最后一个线程到达屏障时，屏障才会开门，所有被屏障拦截的线程才会继续干活。</p>
-<p><a href="https://javaguide.cn/java/concurrent/aqs.html">AQS 详解 | JavaGuide</a><br />
+<p><a href="https://javaguide.cn/java/concurrent/aqs.html">AQS 详解 | JavaGuide</a><br>
 <a href="https://www.cnblogs.com/waterystone/p/4920797.html">Java并发之AQS详解 - waterystone - 博客园 (cnblogs.com)</a></p>
 
     </div>
@@ -414,13 +435,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="prev" title="Java并发(2)：ThreadLocal、线程池">
-                  <i class="fa fa-angle-left"></i> Java并发(2)：ThreadLocal、线程池
+                <a href="/2024/05/13/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java(0)%EF%BC%9A%E4%BB%A3%E7%A0%81/" rel="prev" title="">
+                  <i class="fa fa-chevron-left"></i> 
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/05/20/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(5)%EF%BC%9AJMM%EF%BC%88Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%EF%BC%89/" rel="next" title="Java并发(5)：JMM（Java内存模型）">
-                  Java并发(5)：JMM（Java内存模型） <i class="fa fa-angle-right"></i>
+                <a href="/2024/05/15/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(2)%EF%BC%9AThreadLocal%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" rel="next" title="Java并发(2)：ThreadLocal、线程池">
+                  Java并发(2)：ThreadLocal、线程池 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -439,51 +460,42 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

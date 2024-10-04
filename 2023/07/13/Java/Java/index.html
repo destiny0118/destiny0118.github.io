@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,19 +14,19 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="@resource postConstruct  1 Map  1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。 Map&lt;Integer, Integer&gt; map &#x3D; n">
+    <meta name="description" content="@resource postConstruct 1 Map 1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。Map&lt;Integer, Integer&gt; map &#x3D; new">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2023/07/13/Java/Java/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="@resource postConstruct  1 Map  1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。 Map&lt;Integer, Integer&gt; map &#x3D; n">
+<meta property="og:description" content="@resource postConstruct 1 Map 1.1 Map对象遍历 (50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客 &#x2F;&#x2F;遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。Map&lt;Integer, Integer&gt; map &#x3D; new">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-13T12:19:46.889Z">
 <meta property="article:modified_time" content="2024-06-05T11:32:15.542Z">
@@ -47,9 +49,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -63,10 +62,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -81,20 +83,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -110,16 +149,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-map"><span class="nav-number">1.</span> <span class="nav-text"> 1 Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-map%E5%AF%B9%E8%B1%A1%E9%81%8D%E5%8E%86"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 Map对象遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-treemap"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 TreeMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#121-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 1.2.1 自定义排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E6%97%B6%E9%97%B4"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text"> 1.4 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#141-%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.1.</span> <span class="nav-text"> 1.4.1 复制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#142-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.2.</span> <span class="nav-text"> 1.4.2 删除文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-string"><span class="nav-number">2.</span> <span class="nav-text"> 2 String</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 Map</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Map%E5%AF%B9%E8%B1%A1%E9%81%8D%E5%8E%86"><span class="nav-text">1.1 Map对象遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-TreeMap"><span class="nav-text">1.2 TreeMap</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%92%E5%BA%8F"><span class="nav-text">1.2.1 自定义排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%97%B6%E9%97%B4"><span class="nav-text">1.3 时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-%E6%96%87%E4%BB%B6"><span class="nav-text">1.4 文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6"><span class="nav-text">1.4.1 复制文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6"><span class="nav-text">1.4.2 删除文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 String</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -139,16 +178,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -179,7 +243,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          <a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/Java/Java.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -192,13 +256,6 @@
 
       <time title="创建时间：2023-07-13 20:19:46" itemprop="dateCreated datePublished" datetime="2023-07-13T20:19:46+08:00">2023-07-13</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-05 19:32:15" itemprop="dateModified" datetime="2024-06-05T19:32:15+08:00">2024-06-05</time>
-    </span>
 
   
 </div>
@@ -209,142 +266,29 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>@resource<br />
+    <div class="post-body" itemprop="articleBody">
+        <p>@resource<br>
 postConstruct</p>
-<h1 id="1-map"><a class="markdownIt-Anchor" href="#1-map"></a> 1 Map</h1>
-<h2 id="11-map对象遍历"><a class="markdownIt-Anchor" href="#11-map对象遍历"></a> 1.1 Map对象遍历</h2>
+<h1>1 Map</h1>
+<h2 id="1-1-Map对象遍历">1.1 Map对象遍历</h2>
 <p><a href="https://blog.csdn.net/tjcyjd/article/details/11111401">(50条消息) Java中如何遍历Map对象的4种方法_map遍历_Java高知社区的博客-CSDN博客</a></p>
-<pre class="highlight"><code class="java"><span class="hljs-comment">//遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。</span>
-Map&lt;Integer, Integer&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;Integer, Integer&gt;();
-<span class="hljs-keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;
-    System.out.println(<span class="hljs-string">"Key = "</span> + entry.getKey() + <span class="hljs-string">", Value = "</span> + entry.getValue());
- &#125;
-<span class="hljs-comment">//遍历map中的键</span>
-<span class="hljs-keyword">for</span> (Integer key : map.keySet()) &#123;
-    System.out.println(<span class="hljs-string">"Key = "</span> + key);
-&#125;
- 
-<span class="hljs-comment">//遍历map中的值</span>
-<span class="hljs-keyword">for</span> (Integer value : map.values()) &#123;
-    System.out.println(<span class="hljs-string">"Value = "</span> + value);
- &#125;
-</code></pre>
-<h2 id="12-treemap"><a class="markdownIt-Anchor" href="#12-treemap"></a> 1.2 TreeMap</h2>
-<h3 id="121-自定义排序"><a class="markdownIt-Anchor" href="#121-自定义排序"></a> 1.2.1 自定义排序</h3>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">package</span> indiv.yyg;
-
-<span class="hljs-keyword">import</span> java.util.Comparator;
-<span class="hljs-keyword">import</span> java.util.TreeMap;
-
-<span class="hljs-comment">/**
- * <span class="hljs-doctag">@description</span>:
- * <span class="hljs-doctag">@author</span>: yyg
- * <span class="hljs-doctag">@date</span>: 2024/5/14
- */</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;
-    <span class="hljs-keyword">private</span>  Integer age;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">(Integer age)</span></span>&#123;
-        <span class="hljs-keyword">this</span>.age=age;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getAge</span><span class="hljs-params">()</span></span>&#123;
-        <span class="hljs-keyword">return</span> age;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;
-        <span class="hljs-comment">//传入匿名类</span>
-        TreeMap&lt;Person,String&gt; treeMap=<span class="hljs-keyword">new</span> TreeMap&lt;&gt;(<span class="hljs-keyword">new</span> Comparator&lt;Person&gt;() &#123;
-            <span class="hljs-meta">@Override</span>
-            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Person o1, Person o2)</span> </span>&#123;
-                <span class="hljs-keyword">int</span> num=o1.getAge()-o2.getAge();
-                <span class="hljs-keyword">return</span> Integer.compare(num,<span class="hljs-number">0</span>);
-            &#125;
-        &#125;);
-        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">3</span>), <span class="hljs-string">"person1"</span>);
-        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">18</span>), <span class="hljs-string">"person2"</span>);
-        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">35</span>), <span class="hljs-string">"person3"</span>);
-        treeMap.put(<span class="hljs-keyword">new</span> Person(<span class="hljs-number">16</span>), <span class="hljs-string">"person4"</span>);
-        treeMap.entrySet().stream().forEach(personStringEntry -&gt; &#123;
-            System.out.println(personStringEntry.getValue());
-        &#125;);
-        <span class="hljs-comment">//lamada表达式</span>
-        TreeMap&lt;Person,String&gt; treeMap1=<span class="hljs-keyword">new</span> TreeMap&lt;&gt;((o1,o2)-&gt;&#123;
-            <span class="hljs-keyword">int</span> num=o1.getAge()-o2.getAge();
-            <span class="hljs-keyword">return</span> Integer.compare(num,<span class="hljs-number">0</span>);
-        &#125;);
-    &#125;
-&#125;
-
-</code></pre>
-<h2 id="13-时间"><a class="markdownIt-Anchor" href="#13-时间"></a> 1.3 时间</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//遍历的是一个空的map对象，for-each循环将抛出NullPointerException，因此在遍历前你总是应该检查空引用。</span></span><br><span class="line">Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Integer, Integer&gt;();</span><br><span class="line"><span class="keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Key = &quot;</span> + entry.getKey() + <span class="string">&quot;, Value = &quot;</span> + entry.getValue());</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//遍历map中的键</span></span><br><span class="line"><span class="keyword">for</span> (Integer key : map.keySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Key = &quot;</span> + key);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//遍历map中的值</span></span><br><span class="line"><span class="keyword">for</span> (Integer value : map.values()) &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;Value = &quot;</span> + value);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-TreeMap">1.2 TreeMap</h2>
+<h3 id="1-2-1-自定义排序">1.2.1 自定义排序</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> indiv.yyg;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.TreeMap;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yyg</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>: 2024/5/14</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">    <span class="keyword">private</span>  Integer age;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(Integer age)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.age=age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Integer <span class="title function_">getAge</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        <span class="comment">//传入匿名类</span></span><br><span class="line">        TreeMap&lt;Person,String&gt; treeMap=<span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Person&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Person o1, Person o2)</span> &#123;</span><br><span class="line">                <span class="type">int</span> num=o1.getAge()-o2.getAge();</span><br><span class="line">                <span class="keyword">return</span> Integer.compare(num,<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">3</span>), <span class="string">&quot;person1&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">18</span>), <span class="string">&quot;person2&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">35</span>), <span class="string">&quot;person3&quot;</span>);</span><br><span class="line">        treeMap.put(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="number">16</span>), <span class="string">&quot;person4&quot;</span>);</span><br><span class="line">        treeMap.entrySet().stream().forEach(personStringEntry -&gt; &#123;</span><br><span class="line">            System.out.println(personStringEntry.getValue());</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//lamada表达式</span></span><br><span class="line">        TreeMap&lt;Person,String&gt; treeMap1=<span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;((o1,o2)-&gt;&#123;</span><br><span class="line">            <span class="type">int</span> num=o1.getAge()-o2.getAge();</span><br><span class="line">            <span class="keyword">return</span> Integer.compare(num,<span class="number">0</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="1-3-时间">1.3 时间</h2>
 <p><a href="https://blog.csdn.net/qq_36789243/article/details/119362598">(50条消息) Java中如何获取当前日期和时间的4种方法_获取当前时间_小楼星辰的博客-CSDN博客</a></p>
-<h2 id="14-文件"><a class="markdownIt-Anchor" href="#14-文件"></a> 1.4 文件</h2>
-<pre class="highlight"><code class="java"><span class="hljs-comment">//获取目录下所有文件名</span>
-File dir;
-String[] list=dir.list();
-
-<span class="hljs-comment">//删除目录</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteDir</span><span class="hljs-params">(File file)</span></span>&#123;
-    <span class="hljs-keyword">if</span>(file.isDirectory())&#123;
-        <span class="hljs-keyword">for</span>(File f:file.listFiles())&#123;
-            deleteDir(f);
-        &#125;
-    &#125;
-    file.delete();
-&#125;
-</code></pre>
+<h2 id="1-4-文件">1.4 文件</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取目录下所有文件名</span></span><br><span class="line">File dir;</span><br><span class="line">String[] list=dir.list();</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除目录</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">deleteDir</span><span class="params">(File file)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(file.isDirectory())&#123;</span><br><span class="line">        <span class="keyword">for</span>(File f:file.listFiles())&#123;</span><br><span class="line">            deleteDir(f);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    file.delete();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.runoob.com/java/dir-delete.html">Java 实例 – 删除目录 | 菜鸟教程 (runoob.com)</a></p>
-<h3 id="141-复制文件"><a class="markdownIt-Anchor" href="#141-复制文件"></a> 1.4.1 复制文件</h3>
-<pre class="highlight"><code class="java"><span class="hljs-keyword">import</span> java.nio.file.Files;
-<span class="hljs-comment">//from和to是File对象，如果要复制到的文件已经存在，则复制失败</span>
-<span class="hljs-keyword">try</span> &#123;
-    Files.copy(from.toPath(), to.toPath());
-&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
-&#125;
-</code></pre>
-<h3 id="142-删除文件"><a class="markdownIt-Anchor" href="#142-删除文件"></a> 1.4.2 删除文件</h3>
-<pre class="highlight"><code class="java">java.io.File;
-
-File f;
-f.delete();
-</code></pre>
-<pre class="highlight"><code class="java">
-    <span class="hljs-comment">/**
-     * 得到当前工作目录下的所有文件
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showFileList</span><span class="hljs-params">(File filename)</span> </span>&#123;
-        <span class="hljs-keyword">if</span> (filename.isDirectory()) &#123;
-            System.out.println(<span class="hljs-string">"文件夹："</span> + filename);
-            File[] listfile = filename.listFiles();
-            <span class="hljs-keyword">for</span> (File f : listfile) &#123;
-                showFileList(f);
-            &#125;
-        &#125; <span class="hljs-keyword">else</span> &#123;
-            <span class="hljs-comment">//    处理</span>
-        &#125;
-    &#125;
-</code></pre>
-<h1 id="2-string"><a class="markdownIt-Anchor" href="#2-string"></a> 2 String</h1>
-<pre class="highlight"><code class="java">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span> </span>&#123;
-        StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();
-        sb.append(<span class="hljs-string">"message: "</span> + message + <span class="hljs-string">"\n"</span>);
-        sb.append(<span class="hljs-string">"date: "</span> + date + <span class="hljs-string">"\n"</span>);
-        <span class="hljs-keyword">for</span> (String parent : parentID) &#123;
-            sb.append(parent + <span class="hljs-string">"\n"</span>);
-        &#125;
-        <span class="hljs-keyword">return</span> sb.toString();
-    &#125;
-</code></pre>
-<pre class="highlight"><code class="java">String str1=<span class="hljs-keyword">null</span>; <span class="hljs-comment">//引用为空，没有地址，是一个没有被实例化的对象</span>
-String str2=<span class="hljs-string">""</span>;<span class="hljs-comment">//空字符串，它有地址，它是被实例化的对象，值为空而已。</span>
-
-<span class="hljs-comment">//如果是string对象是null,用 == 来判断，否则会抛出异常 java.lang.NullPointerException</span>
-
-str1==str2; <span class="hljs-comment">//“ == ”操作在对String这种引用数据类型来说，比较的是地址</span>
-str1.equals(str2) <span class="hljs-comment">//equals比较的是内容</span>
-</code></pre>
-
+<h3 id="1-4-1-复制文件">1.4.1 复制文件</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="comment">//from和to是File对象，如果要复制到的文件已经存在，则复制失败</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Files.copy(from.toPath(), to.toPath());</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-2-删除文件">1.4.2 删除文件</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">java.io.File;</span><br><span class="line"></span><br><span class="line">File f;</span><br><span class="line">f.delete();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 得到当前工作目录下的所有文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">showFileList</span><span class="params">(File filename)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (filename.isDirectory()) &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;文件夹：&quot;</span> + filename);</span><br><span class="line">        File[] listfile = filename.listFiles();</span><br><span class="line">        <span class="keyword">for</span> (File f : listfile) &#123;</span><br><span class="line">            showFileList(f);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//    处理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>2 String</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    sb.append(<span class="string">&quot;message: &quot;</span> + message + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    sb.append(<span class="string">&quot;date: &quot;</span> + date + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (String parent : parentID) &#123;</span><br><span class="line">        sb.append(parent + <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String str1=<span class="literal">null</span>; <span class="comment">//引用为空，没有地址，是一个没有被实例化的对象</span></span><br><span class="line">String str2=<span class="string">&quot;&quot;</span>;<span class="comment">//空字符串，它有地址，它是被实例化的对象，值为空而已。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是string对象是null,用 == 来判断，否则会抛出异常 java.lang.NullPointerException</span></span><br><span class="line"></span><br><span class="line">str1==str2; <span class="comment">//“ == ”操作在对String这种引用数据类型来说，比较的是地址</span></span><br><span class="line">str1.equals(str2) <span class="comment">//equals比较的是内容</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -358,12 +302,12 @@ str1.equals(str2) <span class="hljs-comment">//equals比较的是内容</span>
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2023/07/11/%E7%AE%97%E6%B3%95/%E5%88%86%E6%9E%90%E6%8A%80%E5%B7%A7%EF%BC%9A%E6%95%B0%E5%80%BC%E8%8C%83%E5%9B%B4/" rel="prev" title="">
-                  <i class="fa fa-angle-left"></i> 
+                  <i class="fa fa-chevron-left"></i> 
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2023/07/17/%E7%AE%97%E6%B3%95/%E5%88%86%E6%B2%BB%E6%B3%95/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                   <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -382,51 +326,42 @@ str1.equals(str2) <span class="hljs-comment">//equals比较的是内容</span>
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

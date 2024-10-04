@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,19 +14,19 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="term(任期) Leader发出heartbeat(AppendEntries RPC不带有log entries)  Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.    2A">
+    <meta name="description" content="term(任期) Leader发出heartbeat(AppendEntries RPC不带有log entries)  Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.   1 2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="term(任期) Leader发出heartbeat(AppendEntries RPC不带有log entries)  Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.    2A">
+<meta property="og:description" content="term(任期) Leader发出heartbeat(AppendEntries RPC不带有log entries)  Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.   1 2">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png">
@@ -34,7 +36,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png">
 <meta property="article:published_time" content="2024-02-01T06:23:48.114Z">
-<meta property="article:modified_time" content="2024-05-24T07:21:52.000Z">
+<meta property="article:modified_time" content="2024-10-04T13:31:56.493Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="算法，工具">
 <meta name="twitter:card" content="summary">
@@ -55,9 +57,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -71,10 +70,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -89,20 +91,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -118,16 +157,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2a-leader-election%E9%A2%86%E5%AF%BC%E4%BA%BA%E9%80%89%E4%B8%BE"><span class="nav-number">1.</span> <span class="nav-text"> 2A Leader election(领导人选举)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text"> 1. 节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E5%92%8C%E5%BF%83%E8%B7%B3%E6%97%B6%E9%97%B4"><span class="nav-number">1.2.</span> <span class="nav-text"> 选举超时时间和心跳时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E6%9B%B4%E6%96%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text"> 选举超时时间更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B6%85%E6%97%B6%E9%80%89%E4%B8%BE%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text"> 超时选举实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text"> 注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sendappendentries%E6%B2%A1%E6%9C%89%E5%90%AF%E7%94%A8%E6%96%B0%E7%9A%84%E5%8D%8F%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text"> sendAppendEntries没有启用新的协程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2b-log-replication%E6%97%A5%E5%BF%97%E5%A4%8D%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text"> 2B Log replication(日志复制)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#election-restriction541"><span class="nav-number">2.1.</span> <span class="nav-text"> Election restriction(5.4.1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E7%82%B9-2"><span class="nav-number">2.2.</span> <span class="nav-text"> 注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2c"><span class="nav-number">3.</span> <span class="nav-text"> 2C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug"><span class="nav-number">3.1.</span> <span class="nav-text"> Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2d"><span class="nav-number">4.</span> <span class="nav-text"> 2D</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#bug-2"><span class="nav-number">4.1.</span> <span class="nav-text"> bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text"> 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#raft"><span class="nav-number">5.1.</span> <span class="nav-text"> raft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raft%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.2.</span> <span class="nav-text"> raft应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text"> 参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 2A Leader election(领导人选举)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E8%8A%82%E7%82%B9%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.1 节点类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E5%92%8C%E5%BF%83%E8%B7%B3%E6%97%B6%E9%97%B4"><span class="nav-text">1.2 选举超时时间和心跳时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E9%80%89%E4%B8%BE%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E6%9B%B4%E6%96%B0"><span class="nav-text">1.2.1 选举超时时间更新</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E8%B6%85%E6%97%B6%E9%80%89%E4%B8%BE%E5%AE%9E%E7%8E%B0"><span class="nav-text">1.2.2 超时选举实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-text">1.3 注意点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-sendAppendEntries%E6%B2%A1%E6%9C%89%E5%90%AF%E7%94%A8%E6%96%B0%E7%9A%84%E5%8D%8F%E7%A8%8B"><span class="nav-text">1.3.1 sendAppendEntries没有启用新的协程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 2B Log replication(日志复制)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Election-restriction-5-4-1"><span class="nav-text">2.1 Election restriction(5.4.1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="nav-text">2.2 注意点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 2C</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Bug"><span class="nav-text">3.1 Bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 2D</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-bug"><span class="nav-text">4.1 bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-raft"><span class="nav-text">5.1 raft</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-raft%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">5.2 raft应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -147,16 +186,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -187,7 +251,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          <a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -200,13 +264,6 @@
 
       <time title="创建时间：2024-02-01 14:23:48" itemprop="dateCreated datePublished" datetime="2024-02-01T14:23:48+08:00">2024-02-01</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-24 15:21:52" itemprop="dateModified" datetime="2024-05-24T15:21:52+08:00">2024-05-24</time>
-    </span>
 
   
 </div>
@@ -217,156 +274,177 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>term(任期)</p>
+    <div class="post-body" itemprop="articleBody">
+        <p>term(任期)</p>
 <p>Leader发出heartbeat(AppendEntries RPC不带有log entries)</p>
 <blockquote>
 <p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg" alt="QQ图片20240205215524.jpg" /></p>
-<h1 id="2a-leader-election领导人选举"><a class="markdownIt-Anchor" href="#2a-leader-election领导人选举"></a> 2A Leader election(领导人选举)</h1>
-<ul>
-<li>网络延迟、分区、包丢失、复制和重新排序。</li>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg" alt="QQ图片20240205215524.jpg"></p>
+<h1>1 2A Leader election(领导人选举)</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络延迟、分区、包丢失、复制和重新排序。</p>
+</li>
 </ul>
 <blockquote>
 <p>This election term will continue until a follower stops receiving heartbeats and becomes a candidate.</p>
 </blockquote>
 <p>导致Follower进行选举的原因</p>
-<ul>
-<li>网络延迟或者包丢失没有在选举超时前收到心跳</li>
-<li>网络分区而导致收不到心跳（disconnect）</li>
-<li>Leader宕机、崩溃（crash）</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络延迟或者包丢失没有在选举超时前收到心跳</p>
+</li>
+<li class="lvl-2">
+<p>网络分区而导致收不到心跳（disconnect）</p>
+</li>
+<li class="lvl-2">
+<p>Leader宕机、崩溃（crash）</p>
+</li>
 </ul>
-<h2 id="1-节点类型"><a class="markdownIt-Anchor" href="#1-节点类型"></a> 1. 节点类型</h2>
-<ul>
-<li><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</li>
-<li><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</li>
-<li><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</li>
+<h2 id="1-1-节点类型">1.1 节点类型</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</p>
+</li>
+<li class="lvl-2">
+<p><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</p>
+</li>
+<li class="lvl-2">
+<p><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</p>
+</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png" alt="image-20240203110252535" /></p>
-<ul>
-<li>Follower<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">→</span></span></span></span>Candidate（超时：一段时间内未收到heartbeat）</li>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png" alt="image-20240203110252535"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Follower$\rightarrow$Candidate（超时：一段时间内未收到heartbeat）</p>
+</li>
 </ul>
 <p>Leader(AppendEntries RPC)</p>
-<ul>
-<li>term过时：
-<ul>
-<li>发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
-<li>收到RequestVote发现更高term号</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>term过时：</p>
+<ul class="lvl-2">
+<li class="lvl-6">发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
+<li class="lvl-6">收到RequestVote发现更高term号</li>
 </ul>
 </li>
 </ul>
 <p>Candidate(RequestVote RPC)</p>
-<ul>
-<li>term过时
-<ul>
-<li>收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
-<li>收到RequestVote RPC的response，返回的term号更大</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>term过时</p>
+<ul class="lvl-2">
+<li class="lvl-6">收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
+<li class="lvl-6">收到RequestVote RPC的response，返回的term号更大</li>
 </ul>
 </li>
 </ul>
 <p>Follower：被动的，对来自Leader和Candidate的请求进行相应</p>
-<ul>
-<li>收到Leader的心跳，且term号大于自身term号（更新自身term号）</li>
-<li>收到Candidate请求</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>收到Leader的心跳，且term号大于自身term号（更新自身term号）</p>
+</li>
+<li class="lvl-2">
+<p>收到Candidate请求</p>
+</li>
 </ul>
 <p>Server：</p>
-<ul>
-<li>拒绝过时term的请求</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>拒绝过时term的请求</p>
+</li>
 </ul>
-<h2 id="选举超时时间和心跳时间"><a class="markdownIt-Anchor" href="#选举超时时间和心跳时间"></a> 选举超时时间和心跳时间</h2>
-<ul>
-<li>
+<h2 id="1-2-选举超时时间和心跳时间">1.2 选举超时时间和心跳时间</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p>心跳间隔时间(heartbeat timeout)：Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。</p>
 </li>
-<li>
+<li class="lvl-2">
 <p>选举超时时间(election timeout)：如果一个 Follower 在一个周期内没有收到心跳信息或者请求投票信息，就叫做选举超时，并开始一次新的选举。</p>
 </li>
 </ul>
 <p>这两个时间需要保持一定的关系，网络无故障时，在选举超时前应该收到心跳，以保持Leader不变。选举超时时间至少需要大于AppendEntries RPC发送到server所需的最长时间。</p>
-<h3 id="选举超时时间更新"><a class="markdownIt-Anchor" href="#选举超时时间更新"></a> 选举超时时间更新</h3>
-<ul>
-<li>candidate成为leader</li>
-<li>candidate收到RequestVote response并变为follower</li>
-<li>server收到AppendEntries</li>
-<li>server收到RequestVote</li>
-<li>leader收到AppendEntries response发现更高term号</li>
+<h3 id="1-2-1-选举超时时间更新">1.2.1 选举超时时间更新</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>candidate成为leader</p>
+</li>
+<li class="lvl-2">
+<p>candidate收到RequestVote response并变为follower</p>
+</li>
+<li class="lvl-2">
+<p>server收到AppendEntries</p>
+</li>
+<li class="lvl-2">
+<p>server收到RequestVote</p>
+</li>
+<li class="lvl-2">
+<p>leader收到AppendEntries response发现更高term号</p>
+</li>
 </ul>
-<h3 id="超时选举实现"><a class="markdownIt-Anchor" href="#超时选举实现"></a> 超时选举实现</h3>
-<p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间<br />
-这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br />
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png" /></p>
-<h2 id="注意点"><a class="markdownIt-Anchor" href="#注意点"></a> 注意点</h2>
-<h3 id="sendappendentries没有启用新的协程"><a class="markdownIt-Anchor" href="#sendappendentries没有启用新的协程"></a> <code>sendAppendEntries</code>没有启用新的协程</h3>
+<h3 id="1-2-2-超时选举实现">1.2.2 超时选举实现</h3>
+<p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png"></p>
+<h2 id="1-3-注意点">1.3 注意点</h2>
+<h3 id="1-3-1-sendAppendEntries没有启用新的协程">1.3.1 <code>sendAppendEntries</code>没有启用新的协程</h3>
 <p>在<code>sendHeartbeat</code>中，异步发送<code>sendAppendEntries</code>，向所有server发送heartbeat，无需等待RPC完成。因为leader可能无法与其他server通信，或者server不可达，由于等待rpc返回，造成超时重新选举</p>
 <p>异步发送<code>RequestVote</code>，并且收到超过半数选票后就成为Leader，发送心跳</p>
-<p><code>go test -race -run 2A</code></p>
-<h1 id="2b-log-replication日志复制"><a class="markdownIt-Anchor" href="#2b-log-replication日志复制"></a> 2B Log replication(日志复制)</h1>
+<p><code> go test -race -run 2A</code></p>
+<h1>2 2B Log replication(日志复制)</h1>
 <blockquote>
-<p><mark><strong>Leader Completeness</strong></mark>: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br />
+<p><mark><strong>Leader Completeness</strong></mark>: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br>
 <mark><strong>State Machine Safety</strong></mark>: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3</p>
 </blockquote>
-<ul>
-<li>leader收到client请求，将entry添加到log</li>
-<li>leader将添加的entry复制到其他server</li>
-<li>如果大多数server成功复制entry，则该entry已经committed</li>
-<li></li>
-<li>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>leader收到client请求，将entry添加到log</p>
+</li>
+<li class="lvl-2">
+<p>leader将添加的entry复制到其他server</p>
+</li>
+<li class="lvl-2">
+<p>如果大多数server成功复制entry，则该entry已经committed</p>
+</li>
+<li class="lvl-2">
+</li>
+<li class="lvl-2">
+<p>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</p>
+</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061214812.png" alt="Raft-第 1 页.png" /></p>
-<h2 id="election-restriction541"><a class="markdownIt-Anchor" href="#election-restriction541"></a> Election restriction(5.4.1)</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061214812.png" alt="Raft-第 1 页.png"></p>
+<h2 id="2-1-Election-restriction-5-4-1">2.1 Election restriction(5.4.1)</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png"></p>
 <p>log backtracking</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png" alt="Raft-加速log回溯" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png" alt="Raft-加速log回溯"></p>
 <p>S1首先成为leader，成功发送了第一个entry</p>
 <p>S1和S2与其他服务器断开后重连</p>
-<h2 id="注意点-2"><a class="markdownIt-Anchor" href="#注意点-2"></a> 注意点</h2>
+<h2 id="2-2-注意点">2.2 注意点</h2>
 <blockquote>
 <p>遇到的bug</p>
 </blockquote>
 <p>s1断联，添加了一系列entry</p>
 <p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
-<h1 id="2c"><a class="markdownIt-Anchor" href="#2c"></a> 2C</h1>
-<pre class="highlight"><code class="go">persist
-<span class="hljs-comment">// Your code here (2C).</span>
-<span class="hljs-comment">// Example:</span>
-<span class="hljs-comment">// w := new(bytes.Buffer)</span>
-<span class="hljs-comment">// e := labgob.NewEncoder(w)</span>
-<span class="hljs-comment">// e.Encode(rf.xxx)</span>
-<span class="hljs-comment">// e.Encode(rf.yyy)</span>
-<span class="hljs-comment">// data := w.Bytes()</span>
-<span class="hljs-comment">// rf.persister.SaveRaftState(data)</span>
-readPersist
-<span class="hljs-comment">// Your code here (2C).</span>
-<span class="hljs-comment">// Example:</span>
-<span class="hljs-comment">// r := bytes.NewBuffer(data)</span>
-<span class="hljs-comment">// d := labgob.NewDecoder(r)</span>
-<span class="hljs-comment">// var xxx</span>
-<span class="hljs-comment">// var yyy</span>
-<span class="hljs-comment">// if d.Decode(&amp;xxx) != nil ||</span>
-<span class="hljs-comment">//    d.Decode(&amp;yyy) != nil &#123;</span>
-<span class="hljs-comment">//   error...</span>
-<span class="hljs-comment">// &#125; else &#123;</span>
-<span class="hljs-comment">//   rf.xxx = xxx</span>
-<span class="hljs-comment">//   rf.yyy = yyy</span>
-<span class="hljs-comment">// &#125;</span>
-</code></pre>
-<h2 id="bug"><a class="markdownIt-Anchor" href="#bug"></a> Bug</h2>
+<h1>3 2C</h1>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-1-Bug">3.1 Bug</h2>
 <p>同一任期选出两个leader</p>
 <p>乱序收到RPC response</p>
 <p>AppendEntries的RPC response与当前term不一致</p>
 <p>在变成follower时都重置了election time</p>
-<h1 id="2d"><a class="markdownIt-Anchor" href="#2d"></a> 2D</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611" /></p>
-<h2 id="bug-2"><a class="markdownIt-Anchor" href="#bug-2"></a> bug</h2>
+<h1>4 2D</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611"></p>
+<h2 id="4-1-bug">4.1 bug</h2>
 <ol>
-<li>
+<li class="lvl-3">
 <p>每10条command创建一个快照，快照会调用rf.mu这个互斥锁，当存在新的提交命令时，通过applyCh管道进行发送，而测试程序调用snapshot需要获取互斥锁，无法读取管道中的数据，则会产生死锁</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><code>apply error: server 2 apply out of order, expected index 10, got 18</code></p>
 <p>当snapshot存在未commit的命令时，snapshot和log分别放入applyCh，应当一次性放入applyCh</p>
 </li>
-<li></li>
+<li class="lvl-3">
+</li>
 </ol>
 <table>
 <thead>
@@ -398,30 +476,30 @@ readPersist
 </tr>
 </tbody>
 </table>
-<h1 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h1>
-<h2 id="raft"><a class="markdownIt-Anchor" href="#raft"></a> raft</h2>
+<h1>5 问题</h1>
+<h2 id="5-1-raft">5.1 raft</h2>
 <p>raft是分布式一致性算法，基于复制状态机的思想，对于初始状态一样的节点，在他们上运行同样的命令，还会保持一致性的状态。raft主要包括领导者选举、日志复制、持久化以及快照等。</p>
-<h2 id="raft应用场景"><a class="markdownIt-Anchor" href="#raft应用场景"></a> raft应用场景</h2>
+<h2 id="5-2-raft应用场景">5.2 raft应用场景</h2>
 <p>Raft 是一种共识算法，通常用于构建分布式系统中的可靠复制日志。它可以应用于各种分布式系统的场景，包括但不限于：</p>
 <ol>
-<li>
+<li class="lvl-3">
 <p><strong>分布式数据库系统</strong>：Raft 可以用于构建分布式数据库系统，确保数据的一致性和可靠性，比如 etcd、Consul 等。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>分布式文件系统</strong>：在分布式文件系统中，Raft 可以确保各个节点之间的文件操作的一致性，比如 HDFS、Ceph 等。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>分布式消息队列</strong>：Raft 可以确保消息队列中的消息传递和处理的一致性，比如 Kafka 等。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>分布式计算</strong>：在分布式计算中，Raft 可以确保各个节点之间的任务调度和执行的一致性，比如 Spark、MapReduce 等。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>分布式存储系统</strong>：Raft 可以确保分布式存储系统中数据的可靠性和一致性，比如分布式缓存系统如 Redis、分布式块存储系统如 Ceph 等。</p>
 </li>
 </ol>
 <p>总的来说，任何需要在分布式环境中保证一致性和可靠性的系统都可以考虑使用 Raft 算法来实现。</p>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<h1>6 参考</h1>
 <p><a href="https://raft.github.io/">Raft Consensus Algorithm 官网介绍</a></p>
 <p><a href="http://thesecretlivesofdata.com/raft/">Raft (thesecretlivesofdata.com)</a>（Raft图示）</p>
 <p><a href="https://raw.githubusercontent.com/ongardie/dissertation/master/book.pdf">Raft作者博士论文</a></p>
@@ -445,12 +523,12 @@ readPersist
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2024/01/18/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab1%20MapReduce/" rel="prev" title="">
-                  <i class="fa fa-angle-left"></i> 
+                  <i class="fa fa-chevron-left"></i> 
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2024/02/20/%E6%A1%86%E6%9E%B6/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                   <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -469,51 +547,42 @@ readPersist
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

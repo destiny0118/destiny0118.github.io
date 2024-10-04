@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="二分查找适用于已经排好序的数组；对可能的答案区间进行查找">
 <meta property="og:type" content="article">
@@ -52,9 +54,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -68,10 +67,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -86,20 +88,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -115,16 +154,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">1.</span> <span class="nav-text"> 二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#69-x-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="nav-number">1.0.0.1.</span> <span class="nav-text"> 69. x 的平方根 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#441-%E6%8E%92%E5%88%97%E7%A1%AC%E5%B8%81-%E5%8A%9B%E6%89%A3leetcode"><span class="nav-number">1.0.0.2.</span> <span class="nav-text"> 441. 排列硬币 - 力扣（Leetcode）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4mid%E5%8F%96%E5%80%BC%E9%9D%A0%E5%B7%A6"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text"> 区间mid取值靠左</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4mid%E5%8F%96%E5%80%BC%E9%9D%A0%E5%8F%B3"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text"> 区间mid取值靠右</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="nav-number">1.0.0.3.</span> <span class="nav-text"> 35. 搜索插入位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#410-%E5%88%86%E5%89%B2%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="nav-number">1.0.0.4.</span> <span class="nav-text"> 410. 分割数组的最大值</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">二分查找</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#69-x-%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="nav-text">69. x 的平方根 </span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#441-%E6%8E%92%E5%88%97%E7%A1%AC%E5%B8%81-%E5%8A%9B%E6%89%A3%EF%BC%88Leetcode%EF%BC%89"><span class="nav-text">441. 排列硬币 - 力扣（Leetcode）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4mid%E5%8F%96%E5%80%BC%E9%9D%A0%E5%B7%A6"><span class="nav-text">区间mid取值靠左</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8C%BA%E9%97%B4mid%E5%8F%96%E5%80%BC%E9%9D%A0%E5%8F%B3"><span class="nav-text">区间mid取值靠右</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#35-%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="nav-text">35. 搜索插入位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#410-%E5%88%86%E5%89%B2%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="nav-text">410. 分割数组的最大值</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -144,16 +183,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -184,7 +248,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          二分查找
+          二分查找<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -196,13 +260,6 @@
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-04-26 16:13:54" itemprop="dateModified" datetime="2024-04-26T16:13:54+08:00">2024-04-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -224,353 +281,67 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="二分查找"><a class="markdownIt-Anchor" href="#二分查找"></a> 二分查找</h1>
+    <div class="post-body" itemprop="articleBody">
+        <h1>二分查找</h1>
 <p>查区间[left,right]是否存在某个数字，不存在返回-1</p>
-<ul>
-<li>left=0, right=n-1</li>
-<li>while(left&lt;=right)</li>
-<li>在循环中判断相等情况</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>left=0, right=n-1</p>
+</li>
+<li class="lvl-2">
+<p>while(left&lt;=right)</p>
+</li>
+<li class="lvl-2">
+<p>在循环中判断相等情况</p>
+</li>
 </ul>
 <p>不同写法：<a href="https://leetcode.cn/problems/h-index-ii/solutions/2504326/tu-jie-yi-tu-zhang-wo-er-fen-da-an-si-ch-d15k/">275. H 指数 II - 力扣（LeetCode）</a></p>
-<ul>
-<li>
+<ul class="lvl-0">
+<li class="lvl-3">
 <p>在排序数组中寻找是否存在一个目标值</p>
 </li>
-<li>
+<li class="lvl-3">
 <p>如果不存在数组中，返回按顺序插入的位置（寻找&gt;=target的第一个位置）</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202304170958535.png" alt="image-20230417095803501" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202304170958535.png" alt="image-20230417095803501"></p>
 </li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="hljs-comment">//target 大于数组中的所有数</span>
-<span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=nums.<span class="hljs-built_in">size</span>();
-<span class="hljs-keyword">while</span>(left&lt;right)&#123;
-    <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-    <span class="hljs-keyword">if</span>(nums[mid]&lt;target)&#123;
-        left=mid+<span class="hljs-number">1</span>;
-    &#125;<span class="hljs-keyword">else</span>&#123;
-        rigth=mid;
-    &#125;
-    <span class="hljs-keyword">return</span> left;
-&#125;
-</code></pre>
-<h4 id="69-x-的平方根"><a class="markdownIt-Anchor" href="#69-x-的平方根"></a> <a href="https://leetcode.cn/problems/sqrtx/">69. x 的平方根 </a></h4>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=x;
-        <span class="hljs-keyword">while</span>(left&lt;right)&#123;
-            <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span>(mid+<span class="hljs-number">1</span>&lt;=x/(mid+<span class="hljs-number">1</span>))&#123;
-                left=mid+<span class="hljs-number">1</span>;
-            &#125;<span class="hljs-keyword">else</span>&#123;
-                right=mid;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-    &#125;
-&#125;;
-<span class="hljs-comment">//左侧可能不动，右侧必须缩小，这种可能跳不出left==right</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=x;
-        <span class="hljs-keyword">while</span>(left&lt;right)&#123;
-            <span class="hljs-keyword">long</span> mid=((<span class="hljs-keyword">long</span>)right+left+<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span>(mid&lt;=x/mid)
-                left=mid;
-            <span class="hljs-keyword">else</span>
-                right=mid<span class="hljs-number">-1</span>;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-    &#125;
-&#125;;
-<span class="hljs-comment">//记录答案，使用等号</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mySqrt</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>, r = x, ans = <span class="hljs-number">-1</span>;
-        <span class="hljs-keyword">while</span> (l &lt;= r) &#123;
-            <span class="hljs-keyword">int</span> mid = l + (r - l) / <span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)mid * mid &lt;= x) &#123;
-                ans = mid;
-                l = mid + <span class="hljs-number">1</span>;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                r = mid - <span class="hljs-number">1</span>;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> ans;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="441-排列硬币-力扣leetcode"><a class="markdownIt-Anchor" href="#441-排列硬币-力扣leetcode"></a> <a href="https://leetcode.cn/problems/arranging-coins/description/">441. 排列硬币 - 力扣（Leetcode）</a></h4>
-<h5 id="区间mid取值靠左"><a class="markdownIt-Anchor" href="#区间mid取值靠左"></a> 区间mid取值靠左</h5>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">arrangeCoins</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;
-        <span class="hljs-keyword">if</span>(n&lt;=<span class="hljs-number">1</span>)
-            <span class="hljs-keyword">return</span> n;
-        <span class="hljs-keyword">int</span> left=<span class="hljs-number">1</span>,right=n;
-        <span class="hljs-keyword">int</span> ans=<span class="hljs-number">0</span>;
-        <span class="hljs-keyword">while</span>(left&lt;right)&#123;
-            <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-            <span class="hljs-keyword">long</span> sum=<span class="hljs-number">1l</span>*(<span class="hljs-number">1</span>+mid)*mid/<span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span>(sum&lt;=n)
-                left=mid+<span class="hljs-number">1</span>;
-            <span class="hljs-keyword">else</span> 
-                right=mid;
-        &#125;
-        <span class="hljs-keyword">return</span> left<span class="hljs-number">-1</span>;
-    &#125;
-&#125;;
-</code></pre>
-<h5 id="区间mid取值靠右"><a class="markdownIt-Anchor" href="#区间mid取值靠右"></a> 区间mid取值靠右</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//target 大于数组中的所有数</span></span><br><span class="line"><span class="type">int</span> left=<span class="number">0</span>,right=nums.<span class="built_in">size</span>();</span><br><span class="line"><span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">    <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(nums[mid]&lt;target)&#123;</span><br><span class="line">        left=mid<span class="number">+1</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        rigth=mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="69-x-的平方根"><a href="https://leetcode.cn/problems/sqrtx/">69. x 的平方根 </a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,right=x;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid<span class="number">+1</span>&lt;=x/(mid<span class="number">+1</span>))&#123;</span><br><span class="line">                left=mid<span class="number">+1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                right=mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//左侧可能不动，右侧必须缩小，这种可能跳不出left==right</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,right=x;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="type">long</span> mid=((<span class="type">long</span>)right+left<span class="number">+1</span>)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid&lt;=x/mid)</span><br><span class="line">                left=mid;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//记录答案，使用等号</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mySqrt</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = x, ans = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = l + (r - l) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>)mid * mid &lt;= x) &#123;</span><br><span class="line">                ans = mid;</span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                r = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="441-排列硬币-力扣（Leetcode）"><a href="https://leetcode.cn/problems/arranging-coins/description/">441. 排列硬币 - 力扣（Leetcode）</a></h4>
+<h5 id="区间mid取值靠左">区间mid取值靠左</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">arrangeCoins</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> n;</span><br><span class="line">        <span class="type">int</span> left=<span class="number">1</span>,right=n;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="type">long</span> sum=<span class="number">1l</span>*(<span class="number">1</span>+mid)*mid/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(sum&lt;=n)</span><br><span class="line">                left=mid<span class="number">+1</span>;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                right=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="区间mid取值靠右">区间mid取值靠右</h5>
 <blockquote>
-<p>有个小点需要注意的是<br />
-<code>mid = (left + right + 1) // 2</code><br />
-先加1再除以2是为了让中间值靠右，因为在后序对右边的值处理是 right = mid - 1<br />
+<p>有个小点需要注意的是<code>mid = (left + right + 1) // 2</code><br>
+先加1再除以2是为了让中间值靠右，因为在后序对右边的值处理是 right = mid - 1<br>
 当区间只剩下两个元素的时候，判断元素大小后采用left = mid 和 right = mid - 1 这种处理方式，如果 mid 使用默认下取整的方式，在数值上 left = mid，而它对应的其中一个区间是 [mid…right]，在这种情况下，下一轮搜索区间还是 [left…right]，搜索区间没有减少，会进入死循环。</p>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">arrangeCoins</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> left = <span class="hljs-number">1</span>, right = n;
-        <span class="hljs-keyword">while</span> (left &lt; right) &#123;
-            <span class="hljs-keyword">int</span> mid = (right - left + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span> + left;
-            <span class="hljs-keyword">if</span> ((<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>) mid * (mid + <span class="hljs-number">1</span>) &lt;= (<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>) <span class="hljs-number">2</span> * n) &#123;
-                left = mid;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                right = mid - <span class="hljs-number">1</span>;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="35-搜索插入位置"><a class="markdownIt-Anchor" href="#35-搜索插入位置"></a> <a href="https://leetcode.cn/problems/search-insert-position/">35. 搜索插入位置</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">arrangeCoins</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">1</span>, right = n;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> mid = (right - left + <span class="number">1</span>) / <span class="number">2</span> + left;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="type">long</span> <span class="type">long</span>) mid * (mid + <span class="number">1</span>) &lt;= (<span class="type">long</span> <span class="type">long</span>) <span class="number">2</span> * n) &#123;</span><br><span class="line">                left = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="35-搜索插入位置"><a href="https://leetcode.cn/problems/search-insert-position/">35. 搜索插入位置</a></h4>
 <p>比较两种写法区别</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">searchInsert</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-keyword">while</span>(left&lt;right)&#123;
-            <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span>(nums[mid]&lt;target)
-                left=mid+<span class="hljs-number">1</span>;
-            <span class="hljs-keyword">else</span>
-                right=mid;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-    &#125;
-&#125;;
-
- <span class="hljs-keyword">while</span>(left&lt;=right)&#123;
-     <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-     <span class="hljs-keyword">if</span>(nums[mid]&lt;target)
-         left=mid+<span class="hljs-number">1</span>;
-     <span class="hljs-keyword">else</span>
-         right=mid<span class="hljs-number">-1</span>;
- &#125;
-<span class="hljs-keyword">return</span> left;
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20210429145355.png" alt="算法图示" /></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">searchInsert</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,right=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">            <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]&lt;target)</span><br><span class="line">                left=mid<span class="number">+1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right=mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">     <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">     <span class="keyword">if</span>(nums[mid]&lt;target)</span><br><span class="line">         left=mid<span class="number">+1</span>;</span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">         right=mid<span class="number">-1</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">return</span> left;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20210429145355.png" alt="算法图示"></p>
 <blockquote>
 <p>如果查找到相应的值，返回mid，num[mid]即为要查找的值</p>
 <p>否则，退出while时，low&gt;high，且num[low]&gt;key，num[high]&lt;key。</p>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-comment">/*
-    二分查找（折半查找）
-    返回下标值，从0开始
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Binary_search</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;num, <span class="hljs-keyword">int</span> key)</span> </span>&#123;
-    <span class="hljs-keyword">int</span> low = <span class="hljs-number">0</span>, high = num.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>;
-    <span class="hljs-keyword">while</span> (low &lt;= high) &#123;
-        <span class="hljs-keyword">int</span> mid = (low + high) / <span class="hljs-number">2</span>;
-        <span class="hljs-keyword">if</span> (num[mid] == key)
-            <span class="hljs-keyword">return</span> mid;
-        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (num[mid] &gt; key)
-            high = mid - <span class="hljs-number">1</span>;
-        <span class="hljs-keyword">else</span> &#123;
-            low = mid + <span class="hljs-number">1</span>;
-        &#125;
-    &#125;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"low:"</span> &lt;&lt; low &lt;&lt; <span class="hljs-string">" high:"</span> &lt;&lt; high &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-&#125;
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; num = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>&#125;;
-    <span class="hljs-built_in">cout</span> &lt;&lt; Binary_search(num, <span class="hljs-number">5</span>) &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20210428151148.png" alt="image-20210428151108695" /></p>
-<h4 id="410-分割数组的最大值"><a class="markdownIt-Anchor" href="#410-分割数组的最大值"></a> <a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></h4>
-<pre class="highlight"><code class="c++"><span class="hljs-comment">/*
-	有问题的写法
-	13   14  15
-	14   14   15
-	left=14符合解的条件，
-*/</span>
-<span class="hljs-keyword">while</span>(left&lt;right)&#123;
-    <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-    <span class="hljs-built_in">cout</span>&lt;&lt;left&lt;&lt;<span class="hljs-string">" "</span>&lt;&lt;mid&lt;&lt;<span class="hljs-string">" "</span>&lt;&lt;right&lt;&lt;<span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">if</span>(checker(nums,mid)&gt;=k)
-        left=mid;
-    <span class="hljs-keyword">else</span>
-        right=mid<span class="hljs-number">-1</span>;
-&#125;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    二分查找（折半查找）</span></span><br><span class="line"><span class="comment">    返回下标值，从0开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Binary_search</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;num, <span class="type">int</span> key)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> low = <span class="number">0</span>, high = num.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">        <span class="type">int</span> mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (num[mid] == key)</span><br><span class="line">            <span class="keyword">return</span> mid;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (num[mid] &gt; key)</span><br><span class="line">            high = mid - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            low = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;low:&quot;</span> &lt;&lt; low &lt;&lt; <span class="string">&quot; high:&quot;</span> &lt;&lt; high &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; num = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">Binary_search</span>(num, <span class="number">5</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20210428151148.png" alt="image-20210428151108695"></p>
+<h4 id="410-分割数组的最大值"><a href="https://leetcode.cn/problems/split-array-largest-sum/">410. 分割数组的最大值</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	有问题的写法</span></span><br><span class="line"><span class="comment">	13   14  15</span></span><br><span class="line"><span class="comment">	14   14   15</span></span><br><span class="line"><span class="comment">	left=14符合解的条件，</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">while</span>(left&lt;right)&#123;</span><br><span class="line">    <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">    cout&lt;&lt;left&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;mid&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;right&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">checker</span>(nums,mid)&gt;=k)</span><br><span class="line">        left=mid;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        right=mid<span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>采用&lt;=写法</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">splitArray</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> k)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> sum=accumulate(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>(),<span class="hljs-number">0</span>);
-
-        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=sum;
-        <span class="hljs-comment">// cout&lt;&lt;left&lt;&lt;" "&lt;&lt;right&lt;&lt;endl;</span>
-        <span class="hljs-keyword">while</span>(left&lt;=right)&#123;
-            <span class="hljs-keyword">int</span> mid=left+(right-left)/<span class="hljs-number">2</span>;
-            <span class="hljs-comment">// cout&lt;&lt;mid&lt;&lt;endl;</span>
-            <span class="hljs-keyword">if</span>(check(nums,k,mid))&#123;
-                right=mid<span class="hljs-number">-1</span>;
-            &#125;<span class="hljs-keyword">else</span>
-                left=mid+<span class="hljs-number">1</span>;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp;nums,<span class="hljs-keyword">int</span> k,<span class="hljs-keyword">int</span> limit)</span></span>&#123;
-        <span class="hljs-keyword">int</span> sum=<span class="hljs-number">0</span>,part=<span class="hljs-number">1</span>;
-        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;nums.<span class="hljs-built_in">size</span>();i++)&#123;
-            <span class="hljs-keyword">if</span>(nums[i]&gt;limit) 
-                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;  
-            <span class="hljs-keyword">if</span>(sum+nums[i]&lt;=limit)&#123;
-                sum+=nums[i];
-            &#125;<span class="hljs-keyword">else</span>&#123;
-                sum=nums[i];
-                part++;
-            &#125;
-        &#125;
-        <span class="hljs-comment">// cout&lt;&lt;limit&lt;&lt;" "&lt;&lt;part&lt;&lt;endl;</span>
-        <span class="hljs-keyword">return</span> part&lt;=k;
-    &#125;
-&#125;;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">splitArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> sum=<span class="built_in">accumulate</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> left=<span class="number">0</span>,right=sum;</span><br><span class="line">        <span class="comment">// cout&lt;&lt;left&lt;&lt;&quot; &quot;&lt;&lt;right&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">            <span class="type">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">            <span class="comment">// cout&lt;&lt;mid&lt;&lt;endl;</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">check</span>(nums,k,mid))&#123;</span><br><span class="line">                right=mid<span class="number">-1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">                left=mid<span class="number">+1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp;nums,<span class="type">int</span> k,<span class="type">int</span> limit)</span></span>&#123;</span><br><span class="line">        <span class="type">int</span> sum=<span class="number">0</span>,part=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]&gt;limit) </span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">            <span class="keyword">if</span>(sum+nums[i]&lt;=limit)&#123;</span><br><span class="line">                sum+=nums[i];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sum=nums[i];</span><br><span class="line">                part++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// cout&lt;&lt;limit&lt;&lt;&quot; &quot;&lt;&lt;part&lt;&lt;endl;</span></span><br><span class="line">        <span class="keyword">return</span> part&lt;=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>采用&lt;写法</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span> m)</span> </span>&#123;
-        <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> sum = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">1</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">if</span> (sum + nums[i] &gt; x) &#123;
-                cnt++;
-                sum = nums[i];
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                sum += nums[i];
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> cnt &lt;= m;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">splitArray</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> m)</span> </span>&#123;
-        <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> left = <span class="hljs-number">0</span>, right = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nums.<span class="hljs-built_in">size</span>(); i++) &#123;
-            right += nums[i];
-            <span class="hljs-keyword">if</span> (left &lt; nums[i]) &#123;
-                left = nums[i];
-            &#125;
-        &#125;
-        <span class="hljs-keyword">while</span> (left &lt; right) &#123;
-            <span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span> mid = (left + right) &gt;&gt; <span class="hljs-number">1</span>;
-            <span class="hljs-keyword">if</span> (check(nums, mid, m)) &#123;
-                right = mid;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                left = mid + <span class="hljs-number">1</span>;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-    &#125;
-&#125;;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> x, <span class="type">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (sum + nums[i] &gt; x) &#123;</span><br><span class="line">                cnt++;</span><br><span class="line">                sum = nums[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                sum += nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt &lt;= m;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">splitArray</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> m)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> left = <span class="number">0</span>, right = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            right += nums[i];</span><br><span class="line">            <span class="keyword">if</span> (left &lt; nums[i]) &#123;</span><br><span class="line">                left = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> mid = (left + right) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">check</span>(nums, mid, m)) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/">34. 在排序数组中查找元素的第一个和最后一个位置</a></p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-  <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-title">searchRange</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> n = nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>)
-            <span class="hljs-keyword">return</span> &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>&#125;;
-        <span class="hljs-keyword">int</span> first = mylower(nums, target), last = mylower(nums, target+<span class="hljs-number">1</span>)<span class="hljs-number">-1</span>;
-        <span class="hljs-keyword">if</span> (first == nums.<span class="hljs-built_in">size</span>() || nums[first] != target)
-            <span class="hljs-keyword">return</span> &#123;<span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>&#125;;
-        <span class="hljs-keyword">return</span> &#123;first, last&#125;;
-    &#125;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">mylower</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>(), mid;
-        <span class="hljs-keyword">while</span> (left &lt; right) &#123;
-            mid = left + (right - left) / <span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span> (nums[mid] &lt; target)
-                left = mid + <span class="hljs-number">1</span>;
-            <span class="hljs-keyword">else</span>
-                right = mid;
-        &#125;
-        <span class="hljs-keyword">return</span> left;
-    &#125;
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">myupper</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = nums.<span class="hljs-built_in">size</span>(), mid;
-        <span class="hljs-keyword">while</span> (left &lt; right) &#123;
-            mid = left + (right - left) / <span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span> (nums[mid] &lt;= target)
-                left = mid + <span class="hljs-number">1</span>;
-            <span class="hljs-keyword">else</span>
-                right = mid;
-        &#125;
-        <span class="hljs-keyword">return</span> left - <span class="hljs-number">1</span>;
-    &#125;
-&#125;;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">searchRange</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="type">int</span> first = <span class="built_in">mylower</span>(nums, target), last = <span class="built_in">mylower</span>(nums, target<span class="number">+1</span>)<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (first == nums.<span class="built_in">size</span>() || nums[first] != target)</span><br><span class="line">            <span class="keyword">return</span> &#123;<span class="number">-1</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">        <span class="keyword">return</span> &#123;first, last&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mylower</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = nums.<span class="built_in">size</span>(), mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &lt; target)</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">myupper</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>, right = nums.<span class="built_in">size</span>(), mid;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            mid = left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] &lt;= target)</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><a href="https://leetcode.cn/problems/search-in-rotated-sorted-array/">33. Search in Rotated Sorted Array</a></p>
 <blockquote>
 <p>寻找有序区间，判断targte是否位于有序区间内</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309011150215.png" alt="image-20230901115021140" /></p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">search</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> n = (<span class="hljs-keyword">int</span>)nums.<span class="hljs-built_in">size</span>();
-        <span class="hljs-keyword">if</span> (!n) &#123;
-            <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-        &#125;
-        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) &#123;
-            <span class="hljs-keyword">return</span> nums[<span class="hljs-number">0</span>] == target ? <span class="hljs-number">0</span> : <span class="hljs-number">-1</span>;
-        &#125;
-        <span class="hljs-keyword">int</span> l = <span class="hljs-number">0</span>, r = n - <span class="hljs-number">1</span>;
-        <span class="hljs-keyword">while</span> (l &lt;= r) &#123;
-            <span class="hljs-keyword">int</span> mid = (l + r) / <span class="hljs-number">2</span>;
-            <span class="hljs-keyword">if</span> (nums[mid] == target) <span class="hljs-keyword">return</span> mid;
-            <span class="hljs-keyword">if</span> (nums[<span class="hljs-number">0</span>] &lt;= nums[mid]) &#123;
-                <span class="hljs-keyword">if</span> (nums[<span class="hljs-number">0</span>] &lt;= target &amp;&amp; target &lt; nums[mid]) &#123;
-                    r = mid - <span class="hljs-number">1</span>;
-                &#125; <span class="hljs-keyword">else</span> &#123;
-                    l = mid + <span class="hljs-number">1</span>;
-                &#125;
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                <span class="hljs-keyword">if</span> (nums[mid] &lt; target &amp;&amp; target &lt;= nums[n - <span class="hljs-number">1</span>]) &#123;
-                    l = mid + <span class="hljs-number">1</span>;
-                &#125; <span class="hljs-keyword">else</span> &#123;
-                    r = mid - <span class="hljs-number">1</span>;
-                &#125;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
-    &#125;
-&#125;;
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202309011150215.png" alt="image-20230901115021140"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">search</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = (<span class="type">int</span>)nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (!n) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> nums[<span class="number">0</span>] == target ? <span class="number">0</span> : <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> l = <span class="number">0</span>, r = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">            <span class="type">int</span> mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] == target) <span class="keyword">return</span> mid;</span><br><span class="line">            <span class="keyword">if</span> (nums[<span class="number">0</span>] &lt;= nums[mid]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[<span class="number">0</span>] &lt;= target &amp;&amp; target &lt; nums[mid]) &#123;</span><br><span class="line">                    r = mid - <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    l = mid + <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[mid] &lt; target &amp;&amp; target &lt;= nums[n - <span class="number">1</span>]) &#123;</span><br><span class="line">                    l = mid + <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    r = mid - <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -585,12 +356,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%8C%BA%E9%97%B4%EF%BC%9A%E7%BA%BF%E6%AE%B5%E6%A0%91(Interval%20trees%E3%80%81%E5%8C%BA%E9%97%B4%E6%A0%91)/" rel="prev" title="">
-                  <i class="fa fa-angle-left"></i> 
+                  <i class="fa fa-chevron-left"></i> 
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="next" title="位运算">
-                  位运算 <i class="fa fa-angle-right"></i>
+                  位运算 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -609,51 +380,42 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

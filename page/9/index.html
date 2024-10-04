@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="凡是过去，皆为序章。">
 <meta property="og:type" content="website">
@@ -45,9 +47,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -61,10 +60,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -79,20 +81,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
@@ -112,11 +151,11 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -136,16 +175,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner index posts-expand">
 
@@ -188,13 +252,6 @@
 
       <time title="创建时间：2023-10-25 15:01:09" itemprop="dateCreated datePublished" datetime="2023-10-25T15:01:09+08:00">2023-10-25</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-25 14:50:42" itemprop="dateModified" datetime="2024-08-25T14:50:42+08:00">2024-08-25</time>
-    </span>
 
   
 </div>
@@ -206,77 +263,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-简洁写法"><a class="markdownIt-Anchor" href="#1-简洁写法"></a> 1 简洁写法</h1>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnionFind</span>&#123;</span>
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; id;
-<span class="hljs-keyword">public</span>:
-    UnionFind(<span class="hljs-keyword">int</span> n):id(n)&#123;
-        iota(id.<span class="hljs-built_in">begin</span>(),id.<span class="hljs-built_in">end</span>(),<span class="hljs-number">0</span>);
-    &#125;
-    <span class="hljs-comment">// 找到p的父节点</span>
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span></span>&#123;
-        <span class="hljs-keyword">while</span>(p!=id[p])
-            p=id[p];
-        <span class="hljs-keyword">return</span> p;
-    &#125;
-    <span class="hljs-comment">// 在p和q之间添加边</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">connect</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p,<span class="hljs-keyword">int</span> q)</span></span>&#123;
-        id[<span class="hljs-built_in">find</span>(p)]=<span class="hljs-built_in">find</span>(q);
-    &#125;
-    <span class="hljs-comment">// p和q是否同属于一个集合</span>
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isConnect</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p,<span class="hljs-keyword">int</span> q)</span></span>&#123;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(p)==<span class="hljs-built_in">find</span>(q);
-    &#125;
-&#125;;
-</code></pre>
-<h1 id="2-路径压缩按秩合并"><a class="markdownIt-Anchor" href="#2-路径压缩按秩合并"></a> 2 路径压缩+按秩合并</h1>
+          <h1>1 简洁写法</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; id;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n):<span class="built_in">id</span>(n)&#123;</span><br><span class="line">        <span class="built_in">iota</span>(id.<span class="built_in">begin</span>(),id.<span class="built_in">end</span>(),<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 找到p的父节点</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(p!=id[p])</span><br><span class="line">            p=id[p];</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 在p和q之间添加边</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        id[<span class="built_in">find</span>(p)]=<span class="built_in">find</span>(q);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// p和q是否同属于一个集合</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isConnect</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> q)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">find</span>(p)==<span class="built_in">find</span>(q);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1>2 路径压缩+按秩合并</h1>
 <p><a href="https://leetcode.cn/problems/number-of-operations-to-make-network-connected/solutions/101780/lian-tong-wang-luo-de-cao-zuo-ci-shu-by-leetcode-s/">1319. 连通网络的操作次数 - 力扣（LeetCode）</a>（模板，更清晰）</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UnionFind</span> &#123;</span>
-    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; id, <span class="hljs-built_in">size</span>;
-
-  <span class="hljs-keyword">public</span>:
-	<span class="hljs-comment">//把数组初始化为0到n-1</span>
-    UnionFind(<span class="hljs-keyword">int</span> n) : id(n), <span class="hljs-built_in">size</span>(n, <span class="hljs-number">1</span>) &#123; iota(id.<span class="hljs-built_in">begin</span>(), id.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>); &#125;
-
-    <span class="hljs-comment">// 路径压缩</span>
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p)</span> </span>&#123;
-        <span class="hljs-comment">// p的父节点</span>
-        <span class="hljs-keyword">while</span> (id[p] != p) &#123;
-            id[p] = id[id[p]];
-            p = id[p];
-        &#125;
-        <span class="hljs-keyword">return</span> p;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">connect</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123;
-        <span class="hljs-keyword">int</span> i = <span class="hljs-built_in">find</span>(p), j = <span class="hljs-built_in">find</span>(q);
-        <span class="hljs-keyword">if</span> (i != j) &#123;
-            <span class="hljs-comment">// 按秩合并，把元素数少的集合合并到元素数多的集合</span>
-            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">size</span>[i] &gt; <span class="hljs-built_in">size</span>[j]) &#123;
-                id[j] = i;
-                <span class="hljs-built_in">size</span>[i] += <span class="hljs-built_in">size</span>[j];
-            &#125; <span class="hljs-keyword">else</span> &#123;
-                id[i] = j;
-                <span class="hljs-built_in">size</span>[j] += <span class="hljs-built_in">size</span>[i];
-            &#125;
-        &#125;
-    &#125;
-
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isConnect</span><span class="hljs-params">(<span class="hljs-keyword">int</span> p, <span class="hljs-keyword">int</span> q)</span> </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(p) == <span class="hljs-built_in">find</span>(q); &#125;
-    <span class="hljs-comment">// 返回由多少个独立的集合</span>
-    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">getCnt</span><span class="hljs-params">()</span> </span>&#123;
-        <span class="hljs-keyword">int</span> cnt = <span class="hljs-number">0</span>;
-        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; id.<span class="hljs-built_in">size</span>(); i++) &#123;
-            <span class="hljs-keyword">if</span> (id[i] == i)
-                cnt++;
-        &#125;
-        <span class="hljs-keyword">return</span> cnt;
-    &#125;
-&#125;;
-</code></pre>
-<h1 id="3-删除边"><a class="markdownIt-Anchor" href="#3-删除边"></a> 3 删除边</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/582511962">并查集优化——树上删除操作 - 知乎 (zhihu.com)</a><br />
-<a href="https://www.cnblogs.com/wingman/p/10387069.html">并查集-并查集的删除操作 - 僚机 - 博客园 (cnblogs.com)</a><br />
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">UnionFind</span> &#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; id, size;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//把数组初始化为0到n-1</span></span><br><span class="line">    <span class="built_in">UnionFind</span>(<span class="type">int</span> n) : <span class="built_in">id</span>(n), <span class="built_in">size</span>(n, <span class="number">1</span>) &#123; <span class="built_in">iota</span>(id.<span class="built_in">begin</span>(), id.<span class="built_in">end</span>(), <span class="number">0</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 路径压缩</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// p的父节点</span></span><br><span class="line">        <span class="keyword">while</span> (id[p] != p) &#123;</span><br><span class="line">            id[p] = id[id[p]];</span><br><span class="line">            p = id[p];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">connect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> i = <span class="built_in">find</span>(p), j = <span class="built_in">find</span>(q);</span><br><span class="line">        <span class="keyword">if</span> (i != j) &#123;</span><br><span class="line">            <span class="comment">// 按秩合并，把元素数少的集合合并到元素数多的集合</span></span><br><span class="line">            <span class="keyword">if</span> (size[i] &gt; size[j]) &#123;</span><br><span class="line">                id[j] = i;</span><br><span class="line">                size[i] += size[j];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                id[i] = j;</span><br><span class="line">                size[j] += size[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isConnect</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">find</span>(p) == <span class="built_in">find</span>(q); &#125;</span><br><span class="line">    <span class="comment">// 返回由多少个独立的集合</span></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getCnt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; id.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (id[i] == i)</span><br><span class="line">                cnt++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1>3 删除边</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/582511962">并查集优化——树上删除操作 - 知乎 (zhihu.com)</a><br>
+<a href="https://www.cnblogs.com/wingman/p/10387069.html">并查集-并查集的删除操作 - 僚机 - 博客园 (cnblogs.com)</a><br>
 <a href="https://blog.csdn.net/qq_41694395/article/details/79253047">并查集——简单易懂（内附并查集删除操作）_可删并查集-CSDN博客</a></p>
 
       
@@ -332,9 +326,8 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-10-12 11:34:52 / 修改时间：17:51:45" itemprop="dateCreated datePublished" datetime="2023-10-12T11:34:52+08:00">2023-10-12</time>
+      <time title="创建时间：2023-10-12 11:34:52" itemprop="dateCreated datePublished" datetime="2023-10-12T11:34:52+08:00">2023-10-12</time>
     </span>
 
   
@@ -347,25 +340,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> linux</h1>
-<h2 id="bug"><a class="markdownIt-Anchor" href="#bug"></a> bug</h2>
+          <h1>linux</h1>
+<h2 id="bug">bug</h2>
 <ol>
-<li>
+<li class="lvl-3">
 <p>Linux执行.sh文件，提示No such file or directory的问题的解决方法</p>
-<pre class="highlight"><code class="shell"><span class="hljs-meta">#</span><span class="bash">fileformat格式错误</span>
-vim打开sh文件
-:set ff(fileformat=dos)
-:set ff=unix
-:wq
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">fileformat格式错误</span></span><br><span class="line">vim打开sh文件</span><br><span class="line">:set ff(fileformat=dos)</span><br><span class="line">:set ff=unix</span><br><span class="line">:wq</span><br></pre></td></tr></table></figure>
 </li>
-<li>
+<li class="lvl-3">
 <p>Command ‘clang’ not found, but can be installed with</p>
 <p>[Fixing ‘clang’ and ‘clang++’ not found after installing ‘clang-3.5’ package | DeviceTests](<a href="https://devicetests.com/fixing-clang-and-clang-not-found#:~:text=Open">https://devicetests.com/fixing-clang-and-clang-not-found#:~:text=Open</a> a terminal and run the following command%3A,the repository%2C and installs it on your system.)</p>
 </li>
 </ol>
-<h1 id="cmake"><a class="markdownIt-Anchor" href="#cmake"></a> Cmake</h1>
-<h2 id="设置cmake编译器"><a class="markdownIt-Anchor" href="#设置cmake编译器"></a> 设置cmake编译器</h2>
+<h1>Cmake</h1>
+<h2 id="设置cmake编译器">设置cmake编译器</h2>
 <p><a href="https://blog.csdn.net/weixin_39766005/article/details/122435780">CMake I 获取/设置编译器_cmake_cxx_compiler_id-CSDN博客</a></p>
 
       
@@ -424,13 +412,6 @@ vim打开sh文件
 
       <time title="创建时间：2023-10-11 21:11:05" itemprop="dateCreated datePublished" datetime="2023-10-11T21:11:05+08:00">2023-10-11</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-02 22:06:19" itemprop="dateModified" datetime="2024-07-02T22:06:19+08:00">2024-07-02</time>
-    </span>
 
   
 </div>
@@ -442,55 +423,55 @@ vim打开sh文件
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="01-左值和右值"><a class="markdownIt-Anchor" href="#01-左值和右值"></a> 0.1 左值和右值</h2>
+          <h2 id="0-1-左值和右值">0.1 左值和右值</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/240833006">C++中左值和右值的理解 - 知乎 (zhihu.com)</a></p>
-<ul>
-<li>lvalue(ell-value)：
-<ul>
-<li>左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边</li>
-<li>左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。</li>
+<ul class="lvl-0">
+<li class="lvl-2">lvalue(ell-value)：
+<ul class="lvl-2">
+<li class="lvl-6">左值是可寻址的变量，有持久性。既可以出现在等号左边，也可以出现在等号右边</li>
+<li class="lvl-6">左值表达式的求值结果是一个对象或者一个函数，有些左值不能成为赋值语句的左侧运算对象(const)。当对象被用作左值的时候，用的是object’s identity(its location in memory)。</li>
 </ul>
 </li>
-<li>rvalue(are-value)：当一个对象被用作右值的时候，用的是对象的值(the object’s content)
-<ul>
-<li>右值一般是不可寻址的常量，或在表达式求值过程中创建的无名临时对象，短暂性的</li>
+<li class="lvl-3">rvalue(are-value)：当一个对象被用作右值的时候，用的是对象的值(the object’s content)
+<ul class="lvl-2">
+<li class="lvl-7">右值一般是不可寻址的常量，或在表达式求值过程中创建的无名临时对象，短暂性的</li>
 </ul>
 </li>
 </ul>
-<pre class="highlight"><code class="c++"><span class="hljs-keyword">int</span> a; <span class="hljs-comment">// a 为左值</span>
-a = <span class="hljs-number">3</span>; <span class="hljs-comment">// 3 为右值</span>
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> a; <span class="comment">// a 为左值</span></span><br><span class="line">a = <span class="number">3</span>; <span class="comment">// 3 为右值</span></span><br></pre></td></tr></table></figure>
 <p>需要右值时，可以使用左值，反之不行</p>
-<ul>
-<li>左值引用：引用一个对象；</li>
-<li>右值引用（rvalue reference）：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。必须绑定到右值的引用，可以绑定到一个将要销毁的对象</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>左值引用：引用一个对象；</p>
+</li>
+<li class="lvl-2">
+<p>右值引用（rvalue reference）：就是必须绑定到右值的引用，C++11中右值引用可以实现“移动语义”，通过 &amp;&amp; 获得右值引用。必须绑定到右值的引用，可以绑定到一个将要销毁的对象</p>
+</li>
 </ul>
-<pre class="highlight"><code class="cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">6</span>; <span class="hljs-comment">// x是左值，6是右值</span>
-<span class="hljs-keyword">int</span> &amp;y = x; <span class="hljs-comment">// 左值引用，y引用x</span>
-
-<span class="hljs-keyword">int</span> &amp;z1 = x * <span class="hljs-number">6</span>; <span class="hljs-comment">// 错误，x*6是一个右值</span>
-<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> &amp;z2 =  x * <span class="hljs-number">6</span>; <span class="hljs-comment">// 正确，可以将一个const引用绑定到一个右值</span>
-
-<span class="hljs-keyword">int</span> &amp;&amp;z3 = x * <span class="hljs-number">6</span>; <span class="hljs-comment">// 正确，右值引用</span>
-<span class="hljs-keyword">int</span> &amp;&amp;z4 = x; <span class="hljs-comment">// 错误，x是一个左值</span>
-</code></pre>
-<h1 id="1-chapt-12"><a class="markdownIt-Anchor" href="#1-chapt-12"></a> 1 chapt 12</h1>
-<p>smart pointer：管理动态对象<br />
-shared_ptr：允许多个指针指向同一个对象<br />
-unique_ptr：独占所指向的对象<br />
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> x = <span class="number">6</span>; <span class="comment">// x是左值，6是右值</span></span><br><span class="line"><span class="type">int</span> &amp;y = x; <span class="comment">// 左值引用，y引用x</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;z1 = x * <span class="number">6</span>; <span class="comment">// 错误，x*6是一个右值</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> &amp;z2 =  x * <span class="number">6</span>; <span class="comment">// 正确，可以将一个const引用绑定到一个右值</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> &amp;&amp;z3 = x * <span class="number">6</span>; <span class="comment">// 正确，右值引用</span></span><br><span class="line"><span class="type">int</span> &amp;&amp;z4 = x; <span class="comment">// 错误，x是一个左值</span></span><br></pre></td></tr></table></figure>
+<h1>1 chapt 12</h1>
+<p>smart pointer：管理动态对象<br>
+shared_ptr：允许多个指针指向同一个对象<br>
+unique_ptr：独占所指向的对象<br>
 weak_ptr：弱引用，指向shared_ptr所管理的对象</p>
 <p>管理动态内存：</p>
-<ul>
-<li>忘记delete动态分配的内存（内存泄漏）</li>
-<li>在对象delete后使用</li>
-<li>同一块内存delete多次</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>忘记delete动态分配的内存（内存泄漏）</p>
+</li>
+<li class="lvl-2">
+<p>在对象delete后使用</p>
+</li>
+<li class="lvl-2">
+<p>同一块内存delete多次</p>
+</li>
 </ul>
-<h2 id="11-smart-pointer"><a class="markdownIt-Anchor" href="#11-smart-pointer"></a> 1.1 smart pointer</h2>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161042659.png" alt="image.png" /></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161049131.png" alt="image.png" /></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161040197.png" alt="" /></p>
-<h2 id="12-unique_ptr"><a class="markdownIt-Anchor" href="#12-unique_ptr"></a> 1.2 unique_ptr</h2>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161139098.png" alt="image.png" /></p>
+<h2 id="1-1-smart-pointer">1.1 smart pointer</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161042659.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161049131.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161040197.png" alt=""></p>
+<h2 id="1-2-unique-ptr">1.2 unique_ptr</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202310161139098.png" alt="image.png"></p>
 
       
     </div>
@@ -548,13 +529,6 @@ weak_ptr：弱引用，指向shared_ptr所管理的对象</p>
 
       <time title="创建时间：2023-10-09 16:57:39" itemprop="dateCreated datePublished" datetime="2023-10-09T16:57:39+08:00">2023-10-09</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-29 23:39:01" itemprop="dateModified" datetime="2024-06-29T23:39:01+08:00">2024-06-29</time>
-    </span>
 
   
 </div>
@@ -566,56 +540,45 @@ weak_ptr：弱引用，指向shared_ptr所管理的对象</p>
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-stl"><a class="markdownIt-Anchor" href="#1-stl"></a> 1 STL</h1>
+          <h1>1 STL</h1>
 <ol>
-<li>Sequence Containers：顺序容器
+<li class="lvl-3">Sequence Containers：顺序容器
 <ol>
-<li>vector：动态数组，O(1)的随机存取。在尾部增删的复杂度是O(1)，可以用作stack。</li>
-<li>list：双向链表，不支持随机存取。</li>
-<li>deque：双端队列，支持O(1)的随机存取，O(1)时间的头部增删和尾部增删。</li>
-<li>array：固定大小的数组</li>
-<li>forward_list：单向链表</li>
+<li class="lvl-7">vector：动态数组，O(1)的随机存取。在尾部增删的复杂度是O(1)，可以用作stack。</li>
+<li class="lvl-7">list：双向链表，不支持随机存取。</li>
+<li class="lvl-7">deque：双端队列，支持O(1)的随机存取，O(1)时间的头部增删和尾部增删。</li>
+<li class="lvl-7">array：固定大小的数组</li>
+<li class="lvl-7">forward_list：单向链表</li>
 </ol>
 </li>
-<li>Container Adaptors：基于其它容器实现的数据结构
+<li class="lvl-3">Container Adaptors：基于其它容器实现的数据结构
 <ol>
-<li>stack：后入先出（LIFO），默认基于deque实现。stack常用于深度优先搜索，字符串匹配以及单调栈问题</li>
-<li>queue：先入先出（FIFO），默认基于deque实现，常用于广度优先搜索。</li>
-<li>priority_queue：最大值先出(默认)的数据结构，默认基于vector实现堆结构，可以在O(nlogn)时间排序数组，O(logn)插入值，O(1)时间获取最大值，O(logn)删除最大值。</li>
+<li class="lvl-7">stack：后入先出（LIFO），默认基于deque实现。stack常用于深度优先搜索，字符串匹配以及单调栈问题</li>
+<li class="lvl-7">queue：先入先出（FIFO），默认基于deque实现，常用于广度优先搜索。</li>
+<li class="lvl-7">priority_queue：最大值先出(默认)的数据结构，默认基于vector实现堆结构，可以在O(nlogn)时间排序数组，O(logn)插入值，O(1)时间获取最大值，O(logn)删除最大值。</li>
 </ol>
 </li>
-<li>Associative Containers：实现了排好序的数据结构
+<li class="lvl-3">Associative Containers：实现了排好序的数据结构
 <ol>
-<li>set：有序集合，元素不可重复，底层默认为<mark>红黑树</mark>，即一种特殊的二叉查找树(BST)。在O(nlogn)时间排序数组，O(logn)时间插入、删除、查找任意值，O(logn)时间获得最大值或最小值。priority_queue不支持删除<mark>任意值</mark>。</li>
-<li>multiset：支持重复元素的set</li>
-<li>map：有序映射或有序表，在set的基础上加上映射关系，可以对每个元素key存一个value</li>
-<li>multimap：支持重复元素的map</li>
+<li class="lvl-7">set：有序集合，元素不可重复，底层默认为<mark>红黑树</mark>，即一种特殊的二叉查找树(BST)。在O(nlogn)时间排序数组，O(logn)时间插入、删除、查找任意值，O(logn)时间获得最大值或最小值。priority_queue不支持删除<mark>任意值</mark>。</li>
+<li class="lvl-7">multiset：支持重复元素的set</li>
+<li class="lvl-7">map：有序映射或有序表，在set的基础上加上映射关系，可以对每个元素key存一个value</li>
+<li class="lvl-7">multimap：支持重复元素的map</li>
 </ol>
 </li>
-<li>Unordered Associative Containers：对每个Associative Containers实现哈希版本
+<li class="lvl-3">Unordered Associative Containers：对每个Associative Containers实现哈希版本
 <ol>
-<li>unordered_set：哈希集合，可以在O(1)的时间快速插入、查找、删除元素，常用于快速的查询一个元素是否在这个容器内。</li>
-<li>unordered_multiset：支持重复元素的unordered_set</li>
-<li>unordered_map：哈希映射或和哈希表，在unordered_set的基础上加上映射关系，可以对每一个元素key存一个值value。在某些情况下，如果key的范围已知且较小，可以用<mark>vector</mark>代替unordered_map，用位置表示key，且每个位置的值表示value</li>
-<li>unordered_multimap：支持重复元素的unordered_map</li>
+<li class="lvl-7">unordered_set：哈希集合，可以在O(1)的时间快速插入、查找、删除元素，常用于快速的查询一个元素是否在这个容器内。</li>
+<li class="lvl-7">unordered_multiset：支持重复元素的unordered_set</li>
+<li class="lvl-7">unordered_map：哈希映射或和哈希表，在unordered_set的基础上加上映射关系，可以对每一个元素key存一个值value。在某些情况下，如果key的范围已知且较小，可以用<mark>vector</mark>代替unordered_map，用位置表示key，且每个位置的值表示value</li>
+<li class="lvl-7">unordered_multimap：支持重复元素的unordered_map</li>
 </ol>
 </li>
 </ol>
-<h1 id="2-set-multiset"><a class="markdownIt-Anchor" href="#2-set-multiset"></a> 2 set、multiset</h1>
-<p><a href="http://c.biancheng.net/view/7203.html">C++ STL multiset容器详解 (biancheng.net)</a><br />
+<h1>2 set、multiset</h1>
+<p><a href="http://c.biancheng.net/view/7203.html">C++ STL multiset容器详解 (biancheng.net)</a><br>
 multiset可以存储int, string, struct, class等类型，对于自定义类型需要实现比较函数</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span>&#123;</span>
-	<span class="hljs-keyword">int</span> x,y;
-&#125;;
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">cmp</span>&#123;</span>
-	<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-keyword">const</span> Node&amp;a, <span class="hljs-keyword">const</span> Node&amp;b)</span></span>&#123;
-	<span class="hljs-keyword">return</span> a.x==b.x?a.y&lt;b.y:a.x&lt;b.x;
-	&#125;
-&#125;;
-
-<span class="hljs-built_in">multiset</span>&lt;Node,cmp&gt; s;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">	<span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;</span><br><span class="line">	<span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Node&amp;a, <span class="type">const</span> Node&amp;b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a.x==b.x?a.y&lt;b.y:a.x&lt;b.x;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">multiset&lt;Node,cmp&gt; s;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -719,51 +682,20 @@ multiset可以存储int, string, struct, class等类型，对于自定义类型�
 </tbody>
 </table>
 <p>c++语言中，multiset是<set>库中一个非常有用的类型，它可以看成一个序列，插入一个数，删除一个数都能够在O(logn)的时间内完成，而且他能时刻保证序列中的数是有序的，而且序列中可以存在重复的数。</p>
-<h3 id="211-简单应用"><a class="markdownIt-Anchor" href="#211-简单应用"></a> 2.1.1 简单应用：</h3>
+<h3 id="2-1-1-简单应用：">2.1.1 简单应用：</h3>
 <p>通过一个程序来看如何使用multiset：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;  </span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;  </span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;set&gt;  </span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;  
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;      
-    <span class="hljs-keyword">int</span> x;  
-    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%ld"</span>,&amp;x);      
-    <span class="hljs-built_in">multiset</span>&lt;<span class="hljs-keyword">int</span>&gt;h;            
-    <span class="hljs-keyword">while</span>(x!=<span class="hljs-number">0</span>)&#123;          
-        h.insert(x);           
-        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">"%ld"</span>,&amp;x);      
-    &#125;      
-    <span class="hljs-keyword">while</span>(!h.empty())&#123;                 
-        __typeof(h.<span class="hljs-built_in">begin</span>()) c=h.<span class="hljs-built_in">begin</span>();  
-        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%ld "</span>,*c);             
-        h.erase(c);                
-    &#125;  
-&#125;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span>  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span>  </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">main</span><span class="params">()</span></span>&#123;      </span><br><span class="line">    <span class="type">int</span> x;  </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%ld&quot;</span>,&amp;x);      </span><br><span class="line">    multiset&lt;<span class="type">int</span>&gt;h;            </span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">0</span>)&#123;          </span><br><span class="line">        h.<span class="built_in">insert</span>(x);           </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%ld&quot;</span>,&amp;x);      </span><br><span class="line">    &#125;      </span><br><span class="line">    <span class="keyword">while</span>(!h.<span class="built_in">empty</span>())&#123;                 </span><br><span class="line">        __typeof(h.<span class="built_in">begin</span>()) c=h.<span class="built_in">begin</span>();  </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%ld &quot;</span>,*c);             </span><br><span class="line">        h.<span class="built_in">erase</span>(c);                </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>对于输入数据：32 61 12 2 12 0,该程序的输出是：2 12 12 32 61。</p>
 </blockquote>
-<h3 id="212-放入自定义类型的数据"><a class="markdownIt-Anchor" href="#212-放入自定义类型的数据"></a> 2.1.2 放入自定义类型的数据：</h3>
+<h3 id="2-1-2-放入自定义类型的数据：">2.1.2 放入自定义类型的数据：</h3>
 <p>不只是int类型，multiset还可以存储其他的类型诸如 string类型，结构(struct或class)类型。而我们一般在编程当中遇到的问题经常用到自定义的类型，即struct或class。例如下面的例子：</p>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">rec</span>&#123;</span><span class="hljs-keyword">int</span> x,y;&#125;;  
-<span class="hljs-built_in">multiset</span>&lt;rec&gt;h;
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">cmp</span>&#123;</span>  
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-keyword">const</span> rec&amp;a,<span class="hljs-keyword">const</span> rec&amp;b&#123;  
-    <span class="hljs-keyword">return</span> a.x&lt;b.x||a.x==b.x&amp;&amp;a.y&lt;b.y;    &#125;  
-&#125;;
-					
-struct rec&#123;<span class="hljs-keyword">int</span> x,y;&#125;;  
-struct cmp&#123;<span class="hljs-keyword">bool</span> <span class="hljs-keyword">operator</span>()(<span class="hljs-keyword">const</span> rec&amp;a,<span class="hljs-keyword">const</span> rec&amp;b)&#123;<span class="hljs-keyword">return</span> a.x&lt;b.x||a.x==b.x&amp;&amp;a.y&lt;b.y;    &#125;&#125;;  
-<span class="hljs-built_in">multiset</span>&lt;rec,cmp&gt;h;
-</span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">rec</span>&#123;<span class="type">int</span> x,y;&#125;;  </span><br><span class="line">multiset&lt;rec&gt;h;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">cmp</span>&#123;  </span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> rec&amp;a,<span class="type">const</span> rec&amp;b&#123;  </span></span></span><br><span class="line"><span class="params"><span class="function">    <span class="keyword">return</span> a.x&lt;b.x||a.x==b.x&amp;&amp;a.y&lt;b.y;    &#125;  </span></span></span><br><span class="line"><span class="params"><span class="function">&#125;;</span></span></span><br><span class="line"><span class="params"><span class="function">					</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="keyword">struct</span> rec&#123;<span class="type">int</span> x,y;&#125;;  </span></span></span><br><span class="line"><span class="params"><span class="function"><span class="keyword">struct</span> cmp&#123;<span class="type">bool</span> <span class="keyword">operator</span>()(<span class="type">const</span> rec&amp;a,<span class="type">const</span> rec&amp;b)&#123;<span class="keyword">return</span> a.x&lt;b.x||a.x==b.x&amp;&amp;a.y&lt;b.y;    &#125;&#125;;  </span></span></span><br><span class="line"><span class="params"><span class="function">multiset&lt;rec,cmp&gt;h;</span></span></span><br></pre></td></tr></table></figure>
 <p>不过以上的代码是没有任何用处的，因为multiset并不知道如何去比较一个自定义的类型。怎么办呢？我们可以定义multiset里面rec类型变量之间的小于关系的含义（这里以x为第一关键字为例），具体过程如下：</p>
 <p>定义一个比较类cmp，cmp内部的operator函数的作用是比较rec类型a和b的大小(以x为第一关键字，y为第二关键字)，告诉了序列h如何去比较里面的元素(重载运算符)</p>
-<h1 id="3-set-unordered_set区别"><a class="markdownIt-Anchor" href="#3-set-unordered_set区别"></a> 3 set、unordered_set区别</h1>
-<pre class="highlight"><code class="c++"><span class="hljs-comment">// unordered_set&lt;pair&lt;int, int&gt;&gt; test;   # error: use of deleted function function</span>
-<span class="hljs-built_in">set</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt; record, gu; <span class="hljs-comment">// 记录边</span>
-</code></pre>
-<h1 id="4-vector"><a class="markdownIt-Anchor" href="#4-vector"></a> 4 vector</h1>
+<h1>3 set、unordered_set区别</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// unordered_set&lt;pair&lt;int, int&gt;&gt; test;   # error: use of deleted function function</span></span><br><span class="line">set&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; record, gu; <span class="comment">// 记录边</span></span><br></pre></td></tr></table></figure>
+<h1>4 vector</h1>
 <table>
 <thead>
 <tr>
@@ -778,7 +710,7 @@ struct cmp&#123;<span class="hljs-keyword">bool</span> <span class="hljs-keywo
 </tr>
 </tbody>
 </table>
-<h1 id="5-array"><a class="markdownIt-Anchor" href="#5-array"></a> 5 array</h1>
+<h1>5 array</h1>
 <table>
 <thead>
 <tr>
@@ -793,12 +725,12 @@ struct cmp&#123;<span class="hljs-keyword">bool</span> <span class="hljs-keywo
 </tr>
 </tbody>
 </table>
-<h1 id="6-string"><a class="markdownIt-Anchor" href="#6-string"></a> 6 string</h1>
+<h1>6 string</h1>
 <blockquote>
-<p>cin：遇到空格结束读取<br />
+<p>cin：遇到空格结束读取<br>
 getline(cin, line)：读取一行（包括换行符），line不包括换行符</p>
 </blockquote>
-<p>to_string<br />
+<p>to_string<br>
 stoi</p>
 <table>
 <thead>
@@ -846,7 +778,7 @@ stoi</p>
 </tr>
 </tbody>
 </table>
-<h2 id="61-字符相关函数"><a class="markdownIt-Anchor" href="#61-字符相关函数"></a> 6.1 字符相关函数</h2>
+<h2 id="6-1-字符相关函数">6.1 字符相关函数</h2>
 <blockquote>
 <p>#include &lt;ctype.h&gt;</p>
 </blockquote>
@@ -859,7 +791,7 @@ stoi</p>
 </thead>
 <tbody>
 <tr>
-<td><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303291127460.png" alt="image-20221029205740860" /></td>
+<td><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303291127460.png" alt="image-20221029205740860"></td>
 <td></td>
 </tr>
 </tbody>
@@ -882,34 +814,10 @@ stoi</p>
 </tr>
 </tbody>
 </table>
-<h2 id="62-根据空格分割字符串"><a class="markdownIt-Anchor" href="#62-根据空格分割字符串"></a> 6.2 根据空格分割字符串</h2>
-<pre class="highlight"><code class="c++"><span class="hljs-built_in">string</span> <span class="hljs-built_in">line</span>=<span class="hljs-string">"this student is studious"</span>;
-<span class="hljs-built_in">stringstream</span> ss;
-<span class="hljs-built_in">string</span> w;
-ss&lt;&lt;<span class="hljs-built_in">line</span>;
-<span class="hljs-keyword">while</span>(ss&gt;&gt;w)&#123;
-	<span class="hljs-built_in">cout</span>&lt;&lt;w&lt;&lt;<span class="hljs-built_in">endl</span>;
-&#125;
-</code></pre>
-<h1 id="7-priority_queue"><a class="markdownIt-Anchor" href="#7-priority_queue"></a> 7 priority_queue</h1>
-<pre class="highlight"><code class="c++">priority_queue&lt;<span class="hljs-keyword">int</span>&gt; pq;
-
-
-<span class="hljs-comment">//自定义排序，小根堆</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Comp</span>&#123;</span>
-    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(ListNode* a,ListNode *b)</span></span>&#123;
-        <span class="hljs-keyword">return</span> a-&gt;val&gt;b-&gt;val;
-    &#125;
- &#125;;
-priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNode*&gt;,Comp&gt; pq;
-
-
- <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">bool</span> <span class="hljs-title">cmp</span><span class="hljs-params">(pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&amp; m, pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&amp; n)</span> </span>&#123;
-        <span class="hljs-keyword">return</span> m.second &gt; n.second;
-&#125;
-<span class="hljs-function">priority_queue&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;, <span class="hljs-built_in">vector</span>&lt;pair&lt;<span class="hljs-keyword">int</span>, <span class="hljs-keyword">int</span>&gt;&gt;, <span class="hljs-title">decltype</span><span class="hljs-params">(&amp;cmp)</span>&gt; <span class="hljs-title">q</span><span class="hljs-params">(cmp)</span></span>;
-
-</code></pre>
+<h2 id="6-2-根据空格分割字符串">6.2 根据空格分割字符串</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">string line=<span class="string">&quot;this student is studious&quot;</span>;</span><br><span class="line">stringstream ss;</span><br><span class="line">string w;</span><br><span class="line">ss&lt;&lt;line;</span><br><span class="line"><span class="keyword">while</span>(ss&gt;&gt;w)&#123;</span><br><span class="line">	cout&lt;&lt;w&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>7 priority_queue</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">priority_queue&lt;<span class="type">int</span>&gt; pq;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义排序，小根堆</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Comp</span>&#123;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(ListNode* a,ListNode *b)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a-&gt;val&gt;b-&gt;val;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;;</span><br><span class="line">priority_queue&lt;ListNode*,vector&lt;ListNode*&gt;,Comp&gt; pq;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="function"><span class="type">static</span> <span class="type">bool</span> <span class="title">cmp</span><span class="params">(pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&amp; m, pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&amp; n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m.second &gt; n.second;</span><br><span class="line">&#125;</span><br><span class="line">priority_queue&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;, <span class="keyword">decltype</span>(&amp;cmp)&gt; <span class="built_in">q</span>(cmp);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
@@ -932,34 +840,11 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
 </tr>
 </tbody>
 </table>
-<h1 id="8-algorithm"><a class="markdownIt-Anchor" href="#8-algorithm"></a> 8 algorithm</h1>
-<h2 id="81-sort"><a class="markdownIt-Anchor" href="#81-sort"></a> 8.1 sort</h2>
-<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;vector&gt;</span></span>
-<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &amp;a, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; b)</span>
-</span>&#123;
-    <span class="hljs-keyword">return</span> a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>];
-&#125;
-
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;
-	<span class="hljs-comment">//自定义排序</span>
-	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; nums=&lt;!--swig￼<span class="hljs-number">0</span>--&gt;;
-	sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>(),[](<span class="hljs-keyword">auto</span> &amp;a,<span class="hljs-keyword">auto</span> &amp;b)&#123;
-		<span class="hljs-keyword">return</span> a[<span class="hljs-number">1</span>]&lt;b[<span class="hljs-number">1</span>];
-	&#125;);
-	<span class="hljs-comment">//定义排序函数</span>
-	sort(nums.beign(),nums.<span class="hljs-built_in">end</span>(),compare);
-
-	sort(nums.<span class="hljs-built_in">begin</span>(), nums.<span class="hljs-built_in">end</span>(), greater&lt;pair&lt;<span class="hljs-keyword">int</span>,<span class="hljs-keyword">int</span>&gt;&gt;());从大到小排序
-	
-	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; nums;
-	sort(nums.<span class="hljs-built_in">begin</span>(),nums.<span class="hljs-built_in">end</span>(),greater&lt;<span class="hljs-keyword">int</span>&gt;());
-&#125;
-</code></pre>
+<h1>8 algorithm</h1>
+<h2 id="8-1-sort">8.1 sort</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">compare</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;a, vector&lt;<span class="type">int</span>&gt; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a[<span class="number">1</span>] &lt; b[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//自定义排序</span></span><br><span class="line">	vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; nums=&#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">2</span>, <span class="number">4</span>&#125;, &#123;<span class="number">1</span>, <span class="number">3</span>&#125;&#125;;</span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),[](<span class="keyword">auto</span> &amp;a,<span class="keyword">auto</span> &amp;b)&#123;</span><br><span class="line">		<span class="keyword">return</span> a[<span class="number">1</span>]&lt;b[<span class="number">1</span>];</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">//定义排序函数</span></span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">beign</span>(),nums.<span class="built_in">end</span>(),compare);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(), nums.<span class="built_in">end</span>(), greater&lt;pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;&gt;());从大到小排序</span><br><span class="line">	</span><br><span class="line">	vector&lt;<span class="type">int</span>&gt; nums;</span><br><span class="line">	<span class="built_in">sort</span>(nums.<span class="built_in">begin</span>(),nums.<span class="built_in">end</span>(),<span class="built_in">greater</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://blog.csdn.net/WHEgqing/article/details/42455705?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link">(6条消息) 浅析C/C++中sort函数的用法_WHEgqing的专栏-CSDN博客</a></p>
-<h2 id="82-lower_bound"><a class="markdownIt-Anchor" href="#82-lower_bound"></a> 8.2 lower_bound</h2>
+<h2 id="8-2-lower-bound">8.2 lower_bound</h2>
 <p>查找大于或者等于x的第一个位置</p>
 
       
@@ -1018,13 +903,6 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
 
       <time title="创建时间：2023-10-02 12:52:25" itemprop="dateCreated datePublished" datetime="2023-10-02T12:52:25+08:00">2023-10-02</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-02-28 16:00:58" itemprop="dateModified" datetime="2024-02-28T16:00:58+08:00">2024-02-28</time>
-    </span>
 
   
 </div>
@@ -1037,8 +915,7 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
     
     <div class="post-body" itemprop="articleBody">
           <blockquote>
-<p>前缀和适用于数组不变<br />
-适用于单点更新，区间查询</p>
+<p>前缀和适用于数组不变适用于单点更新，区间查询</p>
 </blockquote>
 <table>
 <thead>
@@ -1068,12 +945,22 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
 </tbody>
 </table>
 <p><a href="https://leetcode.cn/problems/range-sum-query-mutable/solutions/632515/guan-yu-ge-lei-qu-jian-he-wen-ti-ru-he-x-41hv/">307. 区域和检索 - 数组可修改 - 力扣（LeetCode）</a></p>
-<ul>
-<li>数组不变，求区间和：「前缀和」、「树状数组」、「线段树」</li>
-<li>多次修改某个数（单点），求区间和：「树状数组」、「线段树」</li>
-<li>多次修改某个区间，输出最终结果：「差分」</li>
-<li>多次修改某个区间，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</li>
-<li>多次将某个区间变成同一个数，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数组不变，求区间和：「前缀和」、「树状数组」、「线段树」</p>
+</li>
+<li class="lvl-2">
+<p>多次修改某个数（单点），求区间和：「树状数组」、「线段树」</p>
+</li>
+<li class="lvl-2">
+<p>多次修改某个区间，输出最终结果：「差分」</p>
+</li>
+<li class="lvl-2">
+<p>多次修改某个区间，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</p>
+</li>
+<li class="lvl-2">
+<p>多次将某个区间变成同一个数，求区间和：「线段树」、「树状数组」（看修改区间范围大小）</p>
+</li>
 </ul>
 
       
@@ -1132,13 +1019,6 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
 
       <time title="创建时间：2023-09-22 17:06:11" itemprop="dateCreated datePublished" datetime="2023-09-22T17:06:11+08:00">2023-09-22</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-10-09 16:57:34" itemprop="dateModified" datetime="2023-10-09T16:57:34+08:00">2023-10-09</time>
-    </span>
 
   
 </div>
@@ -1150,27 +1030,9 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="priority_queueheap"><a class="markdownIt-Anchor" href="#priority_queueheap"></a> priority_queue(heap)</h1>
-<h3 id="push"><a class="markdownIt-Anchor" href="#push"></a> push</h3>
-<pre class="highlight"><code class="c++">  <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> _RandomAccessIterator, <span class="hljs-keyword">typename</span> _Distance, <span class="hljs-keyword">typename</span> _Tp,
-	   <span class="hljs-keyword">typename</span> _Compare&gt;
-    <span class="hljs-keyword">void</span>
-    __push_heap(_RandomAccessIterator __first,
-		_Distance __holeIndex, _Distance __topIndex, _Tp __value,
-		_Compare&amp; __comp)
-	<span class="hljs-comment">//首迭代器,插入值索引(__last-1),堆顶索引(0),插入值,比较函数</span>
-    &#123;
-      _Distance __parent = (__holeIndex - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;
-      <span class="hljs-comment">//父节点值与节点值比较，默认less，父节点小，则交换</span>
-      <span class="hljs-keyword">while</span> (__holeIndex &gt; __topIndex &amp;&amp; __comp(__first + __parent, __value))
-	&#123;
-	  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));
-	  __holeIndex = __parent;
-	  __parent = (__holeIndex - <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;
-	&#125;
-      *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);
-    &#125;
-</code></pre>
+          <h1>priority_queue(heap)</h1>
+<h3 id="push">push</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">template</span>&lt;<span class="keyword">typename</span> _RandomAccessIterator, <span class="keyword">typename</span> _Distance, <span class="keyword">typename</span> _Tp,</span><br><span class="line">   <span class="keyword">typename</span> _Compare&gt;</span><br><span class="line">   <span class="type">void</span></span><br><span class="line">   __push_heap(_RandomAccessIterator __first,</span><br><span class="line">	_Distance __holeIndex, _Distance __topIndex, _Tp __value,</span><br><span class="line">	_Compare&amp; __comp)</span><br><span class="line"><span class="comment">//首迭代器,插入值索引(__last-1),堆顶索引(0),插入值,比较函数</span></span><br><span class="line">   &#123;</span><br><span class="line">     _Distance __parent = (__holeIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">     <span class="comment">//父节点值与节点值比较，默认less，父节点小，则交换</span></span><br><span class="line">     <span class="keyword">while</span> (__holeIndex &gt; __topIndex &amp;&amp; __comp(__first + __parent, __value))</span><br><span class="line">&#123;</span><br><span class="line">  *(__first + __holeIndex) = _GLIBCXX_MOVE(*(__first + __parent));</span><br><span class="line">  __holeIndex = __parent;</span><br><span class="line">  __parent = (__holeIndex - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line">     *(__first + __holeIndex) = _GLIBCXX_MOVE(__value);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1228,13 +1090,6 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
 
       <time title="创建时间：2023-09-18 23:03:56" itemprop="dateCreated datePublished" datetime="2023-09-18T23:03:56+08:00">2023-09-18</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-20 17:30:27" itemprop="dateModified" datetime="2023-09-20T17:30:27+08:00">2023-09-20</time>
-    </span>
 
   
 </div>
@@ -1246,44 +1101,14 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="next_permutation"><a class="markdownIt-Anchor" href="#next_permutation"></a> next_permutation</h2>
+          <h2 id="next-permutation">next_permutation</h2>
 <blockquote>
-<p>next_permutation()是按字典序依次排列的，当排列到最大的值是就会返回false.<br />
+<p>next_permutation()是按字典序依次排列的，当排列到最大的值是就会返回false.<br>
 生成给定序列的下一个排列，按字典序生成下一个排列。如果有下一个排列，返回true，否则返回false</p>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> _BidirectionalIterator, <span class="hljs-keyword">typename</span> _Compare&gt;
-<span class="hljs-keyword">bool</span> __next_permutation(_BidirectionalIterator __first,
-                        _BidirectionalIterator __last, _Compare __comp) &#123;
-    <span class="hljs-keyword">if</span> (__first == __last)  <span class="hljs-comment">//区间为空</span>
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    _BidirectionalIterator __i = __first;
-    ++__i;
-    <span class="hljs-keyword">if</span> (__i == __last)  <span class="hljs-comment">//区间只有一个元素</span>
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    __i = __last;
-    --__i;
-
-    <span class="hljs-keyword">for</span> (;;) &#123;
-        _BidirectionalIterator __ii = __i;  <span class="hljs-comment">//__i指向__ii前一个位置</span>
-        --__i;
-        <span class="hljs-keyword">if</span> (__comp(__i, __ii)) &#123;    <span class="hljs-comment">// *__i&lt;*__ii</span>
-            _BidirectionalIterator __j = __last;
-            <span class="hljs-keyword">while</span> (!__comp(__i, --__j)) &#123;   <span class="hljs-comment">//找到从后面起第一个*__j&gt;*__i</span>
-            &#125;
-            <span class="hljs-built_in">std</span>::iter_swap(__i, __j);
-            <span class="hljs-built_in">std</span>::__reverse(__ii, __last, <span class="hljs-built_in">std</span>::__iterator_category(__first));
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-        &#125;
-        <span class="hljs-comment">//区间已经完全逆序</span>
-        <span class="hljs-keyword">if</span> (__i == __first) &#123;
-            <span class="hljs-built_in">std</span>::__reverse(__first, __last, <span class="hljs-built_in">std</span>::__iterator_category(__first));
-            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-        &#125;
-    &#125;
-&#125;
-</code></pre>
-<h2 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h2>
-<p><a href="https://blog.csdn.net/qq_46527915/article/details/115276567">使用next_permutation()的坑，你中招了么?_辉小歌的博客-CSDN博客</a><br />
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> _BidirectionalIterator, <span class="keyword">typename</span> _Compare&gt;</span><br><span class="line"><span class="type">bool</span> __next_permutation(_BidirectionalIterator __first,</span><br><span class="line">                        _BidirectionalIterator __last, _Compare __comp) &#123;</span><br><span class="line">    <span class="keyword">if</span> (__first == __last)  <span class="comment">//区间为空</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    _BidirectionalIterator __i = __first;</span><br><span class="line">    ++__i;</span><br><span class="line">    <span class="keyword">if</span> (__i == __last)  <span class="comment">//区间只有一个元素</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    __i = __last;</span><br><span class="line">    --__i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">        _BidirectionalIterator __ii = __i;  <span class="comment">//__i指向__ii前一个位置</span></span><br><span class="line">        --__i;</span><br><span class="line">        <span class="keyword">if</span> (__comp(__i, __ii)) &#123;    <span class="comment">// *__i&lt;*__ii</span></span><br><span class="line">            _BidirectionalIterator __j = __last;</span><br><span class="line">            <span class="keyword">while</span> (!__comp(__i, --__j)) &#123;   <span class="comment">//找到从后面起第一个*__j&gt;*__i</span></span><br><span class="line">            &#125;</span><br><span class="line">            std::<span class="built_in">iter_swap</span>(__i, __j);</span><br><span class="line">            std::__reverse(__ii, __last, std::__iterator_category(__first));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//区间已经完全逆序</span></span><br><span class="line">        <span class="keyword">if</span> (__i == __first) &#123;</span><br><span class="line">            std::__reverse(__first, __last, std::__iterator_category(__first));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="参考">参考</h2>
+<p><a href="https://blog.csdn.net/qq_46527915/article/details/115276567">使用next_permutation()的坑，你中招了么?_辉小歌的博客-CSDN博客</a><br>
 <a href="https://zhuanlan.zhihu.com/p/616792845">C++神奇的next_permutation - 知乎 (zhihu.com)</a></p>
 
       
@@ -1344,13 +1169,6 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 21:14:49" itemprop="dateModified" datetime="2024-03-02T21:14:49+08:00">2024-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1370,7 +1188,7 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
     
     <div class="post-body" itemprop="articleBody">
           <p>sequence</p>
-<h1 id="列表lists"><a class="markdownIt-Anchor" href="#列表lists"></a> 列表(lists)</h1>
+<h1>列表(lists)</h1>
 <blockquote>
 <p>[1,2,3]</p>
 <p>odds=[3,5,7,9,11]</p>
@@ -1382,15 +1200,15 @@ priority_queue&lt;ListNode*,<span class="hljs-built_in">vector</span>&lt;ListNod
 <p>sum([[1,2],[3]],[])=[1,2,3]</p>
 </blockquote>
 <ol>
-<li>函数参数加*号，代表将多个参数组装成列表</li>
-<li>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</li>
+<li class="lvl-3">
+<p>函数参数加*号，代表将多个参数组装成列表</p>
+</li>
+<li class="lvl-3">
+<p>数组前面加参数，代表把数组拆分成多个逗号分割的变量，类似js中的展开符号.</p>
+</li>
 </ol>
-<pre class="highlight"><code class="python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x,y)</span>:</span>
-    <span class="hljs-keyword">return</span> x+y
-ls=[<span class="hljs-number">10</span>,<span class="hljs-number">12</span>]
-add(*ls)
-</code></pre>
-<h2 id="range"><a class="markdownIt-Anchor" href="#range"></a> range</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">x,y</span>):</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">ls=[<span class="number">10</span>,<span class="number">12</span>]</span><br><span class="line">add(*ls)</span><br></pre></td></tr></table></figure>
+<h2 id="range">range</h2>
 <p>tuple</p>
 <blockquote>
 <p>immutable sequences</p>
@@ -1451,13 +1269,6 @@ add(*ls)
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2023-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2023-09-05T00:00:00+08:00">2023-09-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-16 21:38:36" itemprop="dateModified" datetime="2024-05-16T21:38:36+08:00">2024-05-16</time>
     </span>
 
   
@@ -1537,13 +1348,6 @@ add(*ls)
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-22 21:20:43" itemprop="dateModified" datetime="2024-09-22T21:20:43+08:00">2024-09-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1589,7 +1393,7 @@ add(*ls)
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1598,51 +1402,42 @@ add(*ls)
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

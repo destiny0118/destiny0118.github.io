@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="线性表：数组、链表">
 <meta property="og:type" content="article">
@@ -51,9 +53,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -67,10 +66,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -85,20 +87,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -114,16 +153,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text"> 1 线性表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%BA%BF%E6%80%A7%E9%93%BE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text"> 2 线性链表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text"> 3 双向链表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%AF%94%E8%BE%83"><span class="nav-number">4.</span> <span class="nav-text"> 4 比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%AE%9A%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text"> 5 定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E9%A2%98%E5%8D%95"><span class="nav-number">6.</span> <span class="nav-text"> 6 题单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#61-%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="nav-number">6.1.</span> <span class="nav-text"> 6.1 翻转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5111-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-%E5%8A%9B%E6%89%A3leetcode"><span class="nav-number">6.1.0.1.</span> <span class="nav-text"> 5.1.1.1 206. 反转链表 - 力扣（Leetcode）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#51111-%E6%96%B9%E6%B3%95%E4%B8%80%E5%A4%B4%E6%8F%92%E6%B3%95"><span class="nav-number">6.1.0.1.1.</span> <span class="nav-text"> 5.1.1.1.1 方法一：头插法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#51112-%E6%96%B9%E6%B3%95%E4%BA%8C%E8%BF%AD%E4%BB%A3%E6%B3%95"><span class="nav-number">6.1.0.1.2.</span> <span class="nav-text"> 5.1.1.1.2 方法二：迭代法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#51113-%E6%96%B9%E6%B3%95%E4%B8%89%E9%80%92%E5%BD%92%E6%B3%95"><span class="nav-number">6.1.0.1.3.</span> <span class="nav-text"> 5.1.1.1.3 方法三：递归法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#62-%E5%90%88%E5%B9%B6%E9%93%BE%E8%A1%A8"><span class="nav-number">6.2.</span> <span class="nav-text"> 6.2 合并链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5211-143-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8"><span class="nav-number">6.2.0.1.</span> <span class="nav-text"> 5.2.1.1 143. 重排链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5212-160-%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8"><span class="nav-number">6.2.0.2.</span> <span class="nav-text"> 5.2.1.2 160. 相交链表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#622-148-%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="nav-number">6.2.1.</span> <span class="nav-text"> 6.2.2 148. 排序链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#63-%E9%93%BE%E8%A1%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">6.3.</span> <span class="nav-text"> 6.3 链表技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5311-328-%E5%A5%87%E5%81%B6%E9%93%BE%E8%A1%A8"><span class="nav-number">6.3.0.1.</span> <span class="nav-text"> 5.3.1.1 328. 奇偶链表</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 线性表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 线性链表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 双向链表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 题单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E7%BF%BB%E8%BD%AC%E9%93%BE%E8%A1%A8"><span class="nav-text">6.1 翻转链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-1-1-206-%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8-%E5%8A%9B%E6%89%A3%EF%BC%88Leetcode%EF%BC%89"><span class="nav-text">5.1.1.1 206. 反转链表 - 力扣（Leetcode）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-1-1-%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E5%A4%B4%E6%8F%92%E6%B3%95"><span class="nav-text">5.1.1.1.1 方法一：头插法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-1-2-%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E8%BF%AD%E4%BB%A3%E6%B3%95"><span class="nav-text">5.1.1.1.2 方法二：迭代法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-1-3-%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E9%80%92%E5%BD%92%E6%B3%95"><span class="nav-text">5.1.1.1.3 方法三：递归法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E5%90%88%E5%B9%B6%E9%93%BE%E8%A1%A8"><span class="nav-text">6.2 合并链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-1-143-%E9%87%8D%E6%8E%92%E9%93%BE%E8%A1%A8"><span class="nav-text">5.2.1.1 143. 重排链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-2-160-%E7%9B%B8%E4%BA%A4%E9%93%BE%E8%A1%A8"><span class="nav-text">5.2.1.2 160. 相交链表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-2-148-%E6%8E%92%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="nav-text">6.2.2 148. 排序链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-%E9%93%BE%E8%A1%A8%E6%8A%80%E5%B7%A7"><span class="nav-text">6.3 链表技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-1-1-328-%E5%A5%87%E5%81%B6%E9%93%BE%E8%A1%A8"><span class="nav-text">5.3.1.1 328. 奇偶链表</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -143,16 +182,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -183,7 +247,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          线性表
+          线性表<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E7%AE%97%E6%B3%95/%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%9A%E6%95%B0%E7%BB%84%E3%80%81%E9%93%BE%E8%A1%A8.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -195,13 +259,6 @@
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-16 21:55:33" itemprop="dateModified" datetime="2024-08-16T21:55:33+08:00">2024-08-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -223,141 +280,22 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="1-线性表"><a class="markdownIt-Anchor" href="#1-线性表"></a> 1 线性表</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403022059260.png" alt="image.png" /></p>
-<h1 id="2-线性链表"><a class="markdownIt-Anchor" href="#2-线性链表"></a> 2 线性链表</h1>
+    <div class="post-body" itemprop="articleBody">
+        <h1>1 线性表</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403022059260.png" alt="image.png"></p>
+<h1>2 线性链表</h1>
 <blockquote>
 <p>带表头结点</p>
-<ul>
-<li>从表尾到表头逆向建立单链表</li>
-<li>插入结点</li>
-<li>删除结点</li>
+<ul class="lvl-1">
+<li class="lvl-2">从表尾到表头逆向建立单链表</li>
+<li class="lvl-2">插入结点</li>
+<li class="lvl-2">删除结点</li>
 </ul>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403022103444.png" alt="线性表.png" /></p>
-<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
-<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
-
-<span class="hljs-comment">/*
-    线性链表的实现
-    单链表：只有一个指向后继的指针
-    单向循环链表
-*/</span>
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Link_list</span> &#123;</span>
-    <span class="hljs-keyword">int</span> data;
-    Link_list *next;
-&#125;;
-
-<span class="hljs-function">Link_list *<span class="hljs-title">Get_node</span><span class="hljs-params">()</span> </span>&#123;
-    Link_list *p = (Link_list *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Link_list));
-    <span class="hljs-keyword">return</span> p;
-&#125;
-<span class="hljs-comment">/*
-    创建一个含有n个结点的链表（不包括头结点）
-    先插入的结点离头结点更远
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Create_List</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> n)</span> </span>&#123;
-    L = (Link_list *)<span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(Link_list));
-    L-&gt;next = <span class="hljs-literal">NULL</span>;
-    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) &#123;
-        Link_list *p = Get_node();
-        <span class="hljs-keyword">if</span> (!p)
-            <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"分配结点失败"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-        <span class="hljs-keyword">int</span> t;
-        <span class="hljs-built_in">cin</span> &gt;&gt; t;
-        p-&gt;data = t;
-
-        p-&gt;next = L-&gt;next;
-        L-&gt;next = p;
-    &#125;
-&#125;
-
-<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Show_List</span><span class="hljs-params">(Link_list *&amp;L)</span> </span>&#123;
-    Link_list *p = L-&gt;next;
-    <span class="hljs-keyword">while</span> (p) &#123;
-        <span class="hljs-built_in">cout</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="hljs-string">" "</span>;
-        p = p-&gt;next;
-    &#125;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-&#125;
-<span class="hljs-comment">/*
-    带表头结点L
-    当第i个元素存在时，用value返回其值
-    元素位序从1开始
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Get_node</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> &amp;value)</span> </span>&#123;
-    Link_list *p = L;
-    <span class="hljs-keyword">while</span> (i &gt; <span class="hljs-number">0</span> &amp;&amp; p) &#123;
-        p = p-&gt;next;
-        --i;
-    &#125;
-    <span class="hljs-keyword">if</span> (!p || i &gt; <span class="hljs-number">0</span>)
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    value = p-&gt;data;
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-&#125;
-<span class="hljs-comment">/*
-    在第i个位置插入元素额，第i个位置元素后移
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Insert_node</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> e)</span> </span>&#123;
-    Link_list *p = L, *t;
-    <span class="hljs-comment">//寻找第i-1个结点</span>
-    <span class="hljs-keyword">while</span> (p &amp;&amp; i &gt; <span class="hljs-number">1</span>) &#123;
-        p = p-&gt;next;
-        --i;
-    &#125;
-    <span class="hljs-keyword">if</span> (!p || i &gt; <span class="hljs-number">1</span>) &#123;
-        <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"i不正确"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-    &#125;
-    t = Get_node();
-    t-&gt;data = e;
-
-    t-&gt;next = p-&gt;next;
-    p-&gt;next = t;
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-&#125;
-<span class="hljs-comment">/*
-    删除第i个位置的元素，并由e返回其值
-*/</span>
-<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">Delete_node</span><span class="hljs-params">(Link_list *&amp;L, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> &amp;e)</span> </span>&#123;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"Delete:"</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
-    Link_list *p = L;
-    <span class="hljs-comment">//寻找第i-1个元素</span>
-    <span class="hljs-keyword">while</span> (p &amp;&amp; i &gt; <span class="hljs-number">1</span>) &#123;
-        p = p-&gt;next;
-        --i;
-    &#125;
-    <span class="hljs-keyword">if</span> (!p || i &gt; <span class="hljs-number">1</span>)
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
-
-    e = p-&gt;next-&gt;data;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"P-&gt;data:"</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="hljs-string">" e:"</span> &lt;&lt; e &lt;&lt; <span class="hljs-built_in">endl</span>;
-    Link_list *t = p-&gt;next;
-    p-&gt;next = t-&gt;next;
-    <span class="hljs-built_in">free</span>(t);
-    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
-&#125;
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;
-    Link_list *L;
-    <span class="hljs-keyword">int</span> n;
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"要创建的结点数："</span>;
-    <span class="hljs-built_in">cin</span> &gt;&gt; n;
-    Create_List(L, n);
-    Show_List(L);
-
-    Insert_node(L, <span class="hljs-number">3</span>, <span class="hljs-number">100</span>);
-    Show_List(L);
-
-    <span class="hljs-keyword">int</span> value;
-    Delete_node(L, <span class="hljs-number">2</span>, value);
-    Show_List(L);
-    <span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-string">"value: "</span> &lt;&lt; value &lt;&lt; <span class="hljs-built_in">endl</span>;
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
-&#125;
-</code></pre>
-<h1 id="3-双向链表"><a class="markdownIt-Anchor" href="#3-双向链表"></a> 3 双向链表</h1>
-<h1 id="4-比较"><a class="markdownIt-Anchor" href="#4-比较"></a> 4 比较</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403022103444.png" alt="线性表.png"></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    线性链表的实现</span></span><br><span class="line"><span class="comment">    单链表：只有一个指向后继的指针</span></span><br><span class="line"><span class="comment">    单向循环链表</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Link_list</span> &#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    Link_list *next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Link_list *<span class="title">Get_node</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Link_list *p = (Link_list *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(Link_list));</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    创建一个含有n个结点的链表（不包括头结点）</span></span><br><span class="line"><span class="comment">    先插入的结点离头结点更远</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Create_List</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    L = (Link_list *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(Link_list));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">        Link_list *p = <span class="built_in">Get_node</span>();</span><br><span class="line">        <span class="keyword">if</span> (!p)</span><br><span class="line">            cout &lt;&lt; <span class="string">&quot;分配结点失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="type">int</span> t;</span><br><span class="line">        cin &gt;&gt; t;</span><br><span class="line">        p-&gt;data = t;</span><br><span class="line"></span><br><span class="line">        p-&gt;next = L-&gt;next;</span><br><span class="line">        L-&gt;next = p;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Show_List</span><span class="params">(Link_list *&amp;L)</span> </span>&#123;</span><br><span class="line">    Link_list *p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p) &#123;</span><br><span class="line">        cout &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    带表头结点L</span></span><br><span class="line"><span class="comment">    当第i个元素存在时，用value返回其值</span></span><br><span class="line"><span class="comment">    元素位序从1开始</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Get_node</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> i, <span class="type">int</span> &amp;value)</span> </span>&#123;</span><br><span class="line">    Link_list *p = L;</span><br><span class="line">    <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; p) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        --i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!p || i &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    value = p-&gt;data;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    在第i个位置插入元素额，第i个位置元素后移</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Insert_node</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> i, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">    Link_list *p = L, *t;</span><br><span class="line">    <span class="comment">//寻找第i-1个结点</span></span><br><span class="line">    <span class="keyword">while</span> (p &amp;&amp; i &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        --i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!p || i &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;i不正确&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    t = <span class="built_in">Get_node</span>();</span><br><span class="line">    t-&gt;data = e;</span><br><span class="line"></span><br><span class="line">    t-&gt;next = p-&gt;next;</span><br><span class="line">    p-&gt;next = t;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    删除第i个位置的元素，并由e返回其值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Delete_node</span><span class="params">(Link_list *&amp;L, <span class="type">int</span> i, <span class="type">int</span> &amp;e)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Delete:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    Link_list *p = L;</span><br><span class="line">    <span class="comment">//寻找第i-1个元素</span></span><br><span class="line">    <span class="keyword">while</span> (p &amp;&amp; i &gt; <span class="number">1</span>) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        --i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!p || i &gt; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    e = p-&gt;next-&gt;data;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;P-&gt;data:&quot;</span> &lt;&lt; p-&gt;data &lt;&lt; <span class="string">&quot; e:&quot;</span> &lt;&lt; e &lt;&lt; endl;</span><br><span class="line">    Link_list *t = p-&gt;next;</span><br><span class="line">    p-&gt;next = t-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(t);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Link_list *L;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;要创建的结点数：&quot;</span>;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="built_in">Create_List</span>(L, n);</span><br><span class="line">    <span class="built_in">Show_List</span>(L);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Insert_node</span>(L, <span class="number">3</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">Show_List</span>(L);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> value;</span><br><span class="line">    <span class="built_in">Delete_node</span>(L, <span class="number">2</span>, value);</span><br><span class="line">    <span class="built_in">Show_List</span>(L);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;value: &quot;</span> &lt;&lt; value &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>3 双向链表</h1>
+<h1>4 比较</h1>
 <table>
 <thead>
 <tr>
@@ -388,258 +326,47 @@
 </tr>
 </tbody>
 </table>
-<h1 id="5-定义"><a class="markdownIt-Anchor" href="#5-定义"></a> 5 定义</h1>
+<h1>5 定义</h1>
 <blockquote>
 <p>链表有节点域和指针域两部分组成</p>
-<ul>
-<li>precursor(pre，前驱)</li>
-<li>successor(succ，后继)</li>
-<li>dummy node(虚拟节点)</li>
+<ul class="lvl-1">
+<li class="lvl-2">precursor(pre，前驱)</li>
+<li class="lvl-2">successor(succ，后继)</li>
+<li class="lvl-2">dummy node(虚拟节点)</li>
 </ul>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListNode</span>&#123;</span>
-	<span class="hljs-keyword">int</span> val;
-	ListNode *next;
-	ListNode(<span class="hljs-keyword">int</span> x): val(x),next(<span class="hljs-literal">nullptr</span>)&#123;&#125;
-&#125;
-</code></pre>
-<pre class="highlight"><code class="java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListNode</span></span>&#123;
-	<span class="hljs-keyword">int</span> val;
-	ListNode next;
-	ListNode(<span class="hljs-keyword">int</span> x)&#123;
-		val=x;
-		next=<span class="hljs-keyword">null</span>;
-	&#125;
-&#125;
-</code></pre>
-<h1 id="6-题单"><a class="markdownIt-Anchor" href="#6-题单"></a> 6 题单</h1>
-<h2 id="61-翻转链表"><a class="markdownIt-Anchor" href="#61-翻转链表"></a> 6.1 翻转链表</h2>
-<h4 id="5111-206-反转链表-力扣leetcode"><a class="markdownIt-Anchor" href="#5111-206-反转链表-力扣leetcode"></a> 5.1.1.1 <a href="https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&amp;envId=top-100-liked">206. 反转链表 - 力扣（Leetcode）</a></h4>
-<h5 id="51111-方法一头插法"><a class="markdownIt-Anchor" href="#51111-方法一头插法"></a> 5.1.1.1.1 方法一：头插法</h5>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
-        ListNode *<span class="hljs-built_in">list</span>=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>),*p=head,*tmp;
-        <span class="hljs-keyword">while</span>(p)&#123;
-            tmp=p;
-            p=p-&gt;next;
-            tmp-&gt;next=<span class="hljs-built_in">list</span>-&gt;next;
-            <span class="hljs-built_in">list</span>-&gt;next=tmp;
-        &#125;
-        <span class="hljs-keyword">return</span> <span class="hljs-built_in">list</span>-&gt;next;;
-    &#125;
-&#125;;
-</code></pre>
-<h5 id="51112-方法二迭代法"><a class="markdownIt-Anchor" href="#51112-方法二迭代法"></a> 5.1.1.1.2 方法二：迭代法</h5>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
-        ListNode *res=<span class="hljs-literal">nullptr</span>,*tmp;
-
-        <span class="hljs-keyword">while</span>(head)&#123;
-            tmp=head-&gt;next;
-            head-&gt;next=res;
-            res=head;
-
-            head=tmp;
-        &#125;
-        <span class="hljs-keyword">return</span> res;
-    &#125;
-&#125;;
-</code></pre>
-<h5 id="51113-方法三递归法"><a class="markdownIt-Anchor" href="#51113-方法三递归法"></a> 5.1.1.1.3 方法三：递归法</h5>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode* <span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
-        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">nullptr</span>||head-&gt;next==<span class="hljs-literal">nullptr</span>)&#123;
-            <span class="hljs-keyword">return</span> head;
-        &#125;
-
-        ListNode* newHead=reverseList(head-&gt;next);
-        head-&gt;next-&gt;next=head;
-        head-&gt;next=<span class="hljs-literal">nullptr</span>;
-        <span class="hljs-keyword">return</span> newHead;
-    &#125;
-&#125;;
-</code></pre>
-<h2 id="62-合并链表"><a class="markdownIt-Anchor" href="#62-合并链表"></a> 6.2 合并链表</h2>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode* <span class="hljs-title">mergeTwoLists</span><span class="hljs-params">(ListNode* list1, ListNode* list2)</span> </span>&#123;
-        ListNode* dummy=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">-1</span>),*p=dummy;
-        <span class="hljs-keyword">while</span>(list1&amp;&amp;list2)&#123;
-            <span class="hljs-keyword">if</span>(list1-&gt;val&lt;=list2-&gt;val)&#123;
-                p-&gt;next=list1;
-                list1=list1-&gt;next;
-            &#125;<span class="hljs-keyword">else</span>&#123;
-                p-&gt;next=list2;
-                list2=list2-&gt;next;
-            &#125;
-            p=p-&gt;next;
-        &#125;
-        p-&gt;next=list1?list1:list2;
-        <span class="hljs-keyword">return</span> dummy-&gt;next;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="5211-143-重排链表"><a class="markdownIt-Anchor" href="#5211-143-重排链表"></a> 5.2.1.1 <a href="https://leetcode.cn/problems/reorder-list/">143. 重排链表</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">ListNode</span>&#123;</span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	ListNode *next;</span><br><span class="line">	<span class="built_in">ListNode</span>(<span class="type">int</span> x): <span class="built_in">val</span>(x),<span class="built_in">next</span>(<span class="literal">nullptr</span>)&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ListNode</span>&#123;</span><br><span class="line">	<span class="type">int</span> val;</span><br><span class="line">	ListNode next;</span><br><span class="line">	ListNode(<span class="type">int</span> x)&#123;</span><br><span class="line">		val=x;</span><br><span class="line">		next=<span class="literal">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>6 题单</h1>
+<h2 id="6-1-翻转链表">6.1 翻转链表</h2>
+<h4 id="5-1-1-1-206-反转链表-力扣（Leetcode）">5.1.1.1 <a href="https://leetcode.cn/problems/reverse-linked-list/?envType=study-plan-v2&amp;envId=top-100-liked">206. 反转链表 - 力扣（Leetcode）</a></h4>
+<h5 id="5-1-1-1-1-方法一：头插法">5.1.1.1.1 方法一：头插法</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *list=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">0</span>),*p=head,*tmp;</span><br><span class="line">        <span class="keyword">while</span>(p)&#123;</span><br><span class="line">            tmp=p;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">            tmp-&gt;next=list-&gt;next;</span><br><span class="line">            list-&gt;next=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list-&gt;next;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="5-1-1-1-2-方法二：迭代法">5.1.1.1.2 方法二：迭代法</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        ListNode *res=<span class="literal">nullptr</span>,*tmp;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(head)&#123;</span><br><span class="line">            tmp=head-&gt;next;</span><br><span class="line">            head-&gt;next=res;</span><br><span class="line">            res=head;</span><br><span class="line"></span><br><span class="line">            head=tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h5 id="5-1-1-1-3-方法三：递归法">5.1.1.1.3 方法三：递归法</h5>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">reverseList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">nullptr</span>||head-&gt;next==<span class="literal">nullptr</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode* newHead=<span class="built_in">reverseList</span>(head-&gt;next);</span><br><span class="line">        head-&gt;next-&gt;next=head;</span><br><span class="line">        head-&gt;next=<span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">return</span> newHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="6-2-合并链表">6.2 合并链表</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* list1, ListNode* list2)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>),*p=dummy;</span><br><span class="line">        <span class="keyword">while</span>(list1&amp;&amp;list2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(list1-&gt;val&lt;=list2-&gt;val)&#123;</span><br><span class="line">                p-&gt;next=list1;</span><br><span class="line">                list1=list1-&gt;next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p-&gt;next=list2;</span><br><span class="line">                list2=list2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        p-&gt;next=list1?list1:list2;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-1-1-143-重排链表">5.2.1.1 <a href="https://leetcode.cn/problems/reorder-list/">143. 重排链表</a></h4>
 <blockquote>
 <p>链表中点、链表原地翻转、链表合并</p>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-    <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListNode</span> &#123;</span>
-        <span class="hljs-keyword">int</span> val;
-        ListNode *next;
-        ListNode() : val(<span class="hljs-number">0</span>), next(<span class="hljs-literal">nullptr</span>) &#123;&#125;
-        ListNode(<span class="hljs-keyword">int</span> x) : val(x), next(<span class="hljs-literal">nullptr</span>) &#123;&#125;
-        ListNode(<span class="hljs-keyword">int</span> x, ListNode *next) : val(x), next(next) &#123;&#125;
-    &#125;;
-
-  <span class="hljs-keyword">public</span>:
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">reorderList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;
-        <span class="hljs-keyword">if</span> (head == <span class="hljs-literal">nullptr</span>)
-            <span class="hljs-keyword">return</span>;
-        ListNode *mid = middleNode(head);
-        ListNode *l1 = head, *l2 = mid-&gt;next;
-        mid-&gt;next = <span class="hljs-literal">nullptr</span>;
-        l2 = reverseList(l2);
-        mergeList(l1, l2);
-    &#125;
-
-    <span class="hljs-comment">// 找到链表的中间节点(偏左)</span>
-    <span class="hljs-function">ListNode *<span class="hljs-title">middleNode</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;
-        ListNode *fast = head, *slow = head;
-        <span class="hljs-keyword">while</span> (fast-&gt;next != <span class="hljs-literal">nullptr</span> &amp;&amp; fast-&gt;next-&gt;next != <span class="hljs-literal">nullptr</span>) &#123;
-            fast = fast-&gt;next-&gt;next;
-            slow = slow-&gt;next;
-        &#125;
-        <span class="hljs-keyword">return</span> slow;
-    &#125;
-    <span class="hljs-comment">// 翻转链表，可以使用头插法</span>
-    <span class="hljs-function">ListNode *<span class="hljs-title">reverseList</span><span class="hljs-params">(ListNode *head)</span> </span>&#123;
-        ListNode *pre = <span class="hljs-literal">nullptr</span>, *cur = head;
-        <span class="hljs-keyword">while</span> (cur != <span class="hljs-literal">nullptr</span>) &#123;
-            ListNode *nextTemp = cur-&gt;next;
-            cur-&gt;next = pre;
-            pre = cur;
-            cur = nextTemp;
-        &#125;
-        <span class="hljs-keyword">return</span> pre;
-    &#125;
-    <span class="hljs-comment">// 合并链表</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">mergeList</span><span class="hljs-params">(ListNode *l1, ListNode *l2)</span> </span>&#123;
-        ListNode *p = l1, *q = l2;
-        <span class="hljs-keyword">while</span> (l1 &amp;&amp; l2) &#123;
-            p = l1-&gt;next;
-            q = l2-&gt;next;
-
-            l1-&gt;next = l2;
-            l2-&gt;next = p;
-            l1 = p;
-            l2 = q;
-        &#125;
-    &#125;
-&#125;;
-</code></pre>
-<h4 id="5212-160-相交链表"><a class="markdownIt-Anchor" href="#5212-160-相交链表"></a> 5.2.1.2 <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">160. 相交链表</a></h4>
-<p>方法一：哈希表<br />
-方法二：双指针</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">ListNode</span> &#123;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        ListNode *next;</span><br><span class="line">        <span class="built_in">ListNode</span>() : <span class="built_in">val</span>(<span class="number">0</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">ListNode</span>(<span class="type">int</span> x) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">        <span class="built_in">ListNode</span>(<span class="type">int</span> x, ListNode *next) : <span class="built_in">val</span>(x), <span class="built_in">next</span>(next) &#123;&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">reorderList</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        ListNode *mid = <span class="built_in">middleNode</span>(head);</span><br><span class="line">        ListNode *l1 = head, *l2 = mid-&gt;next;</span><br><span class="line">        mid-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        l2 = <span class="built_in">reverseList</span>(l2);</span><br><span class="line">        <span class="built_in">mergeList</span>(l1, l2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到链表的中间节点(偏左)</span></span><br><span class="line">    <span class="function">ListNode *<span class="title">middleNode</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *fast = head, *slow = head;</span><br><span class="line">        <span class="keyword">while</span> (fast-&gt;next != <span class="literal">nullptr</span> &amp;&amp; fast-&gt;next-&gt;next != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 翻转链表，可以使用头插法</span></span><br><span class="line">    <span class="function">ListNode *<span class="title">reverseList</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        ListNode *pre = <span class="literal">nullptr</span>, *cur = head;</span><br><span class="line">        <span class="keyword">while</span> (cur != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            ListNode *nextTemp = cur-&gt;next;</span><br><span class="line">            cur-&gt;next = pre;</span><br><span class="line">            pre = cur;</span><br><span class="line">            cur = nextTemp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 合并链表</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">mergeList</span><span class="params">(ListNode *l1, ListNode *l2)</span> </span>&#123;</span><br><span class="line">        ListNode *p = l1, *q = l2;</span><br><span class="line">        <span class="keyword">while</span> (l1 &amp;&amp; l2) &#123;</span><br><span class="line">            p = l1-&gt;next;</span><br><span class="line">            q = l2-&gt;next;</span><br><span class="line"></span><br><span class="line">            l1-&gt;next = l2;</span><br><span class="line">            l2-&gt;next = p;</span><br><span class="line">            l1 = p;</span><br><span class="line">            l2 = q;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-1-2-160-相交链表">5.2.1.2 <a href="https://leetcode.cn/problems/intersection-of-two-linked-lists/">160. 相交链表</a></h4>
+<p>方法一：哈希表方法二：双指针</p>
 <blockquote>
 <p>假设链表 A 的头节点到相交点的距离是 a，链表 B 的头节点到相交点的距离是 b，相交点 到链表终点的距离为 c。我们使用两个指针，分别指向两个链表的头节点，并以相同的速度前进，若到达链表结尾，则移动到另一条链表的头节点继续前进。按照这种前进方法，两个指针会在 a +b +c 次前进后同时到达相交节点。</p>
 </blockquote>
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode *<span class="hljs-title">getIntersectionNode</span><span class="hljs-params">(ListNode *headA, ListNode *headB)</span> </span>&#123;
-        ListNode *h1=headA,*h2=headB;
-        <span class="hljs-keyword">while</span>(h1!=h2)&#123;
-            h1=h1==<span class="hljs-literal">nullptr</span>?headB:h1-&gt;next;
-            h2=h2==<span class="hljs-literal">nullptr</span>?headA:h2-&gt;next;
-        &#125;
-        <span class="hljs-keyword">return</span> h1;
-    &#125;
-&#125;;
-</code></pre>
-<h3 id="622-148-排序链表"><a class="markdownIt-Anchor" href="#622-148-排序链表"></a> 6.2.2 148. 排序链表</h3>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode *<span class="title">getIntersectionNode</span><span class="params">(ListNode *headA, ListNode *headB)</span> </span>&#123;</span><br><span class="line">        ListNode *h1=headA,*h2=headB;</span><br><span class="line">        <span class="keyword">while</span>(h1!=h2)&#123;</span><br><span class="line">            h1=h1==<span class="literal">nullptr</span>?headB:h1-&gt;next;</span><br><span class="line">            h2=h2==<span class="literal">nullptr</span>?headA:h2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="6-2-2-148-排序链表">6.2.2 148. 排序链表</h3>
 <p>归并排序</p>
-<pre class="highlight"><code class="c++"><span class="hljs-comment">/**
- * Definition for singly-linked list.
- * struct ListNode &#123;
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) &#123;&#125;
- *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;
- *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;
- * &#125;;
- */</span>
-<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode* <span class="hljs-title">sortList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
-        <span class="hljs-keyword">return</span> sortList(head,<span class="hljs-literal">nullptr</span>);
-    &#125;
-    <span class="hljs-function">ListNode* <span class="hljs-title">sortList</span><span class="hljs-params">(ListNode* head,ListNode* tail)</span></span>&#123;
-        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">nullptr</span>)
-            <span class="hljs-keyword">return</span> head;
-        <span class="hljs-keyword">if</span>(head-&gt;next==tail)&#123;
-            head-&gt;next=<span class="hljs-literal">nullptr</span>;
-            <span class="hljs-keyword">return</span> head;
-        &#125;
-        
-        ListNode* fast=head,*slow=head;
-        <span class="hljs-keyword">while</span>(fast!=tail)&#123;
-            slow=slow-&gt;next;
-            fast=fast-&gt;next;
-            <span class="hljs-keyword">if</span>(fast!=tail)
-                fast=fast-&gt;next;
-        &#125;
-        ListNode* mid=slow;
-        <span class="hljs-keyword">return</span> mergeList(sortList(head,mid),sortList(mid,tail));
-    &#125;
-    <span class="hljs-function">ListNode* <span class="hljs-title">mergeList</span><span class="hljs-params">(ListNode* head1,ListNode* head2)</span></span>&#123;
-        ListNode* dummy=<span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">-1</span>);
-        ListNode* p=dummy;
-        <span class="hljs-keyword">while</span>(head1&amp;&amp;head2)&#123;
-            <span class="hljs-keyword">if</span>(head1-&gt;val&lt;=head2-&gt;val)&#123;
-                p-&gt;next=head1;
-                head1=head1-&gt;next;
-                p=p-&gt;next;
-            &#125;<span class="hljs-keyword">else</span>&#123;
-                p-&gt;next=head2;
-                head2=head2-&gt;next;
-                p=p-&gt;next;
-            &#125;
-        &#125;
-        <span class="hljs-keyword">if</span>(head1)&#123;
-            p-&gt;next=head1;
-        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(head2)&#123;
-            p-&gt;next=head2;
-        &#125;
-        <span class="hljs-keyword">return</span> dummy-&gt;next;
-    &#125;
-&#125;;
-</code></pre>
-<h2 id="63-链表技巧"><a class="markdownIt-Anchor" href="#63-链表技巧"></a> 6.3 链表技巧</h2>
-<h4 id="5311-328-奇偶链表"><a class="markdownIt-Anchor" href="#5311-328-奇偶链表"></a> 5.3.1.1 <a href="https://leetcode.cn/problems/odd-even-linked-list/">328. 奇偶链表</a></h4>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sortList</span>(head,<span class="literal">nullptr</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">sortList</span><span class="params">(ListNode* head,ListNode* tail)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        <span class="keyword">if</span>(head-&gt;next==tail)&#123;</span><br><span class="line">            head-&gt;next=<span class="literal">nullptr</span>;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ListNode* fast=head,*slow=head;</span><br><span class="line">        <span class="keyword">while</span>(fast!=tail)&#123;</span><br><span class="line">            slow=slow-&gt;next;</span><br><span class="line">            fast=fast-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(fast!=tail)</span><br><span class="line">                fast=fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* mid=slow;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">mergeList</span>(<span class="built_in">sortList</span>(head,mid),<span class="built_in">sortList</span>(mid,tail));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeList</span><span class="params">(ListNode* head1,ListNode* head2)</span></span>&#123;</span><br><span class="line">        ListNode* dummy=<span class="keyword">new</span> <span class="built_in">ListNode</span>(<span class="number">-1</span>);</span><br><span class="line">        ListNode* p=dummy;</span><br><span class="line">        <span class="keyword">while</span>(head1&amp;&amp;head2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(head1-&gt;val&lt;=head2-&gt;val)&#123;</span><br><span class="line">                p-&gt;next=head1;</span><br><span class="line">                head1=head1-&gt;next;</span><br><span class="line">                p=p-&gt;next;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                p-&gt;next=head2;</span><br><span class="line">                head2=head2-&gt;next;</span><br><span class="line">                p=p-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(head1)&#123;</span><br><span class="line">            p-&gt;next=head1;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(head2)&#123;</span><br><span class="line">            p-&gt;next=head2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="6-3-链表技巧">6.3 链表技巧</h2>
+<h4 id="5-3-1-1-328-奇偶链表">5.3.1.1 <a href="https://leetcode.cn/problems/odd-even-linked-list/">328. 奇偶链表</a></h4>
 <p>分离节点后合并</p>
 <img src="https://assets.leetcode-cn.com/solution-static/328/1.png" alt="fig1" style="zoom:50%;" />
-<pre class="highlight"><code class="c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> &#123;</span>
-<span class="hljs-keyword">public</span>:
-    <span class="hljs-function">ListNode* <span class="hljs-title">oddEvenList</span><span class="hljs-params">(ListNode* head)</span> </span>&#123;
-        <span class="hljs-keyword">if</span>(head==<span class="hljs-literal">nullptr</span>)
-            <span class="hljs-keyword">return</span> head;
-        ListNode* evenHead=head-&gt;next;
-        ListNode* odd=head,* even=evenHead;
-
-        <span class="hljs-keyword">while</span>(even&amp;&amp;even-&gt;next)&#123;
-            odd-&gt;next=even-&gt;next;
-            odd=odd-&gt;next;
-            even-&gt;next=odd-&gt;next;
-            even=even-&gt;next;
-        &#125;
-        odd-&gt;next=evenHead;
-        <span class="hljs-keyword">return</span> head;
-    &#125;
-&#125;;
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">oddEvenList</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        ListNode* evenHead=head-&gt;next;</span><br><span class="line">        ListNode* odd=head,* even=evenHead;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(even&amp;&amp;even-&gt;next)&#123;</span><br><span class="line">            odd-&gt;next=even-&gt;next;</span><br><span class="line">            odd=odd-&gt;next;</span><br><span class="line">            even-&gt;next=odd-&gt;next;</span><br><span class="line">            even=even-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        odd-&gt;next=evenHead;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -657,12 +384,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2023/02/28/%E7%AE%97%E6%B3%95/%E5%9B%BE%EF%BC%9A%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E3%80%81DFS%E3%80%81BFS/" rel="prev" title="DFS、BFS">
-                  <i class="fa fa-angle-left"></i> DFS、BFS
+                  <i class="fa fa-chevron-left"></i> DFS、BFS
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2023/02/28/%E8%AF%AD%E6%B3%95/C++/C++%E8%AF%AD%E6%B3%95/" rel="next" title="C++语法">
-                  C++语法 <i class="fa fa-angle-right"></i>
+                  C++语法 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -681,51 +408,42 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

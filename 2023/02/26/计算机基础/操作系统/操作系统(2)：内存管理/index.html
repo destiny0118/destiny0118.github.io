@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="进程管理、内存管理、文件管理、设备管理">
 <meta property="og:type" content="article">
@@ -47,9 +49,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -63,10 +62,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -81,20 +83,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -110,16 +149,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">1.</span> <span class="nav-text"> 1 虚拟内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E9%A1%B5%E8%A1%A8-%E6%AE%B5%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text"> 2 页表、段表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E9%A1%B5%E9%9D%A2%E7%BD%AE%E6%8D%A2%E7%AE%97%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text"> 3 页面置换算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA%E8%BF%9B%E7%A8%8B%E5%86%85%E5%AD%98%E6%98%A0%E8%B1%A1linux%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text"> 4 内存分区，进程内存映象，linux内存模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E4%B8%AD%E6%96%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6%E4%BB%A5%E9%94%AE%E7%9B%98%E4%B8%AD%E6%96%AD%E4%B8%BA%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text"> 5 中断的基本框架，以键盘中断为例</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 虚拟内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 页表、段表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 页面置换算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 内存分区，进程内存映象，linux内存模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 中断的基本框架，以键盘中断为例</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -139,16 +178,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -179,7 +243,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          操作系统
+          操作系统<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(2)%EF%BC%9A%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -192,13 +256,6 @@
 
       <time title="创建时间：2023-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-26T00:00:00+08:00">2023-02-26</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-24 17:28:09" itemprop="dateModified" datetime="2024-09-24T17:28:09+08:00">2024-09-24</time>
-    </span>
 
   
 </div>
@@ -210,147 +267,207 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>进程管理、内存管理、文件管理、设备管理</p>
-<ul>
-<li>设备管理：完成设备（输入输出设备和外部存储设备等）的请求或释放，以及设备启动等功能。</li>
-<li>文件管理：完成文件的读、写、创建及删除等功能。</li>
-<li>进程管理：进程的创建、撤销、阻塞、唤醒，进程间的通信等功能。</li>
-<li>内存管理：完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
+    <div class="post-body" itemprop="articleBody">
+        <p>进程管理、内存管理、文件管理、设备管理</p>
+<ul class="lvl-0">
+<li class="lvl-2">设备管理：完成设备（输入输出设备和外部存储设备等）的请求或释放，以及设备启动等功能。</li>
+<li class="lvl-2">文件管理：完成文件的读、写、创建及删除等功能。</li>
+<li class="lvl-2">进程管理：进程的创建、撤销、阻塞、唤醒，进程间的通信等功能。</li>
+<li class="lvl-2">内存管理：完成内存的分配、回收以及获取作业占用内存区大小及地址等功能。</li>
 </ul>
-<h1 id="1-虚拟内存"><a class="markdownIt-Anchor" href="#1-虚拟内存"></a> 1 虚拟内存</h1>
+<h1>1 虚拟内存</h1>
 <blockquote>
 <p><strong>虚拟内存(Virtual Memory)</strong>：作为进程访问主存（物理内存）的桥梁并简化内存管理</p>
 </blockquote>
-<ul>
-<li><strong>隔离进程</strong>：物理内存通过虚拟地址空间访问，虚拟地址空间与进程一一对应。每个进程都认为自己拥有了整个物理内存，进程之间彼此隔离，一个进程中的代码无法更改正在由另一进程或操作系统使用的物理内存。</li>
-<li><strong>提升物理内存利用率</strong>：有了虚拟地址空间后，操作系统只需要将进程当前正在使用的部分数据或指令加载入物理内存。</li>
-<li><strong>简化内存管理</strong>：进程都有一个一致且私有的虚拟地址空间，程序员不用和真正的物理内存打交道，而是借助虚拟地址空间访问物理内存，从而简化了内存管理。</li>
-<li><strong>多个进程共享物理内存</strong>：进程在运行过程中，会加载许多操作系统的动态库。这些库对于每个进程而言都是公用的，它们在内存中实际只会加载一份，这部分称为<mark>共享内存</mark>。</li>
-<li><strong>提高内存使用安全性</strong>：控制进程对物理内存的访问，隔离不同进程的访问权限，提高系统的安全性。</li>
-<li><strong>提供更大的可使用内存空间</strong>：可以让程序拥有超过系统物理内存大小的可用内存空间。这是因为当物理内存不够用时，可以利用磁盘充当，将物理内存页（通常大小为 4 KB）保存到磁盘文件（会影响读写速度），数据或代码页会根据需要在物理内存与磁盘之间移动。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>隔离进程</strong>：物理内存通过虚拟地址空间访问，虚拟地址空间与进程一一对应。每个进程都认为自己拥有了整个物理内存，进程之间彼此隔离，一个进程中的代码无法更改正在由另一进程或操作系统使用的物理内存。</p>
+</li>
+<li class="lvl-2">
+<p><strong>提升物理内存利用率</strong>：有了虚拟地址空间后，操作系统只需要将进程当前正在使用的部分数据或指令加载入物理内存。</p>
+</li>
+<li class="lvl-2">
+<p><strong>简化内存管理</strong>：进程都有一个一致且私有的虚拟地址空间，程序员不用和真正的物理内存打交道，而是借助虚拟地址空间访问物理内存，从而简化了内存管理。</p>
+</li>
+<li class="lvl-2">
+<p><strong>多个进程共享物理内存</strong>：进程在运行过程中，会加载许多操作系统的动态库。这些库对于每个进程而言都是公用的，它们在内存中实际只会加载一份，这部分称为<mark>共享内存</mark>。</p>
+</li>
+<li class="lvl-2">
+<p><strong>提高内存使用安全性</strong>：控制进程对物理内存的访问，隔离不同进程的访问权限，提高系统的安全性。</p>
+</li>
+<li class="lvl-2">
+<p><strong>提供更大的可使用内存空间</strong>：可以让程序拥有超过系统物理内存大小的可用内存空间。这是因为当物理内存不够用时，可以利用磁盘充当，将物理内存页（通常大小为 4 KB）保存到磁盘文件（会影响读写速度），数据或代码页会根据需要在物理内存与磁盘之间移动。</p>
+</li>
 </ul>
-<p>虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。<br />
-为了更好的管理内存，操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。</p>
+<p>虚拟内存的目的是为了让物理内存扩充成更大的逻辑内存，从而让程序获得更多的可用内存。为了更好的管理内存，操作系统将内存抽象成地址空间。每个程序拥有自己的地址空间，这个地址空间被分割成多个块，每一块称为一页。</p>
 <p>这些页被映射到物理内存，但不需要映射到连续的物理内存，也不需要所有页都必须在物理内存中。当程序引用到不在物理内存中的页时，由硬件执行必要的映射，将缺失的部分装入物理内存并重新执行失败的指令。</p>
 <p>从上面的描述中可以看出，虚拟内存允许程序不用将地址空间中的每一页都映射到物理内存，也就是说一个程序不需要全部调入内存就可以运行，这使得有限的内存运行大程序成为可能。</p>
 <blockquote>
-<p>[! note]<br />
+<p>[! note]<br>
 受限于物理内存的大小，程序可能一次性无法完全载入内存，因此有了虚拟内存的概念。程序有自己的逻辑地址空间，并映射到物理内存。程序可以不必全部载入内存，而只载入需要的部分。</p>
 </blockquote>
 <blockquote>
 <p>[!note] 虚拟内存、常驻内存和共享内存</p>
-<ul>
-<li><strong>虚拟内存</strong>：指系统用分段，分页的方法把物理内存划分，映射给进程看到的连续的虚拟地址空间。好处允许多程序隔离，内存可以超过物理上限。可能有性能开销，页面抖动。</li>
-<li><strong>共享内存</strong>：多个进程共享一片物理内存，允许同时访问，可以用来进程间通信和共享数据。</li>
-<li><strong>常驻内存</strong>：未被交换给磁盘的常用部分页</li>
+<ul class="lvl-1">
+<li class="lvl-2"><strong>虚拟内存</strong>：指系统用分段，分页的方法把物理内存划分，映射给进程看到的连续的虚拟地址空间。好处允许多程序隔离，内存可以超过物理上限。可能有性能开销，页面抖动。</li>
+<li class="lvl-2"><strong>共享内存</strong>：多个进程共享一片物理内存，允许同时访问，可以用来进程间通信和共享数据。</li>
+<li class="lvl-2"><strong>常驻内存</strong>：未被交换给磁盘的常用部分页</li>
 </ul>
 </blockquote>
 <p>页表是存储在内存里的，<strong>内存管理单元</strong> （<em>MMU</em>）就做将虚拟内存地址转换成物理地址的工作。</p>
-<h1 id="2-页表-段表"><a class="markdownIt-Anchor" href="#2-页表-段表"></a> 2 页表、段表</h1>
-<ul>
-<li>把虚拟内存地址，切分成页号和偏移量；</li>
-<li>根据页号，从页表里面，查询对应的物理页号；</li>
-<li>直接拿物理页号，加上前面的偏移量，就得到了物理内存地址。</li>
+<h1>2 页表、段表</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>把虚拟内存地址，切分成页号和偏移量；</p>
+</li>
+<li class="lvl-2">
+<p>根据页号，从页表里面，查询对应的物理页号；</p>
+</li>
+<li class="lvl-2">
+<p>直接拿物理页号，加上前面的偏移量，就得到了物理内存地址。</p>
+</li>
 </ul>
 <p>通过段表找到段基地址，与段界限判断，加上偏移量</p>
-<h1 id="3-页面置换算法"><a class="markdownIt-Anchor" href="#3-页面置换算法"></a> 3 页面置换算法</h1>
-<ul>
-<li><strong>最佳页面置换算法（OPT，Optimal）</strong>：优先选择淘汰的页面是以后永不使用的，或者是在最长时间内不再被访问的页面，这样可以保证获得最低的缺页率。但由于人们目前无法预知进程在内存下的若干页面中哪个是未来最长时间内不再被访问的，因而该算法无法实现，只是理论最优的页面置换算法，可以作为衡量其他置换算法优劣的标准。</li>
-<li><strong>先进先出页面置换算法（FIFO，First In First Out）</strong> : 最简单的一种页面置换算法，总是淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面进行淘汰。该算法易于实现和理解，一般只需要通过一个 FIFO 队列即可需求。不过，它的性能并不是很好。</li>
-<li><strong>最近最久未使用页面置换算法（LRU ，Least Recently Used）</strong>：LRU 算法赋予每个页面一个访问字段，用来记录一个页面自上次被访问以来所经历的时间 T，当须淘汰一个页面时，选择现有页面中其 T 值最大的，即最近最久未使用的页面予以淘汰。LRU 算法是根据各页之前的访问情况来实现，因此是易于实现的。OPT 算法是根据各页未来的访问情况来实现，因此是不可实现的。</li>
-<li><strong>最少使用页面置换算法（LFU，Least Frequently Used）</strong> : 和 LRU 算法比较像，不过该置换算法选择的是之前一段时间内使用最少的页面作为淘汰页。</li>
-<li><strong>时钟页面置换算法（Clock）</strong>：可以认为是一种最近未使用算法，即逐出的页面都是最近没有使用的那个。</li>
+<h1>3 页面置换算法</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>最佳页面置换算法（OPT，Optimal）</strong>：优先选择淘汰的页面是以后永不使用的，或者是在最长时间内不再被访问的页面，这样可以保证获得最低的缺页率。但由于人们目前无法预知进程在内存下的若干页面中哪个是未来最长时间内不再被访问的，因而该算法无法实现，只是理论最优的页面置换算法，可以作为衡量其他置换算法优劣的标准。</p>
+</li>
+<li class="lvl-2">
+<p><strong>先进先出页面置换算法（FIFO，First In First Out）</strong> : 最简单的一种页面置换算法，总是淘汰最先进入内存的页面，即选择在内存中驻留时间最久的页面进行淘汰。该算法易于实现和理解，一般只需要通过一个 FIFO 队列即可需求。不过，它的性能并不是很好。</p>
+</li>
+<li class="lvl-2">
+<p><strong>最近最久未使用页面置换算法（LRU ，Least Recently Used）</strong>：LRU 算法赋予每个页面一个访问字段，用来记录一个页面自上次被访问以来所经历的时间 T，当须淘汰一个页面时，选择现有页面中其 T 值最大的，即最近最久未使用的页面予以淘汰。LRU 算法是根据各页之前的访问情况来实现，因此是易于实现的。OPT 算法是根据各页未来的访问情况来实现，因此是不可实现的。</p>
+</li>
+<li class="lvl-2">
+<p><strong>最少使用页面置换算法（LFU，Least Frequently Used）</strong> : 和 LRU 算法比较像，不过该置换算法选择的是之前一段时间内使用最少的页面作为淘汰页。</p>
+</li>
+<li class="lvl-2">
+<p><strong>时钟页面置换算法（Clock）</strong>：可以认为是一种最近未使用算法，即逐出的页面都是最近没有使用的那个。</p>
+</li>
 </ul>
-<h1 id="4-内存分区进程内存映象linux内存模型"><a class="markdownIt-Anchor" href="#4-内存分区进程内存映象linux内存模型"></a> 4 内存分区，进程内存映象，linux内存模型</h1>
+<h1>4 内存分区，进程内存映象，linux内存模型</h1>
 <ol>
-<li>
+<li class="lvl-3">
 <p><strong>内存分区（Memory Partitioning）</strong>： 内存分区是指将计算机的物理内存划分成不同的区域，每个区域用于存储不同类型的数据。常见的内存分区包括：</p>
-<ul>
-<li>
+<ul class="lvl-2">
+<li class="lvl-6">
 <p><strong>代码段（Code Segment）</strong>：存储程序的执行代码。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>数据段（Data Segment）</strong>：存储全局变量等数据。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>堆（Heap）</strong>：用于动态分配内存，由程序员进行手动管理。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>栈（Stack）</strong>：用于存储函数调用的局部变量、函数参数等。</p>
 </li>
 </ul>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>进程内存映像（Process Memory Image）</strong>： 进程内存映像是指一个运行的进程在内存中的布局和组织。它包括以下部分：</p>
-<ul>
-<li>
+<ul class="lvl-2">
+<li class="lvl-6">
 <p><strong>代码段</strong>：存储进程的执行代码。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>数据段</strong>：包括初始化的全局变量和静态变量。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>堆</strong>：用于动态分配内存，比如通过<code>malloc</code>和<code>free</code>。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>栈</strong>：存储函数调用的局部变量、函数参数等。</p>
 </li>
 </ul>
 <p>进程内存映像使得操作系统能够有效地管理多个进程，并确保它们之间不会相互干扰。</p>
 </li>
-<li>
+<li class="lvl-3">
 <p><strong>Linux内存模型</strong>： Linux操作系统采用了分页机制来管理内存，其中有两个关键概念：</p>
-<ul>
-<li>
+<ul class="lvl-2">
+<li class="lvl-6">
 <p><strong>虚拟内存（Virtual Memory）</strong>：允许程序使用比实际物理内存更大的地址空间。这使得每个进程都有独立的地址空间，提高了系统的稳定性和安全性。</p>
 </li>
-<li>
+<li class="lvl-6">
 <p><strong>分页（Paging）</strong>：将物理内存划分成大小固定的页面，与虚拟内存中的页面相对应。当一个程序需要访问某个页面时，操作系统将其加载到物理内存中。这有助于提高内存的利用率和管理效率。</p>
 </li>
 </ul>
 </li>
 </ol>
-<h1 id="5-中断的基本框架以键盘中断为例"><a class="markdownIt-Anchor" href="#5-中断的基本框架以键盘中断为例"></a> 5 中断的基本框架，以键盘中断为例</h1>
+<h1>5 中断的基本框架，以键盘中断为例</h1>
 <p>中断是计算机系统中一种异步事件处理的机制，允许系统在执行当前任务的同时响应外部事件。以下是处理中断的基本框架，以键盘中断为例：</p>
 <ol>
-<li><strong>中断发生</strong>：</li>
+<li class="lvl-3">
+<p><strong>中断发生</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>用户按下键盘上的某个键触发中断，键盘控制器产生中断请求（IRQ）。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>用户按下键盘上的某个键触发中断，键盘控制器产生中断请求（IRQ）。</p>
+</li>
 </ul>
 <ol start="2">
-<li><strong>硬件层处理</strong>：</li>
+<li class="lvl-3">
+<p><strong>硬件层处理</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>CPU检测到中断请求，停止当前执行的任务。</li>
-<li>CPU保存当前执行任务的上下文（程序计数器、寄存器等）。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>CPU检测到中断请求，停止当前执行的任务。</p>
+</li>
+<li class="lvl-2">
+<p>CPU保存当前执行任务的上下文（程序计数器、寄存器等）。</p>
+</li>
 </ul>
 <ol start="3">
-<li><strong>中断向量表</strong>：</li>
+<li class="lvl-3">
+<p><strong>中断向量表</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>硬件通过中断向量表确定中断的类型和处理程序的入口地址。</li>
-<li>在键盘中断的情况下，中断向量表会指向处理键盘中断的中断服务程序。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>硬件通过中断向量表确定中断的类型和处理程序的入口地址。</p>
+</li>
+<li class="lvl-2">
+<p>在键盘中断的情况下，中断向量表会指向处理键盘中断的中断服务程序。</p>
+</li>
 </ul>
 <ol start="4">
-<li><strong>中断服务程序（Interrupt Service Routine，ISR）</strong>：</li>
+<li class="lvl-3">
+<p><strong>中断服务程序（Interrupt Service Routine，ISR）</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>控制权转移到相应中断的处理程序。</li>
-<li>在键盘中断的情况下，键盘中断服务程序负责处理键盘输入。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>控制权转移到相应中断的处理程序。</p>
+</li>
+<li class="lvl-2">
+<p>在键盘中断的情况下，键盘中断服务程序负责处理键盘输入。</p>
+</li>
 </ul>
 <ol start="5">
-<li><strong>软件层处理</strong>：</li>
+<li class="lvl-3">
+<p><strong>软件层处理</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>中断服务程序执行完毕后，CPU从中断返回指令（iret）返回到之前被中断的任务。</li>
-<li>恢复之前保存的任务上下文。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>中断服务程序执行完毕后，CPU从中断返回指令（iret）返回到之前被中断的任务。</p>
+</li>
+<li class="lvl-2">
+<p>恢复之前保存的任务上下文。</p>
+</li>
 </ul>
 <ol start="6">
-<li><strong>继续执行任务</strong>：</li>
+<li class="lvl-3">
+<p><strong>继续执行任务</strong>：</p>
+</li>
 </ol>
-<ul>
-<li>控制权返回到之前被中断的任务，任务继续执行。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>控制权返回到之前被中断的任务，任务继续执行。</p>
+</li>
 </ul>
 <p>在这个基本框架下，中断服务程序是中断处理的核心。键盘中断服务程序将负责读取键盘输入、更新相应的数据结构、触发事件等。整个中断处理流程实现了异步事件的响应，使得系统能够在执行任务的同时处理来自外部的事件，提高了系统的响应性。</p>
 
@@ -369,13 +486,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(1)%EF%BC%9A%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" rel="prev" title="操作系统">
-                  <i class="fa fa-angle-left"></i> 操作系统
+                <a href="/2023/01/18/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" rel="prev" title="排序算法">
+                  <i class="fa fa-chevron-left"></i> 排序算法
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/02/28/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(3)%EF%BC%9A%E4%BC%A0%E8%BE%93%E5%B1%82/" rel="next" title="计算机网络：传输层">
-                  计算机网络：传输层 <i class="fa fa-angle-right"></i>
+                <a href="/2023/02/26/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(1)%EF%BC%9A%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/" rel="next" title="操作系统">
+                  操作系统 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -394,51 +511,42 @@
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

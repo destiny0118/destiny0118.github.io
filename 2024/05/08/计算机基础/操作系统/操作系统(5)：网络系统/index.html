@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="select、poll、epoll(LT,ET)；Reactor、Proactor；一致性哈希">
 <meta property="og:type" content="article">
@@ -55,9 +57,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -71,10 +70,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -89,20 +91,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
@@ -118,16 +157,16 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-selectpollepoll"><span class="nav-number">1.</span> <span class="nav-text"> 1 select&#x2F;poll&#x2F;epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#11-select"><span class="nav-number">1.1.</span> <span class="nav-text"> 1.1 select</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-poll"><span class="nav-number">1.2.</span> <span class="nav-text"> 1.2 poll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-epoll"><span class="nav-number">1.3.</span> <span class="nav-text"> 1.3 epoll</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-io%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text"> 2 I&#x2F;O模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E5%B0%B1%E7%BB%AA%E6%9D%A1%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text"> 3 文件描述符就绪条件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#31-%E5%8F%AF%E8%AF%BB"><span class="nav-number">3.1.</span> <span class="nav-text"> 3.1 可读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#32-%E5%8F%AF%E5%86%99"><span class="nav-number">3.2.</span> <span class="nav-text"> 3.2 可写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-select"><span class="nav-number">4.</span> <span class="nav-text"> 4 select</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-poll"><span class="nav-number">5.</span> <span class="nav-text"> 5 poll</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-epoll"><span class="nav-number">6.</span> <span class="nav-text"> 6 epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#611-epoll_create"><span class="nav-number">6.0.1.</span> <span class="nav-text"> 6.1.1 epoll_create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#612-epoll_ctl"><span class="nav-number">6.0.2.</span> <span class="nav-text"> 6.1.2 epoll_ctl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#613-epoll_wait"><span class="nav-number">6.0.3.</span> <span class="nav-text"> 6.1.3 epoll_wait</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#614-lt%E5%92%8Cet%E6%A8%A1%E5%BC%8F"><span class="nav-number">6.0.4.</span> <span class="nav-text"> 6.1.4 LT和ET模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt"><span class="nav-number">6.0.4.1.</span> <span class="nav-text"> LT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#et"><span class="nav-number">6.0.4.2.</span> <span class="nav-text"> ET</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#615-epolloneshot"><span class="nav-number">6.0.5.</span> <span class="nav-text"> 6.1.5 EPOLLONESHOT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-select-poll%E5%92%8Cepoll%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">7.</span> <span class="nav-text"> 7 select、poll和epoll的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-reactor%E5%92%8Cproactor"><span class="nav-number">8.</span> <span class="nav-text"> 8 Reactor和Proactor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E6%A8%A1%E5%BC%8F"><span class="nav-number">9.</span> <span class="nav-text"> 9 事件处理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#91-%E6%A8%A1%E6%8B%9Fproactor%E6%A8%A1%E5%BC%8F"><span class="nav-number">9.1.</span> <span class="nav-text"> 9.1 模拟Proactor模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="nav-number">10.</span> <span class="nav-text"> 10 并发模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#101-%E5%8D%8A%E5%90%8C%E6%AD%A5%E5%8D%8A%E5%8F%8D%E5%BA%94%E5%A0%86%E6%A8%A1%E5%BC%8F"><span class="nav-number">10.1.</span> <span class="nav-text"> 10.1 半同步&#x2F;半反应堆模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#102-%E5%8D%8A%E5%90%8C%E6%AD%A5%E5%8D%8A%E5%BC%82%E6%AD%A5%E6%A8%A1%E5%BC%8F"><span class="nav-number">10.2.</span> <span class="nav-text"> 10.2 半同步&#x2F;半异步模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#11-%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C"><span class="nav-number">11.</span> <span class="nav-text"> 11 一致性哈希</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12-%E5%8F%82%E8%80%83"><span class="nav-number">12.</span> <span class="nav-text"> 12 参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 select&#x2F;poll&#x2F;epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-select"><span class="nav-text">1.1 select</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-poll"><span class="nav-text">1.2 poll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-epoll"><span class="nav-text">1.3 epoll</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 I&#x2F;O模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 文件描述符就绪条件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%8F%AF%E8%AF%BB"><span class="nav-text">3.1 可读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%8F%AF%E5%86%99"><span class="nav-text">3.2 可写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 select</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 poll</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 epoll</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-1-epoll-create"><span class="nav-text">6.1.1 epoll_create</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-2-epoll-ctl"><span class="nav-text">6.1.2 epoll_ctl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-3-epoll-wait"><span class="nav-text">6.1.3 epoll_wait</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-4-LT%E5%92%8CET%E6%A8%A1%E5%BC%8F"><span class="nav-text">6.1.4 LT和ET模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LT"><span class="nav-text">LT</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ET"><span class="nav-text">ET</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-5-EPOLLONESHOT"><span class="nav-text">6.1.5 EPOLLONESHOT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">7 select、poll和epoll的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">8 Reactor和Proactor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">9 事件处理模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#9-1-%E6%A8%A1%E6%8B%9FProactor%E6%A8%A1%E5%BC%8F"><span class="nav-text">9.1 模拟Proactor模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">10 并发模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#10-1-%E5%8D%8A%E5%90%8C%E6%AD%A5-%E5%8D%8A%E5%8F%8D%E5%BA%94%E5%A0%86%E6%A8%A1%E5%BC%8F"><span class="nav-text">10.1 半同步&#x2F;半反应堆模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-2-%E5%8D%8A%E5%90%8C%E6%AD%A5-%E5%8D%8A%E5%BC%82%E6%AD%A5%E6%A8%A1%E5%BC%8F"><span class="nav-text">10.2 半同步&#x2F;半异步模式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">11 一致性哈希</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">12 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -147,16 +186,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner post posts-expand">
 
@@ -187,7 +251,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          操作系统(5)：网络系统
+          操作系统(5)：网络系统<a href="https://github.com/destiny0118/Hexo/edit/master/Destiny/source/_posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F(5)%EF%BC%9A%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -199,13 +263,6 @@
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2024-05-08 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-08T00:00:00+08:00">2024-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-18 19:40:28" itemprop="dateModified" datetime="2024-09-18T19:40:28+08:00">2024-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -227,181 +284,198 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h1 id="1-selectpollepoll"><a class="markdownIt-Anchor" href="#1-selectpollepoll"></a> 1 select/poll/epoll</h1>
+    <div class="post-body" itemprop="articleBody">
+        <h1>1 select/poll/epoll</h1>
 <blockquote>
 <p>select/poll/epoll 内核提供给用户态的多路复用系统调用，<strong>进程可以通过一个系统调用函数从内核中获取多个事件</strong>。</p>
 </blockquote>
-<h2 id="11-select"><a class="markdownIt-Anchor" href="#11-select"></a> 1.1 select</h2>
+<h2 id="1-1-select">1.1 select</h2>
 <p>select 实现多路复用的方式是，将已连接的 Socket 都放到一个<strong>文件描述符集合</strong>，然后调用 select 函数将文件描述符集合<strong>拷贝</strong>到内核里，让内核来检查是否有网络事件产生，检查的方式很粗暴，就是通过<strong>遍历</strong>文件描述符集合的方式，当检查到有事件产生后，将此 Socket 标记为可读或可写， 接着再把整个文件描述符集合<strong>拷贝</strong>回用户态里，然后用户态还需要再通过<strong>遍历</strong>的方法找到可读或可写的 Socket，然后再对其处理。</p>
 <p>所以，对于 select 这种方式，需要进行 <strong>2 次「遍历」文件描述符集合</strong>，一次是在内核态里，一个次是在用户态里 ，而且还会发生 <strong>2 次「拷贝」文件描述符集合</strong>，先从用户空间传入内核空间，由内核修改后，再传出到用户空间中。</p>
 <p>select 使用固定长度的 BitsMap，表示文件描述符集合，而且所支持的文件描述符的个数是有限制的，在 Linux 系统中，由内核中的 FD_SETSIZE 限制， 默认最大值为 <code>1024</code>，只能监听 0~1023 的文件描述符。</p>
-<h2 id="12-poll"><a class="markdownIt-Anchor" href="#12-poll"></a> 1.2 poll</h2>
+<h2 id="1-2-poll">1.2 poll</h2>
 <p>poll 不再用 BitsMap 来存储所关注的文件描述符，取而代之用动态数组，以链表形式来组织，突破了 select 的文件描述符个数限制，当然还会受到系统文件描述符限制。</p>
 <p>但是 poll 和 select 并没有太大的本质区别，<strong>都是使用「线性结构」存储进程关注的 Socket 集合，因此都需要遍历文件描述符集合来找到可读或可写的 Socket，时间复杂度为 O(n)，而且也需要在用户态与内核态之间拷贝文件描述符集合</strong>，这种方式随着并发数上来，性能的损耗会呈指数级增长。</p>
-<h2 id="13-epoll"><a class="markdownIt-Anchor" href="#13-epoll"></a> 1.3 epoll</h2>
+<h2 id="1-3-epoll">1.3 epoll</h2>
 <p>epoll 通过两个方面，很好解决了 select/poll 的问题。</p>
 <p><em>第一点</em>，epoll 在内核里使用<strong>红黑树来跟踪进程所有待检测的文件描述字</strong>，把需要监控的 socket 通过 <code>epoll_ctl()</code> 函数加入内核中的红黑树里，红黑树是个高效的数据结构，增删改一般时间复杂度是 <code>O(logn)</code>。而 select/poll 内核里没有类似 epoll 红黑树这种保存所有待检测的 socket 的数据结构，所以 select/poll 每次操作时都传入整个 socket 集合给内核，而 epoll 因为在内核维护了红黑树，可以保存所有待检测的 socket ，所以只需要传入一个待检测的 socket，减少了内核和用户空间大量的数据拷贝和内存分配。</p>
 <p><em>第二点</em>， epoll 使用<strong>事件驱动</strong>的机制，内核里<strong>维护了一个链表来记录就绪事件</strong>，当某个 socket 有事件发生时，通过<strong>回调函数</strong>内核会将其加入到这个就绪事件列表中，当用户调用 <code>epoll_wait()</code> 函数时，只会返回有事件发生的文件描述符的个数，不需要像 select/poll 那样轮询扫描整个 socket 集合，大大提高了检测的效率。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405091007632.png" alt="image.png" /></p>
-<h1 id="2-io模型"><a class="markdownIt-Anchor" href="#2-io模型"></a> 2 I/O模型</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405091007632.png" alt="image.png"></p>
+<h1>2 I/O模型</h1>
 <p>socket在创建的时候默认是阻塞的。阻塞和非阻塞的概念能应用于所有文件描述符，而不仅仅是socket。我们称阻塞的文件描述符为阻塞IO，称非阻塞的文件描述符为非阻塞IO。</p>
-<ul>
-<li>针对阻塞I/O执行的系统调用可能因为无法立即完成而被操作系统挂起，直到等待的事件发生为止。可能被阻塞的系统调用包括accept、send、recv和connect。</li>
-<li>针对非阻塞IO执行的系统调用则总是立即返回，而不管事件是否已经发生。如果事件没有立即发生，这些系统调用就返回-1，和出错的情况一样。此时我们必须根据errno来区分这两种情况。对accept、sent和recv而言，事件未发生时erno通常被设置成EAGAIN（意为“再来一次”）或者EWOULDBLOCK（意为“期望阻塞”）；对connect而言，ermo则被设置成EINPROGRESS（意为“在处理中”）。</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>针对阻塞I/O执行的系统调用可能因为无法立即完成而被操作系统挂起，直到等待的事件发生为止。可能被阻塞的系统调用包括accept、send、recv和connect。</p>
+</li>
+<li class="lvl-2">
+<p>针对非阻塞IO执行的系统调用则总是立即返回，而不管事件是否已经发生。如果事件没有立即发生，这些系统调用就返回-1，和出错的情况一样。此时我们必须根据errno来区分这两种情况。对accept、sent和recv而言，事件未发生时erno通常被设置成EAGAIN（意为“再来一次”）或者EWOULDBLOCK（意为“期望阻塞”）；对connect而言，ermo则被设置成EINPROGRESS（意为“在处理中”）。</p>
+</li>
 </ul>
 <blockquote>
-<p>I/O复用(I/O multiplexing)：指的是通过一个支持同时感知多个描述符的函数系统调用，阻塞在这个系统调用上，等待某一个或者几个描述符准备就绪，就返回可读条件。I/O复用使得程序能同时监听多个文件描述符。<br />
+<p>I/O复用(I/O multiplexing)：指的是通过一个支持同时感知多个描述符的函数系统调用，阻塞在这个系统调用上，等待某一个或者几个描述符准备就绪，就返回可读条件。I/O复用使得程序能同时监听多个文件描述符。<br>
 I/O复用虽然能同时监听多个文件描述符，但它本身是<mark>阻塞</mark>的。</p>
 </blockquote>
-<h1 id="3-文件描述符就绪条件"><a class="markdownIt-Anchor" href="#3-文件描述符就绪条件"></a> 3 文件描述符就绪条件</h1>
-<h2 id="31-可读"><a class="markdownIt-Anchor" href="#31-可读"></a> 3.1 可读</h2>
-<ul>
-<li>socket内核接收缓存区中的字节数大于或等于其低水位标记SORCVLOWAT。此时我们可以无阻塞地读该socket，并且读操作返回的字节数大于0。</li>
-<li>socket通信的对方关闭连接。此时对该socket的读操作将返回0。</li>
-<li>监听socket上有新的连接请求。</li>
-<li>socket上有未处理的错误。此时我们可以使用getsockopt来读取和清除该错误。</li>
+<h1>3 文件描述符就绪条件</h1>
+<h2 id="3-1-可读">3.1 可读</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>socket内核接收缓存区中的字节数大于或等于其低水位标记SORCVLOWAT。此时我们可以无阻塞地读该socket，并且读操作返回的字节数大于0。</p>
+</li>
+<li class="lvl-2">
+<p>socket通信的对方关闭连接。此时对该socket的读操作将返回0。</p>
+</li>
+<li class="lvl-2">
+<p>监听socket上有新的连接请求。</p>
+</li>
+<li class="lvl-2">
+<p>socket上有未处理的错误。此时我们可以使用getsockopt来读取和清除该错误。</p>
+</li>
 </ul>
-<h2 id="32-可写"><a class="markdownIt-Anchor" href="#32-可写"></a> 3.2 可写</h2>
-<ul>
-<li>socket内核发送缓存区中的可用字节数大于或等于其低水位标记SOSNDLOWAT。此时我们可以无阻塞地写该socket，并且写操作返回的字节数大于0。</li>
-<li>socket的写操作被关闭。对写操作被关闭的socket执行写操作将触发一个SIGPIPE信号。</li>
-<li>socket使用非阻塞connect连接成功或者失败（超时）之后。</li>
-<li>socket上有未处理的错误。此时我们可以使用getsockopt来读取和清除该错误</li>
+<h2 id="3-2-可写">3.2 可写</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>socket内核发送缓存区中的可用字节数大于或等于其低水位标记SOSNDLOWAT。此时我们可以无阻塞地写该socket，并且写操作返回的字节数大于0。</p>
+</li>
+<li class="lvl-2">
+<p>socket的写操作被关闭。对写操作被关闭的socket执行写操作将触发一个SIGPIPE信号。</p>
+</li>
+<li class="lvl-2">
+<p>socket使用非阻塞connect连接成功或者失败（超时）之后。</p>
+</li>
+<li class="lvl-2">
+<p>socket上有未处理的错误。此时我们可以使用getsockopt来读取和清除该错误</p>
+</li>
 </ul>
-<h1 id="4-select"><a class="markdownIt-Anchor" href="#4-select"></a> 4 select</h1>
+<h1>4 select</h1>
 <blockquote>
 <p>在一段指定时间内，监听用户感兴趣的文件描述符上的可读、可写和异常事件。</p>
 </blockquote>
-<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/select.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">select</span><span class="hljs-params">( <span class="hljs-keyword">int</span> nfds， fd_set* readfds，fd_set* writefds，fd_set*exceptfds，
-struct timeval*timeout）；
-</span></span></code></pre>
-<ul>
-<li>ndfs：被监听的文件描述符的总数</li>
-<li>readfds、writefds、exceptfds：分别指向可读、可写和异常等事件对应的文件描述符集合。select调用返回时，内核将修改它们来通知应用程序哪些文件描述符已经就绪。</li>
-<li>timeout：设置select函数的超时事件</li>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/select.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">select</span><span class="params">( <span class="type">int</span> nfds， fd_set* readfds，fd_set* writefds，fd_set*exceptfds，</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="keyword">struct</span> timeval*timeout）；</span></span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>ndfs：被监听的文件描述符的总数</p>
+</li>
+<li class="lvl-2">
+<p>readfds、writefds、exceptfds：分别指向可读、可写和异常等事件对应的文件描述符集合。select调用返回时，内核将修改它们来通知应用程序哪些文件描述符已经就绪。</p>
+</li>
+<li class="lvl-2">
+<p>timeout：设置select函数的超时事件</p>
+</li>
 </ul>
-<h1 id="5-poll"><a class="markdownIt-Anchor" href="#5-poll"></a> 5 poll</h1>
+<h1>5 poll</h1>
 <blockquote>
 <p>和select类似，在指定时间内轮询一定数量的文件描述符，以测试是否有就绪的文件描述符</p>
 </blockquote>
-<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;poll.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">poll</span><span class="hljs-params">(struct pollfd* fds, <span class="hljs-keyword">nfds_t</span> nfds, <span class="hljs-keyword">int</span> timeout)</span></span>;
-
-<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">pollfd</span>&#123;</span>
-	<span class="hljs-keyword">int</span> fd;   <span class="hljs-comment">//文件描述符</span>
-	short events;  <span class="hljs-comment">//注册的事件</span>
-	short revents;  <span class="hljs-comment">//实际发生的事件，由内核填充</span>
-&#125;
-</code></pre>
-<ul>
-<li>fds：pollfd结构类型的数组，指定所有我们感兴趣的文件描述符上发生的可读、可写和异常等事件</li>
-<li>nfds：被监听事件集合fds的大小</li>
-<li>timeout：指定poll的超时值，单位是毫秒。当timeout为-1时，poll调用将永远阻塞，直到某个事件发生；当timeout为0时，poll调用将立即返回</li>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;poll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">poll</span><span class="params">(<span class="keyword">struct</span> pollfd* fds, <span class="type">nfds_t</span> nfds, <span class="type">int</span> timeout)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">pollfd</span>&#123;</span><br><span class="line">	<span class="type">int</span> fd;   <span class="comment">//文件描述符</span></span><br><span class="line">	<span class="type">short</span> events;  <span class="comment">//注册的事件</span></span><br><span class="line">	<span class="type">short</span> revents;  <span class="comment">//实际发生的事件，由内核填充</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>fds：pollfd结构类型的数组，指定所有我们感兴趣的文件描述符上发生的可读、可写和异常等事件</p>
+</li>
+<li class="lvl-2">
+<p>nfds：被监听事件集合fds的大小</p>
+</li>
+<li class="lvl-2">
+<p>timeout：指定poll的超时值，单位是毫秒。当timeout为-1时，poll调用将永远阻塞，直到某个事件发生；当timeout为0时，poll调用将立即返回</p>
+</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202143270.png" alt="image.png" /></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202143284.png" alt="image.png" /></p>
-<h1 id="6-epoll"><a class="markdownIt-Anchor" href="#6-epoll"></a> 6 epoll</h1>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202143270.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202143284.png" alt="image.png"></p>
+<h1>6 epoll</h1>
 <blockquote>
-<p>把用户关心的文件描述符上的事件放在内核里的一个事件表中，而无须像select和poll那样每次调用都要重复传入文件描述符或事件集。<br />
+<p>把用户关心的文件描述符上的事件放在内核里的一个事件表中，而无须像select和poll那样每次调用都要重复传入文件描述符或事件集。<br>
 epoll使用一个额外的文件描述符，来唯一标识内核中的这个事件表</p>
 </blockquote>
-<h3 id="611-epoll_create"><a class="markdownIt-Anchor" href="#611-epoll_create"></a> 6.1.1 epoll_create</h3>
-<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/epoll.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">epoll_create</span><span class="hljs-params">(<span class="hljs-keyword">int</span> size)</span>
-</span></code></pre>
-<ul>
-<li>返回文件描述符，作为其它epoll系统调用的第一个参数，以指定要访问的内核事件表</li>
+<h3 id="6-1-1-epoll-create">6.1.1 epoll_create</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">epoll_create</span><span class="params">(<span class="type">int</span> size)</span></span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>返回文件描述符，作为其它epoll系统调用的第一个参数，以指定要访问的内核事件表</p>
+</li>
 </ul>
-<h3 id="612-epoll_ctl"><a class="markdownIt-Anchor" href="#612-epoll_ctl"></a> 6.1.2 epoll_ctl</h3>
-<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span>  <span class="hljs-meta-string">&lt;sys/epoll.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">epoll_ctl</span><span class="hljs-params">(<span class="hljs-keyword">int</span> epfd,<span class="hljs-keyword">int</span> op, <span class="hljs-keyword">int</span> fd, struct epoll_event *event)</span>
-
-struct epoll_event</span>&#123;
-	<span class="hljs-keyword">__uint32_t</span> events;    <span class="hljs-comment">//epoll事件</span>
-	<span class="hljs-keyword">epoll_data_t</span> data;   <span class="hljs-comment">//用户数据</span>
-&#125;;
-
-<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">union</span> epoll_data&#123;
-	<span class="hljs-keyword">void</span>* ptr；
-	<span class="hljs-keyword">int</span> fd； <span class="hljs-comment">//事件所从属的目标文件描述符</span>
-	<span class="hljs-keyword">uint32_t</span> u32；
-	<span class="hljs-keyword">uint64_t</span> u64；
-&#125; <span class="hljs-keyword">epoll_data_t</span>;
-</code></pre>
-<ul>
-<li>fd：要操作的文件描述符</li>
-<li>op：操作类型，<code>EPOLL_CTL_ADD</code>、<code>EPOLL_CTL_MOD</code> 、<code>EPOLL_CTL_DEL</code></li>
-<li>成功时返回0，失败则返回-1并设置errno</li>
+<h3 id="6-1-2-epoll-ctl">6.1.2 epoll_ctl</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span>  <span class="string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">epoll_ctl</span><span class="params">(<span class="type">int</span> epfd,<span class="type">int</span> op, <span class="type">int</span> fd, <span class="keyword">struct</span> epoll_event *event)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="keyword">struct</span> epoll_event</span>&#123;</span><br><span class="line">	<span class="type">__uint32_t</span> events;    <span class="comment">//epoll事件</span></span><br><span class="line">	<span class="type">epoll_data_t</span> data;   <span class="comment">//用户数据</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> <span class="title class_">epoll_data</span>&#123;</span><br><span class="line">	<span class="type">void</span>* ptr；</span><br><span class="line">	<span class="type">int</span> fd； <span class="comment">//事件所从属的目标文件描述符</span></span><br><span class="line">	<span class="type">uint32_t</span> u32；</span><br><span class="line">	<span class="type">uint64_t</span> u64；</span><br><span class="line">&#125; <span class="type">epoll_data_t</span>;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>fd：要操作的文件描述符</p>
+</li>
+<li class="lvl-2">
+<p>op：操作类型，<code>EPOLL_CTL_ADD</code>、<code>EPOLL_CTL_MOD</code> 、<code>EPOLL_CTL_DEL</code></p>
+</li>
+<li class="lvl-2">
+<p>成功时返回0，失败则返回-1并设置errno</p>
+</li>
 </ul>
-<h3 id="613-epoll_wait"><a class="markdownIt-Anchor" href="#613-epoll_wait"></a> 6.1.3 epoll_wait</h3>
+<h3 id="6-1-3-epoll-wait">6.1.3 epoll_wait</h3>
 <blockquote>
 <p>在一段超时时间内等待一组文件描述符上的事件</p>
 </blockquote>
-<pre class="highlight"><code class="cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/epoll.h&gt;</span></span>
-<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">epoll_wait</span><span class="hljs-params">(<span class="hljs-keyword">int</span> epfd， struct epoll_event* events，<span class="hljs-keyword">int</span> maxevents, <span class="hljs-keyword">int</span> timeout ）；
-</span></span></code></pre>
-<ul>
-<li>maxevents参数指定最多监听多少个事件，它必须大于0。</li>
-<li>成功时返回就绪的文件描述符的个数，失败时返回-1并设置errno</li>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/epoll.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">epoll_wait</span><span class="params">(<span class="type">int</span> epfd， <span class="keyword">struct</span> epoll_event* events，<span class="type">int</span> maxevents, <span class="type">int</span> timeout ）；</span></span></span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>maxevents参数指定最多监听多少个事件，它必须大于0。</p>
+</li>
+<li class="lvl-2">
+<p>成功时返回就绪的文件描述符的个数，失败时返回-1并设置errno</p>
+</li>
 </ul>
-<h3 id="614-lt和et模式"><a class="markdownIt-Anchor" href="#614-lt和et模式"></a> 6.1.4 LT和ET模式</h3>
+<h3 id="6-1-4-LT和ET模式">6.1.4 LT和ET模式</h3>
 <blockquote>
 <p>epoll<mark>对文件描述符的操作</mark>有两种模式：LT（LevelTrigger，电平触发）模式和ET（Edge Trigger，边沿触发）模式。LT模式是默认的工作模式，这种模式下epoll相当于一个效率较高的poll。当往epoll内核事件表中注册一个文件描述符上的EPOLLET事件时，epoll将以ET模式来操作该文件描述符。ET模式是epoll的高效工作模式。</p>
 </blockquote>
-<h4 id="lt"><a class="markdownIt-Anchor" href="#lt"></a> LT</h4>
+<h4 id="LT">LT</h4>
 <p>对于采用LT工作模式的文件描述符，当epoll_wait检测到其上有事件发生并将此事件通知应用程序后，应用程序可以不立即处理该事件。这样，当应用程序下一次调用epoll_wait时，epoll_wait还会再次向应用程序通告此事件，直到该事件被处理。</p>
-<h4 id="et"><a class="markdownIt-Anchor" href="#et"></a> ET</h4>
+<h4 id="ET">ET</h4>
 <p>而对于采用ET工作模式的文件描述符，当epoll_wait检测到其上有事件发生并将此事件通知应用程序后，应用程序必须立即处理该事件，因为后续的epoll_wait调用将不再向应用程序通知这一事件。<strong>边缘触发模式一般和非阻塞 I/O 搭配使用</strong>，以避免没有数据可读写时，进程会阻塞在读写函数那里</p>
 <p>可见，ET模式在很大程度上降低了同一个epoll事件被重复触发的次数，因此效率要比LT模式高。</p>
-<h3 id="615-epolloneshot"><a class="markdownIt-Anchor" href="#615-epolloneshot"></a> 6.1.5 EPOLLONESHOT</h3>
-<p>对于注册了EPOLLONESHOT事件的文件描述符，操作系统最多触发其上注册的一个可读、可写或者异常事件，且只触发一次，除非我们使用epollctl函数重置该文件描述符上注册的EPOLLONESHOT事件。这样，当一个线程在处理某个socket时，其他线程是不可能有机会操作该socket的。<br />
-但反过来思考，注册了EPOLLONESHOT事件的socket一旦被某个<br />
-线程处理完毕，该线程就应该立即重置这个socket上的EPOLLONESHO事件，以确保这个socket下一次可读时，其EPOLLIN事件能被触发，进而让其他工作线程有机会继续处理这个socket。</p>
-<h1 id="7-select-poll和epoll的区别"><a class="markdownIt-Anchor" href="#7-select-poll和epoll的区别"></a> 7 select、poll和epoll的区别</h1>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202326818.png" alt="image.png" /></p>
-<h1 id="8-reactor和proactor"><a class="markdownIt-Anchor" href="#8-reactor和proactor"></a> 8 Reactor和Proactor</h1>
-<h1 id="9-事件处理模式"><a class="markdownIt-Anchor" href="#9-事件处理模式"></a> 9 事件处理模式</h1>
+<h3 id="6-1-5-EPOLLONESHOT">6.1.5 EPOLLONESHOT</h3>
+<p>对于注册了EPOLLONESHOT事件的文件描述符，操作系统最多触发其上注册的一个可读、可写或者异常事件，且只触发一次，除非我们使用epollctl函数重置该文件描述符上注册的EPOLLONESHOT事件。这样，当一个线程在处理某个socket时，其他线程是不可能有机会操作该socket的。但反过来思考，注册了EPOLLONESHOT事件的socket一旦被某个线程处理完毕，该线程就应该立即重置这个socket上的EPOLLONESHO事件，以确保这个socket下一次可读时，其EPOLLIN事件能被触发，进而让其他工作线程有机会继续处理这个socket。</p>
+<h1>7 select、poll和epoll的区别</h1>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311202326818.png" alt="image.png"></p>
+<h1>8 Reactor和Proactor</h1>
+<h1>9 事件处理模式</h1>
 <blockquote>
-<p>服务器程序需要处理三类事件：I/O事件、信号及定时事件。<br />
-同步I/O模型通常用于实现Reactor模式<br />
-异步I/O模型用于实现Proactor模式<br />
-使用同步I/O方式模拟出Proactor模式</p>
+<p>服务器程序需要处理三类事件：I/O事件、信号及定时事件。同步I/O模型通常用于实现Reactor模式异步I/O模型用于实现Proactor模式使用同步I/O方式模拟出Proactor模式</p>
 </blockquote>
 <p><code>在IO模型中，“同步”和“异步”区分的是内核向应用程序通知的是何种IO事件（是就绪事件还是完成事件），以及该由谁来完成IO读写（是应用程序还是内核）。</code></p>
-<ul>
-<li>同步IO：应用程序完成读写</li>
-<li>异步IO：内核完成读写</li>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>同步IO：应用程序完成读写</p>
+</li>
+<li class="lvl-2">
+<p>异步IO：内核完成读写</p>
+</li>
 </ul>
-<h2 id="91-模拟proactor模式"><a class="markdownIt-Anchor" href="#91-模拟proactor模式"></a> 9.1 模拟Proactor模式</h2>
+<h2 id="9-1-模拟Proactor模式">9.1 模拟Proactor模式</h2>
 <blockquote>
-<p>主线程执行数据读写操作，读写完成之后，主线程向工作线程通知这一“完成事件”。那么从工作线程的角度来看，它们就直接获得了数据读写的结果，接下来要做的只是对读写的结果进行逻辑处理。<br />
-（主线程代替内核完成数据读写）</p>
+<p>主线程执行数据读写操作，读写完成之后，主线程向工作线程通知这一“完成事件”。那么从工作线程的角度来看，它们就直接获得了数据读写的结果，接下来要做的只是对读写的结果进行逻辑处理。（主线程代替内核完成数据读写）</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311172018370.png" alt="image.png" /></p>
-<h1 id="10-并发模式"><a class="markdownIt-Anchor" href="#10-并发模式"></a> 10 并发模式</h1>
-<ul>
-<li>半同步/半异步模式(half-sync/half-async)</li>
-<li>领导者/追随者模式(Leader/Followers)</li>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311172018370.png" alt="image.png"></p>
+<h1>10 并发模式</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>半同步/半异步模式(half-sync/half-async)</p>
+</li>
+<li class="lvl-2">
+<p>领导者/追随者模式(Leader/Followers)</p>
+</li>
 </ul>
 <blockquote>
 <p>在并发模式中，“同步”指的是程序完全按照代码序列的顺序执行；“异步”指的是程序的执行需要由系统事件来驱动。常见的系统事件包括中断、信号等。</p>
 </blockquote>
-<h2 id="101-半同步半反应堆模式"><a class="markdownIt-Anchor" href="#101-半同步半反应堆模式"></a> 10.1 半同步/半反应堆模式</h2>
+<h2 id="10-1-半同步-半反应堆模式">10.1 半同步/半反应堆模式</h2>
 <blockquote>
-<p>半同步/半反应堆模式(half-sync/half-reactive)<br />
-Reactor模式：工作线程自己从socket上读取客户请求和往socket写入服务器应答<br />
-模拟Proactor模式：主线程完成数据的读写。这种情况下，主线程一般会将应用程序数据、任务类型等信息封装为一个任务对象，然后将其（或者指向该任务对象的一个指针）插入请求队列。工作线程从请求队列中取得任务对象之后，即可直接处理之，而无须执行读写操作了。</p>
+<p>半同步/半反应堆模式(half-sync/half-reactive)<br>
+Reactor模式：工作线程自己从socket上读取客户请求和往socket写入服务器应答模拟Proactor模式：主线程完成数据的读写。这种情况下，主线程一般会将应用程序数据、任务类型等信息封装为一个任务对象，然后将其（或者指向该任务对象的一个指针）插入请求队列。工作线程从请求队列中取得任务对象之后，即可直接处理之，而无须执行读写操作了。</p>
 </blockquote>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311161033365.png" alt="image.png" /></p>
-<h2 id="102-半同步半异步模式"><a class="markdownIt-Anchor" href="#102-半同步半异步模式"></a> 10.2 半同步/半异步模式</h2>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311161033032.png" alt="image.png" /></p>
-<h1 id="11-一致性哈希"><a class="markdownIt-Anchor" href="#11-一致性哈希"></a> 11 一致性哈希</h1>
-<p>应用场景是针对于有状态服务新增或下线节点<br />
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311161033365.png" alt="image.png"></p>
+<h2 id="10-2-半同步-半异步模式">10.2 半同步/半异步模式</h2>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202311161033032.png" alt="image.png"></p>
+<h1>11 一致性哈希</h1>
+<p>应用场景是针对于有状态服务新增或下线节点<br>
 <a href="https://xiaolincoding.com/os/8_network_system/hash.html#%E5%A6%82%E4%BD%95%E5%88%86%E9%85%8D%E8%AF%B7%E6%B1%82">9.4 什么是一致性哈希？ | 小林coding (xiaolincoding.com)</a></p>
-<h1 id="12-参考"><a class="markdownIt-Anchor" href="#12-参考"></a> 12 参考</h1>
-<p><a href="https://zhuanlan.zhihu.com/p/400798093">彻底弄懂IO复用：深入了解select，poll，epoll - 知乎 (zhihu.com)</a><br />
-<a href="https://xiaolincoding.com/os/8_network_system/selete_poll_epoll.html#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84-socket-%E6%A8%A1%E5%9E%8B">9.2 I/O 多路复用：select/poll/epoll | 小林coding (xiaolincoding.com)</a><br />
+<h1>12 参考</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/400798093">彻底弄懂IO复用：深入了解select，poll，epoll - 知乎 (zhihu.com)</a><br>
+<a href="https://xiaolincoding.com/os/8_network_system/selete_poll_epoll.html#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84-socket-%E6%A8%A1%E5%9E%8B">9.2 I/O 多路复用：select/poll/epoll | 小林coding (xiaolincoding.com)</a><br>
 <a href="https://xiaolincoding.com/os/8_network_system/reactor.html#%E6%BC%94%E8%BF%9B">9.3 高性能网络模式：Reactor 和 Proactor | 小林coding (xiaolincoding.com)</a></p>
 
     </div>
@@ -420,12 +494,12 @@ Reactor模式：工作线程自己从socket上读取客户请求和往socket写�
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" rel="prev" title="消息队列">
-                  <i class="fa fa-angle-left"></i> 消息队列
+                  <i class="fa fa-chevron-left"></i> 消息队列
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2024/05/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9A%E5%9F%BA%E7%A1%80/" rel="next" title="">
-                   <i class="fa fa-angle-right"></i>
+                   <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -444,51 +518,42 @@ Reactor模式：工作线程自己从socket上读取客户请求和往socket写�
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 

@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +14,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":false,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="凡是过去，皆为序章。">
 <meta property="og:type" content="website">
@@ -45,9 +47,6 @@
 
 
 
-
-
-
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -61,10 +60,13 @@
   <div class="headband"></div>
 
   <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -79,20 +81,57 @@
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project"><a href="/categories/project/" rel="section"><i class="fa fa-tasks fa-fw"></i>项目</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
 
-</header>
+    </div>
+  </div>
+
+</div>
         
   
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
   <aside class="sidebar">
 
     <div class="sidebar-inner sidebar-overview-active">
@@ -112,11 +151,11 @@
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
   <p class="site-author-name" itemprop="name">Destiny</p>
   <div class="site-description" itemprop="description">凡是过去，皆为序章。</div>
 </div>
-<div class="site-state-wrap animated">
+<div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
@@ -136,16 +175,41 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/destiny0118" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;destiny0118" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yuyg163@163.com" title="E-Mail → mailto:yuyg163@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/users/19273732/destiny" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;users&#x2F;19273732&#x2F;destiny" rel="noopener" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i></a>
+      </span>
+  </div>
+
+
 
         </div>
       </div>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
 
     
-  </aside>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
-    </div>
 
     <div class="main-inner index posts-expand">
 
@@ -188,13 +252,6 @@
 
       <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-22 22:14:46" itemprop="dateModified" datetime="2024-06-22T22:14:46+08:00">2024-06-22</time>
-    </span>
 
   
 </div>
@@ -206,18 +263,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-linux环境配置"><a class="markdownIt-Anchor" href="#1-linux环境配置"></a> 1 Linux环境配置</h1>
-<h1 id="2-linux"><a class="markdownIt-Anchor" href="#2-linux"></a> 2 Linux</h1>
-<h2 id="21-vmware-workstation-16-永久激活密钥"><a class="markdownIt-Anchor" href="#21-vmware-workstation-16-永久激活密钥"></a> 2.1 VMware Workstation 16 永久激活密钥</h2>
+          <h1>1 Linux环境配置</h1>
+<h1>2 Linux</h1>
+<h2 id="2-1-VMware-Workstation-16-永久激活密钥">2.1 VMware Workstation 16 永久激活密钥</h2>
 <p>ZF3R0-FHED2-M80TY-8QYGC-NPKYF</p>
 <p>YF390-0HF8P-M81RQ-2DXQE-M2UT6</p>
-<p>ZF71R-DMX85-08DQY-8YMNC-PPHV8<br />
+<p>ZF71R-DMX85-08DQY-8YMNC-PPHV8<br>
 链接：<a href="https://www.jianshu.com/p/002ede3e0b17">https://www.jianshu.com/p/002ede3e0b17</a></p>
-<h2 id="22-创建root用户"><a class="markdownIt-Anchor" href="#22-创建root用户"></a> 2.2 创建root用户</h2>
-<pre class="highlight"><code class="">sudo passwd root
-su root				//切换到root
-</code></pre>
-<h2 id="23-内存管理"><a class="markdownIt-Anchor" href="#23-内存管理"></a> 2.3 内存管理</h2>
+<h2 id="2-2-创建root用户">2.2 创建root用户</h2>
+<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">sudo passwd<span class="built_in"> root</span></span><br><span class="line">su<span class="built_in"> root</span>				//切换<span class="built_in">到root</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-3-内存管理">2.3 内存管理</h2>
 <table>
 <thead>
 <tr>
@@ -232,133 +287,68 @@ su root				//切换到root
 </tr>
 </tbody>
 </table>
-<h2 id="24-进程管理命令"><a class="markdownIt-Anchor" href="#24-进程管理命令"></a> 2.4 进程管理命令</h2>
-<h1 id="3-备份还原linux子系统"><a class="markdownIt-Anchor" href="#3-备份还原linux子系统"></a> 3 备份还原Linux子系统</h1>
-<pre class="highlight"><code class="shell">wsl  //进入默认的linux发行版
-wsl -l  //列出已安装的linux发行版
-wsl --shutdown  //终止正在运行的wsl
-
-
-wsl --export Ubuntu-22.04 F:/export.tar  //导出需要迁移的Linux发行版
-
-wsl --import &lt;DistributionName&gt; &lt;InstallLocation&gt; &lt;FileName&gt;
-wsl --import Ubuntu F:/Cache/WSL F:/export.tar
-（将FileName安装到InstallLocation位置，新的发行版名称DistributionName）
-Ubuntu config --default-user &#123;你原来的用户名&#125;
-
-wsl --unregister Ubuntu
-</code></pre>
-<p><a href="https://www.xfy-learning.com/2020/05/30/WSL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">WSL备份与还原 | 小肥羊吃草不吃肉 (xfy-learning.com)</a><br />
+<h2 id="2-4-进程管理命令">2.4 进程管理命令</h2>
+<h1>3 备份还原Linux子系统</h1>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">wsl  //进入默认的linux发行版</span><br><span class="line">wsl -l  //列出已安装的linux发行版</span><br><span class="line">wsl --shutdown  //终止正在运行的wsl</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wsl --export Ubuntu-22.04 F:/export.tar  //导出需要迁移的Linux发行版</span><br><span class="line"></span><br><span class="line">wsl --import &lt;DistributionName&gt; &lt;InstallLocation&gt; &lt;FileName&gt;</span><br><span class="line">wsl --import Ubuntu F:/Cache/WSL F:/export.tar</span><br><span class="line">（将FileName安装到InstallLocation位置，新的发行版名称DistributionName）</span><br><span class="line">Ubuntu config --default-user &#123;你原来的用户名&#125;</span><br><span class="line"></span><br><span class="line">wsl --unregister Ubuntu</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.xfy-learning.com/2020/05/30/WSL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">WSL备份与还原 | 小肥羊吃草不吃肉 (xfy-learning.com)</a><br>
 <a href="https://zhuanlan.zhihu.com/p/406917270">WSL的安装和位置迁移 - 知乎 (zhihu.com)</a></p>
-<h1 id="4-linux安装go"><a class="markdownIt-Anchor" href="#4-linux安装go"></a> 4 Linux安装Go</h1>
-<pre class="highlight"><code class="bash"><span class="hljs-built_in">cd</span> /mnt/d/Downloads
-tar -C /usr/<span class="hljs-built_in">local</span>/go -zxvf go1.21.6.linux-amd64.tar.gz
-
-
-//配置环境变量： Linux下有两个文件可以配置环境变量，其中`/etc/profile`是对所有用户生效的；`<span class="hljs-variable">$HOME</span>/.profile`是对当前用户生效的，根据自己的情况自行选择一个文件打开，添加如下两行代码，保存退出。
-<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/<span class="hljs-built_in">local</span>/go/bin
-<span class="hljs-built_in">export</span> GOPATH=/home/go
-<span class="hljs-built_in">export</span> GOBIN=<span class="hljs-variable">$GOPATH</span>/bin
-
-
-<span class="hljs-built_in">export</span> GOROOT=/usr/<span class="hljs-built_in">local</span>/go
-<span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$GOROOT</span>/bin
-</code></pre>
+<h1>4 Linux安装Go</h1>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt/d/Downloads</span><br><span class="line">tar -C /usr/local/go -zxvf go1.21.6.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//配置环境变量： Linux下有两个文件可以配置环境变量，其中`/etc/profile`是对所有用户生效的；`<span class="variable">$HOME</span>/.profile`是对当前用户生效的，根据自己的情况自行选择一个文件打开，添加如下两行代码，保存退出。</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/usr/local/go/bin</span><br><span class="line"><span class="built_in">export</span> GOPATH=/home/go</span><br><span class="line"><span class="built_in">export</span> GOBIN=<span class="variable">$GOPATH</span>/bin</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> GOROOT=/usr/local/go</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$GOROOT</span>/bin</span><br></pre></td></tr></table></figure>
 <p>go run mrsequential.go <a href="http://wc.so">wc.so</a> pg*.txt</p>
-<pre class="highlight"><code class="">
-
-[linux修改文件夹下所有文件的权限（常用）_linux如何把文件夹的权限设置为可执行-CSDN博客](https://blog.csdn.net/qq_41996454/article/details/109689314)
-## 虚拟机
-
-windows安装wsl与vmware兼容问题
-
-关闭windows的Hyper-V功能重启电脑就好了。
-
-![img](https://gitee.com/destiny0118/picgo/raw/master/202112311754154.jpeg)
-
-传输 (VMDB)错误 -14: Pipe connection has been broken。
-
-</code></pre>
-<p>bcdedit /set hypervisorlaunchtype off<br />
-bcdedit /set hypervisorlaunchtype auto<br />
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">[linux修改文件夹下所有文件的权限（常用）_linux如何把文件夹的权限设置为可执行-CSDN博客](https:<span class="regexp">//</span>blog.csdn.net<span class="regexp">/qq_41996454/</span>article<span class="regexp">/details/</span><span class="number">109689314</span>)</span><br><span class="line"><span class="comment">## 虚拟机</span></span><br><span class="line"></span><br><span class="line">windows安装wsl与vmware兼容问题</span><br><span class="line"></span><br><span class="line">关闭windows的Hyper-V功能重启电脑就好了。</span><br><span class="line"></span><br><span class="line">![img](https:<span class="regexp">//gi</span>tee.com<span class="regexp">/destiny0118/</span>picgo<span class="regexp">/raw/m</span>aster/<span class="number">202112311754154</span>.jpeg)</span><br><span class="line"></span><br><span class="line">传输 (VMDB)错误 -<span class="number">14</span>: Pipe connection has been broken。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>bcdedit /set hypervisorlaunchtype off<br>
+bcdedit /set hypervisorlaunchtype auto<br>
 bcdedit /enum {current}			查看是否启动</p>
-<pre class="highlight"><code class="">
-wsl -l -v
-
-[(10条消息) WSL修改默认安装目录到其他盘_Login5&amp;R的博客-CSDN博客](https://blog.csdn.net/qq_33157391/article/details/120728021)
-
-
-
-# Ubuntu root@localhost‘s password: Permission denied,please try again.
-
-&gt; - 修[ssh](https://so.csdn.net/so/search?q=ssh&amp;spm=1001.2101.3001.7020)改配置文件，设置为允许root远程登录：
-&gt;
-&gt;   root@[ubuntu](https://so.csdn.net/so/search?q=ubuntu&amp;spm=1001.2101.3001.7020):~# vim /etc/ssh/sshd_config
-&gt;
-&gt;   新增语句：PermitRootLogin yes 即可。
-&gt;
-&gt; - 保存退出，重启ssh服务：
-&gt;
-&gt;   root@ubuntu:~# /etc/init.d/ssh restart
-
-# ubuntn
-
-## 1. 问题
-
-&gt; 无法在宿主环境与虚拟环境之间复制粘贴
-&gt; 解决方案
-&gt;
-&gt; 在Ubuntu的命令行中执行一下命令
-
-```shell
-sudo apt-get autoremove open-vm-tools
-sudo apt-get install open-vm-tools
-sudo apt-get install open-vm-tools-desktop
-#重启虚拟机
-</code></pre>
-<h2 id="41-字体太小"><a class="markdownIt-Anchor" href="#41-字体太小"></a> 4.1 字体太小</h2>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">wsl</span> <span class="selector-tag">-l</span> <span class="selector-tag">-v</span></span><br><span class="line"></span><br><span class="line"><span class="selector-attr">[(10条消息) WSL修改默认安装目录到其他盘_Login5&amp;R的博客-CSDN博客]</span>(<span class="attribute">https</span>:<span class="comment">//blog.csdn.net/qq_33157391/article/details/120728021)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Ubuntu root<span class="variable">@localhost</span>‘s <span class="attribute">password</span>: Permission denied,please try again.</span><br><span class="line"></span><br><span class="line">&gt; - 修[ssh](<span class="attribute">https</span>:<span class="comment">//so.csdn.net/so/search?q=ssh&amp;spm=1001.2101.3001.7020)改配置文件，设置为允许root远程登录：</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;   root@[ubuntu](<span class="attribute">https</span>:<span class="comment">//so.csdn.net/so/search?q=ubuntu&amp;spm=1001.2101.3001.7020):~# vim /etc/ssh/sshd_config</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;   新增语句：PermitRootLogin yes 即可。</span><br><span class="line">&gt;</span><br><span class="line">&gt; - 保存退出，重启ssh服务：</span><br><span class="line">&gt;</span><br><span class="line">&gt;   root<span class="variable">@ubuntu</span>:~# /etc/init.d/ssh restart</span><br><span class="line"></span><br><span class="line"># ubuntn</span><br><span class="line"></span><br><span class="line">## <span class="number">1</span>. 问题</span><br><span class="line"></span><br><span class="line">&gt; 无法在宿主环境与虚拟环境之间复制粘贴</span><br><span class="line">&gt; 解决方案</span><br><span class="line">&gt;</span><br><span class="line">&gt; 在Ubuntu的命令行中执行一下命令</span><br><span class="line"></span><br><span class="line"><span class="built_in">``</span>`shell</span><br><span class="line">sudo apt-get autoremove open-vm-tools</span><br><span class="line">sudo apt-get install open-vm-tools</span><br><span class="line">sudo apt-get install open-vm-tools-desktop</span><br><span class="line">#重启虚拟机</span><br></pre></td></tr></table></figure>
+<h2 id="4-1-字体太小">4.1 字体太小</h2>
 <blockquote>
 <p>sudo apt-get install unity-tweak-tool</p>
 </blockquote>
-<h2 id="42-fatal-error-bitslibc-header-starth-没有那个文件或目录"><a class="markdownIt-Anchor" href="#42-fatal-error-bitslibc-header-starth-没有那个文件或目录"></a> 4.2 fatal error: bits/libc-header-start.h: 没有那个文件或目录</h2>
+<h2 id="4-2-fatal-error-bits-libc-header-start-h-没有那个文件或目录">4.2 fatal error: bits/libc-header-start.h: 没有那个文件或目录</h2>
 <blockquote>
 <p>sudo apt-get install gcc-multilib</p>
 </blockquote>
-<h2 id="43-更新镜像源"><a class="markdownIt-Anchor" href="#43-更新镜像源"></a> 4.3 更新镜像源</h2>
+<h2 id="4-3-更新镜像源">4.3 更新镜像源</h2>
 <blockquote>
-<p>sudo apt-get update<br />
+<p>sudo apt-get update<br>
 这个命令，会访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑。我们在新立得软件包管理器里看到的软件列表，都是通过update命令更新的。</p>
 <p>update后，可能需要upgrade一下。</p>
-<p>sudo apt-get upgrade<br />
+<p>sudo apt-get upgrade<br>
 这个命令，会把本地已安装的软件，与刚下载的软件列表里对应软件进行对比，如果发现已安装的软件版本太低，就会提示你更新。如果你的软件都是最新版本，会提示：</p>
 </blockquote>
-<h2 id="44-右键创建文件"><a class="markdownIt-Anchor" href="#44-右键创建文件"></a> 4.4 右键创建文件</h2>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112122146080.png" alt="image-20211212214603969" /></p>
-<h3 id="441-vmware-tools为灰色"><a class="markdownIt-Anchor" href="#441-vmware-tools为灰色"></a> 4.4.1 vmware-tools为灰色</h3>
+<h2 id="4-4-右键创建文件">4.4 右键创建文件</h2>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/202112122146080.png" alt="image-20211212214603969"></p>
+<h3 id="4-4-1-vmware-tools为灰色">4.4.1 vmware-tools为灰色</h3>
 <img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/image-20220922095348465.png" alt="image-20220922095348465" style="zoom: 50%;" />
 <p>登录虚拟机后安装</p>
 <blockquote>
-<ul>
-<li>tar -zxvf 加压缩相应安装包</li>
-<li>进入解压缩后的安装包</li>
-<li>./vmware-install.pl安装</li>
+<ul class="lvl-1">
+<li class="lvl-2">
+<p>tar -zxvf 加压缩相应安装包</p>
+</li>
+<li class="lvl-2">
+<p>进入解压缩后的安装包</p>
+</li>
+<li class="lvl-2">
+<p>./vmware-install.pl安装</p>
+</li>
 </ul>
 </blockquote>
-<h2 id="45-centos7"><a class="markdownIt-Anchor" href="#45-centos7"></a> 4.5 Centos7</h2>
-<h3 id="451-更新阿里源"><a class="markdownIt-Anchor" href="#451-更新阿里源"></a> 4.5.1 更新阿里源</h3>
+<h2 id="4-5-Centos7">4.5 Centos7</h2>
+<h3 id="4-5-1-更新阿里源">4.5.1 更新阿里源</h3>
 <p><a href="https://blog.csdn.net/wade3015/article/details/94494929">(6条消息) CentOS 更新yum源及yum命令详解_TigerwolfC的博客-CSDN博客_centos更新yum源</a></p>
 <p><a href="https://blog.csdn.net/qq_41954264/article/details/107392579?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link">(6条消息) 修改CentOS默认yum源为国内镜像_qq_41954264的博客-CSDN博客</a></p>
-<h1 id="5-docker"><a class="markdownIt-Anchor" href="#5-docker"></a> 5 docker</h1>
+<h1>5 docker</h1>
 <p><a href="https://www.cnblogs.com/lyx666/p/12764442.html">docker镜像原理 镜像制作 dockerfile - 李狗蛋+1 - 博客园 (cnblogs.com)</a></p>
 <p><a href="https://www.cnblogs.com/dyb0204/p/11345129.html">Docker在ubuntu和centos的安装 - 弑小君 - 博客园 (cnblogs.com)</a></p>
-<h2 id="51-centos-docker-安装"><a class="markdownIt-Anchor" href="#51-centos-docker-安装"></a> 5.1 CentOS Docker 安装</h2>
+<h2 id="5-1-CentOS-Docker-安装">5.1 CentOS Docker 安装</h2>
 <p><a href="https://www.runoob.com/docker/centos-docker-install.html">CentOS Docker 安装</a></p>
 <p>[DockerFile简介](<a href="https://www.cnblogs.com/dongzhanyi123/p/13301748.html">docker-通过编辑dockerfile自动生成镜像 - An.amazing.rookie - 博客园 (cnblogs.com)</a>)</p>
 <p>[Docker基本概念](<a href="https://blog.csdn.net/sehejs_a/article/details/104857028">(6条消息) Docker基本概念_useradd的博客-CSDN博客_docker useradd</a>)</p>
 <p>[Docker在ubuntu和centos的安装](<a href="https://www.cnblogs.com/dyb0204/p/11345129.html">Docker在ubuntu和centos的安装 - 弑小君 - 博客园 (cnblogs.com)</a>)</p>
 <p>docker免密登录</p>
 <p><a href="https://blog.csdn.net/zytmaster/article/details/106170908">(6条消息) 新建centos7的虚拟机安装docker后无法启动，报错：Failed to start docker.service: Unit not found_zytmaster的博客-CSDN博客</a></p>
-<h2 id="52-singularity-container"><a class="markdownIt-Anchor" href="#52-singularity-container"></a> 5.2 Singularity Container</h2>
+<h2 id="5-2-Singularity-Container">5.2 Singularity Container</h2>
 <p>[Singularity Container](<a href="https://sylabs.io/guides/2.6/user-guide/quick_start.html">Quick Start — Singularity container 2.6 documentation (sylabs.io)</a>)</p>
 <p>[singularity](<a href="https://www.jianshu.com/p/5b5e2f1bd057?from=singlemessage">singularity - 简书 (jianshu.com)</a>)</p>
 <p><a href="https://sylabs.io/guides/3.3/user-guide/mpi.html">Singularity and MPI applications 官网文件</a>)</p>
@@ -425,13 +415,6 @@ sudo apt-get install open-vm-tools-desktop
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-22 23:17:21" itemprop="dateModified" datetime="2024-06-22T23:17:21+08:00">2024-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -450,262 +433,177 @@ sudo apt-get install open-vm-tools-desktop
     
     
     <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>inline 行间公式：$…$</li>
-<li>display 块间公式：$$…$$</li>
+          <ul class="lvl-0">
+<li class="lvl-2">
+<p>inline 行间公式：$…$</p>
+</li>
+<li class="lvl-2">
+<p>display 块间公式：$$…$$</p>
+</li>
 </ul>
 <p><a href="https://blog.csdn.net/happyday_d/article/details/83715440">Typora中利用LaTeX 插入数学公式</a></p>
 <p><a href="https://www.jianshu.com/p/5207a41baf51/">VSCODE+latex 自动换行 - 简书 (jianshu.com)</a></p>
-<h1 id="1-历史版本"><a class="markdownIt-Anchor" href="#1-历史版本"></a> 1 历史版本</h1>
+<h1>1 历史版本</h1>
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/tex-historic-archive/systems/texlive/2020/">Index of /tex-historic-archive/systems/texlive/2020/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/136931926">TexLive 2020 安装指南 - 知乎 (zhihu.com)</a></p>
-<h1 id="2-latex排版"><a class="markdownIt-Anchor" href="#2-latex排版"></a> 2 Latex排版</h1>
+<h1>2 Latex排版</h1>
 <p><a href="https://www.zhihu.com/question/31850346">LaTeX（XeLaTeX）写的文档如何一键转为word？ - 知乎 (zhihu.com)</a></p>
-<h2 id="21-换行"><a class="markdownIt-Anchor" href="#21-换行"></a> 2.1 换行</h2>
-<pre class="highlight"><code class="latex">\\ 换行
-\par 	换行并缩进
-
-abc &amp;= 
-	&amp;=
-等号对齐
-</code></pre>
-<h2 id="22-插入图片"><a class="markdownIt-Anchor" href="#22-插入图片"></a> 2.2 插入图片</h2>
+<h2 id="2-1-换行">2.1 换行</h2>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\\</span> 换行</span><br><span class="line"><span class="keyword">\par</span> 	换行并缩进</span><br><span class="line"></span><br><span class="line">abc <span class="built_in">&amp;</span>= </span><br><span class="line">	<span class="built_in">&amp;</span>=</span><br><span class="line">等号对齐</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-插入图片">2.2 插入图片</h2>
 <p><a href="https://blog.csdn.net/qq_35091353/article/details/111403178?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0.pc_relevant_default&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3">(11条消息) Latex中插入图片_还能坚持的博客-CSDN博客_latex插入图片</a></p>
-<pre class="highlight"><code class="latex">\begin&#123;figure&#125;
-    \centering
-    \begin&#123;minipage&#125;[c]&#123;0.5\textwidth&#125;
-        \centering
-        \includegraphics[height=4.5cm,width=7.5cm]&#123;original_invert.jpg&#125;
-    \end&#123;minipage&#125;
-    \begin&#123;minipage&#125;[c]&#123;0.5\textwidth&#125;
-        \centering
-        \includegraphics[height=4.5cm,width=7.5cm]&#123;invert_image.jpg&#125;
-    \end&#123;minipage&#125;
-    \caption&#123;并排图形&#125;
-\end&#123;figure&#125;
-</code></pre>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202205011026064.png" alt="image-20220501102617993" /></p>
-<pre class="highlight"><code class="latex">\begin&#123;figure&#125;[htbp]
-    \centering
-    \begin&#123;minipage&#125;[t]&#123;0.4\linewidth&#125;  %并排插图时，线宽很重要，自己慢慢试，俩张图就不要超过0.5，三张图不要超过0.33之类的，自己看着办  
-        \centering
-        \includegraphics[height=5cm]&#123;original_invert.jpg&#125;
-        % \label&#123;fig4&#125;
-        % \caption&#123;原始图像&#125;
-    \end&#123;minipage&#125;
-    \hfill%分栏的意思吧
-    \begin&#123;minipage&#125;[t]&#123;0.5\linewidth&#125;
-        \centering
-        \includegraphics[height=5cm]&#123;invert_image.jpg&#125;
-        % \label&#123;fig5&#125;
-        % \caption&#123;invert操作图像&#125;
-    \end&#123;minipage&#125;
-    \label&#123;fig4&#125;
-    \caption&#123;原始图像与invert操作图像&#125;
-\end&#123;figure&#125;
-</code></pre>
-<h2 id="23-插入列表"><a class="markdownIt-Anchor" href="#23-插入列表"></a> 2.3 插入列表</h2>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">        <span class="keyword">\centering</span></span><br><span class="line">        <span class="keyword">\includegraphics</span>[height=4.5cm,width=7.5cm]&#123;original<span class="built_in">_</span>invert.jpg&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;minipage&#125;[c]&#123;0.5<span class="keyword">\textwidth</span>&#125;</span><br><span class="line">        <span class="keyword">\centering</span></span><br><span class="line">        <span class="keyword">\includegraphics</span>[height=4.5cm,width=7.5cm]&#123;invert<span class="built_in">_</span>image.jpg&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;并排图形&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/img/202205011026064.png" alt="image-20220501102617993"></p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[htbp]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\begin</span>&#123;minipage&#125;[t]&#123;0.4<span class="keyword">\linewidth</span>&#125;  <span class="comment">%并排插图时，线宽很重要，自己慢慢试，俩张图就不要超过0.5，三张图不要超过0.33之类的，自己看着办  </span></span><br><span class="line">        <span class="keyword">\centering</span></span><br><span class="line">        <span class="keyword">\includegraphics</span>[height=5cm]&#123;original<span class="built_in">_</span>invert.jpg&#125;</span><br><span class="line">        <span class="comment">% \label&#123;fig4&#125;</span></span><br><span class="line">        <span class="comment">% \caption&#123;原始图像&#125;</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line">    <span class="keyword">\hfill</span><span class="comment">%分栏的意思吧</span></span><br><span class="line">    <span class="keyword">\begin</span>&#123;minipage&#125;[t]&#123;0.5<span class="keyword">\linewidth</span>&#125;</span><br><span class="line">        <span class="keyword">\centering</span></span><br><span class="line">        <span class="keyword">\includegraphics</span>[height=5cm]&#123;invert<span class="built_in">_</span>image.jpg&#125;</span><br><span class="line">        <span class="comment">% \label&#123;fig5&#125;</span></span><br><span class="line">        <span class="comment">% \caption&#123;invert操作图像&#125;</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line">    <span class="keyword">\label</span>&#123;fig4&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;原始图像与invert操作图像&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-插入列表">2.3 插入列表</h2>
 <p>[(11条消息) <a href="https://blog.csdn.net/xovee/article/details/106365532">翻译] LaTeX 中的列表_Xovee的博客-CSDN博客_latex 列表</a></p>
 <p>列表缩进</p>
 <p><a href="https://www.csdn.net/tags/NtzaYg3sMzg3ODQtYmxvZwO0O0OO0O0O.html">(11条消息) item调整缩进 latex - CSDN</a></p>
 <p><a href="https://blog.csdn.net/JingpengSun/article/details/129166744">Latex 插入列举条目、编号item及间隔调整_latex列举_衷科知眠的博客-CSDN博客</a></p>
 <p><a href="https://blog.csdn.net/robert_chen1988/article/details/83179571">https://blog.csdn.net/robert_chen1988/article/details/83179571</a></p>
-<h2 id="24-插入表格"><a class="markdownIt-Anchor" href="#24-插入表格"></a> 2.4 插入表格</h2>
+<h2 id="2-4-插入表格">2.4 插入表格</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/392190222">LaTeX插入表格教程（心得分享） - 知乎 (zhihu.com)</a></p>
-<h2 id="25-参考文献"><a class="markdownIt-Anchor" href="#25-参考文献"></a> 2.5 参考文献</h2>
+<h2 id="2-5-参考文献">2.5 参考文献</h2>
 <p><a href="https://www.jianshu.com/p/bb0585d34e47">Latex插入参考文献的两种方式（以IEEE为例） - 简书 (jianshu.com)</a></p>
 <p><a href="https://blog.csdn.net/qq_36235935/article/details/116938313">(11条消息) Latex中如何插入参考文献的两种方法_进击的程序媛阿飒的博客-CSDN博客_latex添加参考文献</a></p>
 <p><a href="https://blog.csdn.net/qq_39540454/article/details/107604031">(11条消息) LATEX插入参考文献（两种方法）_feiba54的博客-CSDN博客_latex参考文献</a></p>
-<h2 id="26-空格"><a class="markdownIt-Anchor" href="#26-空格"></a> 2.6 空格</h2>
+<h2 id="2-6-空格">2.6 空格</h2>
 <p><a href="https://blog.csdn.net/gsgbgxp/article/details/129693747">LaTeX中的宽度单位em,ex,px,pt_latex pt-CSDN博客</a></p>
 <p><a href="https://blog.csdn.net/hysterisis/article/details/114123131">Latex 中的空格汇总_latex 空白-CSDN博客</a></p>
 <p><a href="https://blog.csdn.net/hysterisis/article/details/114123131">(78条消息) Latex 中的空格汇总_latex中空格_零度蛋花粥的博客-CSDN博客</a></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307261602226.jpeg" alt="img" /></p>
-<h1 id="3-数学公式"><a class="markdownIt-Anchor" href="#3-数学公式"></a> 3 数学公式</h1>
-<h2 id="31-函数"><a class="markdownIt-Anchor" href="#31-函数"></a> 3.1 函数</h2>
-<p>对数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mi>a</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">log_ax</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span></span></span></span></p>
-<pre class="highlight"><code class="latex">$log_ax$
-$lnx$
-$lgx$
-</code></pre>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic2023/202307261602226.jpeg" alt="img"></p>
+<h1>3 数学公式</h1>
+<h2 id="3-1-函数">3.1 函数</h2>
+<p>对数 $log_ax$</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span>log<span class="built_in">_</span>ax<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>lnx<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>lgx<span class="built_in">$</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>o</mi><msub><mi>g</mi><mi>a</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">log_ax</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span></span></span></span></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>n</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">lnx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">n</span><span class="mord mathdefault">x</span></span></span></span></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>g</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">lgx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">x</span></span></span></span></p>
+<p>$log_ax$</p>
+<p>$lnx$</p>
+<p>$lgx$</p>
 </blockquote>
-<h2 id="32-符号表"><a class="markdownIt-Anchor" href="#32-符号表"></a> 3.2 符号表</h2>
-<pre class="highlight"><code class="latex">$\alpha$
-\nabla
-\partial 
-\underline a
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.0037em;">α</span></span></span></span></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∇</mi></mrow><annotation encoding="application/x-tex">\nabla</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord">∇</span></span></span></span></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∂</mi></mrow><annotation encoding="application/x-tex">\partial</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord" style="margin-right:0.05556em;">∂</span></span></span></span></p>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munder accentunder="true"><mi>a</mi><mo stretchy="true">‾</mo></munder></mrow><annotation encoding="application/x-tex">\underline a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.63056em;vertical-align:-0.19999999999999996em;"></span><span class="mord underline"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.43056000000000005em;"><span style="top:-2.84em;"><span class="pstrut" style="height:3em;"></span><span class="underline-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault">a</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19999999999999996em;"><span></span></span></span></span></span></span></span></span></p>
+<h2 id="3-2-符号表">3.2 符号表</h2>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="built_in">$</span><span class="keyword">\alpha</span><span class="built_in">$</span></span><br><span class="line"><span class="keyword">\nabla</span></span><br><span class="line"><span class="keyword">\partial</span> </span><br><span class="line"><span class="keyword">\underline</span> a</span><br></pre></td></tr></table></figure>
+<p>$\alpha$</p>
+<p>$\nabla$</p>
+<p>$\partial$</p>
+<p>$\underline a$</p>
 <p>空格表</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292226115.png" alt="img" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292226115.png" alt="img"></p>
 <p>希腊字母表</p>
-<p><img src="D:%5CHexo%5Cimage%5C202112292214231.png" alt="img" /></p>
+<p><img src="D:%5CHexo%5Cimage%5C202112292214231.png" alt="img"></p>
 <p>数学模式重音符号</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292226278.png" alt="img" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292226278.png" alt="img"></p>
 <p>二元关系</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292227484.png" alt="img" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292227484.png" alt="img"></p>
 <p>二元运算符</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292227918.png" alt="img" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292227918.png" alt="img"></p>
 <p>“大”运算符</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292228849.png" alt="img" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292228849.png" alt="img"></p>
 <p>箭头</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292253282.png" alt="img" /></p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292253282.png" alt="img"></p>
 <p>定界符</p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292254595.png" alt="img" /></p>
-<p>空心字符</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="double-struck">R</mi></mrow><annotation encoding="application/x-tex">\mathbb{R}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68889em;vertical-align:0em;"></span><span class="mord"><span class="mord mathbb">R</span></span></span></span></span></span></p>
-<h2 id="33-上下标-根号-省略号"><a class="markdownIt-Anchor" href="#33-上下标-根号-省略号"></a> 3.3 上下标、根号、省略号</h2>
-<pre class="highlight"><code class="latex">下标：
-$x_i$
-$x_&#123;i1&#125;$
-
-上标：
-$x^2$
-
-根号：
-$5\sqrt[n]&#123;3&#125;$
-
-省略号：
-$\dots$
-$\cdots$
-
-分式中上下标
-\frac&#123;\sum_1^n&#125;&#123;n&#125;
-\frac&#123;\sum\limits_1^n&#125;&#123;n&#125;
-</code></pre>
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/202112292254595.png" alt="img"></p>
+<p>空心字符<br>
+$$<br>
+\mathbb{R}<br>
+$$</p>
+<h2 id="3-3-上下标、根号、省略号">3.3 上下标、根号、省略号</h2>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line">下标：</span><br><span class="line"><span class="built_in">$</span>x<span class="built_in">_</span>i<span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span>x<span class="built_in">_</span>&#123;i1&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">上标：</span><br><span class="line"><span class="built_in">$</span>x<span class="built_in">^</span>2<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">根号：</span><br><span class="line"><span class="built_in">$</span>5<span class="keyword">\sqrt</span>[n]&#123;3&#125;<span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">省略号：</span><br><span class="line"><span class="built_in">$</span><span class="keyword">\dots</span><span class="built_in">$</span></span><br><span class="line"><span class="built_in">$</span><span class="keyword">\cdots</span><span class="built_in">$</span></span><br><span class="line"></span><br><span class="line">分式中上下标</span><br><span class="line"><span class="keyword">\frac</span>&#123;<span class="keyword">\sum</span><span class="built_in">_</span>1<span class="built_in">^</span>n&#125;&#123;n&#125;</span><br><span class="line"><span class="keyword">\frac</span>&#123;<span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">_</span>1<span class="built_in">^</span>n&#125;&#123;n&#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-3">
+<p>$x_i$</p>
+</li>
 </ul>
 <blockquote>
-<p>上下标多于一个字母时： <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>x</mi><mrow><mi>i</mi><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">x_{i1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>上下标多于一个字母时： $x_{i1}$</p>
 </blockquote>
-<ul>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">x^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>$x^2$</p>
 </li>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5</mn><mroot><mn>3</mn><mi>n</mi></mroot></mrow><annotation encoding="application/x-tex">5\sqrt[n]{3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.13278em;"></span><span class="mord">5</span><span class="mord sqrt"><span class="root"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.679944em;"><span style="top:-2.964664em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size6 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span></span></span></span><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.90722em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord" style="padding-left:0.833em;"><span class="mord">3</span></span></span><span style="top:-2.86722em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.13278em;"><span></span></span></span></span></span></span></span></span></p>
+<li class="lvl-2">
+<p>$5\sqrt[n]{3}$</p>
 </li>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>…</mo></mrow><annotation encoding="application/x-tex">\dots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.12em;vertical-align:0em;"></span><span class="minner">…</span></span></span></span></p>
+<li class="lvl-3">
+<p>$\dots$</p>
 </li>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.31em;vertical-align:0em;"></span><span class="minner">⋯</span></span></span></span></p>
+<li class="lvl-2">
+<p>$\cdots$</p>
 </li>
 </ul>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><munderover><mo>∑</mo><mn>1</mn><mi>n</mi></munderover><mi>n</mi></mfrac><mspace linebreak="newline"></mspace><mfrac><munderover><mo>∑</mo><mn>1</mn><mi>n</mi></munderover><mi>n</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{\sum_1^n}{n}\\
-\frac{\sum\limits_1^n}{n}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.180002em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.494002em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.6897100000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:3.3945100000000004em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.7085100000000004em;"><span style="top:-2.6653970000000005em;"><span class="pstrut" style="height:3.3513970000000004em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span><span style="top:-3.5813970000000004em;"><span class="pstrut" style="height:3.3513970000000004em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-4.70851em;"><span class="pstrut" style="height:3.3513970000000004em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3513970000000004em;"><span style="top:-2.132887em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span><span style="top:-3.0000050000000003em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop op-symbol small-op">∑</span></span></span><span style="top:-3.950005em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9671129999999999em;"><span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<h2 id="34-箭头"><a class="markdownIt-Anchor" href="#34-箭头"></a> 3.4 箭头</h2>
-<pre class="highlight"><code class="">$leftarrow$
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>←</mo></mrow><annotation encoding="application/x-tex">\leftarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">←</span></span></span></span></p>
-<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20181104140310286.JPG" alt="img" /></p>
-<h2 id="35-除法"><a class="markdownIt-Anchor" href="#35-除法"></a> 3.5 除法</h2>
-<pre class="highlight"><code class="">\frac&#123;1&#125;&#123;2&#125;
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.190108em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-<pre class="highlight"><code class="">$$
- a \div b\\
- a \times b\\
- a \cdot b
- $$
-</code></pre>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>÷</mo><mi>b</mi><mspace linebreak="newline"></mspace><mi>a</mi><mo>×</mo><mi>b</mi><mspace linebreak="newline"></mspace><mi>a</mi><mo>⋅</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a \div b\\
-a \times b\\
-a \cdot b
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">÷</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.44445em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></span></p>
-<h2 id="36-上下分层"><a class="markdownIt-Anchor" href="#36-上下分层"></a> 3.6 上下分层</h2>
-<pre class="highlight"><code class="">a_&#123;-&#125;^&#123;+&#125;
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>a</mi><mo>−</mo><mo>+</mo></msubsup></mrow><annotation encoding="application/x-tex">a_{-}^{+}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.093324em;vertical-align:-0.28186200000000006em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.811462em;"><span style="top:-2.476469em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span></span></span></span><span style="top:-3.1031310000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">+</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.28186200000000006em;"><span></span></span></span></span></span></span></span></span></span></p>
-<h2 id="37-分段函数"><a class="markdownIt-Anchor" href="#37-分段函数"></a> 3.7 分段函数</h2>
-<pre class="highlight"><code class="">\begin&#123;equation&#125;
-next[j]=
-
-\begin&#123;cases&#125;
-0&amp; \text&#123;j=1&#125;\\
-max\&#123;k,1&lt;k&lt;j且'p_1...p_k'='p_&#123;j-k+1&#125;...p_&#123;j-1&#125;'\&#125;&amp; \text&#123;此集合不空时&#125;\\
-1&amp; \text&#123;其他情况&#125;
-
-\end&#123;cases&#125;
-
-\end&#123;equation&#125;
-</code></pre>
-\begin{equation}
-next[j]=
-
-\begin{cases}
-0& \text{j=1}\\
-max\{k,1<k<j且'p_1...p_k'='p_{j-k+1}...p_{j-1}'\}& \text{此集合不空时}\\
-1& \text{其他情况}
-
-\end{cases}
-
-\end{equation}
-
-<h2 id="38-比较符号"><a class="markdownIt-Anchor" href="#38-比较符号"></a> 3.8 比较符号</h2>
-<pre class="highlight"><code class="">\leq	
-\geq
-</code></pre>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≤</mo></mrow><annotation encoding="application/x-tex">\leq</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span></span></span></span></p>
-<h2 id="39-导数"><a class="markdownIt-Anchor" href="#39-导数"></a> 3.9 导数</h2>
+<p>$$<br>
+\frac{\sum_1^n}{n}\<br>
+\frac{\sum\limits_1^n}{n}<br>
+$$</p>
+<h2 id="3-4-箭头">3.4 箭头</h2>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="meta"><span class="keyword">$leftarrow</span>$</span></span><br></pre></td></tr></table></figure>
+<p>$\leftarrow$</p>
+<p><img src="https://raw.githubusercontent.com/destiny0118/picgo/master/pic/20181104140310286.JPG" alt="img"></p>
+<h2 id="3-5-除法">3.5 除法</h2>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">\frac</span><span class="template-variable">&#123;1&#125;</span><span class="template-variable">&#123;2&#125;</span></span><br></pre></td></tr></table></figure>
+<p>$\frac{1}{2}$</p>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="symbol">$</span><span class="symbol">$</span></span><br><span class="line"> a \<span class="built_in">div</span> b\\</span><br><span class="line"> a \times b\\</span><br><span class="line"> a \cdot b</span><br><span class="line"> <span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+<p>$$<br>
+a \div b\<br>
+a \times b\<br>
+a \cdot b<br>
+$$</p>
+<h2 id="3-6-上下分层">3.6 上下分层</h2>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="language-xml">a_</span><span class="template-variable">&#123;-&#125;</span><span class="language-xml">^</span><span class="template-variable">&#123;+&#125;</span></span><br></pre></td></tr></table></figure>
+<p>$a_{-}^{+}$</p>
+<h2 id="3-7-分段函数">3.7 分段函数</h2>
+<figure class="highlight fsharp"><table><tr><td class="code"><pre><span class="line">\<span class="keyword">begin</span>&#123;equation&#125;</span><br><span class="line">next[j]<span class="operator">=</span></span><br><span class="line"></span><br><span class="line">\<span class="keyword">begin</span>&#123;cases&#125;</span><br><span class="line"><span class="number">0</span><span class="operator">&amp;</span> \<span class="keyword">text</span>&#123;j<span class="operator">=</span><span class="number">1</span>&#125;\\</span><br><span class="line">max\&#123;k,<span class="number">1</span><span class="operator">&lt;</span>k<span class="operator">&lt;</span>j且<span class="symbol">&#x27;p_1</span><span class="operator">...</span>p_k<span class="string">&#x27;=&#x27;</span><span class="keyword">p_</span>&#123;j<span class="operator">-</span>k<span class="operator">+</span><span class="number">1</span>&#125;<span class="operator">...</span><span class="keyword">p_</span>&#123;j<span class="number">-1</span>&#125;&#x27;\&#125;<span class="operator">&amp;</span> \<span class="keyword">text</span>&#123;此集合不空时&#125;\\</span><br><span class="line"><span class="number">1</span><span class="operator">&amp;</span> \<span class="keyword">text</span>&#123;其他情况&#125;</span><br><span class="line"></span><br><span class="line">\<span class="keyword">end</span>&#123;cases&#125;</span><br><span class="line"></span><br><span class="line">\<span class="keyword">end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+<p>$$<br>
+\begin{equation}<br>
+next[j]=</p>
+<p>\begin{cases}<br>
+0&amp; \text{j=1}\<br>
+max{k,1&lt;k&lt;j且’p_1…p_k’=‘p_{j-k+1}…p_{j-1}’}&amp; \text{此集合不空时}\<br>
+1&amp; \text{其他情况}</p>
+<p>\end{cases}</p>
+<p>\end{equation}<br>
+$$</p>
+<h2 id="3-8-比较符号">3.8 比较符号</h2>
+<figure class="highlight dos"><table><tr><td class="code"><pre><span class="line">\<span class="keyword">leq</span>	</span><br><span class="line">\<span class="keyword">geq</span></span><br></pre></td></tr></table></figure>
+<p>$\leq$</p>
+<h2 id="3-9-导数">3.9 导数</h2>
 <p>偏导符号</p>
-<pre class="highlight"><code class="">\frac&#123;\partial f&#125;&#123;\partial x&#125;
-\frac&#123;\mathrm&#123;d&#125; f&#125;&#123;\mathrm&#123;d&#125; y&#125;
-\frac&#123;y^&#123;'&#125;&#125;&#123;x^&#123;'&#125;&#125;
-</code></pre>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>f</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi>x</mi></mrow></mfrac><mspace linebreak="newline"></mspace><mfrac><mrow><mi mathvariant="normal">d</mi><mi>f</mi></mrow><mrow><mi mathvariant="normal">d</mi><mi>y</mi></mrow></mfrac><mspace linebreak="newline"></mspace><mfrac><msup><mi>y</mi><msup><mrow></mrow><mo mathvariant="normal">′</mo></msup></msup><msup><mi>x</mi><msup><mrow></mrow><mo mathvariant="normal">′</mo></msup></msup></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial f}{\partial x} \\
-\frac{\mathrm{d} f}{\mathrm{d} y}\\
-\frac{y^{&#x27;}}{x^{&#x27;}}
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0574399999999997em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault">x</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord" style="margin-right:0.05556em;">∂</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:2.25188em;vertical-align:-0.8804400000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714399999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">d</span></span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8804400000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:2.3054799999999998em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6194799999999998em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.76698em;"><span style="top:-2.789em;margin-right:0.05em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6828285714285715em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.94248em;"><span style="top:-2.94248em;margin-right:0.05em;"><span class="pstrut" style="height:2.57948em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8278285714285715em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
+<figure class="highlight gml"><table><tr><td class="code"><pre><span class="line">\<span class="built_in">frac</span>&#123;\partial f&#125;&#123;\partial <span class="variable language_">x</span>&#125;</span><br><span class="line">\<span class="built_in">frac</span>&#123;\mathrm&#123;d&#125; f&#125;&#123;\mathrm&#123;d&#125; <span class="variable language_">y</span>&#125;</span><br><span class="line">\<span class="built_in">frac</span>&#123;<span class="variable language_">y</span>^&#123;<span class="string">&#x27;&#125;&#125;&#123;x^&#123;&#x27;</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>$$<br>
+\frac{\partial f}{\partial x} \<br>
+\frac{\mathrm{d} f}{\mathrm{d} y}\<br>
+\frac{y<sup>{'}}{x</sup>{'}}<br>
+$$</p>
 <p><strong>点形式的求导符号：\dot x 和 \ddot y</strong></p>
-<pre class="highlight"><code class="">$ \frac&#123; \dot y &#125;&#123; \dot x &#125; $  # 一个点
-$ \frac&#123; \ddot y &#125;&#123; \ddot x &#125; $  # 两个点
-$ \frac&#123; \dddot y &#125;&#123; \dddot x &#125; $  # 几个点就是几个d
-</code></pre>
-\frac{ \dot y }{ \dot x } \\
-\frac{ \ddot y }{ \ddot x } \\
-\frac{ \dddot y }{ \dddot x }
-
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line">$ <span class="string">\frac&#123;</span> <span class="string">\dot</span> y &#125;&#123; <span class="string">\dot</span> x &#125; $  <span class="comment"># 一个点</span></span><br><span class="line">$ <span class="string">\frac&#123;</span> <span class="string">\ddot</span> y &#125;&#123; <span class="string">\ddot</span> x &#125; $  <span class="comment"># 两个点</span></span><br><span class="line">$ <span class="string">\frac&#123;</span> <span class="string">\dddot</span> y &#125;&#123; <span class="string">\dddot</span> x &#125; $  <span class="comment"># 几个点就是几个d</span></span><br></pre></td></tr></table></figure>
+<p>$$<br>
+\frac{ \dot y }{ \dot x } \<br>
+\frac{ \ddot y }{ \ddot x } \<br>
+\frac{ \dddot y }{ \dddot x }<br>
+$$</p>
 <p><strong>全微分算子：\nabla f</strong></p>
-<pre class="highlight"><code class=""> \nabla f
- \Delta f
-</code></pre>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∇</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\nabla f
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord">∇</span><span class="mord mathdefault" style="margin-right:0.10764em;">f</span></span></span></span></span></p>
-<h2 id="310-矩阵"><a class="markdownIt-Anchor" href="#310-矩阵"></a> 3.10 矩阵</h2>
-<h2 id="311-向上取整向下取整"><a class="markdownIt-Anchor" href="#311-向上取整向下取整"></a> 3.11 向上取整/*向下取整***</h2>
+<figure class="highlight livescript"><table><tr><td class="code"><pre><span class="line"><span class="string">\nabla</span> f</span><br><span class="line"><span class="string">\Delta</span> f</span><br></pre></td></tr></table></figure>
+<p>$$<br>
+\nabla f<br>
+$$</p>
+<h2 id="3-10-矩阵">3.10 矩阵</h2>
+<h2 id="3-11-向上取整-向下取整">3.11 向上取整/*向下取整***</h2>
 <p><em>千次阅读</em></p>
 <p>2020-03-11 17:00:58</p>
 <p>个人博客：<a href="https://www.vectormoon.net/">https://www.vectormoon.net/</a></p>
 <p>向上取整指令：</p>
-<pre class="highlight"><code class="bash">$\lceil x \rceil$
-</code></pre>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$\lceil x \rceil$</span><br></pre></td></tr></table></figure>
 <p>向下取整指令：</p>
-<pre class="highlight"><code class="bash">$\lfloor x \rfloor$
-</code></pre>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mspace width="0.5em"/><mo stretchy="false">⌈</mo><mfrac><mrow><msub><mi>k</mi><mi>w</mi></msub><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo stretchy="false">⌉</mo><mo separator="true">,</mo><mo stretchy="false">⌊</mo><mfrac><mrow><msub><mi>k</mi><mi>w</mi></msub><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo stretchy="false">⌋</mo><mo separator="true">,</mo><mo stretchy="false">⌈</mo><mfrac><mrow><msub><mi>k</mi><mi>h</mi></msub><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo stretchy="false">⌉</mo><mo separator="true">,</mo><mo stretchy="false">⌊</mo><mfrac><mrow><msub><mi>k</mi><mi>h</mi></msub><mo>−</mo><mn>1</mn></mrow><mn>2</mn></mfrac><mo stretchy="false">⌋</mo><mspace width="0.5em"/><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[\enspace\lceil \frac{k_w-1}{2}\rceil, 
-\lfloor\frac{k_w-1}{2}\rfloor,
-\lceil \frac{k_h-1}{2}\rceil, 
-\lfloor\frac{k_h-1}{2}\rfloor\enspace]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.05744em;vertical-align:-0.686em;"></span><span class="mopen">[</span><span class="mspace" style="margin-right:0.5em;"></span><span class="mopen">⌈</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌉</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.02691em;">w</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">⌈</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌉</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.37144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.03148em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">h</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mspace" style="margin-right:0.5em;"></span><span class="mclose">]</span></span></span></span></span></p>
-\gradient
-
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$\lfloor x \rfloor$</span><br></pre></td></tr></table></figure>
+<p>$$<br>
+[\enspace\lceil \frac{k_w-1}{2}\rceil,<br>
+\lfloor\frac{k_w-1}{2}\rfloor,<br>
+\lceil \frac{k_h-1}{2}\rceil,<br>
+\lfloor\frac{k_h-1}{2}\rfloor\enspace]<br>
+$$</p>
+<p>$$<br>
+\gradient<br>
+$$</p>
 
       
     </div>
@@ -763,13 +661,6 @@ $ \frac&#123; \dddot y &#125;&#123; \dddot x &#125; $  # 几个点就是几个d
 
       <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-08-22 23:58:15" itemprop="dateModified" datetime="2024-08-22T23:58:15+08:00">2024-08-22</time>
-    </span>
 
   
 </div>
@@ -781,128 +672,124 @@ $ \frac&#123; \dddot y &#125;&#123; \dddot x &#125; $  # 几个点就是几个d
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="1-hexo使用"><a class="markdownIt-Anchor" href="#1-hexo使用"></a> 1 Hexo使用</h1>
+          <h1>1 Hexo使用</h1>
 <ol>
-<li>安装node.js</li>
-<li>创建github page页面<code>destiny0118.github.io</code></li>
-<li>安装hexo    <code>npm install -g hexo-cli</code></li>
-<li>初始化博客路径<br />
-hexo init blog<br />
-cd blog<br />
-npm install # npm install命令会把X包安装到node_modules目录中<br />
+<li class="lvl-3">安装node.js</li>
+<li class="lvl-3">创建github page页面<code>destiny0118.github.io</code></li>
+<li class="lvl-3">安装hexo    <code>npm install -g hexo-cli</code></li>
+<li class="lvl-3">初始化博客路径<br>
+hexo init blog<br>
+cd blog<br>
+npm install # npm install命令会把X包安装到node_modules目录中<br>
 本地运行  hexo s -p 5555本地运行</li>
-<li>npm install hexo-deployer-git --save</li>
+<li class="lvl-4">npm install hexo-deployer-git --save</li>
 </ol>
-<pre class="highlight"><code class="">清除缓存: hexo clean
-生成: hexo g
-预览:  hexo s
-部署:  hexo d
-</code></pre>
-<h1 id="2-基本功能"><a class="markdownIt-Anchor" href="#2-基本功能"></a> 2 基本功能</h1>
-<h2 id="21-添加搜索功能"><a class="markdownIt-Anchor" href="#21-添加搜索功能"></a> 2.1 添加搜索功能</h2>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">清除缓存: hexo clean</span></span><br><span class="line"><span class="section">生成: hexo g</span></span><br><span class="line"><span class="section">预览:  hexo s</span></span><br><span class="line"><span class="section">部署:  hexo d</span></span><br></pre></td></tr></table></figure>
+<h1>2 基本功能</h1>
+<h2 id="2-1-添加搜索功能">2.1 添加搜索功能</h2>
 <p>npm install hexo-generator-searchdb --save</p>
-<h1 id="3-支持callout语法"><a class="markdownIt-Anchor" href="#3-支持callout语法"></a> 3 支持Callout语法</h1>
+<h1>3 支持Callout语法</h1>
 <p><a href="https://uuanqin.top/p/d4bc55f2/index.html">Hexo 博客适配 Obsidian 新语法 | 半方池水半方田 (uuanqin.top)</a></p>
-<h1 id="4-hexo博客主题next使用自定义的css样式"><a class="markdownIt-Anchor" href="#4-hexo博客主题next使用自定义的css样式"></a> 4 Hexo博客主题NexT使用自定义的CSS样式</h1>
+<h1>4 Hexo博客主题NexT使用自定义的CSS样式</h1>
 <p><a href="https://segmentfault.com/a/1190000003846777">markdown - Hexo博客主题NexT使用自定义的CSS样式 - Magicer - SegmentFault 思否</a></p>
-<h1 id="5-markdown语法"><a class="markdownIt-Anchor" href="#5-markdown语法"></a> 5 Markdown语法</h1>
+<h1>5 Markdown语法</h1>
 <p><a href="https://forum-zh.obsidian.md/t/topic/435">MarkDown语法 超详细教程 - 经验分享 - Obsidian 中文论坛</a></p>
 <p><a href="https://pkmer.cn/Pkmer-Docs/02-%E7%9F%A5%E8%AF%86%E7%AE%A1%E7%90%86%E5%9F%BA%E7%A1%80/markdown/obsidian%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95/">PKMer_Obsidian 扩展语法</a></p>
-<h2 id="51-callout"><a class="markdownIt-Anchor" href="#51-callout"></a> 5.1 Callout</h2>
+<h2 id="5-1-Callout">5.1 Callout</h2>
 <p><a href="https://uuanqin.top/p/d4bc55f2/index.html">Hexo 博客适配 Obsidian 新语法 | 半方池水半方田 (uuanqin.top)</a></p>
-<pre class="highlight"><code class="">npm un hexo-renderer-marked --save
-npm i hexo-renderer-markdown-it-plus --save
-</code></pre>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">npm un hexo-renderer-marked <span class="comment">--save</span></span><br><span class="line">npm i hexo-renderer-markdown-<span class="keyword">it</span>-plus <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
 <p><a href="https://help.obsidian.md/Editing+and+formatting/Callouts">Callouts - Obsidian Help</a></p>
-<details class="custom-callout info" open><summary class="callout-title"><div class="callout-icon"></div><div>Info</div>
-</summary></details><blockquote>
+<blockquote>
+<p>[!info]</p>
+</blockquote>
+<blockquote>
 <p>[!note]</p>
 </blockquote>
-<details class="custom-callout tip" open><summary class="callout-title"><div class="callout-icon"></div><div>Tip</div>
-</summary></details><blockquote>
+<blockquote>
+<p>[!tip]</p>
+</blockquote>
+<blockquote>
 <p>[!question]</p>
 </blockquote>
-<details class="custom-callout todo" open><summary class="callout-title"><div class="callout-icon"></div><div>Todo</div>
-</summary></details><details class="custom-callout example"><summary class="callout-title"><div class="callout-icon"></div><div>Example</div>
-</summary></details><details class="custom-callout abstract" open><summary class="callout-title"><div class="callout-icon"></div><div>Abstract</div>
-</summary></details><details class="custom-callout warning" open><summary class="callout-title"><div class="callout-icon"></div><div>Warning</div>
-</summary></details><details class="custom-callout success" open><summary class="callout-title"><div class="callout-icon"></div><div>Success</div>
-</summary></details><details class="custom-callout quote" open><summary class="callout-title"><div class="callout-icon"></div><div>Quote</div>
-</summary></details><p></p>
-<h1 id="6-hexo高级渲染"><a class="markdownIt-Anchor" href="#6-hexo高级渲染"></a> 6 Hexo高级渲染</h1>
-<p><a href="https://blog.csdn.net/qq_42951560/article/details/123596899">【Hexo】选择更高级的Markdown渲染器_hexo-renderer-marked-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/qq_36667170/article/details/105846999">hexo 更换 markdown渲染器 @upupming/hexo-renderer-markdown-it-plus_hexo render-CSDN博客</a></p>
-<pre class="highlight"><code class="">D:\Hexo\Destiny\themes\hexo-theme-next\source\css\_common\components\post\index.styl
-</code></pre>
+<blockquote>
+<p>[!todo]</p>
+</blockquote>
+<blockquote>
+<p>[!example]</p>
+</blockquote>
+<blockquote>
+<p>[!abstract]</p>
+</blockquote>
+<blockquote>
+<p>[!warning]</p>
+</blockquote>
+<blockquote>
+<p>[!success]</p>
+</blockquote>
+<blockquote>
+<p>[!quote]</p>
+</blockquote>
+<h1>6 Hexo高级渲染</h1>
+<p><a href="https://blog.csdn.net/qq_42951560/article/details/123596899">【Hexo】选择更高级的Markdown渲染器_hexo-renderer-marked-CSDN博客</a><br>
+<a href="https://blog.csdn.net/qq_36667170/article/details/105846999">hexo 更换 markdown渲染器 @upupming/hexo-renderer-markdown-it-plus_hexo render-CSDN博客</a></p>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="name">D</span>:\Hexo\Destiny\themes\hexo-theme-next\source\css\_common\components\post\index.styl</span><br></pre></td></tr></table></figure>
 <p>修改颜色属性</p>
-<p>::: tips</p>
-<p><strong>提示</strong></p>
-<p>这是一个提示</p>
-<p>:::</p>
+<div class="tips">
+<p><strong>提示</strong><br>
+这是一个提示</p>
+</div>
 <p>​</p>
-<p>::: warning</p>
-<p><strong>注意</strong></p>
-<p>这是一个警告</p>
-<p>:::</p>
+<div class="warning">
+<p><strong>注意</strong><br>
+这是一个警告</p>
+</div>
 <p>​</p>
-<p>::: danger</p>
-<p><strong>警告</strong></p>
-<p>这是一个危险信号</p>
-<p>:::</p>
+<div class="danger">
+<p><strong>警告</strong><br>
+这是一个危险信号</p>
+</div>
 <p>​</p>
-<p>::: success</p>
-<p><strong>成功</strong></p>
-<p>这是一个成功信号</p>
-<p>:::</p>
+<div class="success">
+<p><strong>成功</strong><br>
+这是一个成功信号</p>
+</div>
 <p>​</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406062347265.png" alt="image.png" /></p>
-<ul>
-<li>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202406062347265.png" alt="image.png"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p><a href="https://hexo.io/zh-cn/docs/">Hexo文档</a></p>
 </li>
-<li>
+<li class="lvl-2">
 <p><a href="https://www.jianshu.com/p/02bb9eaa0f51">hexo博客添加评论功能</a></p>
 </li>
-<li>
+<li class="lvl-2">
 <p><a href="https://blog.csdn.net/crazy_scott/article/details/79293576">hexo下LaTeX无法显示的解决方案</a></p>
 </li>
-<li>
+<li class="lvl-2">
 <p><a href="https://blog.csdn.net/u014155600/article/details/128972156">hexo渲染Latex公式（最简单方法）_仅参考_hexo katex-CSDN博客</a></p>
 </li>
-<li>
+<li class="lvl-2">
 <p><a href="https://yscoder.github.io/20150514/hexo-toc.html">设置TOC</a></p>
 </li>
-<li>
+<li class="lvl-2">
 <p><a href="%5BHexo%20%E9%83%A8%E7%BD%B2%E7%9A%84%E6%97%B6%E5%80%99%E5%8F%91%E7%94%9F%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%20-%20%E7%AE%80%E4%B9%A6%20(jianshu.com)%5D(https://www.jianshu.com/p/9afb3257133b)">warning: LF will be replaced by CRLF in xxxx</a></p>
 </li>
 </ul>
-<h1 id="7-主题"><a class="markdownIt-Anchor" href="#7-主题"></a> 7 主题</h1>
-<h2 id="71-next"><a class="markdownIt-Anchor" href="#71-next"></a> 7.1 Next</h2>
-<h3 id="711-菜单"><a class="markdownIt-Anchor" href="#711-菜单"></a> 7.1.1 菜单</h3>
-<h4 id="增加菜单项目"><a class="markdownIt-Anchor" href="#增加菜单项目"></a> 增加菜单项目</h4>
+<h1>7 主题</h1>
+<h2 id="7-1-Next">7.1 Next</h2>
+<h3 id="7-1-1-菜单">7.1.1 菜单</h3>
+<h4 id="增加菜单项目">增加菜单项目</h4>
 <p><code>_config.yml</code></p>
-<pre class="highlight"><code class="">menu:
-home: / || home
-#about: /about/ || user
-tags: /tags/ || tags
-#categories: /categories/ || th
-archives: /archives/ || archive
-#schedule: /schedule/ || calendar
-#sitemap: /sitemap.xml || sitemap
-#commonweal: /404/ || heartbeat
-</code></pre>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">home:</span> / || home</span><br><span class="line"><span class="meta">#about: /about/ || user</span></span><br><span class="line"><span class="symbol">tags:</span> <span class="keyword">/tags/</span> || tags</span><br><span class="line"><span class="meta">#categories: /categories/ || th</span></span><br><span class="line"><span class="symbol">archives:</span> <span class="keyword">/archives/</span> || archive</span><br><span class="line"><span class="meta">#schedule: /schedule/ || calendar</span></span><br><span class="line"><span class="meta">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line"><span class="meta">#commonweal: /404/ || heartbeat</span></span><br></pre></td></tr></table></figure>
 <p>新建页面<code>tags</code>：<code>hexo new page &quot;tags&quot;</code></p>
-<pre class="highlight"><code class="">title: tags 
-date: 2019-02-18 16:40:41
-type: tags
-</code></pre>
-<h4 id="更改菜单名称"><a class="markdownIt-Anchor" href="#更改菜单名称"></a> 更改菜单名称</h4>
+<figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">title</span>: tags </span><br><span class="line"><span class="attribute">date</span>: <span class="number">2019</span>-<span class="number">02</span>-<span class="number">18</span> <span class="number">16</span>:<span class="number">40</span>:<span class="number">41</span></span><br><span class="line"><span class="attribute">type</span>: tags</span><br></pre></td></tr></table></figure>
+<h4 id="更改菜单名称">更改菜单名称</h4>
 <p><code>next/languages/zh-CN.yml</code></p>
-<p></p>
-<h3 id="712-next美化教程"><a class="markdownIt-Anchor" href="#712-next美化教程"></a> 7.1.2 NexT美化教程</h3>
+<h3 id="7-1-2-NexT美化教程">7.1.2 NexT美化教程</h3>
 <p><a href="https://sspai.com/post/85116#!">Hexo+Github Page｜基础教程(二)：NexT 主题基本美化｜全网最细致全面的教程 - 少数派 (sspai.com)</a></p>
-<h1 id="8-部署出错"><a class="markdownIt-Anchor" href="#8-部署出错"></a> 8 部署出错</h1>
-<h2 id="81-fatal-unable-to-access-httpsgithubcomgit-could-not-resolve-host-githubcom"><a class="markdownIt-Anchor" href="#81-fatal-unable-to-access-httpsgithubcomgit-could-not-resolve-host-githubcom"></a> 8.1 fatal: unable to access ‘<a href="https://github.com/.../.git">https://github.com/…/.git</a>’: Could not resolve host: <a href="http://github.com">github.com</a></h2>
+<p><a href="https://www.jianshu.com/p/3a05351a37dc">Hexo的Next主题详细配置 - 简书 (jianshu.com)</a></p>
+<h1>8 部署出错</h1>
+<h2 id="8-1-fatal-unable-to-access-‘https-github-com-…-git’-Could-not-resolve-host-github-com">8.1 fatal: unable to access ‘<a href="https://github.com/.../.git">https://github.com/…/.git</a>’: Could not resolve host: <a href="http://github.com">github.com</a></h2>
 <blockquote>
 <p>git config --global --unset http.proxy</p>
 <p>git config --global --unset https.proxy</p>
@@ -911,16 +798,14 @@ type: tags
 <p>git config --global http.proxy</p>
 <p>git config --global https.proxy</p>
 </blockquote>
-<p></p>
-<ul>
-<li>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p>OpenSSL SSL_connect Connection was reset</p>
 <p><a href="https://blog.csdn.net/weixin_43945983/article/details/110882074">解除SSL认证</a></p>
 <p><a href="https://blog.csdn.net/m0_46233340/article/details/114926427">设置一下http.proxy</a></p>
 <p><a href="https://blog.csdn.net/Candle_light/article/details/114992784">生成SSH</a></p>
 </li>
 </ul>
-<p></p>
 <p><a href="https://www.jianshu.com/p/42a4efcdf8d7">解决Hexo博客文章置顶问题 - 简书 (jianshu.com)</a></p>
 <p><a href="https://blog.csdn.net/qwerty200696/article/details/79010629">hexo博客优化之文章置顶+置顶标签_qwerty200696的博客-CSDN博客_hexo 置顶</a></p>
 
@@ -982,13 +867,6 @@ type: tags
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-06-22 22:14:36" itemprop="dateModified" datetime="2024-06-22T22:14:36+08:00">2024-06-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1010,159 +888,100 @@ type: tags
           <blockquote>
 <p>distributed versoin control system（分布式版本控制系统）</p>
 </blockquote>
-<h1 id="1-初始化"><a class="markdownIt-Anchor" href="#1-初始化"></a> 1 初始化</h1>
-<h3 id="111-配置"><a class="markdownIt-Anchor" href="#111-配置"></a> 1.1.1 配置</h3>
-<pre class="highlight"><code class="shell">git config --global user.name "yuyg"
-git config --global user.email "1632508233@qq.com"
-</code></pre>
+<h1>1 初始化</h1>
+<h3 id="1-1-1-配置">1.1.1 配置</h3>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global user.name &quot;yuyg&quot;</span><br><span class="line">git config --global user.email &quot;1632508233@qq.com&quot;</span><br></pre></td></tr></table></figure>
 <p><a href="https://www.youtube.com/watch?v=CnMpARAOhFg">Git Intro - Part 2 - YouTube</a></p>
-<pre class="highlight"><code class="shell">git status                          # To see what needs to be added or committed.
-git add &lt;filepath&gt;                  # To add, or stage, any modified files.
-git commit -m "Commit message"      # To commit changes.
-git push
-
-git log                             #查看commit提交日志
-git checkout (commit ID)  #切换分支
-git checkout master
-
-touch a.txt
-cat a.txt
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png" alt="image-20230329200310434" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292013895.png" alt="image-20230329201305806" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git status                          # To see what needs to be added or committed.</span><br><span class="line">git add &lt;filepath&gt;                  # To add, or stage, any modified files.</span><br><span class="line">git commit -m &quot;Commit message&quot;      # To commit changes.</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">git log                             #查看commit提交日志</span><br><span class="line">git checkout (commit ID)  #切换分支</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">touch a.txt</span><br><span class="line">cat a.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292003505.png" alt="image-20230329200310434"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292013895.png" alt="image-20230329201305806"></p>
 <p><a href="https://www.cnblogs.com/wangiqngpei557/p/6056624.html">聊下git pull --rebase - 王清培 - 博客园 (cnblogs.com)</a></p>
-<pre class="highlight"><code class="shell">git init 初始化
-<span class="hljs-meta">
-#</span><span class="bash">添加文件到暂存区</span>
-git add .			当前目录所有文件
-git add filename
-<span class="hljs-meta">
-#</span><span class="bash">撤销添加到暂存区的文件</span>
-git reset .
-<span class="hljs-meta">
-#</span><span class="bash">查看添加状态</span>
-git status
-<span class="hljs-meta">
-#</span><span class="bash">把文件提交到仓库</span>
- git commit -m message
- git commit -m "[base] commit"
-<span class="hljs-meta"> 
-#</span><span class="bash">查看提交状态</span>
-git status
-<span class="hljs-meta">
-#</span><span class="bash">从最近到最远显示提交日志</span>
-git log
-git log -pretty=oneline		每次提交显示为一行
-
-还未commit的文件
-git rm --cached . -r  删除add的文件
-git rm --cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；
-git rm --f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051791.png" alt="image-20230329205129717" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051832.png" alt="image-20230329205152756" /></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git init 初始化</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">添加文件到暂存区</span></span><br><span class="line">git add .			当前目录所有文件</span><br><span class="line">git add filename</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">撤销添加到暂存区的文件</span></span><br><span class="line">git reset .</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看添加状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">把文件提交到仓库</span></span><br><span class="line"> git commit -m message</span><br><span class="line"> git commit -m &quot;[base] commit&quot;</span><br><span class="line"><span class="meta prompt_"> </span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">查看提交状态</span></span><br><span class="line">git status</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">从最近到最远显示提交日志</span></span><br><span class="line">git log</span><br><span class="line">git log -pretty=oneline		每次提交显示为一行</span><br><span class="line"></span><br><span class="line">还未commit的文件</span><br><span class="line">git rm --cached . -r  删除add的文件</span><br><span class="line">git rm --cached “文件路径”，不删除物理文件，仅将该文件从缓存中删除；</span><br><span class="line">git rm --f “文件路径”，不仅将该文件从缓存中删除，还会将物理文件删除（不会回收到垃圾桶）</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051791.png" alt="image-20230329205129717"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292051832.png" alt="image-20230329205152756"></p>
 <p>文件回退</p>
-<pre class="highlight"><code class="git">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -f lab1/Collatz.java
-git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -- lab1/Collatz.java
-</code></pre>
-<h2 id="12-版本回退"><a class="markdownIt-Anchor" href="#12-版本回退"></a> 1.2 版本回退</h2>
-<pre class="highlight"><code class="shell">git reset --hard HEAD^		回退到上个版本
-git reset --hard HEAD^^		回退到上上个版本
-git reset --hard HEAD~1
-
-git reset --hard 版本号	 	回退到最新版本
-
-git reflog					查看版本号
-</code></pre>
-<h2 id="13-远程仓库"><a class="markdownIt-Anchor" href="#13-远程仓库"></a> 1.3 远程仓库</h2>
-<pre class="highlight"><code class="shell">git remote add [shortname] [url]
-<span class="hljs-meta">#</span><span class="bash">origin为远程仓库的别名</span>
-git remote add origin git@github.com:destiny0118/Few-shot-Image-Segmentation.git
-
-git branch -M master
-<span class="hljs-meta">#</span><span class="bash">-u参数，把本地的master分支推送到远程新的master分支，将本地master分支与远程master分支关联起来</span>
-git push -u origin master
-
-
-
-
-git remote -v			查看远程仓库信息
-git remote rm origin	删除已有的远程仓库
-</code></pre>
-<h2 id="14-git-push"><a class="markdownIt-Anchor" href="#14-git-push"></a> 1.4 git push</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -f lab1/Collatz.java</span><br><span class="line">git checkout aa60287c2f031974fb034290bfa3c2f24823f9cb -- lab1/Collatz.java</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-版本回退">1.2 版本回退</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^		回退到上个版本</span><br><span class="line">git reset --hard HEAD^^		回退到上上个版本</span><br><span class="line">git reset --hard HEAD~1</span><br><span class="line"></span><br><span class="line">git reset --hard 版本号	 	回退到最新版本</span><br><span class="line"></span><br><span class="line">git reflog					查看版本号</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-远程仓库">1.3 远程仓库</h2>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git remote add [shortname] [url]</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">origin为远程仓库的别名</span></span><br><span class="line">git remote add origin git@github.com:destiny0118/Few-shot-Image-Segmentation.git</span><br><span class="line"></span><br><span class="line">git branch -M master</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">-u参数，把本地的master分支推送到远程新的master分支，将本地master分支与远程master分支关联起来</span></span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git remote -v			查看远程仓库信息</span><br><span class="line">git remote rm origin	删除已有的远程仓库</span><br></pre></td></tr></table></figure>
+<h2 id="1-4-git-push">1.4 git push</h2>
 <p><a href="https://www.runoob.com/git/git-push.html">git push 命令 | 菜鸟教程 (runoob.com)</a></p>
 <p><strong>git push</strong> 命用于从将本地的分支版本上传到远程并合并。</p>
 <p>命令格式如下：</p>
-<pre class="highlight"><code class="shell">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;
-
-</code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>如果本地分支名与远程分支名相同，则可以省略冒号：</p>
-<pre class="highlight"><code class="">git push &lt;远程主机名&gt; &lt;本地分支名&gt;
-</code></pre>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">git push <span class="tag">&lt;<span class="name">远程主机名</span>&gt;</span> <span class="tag">&lt;<span class="name">本地分支名</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ol>
-<li>git push origin master：refs/for/master<br />
-即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名  第一个master是本地分支名，第二个master是远程分支名。</li>
-<li>git push origin master<br />
-如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建</li>
-<li>git push origin ：refs/for/master<br />
-如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin --delete master</li>
+<li class="lvl-3">
+<p>git push origin master：refs/for/master<br>
+即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名  第一个master是本地分支名，第二个master是远程分支名。</p>
+</li>
+<li class="lvl-3">
+<p>git push origin master<br>
+如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建</p>
+</li>
+<li class="lvl-3">
+<p>git push origin ：refs/for/master<br>
+如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin --delete master</p>
+</li>
 </ol>
-<ul>
-<li>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p>克隆GitHub的仓库到本地</p>
 <p><code>git clone + 仓库地址</code></p>
 </li>
-<li>
+<li class="lvl-2">
 <p>查看本地仓库关联的远程仓库信息</p>
 <p><code>git remote -v</code></p>
 </li>
-<li>
+<li class="lvl-2">
 <p>查看分支</p>
 <p><code>git branch</code></p>
 </li>
-<li>
+<li class="lvl-2">
 <p>创建分支</p>
 <p><code>git branch+分支名</code></p>
 </li>
-<li>
+<li class="lvl-2">
 <p>设置别名</p>
 <p><code>git config --global alias.br branchcat -n ~/.gitconfig</code></p>
 </li>
 </ul>
-<h2 id="15-git-branch"><a class="markdownIt-Anchor" href="#15-git-branch"></a> 1.5 git branch</h2>
+<h2 id="1-5-git-branch">1.5 git branch</h2>
 <p><a href="http://www.hangdaowangluo.com/archives/491">Git branch命令的用法总结 | 精彩每一天 (hangdaowangluo.com)</a></p>
-<ul>
-<li>
+<ul class="lvl-0">
+<li class="lvl-2">
 <p>git branch -a</p>
 <p>查看所有分支</p>
 </li>
-<li>
+<li class="lvl-2">
 <p>git branch 分支名</p>
 <p>仅创建分支</p>
 </li>
-<li>
+<li class="lvl-2">
 <p>git checkout 分支名</p>
 <p>切换分支</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/git%E5%91%BD%E4%BB%A4%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE1.png" alt="git命令思维导图1" /></p>
+<p><img src="https://gitee.com/destiny0118/picgo/raw/master/pic/git%E5%91%BD%E4%BB%A4%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE1.png" alt="git命令思维导图1"></p>
 <p>pulling and collaborating with other people</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292116146.png" alt="image-20230329211657074" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292117667.png" alt="image-20230329211738590" /></p>
-<h1 id="2-git-reset"><a class="markdownIt-Anchor" href="#2-git-reset"></a> 2 git reset</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292116146.png" alt="image-20230329211657074"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2013/202303292117667.png" alt="image-20230329211738590"></p>
+<h1>2 git reset</h1>
 <blockquote>
 <p>git add撤销</p>
 </blockquote>
 <p>git reset：用于将当前HEAD复位到指定状态。一般用于撤消之前的一些操作(如：git add,git commit等)。</p>
 <p>[如何在 Git 中取消暂存文件？ - 知乎 (<a href="http://zhihu.com">zhihu.com</a>)](<a href="https://zhuanlan.zhihu.com/p/638297266#:~:text=git">https://zhuanlan.zhihu.com/p/638297266#:~:text=git</a> restore --staged &lt;文件名&gt;,替换 &lt;文件名&gt; 为要取消暂存的文件名。 执行该命令后，Git将会将文件从暂存区移除，但保留对文件的修改。)</p>
-<h1 id="3-detached游离节点提交"><a class="markdownIt-Anchor" href="#3-detached游离节点提交"></a> 3 detached游离节点提交</h1>
+<h1>3 detached游离节点提交</h1>
 <p><a href="https://blog.csdn.net/zyb2017/article/details/78307688">Git —游离状态下的commit 分支切换与找回_git 代码提交到了游离分支怎么挽回-CSDN博客</a></p>
-<p>git branch callback commit_id   //利用commit_id创建新分支<br />
-git checkout dev<br />
-git merge callback<br />
-git push<br />
+<p>git branch callback commit_id   //利用commit_id创建新分支<br>
+git checkout dev<br>
+git merge callback<br>
+git push<br>
 git branch -d callback    //删除分支</p>
-<h1 id="4-branch"><a class="markdownIt-Anchor" href="#4-branch"></a> 4 branch</h1>
+<h1>4 branch</h1>
 <p>删除分支：git branch -d [branch name]</p>
 
       
@@ -1220,13 +1039,6 @@ git branch -d callback    //删除分支</p>
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2023-02-28 20:24:17" itemprop="dateCreated datePublished" datetime="2023-02-28T20:24:17+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-03-02 20:54:00" itemprop="dateModified" datetime="2024-03-02T20:54:00+08:00">2024-03-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1315,13 +1127,6 @@ git branch -d callback    //删除分支</p>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-23 10:51:25" itemprop="dateModified" datetime="2024-09-23T10:51:25+08:00">2024-09-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
@@ -1404,13 +1209,6 @@ git branch -d callback    //删除分支</p>
       <span class="post-meta-item-text">发表于</span>
 
       <time title="创建时间：2023-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-28T00:00:00+08:00">2023-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-29 14:53:57" itemprop="dateModified" datetime="2024-09-29T14:53:57+08:00">2024-09-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1497,13 +1295,6 @@ git branch -d callback    //删除分支</p>
 
       <time title="创建时间：2023-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2023-02-26T00:00:00+08:00">2023-02-26</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-09-24 17:28:09" itemprop="dateModified" datetime="2024-09-24T17:28:09+08:00">2024-09-24</time>
-    </span>
 
   
 </div>
@@ -1542,7 +1333,7 @@ git branch -d callback    //删除分支</p>
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span>
   </nav>
 
 </div>
@@ -1551,51 +1342,42 @@ git branch -d callback    //删除分支</p>
   <footer class="footer">
     <div class="footer-inner">
 
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2024</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">Destiny</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Destiny</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
   </footer>
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
 
   
 
 
 
 
-
-
   
 
-
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.1/es5/tex-mml-chtml.js","integrity":"sha256-hlC2uSQYTmPsrzGZTEQEg9PZ1a/+SV6VBCTclohf2og="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
 
 
 
