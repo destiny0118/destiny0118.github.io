@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,135 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/24/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(6)%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/05/24/%E6%A1%86%E6%9E%B6/Java%E5%B9%B6%E5%8F%91/Java%E5%B9%B6%E5%8F%91(6)%EF%BC%9A%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="post-title-link" itemprop="url">Java并发(6)：创建线程、线程池</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-24T00:00:00+08:00">2024-05-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>1 创建线程方式</h1>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> interfact Runnable&#123;</span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-1-实现runnable接口">1.1 实现runnable接口</h2>
+<blockquote>
+<p>创建一个类实现Runnable接口，实现run方法，然后创建Thread类的实例，将实现了Runnable接口的对象作为参数传递给Thread的构造方法，并调用start方法启动线程。</p>
+</blockquote>
+<ol>
+<li class="lvl-3">
+<p>将任务代码移到实现了Runnable接口的类的run方法中（由于Runnable 是一个函数式接口，可以用lambda 表达式建立一个实例）</p>
+</li>
+<li class="lvl-3">
+<p>用<code>Runnable</code>创建一个<code>Thread</code>对象</p>
+</li>
+<li class="lvl-3">
+<p>启动线程</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">demo1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        Runnable r1=<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;任务开始&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t1=<span class="keyword">new</span> <span class="title class_">Thread</span>(r1);</span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line">        Runnable r2=()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;lambda表达式：任务开始&quot;</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        Thread t2=<span class="keyword">new</span> <span class="title class_">Thread</span>(r2);</span><br><span class="line">        t2.start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Thread t3=<span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;在thread中lambda表达式&quot;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        t3.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-继承Thread类">1.2 继承Thread类</h2>
+<blockquote>
+<p>创建一个类继承自Thread类，并重写run方法，然后创建该类的实例并调用start方法启动线程。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Thread</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;继承Thread类，重写run方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span>&#123;</span><br><span class="line">        MyThread myThread=<span class="keyword">new</span> <span class="title class_">MyThread</span>();</span><br><span class="line">        myThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-实现Callable接口">1.3 实现Callable接口</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Callable</span>&lt;V&gt;&#123;</span><br><span class="line">	V <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>继承Callable实现call方法</p>
+</li>
+<li class="lvl-2">
+<p>FutureTask包装器将Callable转换成Future和Runnable</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallableDemo</span> <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">CallableDemo</span>  <span class="variable">callableDemo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CallableDemo</span>();</span><br><span class="line">        FutureTask&lt;String&gt; futureTask = <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;&gt;(callableDemo);</span><br><span class="line">        Thread t=<span class="keyword">new</span> <span class="title class_">Thread</span>(futureTask);</span><br><span class="line">        t.start();</span><br><span class="line">        System.out.println(futureTask.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>2 线程池</h1>
+<h2 id="2-1-newCachedThreadPool">2.1 <code>newCachedThreadPool</code></h2>
+<p>创建一个可缓存的线程池，线程池的大小可根据需要进行自动扩展，但在某些情况下可能会回收线程。</p>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">ExecutorService</span> <span class="variable">executor</span> <span class="operator">=</span> Executors.newCachedThreadPool();</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-newFixedThreadPool">2.2 <code>newFixedThreadPool</code></h2>
+<p>创建一个固定大小的线程池，线程数始终保持不变。</p>
+<h2 id="2-3-newSingleThreadExecutor">2.3 <code>newSingleThreadExecutor</code></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建一个单线程的线程池，保证所有任务按照指定顺序（FIFO，LIFO，优先级）执行。</p>
+</li>
+</ul>
+<h2 id="2-4-newScheduledThreadPool">2.4 <code>newScheduledThreadPool</code></h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>创建一个定时执行任务的线程池。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1015,7 +1144,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-04-27 10:25:28" itemprop="dateCreated datePublished" datetime="2024-04-27T10:25:28+08:00">2024-04-27</time>
+      <time title="创建时间：2024-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2024-04-27T00:00:00+08:00">2024-04-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1037,7 +1166,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>消息丢失；重复消费；顺序消费</p>
+          <p>消息丢失；重复消费；顺序消费；消息堆积；幂等性</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/04/27/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/">
@@ -1122,248 +1251,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/10/%E6%A1%86%E6%9E%B6/JVM/JVM%20(3)%EF%BC%9AJDK%E7%9B%91%E6%8E%A7%E5%92%8C%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-10 21:40:22" itemprop="dateCreated datePublished" datetime="2024-04-10T21:40:22+08:00">2024-04-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul class="lvl-0">
-<li class="lvl-2">
-<p><strong><code>jps</code></strong> (JVM Process Status）: 类似 UNIX 的 <code>ps</code> 命令。用于查看所有 Java 进程的启动类、传入参数和 Java 虚拟机参数等信息；</p>
-</li>
-<li class="lvl-2">
-<p><mark>jstat</mark>（JVM Statistics Monitoring Tool）: 用于收集 HotSpot 虚拟机各方面的运行数据;<mark>gc情况、垃圾回收统计</mark></p>
-</li>
-<li class="lvl-2">
-<p><strong><code>jinfo</code></strong> (Configuration Info for Java) : Configuration Info for Java,显示虚拟机配置信息;</p>
-</li>
-<li class="lvl-2">
-<p><mark>jmap</mark> (Memory Map for Java) : 生成堆转储快照;<mark>内存布局、堆信息</mark></p>
-</li>
-<li class="lvl-2">
-<p><strong><code>jhat</code></strong> (JVM Heap Dump Browser) : 用于分析 heapdump 文件，它会建立一个 HTTP/HTML 服务器，让用户可以在浏览器上查看分析结果;</p>
-</li>
-<li class="lvl-2">
-<p><mark>jstack</mark> (Stack Trace for Java) : 生成虚拟机当前时刻的线程快照，线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合。</p>
-</li>
-</ul>
-<h1>1 JVM参数</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404102245741.png" alt="image.png"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404112053964.png" alt="image.png"></p>
-<h2 id="1-1-堆参数">1.1 堆参数</h2>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">初始堆(memory start)大小、最大堆大小</span><br><span class="line">-Xms&lt;heap size&gt;[unit]</span><br><span class="line">-Xmx&lt;heap size&gt;[unit]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">年轻代大小</span><br><span class="line">-XX:NewSize=n </span><br><span class="line">-XX:NewRatio=n  年轻代和年老代比值为1:n</span><br><span class="line">-XX:SurvivorRatio=n 年轻代中Eden区与两个Survivor区的比值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">格式：-XX:[+-]&lt;name&gt; 表示启用或者禁用name属性。</span><br><span class="line">例子：-XX:+UseG1GC（表示启用G1垃圾收集器）</span><br></pre></td></tr></table></figure>
-<h1>2 jstack :生成虚拟机当前时刻的线程快照</h1>
-<p><code>jstack</code>（Stack Trace for Java）命令用于生成虚拟机当前时刻的线程快照。线程快照就是当前虚拟机内每一条线程正在执行的方法堆栈的集合.</p>
-<p>生成线程快照的目的主要是定位线程长时间出现停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等都是导致线程长时间停顿的原因。线程出现停顿的时候通过<code>jstack</code>来查看各个线程的调用堆栈，就可以知道没有响应的线程到底在后台做些什么事情，或者在等待些什么资源。</p>
-<h1>3 OOM类型</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>虚拟机栈：</p>
-</li>
-<li class="lvl-2">
-<p>固定大小：申请不到栈帧报 StackOverflow</p>
-</li>
-<li class="lvl-2">
-<p>无限大小：申请不到栈帧报 OutOfMemory</p>
-</li>
-<li class="lvl-2">
-<p>堆：忘记是不是能固定大小了</p>
-</li>
-<li class="lvl-2">
-<p>jvm内存满了，对象分配不到堆了就会报OutOfMemory</p>
-</li>
-<li class="lvl-2">
-<p>方法区：(面试官提示，感谢)</p>
-</li>
-<li class="lvl-2">
-<p>方法区里面的常量池也是会不断加入数据的</p>
-</li>
-<li class="lvl-2">
-<p>一直调用string.intern()方法会不断加字符串到字符串常量池导致OOM</p>
-</li>
-</ul>
-<h1>4 OOM排查</h1>
-<blockquote>
-<p>OOM 全称 “Out Of Memory”，表示内存耗尽。当 JVM 因为没有足够的内存来为对象分配空间，并且垃圾回收器也已经没有空间可回收时，就会抛出这个错误。产生原因：</p>
-<ol>
-<li class="lvl-3">分配过少：JVM 初始化内存小，业务使用了大量内存；或者不同 JVM 区域分配内存不合理</li>
-<li class="lvl-3">代码漏洞：某一个对象被频繁申请，不用了之后却没有被释放，导致内存耗尽</li>
-</ol>
-</blockquote>
-<p><strong>内存泄漏</strong>：<mark>申请使用完的内存没有释放</mark>，导致虚拟机不能再次使用该内存，此时这段内存就泄露了。因为申请者不用了，而又不能被虚拟机分配给别人用</p>
-<p><strong>内存溢出</strong>：申请的内存超出了 JVM 能提供的内存大小，此时称之为溢出</p>
-<h2 id="4-1-OOM类型">4.1 OOM类型</h2>
-<p><strong>java.lang.OutOfMemoryError: PermGen space</strong></p>
-<p>Java7 永久代（方法区）溢出，它用于存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据。每当一个类初次加载的时候，元数据都会存放到永久代</p>
-<p>一般出现于大量 Class 对象或者 JSP 页面，或者采用 CgLib 动态代理技术导致</p>
-<p>我们可以通过 <code>-XX：PermSize</code> 和 <code>-XX：MaxPermSize</code> 修改方法区大小</p>
-<blockquote>
-<p>Java8 将永久代变更为元空间，报错：java.lang.OutOfMemoryError: Metadata space，元空间内存不足默认进行动态扩展</p>
-</blockquote>
-<p><strong>java.lang.StackOverflowError</strong></p>
-<p><strong>虚拟机栈溢出</strong>，一般是由于程序中存在 <strong>死循环或者深度递归调用</strong> 造成的。如果栈大小设置过小也会出现溢出，可以通过 <code>-Xss</code> 设置栈的大小</p>
-<p>虚拟机抛出栈溢出错误，可以在日志中定位到错误的类、方法</p>
-<p><strong>java.lang.OutOfMemoryError: Java heap space</strong></p>
-<p><strong>Java 堆内存溢出</strong>，溢出的原因一般由于 JVM 堆内存设置不合理或者内存泄漏导致</p>
-<p>如果是内存泄漏，可以通过工具查看泄漏对象到 GC Roots 的引用链。掌握了泄漏对象的类型信息以及 GC Roots 引用链信息，就可以精准地定位出泄漏代码的位置</p>
-<p>如果不存在内存泄漏，就是内存中的对象确实都还必须存活着，那就应该检查虚拟机的堆参数（-Xmx 与 -Xms），查看是否可以将虚拟机的内存调大些</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tasklist | findstr &quot;java&quot;</span><br><span class="line"></span><br><span class="line">查看内存堆栈信息  </span><br><span class="line">//查看jvm内存分布</span><br><span class="line">jmap -heap pid</span><br><span class="line">jhsdb jmap --heap --pid 16279  </span><br><span class="line">(对于jdk8之后的版本，不能再使用jmap -heap pid的命令了，需要使用上面的命令)。</span><br><span class="line"></span><br><span class="line">- 查看gc情况  </span><br><span class="line">    jstat -gc pid 刷新时间  </span><br><span class="line">    例如：jstat -gc 1289 5000 表示每5秒查看一次pid为1289的gc时间。</span><br><span class="line">- 查看内存对象实例数量  </span><br><span class="line">    jmap -histo:live 16279 &gt; c.jmap  </span><br><span class="line">    将结果导入到c.jmap的文件中，这个是自定义的文件。</span><br></pre></td></tr></table></figure>
-<h2 id="4-2-案例1（Xmn-Xmx，老年代内存为0）">4.2 案例1（Xmn=Xmx，老年代内存为0）</h2>
-<p><code>Heap Space Size = Young Space Size + Old Space Size</code>，而<code>-Xmn</code>参数控制的正是 Young 区的大小，当堆区被 Young Gen 完全挤占，又有对象想要升代到 Old Gen 时，发现 Old 区空间不足，于是触发 Full GC，触发 Full GC 以后呢，通常又会面临两种情况：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>Young 区又刚好腾出来一点空间，对象又不用放到 Old 区里面了，皆大欢喜</p>
-</li>
-<li class="lvl-2">
-<p>Young 区空间还是不够，对象还是得放到 Old 区，Old 区空间不够，卒，喜提<code>OOM</code></p>
-</li>
-<li class="lvl-2">
-<p>诶，就是奔着 Old 区去的，管你 Young 不 Young，Old 区空间不够，卒，喜提<code>OOM</code></p>
-</li>
-</ul>
-<p>这个就解释了为什么系统刚刚启动时，会有一个短时间正常工作的现象，随后，当某段程序触发 Old Gen 升代时，就会发生随机的<code>OOM</code>错误。那么什么时候对象会进入老年代呢？这里也很有意思，不妨结合日志里面出现<code>OOM</code>的地方，对号入座：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>经历足够多次数 GC 依然存活的对象</p>
-</li>
-<li class="lvl-2">
-<p>申请一个大对象（比如超过 Eden 区一半大小）</p>
-</li>
-<li class="lvl-2">
-<p>GC 后 Eden 区对象大小超过 S 区之和</p>
-</li>
-<li class="lvl-2">
-<p>Eden 区 + S0 区 GC 后，S1 区放不下</p>
-</li>
-</ul>
-<p>换言之，正常情况下，<code>-Xmn</code>参数总是应当小于<code>-Xmx</code>参数，否则就会触发<code>OOM</code>错误。</p>
-<h1>5 CPU占用过高，排查和处理</h1>
-<p>在Linux环境下，项目出现CPU占用过高的情况时，可以按照以下步骤进行排查和处理：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>定位高CPU占用的进程</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">使用<code>top</code>命令查看系统中CPU占用率最高的进程。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>分析进程中的线程</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">如果发现某个进程的CPU占用率特别高，可以使用<code>top -H -p [PID]</code>来查看该进程中各个线程的CPU占用情况。</li>
-<li class="lvl-6">找出占用CPU最高的线程ID。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>转换线程ID为16进制</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">使用<code>printf &quot;%x\n&quot; [线程ID]</code>命令将线程ID转换为16进制格式。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>获取线程堆栈信息</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">使用<code>jstack [进程PID] | grep [线程ID的16进制] -A 30</code>命令获取该线程的Java堆栈信息（如果是Java进程）。这可以帮助定位到具体的代码行或方法调用。</li>
-<li class="lvl-6">如果不是Java进程，可以使用<code>gdb</code>或其他相应的调试工具来获取线程的堆栈信息。</li>
-</ul>
-</li>
-<li class="lvl-3">
-<p><strong>分析代码和日志</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">根据堆栈信息，检查相关的代码逻辑，看是否有死循环、资源泄露、复杂计算等导致CPU占用过高的问题。</li>
-<li class="lvl-6">同步问题导致的死锁、过度的上下文切换，或者资源竞争等问题。这可能会涉及到分析操作系统级别的线程调度，JVM内部锁的状态，以及可能的I/O等待、网络延迟等问题。</li>
-<li class="lvl-6">同时检查应用程序的日志，看是否有异常或错误信息与高CPU占用相关。</li>
-</ul>
-</li>
-<li class="lvl-5">
-<p>性能剖析</p>
-<ul class="lvl-2">
-<li class="lvl-8">使用性能剖析工具（如VisualVM, YourKit, JProfiler等）进行实时监控，找出CPU占用率高的方法。</li>
-</ul>
-</li>
-</ol>
-<pre><code>- 这些工具可以提供热点（hot spots）功能，显示哪些方法占用最多的CPU时间。
-</code></pre>
-<ol>
-<li class="lvl-3">
-<p><strong>处理措施</strong>：</p>
-<ul class="lvl-2">
-<li class="lvl-6">如果是代码问题，修复相应的bug或优化算法。</li>
-<li class="lvl-6">如果是配置问题，调整系统或应用程序的配置参数。</li>
-<li class="lvl-6">如果是资源不足，考虑增加硬件资源或优化资源分配。</li>
-<li class="lvl-6">如果是外部攻击，加强系统的安全防护措施。<a href="https://blog.csdn.net/baiye_xing/article/details/90483169">线上Java 高CPU占用、高内存占用排查思路_java程序,在线metaspace使用高-CSDN博客</a><a href="https://zhuanlan.zhihu.com/p/312276166">助你了解jvm命令，查找JVM堆栈信息，分析性能问题 - 知乎 (zhihu.com)</a></li>
-</ul>
-</li>
-</ol>
-<p><a href="https://blog.csdn.net/qq_43012298/article/details/136560538#:~:text=%E6%8E%92%E6%9F%A5CPU%E9%A3%99%E9%AB%98%E7%9A%84%E6%80%9D%E8%B7%AF%EF%BC%9A%201%20%E7%9B%91%E6%8E%A7CPU%E4%BD%BF%E7%94%A8%E7%8E%87%3A%20%E4%BD%BF%E7%94%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%B7%A5%E5%85%B7%EF%BC%88%E5%A6%82%20top%20%E5%91%BD%E4%BB%A4%E5%9C%A8Linux%E4%B8%8A%EF%BC%8C%20Task%20Manager,6%20%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%3A%20%E6%A0%B9%E6%8D%AE%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E4%BC%98%E5%8C%96%E4%BB%A3%E7%A0%81%EF%BC%8C%E4%BE%8B%E5%A6%82%E9%87%8D%E6%9E%84%E7%AE%97%E6%B3%95%EF%BC%8C%E5%87%8F%E5%B0%91%E9%94%81%E7%AB%9E%E4%BA%89%E7%AD%89%E3%80%82%20...%207%20%E9%AA%8C%E8%AF%81%E4%BF%AE%E5%A4%8D%3A%20%E4%BF%AE%E5%A4%8D%E4%BB%A3%E7%A0%81%E5%90%8E%EF%BC%8C%E9%87%8D%E6%96%B0%E8%BF%9B%E8%A1%8C%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E3%80%82%20">CPU飙高的排查方案及思路_cpu冲高排查思路-CSDN博客</a></p>
-<h1>6 参考</h1>
-<p>JVM参数<a href="https://javaguide.cn/java/jvm/jvm-parameters-intro.html">最重要的JVM参数总结 | JavaGuide</a><br>
-<a href="https://blog.csdn.net/o9109003234/article/details/119951151">美团面试：熟悉哪些JVM调优参数，幸好我准备过！-CSDN博客</a></p>
-<p><a href="https://javaguide.cn/java/jvm/jdk-monitoring-and-troubleshooting-tools.html">JDK监控和故障处理工具总结 | JavaGuide</a><br>
-<a href="https://www.cnblogs.com/mylibs/p/production-accident-0002.html">生产事故-记一次特殊的OOM排查 - 程语有云 - 博客园 (cnblogs.com)</a><br>
-<a href="https://heapdump.cn/article/1661497">YGC问题排查，又让我涨姿势了！ | HeapDump性能社区</a></p>
-
       
     </div>
 

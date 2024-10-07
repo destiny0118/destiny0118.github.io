@@ -159,18 +159,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -212,6 +212,308 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/01/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab2%20Raft/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-01 14:23:48" itemprop="dateCreated datePublished" datetime="2024-02-01T14:23:48+08:00">2024-02-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>term(任期)</p>
+<p>Leader发出heartbeat(AppendEntries RPC不带有log entries)</p>
+<blockquote>
+<p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance.</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402052155568.jpg" alt="QQ图片20240205215524.jpg"></p>
+<h1>1 2A Leader election(领导人选举)</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络延迟、分区、包丢失、复制和重新排序。</p>
+</li>
+</ul>
+<blockquote>
+<p>This election term will continue until a follower stops receiving heartbeats and becomes a candidate.</p>
+</blockquote>
+<p>导致Follower进行选举的原因</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>网络延迟或者包丢失没有在选举超时前收到心跳</p>
+</li>
+<li class="lvl-2">
+<p>网络分区而导致收不到心跳（disconnect）</p>
+</li>
+<li class="lvl-2">
+<p>Leader宕机、崩溃（crash）</p>
+</li>
+</ul>
+<h2 id="1-1-节点类型">1.1 节点类型</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</p>
+</li>
+<li class="lvl-2">
+<p><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</p>
+</li>
+<li class="lvl-2">
+<p><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。态转换</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402031102578.png" alt="image-20240203110252535"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>Follower$\rightarrow$Candidate（超时：一段时间内未收到heartbeat）</p>
+</li>
+</ul>
+<p>Leader(AppendEntries RPC)</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>term过时：</p>
+<ul class="lvl-2">
+<li class="lvl-6">发送心跳发现Server的term号大于自身的term号（已经选出新的Leader，将自己状态变为Follower）</li>
+<li class="lvl-6">收到RequestVote发现更高term号</li>
+</ul>
+</li>
+</ul>
+<p>Candidate(RequestVote RPC)</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>term过时</p>
+<ul class="lvl-2">
+<li class="lvl-6">收到新的Leader的心跳，请求投票时发现大于自身的term号</li>
+<li class="lvl-6">收到RequestVote RPC的response，返回的term号更大</li>
+</ul>
+</li>
+</ul>
+<p>Follower：被动的，对来自Leader和Candidate的请求进行相应</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>收到Leader的心跳，且term号大于自身term号（更新自身term号）</p>
+</li>
+<li class="lvl-2">
+<p>收到Candidate请求</p>
+</li>
+</ul>
+<p>Server：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>拒绝过时term的请求</p>
+</li>
+</ul>
+<h2 id="1-2-选举超时时间和心跳时间">1.2 选举超时时间和心跳时间</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>心跳间隔时间(heartbeat timeout)：Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。</p>
+</li>
+<li class="lvl-2">
+<p>选举超时时间(election timeout)：如果一个 Follower 在一个周期内没有收到心跳信息或者请求投票信息，就叫做选举超时，并开始一次新的选举。</p>
+</li>
+</ul>
+<p>这两个时间需要保持一定的关系，网络无故障时，在选举超时前应该收到心跳，以保持Leader不变。选举超时时间至少需要大于AppendEntries RPC发送到server所需的最长时间。</p>
+<h3 id="1-2-1-选举超时时间更新">1.2.1 选举超时时间更新</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>candidate成为leader</p>
+</li>
+<li class="lvl-2">
+<p>candidate收到RequestVote response并变为follower</p>
+</li>
+<li class="lvl-2">
+<p>server收到AppendEntries</p>
+</li>
+<li class="lvl-2">
+<p>server收到RequestVote</p>
+</li>
+<li class="lvl-2">
+<p>leader收到AppendEntries response发现更高term号</p>
+</li>
+</ul>
+<h3 id="1-2-2-超时选举实现">1.2.2 超时选举实现</h3>
+<p>在raft结构体中定义laskAcktime，在收到leader的heartbeat或者candidate的投票请求时，要更新选举超时时间这里没有通过定时器在到达选举超时时间后触发选举操作，而是首先记录下当前时间，然后让ticker协程sleep一段时间。当再次唤醒后，如果laskAcktime在startTime之后，说明在选举超时前收到了相关信号。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402272153075.png" alt="image.png"></p>
+<h2 id="1-3-注意点">1.3 注意点</h2>
+<h3 id="1-3-1-sendAppendEntries没有启用新的协程">1.3.1 <code>sendAppendEntries</code>没有启用新的协程</h3>
+<p>在<code>sendHeartbeat</code>中，异步发送<code>sendAppendEntries</code>，向所有server发送heartbeat，无需等待RPC完成。因为leader可能无法与其他server通信，或者server不可达，由于等待rpc返回，造成超时重新选举</p>
+<p>异步发送<code>RequestVote</code>，并且收到超过半数选票后就成为Leader，发送心跳</p>
+<p><code> go test -race -run 2A</code></p>
+<h1>2 2B Log replication(日志复制)</h1>
+<blockquote>
+<p><mark><strong>Leader Completeness</strong></mark>: if a log entry is committed in a given term, then that entry will be present in the logs of the leaders for all higher-numbered terms. §5.4<br>
+<mark><strong>State Machine Safety</strong></mark>: if a server has applied a log entry at a given index to its state machine, no other server will ever apply a different log entry for the same index. §5.4.3</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>leader收到client请求，将entry添加到log</p>
+</li>
+<li class="lvl-2">
+<p>leader将添加的entry复制到其他server</p>
+</li>
+<li class="lvl-2">
+<p>如果大多数server成功复制entry，则该entry已经committed</p>
+</li>
+<li class="lvl-2">
+</li>
+<li class="lvl-2">
+<p>已经committed的entry需要应用到机器上，lastApplied代表已经执行的命令</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061214812.png" alt="Raft-第 1 页.png"></p>
+<h2 id="2-1-Election-restriction-5-4-1">2.1 Election restriction(5.4.1)</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402041429181.png" alt="Raft-第 2 页.png"></p>
+<p>log backtracking</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402061305538.png" alt="Raft-加速log回溯"></p>
+<p>S1首先成为leader，成功发送了第一个entry</p>
+<p>S1和S2与其他服务器断开后重连</p>
+<h2 id="2-2-注意点">2.2 注意点</h2>
+<blockquote>
+<p>遇到的bug</p>
+</blockquote>
+<p>s1断联，添加了一系列entry</p>
+<p>重连后，新的leader通过heartbeat更新了s1的commitindex，而此时s1的log还未更新</p>
+<h1>3 2C</h1>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">persist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// w := new(bytes.Buffer)</span></span><br><span class="line"><span class="comment">// e := labgob.NewEncoder(w)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.xxx)</span></span><br><span class="line"><span class="comment">// e.Encode(rf.yyy)</span></span><br><span class="line"><span class="comment">// data := w.Bytes()</span></span><br><span class="line"><span class="comment">// rf.persister.SaveRaftState(data)</span></span><br><span class="line">readPersist</span><br><span class="line"><span class="comment">// Your code here (2C).</span></span><br><span class="line"><span class="comment">// Example:</span></span><br><span class="line"><span class="comment">// r := bytes.NewBuffer(data)</span></span><br><span class="line"><span class="comment">// d := labgob.NewDecoder(r)</span></span><br><span class="line"><span class="comment">// var xxx</span></span><br><span class="line"><span class="comment">// var yyy</span></span><br><span class="line"><span class="comment">// if d.Decode(&amp;xxx) != nil ||</span></span><br><span class="line"><span class="comment">//    d.Decode(&amp;yyy) != nil &#123;</span></span><br><span class="line"><span class="comment">//   error...</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   rf.xxx = xxx</span></span><br><span class="line"><span class="comment">//   rf.yyy = yyy</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-1-Bug">3.1 Bug</h2>
+<p>同一任期选出两个leader</p>
+<p>乱序收到RPC response</p>
+<p>AppendEntries的RPC response与当前term不一致</p>
+<p>在变成follower时都重置了election time</p>
+<h1>4 2D</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402151207733.png" alt="image-20240215120732611"></p>
+<h2 id="4-1-bug">4.1 bug</h2>
+<ol>
+<li class="lvl-3">
+<p>每10条command创建一个快照，快照会调用rf.mu这个互斥锁，当存在新的提交命令时，通过applyCh管道进行发送，而测试程序调用snapshot需要获取互斥锁，无法读取管道中的数据，则会产生死锁</p>
+</li>
+<li class="lvl-3">
+<p><code>apply error: server 2 apply out of order, expected index 10, got 18</code></p>
+<p>当snapshot存在未commit的命令时，snapshot和log分别放入applyCh，应当一次性放入applyCh</p>
+</li>
+<li class="lvl-3">
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>result</th>
+<th>the time that the test took in seconds</th>
+<th>the number of Raft peers</th>
+<th>the number of RPCs sent during the test</th>
+<th>the total number of bytes in the RPC messages</th>
+<th>the number of log entries that Raft reports were committed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PASSED</td>
+<td>3.9</td>
+<td>3</td>
+<td>490</td>
+<td>154736</td>
+<td>207</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>5 问题</h1>
+<h2 id="5-1-raft">5.1 raft</h2>
+<p>raft是分布式一致性算法，基于复制状态机的思想，对于初始状态一样的节点，在他们上运行同样的命令，还会保持一致性的状态。raft主要包括领导者选举、日志复制、持久化以及快照等。</p>
+<h2 id="5-2-raft应用场景">5.2 raft应用场景</h2>
+<p>Raft 是一种共识算法，通常用于构建分布式系统中的可靠复制日志。它可以应用于各种分布式系统的场景，包括但不限于：</p>
+<ol>
+<li class="lvl-3">
+<p><strong>分布式数据库系统</strong>：Raft 可以用于构建分布式数据库系统，确保数据的一致性和可靠性，比如 etcd、Consul 等。</p>
+</li>
+<li class="lvl-3">
+<p><strong>分布式文件系统</strong>：在分布式文件系统中，Raft 可以确保各个节点之间的文件操作的一致性，比如 HDFS、Ceph 等。</p>
+</li>
+<li class="lvl-3">
+<p><strong>分布式消息队列</strong>：Raft 可以确保消息队列中的消息传递和处理的一致性，比如 Kafka 等。</p>
+</li>
+<li class="lvl-3">
+<p><strong>分布式计算</strong>：在分布式计算中，Raft 可以确保各个节点之间的任务调度和执行的一致性，比如 Spark、MapReduce 等。</p>
+</li>
+<li class="lvl-3">
+<p><strong>分布式存储系统</strong>：Raft 可以确保分布式存储系统中数据的可靠性和一致性，比如分布式缓存系统如 Redis、分布式块存储系统如 Ceph 等。</p>
+</li>
+</ol>
+<p>总的来说，任何需要在分布式环境中保证一致性和可靠性的系统都可以考虑使用 Raft 算法来实现。</p>
+<h1>6 参考</h1>
+<p><a href="https://raft.github.io/">Raft Consensus Algorithm 官网介绍</a></p>
+<p><a href="http://thesecretlivesofdata.com/raft/">Raft (thesecretlivesofdata.com)</a>（Raft图示）</p>
+<p><a href="https://raw.githubusercontent.com/ongardie/dissertation/master/book.pdf">Raft作者博士论文</a></p>
+<p><a href="https://link.zhihu.com/?target=https%3A//thesquareplanet.com/blog/instructors-guide-to-raft/">Instructors’ Guide to Raft</a>[4]</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//thesquareplanet.com/blog/students-guide-to-raft/">Students’ Guide to Raft</a>[5]</p>
+<p><a href="https://link.zhihu.com/?target=https%3A//thesquareplanet.com/blog/raft-qa/">Raft Q&amp;A</a>[6]</p>
+<p>paxos 2015版的lab</p>
+<p><a href="https://github.com/hashicorp/raft">hashicorp/raft: Golang implementation of the Raft consensus protocol (github.com)</a></p>
+<p><a href="https://www.zhihu.com/question/29597104">如何的才能更好地学习 MIT6.824 分布式系统课程？ - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -437,86 +739,6 @@
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202401121738097.png" alt="image.png"></p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">jump</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> step=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> maxPos=<span class="number">0</span>; <span class="comment">//当前可以达到的最远位置</span></span><br><span class="line">        <span class="type">int</span> limit=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>()<span class="number">-1</span>;i++)&#123;</span><br><span class="line">            maxPos=<span class="built_in">max</span>(maxPos,i+nums[i]);</span><br><span class="line">            <span class="keyword">if</span>(i==limit)&#123;</span><br><span class="line">                step++;</span><br><span class="line">                limit=maxPos;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> step;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/01/11/%E6%A1%86%E6%9E%B6/Spring/Spring%E6%BA%90%E7%A0%81%EF%BC%9AgetMergedBeanDefinition/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/11/%E6%A1%86%E6%9E%B6/Spring/Spring%E6%BA%90%E7%A0%81%EF%BC%9AgetMergedBeanDefinition/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-11 14:44:42" itemprop="dateCreated datePublished" datetime="2024-01-11T14:44:42+08:00">2024-01-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>在Spring中用BeanDefinition来代表一个Spring对象的定义。因此有BeanDefinitionBuilder、BeanDefinitionParser这些常见工具类。简单来说，整个Spring容器也就是读取文件、构造BeanDefinition对象、实例化成Bean的过程。BeanDefinition也可以认为是一个Bean元数据的容器，包含了一个bean实例化和初始化所需要的各种参数，比如class、name、scope、properties等等。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> BeanDefinition <span class="title function_">getBeanDefinition</span><span class="params">(String beanName)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException &#123;  </span><br><span class="line">    <span class="type">BeanDefinition</span> <span class="variable">bd</span> <span class="operator">=</span> (BeanDefinition)<span class="built_in">this</span>.beanDefinitionMap.get(beanName);  </span><br><span class="line">    <span class="keyword">if</span> (bd == <span class="literal">null</span>) &#123;  </span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.logger.isTraceEnabled()) &#123;  </span><br><span class="line">            <span class="built_in">this</span>.logger.trace(<span class="string">&quot;No bean named &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27; found in &quot;</span> + <span class="built_in">this</span>);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchBeanDefinitionException</span>(beanName);  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">return</span> bd;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//beanname(child)</span></span><br><span class="line"><span class="comment">//bd(child BeanDefinition)</span></span><br><span class="line"><span class="keyword">protected</span> RootBeanDefinition <span class="title function_">getMergedBeanDefinition</span><span class="params">(String beanName, BeanDefinition bd)</span> <span class="keyword">throws</span> BeanDefinitionStoreException &#123;  </span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.getMergedBeanDefinition(beanName, bd, (BeanDefinition)<span class="literal">null</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">protected</span> RootBeanDefinition <span class="title function_">getMergedBeanDefinition</span><span class="params">(String beanName, BeanDefinition bd, BeanDefinition containingBd)</span> <span class="keyword">throws</span> BeanDefinitionStoreException &#123;  </span><br><span class="line">    <span class="keyword">synchronized</span>(<span class="built_in">this</span>.mergedBeanDefinitions) &#123;  </span><br><span class="line">        <span class="type">RootBeanDefinition</span> <span class="variable">mbd</span> <span class="operator">=</span> <span class="literal">null</span>;  </span><br><span class="line">        <span class="keyword">if</span> (containingBd == <span class="literal">null</span>) &#123;  </span><br><span class="line">            mbd = (RootBeanDefinition)<span class="built_in">this</span>.mergedBeanDefinitions.get(beanName);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">if</span> (mbd == <span class="literal">null</span>) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (bd.getParentName() == <span class="literal">null</span>) &#123;  </span><br><span class="line">                <span class="keyword">if</span> (bd <span class="keyword">instanceof</span> RootBeanDefinition) &#123;  </span><br><span class="line">                    mbd = ((RootBeanDefinition)bd).cloneBeanDefinition();  </span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                    mbd = <span class="keyword">new</span> <span class="title class_">RootBeanDefinition</span>(bd);  </span><br><span class="line">                &#125;  </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                BeanDefinition pbd;  </span><br><span class="line">                <span class="keyword">try</span> &#123;  </span><br><span class="line">	                <span class="comment">//得到parent BeanName</span></span><br><span class="line">                    <span class="type">String</span> <span class="variable">parentBeanName</span> <span class="operator">=</span> <span class="built_in">this</span>.transformedBeanName(bd.getParentName());  </span><br><span class="line">                    <span class="keyword">if</span> (!beanName.equals(parentBeanName)) &#123;  </span><br><span class="line">	                    <span class="comment">//parent(BeanDefinition</span></span><br><span class="line">	                    )</span><br><span class="line">                        pbd = <span class="built_in">this</span>.getMergedBeanDefinition(parentBeanName);  </span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                        <span class="type">BeanFactory</span> <span class="variable">parent</span> <span class="operator">=</span> <span class="built_in">this</span>.getParentBeanFactory();  </span><br><span class="line">                        <span class="keyword">if</span> (!(parent <span class="keyword">instanceof</span> ConfigurableBeanFactory)) &#123;  </span><br><span class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NoSuchBeanDefinitionException</span>(parentBeanName, <span class="string">&quot;Parent name &#x27;&quot;</span> + parentBeanName + <span class="string">&quot;&#x27; is equal to bean name &#x27;&quot;</span> + beanName + <span class="string">&quot;&#x27;: cannot be resolved without an AbstractBeanFactory parent&quot;</span>);  </span><br><span class="line">                        &#125;  </span><br><span class="line">  </span><br><span class="line">                        pbd = ((ConfigurableBeanFactory)parent).getMergedBeanDefinition(parentBeanName);  </span><br><span class="line">                    &#125;  </span><br><span class="line">                &#125; <span class="keyword">catch</span> (NoSuchBeanDefinitionException var10) &#123;  </span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">BeanDefinitionStoreException</span>(bd.getResourceDescription(), beanName, <span class="string">&quot;Could not resolve parent bean definition &#x27;&quot;</span> + bd.getParentName() + <span class="string">&quot;&#x27;&quot;</span>, var10);  </span><br><span class="line">                &#125;  </span><br><span class="line">  </span><br><span class="line">                mbd = <span class="keyword">new</span> <span class="title class_">RootBeanDefinition</span>(pbd);  </span><br><span class="line">                mbd.overrideFrom(bd);  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (!StringUtils.hasLength(mbd.getScope())) &#123;  </span><br><span class="line">                mbd.setScope(<span class="string">&quot;singleton&quot;</span>);  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (containingBd != <span class="literal">null</span> &amp;&amp; !containingBd.isSingleton() &amp;&amp; mbd.isSingleton()) &#123;  </span><br><span class="line">                mbd.setScope(containingBd.getScope());  </span><br><span class="line">            &#125;  </span><br><span class="line">  </span><br><span class="line">            <span class="keyword">if</span> (containingBd == <span class="literal">null</span> &amp;&amp; <span class="built_in">this</span>.isCacheBeanMetadata()) &#123;  </span><br><span class="line">                <span class="built_in">this</span>.mergedBeanDefinitions.put(beanName, mbd);  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">        <span class="keyword">return</span> mbd;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>1 参考</h1>
-<ol>
-<li class="lvl-3">
-<p><a href="https://blog.csdn.net/m0_37607945/article/details/107411096">什么是MergedBeanDefinition?-CSDN博客</a></p>
-</li>
-</ol>
-
       
     </div>
 
@@ -1179,6 +1401,130 @@ spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\su
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/01/01/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E9%AB%98%E5%B9%B6%E5%8F%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/01/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E9%AB%98%E5%B9%B6%E5%8F%91/" class="post-title-link" itemprop="url">高并发</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2024-01-01T00:00:00+08:00">2024-01-01</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>1 细粒度锁</h1>
+<ul class="lvl-0">
+<li class="lvl-2"><strong>最小化锁范围</strong>： 细粒度锁将锁的作用范围限制在最小的数据单元或操作上，而不是对整个数据结构或资源加锁。</li>
+<li class="lvl-2"><strong>减少锁持有时间</strong>： 通过快速完成操作并尽早释放锁，减少每个线程持有锁的时间，从而减少其他线程的等待时间。</li>
+<li class="lvl-2"><strong>锁分离</strong>：将不同的操作或数据访问分离到不同的锁上，使得多个操作可以并行执行，而不是所有操作都依赖于同一个锁。</li>
+<li class="lvl-2"><strong>锁分段</strong>：将数据结构分割成多个段，每个段有自己的锁，这样可以同时对不同段进行操作而不会相互阻塞。</li>
+<li class="lvl-2"><strong>无锁编程</strong>： 利用原子操作和数据结构来避免使用锁，通过CAS（Compare-And-Swap）等机制来保证数据的一致性。</li>
+<li class="lvl-2"><strong>读写锁</strong>：允许多个读操作同时进行，但写操作需要独占锁，以此来提高读操作的并发性。</li>
+<li class="lvl-2"><strong>锁粗化</strong>： 在某些情况下，如果一个线程需要连续访问多个资源，可以考虑将锁的范围扩大，以减少频繁的锁获取和释放。</li>
+<li class="lvl-2"><strong>锁升级和降级</strong>：根据实际情况动态调整锁的粒度，例如从读锁升级到写锁，或者在不同级别的锁之间进行切换。</li>
+<li class="lvl-2"><strong>避免死锁</strong>： 设计锁策略时，确保锁的获取和释放顺序一致，避免出现死锁。</li>
+<li class="lvl-2"><strong>性能监控</strong>： 监控锁的性能，包括锁的竞争率、等待时间和吞吐量，以便根据实际情况调整锁策略。</li>
+</ul>
+<h2 id="1-1-条件变量">1.1 条件变量</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.Condition;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.locks.ReentrantLock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TaskScheduler</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Runnable&gt; tasks = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">ReentrantLock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">Condition</span> <span class="variable">condition</span> <span class="operator">=</span> lock.newCondition();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addTask</span><span class="params">(Runnable task)</span> &#123;</span><br><span class="line"></span><br><span class="line">        lock.lock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            tasks.add(task);</span><br><span class="line"></span><br><span class="line">            condition.signalAll();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">            lock.unlock();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">executeTasks</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">        lock.lock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (tasks.isEmpty()) &#123;</span><br><span class="line"></span><br><span class="line">                condition.await();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="type">Runnable</span> <span class="variable">task</span> <span class="operator">=</span> tasks.remove(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">            task.run();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line"></span><br><span class="line">            Thread.currentThread().interrupt();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line"></span><br><span class="line">            lock.unlock();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>2 高并发架构</h1>
+<h2 id="2-1-负载均衡">2.1 负载均衡</h2>
+<h2 id="2-2-分库分表">2.2 分库分表</h2>
+<p>通过分库分表，可以极大的减少单点数据库的压力，提高查询效率。通过分库分表，主要解决<mark>数据量大、并发访问高</mark>的问题。通过将同一表的数据分布到多个数据库实例中，从而，提升系统的水平扩展能力。</p>
+<p>跨多个数据库实例的事务操作变得复杂，可能需要分布式事务管理</p>
+<h2 id="2-3-消息队列">2.3 消息队列</h2>
+<p>消息队列在系统中引入异步消息处理机制，可以削峰填谷，缓解瞬时高并发压力。</p>
+<h2 id="2-4-异步处理">2.4 异步处理</h2>
+<p>异步处理通过将一些非实时任务放入队列异步执行，减少实时系统的响应时间。</p>
+<h2 id="2-5-缓存">2.5 缓存</h2>
+<p>分布式缓存，通过将频繁访问的数据，存储在快速访问的介质中，减少数据库、和后端服务的压力。</p>
+<h2 id="2-6-服务拆分">2.6 服务拆分</h2>
+<p>将大型单体应用拆分为多个小型服务（微服务架构），各服务可以独立扩展和部署。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>按业务功能划分</p>
+</li>
+<li class="lvl-2">
+<p>按边界上下文划分</p>
+</li>
+<li class="lvl-2">
+<p>数据库分离</p>
+</li>
+<li class="lvl-2">
+<p>限流和熔断：限流用于控制系统的流量，使系统不至于被过载流量压垮，保护系统在高并发下的稳定性，防止系统崩溃。熔断器用于在下游服务不稳定时，快速返回错误以保护系统。</p>
+</li>
+</ul>
+<h1>3 参考</h1>
+<ol>
+<li class="lvl-3">
+<p><a href="https://mp.weixin.qq.com/s/MHGDXf0cOEEcXXcYpQPhuQ">高并发设计之细粒度锁 ： 5种细粒度锁的设计技巧图解（高并发篇） (qq.com)</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://mp.weixin.qq.com/s/yVYRuhRYT1ijllBCEojYdg">高并发架构方案详解(8主流高并发架构) (qq.com)</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://mp.weixin.qq.com/s/JE1c2fTcHQ4U5OaWWgkBqA">高并发解决方案详解(8大主流架构方案) (qq.com)</a></p>
+</li>
+<li class="lvl-3">
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1332,90 +1678,6 @@ spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\su
 <h1>2 行为型模式</h1>
 <h2 id="2-1-策略模式">2.1 策略模式</h2>
 <p>策略模式属于行为模式的一种，一个类的行为或算法可以在运行时进行更改策略模式（Strategy Pattern）属于对象的⾏为模式。其⽤意是针对⼀组算法，将每⼀个算法封装到具有共同接⼝的独⽴的类中，从⽽使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发⽣变化。其主要⽬的是通过定义相似的算法，替换 if else 语句写法，并且可以随时相互替换。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/14/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/bug/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/14/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/bug/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-14 16:28:58" itemprop="dateCreated datePublished" datetime="2023-12-14T16:28:58+08:00">2023-12-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><code>java.lang.IllegalStateException: Failed to load ApplicationContext</code></p>
-<p><code>Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'stateHandlerImpl': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'indiv.lottery.domain.activity.service.stateflow.event.ArraignmentState' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: &#123;@javax.annotation.Resource(shareable=true, lookup=, name=, description=, authenticationType=CONTAINER, type=class java.lang.Object, mappedName=)&#125;</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312141928179.png" alt="image.png"></p>
-<p>没有定义component组件</p>
-<p><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'indiv.lottery.test.domain.ActivityTest': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: </code><br>
-没有定义service</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.springframework.jdbc.BadSqlGrammarException: </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Error updating database.  Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may exist in file [E:\IDEA\MyLottery\lottery-interfaces\target\classes\mybatis\mapper\Activity_Mapper.xml]</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error may involve indiv.lottery.infrastructure.dao.IActivityDAO.insert-Inline</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## The error occurred while setting parameters</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## SQL: INSERT INTO activity         (activityId, activityName, activityDesc, beginDateTime, endDateTime,          stockCount, takeCount, state, creator, createTime, updateTime)         VALUES (?, ?, ?, ?, ?,                 ?, ?, ?, ?, now(), now())</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Cause: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span></span></span><br><span class="line">; bad SQL grammar []; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column &#x27;activityId&#x27; in &#x27;field list&#x27;</span><br></pre></td></tr></table></figure>
-<p>insert参数名与数据库不匹配</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): indiv.lottery.infrastructure.dao.IAwardDAO.insertList</span><br></pre></td></tr></table></figure>
-<h1>Mysql</h1>
-<h2 id="Error-querying-database-Cause-org-springframework-jdbc-CannotGetJdbcConnectionException">Error querying database. Cause: org.springframework.jdbc.CannotGetJdbcConnectionException</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312252241556.png" alt="image.png"></p>
-<h1>依赖冲突</h1>
-<p>lottery-application: Could not resolve dependencies for project cn.itedus.lottery:lottery-application:jar:1.0-SNAPSHOT: The following artifacts could not be resolved: cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT (absent): Could not find artifact cn.bugstack.middleware:db-router-spring-boot-starter:jar:1.0.0-SNAPSHOT -&gt; [Help 1]</p>
-<p>application依赖domain域，但却是在Lottery顶层模块出现版本问题<br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202312261102257.png" alt="image.png"></p>
 
       
     </div>

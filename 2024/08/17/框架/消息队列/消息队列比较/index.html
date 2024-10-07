@@ -21,15 +21,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"destiny0118.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1 消息队列比较    特性 ActiveMQ RabbitMQ RocketMQ kafka     开发语言 java erlang java scala   TOPIC（主题模型实现）   队列模型 没有队列的概念，一个主题有多个分区(Partition)   消费模式   集群消费、广播消费 集群消费，一个消息只能由一个消费者实例消费   支持消息   延时消息、事务消息 事务消息，不支持">
+    <meta name="description" content="1 消息队列比较    特性 RabbitMQ RocketMQ kafka     TOPIC（主题模型实现）  队列模型 没有队列的概念，一个主题有多个分区(Partition)   消费模式  集群消费、广播消费 集群消费，一个消息只能由一个消费者实例消费   支持消息  延时消息、事务消息 事务消息，不支持延时消息   依赖与管理  Name Server 进行服务发现和路由管理 依赖 Z">
 <meta property="og:type" content="article">
 <meta property="og:title" content="我的个人博客">
 <meta property="og:url" content="https://destiny0118.github.io/2024/08/17/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%AF%94%E8%BE%83/index.html">
 <meta property="og:site_name" content="我的个人博客">
-<meta property="og:description" content="1 消息队列比较    特性 ActiveMQ RabbitMQ RocketMQ kafka     开发语言 java erlang java scala   TOPIC（主题模型实现）   队列模型 没有队列的概念，一个主题有多个分区(Partition)   消费模式   集群消费、广播消费 集群消费，一个消息只能由一个消费者实例消费   支持消息   延时消息、事务消息 事务消息，不支持">
+<meta property="og:description" content="1 消息队列比较    特性 RabbitMQ RocketMQ kafka     TOPIC（主题模型实现）  队列模型 没有队列的概念，一个主题有多个分区(Partition)   消费模式  集群消费、广播消费 集群消费，一个消息只能由一个消费者实例消费   支持消息  延时消息、事务消息 事务消息，不支持延时消息   依赖与管理  Name Server 进行服务发现和路由管理 依赖 Z">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-17T09:12:23.990Z">
-<meta property="article:modified_time" content="2024-09-19T15:32:36.479Z">
+<meta property="article:modified_time" content="2024-10-05T09:20:02.604Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="算法，工具">
 <meta name="twitter:card" content="summary">
@@ -149,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 消息队列比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 消息队列选择建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 Kafka和RocketMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="nav-text">3.1.1 架构与设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E6%B6%88%E6%81%AF%E6%A8%A1%E5%9E%8B"><span class="nav-text">3.1.2 消息模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-text">3.1.3 消息可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-4-%E6%80%A7%E8%83%BD"><span class="nav-text">3.1.4 性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-5-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">3.1.5 使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-6-%E8%BD%BB%E9%87%8F%E6%80%A7"><span class="nav-text">3.1.6 轻量性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-7-%E6%80%BB%E7%BB%93"><span class="nav-text">3.1.7 总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 分区和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-%E6%A6%82%E5%BF%B5%E5%AF%B9%E6%AF%94"><span class="nav-text">4.1.1 概念对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-%E6%B6%88%E6%81%AF%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%88%86%E9%85%8D"><span class="nav-text">4.1.2 消息路由与分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3-%E6%B6%88%E8%B4%B9%E6%A8%A1%E5%9E%8B"><span class="nav-text">4.1.3 消费模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4-%E6%B6%88%E6%81%AF%E9%A1%BA%E5%BA%8F%E6%80%A7"><span class="nav-text">4.1.4 消息顺序性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-5-%E6%89%A9%E5%B1%95%E6%80%A7"><span class="nav-text">4.1.5 扩展性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-6-%E6%80%BB%E7%BB%93"><span class="nav-text">4.1.6 总结</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 消息队列比较</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 消息队列选择建议</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 Kafka和RocketMQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-%E6%9E%B6%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1"><span class="nav-text">3.1.1 架构与设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-%E6%B6%88%E6%81%AF%E6%A8%A1%E5%9E%8B"><span class="nav-text">3.1.2 消息模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-%E6%B6%88%E6%81%AF%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-text">3.1.3 消息可靠性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-4-%E6%80%A7%E8%83%BD"><span class="nav-text">3.1.4 性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-5-%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-text">3.1.5 使用场景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-6-%E8%BD%BB%E9%87%8F%E6%80%A7"><span class="nav-text">3.1.6 轻量性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-7-%E6%80%BB%E7%BB%93"><span class="nav-text">3.1.7 总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 分区和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-%E6%A6%82%E5%BF%B5%E5%AF%B9%E6%AF%94"><span class="nav-text">4.1.1 概念对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-%E6%B6%88%E6%81%AF%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%88%86%E9%85%8D"><span class="nav-text">4.1.2 消息路由与分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3-%E6%B6%88%E8%B4%B9%E6%A8%A1%E5%9E%8B"><span class="nav-text">4.1.3 消费模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4-%E6%B6%88%E6%81%AF%E9%A1%BA%E5%BA%8F%E6%80%A7"><span class="nav-text">4.1.4 消息顺序性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-5-%E6%89%A9%E5%B1%95%E6%80%A7"><span class="nav-text">4.1.5 扩展性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-6-%E6%80%BB%E7%BB%93"><span class="nav-text">4.1.6 总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,18 +162,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">129</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -272,7 +272,6 @@
 <thead>
 <tr>
 <th>特性</th>
-<th>ActiveMQ</th>
 <th>RabbitMQ</th>
 <th><code>RocketMQ</code></th>
 <th><code>kafka</code></th>
@@ -280,15 +279,7 @@
 </thead>
 <tbody>
 <tr>
-<td>开发语言</td>
-<td>java</td>
-<td>erlang</td>
-<td>java</td>
-<td>scala</td>
-</tr>
-<tr>
 <td>TOPIC（主题模型实现）</td>
-<td></td>
 <td></td>
 <td>队列模型</td>
 <td>没有队列的概念，一个主题有多个<mark>分区(Partition)</mark></td>
@@ -296,13 +287,11 @@
 <tr>
 <td>消费模式</td>
 <td></td>
-<td></td>
 <td>集群消费、<mark>广播消费</mark></td>
 <td>集群消费，一个消息只能由一个消费者实例消费</td>
 </tr>
 <tr>
 <td>支持消息</td>
-<td></td>
 <td></td>
 <td><mark>延时消息</mark>、事务消息</td>
 <td>事务消息，不支持延时消息</td>
@@ -310,27 +299,23 @@
 <tr>
 <td>依赖与管理</td>
 <td></td>
-<td></td>
 <td>Name Server 进行服务发现和路由管理</td>
 <td>依赖 Zookeeper 进行分区的元数据管理、Leader 选举和消费组协调</td>
 </tr>
 <tr>
 <td>使用场景</td>
 <td></td>
-<td></td>
 <td><strong>RocketMQ 的 Queue</strong> 更加灵活，支持更复杂的消息路由和消费策略，适合需要精细化控制和顺序性保证的场景，如金融交易、电商订单处理等。</td>
 <td><strong>Kafka 的 Partition</strong> 注重高吞吐量和简单性，适合需要处理大量数据流的场景，如实时日志收集、大数据处理等。</td>
 </tr>
 <tr>
-<td>单机吞吐量</td>
-<td>万级</td>
+<td><mark>消息吞吐量</mark></td>
 <td>万级</td>
 <td>10万级</td>
 <td>10万级，吞吐量高。一般配合大数据类的系统来进行实时数据计算、日志采集等场景</td>
 </tr>
 <tr>
 <td>时效性</td>
-<td>ms级</td>
 <td>us级，这是rabbitmq的一大特点，延迟是最低的</td>
 <td>ms级</td>
 <td>ms级</td>
@@ -338,13 +323,11 @@
 <tr>
 <td>可用性</td>
 <td>高（主从架构）</td>
-<td>高（主从架构）</td>
 <td>非常高（分布式架构）</td>
 <td>非常高（分布式架构），kafka是分布式的，一个数据多个副本，少数机器宕机，不会丢失数据，不会导致不可用</td>
 </tr>
 <tr>
 <td>优劣势总结</td>
-<td>非常成熟，功能强大，在业内大量的公司以及项目中都有应用偶尔会有较低概率丢失消息，主要是基于解耦和异步来用的，较少在大规模吞吐的场景中使用</td>
 <td>erlang语言开发，性能极其好，延时很低；吞吐量到万级，MQ功能比较完备而且开源提供的管理界面非常棒</td>
 <td></td>
 <td>提供较少的核心功能，但是提供超高的吞吐量，ms级的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展同时kafka最好是支撑较少的topic数量即可，保证其<strong>超高吞吐量</strong>而且kafka唯一的一点劣势是有可能<strong>消息重复消费</strong>，那么对数据准确性会造成极其轻微的影响，在大数据领域中以及日志采集中，这点轻微影响可以忽略这个特性天然适合<strong>大数据实时计算以及日志收集</strong><br></td>
@@ -354,17 +337,14 @@
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
-<td></td>
 </tr>
 <tr>
-<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -586,9 +566,24 @@ RabbitMQ :结合erlang语言本身的并发优势，性能较好，社区活跃�
 </ul>
 <h3 id="4-1-6-总结">4.1.6 总结</h3>
 <p>Kafka 的 Partition 和 RocketMQ 的 Queue 都是为了解决消息系统的并行处理和水平扩展问题。Kafka 的 Partition 更加简单直接，而 RocketMQ 的 Queue 提供了更灵活的路由和消费控制机制。根据具体业务需求，选择适合的模型非常重要。</p>
+<h1>5 参考</h1>
+<ol>
+<li class="lvl-3">
 <p><a href="https://cloud.tencent.com/developer/article/1944357">10分钟搞懂！消息队列选型全方位对比-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+</li>
+<li class="lvl-3">
 <p><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/qq_44240587/article/details/104630567">MQ消息队列详解、四大MQ的优缺点分析_四大消息队列的优缺点-CSDN博客</a><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/qq_44240587/article/details/104630567">MQ消息队列详解、四大MQ的优缺点分析_四大消息队列的优缺点-CSDN博客</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://mp.weixin.qq.com/s/QnrIjubSigjeNtRPOmMsBA">消息队列黄金三剑客：RabbitMQ、RocketMQ和Kafka全面对决，谁是最佳选择？ (qq.com)</a></p>
+</li>
+</ol>
 
     </div>
 
@@ -602,8 +597,8 @@ RabbitMQ :结合erlang语言本身的并发优势，性能较好，社区活跃�
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/08/17/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/Kafka/" rel="prev" title="Kafka">
-                  <i class="fa fa-chevron-left"></i> Kafka
+                <a href="/2024/08/07/Java/Java(5)%EF%BC%9AIO%E6%A8%A1%E5%9E%8B/" rel="prev" title="Java(5)：IO模型">
+                  <i class="fa fa-chevron-left"></i> Java(5)：IO模型
                 </a>
             </div>
             <div class="post-nav-item">
