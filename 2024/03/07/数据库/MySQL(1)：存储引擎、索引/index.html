@@ -30,12 +30,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403252206970.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405132123653.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403252225650.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405141106447.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403252334238.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404182127269.png">
 <meta property="article:published_time" content="2024-03-06T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-08T02:43:14.546Z">
+<meta property="article:modified_time" content="2024-10-08T07:04:20.849Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -156,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 MySQL基础架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-SQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-text">1.1 SQL语句执行流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E8%BF%9E%E6%8E%A5%E5%99%A8%EF%BC%88%E9%95%BF%E8%BF%9E%E6%8E%A5%E3%80%81%E7%9F%AD%E8%BF%9E%E6%8E%A5%EF%BC%89"><span class="nav-text">1.1.1 连接器（长连接、短连接）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98"><span class="nav-text">1.1.2 查询缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E8%A7%A3%E6%9E%90SQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E8%A7%A3%E6%9E%90%E5%99%A8%EF%BC%89"><span class="nav-text">1.1.3 解析SQL语句（解析器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-%E6%89%A7%E8%A1%8CSQL"><span class="nav-text">1.1.4 执行SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-1-%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%9A"><span class="nav-text">2.1.4.1 预处理器：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-2-%E4%BC%98%E5%8C%96%E5%99%A8%EF%BC%9A"><span class="nav-text">2.1.4.2 优化器：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-3-%E6%89%A7%E8%A1%8C%E5%99%A8%EF%BC%9A%E4%B8%8E%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92"><span class="nav-text">2.1.4.3 执行器：与存储引擎交互</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-MySQL%E4%B8%80%E8%A1%8C%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8"><span class="nav-text">1.2 MySQL一行记录存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-NULL%E5%80%BC%E5%88%97%E8%A1%A8%EF%BC%9A"><span class="nav-text">1.2.1 NULL值列表：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E8%AE%B0%E5%BD%95%E5%A4%B4%E4%BF%A1%E6%81%AF"><span class="nav-text">1.2.2 记录头信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E8%AE%B0%E5%BD%95%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE"><span class="nav-text">1.2.3 记录的真实数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 MySQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-MyISAM%E5%92%8CInnoDB"><span class="nav-text">2.1 MyISAM和InnoDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E-MyISAM-InnoDB"><span class="nav-text">2.2 存储引擎(MyISAM, InnoDB)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 MVCC（多版本并发控制）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">5.1 底层数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-AVL%E6%A0%91"><span class="nav-text">5.1.1 AVL树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-B%E6%A0%91%E5%92%8CB-%E6%A0%91"><span class="nav-text">5.1.2 B树和B+树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9B-%E6%A0%91%E4%BD%9C%E4%B8%BA%E7%B4%A2%E5%BC%95"><span class="nav-text">5.1.3 为什么选择B+树作为索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="nav-text">5.2 索引类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">5.2.1 数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-1-B-Tree%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.1.1 B-Tree索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-2-%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.1.2 哈希索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95"><span class="nav-text">全文索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-%E7%89%A9%E7%90%86%E5%AD%98%E5%82%A8"><span class="nav-text">5.2.2 物理存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-1-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.2.1 主键索引与二级索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-2-%E8%81%9A%E7%B0%87-%E9%9B%86-%E7%B4%A2%E5%BC%95%E4%B8%8E%E9%9D%9E%E8%81%9A%E7%B0%87-%E9%9B%86-%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.2.2 聚簇(集)索引与非聚簇(集)索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-3-%E5%AD%97%E6%AE%B5%E7%89%B9%E6%80%A7"><span class="nav-text">5.2.3 字段特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="nav-text">唯一索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="nav-text">前缀索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-4-%E5%AD%97%E6%AE%B5%E4%B8%AA%E6%95%B0"><span class="nav-text">5.2.4 字段个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95"><span class="nav-text">单列索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="nav-text">联合索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-5-%E5%86%97%E4%BD%99%E7%B4%A2%E5%BC%95%E5%92%8C%E9%87%8D%E5%A4%8D%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.5 冗余索引和重复索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%88%E4%B8%89%E6%98%9F%E8%AF%84%E4%BB%B7%EF%BC%89"><span class="nav-text">5.3 索引的优点（三星评价）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D"><span class="nav-text">5.4 最左匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="nav-text">5.5 索引下推</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81-%E4%B8%8D%E9%9C%80%E8%A6%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-text">5.6 什么时候需要 &#x2F; 不需要创建索引？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-1-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%80%82%E7%94%A8%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-text">5.6.1 什么时候适用索引？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-2-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%B8%8D%E9%9C%80%E8%A6%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-text">5.6.2 什么时候不需要创建索引？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96"><span class="nav-text">5.7 索引优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-1-NULL%E5%92%8C%E2%80%99-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">5.7.1 NULL和’&#39;的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="nav-text">5.8 索引失效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-1-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E9%80%A0%E6%88%90%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="nav-text">5.8.1 隐式类型转换造成索引失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-9-%E5%9B%9E%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">5.9 回表查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-10-Count"><span class="nav-text">5.10 Count</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 执行计划（Explain)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-type"><span class="nav-text">6.1 type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-extra"><span class="nav-text">6.2 extra</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">7 慢查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E6%B7%B1%E5%88%86%E9%A1%B5%E4%BC%98%E5%8C%96"><span class="nav-text">7.1 深分页优化</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 MySQL基础架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-SQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-text">1.1 SQL语句执行流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-%E8%BF%9E%E6%8E%A5%E5%99%A8%EF%BC%88%E9%95%BF%E8%BF%9E%E6%8E%A5%E3%80%81%E7%9F%AD%E8%BF%9E%E6%8E%A5%EF%BC%89"><span class="nav-text">1.1.1 连接器（长连接、短连接）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98"><span class="nav-text">1.1.2 查询缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-3-%E8%A7%A3%E6%9E%90SQL%E8%AF%AD%E5%8F%A5%EF%BC%88%E8%A7%A3%E6%9E%90%E5%99%A8%EF%BC%89"><span class="nav-text">1.1.3 解析SQL语句（解析器）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-4-%E6%89%A7%E8%A1%8CSQL"><span class="nav-text">1.1.4 执行SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-1-%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%9A"><span class="nav-text">2.1.4.1 预处理器：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-2-%E4%BC%98%E5%8C%96%E5%99%A8%EF%BC%9A"><span class="nav-text">2.1.4.2 优化器：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-4-3-%E6%89%A7%E8%A1%8C%E5%99%A8%EF%BC%9A%E4%B8%8E%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E4%BA%A4%E4%BA%92"><span class="nav-text">2.1.4.3 执行器：与存储引擎交互</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-MySQL%E4%B8%80%E8%A1%8C%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8"><span class="nav-text">1.2 MySQL一行记录存储</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-NULL%E5%80%BC%E5%88%97%E8%A1%A8%EF%BC%9A"><span class="nav-text">1.2.1 NULL值列表：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E8%AE%B0%E5%BD%95%E5%A4%B4%E4%BF%A1%E6%81%AF"><span class="nav-text">1.2.2 记录头信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E8%AE%B0%E5%BD%95%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE"><span class="nav-text">1.2.3 记录的真实数据</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 MySQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-MyISAM%E5%92%8CInnoDB"><span class="nav-text">2.1 MyISAM和InnoDB</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 乐观锁和悲观锁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 MVCC（多版本并发控制）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">5.1 底层数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-AVL%E6%A0%91"><span class="nav-text">5.1.1 AVL树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-B%E6%A0%91%E5%92%8CB-%E6%A0%91"><span class="nav-text">5.1.2 B树和B+树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-3-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9B-%E6%A0%91%E4%BD%9C%E4%B8%BA%E7%B4%A2%E5%BC%95"><span class="nav-text">5.1.3 为什么选择B+树作为索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B"><span class="nav-text">5.2 索引类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-text">5.2.1 数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Tree%E7%B4%A2%E5%BC%95"><span class="nav-text">B-Tree索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%93%88%E5%B8%8C%E7%B4%A2%E5%BC%95"><span class="nav-text">哈希索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E6%96%87%E7%B4%A2%E5%BC%95"><span class="nav-text">全文索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-%E7%89%A9%E7%90%86%E5%AD%98%E5%82%A8"><span class="nav-text">5.2.2 物理存储</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-1-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95%E4%B8%8E%E4%BA%8C%E7%BA%A7%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.2.1 主键索引与二级索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-2-%E8%81%9A%E7%B0%87-%E9%9B%86-%E7%B4%A2%E5%BC%95%E4%B8%8E%E9%9D%9E%E8%81%9A%E7%B0%87-%E9%9B%86-%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.2.2 聚簇(集)索引与非聚簇(集)索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-3-%E5%AD%97%E6%AE%B5%E7%89%B9%E6%80%A7"><span class="nav-text">5.2.3 字段特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="nav-text">唯一索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="nav-text">前缀索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-4-%E5%AD%97%E6%AE%B5%E4%B8%AA%E6%95%B0"><span class="nav-text">5.2.4 字段个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%88%97%E7%B4%A2%E5%BC%95"><span class="nav-text">单列索引</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%81%94%E5%90%88%E7%B4%A2%E5%BC%95"><span class="nav-text">联合索引</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-5-%E5%86%97%E4%BD%99%E7%B4%A2%E5%BC%95%E5%92%8C%E9%87%8D%E5%A4%8D%E7%B4%A2%E5%BC%95"><span class="nav-text">5.2.5 冗余索引和重复索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%88%E4%B8%89%E6%98%9F%E8%AF%84%E4%BB%B7%EF%BC%89"><span class="nav-text">5.3 索引的优点（三星评价）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-%E6%9C%80%E5%B7%A6%E5%8C%B9%E9%85%8D"><span class="nav-text">5.4 最左匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="nav-text">5.5 索引下推</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%9C%80%E8%A6%81-%E4%B8%8D%E9%9C%80%E8%A6%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-text">5.6 什么时候需要 &#x2F; 不需要创建索引？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-1-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%80%82%E7%94%A8%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-text">5.6.1 什么时候适用索引？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-2-%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%B8%8D%E9%9C%80%E8%A6%81%E5%88%9B%E5%BB%BA%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="nav-text">5.6.2 什么时候不需要创建索引？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96"><span class="nav-text">5.7 索引优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-1-NULL%E5%92%8C%E2%80%99-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-text">5.7.1 NULL和’&#39;的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="nav-text">5.8 索引失效</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-1-%E9%9A%90%E5%BC%8F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E9%80%A0%E6%88%90%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="nav-text">5.8.1 隐式类型转换造成索引失效</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-9-%E5%9B%9E%E8%A1%A8%E6%9F%A5%E8%AF%A2"><span class="nav-text">5.9 回表查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-10-Count"><span class="nav-text">5.10 Count</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 执行计划（Explain)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-type"><span class="nav-text">6.1 type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-extra"><span class="nav-text">6.2 extra</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">7 慢查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E6%B7%B1%E5%88%86%E9%A1%B5%E4%BC%98%E5%8C%96"><span class="nav-text">7.1 深分页优化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">8 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -392,7 +391,7 @@ MySQL 中磁盘和内存交互的基本单位是页，一个页的大小一般�
 <p><strong>是否支持 MVCC</strong>：MyISAM 不支持，而 InnoDB 支持。</p>
 </li>
 <li class="lvl-2">
-<p><strong>数据存储索引实现不一样</strong>：都使用B+Tree作为索引结构，InnoDB 引擎中，其数据文件本身就是索引文件。相比 MyISAM，索引文件和数据文件是分离的，其表数据文件本身就是按 B+Tree 组织的一个索引结构，树的叶节点 data 域保存了完整的数据记录。 InnoDB使用聚簇索引来组织数据，表数据和主键索引存储在一起。此外，InnoDB还支持全文索引和哈希索引。 MyISAM将数据和索引分开存储，数据文件（MYD）和索引文件（MYI）是分离的。MyISAM也支持全文索引，但不支持哈希索引。</p>
+<p><strong>数据存储索引实现不一样</strong>：都使用B+Tree作为索引结构。 InnoDB使用聚簇索引来组织数据，其数据文件本身就是索引文件,表数据和主键索引存储在一起。此外，InnoDB还支持全文索引和哈希索引。 MyISAM将数据和索引分开存储，数据文件（MYD）和索引文件（MYI）是分离的。MyISAM也支持全文索引，但不支持哈希索引。</p>
 </li>
 <li class="lvl-2">
 <p>数据缓存策略和机制实现不同：InnoDB 使用缓冲池<code>（Buffer Pool）</code>缓存数据页和索引页，MyISAM 使用键缓存（Key Cache）仅缓存索引页而不缓存数据页。</p>
@@ -400,28 +399,27 @@ MySQL 中磁盘和内存交互的基本单位是页，一个页的大小一般�
 <li class="lvl-2">
 <p>性能： InnoDB在处理大量读写操作时通常表现更好，特别是在高并发环境下。这得益于其行级锁和事务支持。 MyISAM在处理只读查询时可能更快，特别是当数据量很大且内存充足时。然而，在写操作频繁的场景下，MyISAM的性能可能会下降。</p>
 </li>
-</ul>
-<h2 id="2-2-存储引擎-MyISAM-InnoDB">2.2 存储引擎(MyISAM, InnoDB)</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>数据恢复和备份： InnoDB提供了更好的数据恢复功能，如通过binlog进行点时间恢复（PITR）。此外，InnoDB还支持在线备份功能。 MyISAM的数据恢复相对较弱，通常依赖于物理备份和恢复。</p>
-</li>
-<li class="lvl-2">
+<li class="lvl-3">
 <p>存储空间： InnoDB的存储空间通常比MyISAM大，因为它需要额外的空间来存储事务日志、行级锁等信息。此外，InnoDB的数据文件大小是动态增长的。 MyISAM的存储空间相对较小，数据文件大小是固定的（可以通过配置修改）。但是，MyISAM不支持数据压缩功能。</p>
 </li>
 </ul>
+<blockquote>
 <p>MyISAM适合： 插入不频繁，查询非常频繁，如果执行大量的SELECT，MyISAM是更好的选择， 没有事务。 InnoDB适合： 可靠性要求比较高，或者要求事务； 表更新和查询都相当的频繁， 大量的INSERT或UPDATE</p>
+</blockquote>
+<blockquote>
 <p>InnoDB存储引擎：B+树索引的叶子结点保存数据本身<br>
 MyISAM存储引擎：B+树索引的叶子结点保存数据的物理地址</p>
+</blockquote>
 <h1>3 乐观锁和悲观锁</h1>
 <p>悲观锁，先获取锁，再进行业务操作，一般就是利用类似 SELECT … FOR UPDATE 这样的语句，对数据加锁，避免其他事务意外修改数据。 当数据库执行SELECT … FOR UPDATE时会获取被select中的数据行的行锁，select for update获取的行锁会在当前事务结束时自动释放，因此必须在事务中使用。</p>
 <p>乐观锁，先进行业务操作，只在最后实际更新数据时进行检查数据是否被更新过。Java 并发包中的 AtomicFieldUpdater 类似，也是利用 CAS 机制，并不会对数据加锁，而是通过对比数据的时间戳或者版本号，来实现乐观锁需要的版本判断。</p>
 <h1>4 MVCC（多版本并发控制）</h1>
-<p>多版本并发控制（MVCC，Multiversion Concurrency Control），是行级锁的变种，在很多情况下避免了加锁操作，因此开销更低。实现了非阻塞的读操作，写操作也只锁定必要的行。</p>
+<blockquote>
 <p><strong>通过在每个数据行上维护多个版本的数据来实现的。当一个事务要对数据库中的数据进行修改时，MVCC 会为该事务创建一个数据快照，而不是直接修改实际的数据行。</strong></p>
+</blockquote>
+<p>多版本并发控制（MVCC，Multiversion Concurrency Control），是行级锁的变种，在很多情况下避免了加锁操作，因此开销更低。实现了非阻塞的读操作，写操作也只锁定必要的行。</p>
 <p>MVCC的实现，是通过保存数据在某个时间点的快照来实现的。也就是说，不管需要执行多长时间，每个事务看到的数据都是一致的。根据事务开始的时间不同，每个事务对同一张表，同一时刻看到的数据可能是不一样的。</p>
-<p>InnoDB的MVCC，是通过在每行记录后面保存两个隐藏的列来实现的。这两个列，一个保存了行的创建时间，一个保存行的过期时间（或删除时间）。当然存储的并不是实际的时间值，而是系统版本号（system version number）。每开始一个新的事务，系统版本号都会自动递增。事务开始时刻的系统版本号会作为事务的版本号，用来和查询到的每行记录的版本号进行比较。<br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403252225650.png" alt="image.png"></p>
+<p>InnoDB的MVCC，是通过在每行记录后面保存两个隐藏的列来实现的。这两个列，一个保存了行的创建时间，一个保存行的过期时间（或删除时间）。当然存储的并不是实际的时间值，而是系统版本号（system version number）。每开始一个新的事务，系统版本号都会自动递增。事务开始时刻的系统版本号会作为事务的版本号，用来和查询到的每行记录的版本号进行比较。</p>
 <p><strong>MVCC</strong> 是多版本并发控制方法，即对一份数据会存储多个版本，通过事务的可见性来保证事务能看到自己应该看到的版本。通常会有一个全局的版本分配器来为每一行数据设置版本号，版本号是唯一的。</p>
 <p>MVCC 在 MySQL 中实现所依赖的手段主要是: <mark>隐藏字段、read view、undo log</mark>。</p>
 <ul class="lvl-0">
@@ -470,7 +468,7 @@ MyISAM存储引擎：B+树索引的叶子结点保存数据的物理地址</p>
 </li>
 </ul>
 <h3 id="5-1-3-为什么选择B-树作为索引">5.1.3 为什么选择B+树作为索引</h3>
-<p>文件索引和数据库索引存放在硬盘上，性能瓶颈在IO上。数据库系统巧妙利用了局部性原理与磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入</p>
+<p>文件索引和数据库索引存放在硬盘上，性能瓶颈在IO上。数据库系统巧妙利用了局部性原理与磁盘预读原理，将一个节点的大小设为等于一个页，这样每个节点只需要一次I/O就可以完全载入。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><mark>B+ 树的非叶子节点不存放实际的记录数据，仅存放索引</mark>，因此数据量相同的情况下，相比即存索引又存记录的 B 树，B+树的非叶子节点可以存放更多的索引，因此 B+ 树可以比 B 树更「矮胖」，查询底层节点的磁盘 I/O次数会更少。</p>
@@ -479,7 +477,7 @@ MyISAM存储引擎：B+树索引的叶子结点保存数据的物理地址</p>
 <p>B+ 树有大量的冗余节点（所有非叶子节点都是冗余索引），这些冗余索引让 B+ 树在<mark>插入、删除的效率都更高</mark>，比如删除根节点的时候，不会像 B 树那样会发生复杂的树的变化；</p>
 </li>
 <li class="lvl-2">
-<p>B+ 树叶子节点之间用链表连接了起来，有利于<strong>范围查询</strong>，而 B 树要实现范围查询，因此只能通过树的遍历来完成范围查询，这会涉及多个节点的磁盘 I/O 操作，范围查询效率不如 B+ 树。</p>
+<p>B+ 树叶子节点之间用链表连接了起来，有利于<mark>范围查询</mark>，而 B 树要实现范围查询，因此只能通过树的遍历来完成范围查询，这会涉及多个节点的磁盘 I/O 操作，范围查询效率不如 B+ 树。</p>
 </li>
 </ul>
 <h2 id="5-2-索引类型">5.2 索引类型</h2>
@@ -498,14 +496,18 @@ MyISAM存储引擎：B+树索引的叶子结点保存数据的物理地址</p>
 </li>
 </ul>
 <h3 id="5-2-1-数据结构">5.2.1 数据结构</h3>
-<h4 id="5-2-1-1-B-Tree索引">5.2.1.1 B-Tree索引</h4>
+<h4 id="B-Tree索引">B-Tree索引</h4>
 <blockquote>
 <p>B-Tree索引能够加快访问数据的速度，因为存储引擎不再需要进行全表扫描来获取需要的数据</p>
 </blockquote>
-<blockquote>
-<p>MyISAM索引通过数据的物理位置引用被索引的行，B+Tree 叶节点的 data 域存放的是数据记录的地址（非聚簇索引），索引文件和数据文件分离<br>
-InnoDB则根据主键引用被索引的行。其数据文件本身就是索引文件。 InnoDB 表数据文件本身就是主索引，辅助索引的 data 域存储相应记录主键的值而不是地址。</p>
-</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>MyISAM索引通过数据的物理位置引用被索引的行，B+Tree 叶节点的 data 域存放的是数据记录的地址（非聚簇索引），索引文件和数据文件分离</p>
+</li>
+<li class="lvl-2">
+<p>InnoDB则根据主键引用被索引的行。其数据文件本身就是索引文件。 InnoDB 表数据文件本身就是主索引，辅助索引的 data 域存储相应记录主键的值而不是地址。</p>
+</li>
+</ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405141106447.png" alt=""></p>
 <p><strong>可以使用B-Tree索引的查询类型</strong></p>
 <ul class="lvl-0">
@@ -525,7 +527,7 @@ InnoDB则根据主键引用被索引的行。其数据文件本身就是索引�
 <p>精确匹配某一列并范围匹配另外一列</p>
 </li>
 </ul>
-<h4 id="5-2-1-2-哈希索引">5.2.1.2 哈希索引</h4>
+<h4 id="哈希索引">哈希索引</h4>
 <blockquote>
 <p>不支持顺序和范围查询</p>
 </blockquote>
@@ -534,7 +536,7 @@ InnoDB则根据主键引用被索引的行。其数据文件本身就是索引�
 <h3 id="5-2-2-物理存储">5.2.2 物理存储</h3>
 <h4 id="5-2-2-1-主键索引与二级索引">5.2.2.1 主键索引与二级索引</h4>
 <p>主键索引：聚集索引的叶子节点存放的是实际数据，所有完整的用户记录都存放在聚集索引的叶子节点二级索引：叶子节点存放的是主键值，而不是实际数据。</p>
-<p>在查询时使用了二级索引，如果查询的数据能在二级索引里查询的到，那么就不需要<mark>回表</mark>，这个过程就是<mark>覆盖索引(索引包含（或者说覆盖）所有需要查询的字段的值)</mark>。如果查询的数据不在二级索引里，就会先检索二级索引，找到对应的叶子节点，获取到主键值后，然后再检索主键索引，就能查询到数据了，这个过程就是<mark>回表</mark>。</p>
+<p>在查询时使用了二级索引，如果查询的数据能在二级索引里查询的到，那么就不需要<mark>回表</mark>，这个过程就是<mark>覆盖索引</mark>(索引包含（或者说覆盖）所有需要查询的字段的值)。如果查询的数据不在二级索引里，就会先检索二级索引，找到对应的叶子节点，获取到主键值后，然后再检索主键索引，就能查询到数据了，这个过程就是<mark>回表</mark>。</p>
 <h4 id="5-2-2-2-聚簇-集-索引与非聚簇-集-索引">5.2.2.2 聚簇(集)索引与非聚簇(集)索引</h4>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -568,7 +570,9 @@ InnoDB则根据主键引用被索引的行。其数据文件本身就是索引�
 <h4 id="联合索引">联合索引</h4>
 <p><strong>建立联合索引时，要把区分度大的字段排在前面，这样区分度大的字段越有可能被更多的 SQL 使用到</strong>。</p>
 <p>使用表中的多个字段创建索引，就是 <strong>联合索引</strong>，也叫 <strong>组合索引</strong> 或 <strong>复合索引</strong>。</p>
-<p>联合索引底层存储结构(和其他种类的索引的存储结构有什么区别?)</p>
+<blockquote>
+<p>[!note] 联合索引底层存储结构(和其他种类的索引的存储结构有什么区别?</p>
+</blockquote>
 <p>联合索引的非叶子节点用两个字段的值作为 B+Tree 的 key 值</p>
 <p>使用联合索引时，存在<mark>最左匹配原则</mark>，也就是按照最左优先的方式进行索引的匹配</p>
 <p>联合索引是数据库中一种常见的索引类型，它允许在多个列上创建索引，以提高查询性能。与单列索引相比，联合索引的底层存储结构有一些区别，主要体现在如何组织和存储索引数据的方式上。</p>
@@ -615,9 +619,7 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 <p>最左匹配原则会一直向右匹配，直到遇到范围查询（如 &gt;、&lt;）为止，范围查询的字段可以用到联合索引。对于 &gt;=、&lt;=、BETWEEN 以及<mark>前缀匹配 LIKE</mark> 的范围查询，不会停止匹配</p>
 <p>当MySQL使用联合索引进行查询时，会从索引的最左边开始匹配查询条件，如果查询条件中包含了索引左边的列，那么MySQL才可能会使用这个索引来优化查询。如果查询条件没有包含左边的列或者左边的列出现一些范围查询（&gt;、&lt;、between等），即使其他列都在索引中，MySQL也可能不会使用这个索引。</p>
 <h2 id="5-5-索引下推">5.5 索引下推</h2>
-<p>Using index condition</p>
-<p><strong>索引下推（Index Condition Pushdown，简称 ICP）</strong> 是 <strong>MySQL 5.6</strong> 版本中提供的一项索引优化功能，它允许存储引擎在索引遍历过程中，执行部分 <code>WHERE</code>字句的判断条件，直接过滤掉不满足条件的记录，从而减少回表次数，提高查询效率。</p>
-<p>将Server层筛选数据的工作，下推到引擎层处理。</p>
+<p><strong>索引下推（Index Condition Pushdown，简称 ICP）</strong> 是 <strong>MySQL 5.6</strong> 版本中提供的一项索引优化功能，它允许存储引擎在索引遍历过程中，执行部分 <code>WHERE</code>字句的判断条件，直接过滤掉不满足条件的记录，从而减少回表次数，提高查询效率。将Server层筛选数据的工作，下推到引擎层处理。</p>
 <p>在没有索引下推的情况下，MySQL会先从索引中获取所有可能满足条件的数据行的主键，然后根据这些主键检索完整的数据行(即回表)，最后再应用WHERE条件进行过滤。而有了索引下推，MySQL可以在扫描索引的同时，直接<strong>根据索引中的值来判断是否满足WHERE条件</strong>，从而避免不必要的回表操作。</p>
 <p>对于联合索引(a,b)，在执行 <code>select * from table where a &gt; 1 and b = 2</code> 语句的时候，只有 a 字段能用到索引。在联合索引的 B+Tree 找到第一个满足条件的主键值（ID 为 2）后：</p>
 <ul class="lvl-0">
@@ -642,7 +644,6 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 <p>会降低表的增删改的效率，因为每次增删改索引，B+ 树为了维护索引有序性，都需要进行动态维护。</p>
 </li>
 </ul>
-<p>所以，索引不是万能钥匙，它也是根据场景来使用的。</p>
 <h3 id="5-6-1-什么时候适用索引？">5.6.1 什么时候适用索引？</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -658,7 +659,7 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 <p>字段非空</p>
 </li>
 <li class="lvl-2">
-<p>字段区分度高</p>
+<p><mark>字段区分度高</mark></p>
 </li>
 </ul>
 <h3 id="5-6-2-什么时候不需要创建索引？">5.6.2 什么时候不需要创建索引？</h3>
@@ -698,7 +699,7 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 </li>
 </ul>
 <p><strong>如果我们使用自增主键</strong>，那么每次插入的新数据就会按顺序添加到当前索引节点的位置，不需要移动已有的数据，当页面写满，就会自动开辟一个新页面。因为每次<strong>插入一条新记录，都是追加操作，不需要重新移动数据</strong>，因此这种插入数据的方法效率非常高。</p>
-<p><strong>如果我们使用非自增主键</strong>，由于每次插入主键的索引值都是随机的，因此每次插入新的数据时，就可能会插入到现有数据页中间的某个位置，这将不得不移动其它数据来满足新数据的插入，甚至需要从一个页面复制数据到另外一个页面，我们通常将这种情况称为<mark>页分裂</mark>。<strong>页分裂还有可能会造成大量的<mark>内存碎片</mark>，导致索引结构不紧凑，从而影响查询效率</strong>。</p>
+<p><strong>如果我们使用非自增主键</strong>，由于每次插入主键的索引值都是随机的，因此每次插入新的数据时，就可能会插入到现有数据页中间的某个位置，这将不得不移动其它数据来满足新数据的插入，甚至需要从一个页面复制数据到另外一个页面，我们通常将这种情况称为<mark>页分裂</mark>。页分裂还有可能会造成大量的<mark>内存碎片</mark>，导致索引结构不紧凑，从而影响查询效率。</p>
 <h3 id="5-7-1-NULL和’-的区别">5.7.1 NULL和’'的区别</h3>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -740,8 +741,7 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 </ul>
 <figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">//对索引进行表达式计算</span><br><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">select</span> * <span class="keyword">from</span> department <span class="keyword">where</span> dept_id+<span class="number">1</span>=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">select</span> * <span class="keyword">from</span> department <span class="keyword">where</span> dept_id=<span class="number">11</span>;</span><br><span class="line"></span><br><span class="line">//对索引使用函数</span><br><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">select</span> * <span class="keyword">from</span> department <span class="keyword">where</span> LENGTH(dept_name)=<span class="number">5</span>;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> department <span class="keyword">add</span> key idx_name_length ((LENGTH(dept_name)));</span><br></pre></td></tr></table></figure>
 <h3 id="5-8-1-隐式类型转换造成索引失效">5.8.1 隐式类型转换造成索引失效</h3>
-<p><mark>MySQL 在遇到字符串和数字比较的时候，会自动把字符串转为数字，然后再进行比较</mark>。</p>
-<p>MySQL 在遇到字符串和数字比较的时候，会自动把字符串转为数字，然后再进行比较。如果字符串是索引列，而条件语句中的输入参数是数字的话，那么索引列会发生隐式类型转换，由于隐式类型转换是通过 CAST 函数实现的，等同于对索引列使用了函数，所以就会导致索引失效。</p>
+<p>MySQL 在遇到字符串和数字比较的时候，会自动把<mark>字符串转为数字，然后再进行比较</mark>。如果字符串是索引列，而条件语句中的输入参数是数字的话，那么索引列会发生隐式类型转换，由于隐式类型转换是通过 CAST 函数实现的，等同于对索引列使用了函数，所以就会导致索引失效。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>当操作符<strong>左右两边的数据类型不一致</strong>时，会发生<strong>隐式转换</strong>。</p>
@@ -834,29 +834,40 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 <p>慢查询日志</p>
 </li>
 <li class="lvl-2">
-<p><mark>分析查询语句</mark>：使用EXPLAIN命令分析SQL执行计划，找出慢查询的原因，比如是否使用了全表扫描，是否存在索引未被利用的情况等，并根据相应情况对索引进行适当修改。</p>
+<p><mark>分析查询语句</mark>：使用EXPLAIN命令分析SQL执行计划，找出慢查询的原因，比如是否使用了全表扫描，是否存在索引未被利用的情况等，并根据相应情况对索引进行适当修改。 (索引失效、覆盖索引)</p>
 </li>
 <li class="lvl-2">
 <p><mark>创建或优化索引</mark>：根据查询条件创建合适的索引，特别是经常用于WHERE子句的字段、Orderby 排序的字段、Join 连表查询的字典、 group by的字段，并且如果查询中经常涉及多个字段，考虑创建联合索引，使用联合索引要符合最左匹配原则，不然会索引失效</p>
 </li>
 <li class="lvl-2">
-<p><mark>避免索引失效</mark>：比如不要用左模糊匹配、函数计算、表达式计算等等。 查询优化：避免使用SELECT *，只查询真正需要的列；使用覆盖索引，即索引包含所有查询的字段；联表查询最好要以小表驱动大表，并且被驱动表的字段要有索引，当然最好通过冗余字段的设计，避免联表查询。</p>
+<p><mark>避免索引失效</mark>：比如不要用左模糊匹配、函数计算、表达式计算等等。 查询优化：<code>避免使用SELECT *</code>，只查询真正需要的列；<code>使用覆盖索引</code>，即索引包含所有查询的字段；<code>联表查询最好要以小表驱动大表</code>，并且被驱动表的字段要有索引，当然最好通过冗余字段的设计，避免联表查询。</p>
 </li>
 <li class="lvl-2">
-<p>**分页优化：**针对 limit n,y 深分页的查询优化，可以把Limit查询转换成某个位置的查询：select * from tb_sku where id&gt;20000 limit 10，该方案适用于主键自增的表，</p>
+<p><mark>分页优化</mark>：针对 limit n,y 深分页的查询优化，可以把Limit查询转换成某个位置的查询：select * from tb_sku where id&gt;20000 limit 10，该方案适用于主键自增的表，</p>
 </li>
 <li class="lvl-2">
-<p>优化数据库表：如果单表的数据超过了千万级别，考虑是否需要将大表拆分为小表，减轻单个表的查询压力。也可以将字段多的表分解成多个表，有些字段使用频率高，有些低，数据量大时，会由于使用频率低的存在而变慢，可以考虑分开。 （分库分表）</p>
+<p><mark>优化数据库表</mark>：如果单表的数据超过了千万级别，考虑是否需要将大表拆分为小表，减轻单个表的查询压力。也可以将字段多的表分解成多个表，有些字段使用频率高，有些低，数据量大时，会由于使用频率低的存在而变慢，可以考虑分开。 （分库分表）</p>
 </li>
 <li class="lvl-2">
 <p><mark>使用缓存技术</mark>：引入缓存层，如Redis，存储热点数据和频繁查询的结果，但是要考虑缓存一致性的问题，对于读请求会选择旁路缓存策略，对于写请求会选择先更新 db，再删除缓存的策略。</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404182127269.png" alt="image.png"></p>
 <h2 id="7-1-深分页优化">7.1 深分页优化</h2>
 <blockquote>
 <p>limit偏移量太大，回表查询导致查询效率低</p>
 </blockquote>
+<p><code>select id,name,balance from account where update_time&gt; '2020-09-19' limit 100000,10;</code></p>
+<ol>
+<li class="lvl-3">
+<p>通过<strong>普通二级索引树</strong>idx_update_time，过滤update_time条件，找到满足条件的记录ID。</p>
+</li>
+<li class="lvl-3">
+<p>通过ID，回到<strong>主键索引树</strong>，找到满足记录的行，然后取出展示的列（<strong>回表</strong>）</p>
+</li>
+<li class="lvl-3">
+<p>扫描满足条件的100010行，然后扔掉前100000行，返回。</p>
+</li>
+</ol>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p>子查询优化：查询满足条件的数据行，再走主键索引</p>
@@ -872,6 +883,8 @@ SELECT * FROM t_user WHERE name like ‘j%’ and age = 22<br>
 </li>
 </ul>
 <p><a href="https://cloud.tencent.com/developer/article/1884103">实战！聊聊如何解决MySQL深分页问题-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+<h1>8 参考</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404182127269.png" alt="image.png"></p>
 
     </div>
 
