@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,6 +212,322 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/22/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab3%20KVraft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/22/%E9%A1%B9%E7%9B%AE/MIT6.824%20Lab3%20KVraft/" class="post-title-link" itemprop="url">MIT6.824 Lab3 KVraft</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-22 16:28:21" itemprop="dateCreated datePublished" datetime="2024-02-22T16:28:21+08:00">2024-02-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>Bug</h1>
+<h3 id="1-panic-close-of-closed-channel">1. <code>panic: close of closed channel</code></h3>
+<p>在server中，只使用了一个全局的管道来接收命令应用结果，PutAppend和Get共享一个管道，两个分别打开管道，随后一个关闭，另一个在关闭时出现问题</p>
+<ul class="lvl-0">
+<li class="lvl-2">给两个操作加锁，只有操作执行完（成功执行，超时）才解锁</li>
+<li class="lvl-2">对Start返回的index，每一个添加一个管道</li>
+</ul>
+<h2 id="2-command被复制到半数以上服务器，但是还没有在状态机上执行，然后选举出新的leader，新的leader具有添加的命令">2. command被复制到半数以上服务器，但是还没有在状态机上执行，然后选举出新的leader，新的leader具有添加的命令</h2>
+<p>在Lab2就想到的问题，一直考虑已经被添加的command如何被再次添加，发现在raft层无法解决这个问题。</p>
+<p>在Lab3中遇到了此问题，考虑在server中记录client已经添加的命令（命令可能未执行成功），在收到更小的command时，则不调用Start添加到leader。这需要启用新的server作为leader时，快速将已有的命令执行完毕（在添加任何新命令之前），这一步难以实现。</p>
+<p>因此考虑在command中添加client的命令标志，重传的命令也可以被添加到log中，但是在执行时会发现该命令已经执行过</p>
+<p>命令没有被执行 TestManyPartitionsManyClients3A</p>
+<figure class="highlight asciidoc"><table><tr><td class="code"><pre><span class="line"><span class="section">=== RUN   TestManyPartitionsManyClients3A</span></span><br><span class="line">Test: partitions, many clients (3A) ...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>命令结果有额外部分（多执行了？）TestConcurrent3A</p>
+<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Test: </span>unreliable net, restarts, partitions, random keys, many clients (3A) ...</span><br><span class="line">info: wrote history visualization to /tmp/1021001197.html</span><br><span class="line">    test_test.go:382: history is not linearizable</span><br><span class="line">--- FAIL: TestPersistPartitionUnreliableLinearizable3A (30.13s)</span><br></pre></td></tr></table></figure>
+<h2 id="3-并发读写map">3. 并发读写map</h2>
+<p><code>fatal error: concurrent map read and map write</code></p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">replyCh := <span class="built_in">make</span>(<span class="keyword">chan</span> ApplierResult, <span class="number">1</span>)</span><br><span class="line">kv.appliedCh[index] = replyCh</span><br><span class="line"><span class="comment">//kv.appliedCh[index] = make(chan ApplierResult, 1)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/02/20/%E6%A1%86%E6%9E%B6/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/02/20/%E6%A1%86%E6%9E%B6/%E5%88%86%E5%B8%83%E5%BC%8F/%E5%88%86%E5%B8%83%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-02-20 23:12:29" itemprop="dateCreated datePublished" datetime="2024-02-20T23:12:29+08:00">2024-02-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <blockquote>
+<p><strong>CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸。</strong></p>
+</blockquote>
+<h1>1 CAP理论</h1>
+<p><strong>CAP</strong> 也就是 <strong>Consistency（一致性）</strong>、<strong>Availability（可用性）</strong>、<strong>Partition Tolerance（分区容错性）</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2"><strong>一致性（Consistency）</strong> : 所有节点访问同一份最新的数据副本</li>
+<li class="lvl-2"><strong>可用性（Availability）</strong>: 非故障的节点在合理的时间内返回合理的响应（不是错误或者超时的响应）。</li>
+<li class="lvl-2"><strong>分区容错性（Partition Tolerance）</strong> : 分布式系统出现网络分区的时候，仍然能够对外提供服务。</li>
+</ul>
+<p>Quorum机制（法定人数机制<br>
+<strong>分布式系统理论上不可能选择 CA 架构，只能选择 CP 或者 AP 架构。</strong> 比如 ZooKeeper、HBase 就是 CP 架构，Cassandra、Eureka 就是 AP 架构，Nacos 不仅支持 CP 架构也支持 AP 架构。</p>
+<h1>2 数据一致性</h1>
+<p>一些分布式系统通过复制数据来提高系统的可靠性和容错性，并且将数据的不同的副本存放在不同的机器，由于维护数据副本的一致性代价高，因此许多系统<strong>采用弱一致性来提高性能</strong>，一些不同的一致性模型也相继被提出。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>强一致性</strong>： 要求无论更新操作实在哪一个副本执行，之后所有的读操作都要能获得最新的数据。</p>
+</li>
+<li class="lvl-2">
+<p><strong>弱一致性</strong>：用户读到某一操作对系统特定数据的更新需要一段时间，我们称这段时间为“不一致性窗口”。</p>
+</li>
+<li class="lvl-2">
+<p><strong>最终一致性</strong>：是弱一致性的一种特例，保证用户**最终（即窗口尽量长）**能够读取到某操作对系统特定数据的更新。</p>
+</li>
+</ul>
+<blockquote>
+<p>[!question] 分布式一致性(缓存与数据库一致性)</p>
+<ol>
+<li class="lvl-3">分布式事务：两段提交</li>
+<li class="lvl-3">分布式锁</li>
+<li class="lvl-3">消息队列、消息持久化、重试、幂等操作</li>
+<li class="lvl-3">Raft / Paxos 等一致性算法</li>
+</ol>
+</blockquote>
+<h1>3 BASE理论</h1>
+<p><strong>BASE</strong> 是 <strong>Basically Available（基本可用）</strong>、<strong>Soft-state（软状态）</strong> 和 <strong>Eventually Consistent（最终一致性）</strong> 三个短语的缩写。</p>
+<h2 id="3-1-基本可用">3.1 基本可用</h2>
+<p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性。但是，这绝不等价于系统不可用。</p>
+<p><strong>什么叫允许损失部分可用性呢？</strong></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>响应时间上的损失</strong>: 正常情况下，处理用户请求需要 0.5s 返回结果，但是由于系统出现故障，处理用户请求的时间变为 3 s。</p>
+</li>
+<li class="lvl-2">
+<p><strong>系统功能上的损失</strong>：正常情况下，用户可以使用系统的全部功能，但是由于系统访问量突然剧增，系统的部分非核心功能无法使用。</p>
+</li>
+</ul>
+<h2 id="3-2-软状态">3.2 <a href="#%E8%BD%AF%E7%8A%B6%E6%80%81">软状态</a></h2>
+<p>软状态指允许系统中的数据存在中间状态（<strong>CAP 理论中的数据不一致</strong>），并认为该中间状态的存在不会影响系统的整体可用性，即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</p>
+<h2 id="3-3-最终一致性">3.3 <a href="#%E6%9C%80%E7%BB%88%E4%B8%80%E8%87%B4%E6%80%A7">最终一致性</a></h2>
+<p>最终一致性强调的是系统中所有的数据副本，在经过一段时间的同步后，最终能够达到一个一致的状态。因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性。</p>
+<blockquote>
+<p>分布式一致性的 3 种级别：</p>
+<ol>
+<li class="lvl-3"><strong>强一致性</strong>：系统写入了什么，读出来的就是什么。</li>
+<li class="lvl-3"><strong>弱一致性</strong>：不一定可以读取到最新写入的值，也不保证多少时间之后读取到的数据是最新的，只是会尽量保证某个时刻达到数据一致的状态。</li>
+<li class="lvl-3"><strong>最终一致性</strong>：弱一致性的升级版，系统会保证在一定时间内达到数据一致的状态。</li>
+</ol>
+<p><strong>业界比较推崇是最终一致性级别，但是某些对数据一致要求十分严格的场景比如银行转账还是要保证强一致性。</strong></p>
+</blockquote>
+<h1>4 共识算法</h1>
+<blockquote>
+<p>共识算法的作用是让分布式系统中的多个节点之间对某个提案（Proposal）达成一致的看法。提案的含义在分布式系统中十分宽泛，像哪一个节点是 Leader 节点、多个事件发生的顺序等等都可以是一个提案。</p>
+</blockquote>
+<p>共识是可容错系统中的一个基本问题：即使面对故障，服务器也可以在共享状态上达成一致。</p>
+<p>共识算法允许一组节点像一个整体一样一起工作，即使其中的一些节点出现故障也能够继续工作下去，其正确性主要是源于复制状态机的性质：一组<code>Server</code>的状态机计算相同状态的副本，即使有一部分的<code>Server</code>宕机了它们仍然能够继续运行。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202402232043613.png" alt="image.png"></p>
+<p><a href="https://javaguide.cn/distributed-system/protocol/raft-algorithm.html">https://javaguide.cn/distributed-system/protocol/raft-algorithm.html</a></p>
+<h1>5 Basic Paxos 算法</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>提议者（Proposer）</strong>：也可以叫做协调者（coordinator），提议者负责接受客户端的请求并发起提案。提案信息通常包括提案编号 (Proposal ID) 和提议的值 (Value)。</p>
+</li>
+<li class="lvl-2">
+<p><strong>接受者（Acceptor）</strong>：也可以叫做投票员（voter），负责对提议者的提案进行投票，同时需要记住自己的投票历史；</p>
+</li>
+<li class="lvl-2">
+<p><strong>学习者（Learner）</strong>：如果有超过半数接受者就某个提议达成了共识，那么学习者就需要接受这个提议，并就该提议作出运算，然后将运算结果返回给客户端。<br>
+<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405211456396.png" alt="image.png|450"></p>
+</li>
+</ul>
+<h1>6 Raft</h1>
+<h2 id="6-1-基础">6.1 基础</h2>
+<h3 id="6-1-1-节点类型">6.1.1 节点类型</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><code>Leader</code>：负责发起心跳，响应客户端，创建日志，同步日志。</p>
+</li>
+<li class="lvl-2">
+<p><code>Candidate</code>：Leader 选举过程中的临时角色，由 Follower 转化而来，发起投票参与竞选。</p>
+</li>
+<li class="lvl-2">
+<p><code>Follower</code>：接受 Leader 的心跳和日志同步数据，投票给 Candidate。</p>
+</li>
+</ul>
+<h3 id="6-1-2-任期">6.1.2 任期</h3>
+<h3 id="6-1-3-日志">6.1.3 日志</h3>
+<h2 id="6-2-领导人选举">6.2 领导人选举</h2>
+<p>raft 使用心跳机制来触发 Leader 的选举。</p>
+<p>如果一台服务器能够收到来自 Leader 或者 Candidate 的有效信息，那么它会一直保持为 Follower 状态，并且刷新自己的 electionElapsed，重新计时。</p>
+<p>Leader 会向所有的 Follower 周期性发送心跳来保证自己的 Leader 地位。如果一个 Follower 在一个周期内没有收到心跳信息，就叫做选举超时，然后它就会认为此时没有可用的 Leader，并且开始进行一次选举以选出一个新的 Leader。</p>
+<h2 id="6-3-日志复制">6.3 日志复制</h2>
+<p>一旦选出了 Leader，它就开始接受客户端的请求。每一个客户端的请求都包含一条需要被复制状态机（<code>Replicated State Machine</code>）执行的命令。</p>
+<p>Leader 收到客户端请求后，会生成一个 entry，包含<code>&lt;index,term,cmd&gt;</code>，再将这个 entry 添加到自己的日志末尾后，向所有的节点广播该 entry，要求其他服务器复制这条 entry。</p>
+<p>如果 Follower 接受该 entry，则会将 entry 添加到自己的日志后面，同时返回给 Leader 同意。</p>
+<p>如果 Leader 收到了多数的成功响应，Leader 会将这个 entry 应用到自己的状态机中，之后可以称这个 entry 是 committed 的，并且向客户端返回执行结果。</p>
+<p>raft 保证以下两个性质：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们一定有相同的 cmd</p>
+</li>
+<li class="lvl-2">
+<p>在两个日志里，有两个 entry 拥有相同的 index 和 term，那么它们前面的 entry 也一定相同</p>
+</li>
+</ul>
+<h1>7 主从、集群、分布式的区别</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>分布式：多个系统协同合作完成一个特定任务的系统。分布式是解决中心化管理的问题，把所有的任务叠加到一个节点处理，太慢了。所以把一个大的问题拆分为多个小的问题，并分别解决，最终协同合作。分布式的主要工作是分解任务，将职能拆解。</p>
+</li>
+<li class="lvl-2">
+<p>集群：集群主要的使用场景是为了分担请求的压力，也就是在几个服务器上部署相同的应用程序，来分担客户端请求。当压力进一步增大的时候，可能在需要存储的部分，mysql 无法面对很多的写压力。因为在 mysql 做成集群之后，主要的写压力还是在 master 的机器上面，其他 slave 机器无法分担写压力，从而这个时候，也就引出来分布式。</p>
+</li>
+</ul>
+<p><strong>将一套系统拆分成不同子系统部署在不同服务器上（这叫分布式），</strong></p>
+<p><strong>然后部署多个相同的子系统在不同的服务器上（这叫集群），部署在不同服务器上的同一个子系统应做负载均衡。</strong></p>
+<p><strong>分布式：一个业务拆分为多个子业务，部署在多个服务器上 。</strong></p>
+<p><strong>集群：同一个业务，部署在多个服务器上 。</strong></p>
+<p>主从、集群和分布式是计算机系统中常见的架构模式，它们有不同的特点和用途：</p>
+<ol>
+<li class="lvl-3">
+<p>主从（Master-Slave）：</p>
+<ul class="lvl-2">
+<li class="lvl-6">主从架构是一种单点控制的架构，其中有一个主节点和一个或多个从节点。</li>
+<li class="lvl-6">主节点通常负责处理所有的请求和决策，而从节点用于执行主节点分派的任务或保存数据的备份副本。</li>
+<li class="lvl-6">主从架构通常用于提高系统的可用性和容错性。如果主节点失败，可以将其中一个从节点提升为主节点，以保持系统的运行。</li>
+<li class="lvl-6">主从架构适用于那些需要单一决策权和数据同步的应用，如数据库复制、负载均衡等。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>集群（Cluster）：</p>
+<ul class="lvl-2">
+<li class="lvl-6"><strong>集群是由多个节点组成的计算机系统</strong>，这些节点共同协作以提供某种服务或功能。</li>
+<li class="lvl-6">集群节点通常是对等的，它们可以相互协作，共同处理请求，以提高性能和容错性。</li>
+<li class="lvl-6">集群可以用于各种用途，包括负载均衡、高可用性、并行计算等。</li>
+<li class="lvl-6">集群可以是对称的（每个节点都具有相同的角色和功能）或非对称的（某些节点具有特殊的角色，如主节点）。</li>
+</ul>
+</li>
+<li class="lvl-3">
+<p>分布式（Distributed）：</p>
+<ul class="lvl-2">
+<li class="lvl-6">分布式架构是指系统的组件分布在多个地理位置或计算节点上，它们通过网络通信协同工作。</li>
+<li class="lvl-6">分布式系统的目标是提高性能、扩展性和可用性，允许系统在多个节点上并行执行任务。</li>
+<li class="lvl-6">分布式系统可以包括多个集群，每个集群可能都有自己的主从结构，以满足系统的需求。</li>
+<li class="lvl-6">分布式系统通常需要处理分布式计算、数据同步、一致性和容错性等复杂问题。</li>
+</ul>
+</li>
+</ol>
+<p>总之，主从是一种单点控制的架构，集群是多个节点共同协作的架构，分布式是多个节点分布在不同地方并通过网络通信协同工作的架构。这些不同的架构模式在不同的应用场景中有不同的优点和局限性。选择哪种架构取决于应用的需求和目标。</p>
+<p>集群是个物理形态，分布式是个工作方式。分布式是以缩短单个任务的执行时间来提升效率的，而集群则是通过提高单位时间内执行的任务数来提升效率。<br>
+分布式：一个业务分拆多个子业务，部署在不同的服务器上。<br>
+集群：同一个业务，部署在多个服务器上</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1195,6 +1511,24 @@ B依赖A，B依赖的A是从singletonFactories获取bean工厂调用getObject方
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202401101026534.png" alt="image.png"></p>
 <h1>4 事务</h1>
 <p>在 Spring 框架中， @Transactional注解是用来开启事务的，但它的工作原理是通过代理对象来实现的。 当你在一个 public方法上加上 @Transactional注解时，Spring 会生成一个<mark>代理对象</mark>，该代理对象负责管理事务。 但是，对于 private方法，由于其访问权限的限制，Spring 无法生成代理对象，因此<strong>事务也无法正常生效</strong>。</p>
+<h2 id="4-1-事务隔离级别">4.1 事务隔离级别</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong><code>TransactionDefinition.ISOLATION_DEFAULT</code></strong> :使用后端数据库默认的隔离级别</p>
+</li>
+<li class="lvl-2">
+<p><strong><code>TransactionDefinition.ISOLATION_READ_UNCOMMITTED</code></strong> :最低的隔离级别，使用这个隔离级别很少，因为它允许读取尚未提交的数据变更，<strong>可能会导致脏读、幻读或不可重复读</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong><code>TransactionDefinition.ISOLATION_READ_COMMITTED</code></strong> : 允许读取并发事务已经提交的数据，<strong>可以阻止脏读，但是幻读或不可重复读仍有可能发生</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong><code>TransactionDefinition.ISOLATION_REPEATABLE_READ</code></strong> : 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，<strong>可以阻止脏读和不可重复读，但幻读仍有可能发生。</strong></p>
+</li>
+<li class="lvl-2">
+<p><strong><code>TransactionDefinition.ISOLATION_SERIALIZABLE</code></strong> : 最高的隔离级别，完全服从 ACID 的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，<strong>该级别可以防止脏读、不可重复读以及幻读</strong>。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</p>
+</li>
+</ul>
 <h1>5 BeanFactory</h1>
 <blockquote>
 <p>生产 bean 的工厂，它负责生产和管理各个 bean 实例。</p>
@@ -1517,187 +1851,8 @@ spring-framework\spring-beans\src\main\java\org\springframework\beans\factory\su
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/25/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/IDEA%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-25 16:38:24" itemprop="dateCreated datePublished" datetime="2023-12-25T16:38:24+08:00">2023-12-25</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1>1 File Header</h1>
-<p><a href="https://blog.csdn.net/kingmax54212008/article/details/90754964">IDEA 中设置 File Header 以及自定义类、方法注释模板的方法_idea file head-CSDN博客</a><br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403121044049.png" alt="image.png"></p>
-<p><a href="https://blog.csdn.net/xiaostuart/article/details/108397180">IDEA快速插入当前日期时间-CSDN博客</a><br>
-<img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403061102147.png" alt="Snipaste_2023-12-22_16-36-59.png"></p>
-<p><a href="https://blog.csdn.net/mr_wanter/article/details/109636864#:~:text=%E7%BA%A2%E5%AD%97%E6%8F%90%E7%A4%BA%20No%20application%20contexts%20yes%20%E6%98%AF%E6%8C%87%E6%B2%A1%E6%9C%89%E4%B8%BA%E5%BD%93%E5%89%8D%E6%A8%A1%E6%9D%BF%E8%AE%BE%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%9A%84%E8%AF%AD%E8%A8%80%E7%8E%AF%E5%A2%83%EF%BC%8C%E6%88%91%E8%BF%99%E9%87%8C%E6%98%AF%E6%89%80%E6%9C%89%E5%9C%B0%E6%96%B9%E9%83%BD%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8,%E7%82%B9%E5%87%BB%20Define-%3EEverywhere%20%E3%80%82%20%E4%BF%9D%E5%AD%98%E4%B9%8B%E5%90%8E%E5%9C%A8IDEA%E4%B8%AD%E4%BB%BB%E6%84%8F%E5%9C%B0%E6%96%B9%E9%83%BD%E5%BF%AB%E9%80%9F%E8%BE%93%E5%85%A5%E5%BD%93%E5%89%8D%E6%97%B6%E9%97%B4%E3%80%82%20%E8%BE%93%E5%85%A5%20time%2C%E6%8C%89Tab%E9%94%AE%E5%8D%B3%E5%8F%AF%E3%80%82">IDEA快速插入当前时间_idea时间快捷键-CSDN博客</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2023/12/14/%E6%A1%86%E6%9E%B6/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2023/12/14/%E6%A1%86%E6%9E%B6/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-12-14 19:49:28" itemprop="dateCreated datePublished" datetime="2023-12-14T19:49:28+08:00">2023-12-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202116846.png" alt="image.png"></p>
-<h1>1 创建型模式</h1>
-<h2 id="1-1-单例模式">1.1 单例模式</h2>
-<p>单例模式属于创建型模式，⼀个单例类在任何情况下都只存在⼀个实例，构造⽅法必须是私有的、由⾃⼰创建⼀个静态变量存储实例，对外提供⼀个静态公有⽅法获取实例。</p>
-<h3 id="1-1-1-常见写法">1.1.1 常见写法</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>饿汉式</p>
-</li>
-<li class="lvl-2">
-<p>懒加载(lazy loading)：使用的时候再创建对象</p>
-</li>
-</ul>
-<p><strong>双重校验锁实现对象单例（线程安全）</strong>：</p>
-<blockquote>
-<p>这⾥的双重检查是指两次⾮空判断，锁指的是 synchronized 加锁，为什么要进⾏双重判断，其实很简单，第⼀重判断，如果实例已经存在，那么就不再需要进⾏同步操作，⽽是直接返回这个实例，如果没有创建，才会进⼊同步块，同步块的⽬的与之前相同，⽬的是为了防⽌有多个线程同时调⽤时，导致⽣成多个实例，有了同步块，每次只能有⼀个线程调⽤访问同步块内容，当第⼀个抢到锁的调⽤获取了实例之后，这个实例就会被创建，之后的所有调⽤都不会进⼊同步块，直接在第⼀重判断就返回了单例。关于内部的第⼆重空判断的作⽤，当多个线程⼀起到达锁位置时，进⾏锁竞争，其中⼀个线程获取锁，如果是第⼀次进⼊则为 null，会进⾏单例对象的创建，完成后释放锁，其他线程获取锁后就会被空判断拦截，直接返回已创建的单例对象。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> Singleton uniqueInstance;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span>  <span class="keyword">static</span> Singleton <span class="title function_">getUniqueInstance</span><span class="params">()</span> &#123;</span><br><span class="line">       <span class="comment">//先判断对象是否已经实例过，没有实例化过才进入加锁代码</span></span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//类对象加锁</span></span><br><span class="line">            <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">                    uniqueInstance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>uniqueInstance</code> 采用 <code>volatile</code> 关键字修饰也是很有必要的， <code>uniqueInstance = new Singleton();</code> 这段代码其实是分为三步执行：</p>
-<ol>
-<li class="lvl-3">
-<p>为 <code>uniqueInstance</code> 分配内存空间</p>
-</li>
-<li class="lvl-3">
-<p>初始化 <code>uniqueInstance</code></p>
-</li>
-<li class="lvl-3">
-<p>将 <code>uniqueInstance</code> 指向分配的内存地址</p>
-</li>
-</ol>
-<h2 id="1-2-工厂模式">1.2 工厂模式</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405202119797.png" alt="image.png"></p>
-<p>简单⼯⼚模式指由⼀个⼯⼚对象来创建实例，客户端不需要关注创建逻辑，只需提供传⼊⼯⼚的参数。</p>
-<p>适⽤于⼯⼚类负责创建对象较少的情况，缺点是如果要增加新产品，就需要修改⼯⼚类的判断逻辑，违背开闭原则，且产品多的话会使⼯⼚类⽐较复杂。</p>
-<h1>2 行为型模式</h1>
-<h2 id="2-1-策略模式">2.1 策略模式</h2>
-<p>策略模式属于行为模式的一种，一个类的行为或算法可以在运行时进行更改策略模式（Strategy Pattern）属于对象的⾏为模式。其⽤意是针对⼀组算法，将每⼀个算法封装到具有共同接⼝的独⽴的类中，从⽽使得它们可以相互替换。策略模式使得算法可以在不影响到客户端的情况下发⽣变化。其主要⽬的是通过定义相似的算法，替换 if else 语句写法，并且可以随时相互替换。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

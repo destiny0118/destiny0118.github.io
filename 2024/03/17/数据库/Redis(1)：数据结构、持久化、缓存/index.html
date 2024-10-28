@@ -48,7 +48,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202403231720549.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405131129371.png">
 <meta property="article:published_time" content="2024-03-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-08T07:49:41.067Z">
+<meta property="article:modified_time" content="2024-10-09T02:28:38.459Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="Redis">
 <meta name="twitter:card" content="summary">
@@ -182,7 +182,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1070,6 +1070,11 @@ lru: 该属性记录了对象最后一次被命令程序访问的时间：</p>
 <p><strong>Memcached 过期数据的删除策略只用了惰性删除，而 Redis 同时使用了惰性删除与定期删除。</strong></p>
 </li>
 </ol>
+<blockquote>
+<p>[!question] Redis存在数据安全性、数据一致性问题吗？</p>
+</blockquote>
+<p>两个用户读取数据状态，之后分别更新</p>
+<p><a href="https://developer.aliyun.com/article/863103#:~:text=%E6%88%91%E4%BB%AC%E6%AD%A3%E5%B8%B8%E7%90%86%E8%A7%A3%E7%9A%84%E7%BA%BF">面试官问：Redis 是并发安全的吗？怎么做到的？-阿里云开发者社区 (aliyun.com)</a></p>
 <h1>10 参考</h1>
 <ol>
 <li class="lvl-3">

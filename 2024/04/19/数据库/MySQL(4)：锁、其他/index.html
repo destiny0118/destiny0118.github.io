@@ -28,11 +28,15 @@
 <meta property="og:site_name" content="我的个人博客">
 <meta property="og:description" content="全局锁、表级锁、行级锁">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410172147376.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410081703202.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410162217476.png">
 <meta property="article:published_time" content="2024-04-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-08T07:50:00.362Z">
+<meta property="article:modified_time" content="2024-10-17T13:47:26.143Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410172147376.png">
 
 
 <link rel="canonical" href="https://destiny0118.github.io/2024/04/19/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL(4)%EF%BC%9A%E9%94%81%E3%80%81%E5%85%B6%E4%BB%96/">
@@ -149,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-text">1.1 全局锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E8%A1%A8%E7%BA%A7%E9%94%81"><span class="nav-text">1.2 表级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E8%A1%A8%E9%94%81"><span class="nav-text">1.2.1 表锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E5%85%83%E6%95%B0%E6%8D%AE%E9%94%81%EF%BC%88MDL%EF%BC%89"><span class="nav-text">1.2.2 元数据锁（MDL）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%84%8F%E5%90%91%E9%94%81"><span class="nav-text">1.2.3 意向锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-AUTO-INC-%E9%94%81-%E8%87%AA%E5%A2%9E%E9%94%81"><span class="nav-text">1.2.4 AUTO-INC 锁(自增锁)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%A1%8C%E7%BA%A7%E9%94%81"><span class="nav-text">1.3 行级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Record-Lock%EF%BC%88%E8%AE%B0%E5%BD%95%E9%94%81%EF%BC%89"><span class="nav-text">1.3.1 Record Lock（记录锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Gap-Lock%EF%BC%88%E9%97%B4%E9%9A%99%E9%94%81%EF%BC%89"><span class="nav-text">1.3.2 Gap Lock（间隙锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-Next-Key-Lock%EF%BC%88%E4%B8%B4%E9%94%AE%E9%94%81%EF%BC%89"><span class="nav-text">1.3.3 Next-Key Lock（临键锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-%E6%8F%92%E5%85%A5%E6%84%8F%E5%90%91%E9%94%81"><span class="nav-text">1.3.4 插入意向锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-drop%E3%80%81delete%E3%80%81truncate"><span class="nav-text">2.1 drop、delete、truncate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%A7%86%E5%9B%BE%E3%80%81%E6%B8%B8%E6%A0%87"><span class="nav-text">2.2 视图、游标</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 锁</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%85%A8%E5%B1%80%E9%94%81"><span class="nav-text">1.1 全局锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E8%A1%A8%E7%BA%A7%E9%94%81"><span class="nav-text">1.2 表级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-%E8%A1%A8%E9%94%81"><span class="nav-text">1.2.1 表锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-%E5%85%83%E6%95%B0%E6%8D%AE%E9%94%81%EF%BC%88MDL%EF%BC%89"><span class="nav-text">1.2.2 元数据锁（MDL）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-%E6%84%8F%E5%90%91%E9%94%81"><span class="nav-text">1.2.3 意向锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-AUTO-INC-%E9%94%81-%E8%87%AA%E5%A2%9E%E9%94%81"><span class="nav-text">1.2.4 AUTO-INC 锁(自增锁)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-%E8%A1%8C%E7%BA%A7%E9%94%81"><span class="nav-text">1.3 行级锁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Record-Lock%EF%BC%88%E8%AE%B0%E5%BD%95%E9%94%81%EF%BC%89"><span class="nav-text">1.3.1 Record Lock（记录锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Gap-Lock%EF%BC%88%E9%97%B4%E9%9A%99%E9%94%81%EF%BC%89"><span class="nav-text">1.3.2 Gap Lock（间隙锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-Next-Key-Lock%EF%BC%88%E4%B8%B4%E9%94%AE%E9%94%81%EF%BC%89"><span class="nav-text">1.3.3 Next-Key Lock（临键锁）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-%E6%8F%92%E5%85%A5%E6%84%8F%E5%90%91%E9%94%81"><span class="nav-text">1.3.4 插入意向锁</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-drop%E3%80%81delete%E3%80%81truncate"><span class="nav-text">2.1 drop、delete、truncate</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%A7%86%E5%9B%BE%E3%80%81%E6%B8%B8%E6%A0%87"><span class="nav-text">2.2 视图、游标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BA%8B%E5%8A%A1%E5%B9%B6%E5%8F%91-insert-%E5%94%AF%E4%B8%80%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-text">3.1 事务并发 insert 唯一键冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E8%BD%AC%E8%B4%A6%E9%97%AE%E9%A2%98"><span class="nav-text">3.2 转账问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E9%97%B4%E9%9A%99%E9%94%81"><span class="nav-text">3.3 间隙锁</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -321,7 +325,7 @@
 <p>而普通的 select 是不会加行级锁的，普通的 select 语句是利用 MVCC 实现一致性读，是无锁的。</p>
 <figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">//先在表上加上意向共享锁，然后对读取的记录加共享锁</span></span><br><span class="line"><span class="function"><span class="title">select</span></span> ... lock in share mode;</span><br><span class="line"></span><br><span class="line"><span class="comment">//先表上加上意向独占锁，然后对读取的记录加独占锁</span></span><br><span class="line"><span class="function"><span class="title">select</span></span> ... <span class="keyword">for</span> update;</span><br></pre></td></tr></table></figure>
 <p><strong>意向共享锁和意向独占锁是表级锁，不会和行级的共享锁和独占锁发生冲突，而且意向锁之间也不会发生冲突，只会和共享表锁（<em>lock tables … read</em>）和独占表锁（<em>lock tables … write</em>）发生冲突。</strong></p>
-<p><strong>意向锁的目的是为了快速判断表里是否有记录被加锁</strong>。</p>
+<p>意向锁的目的是为了<mark>快速判断表里是否有记录被加锁</mark>。</p>
 <h3 id="1-2-4-AUTO-INC-锁-自增锁">1.2.4 AUTO-INC 锁(自增锁)</h3>
 <p><strong>在插入数据时，会加一个表级别的 AUTO-INC 锁</strong>，然后为被 <code>AUTO_INCREMENT</code> 修饰的字段赋值递增的值，等插入语句执行完成后，才会把 AUTO-INC 锁释放掉。</p>
 <h2 id="1-3-行级锁">1.3 行级锁</h2>
@@ -349,12 +353,19 @@
 <h3 id="1-3-2-Gap-Lock（间隙锁）">1.3.2 Gap Lock（间隙锁）</h3>
 <p>Gap Lock 称为间隙锁，只存在于可重复读隔离级别，目的是为了解决可重复读隔离级别下幻读的现象。</p>
 <p>间隙锁虽然存在 X 型间隙锁和 S 型间隙锁，但是并没有什么区别，<strong>间隙锁之间是兼容的，即两个事务可以同时持有包含共同间隙范围的间隙锁，并不存在互斥关系，因为间隙锁的目的是防止插入幻影记录而提出的</strong>。</p>
+<p>间隙锁的意义只在于阻止区间被插入，因此是可以共存的。一个事务获取的间隙锁不会阻止另一个事务获取同一个间隙范围的间隙锁，共享（S型）和排他（X型）的间隙锁是没有区别的，他们相互不冲突，且功能相同。</p>
 <h3 id="1-3-3-Next-Key-Lock（临键锁）">1.3.3 Next-Key Lock（临键锁）</h3>
 <p>Next-Key Lock 称为临键锁，是 Record Lock + Gap Lock 的组合，锁定一个范围，并且锁定记录本身。所以，next-key lock 即能保护该记录，又能阻止其他事务将新纪录插入到被保护记录前面的间隙中。</p>
 <p><strong>next-key lock 是包含间隙锁+记录锁的，如果一个事务获取了 X 型的 next-key lock，那么另外一个事务在获取相同范围的 X 型的 next-key lock 时，是会被阻塞的</strong>。</p>
+<p>虽然相同范围的间隙锁是多个事务相互兼容的，但对于记录锁，我们是要考虑 X 型与 S 型关系，X 型的记录锁与 X 型的记录锁是冲突的。</p>
 <h3 id="1-3-4-插入意向锁">1.3.4 插入意向锁</h3>
 <p>一个事务在插入一条记录的时候，需要判断插入位置是否已被其他事务加了间隙锁（next-key lock 也包含间隙锁）。</p>
 <p>如果有的话，插入操作就会发生<strong>阻塞</strong>，直到拥有间隙锁的那个事务提交为止（释放间隙锁的时刻），在此期间会生成一个<strong>插入意向锁</strong>，表明有事务想在某个区间插入新记录，但是现在处于等待状态。</p>
+<p>假设事务 A 已经对表加了一个范围 id 为（3，5）间隙锁。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410172147376.png" alt="image.png"></p>
+<p>当事务 A 还没提交的时候，事务 B 向该表插入一条 id = 4 的新记录，这时会判断到插入的位置已经被事务 A 加了间隙锁，于是事物 B 会生成一个插入意向锁，然后将锁的状态设置为等待状态（PS：MySQL 加锁时，是先生成锁结构，然后设置锁的状态，如果锁状态是等待状态，并不是意味着事务成功获取到了锁，只有当锁状态为正常状态时，才代表事务成功获取到了锁），此时事务 B 就会发生阻塞，直到事务 A 提交了事务。</p>
+<p>插入意向锁名字虽然有意向锁，但是它并不是意向锁，它是一种特殊的间隙锁，属于行级别锁。 如果说间隙锁锁住的是一个区间，那么「插入意向锁」锁住的就是一个点。因而从这个角度来说，插入意向锁确实是一种特殊的间隙锁。</p>
+<p>插入意向锁与间隙锁的另一个非常重要的差别是：尽管「插入意向锁」也属于间隙锁，但两个事务却不能在同一时间内，一个拥有间隙锁，另一个拥有该间隙区间内的插入意向锁（当然，插入意向锁如果不在间隙锁区间内则是可以的）。</p>
 <h1>2 其他</h1>
 <h2 id="2-1-drop、delete、truncate">2.1 drop、delete、truncate</h2>
 <ul class="lvl-0">
@@ -370,6 +381,55 @@
 </ul>
 <h2 id="2-2-视图、游标">2.2 视图、游标</h2>
 <p>视图是一种虚拟的表，通常是有一个表或者多个表的行或列的子集，具有和物理表相同的功能 游标是对查询出来的结果集作为一个单元来有效的处理。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
+<h1>3 问题</h1>
+<p><a href="https://juejin.cn/post/6936083717051908104#heading-1">搜狐三面：说说你是怎么解决MySQL死锁问题的！咱们使用 MySQL 大概率上都会遇到死锁问题，这实在是个令人非常头痛的 - 掘金 (juejin.cn)</a></p>
+<h2 id="3-1-事务并发-insert-唯一键冲突">3.1 事务并发 insert 唯一键冲突</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410081703202.png" alt="image.png"></p>
+<p>1.事务 T2 insert into t7(id,a) values (26,10) 语句 insert 成功，持有 a=10 的 排他行锁( X locks rec but no gap )</p>
+<p>2.事务 T1 insert into t7(id,a) values (30,10), 因为T2的第一条 insert 已经插入 a=10 的记录,</p>
+<p>事务 T1 insert a=10 则发生唯一键冲突,需要申请对冲突的唯一索引加上S Next-key Lock</p>
+<p>( 即 lock mode S waiting ) 这是一个间隙锁会申请锁住(,10],(10,20]之间的 gap 区域。</p>
+<p>3.事务 T2 insert into t7(id,a) values (40，9)该语句插入的 a=9 的值在事务 T1 申请的 gap 锁</p>
+<p>4,10之间， 故需事务 T2 的第二条 insert 语句要等待事务 T1 的 S-Next-key Lock 锁释放</p>
+<h2 id="3-2-转账问题">3.2 转账问题</h2>
+<p><code>所有的交易都先获取更小的锁，获取到了小的锁才能获取大锁</code>，这就避免了环形的<a href="https://so.csdn.net/so/search?q=%E6%AD%BB%E9%94%81&amp;spm=1001.2101.3001.7020">死锁</a>，假如说这两个锁的大小一样，这时候就需要一把额外的锁来进行交易流程的控制。</p>
+<p><a href="https://blog.csdn.net/qq_42672654/article/details/106439260">银行转账的死锁问题_a往b转钱,b往a转钱,同时的会死锁吗?如何解决死锁?-CSDN博客</a></p>
+<p>本文使用<code>死锁避免策略</code>：把获取两把锁的规则改一下，原来的规则是先获取转出人的锁，再获取收款人的锁，这就会造成两个转出人都在等对方释放锁的情况。</p>
+<p>现在我们把规则改成：所有的交易都先获取<code>hash</code>值更小的锁，获取到了<code>hash</code>小的锁才能获取<code>hash</code>大的锁，这就避免了环形的死锁，假如说这两个锁的大小一样，这时候就需要一把额外的锁来进行交易流程的控制，相当于一场“加时赛”。</p>
+<p>在实际业务开发中可以使用主键，因为主键是唯一的，可以用主键来决定获取锁的顺序。</p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzU3NDgyMTIxMw==&amp;mid=2247484738&amp;idx=3&amp;sn=2640184c66abfbdc5054d6a252b8388c&amp;chksm=fd2dc370ca5a4a66b2dec9d6a487139d7638a20a8452e959574ca46c7f64c606e3f83125a378#rd">银行转账问题（死锁） (qq.com)</a></p>
+<h2 id="3-3-间隙锁">3.3 间隙锁</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410162217476.png" alt="image.png"></p>
+<p>间隙锁的意义只在于阻止区间被插入，因此是可以共存的。一个事务获取的间隙锁不会阻止另一个事务获取同一个间隙范围的间隙锁，共享（S型）和排他（X型）的间隙锁是没有区别的，他们相互不冲突，且功能相同。</p>
+<p>尽管「插入意向锁」也属于间隙锁，但两个事务却不能在同一时间内，一个拥有间隙锁，另一个拥有该间隙区间内的插入意向锁（当然，插入意向锁如果不在间隙锁区间内则是可以的）。所以，插入意向锁和间隙锁之间是冲突的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事务A</th>
+<th>事务B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">(20,30)间隙锁</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td>(20,30)间隙锁</td>
+</tr>
+<tr>
+<td style="text-align:left">插入意向锁</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td>插入意向锁</td>
+</tr>
+</tbody>
+</table>
+<p>事务 A 和事务 B 在执行完后 update 语句后都持有范围为(20, 30）的间隙锁，而接下来的插入操作为了获取到插入意向锁，都在等待对方事务的间隙锁释放，于是就造成了循环等待，满足了死锁的四个条件：互斥、占有且等待、不可强占用、循环等待，因此发生了死锁。</p>
+<p><a href="https://xiaolincoding.com/mysql/lock/show_lock.html">字节面试：加了什么锁，导致死锁的？ | 小林coding (xiaolincoding.com)</a></p>
 
     </div>
 

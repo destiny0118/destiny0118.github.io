@@ -159,7 +159,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -212,6 +212,476 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/08/17/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%AF%94%E8%BE%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/17/%E6%A1%86%E6%9E%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%AF%94%E8%BE%83/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-17 17:12:23" itemprop="dateCreated datePublished" datetime="2024-08-17T17:12:23+08:00">2024-08-17</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>1 消息队列比较</h1>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>RabbitMQ</th>
+<th><code>RocketMQ</code></th>
+<th><code>kafka</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TOPIC（主题模型实现）</td>
+<td></td>
+<td>队列模型</td>
+<td>没有队列的概念，一个主题有多个<mark>分区(Partition)</mark></td>
+</tr>
+<tr>
+<td>消费模式</td>
+<td></td>
+<td>集群消费、<mark>广播消费</mark></td>
+<td>集群消费，一个消息只能由一个消费者实例消费</td>
+</tr>
+<tr>
+<td>支持消息</td>
+<td></td>
+<td><mark>延时消息</mark>、事务消息</td>
+<td>事务消息，不支持延时消息</td>
+</tr>
+<tr>
+<td>依赖与管理</td>
+<td></td>
+<td>Name Server 进行服务发现和路由管理</td>
+<td>依赖 Zookeeper 进行分区的元数据管理、Leader 选举和消费组协调</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td></td>
+<td><strong>RocketMQ 的 Queue</strong> 更加灵活，支持更复杂的消息路由和消费策略，适合需要精细化控制和顺序性保证的场景，如金融交易、电商订单处理等。</td>
+<td><strong>Kafka 的 Partition</strong> 注重高吞吐量和简单性，适合需要处理大量数据流的场景，如实时日志收集、大数据处理等。</td>
+</tr>
+<tr>
+<td><mark>消息吞吐量</mark></td>
+<td>万级</td>
+<td>10万级</td>
+<td>10万级，吞吐量高。一般配合大数据类的系统来进行实时数据计算、日志采集等场景</td>
+</tr>
+<tr>
+<td>时效性</td>
+<td>us级，这是rabbitmq的一大特点，延迟是最低的</td>
+<td>ms级</td>
+<td>ms级</td>
+</tr>
+<tr>
+<td>可用性</td>
+<td>高（主从架构）</td>
+<td>非常高（分布式架构）</td>
+<td>非常高（分布式架构），kafka是分布式的，一个数据多个副本，少数机器宕机，不会丢失数据，不会导致不可用</td>
+</tr>
+<tr>
+<td>优劣势总结</td>
+<td>erlang语言开发，性能极其好，延时很低；吞吐量到万级，MQ功能比较完备而且开源提供的管理界面非常棒</td>
+<td></td>
+<td>提供较少的核心功能，但是提供超高的吞吐量，ms级的延迟，极高的可用性以及可靠性，而且分布式可以任意扩展同时kafka最好是支撑较少的topic数量即可，保证其<strong>超高吞吐量</strong>而且kafka唯一的一点劣势是有可能<strong>消息重复消费</strong>，那么对数据准确性会造成极其轻微的影响，在大数据领域中以及日志采集中，这点轻微影响可以忽略这个特性天然适合<strong>大数据实时计算以及日志收集</strong><br></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>消费推拉模式</strong><br>
+客户端消费者获取消息的方式，Kafka和RocketMQ是通过<mark>长轮询Pull的方式拉取消息</mark>，RabbitMQ、Pulsar、NSQ都是通过Push的方式。</p>
+<p>pull类型的消息队列更适合<mark>高吞吐量</mark>的场景，允许消费者自己进行流量控制，根据消费者实际的消费能力去获取消息。而push类型的消息队列，实时性更好，但需要有一套良好的流控策略（backpressure）当消费者消费能力不足时，减少push的消费数量，避免压垮消费端。</p>
+</li>
+<li class="lvl-2">
+<p><strong>延迟队列</strong><br>
+延迟消息的使用场景比如异常检测重试，订单超时取消等，例如：</p>
+<ul class="lvl-2">
+<li class="lvl-6">服务请求异常，需要将异常请求放到单独的队列，隔5分钟后进行重试；</li>
+<li class="lvl-6">用户购买商品，但一直处于未支付状态，需要定期提醒用户支付，超时则关闭订单；</li>
+<li class="lvl-6">面试或者会议预约，在面试或者会议开始前半小时，发送通知再次提醒。<br>
+Kafka不支持延迟消息，RocketMQ开源版本延迟消息临时存储在一个内部主题中，不支持任意时间精度，支持特定的level，例如定时5s，10s，1m等。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>死信队列</strong><br>
+Kafka、RocketMQ、Pulsar、NSQ不支持优先级队列，可以通过不同的队列来实现消息优先级。<br>
+RabbitMQ支持优先级消息。</p>
+</li>
+<li class="lvl-2">
+<p><strong>优先级队列</strong></p>
+</li>
+</ul>
+<h1>2 消息队列选择建议</h1>
+<p><strong>1.Kafka</strong><br>
+Kafka主要特点是基于Pull的模式来处理消息消费，追求<strong>高吞吐量</strong>，一开始的目的就是用于日志收集和传输，适合产生大量数据的互联网服务的数据收集业务。</p>
+<p>大型公司建议可以选用，如果有日志采集功能，肯定是首选kafka了。</p>
+<p><strong>2.RocketMQ</strong><br>
+天生为<strong>金融互联网领域</strong>而生，对于<strong>高可靠性</strong>的场景，尤其是电商里面的订单扣款，以及业务削峰，在大量交易涌入时，后端可能无法及时处理的情况。</p>
+<p>RoketMQ在稳定性上可能更值得信赖，这些业务场景在阿里双11已经经历了多次考验，如果你的业务有上述并发场景，建议可以选择RocketMQ。</p>
+<p><strong>3.RabbitMQ</strong><br>
+RabbitMQ :结合erlang语言本身的并发优势，性能较好，社区活跃度也比较高，但是不利于做二次开发和维护。不过，RabbitMQ的社区十分活跃，可以解决开发过程中遇到的bug。</p>
+<p>如果你的数据量没有那么大，小公司优先选择功能比较完备的RabbitMQ。</p>
+<h1>3 Kafka和RocketMQ</h1>
+<p>Apache Kafka和Apache RocketMQ都是广泛使用的分布式消息中间件，它们在大数据处理、高并发和高性能场景中发挥着关键作用。尽管它们有相似的应用场景，但两者之间存在一些设计哲学和功能上的差异。下面概述了Kafka和RocketMQ的主要区别与联系：<br>
+联系</p>
+<ol>
+<li class="lvl-3">
+<p>分布式架构：Kafka和RocketMQ都采用了分布式架构，支持高可用性和水平扩展，能够应对大规模数据传输和处理需求。</p>
+</li>
+<li class="lvl-3">
+<p>发布/订阅模式：两者都支持发布/订阅（Pub/Sub）模式，允许生产者发布消息到特定主题，而多个消费者可以订阅这些主题来接收消息。<br>
+3. 高吞吐量与低延迟：它们都被设计用于高吞吐量和低延迟的消息传递，特别适合实时数据处理和流处理场景。<br>
+4. 持久化与可靠性：Kafka和RocketMQ都能保证消息的持久化存储，确保即使在系统故障时也不会丢失数据。<br>
+区别</p>
+</li>
+<li class="lvl-3">
+<p>设计初衷与背景：  Kafka主要用于日志处理和实时数据管道。它更侧重于流处理和数据分析领 。RocketMQ设计时更多考虑了电商等互联网业务场景的需求，如订单处理、分布式事务支持等。<br>
+2. 消息模型：  Kafka采用分区（Partition）的概念，每个主题可以分为多个分区，分区内部有序，分区间可以并行处理，适合大量数据的并行处理。  RocketMQ除了基本的消息队列模型，还引入了顺序消息和事务消息的支持，更适合需要严格消息顺序或事务一致性的场景。<br>
+3. 消息存储：  Kafka将消息持久化到磁盘，并使用文件系统特性优化读写性能，通过日志压缩机制管理存储空间。 RocketMQ虽然也支持消息持久化，但它采用一种环形缓冲区的设计来提高内存使用效率，同时支持异步刷盘減少磁盘1/0影响。</p>
+</li>
+</ol>
+<p>Kafka 和 RocketMQ 都是分布式消息队列系统，主要用于处理大规模的数据流和事件流。两者在架构、功能特性、使用场景和性能方面有一些差异。下面是两者的主要区别：</p>
+<h3 id="3-1-1-架构与设计">3.1.1 <strong>架构与设计</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">Kafka 设计简单，核心架构围绕主题（Topic）和分区（Partition）展开。Producer 将消息写入分区，Consumer 从分区读取消息。</li>
+<li class="lvl-6">Kafka 的 Broker 是无状态的，消费者的位移存储在 Kafka 自身（基于内部主题或外部系统，如 Zookeeper）。</li>
+<li class="lvl-6">强依赖 Zookeeper，用于集群管理、Leader 选举和消费者协调。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">RocketMQ 是阿里巴巴开源的消息中间件，架构较为复杂，采用多层次设计，包括 Name Server、Broker、Producer、Consumer 等多个组件。</li>
+<li class="lvl-6">RocketMQ 的 Broker 具有更多的功能，比如支持消息过滤、延时消息等。</li>
+<li class="lvl-6">Name Server 负责服务发现和路由管理，而 Kafka 由 Zookeeper 处理类似功能。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-1-2-消息模型">3.1.2 <strong>消息模型</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：支持发布-订阅模型和点对点模型（通过消费组实现）。消息按分区顺序处理，且默认不支持延迟消息和消息过滤。</p>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：支持发布-订阅模型，支持标签（Tag）和关键字（Key）来实现消息过滤。此外，支持定时/延迟消息。</p>
+</li>
+</ul>
+<h3 id="3-1-3-消息可靠性">3.1.3 <strong>消息可靠性</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：通过副本机制（Replication）实现高可用性和数据持久化。副本数量和一致性可以配置。Kafka 允许“至少一次”或“最多一次”的消息投递语义。</p>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：也支持多副本，但与 Kafka 不同，RocketMQ 可以配置同步或异步刷盘，并且可以配置主从同步机制来提高可靠性。</p>
+</li>
+</ul>
+<h3 id="3-1-4-性能">3.1.4 <strong>性能</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：专注于吞吐量，适合处理海量数据。通过顺序写入、零拷贝等优化手段实现了高吞吐量和低延迟。</p>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：在性能和功能之间进行了平衡，虽然单节点的吞吐量可能不如 Kafka，但它在功能性（例如消息过滤、延时消息）和灵活性方面更强。</p>
+</li>
+</ul>
+<h3 id="3-1-5-使用场景">3.1.5 <strong>使用场景</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：适用于大数据实时处理、日志收集、流式处理等场景，特别是在数据管道和事件流处理方面有较好的表现。</p>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：适用于电商、金融等需要高可靠性、低延迟和复杂业务逻辑的场景。阿里巴巴内部广泛使用，尤其在交易系统中。</p>
+</li>
+</ul>
+<h3 id="3-1-6-轻量性">3.1.6 <strong>轻量性</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：从功能和架构上看，Kafka 更加简单和轻量。核心组件只有 Broker 和 Zookeeper，易于部署和运维。</p>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：架构相对复杂，功能更为丰富，依赖更多的组件，如 Name Server 和多个 Broker。相较于 Kafka，RocketMQ 的功能性增强带来了更高的复杂度。</p>
+</li>
+</ul>
+<h3 id="3-1-7-总结">3.1.7 总结</h3>
+<p>如果从架构和使用的简洁性来看，Kafka 更加轻量，特别是在分布式消息队列系统的核心场景下。但如果需要更丰富的功能，如消息过滤、延时消息和复杂的消息路由，RocketMQ 可能是更好的选择。</p>
+<h1>4 分区和队列</h1>
+<p>Kafka 的 Partition（分区）和 RocketMQ 的 Queue（队列）是两者在消息存储和并行处理方面的关键概念。它们虽然功能类似，但在实现和设计上有一些差异。</p>
+<h3 id="4-1-1-概念对比">4.1.1 <strong>概念对比</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka Partition</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">Kafka 中的 Partition 是一个物理日志文件，Topic 下可以有多个 Partition，每个 Partition 代表一个消息队列。</li>
+<li class="lvl-6">每个 Partition 是独立的消息序列，具有顺序性，但不同 Partition 之间的消息是无序的。</li>
+<li class="lvl-6">分区的数量决定了并行消费的能力，分区越多，可以并行处理的消费者越多。</li>
+<li class="lvl-6">Kafka 的分区设计使得消息在写入时可以按分区键（Key）进行分区，使得相同 Key 的消息进入同一分区，保证局部有序。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ Queue</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">RocketMQ 的 Queue 是 Topic 下的一个逻辑队列，一个 Topic 可以包含多个 Queue，每个 Queue 是一个 FIFO（先进先出）队列。</li>
+<li class="lvl-6">消息按顺序写入 Queue，消费者从 Queue 中顺序读取消息。</li>
+<li class="lvl-6">Queue 也是并行消费的基本单元，每个 Queue 可以被不同的消费者并行消费。</li>
+<li class="lvl-6">RocketMQ 的 Queue 与 Kafka 的 Partition 类似，都是将消息划分为多个并行处理的单元。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-2-消息路由与分配">4.1.2 <strong>消息路由与分配</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">消息的路由由 Producer 根据分区键（Key）决定。如果设置了 Key，相同 Key 的消息会被路由到同一个 Partition，从而保证有序性。如果没有指定 Key，Kafka 默认采用轮询方式分配消息到各个分区。</li>
+<li class="lvl-6">消费者在消费时，根据消费组的配置，可以分配多个分区，每个分区内的消息是顺序消费的。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">RocketMQ 的消息路由也是由 Producer 决定，Producer 可以指定消息发送到某个特定的 Queue（通过 MessageQueueSelector），或者使用默认的轮询机制。</li>
+<li class="lvl-6">消费者可以消费多个 Queue 的消息，每个 Queue 内的消息是按顺序消费的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-3-消费模型">4.1.3 <strong>消费模型</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">Kafka 采用消费组（Consumer Group）的概念，组内的消费者实例共同消费一个 Topic 的所有分区，每个分区只能被一个消费者实例消费。不同的消费组之间相互独立。</li>
+<li class="lvl-6">分区的数量决定了最大并行消费的消费者数量。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">RocketMQ 也采用消费组的概念，并支持两种消费模式：集群消费（Clustering）和广播消费（Broadcasting）。</li>
+<li class="lvl-6">在集群消费模式下，每个 Queue 只能被组内一个消费者实例消费，多个消费者实例可以并行处理不同的 Queue。</li>
+<li class="lvl-6">在广播模式下，每个消费者实例都会消费所有 Queue 的消息，即消息会被所有消费者实例都消费一次。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-4-消息顺序性">4.1.4 <strong>消息顺序性</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">Kafka 在分区内部保证消息的顺序性。如果需要严格的全局有序，可以将所有消息发送到同一个分区，但这会限制并行处理能力。</li>
+<li class="lvl-6">对于局部有序的场景，可以通过分区键来保证同一类消息（相同 Key）按顺序进入同一分区。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">RocketMQ 通过 Queue 实现消息顺序性，每个 Queue 内部保证消息顺序。</li>
+<li class="lvl-6">可以通过自定义的 MessageQueueSelector 来实现顺序消息的路由，确保相同类型的消息进入同一个 Queue。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-5-扩展性">4.1.5 <strong>扩展性</strong></h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><strong>Kafka</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">Kafka 的 Partition 是扩展性的基础，分区数量可以在 Topic 创建后增加，但无法减少。增加分区后，可能会打破现有的消息顺序。</li>
+<li class="lvl-6">Kafka 在分区的伸缩性方面表现较好，分区数量增加时可以提高并行处理能力。</li>
+</ul>
+</li>
+<li class="lvl-2">
+<p><strong>RocketMQ</strong>：</p>
+<ul class="lvl-2">
+<li class="lvl-6">RocketMQ 的 Queue 数量也是固定的，但在需要时也可以增加 Queue。与 Kafka 相比，Queue 的扩展相对更灵活，但同样会有顺序性破坏的风险。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-1-6-总结">4.1.6 总结</h3>
+<p>Kafka 的 Partition 和 RocketMQ 的 Queue 都是为了解决消息系统的并行处理和水平扩展问题。Kafka 的 Partition 更加简单直接，而 RocketMQ 的 Queue 提供了更灵活的路由和消费控制机制。根据具体业务需求，选择适合的模型非常重要。</p>
+<h1>5 参考</h1>
+<ol>
+<li class="lvl-3">
+<p><a href="https://cloud.tencent.com/developer/article/1944357">10分钟搞懂！消息队列选型全方位对比-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/qq_44240587/article/details/104630567">MQ消息队列详解、四大MQ的优缺点分析_四大消息队列的优缺点-CSDN博客</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://blog.csdn.net/z_344791576/article/details/137820230">一文详解七大主流消息队列（MQ）：特性、应用场景与对比分析_常见的mq消息队列-CSDN博客</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://mp.weixin.qq.com/s/QnrIjubSigjeNtRPOmMsBA">消息队列黄金三剑客：RabbitMQ、RocketMQ和Kafka全面对决，谁是最佳选择？ (qq.com)</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/08/07/Java/Java(5)%EF%BC%9AIO%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Destiny">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我的个人博客">
+      <meta itemprop="description" content="凡是过去，皆为序章。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 我的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/08/07/Java/Java(5)%EF%BC%9AIO%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">Java(5)：IO模型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-08-07 00:00:00" itemprop="dateCreated datePublished" datetime="2024-08-07T00:00:00+08:00">2024-08-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/grammar/" itemprop="url" rel="index"><span itemprop="name">语法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>同步阻塞IO、同步非阻塞IO、异步IO</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/08/07/Java/Java(5)%EF%BC%9AIO%E6%A8%A1%E5%9E%8B/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1052,287 +1522,8 @@ $f(n)=f(n-1)+f(n-2)$</p>
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/29/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD%E3%80%81%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/29/%E6%A1%86%E6%9E%B6/%E9%AB%98%E6%80%A7%E8%83%BD&%E9%AB%98%E5%8F%AF%E7%94%A8/%E6%9C%8D%E5%8A%A1%E7%86%94%E6%96%AD%E3%80%81%E6%9C%8D%E5%8A%A1%E9%99%8D%E7%BA%A7/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-29 15:54:40" itemprop="dateCreated datePublished" datetime="2024-05-29T15:54:40+08:00">2024-05-29</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1>1 服务熔断</h1>
-<p>服务熔断（Circuit Breaker）是一种用于构建分布式系统的设计模式，用于增强系统的稳定性和可靠性。服务熔断的核心思想是在出现服务故障或异常时，及时地中断对该服务的请求，防止故障进一步扩散，并且允许系统在出现问题时快速失败而不是无限期地等待响应。</p>
-<p>服务熔断的用途和优势包括：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>防止级联故障：</strong> 当某个服务或组件出现故障时，服务熔断可以快速地停止对该服务的请求，防止故障扩散到其他部分，从而保护整个系统的稳定性。</p>
-</li>
-<li class="lvl-3">
-<p><strong>快速失败：</strong> 服务熔断允许系统在出现问题时快速失败，而不是等待超时，这可以减少用户等待时间，并快速释放资源以减轻系统负担。</p>
-</li>
-<li class="lvl-3">
-<p><strong>降级处理：</strong> 当服务熔断触发时，可以采取降级处理策略，例如返回预先定义的默认值、执行备用逻辑或者从缓存中获取数据，以保证系统的基本功能继续可用。</p>
-</li>
-<li class="lvl-3">
-<p><strong>自我修复：</strong> 当服务熔断一段时间后，可以尝试重新发起请求，如果服务恢复正常，则关闭熔断器，继续正常提供服务。</p>
-</li>
-</ol>
-<p>常见问题和挑战包括：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>熔断器状态管理：</strong> 需要有效地管理熔断器的状态，包括打开、关闭和半开状态的切换，以及对状态的监控和调整，确保熔断器的行为符合预期。</p>
-</li>
-<li class="lvl-3">
-<p><strong>故障诊断和处理：</strong> 需要及时地检测和诊断服务的故障，并采取相应的措施进行处理，例如记录错误日志、发送警报通知等。</p>
-</li>
-<li class="lvl-3">
-<p><strong>降级策略设计：</strong> 需要设计合适的降级处理策略，以保证在服务熔断时系统依然能够提供基本的功能，而不影响用户体验。</p>
-</li>
-<li class="lvl-3">
-<p><strong>性能影响：</strong> 在服务熔断时，可能会增加系统的负载和响应时间，因此需要合理评估熔断器的触发条件和恢复机制，以减少性能影响。</p>
-</li>
-</ol>
-<p>总的来说，服务熔断是一种重要的分布式系统设计模式，通过及时地中断对故障服务的请求，可以提高系统的稳定性和可靠性，但同时也需要综合考虑各种因素，合理设计和管理熔断策略，以确保系统的正常运行。</p>
-<h1>2 服务降级</h1>
-<p>服务降级（Service Degradation）是一种在面对系统资源不足或者系统负载过大时，为了保证系统的核心功能或者关键服务的可用性而采取的一种策略。服务降级的核心思想是在系统压力过大时，有选择性地降低非核心或次要功能的服务质量，以确保系统的核心功能仍然能够正常运行。</p>
-<p>服务降级的目的在于保证系统在遇到异常或高负载情况下仍能够提供基本的服务能力，从而提高系统的稳定性和可用性。在实际应用中，服务降级通常伴随着一些特定的策略和实践，例如：</p>
-<ol>
-<li class="lvl-3">
-<p><strong>优先级划分：</strong> 将系统中的功能和服务按照其重要性和优先级进行划分，确保核心功能拥有更高的优先级，并在资源不足时优先保证核心功能的运行。</p>
-</li>
-<li class="lvl-3">
-<p><strong>限流和限速：</strong> 通过限制对系统的访问速率或者并发请求数量，以防止系统过载，从而减轻系统负载压力。</p>
-</li>
-<li class="lvl-3">
-<p><strong>降级策略设计：</strong> 设计合适的降级策略，当系统资源不足或者系统负载过大时，有选择性地降低非核心功能或次要功能的服务质量，例如降低服务响应时间、减少服务数据的返回量等。</p>
-</li>
-<li class="lvl-3">
-<p><strong>实时监控和调整：</strong> 实时监控系统的负载情况和性能指标，根据实际情况动态调整降级策略，以确保系统的稳定性和性能表现。</p>
-</li>
-</ol>
-<p>服务降级的优点包括：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>提高系统的稳定性：</strong> 在面对异常情况或者高负载情况时，通过降级非核心功能或次要功能的服务质量，可以确保系统的核心功能仍能够正常运行，从而提高系统的稳定性。</p>
-</li>
-<li class="lvl-2">
-<p><strong>保证核心功能的可用性：</strong> 通过有选择性地降级非核心功能或次要功能，可以确保系统的核心功能在异常或高负载情况下仍能够提供基本的服务能力，从而保证核心功能的可用性。</p>
-</li>
-<li class="lvl-2">
-<p><strong>减少系统压力：</strong> 通过降级非核心功能或次要功能的服务质量，可以减少系统的负载压力，从而提高系统的整体性能和响应速度。</p>
-</li>
-</ul>
-<p>服务降级也存在一些潜在的缺点</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>可能影响用户体验</p>
-</li>
-<li class="lvl-2">
-<p>需要精细的策略设计和实时监控</p>
-</li>
-<li class="lvl-2">
-<p>可能引起业务方面的不满等。 因此，在实施服务降级策略时，需要综合考虑各种因素，并设计合理的降级策略，以确保系统的整体性能和用户体验。</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://destiny0118.github.io/2024/05/27/%E6%A1%86%E6%9E%B6/Spring/Spring%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Destiny">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的个人博客">
-      <meta itemprop="description" content="凡是过去，皆为序章。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 我的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/27/%E6%A1%86%E6%9E%B6/Spring/Spring%EF%BC%9A%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="post-title-link" itemprop="url">Spring：设计模式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-27 00:00:00" itemprop="dateCreated datePublished" datetime="2024-05-27T00:00:00+08:00">2024-05-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A1%86%E6%9E%B6/" itemprop="url" rel="index"><span itemprop="name">框架</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul class="lvl-0">
-<li class="lvl-2">
-<p><strong>工厂设计模式</strong> : Spring 使用工厂模式通过 <code>BeanFactory</code>、<code>ApplicationContext</code> 创建 bean 对象。</p>
-</li>
-<li class="lvl-2">
-<p><strong>代理设计模式</strong> : Spring AOP 功能的实现。</p>
-</li>
-<li class="lvl-2">
-<p><strong>单例设计模式</strong> : Spring 中的 Bean 默认都是单例的。</p>
-</li>
-<li class="lvl-2">
-<p><strong>模板方法模式</strong> : Spring 中 <code>jdbcTemplate</code>、<code>hibernateTemplate</code> 等以 Template 结尾的对数据库操作的类，它们就使用到了模板模式。</p>
-</li>
-<li class="lvl-2">
-<p><strong>包装器设计模式</strong> : 我们的项目需要连接多个数据库，而且不同的客户在每次访问中根据需要会去访问不同的数据库。这种模式让我们可以根据客户的需求能够动态切换不同的数据源。</p>
-</li>
-<li class="lvl-2">
-<p><strong>观察者模式:</strong> Spring 事件驱动模型就是观察者模式很经典的一个应用。</p>
-</li>
-<li class="lvl-2">
-<p><strong>适配器模式</strong> :Spring AOP 的增强或通知(Advice)使用到了适配器模式、spring MVC 中也是用到了适配器模式适配<code>Controller</code>。</p>
-</li>
-</ul>
-<h1>1 工厂设计模式</h1>
-<p>Spring 使用工厂模式可以通过 <code>BeanFactory</code> 或 <code>ApplicationContext</code> 创建 bean 对象。</p>
-<p><strong>两者对比：</strong></p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p><code>BeanFactory</code>：延迟注入(使用到某个 bean 的时候才会注入),相比于<code>ApplicationContext</code> 来说会占用更少的内存，程序启动速度更快。</p>
-</li>
-<li class="lvl-2">
-<p><code>ApplicationContext</code>：容器启动的时候，不管你用没用到，一次性创建所有 bean 。<code>BeanFactory</code> 仅提供了最基本的依赖注入支持，<code>ApplicationContext</code> 扩展了 <code>BeanFactory</code> ,除了有<code>BeanFactory</code>的功能还有额外更多功能</p>
-</li>
-</ul>
-<h1>2 单例设计模式</h1>
-<p>在我们的系统中，有一些对象其实我们只需要一个，比如说：线程池、缓存、对话框、注册表、日志对象、充当打印机、显卡等设备驱动程序的对象。事实上，这一类对象只能有一个实例，如果制造出多个实例就可能会导致一些问题的产生，比如：程序的行为异常、资源使用过量、或者不一致性的结果。</p>
-<p><strong>使用单例模式的好处</strong> :</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>对于频繁使用的对象，可以省略创建对象所花费的时间，这对于那些重量级对象而言，是非常可观的一笔系统开销；</p>
-</li>
-<li class="lvl-2">
-<p>由于 new 操作的次数减少，因而对系统内存的使用频率也会降低，这将减轻 GC 压力，缩短 GC 停顿时间。</p>
-</li>
-</ul>
-<h1>3 代理设计模式</h1>
-<h2 id="3-1-代理模式在AOP中的应用">3.1 代理模式在AOP中的应用</h2>
-<p><strong>AOP(Aspect-Oriented Programming，面向切面编程)</strong> 能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。</p>
-<p><strong>Spring AOP 就是基于动态代理的</strong>，如果要代理的对象，实现了某个接口，那么 Spring AOP 会使用 <strong>JDK Proxy</strong> 去创建代理对象，而对于没有实现接口的对象，就无法使用 JDK Proxy 去进行代理了，这时候 Spring AOP 会使用 <strong>Cglib</strong> 生成一个被代理对象的子类来作为代理，如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405271127753.png" alt="image.png"></p>
-<h2 id="3-2-Spring-AOP和AspectJ-AOP">3.2 Spring AOP和AspectJ AOP</h2>
-<p><strong>Spring AOP 属于运行时增强，而 AspectJ 是编译时增强。</strong> Spring AOP 基于代理(Proxying)，而 AspectJ 基于字节码操作(Bytecode Manipulation)。</p>
-<p>Spring AOP 已经集成了 AspectJ ，AspectJ 应该算的上是 Java 生态系统中最完整的 AOP 框架了。AspectJ 相比于 Spring AOP 功能更加强大，但是 Spring AOP 相对来说更简单，</p>
-<h1>4 模板方法</h1>
-<p>模板方法模式是一种行为设计模式，它定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。 模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤的实现方式。</p>
-<h1>5 观察者模式</h1>
-<h1>6 适配器模式</h1>
-<h1>7 装饰者模式</h1>
-<h1>8 参考</h1>
-<p><a href="https://javaguide.cn/system-design/framework/spring/spring-design-patterns-summary.html">Spring 中的设计模式详解 | JavaGuide</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>

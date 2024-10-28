@@ -31,9 +31,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202404221134747.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405142106862.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405201454540.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410221110795.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405142133306.png">
 <meta property="article:published_time" content="2024-04-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-08T07:49:55.166Z">
+<meta property="article:modified_time" content="2024-10-22T03:28:52.223Z">
 <meta property="article:author" content="Destiny">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -154,7 +155,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 Buffer pool(缓冲池)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 undo log(回滚日志)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 redo log(重做日志)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E5%88%B7%E7%9B%98%E6%97%B6%E6%9C%BA"><span class="nav-text">4.1 刷盘时机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-redo-log%E5%92%8Cundo-log"><span class="nav-text">4.2 redo log和undo log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-redo-log%E4%BD%95%E6%97%B6%E5%86%99%E5%85%A5%E7%A3%81%E7%9B%98"><span class="nav-text">4.3 redo log何时写入磁盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 binlog(归档日志)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-redo-log-%E5%92%8C-binlog-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">5.1 redo log 和 binlog 有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-text">5.2 主从复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%EF%BC%88redo-log%E3%80%81binlog%EF%BC%89"><span class="nav-text">5.3 两阶段提交（redo log、binlog）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-1-%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="nav-text">5.3.1 存在问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-2-%E8%BF%87%E7%A8%8B"><span class="nav-text">5.3.2 过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-text">6.1 主从复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="nav-text">6.2 分库分表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">7 参考</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 日志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 Buffer pool(缓冲池)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">3 undo log(回滚日志)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">4 redo log(重做日志)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E5%88%B7%E7%9B%98%E6%97%B6%E6%9C%BA"><span class="nav-text">4.1 刷盘时机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-redo-log%E5%92%8Cundo-log"><span class="nav-text">4.2 redo log和undo log</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-redo-log%E4%BD%95%E6%97%B6%E5%86%99%E5%85%A5%E7%A3%81%E7%9B%98"><span class="nav-text">4.3 redo log何时写入磁盘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">5 binlog(归档日志)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-redo-log-%E5%92%8C-binlog-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-text">5.1 redo log 和 binlog 有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-text">5.2 主从复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%EF%BC%88redo-log%E3%80%81binlog%EF%BC%89"><span class="nav-text">5.3 两阶段提交（redo log、binlog）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-1-%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="nav-text">5.3.1 存在问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-2-%E8%BF%87%E7%A8%8B"><span class="nav-text">5.3.2 过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">6 MySQL磁盘I&#x2F;O很高，优化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">7 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="nav-text">7.1 主从复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="nav-text">7.2 分库分表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">8 参考</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -167,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -448,6 +449,18 @@ binlog 文件保存的是全量的日志，也就是保存了所有数据变更�
 <p><strong>回放 Binlog</strong>：回放 binlog，并更新存储引擎中的数据。</p>
 </li>
 </ul>
+<p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202410221110795.png" alt="image.png"></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>MySQL 主库在收到客户端提交事务的请求之后，会先写入 binlog，再提交事务，更新存储引擎中的数据，事务提交完成后，返回给客户端“操作成功”的响应。</p>
+</li>
+<li class="lvl-2">
+<p>从库会创建一个专门的 <code>I/O 线程</code>，连接主库的 <code>log dump 线程</code>，来接收主库的 binlog 日志，再把 binlog 信息写入 relay log 的<mark>中继日志</mark>里，再返回给主库“复制成功”的响应。</p>
+</li>
+<li class="lvl-2">
+<p>从库会创建一个用于回放 binlog 的线程，去读 relay log 中继日志，然后回放 binlog 更新存储引擎中的数据，最终实现主从的数据一致性。</p>
+</li>
+</ul>
 <h2 id="5-3-两阶段提交（redo-log、binlog）">5.3 两阶段提交（redo log、binlog）</h2>
 <blockquote>
 <p>redo log在事务开始前写，binlog在事务提交时写</p>
@@ -473,6 +486,7 @@ binlog 文件保存的是全量的日志，也就是保存了所有数据变更�
 </li>
 </ul>
 <p><img src="https://cdn.jsdelivr.net/gh/destiny0118/picgo/pic2023/202405142133306.png" alt="image.png"></p>
+<p>将redo log的写入拆成了两个步骤：prepare和commit，中间再穿插写入binlog：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <p><strong>prepare 阶段</strong>：将 XID（内部 XA 事务的 ID） 写入到 redo log，同时<code>将 redo log 对应的事务状态设置为 prepare</code>，然后将 redo log 持久化到磁盘（innodb_flush_log_at_trx_commit = 1 的作用）；</p>
@@ -481,8 +495,10 @@ binlog 文件保存的是全量的日志，也就是保存了所有数据变更�
 <p><strong>commit 阶段</strong>：把 XID 写入到 binlog，然后将 binlog 持久化到磁盘（sync_binlog = 1 的作用），接着调用引擎的提交事务接口，<code>将 redo log 状态设置为 commit</code>，此时该状态并不需要持久化到磁盘，只需要 write 到文件系统的 page cache 中就够了，因为只要 binlog 写磁盘成功，就算 redo log 的状态还是 prepare 也没有关系，一样会被认为事务已经执行成功</p>
 </li>
 </ul>
-<h1>6 架构</h1>
-<h2 id="6-1-主从复制">6.1 主从复制</h2>
+<h1>6 MySQL磁盘I/O很高，优化方法</h1>
+<p>事务在提交的时候，需要将 binlog 和 redo log 持久化到磁盘，那么如果出现 MySQL 磁盘 I/O 很高的现象，我们可以通过控制以下参数，来 “延迟” binlog 和 redo log 刷盘的时机，从而降低磁盘 I/O 的频率：</p>
+<h1>7 架构</h1>
+<h2 id="7-1-主从复制">7.1 主从复制</h2>
 <p>MySQL 集群的主从复制过程梳理成 3 个阶段：</p>
 <ul class="lvl-0">
 <li class="lvl-2">
@@ -507,11 +523,11 @@ binlog 文件保存的是全量的日志，也就是保存了所有数据变更�
 <p>从库会创建一个用于回放 binlog 的线程，去读 relay log 中继日志，然后回放 binlog 更新存储引擎中的数据，最终实现主从的数据一致性。</p>
 </li>
 </ul>
-<h2 id="6-2-分库分表">6.2 分库分表</h2>
+<h2 id="7-2-分库分表">7.2 分库分表</h2>
 <p>分库是一种水平扩展数据库的技术，将数据根据一定规则划分到多个独立的数据库中。每个数据库只负责存储部分数据，实现了数据的拆分和分布式存储。分库主要是为了解决<mark>并发连接过多，单机 mysql扛不住</mark>的问题。</p>
 <p>分表指的是将单个数据库中的表拆分成多个表，每个表只负责存储一部分数据。这种数据的垂直划分能够提高查询效率，减轻单个表的压力。分表主要是为了解决<mark>单表数据量太大，导致查询性能下降</mark>的问题。</p>
 <p><a href="https://xiaolincoding.com/interview/mysql.html#%E4%B8%BB%E4%BB%8E%E5%BB%B6%E8%BF%9F%E9%83%BD%E6%9C%89%E4%BB%80%E4%B9%88%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95">MySQL面试题 | 小林coding (xiaolincoding.com)</a></p>
-<h1>7 参考</h1>
+<h1>8 参考</h1>
 <p><a href="https://javaguide.cn/database/mysql/mysql-logs.html">MySQL三大日志(binlog、redo log和undo log)详解 | JavaGuide</a></p>
 <p><a href="https://xiaolincoding.com/mysql/buffer_pool/buffer_pool.html#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89-buffer-pool">揭开 Buffer Pool 的面纱 | 小林coding (xiaolincoding.com)</a></p>
 
